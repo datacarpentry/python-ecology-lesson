@@ -6,7 +6,7 @@ In pandas, checking the dtype of a column is easy. The basic pseudocode looks li
 
 ```UNIX
 df[column_name].dtype
-
+```
 An example would be:
 
 ```python
@@ -44,7 +44,7 @@ In this way, we can do a simple sanity check: Are our data what we thought? If n
 
 Weight is a characteristic that we might want to use in future calculations, including approximations of metabolic rate. We might want these values to be in integers. Using Pandas' apply functionality, transforming these values looks like this:
 
-```
+```python
 df['wgt'] = df['wgt'].astype("float64")
 df['record_id'].dtype
 dtype('int64')
