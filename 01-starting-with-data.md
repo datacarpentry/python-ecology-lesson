@@ -206,8 +206,186 @@ which gives **output**
 [100]
 [100, 80]
 ```
-mns
+
+Now we can save data readed from csv file into variable:
+
+```python
+dat = pandas.read_csv("data/surveys.csv")
 ```
 
-**Output**
+This statement will not produce any output, becouse assignment doesn't display anything. If we want to print loaded data we can use just
 
+```python
+dat
+```
+## Manipulating data
+Now when we have our data in memory, we can statd doing things with it.
+First check data type of variable dat
+
+```python
+type(dat)
+dat.__class__
+dat.dtypes
+```
+
+The type function and __class__ attribute tell us that dat is <class 'pandas.core.frame.DataFrame'> in Python. This is similar to a spradsheet in excel. The dtypes function tells us what columns there are  and what type they are.
+
+### pandas.core.frame.DataFrame
+are data structure 
+
+TO DO!!
+
+### Indexing
+If we want to get a single value from the DataFrame we must provide an index to it in square brackets and use iloc function.
+
+```python
+dat.iloc[2,6]
+```
+
+which gives **output**
+```
+'F'
+```
+
+Python start indexing from 0. Index like (2, 6) selects a single element of an array. We can also select whole sections as well.
+We can select month, day and year columns of values like this:
+
+```python
+dat.iloc[1:3, 1:4]
+```
+which gives **output**
+```
+   month  day  year
+1      8   19  1977
+2      8   19  1977
+3      8   19  1977
+```
+
+Slice 1:4 means "Start at index 1 and go to index 4 not including 4."
+
+We can also use built-in function range to take regurally spaced rows and columns.
+In this example we get rows 1, 3 and column 1, 3 and 5
+```python
+dat.iloc[range(1, 7, 2), range(1, 7, 2)]
+```
+which gives **output**
+```
+   month  year species
+1      8  1977      DM
+3      8  1977      DM
+```
+
+__EXERCISES__
+
+
+## Calculating statistics
+
+
+We've gotten our data in Python, so that we can do some analytics with it.
+First, let's get a sense of our data in file surveys.csv
+We might for instance want to know how many animals we trapped in each plot, or how many of each species were caught.
+We can look at one column in diifferent ways. We can refere tha column by its number:
+
+```python
+dat.iloc[:,7]
+```
+
+or by name:
+
+```python
+dat.month
+dat['month']
+```
+
+If you forget the column names, you can type
+
+```python
+dat.columns.values
+```
+
+which gives **output**:
+
+```
+array(['record_id', 'month', 'day', 'year', 'plot', 'species', 'sex', 'wgt'], dtype=object)
+```
+
+
+So, let's get a list of all the species.
+The pandas.unique function tells us all the unique names in that column.
+
+```python
+pandas.unique(dat.species)
+```
+
+Now let's see how many of each species we have:
+
+```python
+dat.record_id.groupby(dat.species).nunique()
+```
+
+We could even assign it to a variable and make it a DataFrame to make it easier to look at:
+
+```python
+species_table = dat.record_id.groupby(dat.species).nunique()
+```
+
+Maybe we also want to see how many animals were captured in each plot
+
+```python
+dat['plot'].groupby(dat.species).nunique()
+```
+
+Now we want to do some actual calculations with the data though.
+Let's calculate the average weight of all the animals. Python pandas has a finction describe, that give a lot of statistical informations, like mean, median, max, min, std and count. Describe can be olny used on numeric column.
+
+```python
+dat['wgt'].describe()
+```
+gives **output**
+
+```python
+count    32283.000000
+mean        42.672428
+std         36.631259
+min          4.000000
+25%         20.000000
+50%         37.000000
+75%         48.000000
+max        280.000000
+dtype: float64
+```
+
+Also we can use just one of this functions:
+
+```python
+dat['wgt'].min()
+dat[wgt'].max()
+dat['wgt'].mean()
+dat['wgt'].std()
+dat['wgt'].count()
+```
+
+
+Because data is in a vector, when we want to know how much of something we have we ask how long it is with the len() function.
+
+```python
+len(dat['wgt'])
+```
+
+## Statistics on subsets of data
+
+When analyzing data, though, we often want to look at partial statistics, such as the maximum value per species or the average value per plot.
+One way to do this is to select the data we want to create a new temporary array.
+
+```python
+dat[dat.species == 'DO']
+```
+
+We could see in our table from before that 'DO' had 3027 species.
+Let's check to see if that's what we have by checking the number of rows:
+
+```python
+dat.record_id.groupby(dat['species']).nunique()['DO']
+```
+
+## FUNCTIONS
