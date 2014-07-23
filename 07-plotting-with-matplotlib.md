@@ -4,7 +4,9 @@ Matplotlib is a library that can be used to visualize data that has been loaded 
 
 # Loading Data
 
-For a more detailed tutorial on loading data, see (insert link here). For now, we'll just use a simple statement to load the surveys data.
+For a more detailed tutorial on loading data, see https://github.com/datacarpentry/datacarpentry/blob/master/lessons/python/01-starting-with-data.md
+
+For now, we'll just use a simple statement to load the surveys data.
 
 ```
 import pandas as pd
@@ -19,7 +21,7 @@ First, we'll import matplotlib.
 import matplotlib.pyplot as plt
 ```
 
-Matplotlib can easily plot a set of data even larger than `surveys.csv`, but for this example, we'll take the first 50 of the ~35000 entries that are in `surveys.csv.` For a more detailed tutorial on slicing data, see (insert link here).
+Matplotlib can easily plot a set of data even larger than `surveys.csv`, but for this example, we'll take the first 50 of the ~35000 entries that are in `surveys.csv.` For a more detailed tutorial on slicing data, see https://github.com/datacarpentry/datacarpentry/blob/master/lessons/python/05-masking-and-groups.md
 
 ```
 small_dataset = df[:50]
@@ -33,10 +35,10 @@ plot_data = small_dataset['plot']
 
 # Simple Plotting
 
-Now, we have an array of plot data indexed by the `record_id` value. Let's plot it.
+Now, we have an array of plot data indexed by the `record_id` value. Let's plot it and give it a label.
 
 ```
-plt.plot(plot_data)
+plt.plot(plot_data, label='My Data')
 ```
 
 The data has now been plotted, to see it we can do 2 things:
@@ -57,6 +59,16 @@ This would save the file as a rasterized png. But if we wanted a vectorized imag
 
 ```
 plt.savefig('myplot.pdf')
+```
+
+# Plot Essentials
+
+What's a plot without a title, axis labels, and a legend? These can be easily set like so:
+
+```
+plt.xlabel('Index')
+plt.ylabel('Plot Value')
+plt.title('The Plot Value From surveys.csv')
 ```
 
 # Clearing the Plot
@@ -106,9 +118,57 @@ The default linewidth is 1. A linewidth of 3 would be 3 times as thick as the de
 
 # Other Plots
 
-To use a bar plot:
+A dot plot:
+
+```
+plt.plot(plot_data, 'o')
+```
+
+The `o` means a dot. There are a variety of markers you can use. Here's a complete list: http://matplotlib.org/api/markers_api.html#module-matplotlib.markers
+
+A simple bar plot:
 
 ```
 plt.bar(plot_data.index, plot_data.values)
 ```
+
+A box and whisker plot:
+
+```
+plt.boxplot(plot_data.values)
+```
+
+# Realistic Examples
+
+You may have noticed there's some more data beyond just the plot value in `surveys.csv`. Let's plot the plot value and group them by the sex value. A dot plot would be ideal for this.
+
+Pandas has some built-in tools that make it easy to group your data.
+
+```
+grouped_plot_data = small_dataset.groupby('sex')
+```
+
+This returns our data in an iterable object. Each entry in `grouped_plot_data` is formatted like so:
+
+```
+('group_name', pandas data pertaining to the group)
+```
+
+Keep in mind we need different colors and labels for each group. So we can plot the data like so:
+
+```
+colors = ['r', 'g'] #we'll be cycling through these colors
+color_index = 0
+for group in grouped_plot_data:
+    color = colors[color_index]
+    group_label = group[0]
+    group_data = group[1]
+    plt.plot(group_data['plot'], color=color, label=group_label)
+    color_index += 1
+plt.legend()
+```
+
+# More Information
+
+This is a basic tutorial to get you started using Python to make your graphs. For more information on Matplotlib, visit the official site: http://matplotlib.org/
 
