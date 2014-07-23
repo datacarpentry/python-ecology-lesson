@@ -2,6 +2,12 @@
 
 One of the most basic functions in which we might be interested is to make sure our data are what we think they are. If we have some code that changes a certain number to another number, this will only work when all our values are numbers. 
 
+Remember that in base python we can check the type of an object like this:
+
+```UNIX
+type()
+```
+
 In pandas, checking the dtype of a column is easy. The basic pseudocode looks like this:
 
 ```UNIX
@@ -14,16 +20,18 @@ df['record_id'].dtype
 dtype('int64')
 ```
 
-'int64' might be a little bit unusal. We've seen int in our novice materials, with an integer being a whole number. int64 can hold large numbers; in fact int64 holds as many number as a Nintendo64 can hold. This type of precision might not always be important to you, but in certain mathematical operations, this may be very important. If we have a column that contains both ints and floats, Pandas will default to float for the whole column, as not to lose the decimal points.
+where 'df' is whatever name you gave your data frame.
+
+'int64' might be a little bit unusual. We've seen int in our novice materials, with an integer being a whole number. int64 can hold large numbers; in fact int64 holds as many number as a Nintendo64 can hold. This type of precision might not always be important to you, but in certain mathematical operations, this may be very important. If we have a column that contains both ints and floats, Pandas will default to float for the whole column, so as not to lose the decimal points.
 
 Please see the table below for different, common data types:
 
-|Name of type | Function | Base Python Equivalent |
+|Name of Pandas type | Function | Base Python Equivalent |
 |------------|---------|-------------------------|
 |Object | The most general dtype. Will be assigned to your column if column has mixed types (numbers and strings). | String | 
-|int64 | Numerical characters. 64 refers to memory allocated to hold this character. | Int. |
-| float64 | Numerical characters with decimals. If a column contains numbers and NaNs, pandas will default to float64, in case your missing value has a decimal | float |
-|datetime64, timedelta[ns] | Values meant to hold time data. Look into these for time series experiments | -- |
+|int64 | Numerical characters. 64 refers to the memory allocated to hold this character. | Int. |
+| float64 | Numerical characters with decimals. If a column contains numbers and NaNs(see below), pandas will default to float64, in case your missing value has a decimal. | float |
+|datetime64, timedelta[ns] | Values meant to hold time data. Look into these for time series experiments. | -- |
 
 
 We probably don't want to examine the dtype of each column by hand. We can easily automate this. 
@@ -40,30 +48,35 @@ sex object
 wgt float64
 ```
 
-In this way, we can do a simple sanity check: Are our data what we thought? If not, we might want to refer to the [Masking]() section to investrigate ways to remove unexpected values. 
+In this way, we can do a simple sanity check: Are our data what we thought? If not, we might want to refer to the [Masking]() section to investigate ways to remove unexpected values. 
 
-Weight is a characteristic that we might want to use in future calculations, including approximations of metabolic rate. We might want these values to be in integers. Using Pandas' apply functionality, transforming these values looks like this:
+Weight is a characteristic that we might want to use in future calculations, like approximations of metabolic rate. We might want these values to be integers. Using Pandas' apply functionality, transforming these values looks like this:
 
 ```python
-df['wgt'] = df['wgt'].astype("float64")
+df['wgt'] = df['wgt'].astype('float64')
+
 df['record_id'].dtype
 dtype('int64')
 ```
 
-Back the train up. We did some weird stuff there. The first thing we did was cast each value as a float64. If we use these in further calculations, Python will save the results as floats, even if the other values involved are ints.
+Back the train up. We did some weird stuff there. The first thing we did was cast each value as a float64. If we use these in further calculations, Python will save the results as floats, **even if the other values involved are ints. Maybe clarify this? Not sure what you mean by 'other values involved'.**
 
-You might wonder why we still have NaN values. *NaN* values are values that cannot be represented mathematically, or are undefined. Pandas, for example, will read an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desireable properties: if we were to average the 'wgt' column without replacing our NaNs, we would get something like this:
+**wgt was already type float64. where does record_id come into this?**
+
+You might wonder why we still have NaN values. *NaN* values are values that cannot be represented mathematically, or are undefined. Pandas, for example, will read an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we were to average the 'wgt' column without replacing our NaNs, we would get something like this:
 
 ```python
 df['wgt'].mean()
+42.672428212991356
 ```
 
 But if we were to filter the NaNs and turn them into zeroes (after making a copy of the data so we don't lose our work), we would get something like this:
 
 ```python
 df1 = df
-df1['wgt'] = df['wgt'].fillna(0)
-df['wgt'].mean()
+df1['wgt'] = df1['wgt'].fillna(0)
+
+df1['wgt'].mean()
 38.751976145601844
 ```
 
