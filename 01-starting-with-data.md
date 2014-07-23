@@ -66,7 +66,9 @@ then import pandas library into python shell
 import pandas
 ```
 
-Secondly, let's locate and read our data. Because it is in a CSV file, we can use pandas' `read_csv` function to pull it directly into a [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe). We
+Secondly, let's locate and read our data. Because it is in a CSV file, we can use pandas' `read_csv` function to pull it directly into a [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
+
+### Variables
 
 ```python
 pandas.read_csv("data/surveys.csv")
@@ -163,11 +165,11 @@ which gives **output**
 animal's weight in kilograms: 80 but in pounds is still 114.4
 ```
 
-**Updating a Variable**
+#### Updating a Variable
 
 Since variable `weight_lb` doesn't "remember" where its value came from, it isn't automatically updated when variable `weight_kg` changes. This is different from the way spreadsheets work.
 
-**Challenges**
+#### Challenges
 
 Draw diagrams showing what variables refer to what values after each statement in the following commands:
 
@@ -186,12 +188,19 @@ Variables also could be vectors or matricies.
 ```python
 vector = [0,2.5]
 matrix = [[0,2],[0,1]]
-print vector, matrix
+print "vector =", vector, "matrix =", matrix
+```
+
+which gives **output**
+
+```
+[0, 2.5] [[0, 2], [0, 1]]
 ```
 
 
+
 Therefore, we can also add to variable that are vectors, and update them by making them longer. 
-For example, if we are creating a vector of animal weights, we could update that vector using its iternal `append` method. 
+For example, if we are creating a vector of animal weights, we could update that vector using its iternal `.append` method. 
 
 ```print
 weights = [100]
@@ -218,9 +227,39 @@ This statement will not produce any output, becouse assignment doesn't display a
 ```python
 dat
 ```
+
+which gives **output**
+
+
+```
+       record_id  month  day  year  plot species  sex  wgt
+0              1      7   16  1977     2     NaN    M  NaN
+1              2      7   16  1977     3     NaN    M  NaN
+2              3      7   16  1977     2      DM    F  NaN
+3              4      7   16  1977     7      DM    M  NaN
+4              5      7   16  1977     3      DM    M  NaN
+5              6      7   16  1977     1      PF    M  NaN
+6              7      7   16  1977     2      PE    F  NaN
+7              8      7   16  1977     1      DM    M  NaN
+8              9      7   16  1977     1      DM    F  NaN
+9             10      7   16  1977     6      PF    F  NaN
+10            11      7   16  1977     5      DS    F  NaN
+11            12      7   16  1977     7      DM    M  NaN
+12            13      7   16  1977     3      DM    M  NaN
+13            14      7   16  1977     8      DM  NaN  NaN
+...
+[35549 rows x 8 columns]
+```
+#### Wrapping up before small break 
+* Everyone has imported the data?
+* How many rows and columns were imported?
+* What kind of data is it?
+
+
+
 ## Manipulating data
-Now when we have our data in memory, we can statd doing things with it.
-First check data type of variable dat
+
+Now when we have our data in memory, we can start doing things with it. Firstly, we could check data type of variable `dat`
 
 ```python
 type(dat)
@@ -228,15 +267,35 @@ dat.__class__
 dat.dtypes
 ```
 
-The type function and __class__ attribute tell us that dat is <class 'pandas.core.frame.DataFrame'> in Python. This is similar to a spradsheet in excel. The dtypes function tells us what columns there are  and what type they are.
+which gives **output**
 
-### pandas.core.frame.DataFrame
-are data structure 
+```
+record_id      int64
+month          int64
+day            int64
+year           int64
+plot           int64
+species       object
+sex           object
+wgt          float64
+dtype: object
+```
 
-TO DO!!
+
+The `type` function and `__class__` attribute tell us that `dat` is `<class 'pandas.core.frame.DataFrame'>` in Python. This is similar to a spradsheet in excel. The `dtypes` function tells us what columns there are  and what type they are.
+
+### DataFrame object
+
+DataFrame provides all possibilities of R's `data.frame` and  much more. It could store a mix of data types, e.g.characters, integers, facors. It has multiple methods which simplify access to data.
+
+#### Useful methods
+* `.columns` - names of columns
+* `.head()` - displays 5 first rows
+* `.tail()` - displays 5 last rows
+* `.shape` - gives shape of  data in tuple (columns, rows)
 
 ### Indexing
-If we want to get a single value from the DataFrame we must provide an index to it in square brackets and use iloc function.
+If we want to get a single value from the **DataFrame** object we must provide an index to it in square brackets and use iloc function.
 
 ```python
 dat.iloc[2,6]
@@ -247,27 +306,28 @@ which gives **output**
 'F'
 ```
 
-Python start indexing from 0. Index like (2, 6) selects a single element of an array. We can also select whole sections as well.
-We can select month, day and year columns of values like this:
+You have to remeber that in Python indexing run from 0. Index like (2, 6) selects a single element of an array. We can also select whole sections as well. For example, we can select month, day and year (columns form second to fourth) of values for the first three rows(rows) like this:
 
 ```python
-dat.iloc[1:3, 1:4]
+dat.iloc[0:3, 1:4]
 ```
 which gives **output**
 ```
    month  day  year
-1      8   19  1977
-2      8   19  1977
-3      8   19  1977
+0          1      7   16  1977
+1          2      7   16  1977
+2          3      7   16  1977
 ```
 
-Slice 1:4 means "Start at index 1 and go to index 4 not including 4."
+Slice 1:3 means "Start at index 1 and go to index 3, but not include values at index 4".
 
 We can also use built-in function range to take regurally spaced rows and columns.
 In this example we get rows 1, 3 and column 1, 3 and 5
+
 ```python
 dat.iloc[range(1, 7, 2), range(1, 7, 2)]
 ```
+
 which gives **output**
 ```
    month  year species
