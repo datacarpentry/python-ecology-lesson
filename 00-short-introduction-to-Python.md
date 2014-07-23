@@ -108,7 +108,7 @@ True
 `for` loop is used to access all the elements in the sequence
 
 ```python
-for num in numbers
+for num in numbers:
     print num
 1
 2
