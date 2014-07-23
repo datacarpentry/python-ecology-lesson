@@ -62,12 +62,18 @@ But if we were to filter the NaNs and turn them into zeroes (after making a copy
 
 ```python
 df1 = df
-df['wgt'] = df['wgt'].fillna(0)
+df1['wgt'] = df['wgt'].fillna(0)
 df['wgt'].mean()
 38.751976145601844
 ```
 
-While not a large difference, this might be important to the math we'd like to do with our values. When deciding how to manage missing data, it's important to think about how these data will be used. Download a few data sets from a commonly-used data repository in your field and have a look at how missing data is represented. In Pandas, values that are not numbers and are not NaN can cause your calculations to fail. Choosing a missing data representation is a function of 
+While not a large difference, this might be important to the math we'd like to do with our values. When deciding how to manage missing data, it's important to think about how these data will be used. For example, we could fill our missing values with the column average value:
+
+```python
+ df1['wgt'] = df['wgt'].fillna(df['wgt'].mean())
+```
+
+But what would be an appropriate situation in which to do this? Pandas gives us many options; it's up to us to find the appropraite ones for our work. Download a few data sets from a commonly-used data repository in your field and have a look at how missing data is represented. In Pandas, values that are not numbers and are not NaN can cause your calculations to fail. Choosing a missing data representation is a function of 
 + How your data will be read and understood by others
 and
 + How your data will be read and understood by the computer.
