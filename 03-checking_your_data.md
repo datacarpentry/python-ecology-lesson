@@ -56,6 +56,7 @@ You might wonder why we still have NaN values. *NaN* values are values that cann
 
 ```python
 df['wgt'].mean()
+42.672428212991356
 ```
 
 But if we were to filter the NaNs and turn them into zeroes (after making a copy of the data so we don't lose our work), we would get something like this:
