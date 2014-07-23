@@ -1,14 +1,20 @@
 # Merging data with pandas
 
+In many "real world" cases, the datasets we want ot use come in multiple files. To make use such data for analyses, we often have to merge them  into a single data frame.
+
+
+Loading pandas in ipython:
 ```python
 In [1]: import pandas as pd
 ```
 
+Reading the data from our text files:
 ```python
 In [2]: surveys = pd.read_csv('data/surveys.csv', keep_default_na=False, na_values=[""])
 In [3]: species = pd.read_csv('data/species.csv', keep_default_na=False, na_values=[""])
 ```
 
+Inspect the data frame to identify a "join key" (column common to both data frames). If we're lucky, they'll have the same name in both data frames; otherwise, we'll need some knowledge about the dataset to find one. In this case, the "species" column in the "surveys" dataframe and the "species_id" column in the "species" data frame.
 ```python
 In [4]: surveys
 Out[4]:
@@ -48,6 +54,11 @@ Out[5]:
 
 # Inner joins
 
+Inner join: returns data frame consisting of rows that are present in *both* dataframes. In this example, the result dataframe is missing rows from the "survey" dataframe that do not have a corresponding value in "species" dataframe (evidenced by result having fewer rows than original "surveys" dataframe).
+
+"left_on" argument is name of join key in the left table (surveys); "right_on" argument is name of join key in the right table (species).
+
+*TODO*: explain "left" vs. "right" dataframe arguments (implicit).
 ```python
 In  [6]: merged_inner = pd.merge(surveys, species, left_on='species', right_on='species_id')
 
@@ -84,6 +95,8 @@ Out [7]:
 
 # Left joins
 
+Left joins: often times, we want to keep all the data from one dataframe while adding information from another. Common use case is the "lookup" table scenario. To do this, we use what's called a left join, which returns all the rows from the original "left" dataframe ("surveys") and rows from the "right" dataframe ("species") if matching join key is found. If no value for the join key on the right dataframe is found, the values in the result dataframe as null/NaN. (*TODO*: show example of null values in code below.)
+
 ```python
 In  [8]: merged_left = pd.merge(surveys, species, how='left', left_on='species', right_on='species_id')
 
@@ -117,3 +130,9 @@ Out [9]:
 
 [35549 rows x 12 columns]
 ```
+
+# Other joins
+
+Right join: similar to left join, except it keeps all rows from the "right" table, discards rows 
+
+Full join: returns all rows from both data frame.
