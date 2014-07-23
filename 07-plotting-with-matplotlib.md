@@ -138,7 +138,7 @@ A box and whisker plot:
 plt.boxplot(plot_data.values)
 ```
 
-# Realistic Examples
+# A Realistic Example
 
 You may have noticed there's some more data beyond just the plot value in `surveys.csv`. Let's plot the plot value and group them by the sex value. A dot plot would be ideal for this.
 
