@@ -1,12 +1,14 @@
-# About Matplotlib
+# Matplotlib
 
-Matplotlib is a library that can be used to visualize data that has been loaded with a library like Pandas, Numpy, or Scipy. For this tutorial, we'll use Pandas.
+## About Matplotlib
 
-# Loading Data
+[Matplotlib](http://matplotlib.org/) is a library that can be used to visualize data that has been loaded with a library like Pandas, Numpy, or Scipy. For this tutorial, we'll use Pandas.
+
+## Loading Data
 
 For a more detailed tutorial on loading data, see [Starting with data](01-starting-with-data.md). For now, we'll just use a simple statement to load the surveys data.
 
-```
+```python
 import pandas as pd
 df = pd.read_csv('data/surveys.csv', index_col='record_id')
 ```
@@ -15,27 +17,27 @@ Matplotlib has a wide variety of plots that it can produce. First, we'll introdu
 
 First, we'll import matplotlib.
 
-```
+```python
 import matplotlib.pyplot as plt
 ```
 
 Matplotlib can easily plot a set of data even larger than `surveys.csv`, but for this example, we'll take the first 50 of the ~35000 entries that are in `surveys.csv.` For a more detailed tutorial on slicing data, see (insert link here).
 
-```
+```python
 small_dataset = df[:50]
 ```
 
 There's a column in `surveys.csv` named "plot" which would make an excellent value to plot.
 
-```
+```python
 plot_data = small_dataset['plot']
 ```
 
-# Simple Plotting
+## Simple Plotting
 
 Now, we have an array of plot data indexed by the `record_id` value. Let's plot it.
 
-```
+```python
 plt.plot(plot_data)
 ```
 
@@ -43,19 +45,21 @@ The data has now been plotted, to see it we can do 2 things:
 
 1. We can interact with the plot by using `plt.show` like so:
 
-```
+```python
 plt.show()
 ```
 
+![Example of bar plot](pics/myplot.png)
+
 2. Or we can save the plot to a file using `plt.savefig` like so:
 
-```
+```python
 plt.savefig('myplot.png')
 ```
 
 This would save the file as a rasterized PNG image. The format is deduced from the file name or can be given explicitly using `format` parameter, eg. `format="png"`. For raster images, in order to enhance quality one can also request particulat resolution in dots per inch using `dpi` parameter. This may be useful when creating quality images for printing/publication. Vectorized images are supported as well, we just need to save the file as a SVG, EPS or PDF which is as simple as:
 
-```
+```python
 plt.savefig('myplot.pdf')
 ```
 
@@ -66,7 +70,7 @@ The plot is created using some default settings, eg. default line color. You may
 
 It is important to note, that subsequent plots we may have created with `plt.plot` are (by default) superimposed on the same figure that is created implicitly upon first `plt.plot` call. In order to start from scratch we must clear image using `plt.clf()` or by creating a new figure with `plt.figure()` call. Figures are numbered from 1 and one can switch between them by calling `plt.figure(number)`. When creating a new figures one can give a number of options, for example one can fine tune the size and default resolution by using `figsize` and `dpi` parameters:
 
-```
+```python
 plt.figure(figsize=(10, 8), dpi=200)
 ```
 
@@ -86,7 +90,7 @@ Values are fractions of the image size and denote the position of the respective
 
 To use a different color, like red, we would plot our data like so:
 
-```
+```python
 plt.plot(plot_data, color='r')
 ```
 
@@ -105,7 +109,7 @@ w | white
 
 For more color flexibility, you can specify hexadecimal RGB values like so:
 
-```
+```python
 plt.plot(plot_data, color='#aa5599')
 ```
 
@@ -119,7 +123,7 @@ plt.plot(plot_data, color=(0.1, 0.9, 0.6))
 
 The default line style is a solid line. We can make it thinner or thicker by specifying `linewidth` or `lw`:
 
-```
+```python
 plt.plot(plot_data, linewidth=3)
 ```
 
@@ -189,7 +193,7 @@ plt.loglog(plot_data)
 
 To create a plot with two X or two Y axes having different scales, units, ranges one can use `plt.twinx` and `plt.twiny`:
 
-```
+```python
 plt.bar(plot_data.index, plot_data.values)
 plt.twinx()
 plt.plot(1/ plot_data, color='k')
@@ -208,13 +212,19 @@ All plots can be labelled upon creation:
 ```
 plt.plot(..., label='some description')
 ```
+![Example of bar plot](pics/barplot.png)
 
 and a legend can be automatically generated in the automatically chosen _best_ location:
+## Go exploring
 
 ```
 plt.legend(loc='best')
 ```
 
+There are excellent examples on [Matplotlib](http://matplotlib.org/) website, especially:
+
+* [Matplotlib Gallery](http://matplotlib.org/gallery.html)
+* [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
 ## Modifying ticks
 
 One can change the location and labels of the axes ticks using `plt.xticks` and `plt.yticks` methods:

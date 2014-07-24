@@ -95,7 +95,9 @@ True
 True
 ```
 
-### Sequential types: Lists and Dictionaries
+## Sequential types: Lists and Dictionaries
+
+### Lists
 
 **List** is most common data structure, that can hold a sequence of elements. Each element can be accessed by it's index:
 
@@ -108,7 +110,7 @@ True
 `for` loop is used to access all the elements in the sequence
 
 ```python
-for num in numbers
+for num in numbers:
     print num
 1
 2
@@ -147,10 +149,71 @@ dir(numbers)
 ['__add__', '__class__', '__contains__', ...]
 ```
 
-**Dictionaries** are containers that keeps pairs of object - key and the value. Using them is really simple
+### Dictionaries
+
+**Dictionary** is a container that keeps pairs of object - key and the value. Usage is really simple
 
 ```python
 >>> translation = {"one" : 1, "two" : 2}
 >>> translation["one"]
 1
 ```
+
+Dictionary works just like a list - except that you can index them with *keys*. There are however limits for keys - they have to be "hashable type". Strings and numeric types are acceptable, but lists aren't.
+
+```python
+>>> rev = {1 : "one", 2 : "two"}
+>>> rev[1]
+'one'
+>>> bad = {[1,2,3] : 3}
+...
+TypeError: unhashable type: 'list'
+```
+
+To add an item to the dictionary we assign value to a new key:
+
+```python
+>>> rev = {1 : "one", 2 : "two"}
+>>> rev[3] = "three"
+>>> rev
+{1: 'one', 2: 'two', 3: 'three'}
+```
+
+Using `for` loop with dictionaries is a little more complicated. We can do it in two ways:
+```python
+>>> for key, value in rev.items():
+...     print key, "->", value
+...
+1 -> one
+2 -> two
+3 -> three
+```
+or
+```python
+>>> for key in rev.keys():
+...     print key, "->", rev[key]
+...
+1 -> one
+2 -> two
+3 -> three
+>>>
+```
+
+## Functions
+
+Defining part of the program in Python as a function is straightforward. For example a function that takes two arguments and returns sum of them can be defined as:
+
+```python
+def add_function(a, b):
+    result = a + b
+    return result
+
+z = add_function(20, 22)
+print z
+42
+```
+
+Key points here:
+ - definition starts with `def`
+ - function body is indented
+ - `return` keyword precedes returned value
