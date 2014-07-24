@@ -49,7 +49,7 @@ The data has now been plotted, to see it we can do 2 things:
 plt.show()
 ```
 
-![Example of bar plot](pics/myplot.png)
+![Example of a simple plot](pics/myplot.png)
 
 2. Or we can save the plot to a file using `plt.savefig` like so:
 
@@ -66,7 +66,7 @@ plt.savefig('myplot.pdf')
 The plot is created using some default settings, eg. default line color. You may have noticed, the first line plotted is blue.
 
 
-# Managing figures
+## Managing figures
 
 It is important to note, that subsequent plots we may have created with `plt.plot` are (by default) superimposed on the same figure that is created implicitly upon first `plt.plot` call. In order to start from scratch we must clear image using `plt.clf()` or by creating a new figure with `plt.figure()` call. Figures are numbered from 1 and one can switch between them by calling `plt.figure(number)`. When creating a new figures one can give a number of options, for example one can fine tune the size and default resolution by using `figsize` and `dpi` parameters:
 
@@ -84,9 +84,9 @@ plt. subplots_adjust(left=0.1, bottom=0.2, right=0.99, top=0.99)
 
 Values are fractions of the image size and denote the position of the respective edge of the axes bounding box. Lower left corner of the image is at (0,0). The invocation above leaves 10% margin on the left side, 20% margin on the bottom and 1% for top and right edges.
 
-# Managing styles
+## Managing styles
 
-## Colors
+### Colors
 
 To use a different color, like red, we would plot our data like so:
 
@@ -119,7 +119,7 @@ or use RGB coefficients of range 0-1 (which makes it easy to create multiple col
 plt.plot(plot_data, color=(0.1, 0.9, 0.6))
 ```
 
-## Line style
+### Line style
 
 The default line style is a solid line. We can make it thinner or thicker by specifying `linewidth` or `lw`:
 
@@ -142,7 +142,7 @@ Value | Style
 '-.'|dash-dot line
 ':' |dotted line
 
-## Marker style
+### Marker style
 
 So far we have plotted only a simple line plot which is default. It is possible to specify also the data marker style which will create scatter plot or various connect-the-dots-like plot. For example, to use square data marker:
 
@@ -163,11 +163,11 @@ Marker | Meaning
 '+'|plus
 'D'|diamond
 
-# Configuration of plot axes
+## Configuration of plot axes
 
 So far we have used a simple, default, uniform axis. The user has, however, a complete control over the way axes are organized.
 
-## Plot range
+### Plot range
 
 One can adjust the range of axes using set `plt.xlim` for horizontal and `plt.ylim` for vertical axis. For instence to set X limt to [-10; 15] one can use:
 
@@ -175,7 +175,7 @@ One can adjust the range of axes using set `plt.xlim` for horizontal and `plt.yl
 plt.xlim(-10, 15)
 ```
 
-## Plot scale
+### Plot scale
 
 In many cases it is useful to use logarithmic scale on one or both axes. One can use dedicated plot methods:
 
@@ -189,7 +189,7 @@ Method | Result
 plt.loglog(plot_data)
 ```
 
-## Two independent X or Y axes
+### Two independent X or Y axes
 
 To create a plot with two X or two Y axes having different scales, units, ranges one can use `plt.twinx` and `plt.twiny`:
 
@@ -201,31 +201,25 @@ plt.plot(1/ plot_data, color='k')
 
 This will create a plot with two independent Y axes, one for barplot and one for line plot of inverse values. Both plots will share the same X-axis.
 
-# Describing the plot
+## Describing the plot
 
 In the examples above the plot is not ready to be published. We would like to add titles, axes labels, tick markers, maybe some grid or legend.
 
-## Adding legend
+### Adding legend
 
 All plots can be labelled upon creation:
 
 ```
 plt.plot(..., label='some description')
 ```
-![Example of bar plot](pics/barplot.png)
 
 and a legend can be automatically generated in the automatically chosen _best_ location:
-## Go exploring
 
 ```
 plt.legend(loc='best')
 ```
 
-There are excellent examples on [Matplotlib](http://matplotlib.org/) website, especially:
-
-* [Matplotlib Gallery](http://matplotlib.org/gallery.html)
-* [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
-## Modifying ticks
+### Modifying ticks
 
 One can change the location and labels of the axes ticks using `plt.xticks` and `plt.yticks` methods:
 
@@ -250,7 +244,7 @@ To set a title use
 plt.title('Plot title')
 ```
 
-# Plot variations
+## Plot variations
 
 Matplotlib supports a number of different plot variations, eg. bar plot (`plt.bar`), contour plots (`plt.contour`), pie chart (`plt.pie`), error bars (`plt.errorbar`), polar plot (`plt.polar`), ...
 
@@ -259,3 +253,12 @@ To use a bar plot:
 ```
 plt.bar(plot_data.index, plot_data.values)
 ```
+
+![Example of bar plot](pics/barplot.png)
+
+# Go exploring
+
+There are excellent examples on [Matplotlib](http://matplotlib.org/) website, especially:
+
+* [Matplotlib Gallery](http://matplotlib.org/gallery.html)
+* [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
