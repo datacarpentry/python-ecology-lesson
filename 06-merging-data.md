@@ -45,6 +45,11 @@ Out [5]:
 [55 rows x 4 columns]
 ```
 
+# Concatenating DataFrames
+
+**TODO**: added code and text explaning how to concatenate DataFrames using pandas (i.e., append as additional rows and columns without specific criteria)
+
+
 # Joining DataFrames
 
 One common way of combining DataFrames is based on common values in one or more columns. The process of combining DataFrames in this way is called "joining", and the columns containing the common values are called "join key(s)".  Joining DataFrames in this way is often useful when one DataFrame is a "lookup table" containing additional data that we want to include in the other.
