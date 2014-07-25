@@ -124,7 +124,7 @@ The default linewidth is 1. A linewidth of 3 would be 3 times as thick as the de
 
 A dot plot:
 
-```
+```python
 plt.plot(plot_data, 'o')
 ```
 
@@ -146,7 +146,7 @@ There are excellent examples on [Matplotlib](http://matplotlib.org/) website, es
 =======
 A box and whisker plot:
 
-```
+```python
 plt.boxplot(plot_data.values)
 ```
 
@@ -156,19 +156,19 @@ You may have noticed there's some more data beyond just the plot value in `surve
 
 Pandas has some built-in tools that make it easy to group your data.
 
-```
+```python
 grouped_plot_data = small_dataset.groupby('sex')
 ```
 
 This returns our data in an iterable object. Each entry in `grouped_plot_data` is formatted like so:
 
-```
+```python
 ('group_name', pandas data pertaining to the group)
 ```
 
 Keep in mind we need different colors and labels for each group. So we can plot the data like so:
 
-```
+```python
 colors = ['r', 'g'] #we'll be cycling through these colors
 color_index = 0
 for group in grouped_plot_data:
