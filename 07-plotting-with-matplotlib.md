@@ -101,7 +101,7 @@ Values are fractions of the image size and denote the position of the respective
 
 ## Managing styles
 
-## Colors
+### Colors
 
 To use a different color, like red, we would plot our data like so:
 
@@ -134,7 +134,7 @@ or use RGB coefficients of range 0-1 (which makes it easy to create multiple col
 plt.plot(plot_data, color=(0.1, 0.9, 0.6))
 ```
 
-## Line style
+### Line style
 
 The default line style is a solid line. We can make it thinner or thicker by specifying `linewidth` or `lw`:
 
@@ -194,7 +194,7 @@ Marker | Meaning
 
 So far we have used a simple, default, uniform axis. The user has, however, a complete control over the way axes are organized.
 
-### Plot range
+## Plot range
 
 One can adjust the range of axes using set `plt.xlim` for horizontal and `plt.ylim` for vertical axis. For instence to set X limt to [-10; 15] one can use:
 
@@ -219,7 +219,7 @@ plt.loglog(plot_data)
 ### Two independent X or Y axes
 
 To create a plot with two X or two Y axes having different scales, units, ranges one can use `plt.twinx` and `plt.twiny`:
->>>>>>> 54f43adea4278853d6ba1136f7dc5d0df345bedd
+
 
 ```python
 plt.bar(plot_data.index, plot_data.values)
@@ -299,7 +299,7 @@ A box and whisker plot:
 plt.boxplot(plot_data.values)
 ```
 
-## A Realistic Example
+# A Realistic Example
 
 You may have noticed there's some more data beyond just the plot value in `surveys.csv`. Let's plot the plot value and group them by the sex value. A dot plot would be ideal for this.
 
