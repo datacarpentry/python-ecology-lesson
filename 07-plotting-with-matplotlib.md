@@ -39,7 +39,7 @@ plot_data = small_dataset['plot']
 
 Now, we have an array of plot data indexed by the `record_id` value. Let's plot it and give it a label.
 
-``python
+```python
 plt.plot(plot_data, label='My Data')
 ```
 
@@ -212,7 +212,7 @@ Method | Result
 `plt.semilogy`|logarithmic scaling on Y-axis
 `plt.loglog`|logarithmic scaling on both axes (log-log plot)
 
-```
+```python
 plt.loglog(plot_data)
 ```
 
@@ -283,8 +283,6 @@ To use a bar plot:
 ```python
 plt.bar(plot_data.index, plot_data.values)
 ```
-
-
 
 # Go exploring
 
