@@ -65,7 +65,7 @@ This would save the file as a rasterized png. But if we wanted a vectorized imag
 plt.savefig('myplot.pdf')
 ```
 
-# Plot Essentials
+## Plot Essentials
 
 What's a plot without a title, axis labels, and a legend? These can be easily set like so:
 
@@ -75,7 +75,7 @@ plt.ylabel('Plot Value')
 plt.title('The Plot Value From surveys.csv')
 ```
 
-# Clearing the Plot
+### Clearing the Plot
 
 The default color, you may have noticed, is blue. We can change this by plotting again. But first, the blue line is still on the plot, so we must clear it like so:
 
@@ -141,7 +141,7 @@ plt.bar(plot_data.index, plot_data.values)
 
 There are excellent examples on [Matplotlib](http://matplotlib.org/) website, especially:
 
-* [Matplotlib Gallery](http://matplotlib.org/gallery.html)
+* [Matplotlib Gallery](http://matplotlib.org/gallery.html) 
 * [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
 =======
 A box and whisker plot:
@@ -150,7 +150,7 @@ A box and whisker plot:
 plt.boxplot(plot_data.values)
 ```
 
-# A Realistic Example
+## A Realistic Example
 
 You may have noticed there's some more data beyond just the plot value in `surveys.csv`. Let's plot the plot value and group them by the sex value. A dot plot would be ideal for this.
 
@@ -180,7 +180,7 @@ for group in grouped_plot_data:
 plt.legend()
 ```
 
-# More Information
+## More Information
 
 This is a basic tutorial to get you started using Python to make your graphs. For more information on Matplotlib, visit the official site: http://matplotlib.org/
 
