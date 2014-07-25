@@ -49,7 +49,7 @@ The data has now been plotted, to see it we can do 2 things:
 
 ```python
 plt.show()
-``
+```
 
 2. Or we can save the plot to a file using `plt.savefig` like so:
 
