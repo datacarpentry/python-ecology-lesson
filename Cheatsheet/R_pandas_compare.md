@@ -1,9 +1,14 @@
-##Useful links (essentially what I used to help make this chart)
-[Climate Ecology R and Pandas comparison](http://climateecology.wordpress.com/2014/02/10/a-side-by-side-example-of-r-and-python/) 
-[Pandas reference material](http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html) 
+##Useful links (essentially what I used to help make this chart) 
+
+[Climate Ecology R and Pandas comparison](http://climateecology.wordpress.com/2014/02/10/a-side-by-side-example-of-r-and-python/)  
+
+[Pandas reference material](http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html)  
+
 [Yhat, the makers of Python ggplot, have an R and Pandas comparison](http://blog.yhathq.com/posts/R-and-pandas-and-what-ive-learned-about-each.html) 
 
+
 **What is R?** R is a general-purpose statistical programming environment. Similar to many programming languages, it has different packages that users have contributed for use with specific functions. R has many packages for analysis and visualization that can be called upon for functions. 
+
 **What is Pandas?** Pandas is a statistical programming library. Like R, Python has many packages contributed by users for specific functions. Pandas is one such library. It is meant to interoperate with different libraries for analysis and visualization.
 To use these R functions, simply start R. To use pandas functions, open a Python interpreter and type:
 
