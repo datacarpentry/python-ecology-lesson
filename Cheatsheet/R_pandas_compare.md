@@ -35,12 +35,14 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |		|	  weight<-subset(df,weight!=’NA’) | weight=df.dropna(subset=[‘weight’]) |
 |       |  **fixing data errors**              |   **fixing data errors** |
 |       |   df$temp[which(df$temp==45)]<-42   | df[‘temp’’].replace(45, 42, inplace=True) |
+|-------|--------------------------------------|-------------------------------------------|
 |**Slicing** | **access columns by name** | **access columns by name** |
 |        |df[ , c( “a”, “b”, “c”)] | df[[“a”, “b”, “c”]] |
 |        |                         | or |
 |        |                         | df.loc[ : , [“a”, “b”, “c”]] |
 |        | **access columns by location** |   **select multiple, noncontinguous, columns by location--use .iloc and numpy.r** |
 |        | df[, c(1:10, 35:40)]         |      df.iloc[ : , np.r_[:10, 35:40]] |
+|--------|------------------------------|--------------------------------------|
 |**Match** | **select data using %in%, which   | **return vector of match positions** |
 |      | returns logical vector indicating | g.isin([2,4]) |
 |      |  if there is a match or not** |     **apply() method to return a pandas series of matches** |
@@ -57,16 +59,17 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |		|							            | df.loc[df.weight <=100] |
 |		|										| **fancy subsetting with matching** |
 |		|										| spec=[“elephant”, “giraffe”, “ostrich”] |
-|		|	    								| sub_dat=df[species[‘species’].isin(spec)] |				
+|		|	    								| sub_dat=df[species[‘species’].isin(spec)] |
+|-----|-----------------------------|-------------------------------------------|
 |**Aggregate** | **aggregate function to split data and compute means for each** |  **grouby() method** |
 |              |aggregate(x=df[, c("v1", "v2")], by=list(mydf2$by1,mydf2$by2),FUN=mean) | g=df.grouby([“by1”, “by2”]) |
 |		       |**tapply is similar to aggregate but can be used on ragged arrays** | g[[“v1”, “v2”]].mean()   |
 |              |tapply(animals$avg_wgt,animals$sex, mean)  | **pivot_table() method is pandas equivalent of tapply** |
-|		                                       |    animals.pivot_table(values=”weight”, columns=”sex”, aggfunc=np.mean) |	
+|		                                       |    animals.pivot_table(values=”weight”, columns=”sex”, aggfunc=np.mean) |	|--------------|--------------------------------------|---------------------|
 |**Apply functions** | **with() method**              | **eval() method**  |
 |       |  with(df, x+y)                        | df.eval(“x+y”)   |
 |       | apply, sapply, lapply                 | apply            |
-
+|------------------------|-----------------------------------------|
 |**Split-Apply Combine** | plyr package--ddply allows you to summarize data | groupby allows transformations, aggregations,  |  |       |                                       | and easy-access plotting functions |
 |**Reshape** | **reshape2 package to switch data between wide and long formats** | **stacking and unstacking with melt and  		|	melt.array to melt array into data frame | pivot methods**  |
 |       | data.frame(melt(a))					| DataFrame([tuple(list(x)+[val]) for x, val in np.ndenumerate(a)]
