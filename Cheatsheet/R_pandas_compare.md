@@ -36,7 +36,7 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |       |  **fixing data errors**              |   **fixing data errors** |
 |       |   df$temp[which(df$temp==45)]<-42   | df[‘temp’’].replace(45, 42, inplace=True) |
 |-------|--------------------------------------|-------------------------------------------|
-|**Slicing** | **access columns by name** | **access columns by name**\s\s |
+|**Slicing** | **access columns by name** | **access columns by name** |
 |        |df[ , c( “a”, “b”, “c”)] | df[[“a”, “b”, “c”]] |
 |        |                         | or |
 |        |                         | df.loc[ : , [“a”, “b”, “c”]] |
@@ -50,7 +50,7 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |      | **return vector of match positions** |   |
 |		| match( g, c(1,10)) | |
 |-------|-------------------|------------------|
-|**Subset** | **get rows of dataframe that satisfy some statement** | get rows of dataframe that satisfy some statement** |
+|**Subset** | **get rows of dataframe that satisfy some statement** | **get rows of dataframe that satisfy some statement** |
 |       | subset(df, weight <= 100) | **query() method** |
 |       |                           | df. query(“weight” <= 100) |
 |       | **fancy subsetting with matching**       | **standard slicing** |
@@ -71,15 +71,17 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |       | apply, sapply, lapply                 | apply            |
 |------------------------|-----------------------------------------|
 |**Split-Apply Combine** | plyr package--ddply allows you to summarize data | groupby allows transformations, aggregations,  |  |       |                                       | and easy-access plotting functions |
+|---------------|----------|--------------------------------------|------------------------------------|
 |**Reshape** | **reshape2 package to switch data between wide and long formats** | **stacking and unstacking with melt and  		|	melt.array to melt array into data frame | pivot methods**  |
 |       | data.frame(melt(a))					| DataFrame([tuple(list(x)+[val]) for x, val in np.ndenumerate(a)]
 |       | melt.list to melt list into dataframe | Dataframe method |
 |       | data.frame(melt(a))                   | DataFrame(a) | 
 |       | **melt.data.frame to reshape dataframe** | **melt method** |
 |       | melt(df, id=(“a”, “b”))               | pd.melt(df, id_vars=[“a”, “b”]) |
-|**Plotting**| plot, hist, boxplot                  | matplotlib    |
-|        | ggplot2 package						| ggplot2 package |
-|        |                                      | native pandas (hist, plot, boxplot) |
+|-------|---------------------------------------|----------------------------------|
+|**Plotting**| plot, hist, boxplot              | matplotlib    |
+|            | ggplot2 package						| ggplot2 package |
+|            |                                  | native pandas (hist, plot, boxplot) |
 
    
 
