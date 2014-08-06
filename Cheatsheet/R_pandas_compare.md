@@ -36,7 +36,7 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 |       |  **fixing data errors**              |   **fixing data errors** |
 |       |   df$temp[which(df$temp==45)]<-42   | df[‘temp’’].replace(45, 42, inplace=True) |
 |-------|--------------------------------------|-------------------------------------------|
-|**Slicing** | **access columns by name** | **access columns by name** |
+|**Slicing** | **access columns by name** | **access columns by name**\s\s |
 |        |df[ , c( “a”, “b”, “c”)] | df[[“a”, “b”, “c”]] |
 |        |                         | or |
 |        |                         | df.loc[ : , [“a”, “b”, “c”]] |
