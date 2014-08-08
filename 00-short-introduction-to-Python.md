@@ -61,7 +61,7 @@ variable into the interpreter
 "Data Carpentry"
 ```
 
-but this only works in the interperter. In scripts we must use the `print` command
+but this only works in the interpreter. In scripts we must use the `print` command
 
 ```python
 # Comments starts with #
