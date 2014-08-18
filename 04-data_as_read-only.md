@@ -4,7 +4,7 @@ In today's scientific climate, there is more attention being paid to reproducibi
 
 ##os module
 
-The os module is included in the base Pytohn library and can be loaded in the standard way:
+The os module is included in the base Python library and can be loaded in the standard way:
 
 ```python
 import os
@@ -17,6 +17,7 @@ This library offers assorted functions for interacting with the operating system
 Data as read-only means exactly that: when you interact with a file, you don't make changes to that file. Instead, you make your edits programmatically and save the edited files to a separate location. Let's grab our survey data:
 
 ```python
+import pandas as pd
 mydata = pd.read_csv("data/surveys.csv")
 ```
 
@@ -38,7 +39,7 @@ else:
     print 'nay'
 ```
 
-What we've done above is used the os module to list all the directories in our current directory, denoted as '.'. (If this syntax is unfamiliar, have a look through our shell [materials](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/shell/01-filedir.md)). If our current directory contains a directory called 'processed', we celebrate in a restrained and dignified way. If not, we don't. 
+What we've done above is used the os module to list all the directories in our current directory, denoted as '.' (If this syntax is unfamiliar, have a look through our shell [materials](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/shell/01-filedir.md)). If our current directory contains a directory called 'processed', we celebrate in a restrained and dignified way. If not, we don't. 
 
 Just printing things isn't that useful. Let's try something else:
 
@@ -52,7 +53,7 @@ else:
 
 Now, what our code does is creates a directory and informs us of this fact.
 
-We can combine this with what we've learned about writing output to treat our data as read-only:
+We can combine this with what we've learned about writing output from Pandas to treat our data as read-only:
 
 ```python
 
