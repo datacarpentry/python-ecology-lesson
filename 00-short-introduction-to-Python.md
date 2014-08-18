@@ -49,16 +49,19 @@ number = 42
 pi_value = 3.1415
 ```
 
-We assigned data to variables, namely `text`, `number` and `pi_value`, using assign operator `=`. Python variables doesn't hold specific data type - we can reassign them. Be careful - this can be confusing.
+Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
+using the assignment operator `=`. Python variables don't have to hold specific
+data types - we can reassign them - but be careful as this can be confusing.
 
-To print out the value stored in variable we can simply type them in interpreter
+To print out the value stored in a variable we can simply type the name of the
+variable into the interpreter
 
 ```python
 >>> text
 "Data Carpentry"
 ```
 
-but this works only in interperter. In scripts we must use `print` command
+but this only works in the interpreter. In scripts we must use the `print` command
 
 ```python
 # Comments starts with #
@@ -69,7 +72,7 @@ print text
 
 ### Operators
 
-Python has support for basic operators `+, -, /, *, %`
+We can do math in Python using the basic operators `+, -, /, *, %`
 
 ```python
 >>> 2 + 2
@@ -82,7 +85,7 @@ Python has support for basic operators `+, -, /, *, %`
 1
 ```
 
-Also comparison and logic operators:
+We can also use comparison and logic operators:
 `<, >, ==, !=, <=, >=, etc.`
 `and, or, not`
 
@@ -99,7 +102,7 @@ True
 
 ### Lists
 
-**List** is most common data structure, that can hold a sequence of elements. Each element can be accessed by it's index:
+**Lists** are the most common data structure that can hold a sequence of elements. Each element can be accessed by it's index:
 
 ```python
 >>> numbers = [1,2,3]
@@ -107,7 +110,7 @@ True
 1
 ```
 
-`for` loop is used to access all the elements in the sequence
+A `for` loop can be used to access the elements in the sequence one at a time:
 
 ```python
 for num in numbers:
@@ -117,9 +120,9 @@ for num in numbers:
 3
 ```
 
-**Indentations** are very important in Python. Please notice that second line in above example is indented - this is Python way of marking a block of code. We will discuss that in more details later on.
+**Indentation** is very important in Python. Note that second line in above example is indented - this is Python's way of marking a block of code. We will discuss this in more detail later.
 
-To add elements to the list, we can use method `append`.
+To add elements to the list, we can use the method `append`.
 
 ```python
 >>> numbers.append(4)
@@ -127,8 +130,9 @@ To add elements to the list, we can use method `append`.
 [1,2,3,4]
 ```
 
-Methods are the interface of objects - such as lists. Accessing them is done by using dot `.`.
-To find out what methods are available, we can use build-in `help` command:
+Methods are a way to interact with an object - like a list. Accessing them is
+done by using the dot `.`.
+To find out what methods are available, we can use the built-in `help` command:
 
 ```python
 help(numbers)
@@ -141,7 +145,7 @@ class list(object)
  ...
 ```
 
-or we can get a list of `list` methods by using `dir`. Some methods names are surrounded by double underscores. Those methods are called "special", and usually we access them in a different way. For example `__add__` method is responsible for `+` operator.
+or we can get a list of methods by using `dir`. Some methods names are surrounded by double underscores. Those methods are called "special", and usually we access them in a different way. For example `__add__` method is responsible for `+` operator.
 
 ```python
 dir(numbers)
@@ -151,7 +155,7 @@ dir(numbers)
 
 ### Dictionaries
 
-**Dictionary** is a container that keeps pairs of object - key and the value. Usage is really simple
+A **dictionary** is a container that holds pairs of objects - keys and values.
 
 ```python
 >>> translation = {"one" : 1, "two" : 2}
@@ -159,7 +163,9 @@ dir(numbers)
 1
 ```
 
-Dictionary works just like a list - except that you can index them with *keys*. There are however limits for keys - they have to be "hashable type". Strings and numeric types are acceptable, but lists aren't.
+Dictionaries work a lot like lists - except that you can index them with
+*keys*. Keys can only have particular types - they have to be
+"hashable". Strings and numeric types are acceptable, but lists aren't.
 
 ```python
 >>> rev = {1 : "one", 2 : "two"}
@@ -170,7 +176,7 @@ Dictionary works just like a list - except that you can index them with *keys*. 
 TypeError: unhashable type: 'list'
 ```
 
-To add an item to the dictionary we assign value to a new key:
+To add an item to the dictionary we assign a value to a new key:
 
 ```python
 >>> rev = {1 : "one", 2 : "two"}
@@ -179,7 +185,7 @@ To add an item to the dictionary we assign value to a new key:
 {1: 'one', 2: 'two', 3: 'three'}
 ```
 
-Using `for` loop with dictionaries is a little more complicated. We can do it in two ways:
+Using `for` loops with dictionaries is a little more complicated. We can do this in two ways:
 ```python
 >>> for key, value in rev.items():
 ...     print key, "->", value
@@ -201,7 +207,9 @@ or
 
 ## Functions
 
-Defining part of the program in Python as a function is straightforward. For example a function that takes two arguments and returns sum of them can be defined as:
+Defining part of a program in Python as a function is done using the `def`
+keyword. For example a function that takes two arguments and returns the sum of
+them can be defined as:
 
 ```python
 def add_function(a, b):
