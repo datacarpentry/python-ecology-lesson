@@ -11,11 +11,11 @@
 ##Contents
 [Data Structures](#data-structures) 
 
-[Read Data (csv)](#read-data-(csv)) 
+[Read Data (csv)](#read-data-csv) 
 
-[Read Data (Excel)](#read-data-(excel)) 
+[Read Data (Excel)](#read-data-excel) 
 
-[Clean-Up](#clean-Up) 
+[Clean-Up](#clean-up) 
 
 [Slicing](#slicing) 
 
