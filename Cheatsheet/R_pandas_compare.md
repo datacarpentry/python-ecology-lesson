@@ -71,7 +71,7 @@ dat <- read.csv('myfile.csv')
 **Python**
 
 ```python
- dat=pd.read_csv('myfile.csv') 
+ dat = pd.read_csv('myfile.csv') 
 ```
 
 ###Read Data (Excel)
@@ -86,7 +86,14 @@ dat <- read.xls('myfile.xlsx', sheet = 1, header = TRUE)
 
 ```python
 xl = pandas.ExcelFile('myfile.xlsx') 
+xl.sheets() #print how many sheets there are, if you don't know
 dat = xl.parse('Sheet1')
+```
+
+If you do know the number of sheets, you can create a DataFrame directly:
+
+```python
+dat = pandas.read_excel('myfile.xlsx', sheetname=1, **kwds)
 ```
 
 ###Clean-Up
@@ -110,7 +117,7 @@ dat$temp[which(dat$wgt==45)]<-42
 Drop incomplete data
 
 ```python
-weight=dat.dropna(subset=['wgt'])
+weight = dat.dropna(subset=['wgt'])
 ```
 
 Fixing data errors
@@ -213,7 +220,7 @@ sub_dat <- [dat$species %in% species, ]
 Get rows of dataframe that satisfy some statement using the query() method 
 
 ```python
-dat. query('weight' <= 100) 
+dat.query('weight' <= 100) 
 ```
 
 Subsetting with standard slicing
@@ -230,8 +237,8 @@ dat.loc[dat.weight <=100]
 Fancy subsetting with matching
 
 ```python
-spec=['elephant', 'giraffe', 'ostrich']
-sub_dat=dat[species['species'].isin(spec)] 
+spec = ['elephant', 'giraffe', 'ostrich']
+sub_dat = dat[species['species'].isin(spec)] 
 ```
 
 ##Aggregate
@@ -254,13 +261,13 @@ tapply(animals$avg_wgt,animals$sex, mean)
 grouby() method groups data by some facet or facets of the dataset.
 
 ```python
-g=dat.grouby(['by1', 'by2'])
+g = dat.grouby(['by1', 'by2'])
 ```
 
 Pivot_table() method is pandas equivalent of tapply 
 
 ```python
-animals.pivot_table(values='wgt', columns='sex', aggfunc=np.mean)
+animals.pivot_table(values = 'wgt', columns = 'sex', aggfunc = np.mean)
 ```
 
 ###Reshape
@@ -291,7 +298,7 @@ DataFrame(a)
 Melt method for transforming multiple list to data frames
 
 ```python
-pd.melt(dat, id_vars=['a', 'b']) 
+pd.melt(dat, id_vars = ['a', 'b']) 
 ```
 
 ###Plotting
