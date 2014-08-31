@@ -9,25 +9,25 @@
 [As does Wes McKinney](http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html), the author of Pandas.
 
 ##Contents
-[Data Structures](#Data Structures) 
+[Data Structures](#data-structures) 
 
-[Read Data (csv)](#Read Data (csv)) 
+[Read Data (csv)](#read-data-(csv)) 
 
-[Read Data (Excel)](#Read Data (Excel)) 
+[Read Data (Excel)](#read-data-(excel)) 
 
-[Clean-Up](#Clean-Up) 
+[Clean-Up](#clean-Up) 
 
-[Slicing](#Slicing) 
+[Slicing](#slicing) 
 
-[Match](#Match) 
+[Match](#match) 
 
-[Subset](#Subset) 
+[Subset](#subset) 
 
-[Aggregate](#Aggregate) 
+[Aggregate](#aggregate) 
 
-[Reshape](#Reshape) 
+[Reshape](#reshape) 
 
-[Plotting](#Plotting)
+[Plotting](#plotting)
 
 
 **What is R?** R is a general-purpose statistical programming environment. Similar to many programming languages, it has different packages that users have contributed for use with specific functions. R has many packages for analysis and visualization that can be called upon for functions. 
