@@ -6,6 +6,29 @@
 
 [Yhat, the makers of Python ggplot, have an R and Pandas comparison](http://blog.yhathq.com/posts/R-and-pandas-and-what-ive-learned-about-each.html) 
 
+[As does Wes McKinney](http://pandas.pydata.org/pandas-docs/stable/comparison_with_r.html), the author of Pandas.
+
+##Contents
+[Data Structures](###Data Structures) 
+
+[Read Data (csv)](###Read Data (csv)) 
+
+[Read Data (Excel)](###Read Data (Excel)) 
+
+[Clean-Up](###Clean-Up) 
+
+[Slicing](###Slicing) 
+
+[Match](###Match) 
+
+[Subset](###Subset) 
+
+[Aggregate](###Aggregate) 
+
+[Reshape](###Reshape) 
+
+[Plotting](###Plotting)
+
 
 **What is R?** R is a general-purpose statistical programming environment. Similar to many programming languages, it has different packages that users have contributed for use with specific functions. R has many packages for analysis and visualization that can be called upon for functions. 
 
@@ -13,76 +36,269 @@
 To use these R functions, simply start R. To use pandas functions, open a Python interpreter and type:
 
 ```python
-import pandas as pd
+import pandas as pd 
 import numpy
 ```
 
 For information on reading data into R, see [here](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/R/01-starting-with-data.Rmd) and for the same in Pandas, see [here](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/python/01-starting-with-data.md).
 
-| 		| R 									| Pandas |
-|-------|---------------------------------------|--------|
-|**General**| large library of statistical functions | Stand-alone library, Python being the equivalent of ‘R’ on the whole 
-|       | large user community (been around longer) | relatively young, but readably documented, module | 
-|		| RStudio is good IDE, not many others | Many IDEs available |
-|-------|--------------------------------------|----------|
-|**Data Structures**| array | list |
-|       | lists | dictionary |
-|       | data.frame | dataframe |
-|-------|-----------------|------------------------|
-|**Read Data (.csv file)**| df<-read.csv(“myfile.csv”) | df=pd.read_csv(“blah.csv”) |
-|-------|------------------|-------------------|
-| **Clean Up** | **drop incomplete data**            | **drop incomplete data** |
-|		|	  weight<-subset(df,weight!=’NA’) | weight=df.dropna(subset=[‘weight’]) |
-|       |  **fixing data errors**              |   **fixing data errors** |
-|       |   df$temp[which(df$temp==45)]<-42   | df[‘temp’’].replace(45, 42, inplace=True) |
-|-------|--------------------------------------|-------------------------------------------|
-|**Slicing** | **access columns by name** | **access columns by name** |
-|        |df[ , c( “a”, “b”, “c”)] | df[[“a”, “b”, “c”]] |
-|        |                         | or |
-|        |                         | df.loc[ : , [“a”, “b”, “c”]] |
-|        | **access columns by location** |   **select multiple, noncontinguous, columns by location--use .iloc and numpy.r** |
-|        | df[, c(1:10, 35:40)]         |      df.iloc[ : , np.r_[:10, 35:40]] |
-|--------|------------------------------|--------------------------------------|
-|**Match** | **select data using %in%, which   | **return vector of match positions** |
-|      | returns logical vector indicating | g.isin([2,4]) |
-|      |  if there is a match or not** |     **apply() method to return a pandas series of matches** |
-|      |   g %in% c(1,10)       |     pd.Series(pd.match(g,[1,10], np.nan)  |
-|      | **return vector of match positions** |   |
-|		| match( g, c(1,10)) | |
-|-------|-------------------|------------------|
-|**Subset** | **get rows of dataframe that satisfy some statement** | **get rows of dataframe that satisfy some statement** |
-|       | subset(df, weight <= 100) | **query() method** |
-|       |                           | df. query(“weight” <= 100) |
-|       | **fancy subsetting with matching**       | **standard slicing** |
-|       | spec<-c(“elephant”, “giraffe”,“ostrich”)  | df[df.weight <= 100] |
-|       |  sub_dat<-[df$species %in% species, ] | **boolean indexing** | 
-|		|							            | df.loc[df.weight <=100] |
-|		|										| **fancy subsetting with matching** |
-|		|										| spec=[“elephant”, “giraffe”, “ostrich”] |
-|		|	    								| sub_dat=df[species[‘species’].isin(spec)] |
-|-----|-----------------------------|-------------------------------------------|
-|**Aggregate** | **aggregate function to split data and compute means for each** |  **grouby() method** |
-|              |aggregate(x=df[, c("v1", "v2")], by=list(mydf2$by1,mydf2$by2),FUN=mean) | g=df.grouby([“by1”, “by2”]) |
-|		       |**tapply is similar to aggregate but can be used on ragged arrays** | g[[“v1”, “v2”]].mean()   |
-|              |tapply(animals$avg_wgt,animals$sex, mean)  | **pivot_table() method is pandas equivalent of tapply** |
-|		                                       |    animals.pivot_table(values=”weight”, columns=”sex”, aggfunc=np.mean) |	|--------------|--------------------------------------|---------------------|
-|**Apply functions** | **with() method**              | **eval() method**  |
-|       |  with(df, x+y)                        | df.eval(“x+y”)   |
-|       | apply, sapply, lapply                 | apply            |
-|------------------------|-----------------------------------------|
-|**Split-Apply Combine** | plyr package--ddply allows you to summarize data | groupby allows transformations, aggregations,  |  |       |                                       | and easy-access plotting functions |
-|---------------|----------|--------------------------------------|------------------------------------|
-|**Reshape** | **reshape2 package to switch data between wide and long formats** | **stacking and unstacking with melt and  		|	melt.array to melt array into data frame | pivot methods**  |
-|       | data.frame(melt(a))					| DataFrame([tuple(list(x)+[val]) for x, val in np.ndenumerate(a)]
-|       | melt.list to melt list into dataframe | Dataframe method |
-|       | data.frame(melt(a))                   | DataFrame(a) | 
-|       | **melt.data.frame to reshape dataframe** | **melt method** |
-|       | melt(df, id=(“a”, “b”))               | pd.melt(df, id_vars=[“a”, “b”]) |
-|-------|---------------------------------------|----------------------------------|
-|**Plotting**| plot, hist, boxplot              | matplotlib    |
-|            | ggplot2 package						| ggplot2 package |
-|            |                                  | native pandas (hist, plot, boxplot) |
+
+###Data Structures
+
+**R**
+
++ array 
++ list 
++ data.frame
+
+**Python**
+
++ list
++ Dictionary
++ dataframe (Pandas Package) 
+
+
+###Read Data (csv)
+
+**R**
+
+```
+df<-read.csv('myfile.csv') 
+```
+
+
+**Python**
+
+```python
+ df=pd.read_csv('myfile.csv') 
+```
+
+###Read Data (Excel)
+
+**R - requires gdata package** 
+
+```
+df<-read.xls ('myfile.xlsx'), sheet = 1, header = TRUE) 
+```
+
+**Python**
+
+```python
+xl = pandas.ExcelFile('myfile.xlsx') 
+df = xl.parse('Sheet1')
+```
+
+###Clean-Up
+
+**R**
+
+Drop incomplete data
+
+```
+weight<-subset(df,wgt!='NA')
+```
+
+Fixing data errors
+
+```
+df$temp[which(df$wgt==45)]<-42
+```
+
+**Python**
+
+Drop incomplete data
+
+```python
+weight=df.dropna(subset=['wgt'])
+```
+
+Fixing data errors
+
+```python
+df['wgt'].replace(45, 42, inplace=True)
+```
+
+
+###Slicing
+
+**R** 
+
+Access columns by name
+
+``` 
+df[ , c( 'a', 'b', 'c')] 
+```
+
+Access columns by location
+
+```
+df[, c(1:10, 35:40)] 
+```
+
+
+**Python**
+
+Access columns by name
+```python
+df[['a', 'b', 'c']] 
+```
+
+or
+
+```python
+df.loc[ : , ['a', 'b', 'c']]
+```
+
+Select multiple, noncontinguous, columns by location--use .iloc and numpy.r
+
+```python
+df.iloc[ : , np.r_[:10, 35:40]]
+```
+
+##Match
+
+Select data using %in%, which returns logical vector indicating if there is a match or not
+
+**R**
+
+```
+g %in% c(1,10)
+
+```
+
+Return vector of match positions
+
+```
+match( g, c(1,10))
+```
+
+**Python**
+
+Return vector of match positions
+
+```python
+g.isin([2,4])
+```
+
+Apply() method to return a pandas series object (a similar object to an R vector) of matches
+
+```python
+pd.Series(pd.match(g,[1,10], np.nan)
+```
+
+
+##Subset
+
+**R** 
+
+Get rows of dataframe that satisfy some statement
+
+```
+subset(df, wgt <= 100)
+```
+
+```
+spec<-c('elephant', 'giraffe','ostrich')
+sub_dat<-[df$species %in% species, ]
+```
+
+
+**Python** 
+
+Get rows of dataframe that satisfy some statement using the query() method 
+
+```python
+df. query('weight' <= 100) 
+```
+
+Subsetting with standard slicing
+
+```python
+subset = df[df.wgt <= 100] 
+```
+or
+
+```python
+df.loc[df.weight <=100]
+```
+
+Fancy subsetting with matching
+
+```python
+spec=['elephant', 'giraffe', 'ostrich']
+sub_dat=df[species['species'].isin(spec)] 
+```
+
+##Aggregate
+
+**R**
+
+Aggregate function to split data and compute means for each   
+```
+aggregate(x=df[, c('v1', 'v2')], by=list(mydf2$by1,mydf2$by2),FUN=mean) 
+```
+
+Tapply is similar to aggregate but can be used on ragged arrays
+
+```
+tapply(animals$avg_wgt,animals$sex, mean) 
+```
+
+**Python**
+
+grouby() method groups data by some facet or facets of the dataset.
+
+```python
+g=df.grouby(['by1', 'by2'])
+```
+
+Pivot_table() method is pandas equivalent of tapply 
+
+```python
+animals.pivot_table(values='wgt', columns='sex', aggfunc=np.mean)
+```
+
+###Reshape
+
+**R** 
+
+Reshape2 package to switch data between wide and long formats 
+
+Melt can be used to reshape lists to dataframes	
+
+```
+data.frame(melt(a))				
+```
+
+Melt.data.frame to reshape an existing dataframe
+
+```
+melt(df, id=('a', 'b'))
+```
+
+**Python**
+
+Dataframe method to convert between non-data frame objects and data frames
+```python
+DataFrame(a)  
+```
+
+Melt method for transforming multiple list to data frames
+
+```python
+pd.melt(df, id_vars=['a', 'b']) 
+```
+
+###Plotting
+
+**R** 
+
++ Native: plot, hist, boxplot             
++ Other popular packages: ggplot2 package						
 
    
+**Python**
 
++ Native: hist, plot, boxplot
++ Other popular packages: Matplotlib, ggplot2
 
