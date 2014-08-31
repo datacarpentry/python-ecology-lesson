@@ -201,9 +201,6 @@ pd.Series(pd.match(g,[1,10], np.nan)
 
 Get rows of dataframe that satisfy some statement
 
-##Contributors
-
-Nichole Bennet, April Wright, Ethan White and Francois Michonneau
 
 ```
 subset(dat, wgt <= 100)
@@ -314,3 +311,6 @@ pd.melt(dat, id_vars = ['a', 'b'])
 + Native: hist, plot, boxplot
 + Other popular packages: Matplotlib, ggplot2
 
+##Contributors
+
+Nichole Bennet, April Wright, Ethan White and Francois Michonneau
