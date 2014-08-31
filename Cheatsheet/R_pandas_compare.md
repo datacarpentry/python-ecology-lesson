@@ -63,7 +63,7 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 **R**
 
 ```
-df<-read.csv('myfile.csv') 
+df <- read.csv('myfile.csv') 
 ```
 
 
@@ -78,7 +78,7 @@ df<-read.csv('myfile.csv')
 **R - requires gdata package** 
 
 ```
-df<-read.xls ('myfile.xlsx'), sheet = 1, header = TRUE) 
+df <- read.xls('myfile.xlsx', sheet = 1, header = TRUE) 
 ```
 
 **Python**
@@ -95,7 +95,7 @@ df = xl.parse('Sheet1')
 Drop incomplete data
 
 ```
-weight<-subset(df,wgt!='NA')
+weight <- subset(df, !is.na(wgt))
 ```
 
 Fixing data errors
@@ -126,7 +126,7 @@ df['wgt'].replace(45, 42, inplace=True)
 Access columns by name
 
 ``` 
-df[ , c( 'a', 'b', 'c')] 
+df[, c( 'a', 'b', 'c')] 
 ```
 
 Access columns by location
@@ -169,7 +169,7 @@ g %in% c(1,10)
 Return vector of match positions
 
 ```
-match( g, c(1,10))
+match(g, c(1,10))
 ```
 
 **Python**
@@ -198,8 +198,8 @@ subset(df, wgt <= 100)
 ```
 
 ```
-spec<-c('elephant', 'giraffe','ostrich')
-sub_dat<-[df$species %in% species, ]
+spec <- c('elephant', 'giraffe','ostrich')
+sub_dat <- [df$species %in% species, ]
 ```
 
 
@@ -235,7 +235,7 @@ sub_dat=df[species['species'].isin(spec)]
 
 Aggregate function to split data and compute means for each   
 ```
-aggregate(x=df[, c('v1', 'v2')], by=list(mydf2$by1,mydf2$by2),FUN=mean) 
+aggregate(x=df[, c('v1', 'v2')], by=list(mydf2$by1, mydf2$by2), FUN=mean) 
 ```
 
 Tapply is similar to aggregate but can be used on ragged arrays
@@ -262,15 +262,15 @@ animals.pivot_table(values='wgt', columns='sex', aggfunc=np.mean)
 
 **R** 
 
-Reshape2 package to switch data between wide and long formats 
+reshape2 package to switch data between wide and long formats 
 
-Melt can be used to reshape lists to dataframes	
+`melt` can be used to reshape lists to dataframes	
 
 ```
 data.frame(melt(a))				
 ```
 
-Melt.data.frame to reshape an existing dataframe
+`melt.data.frame` to reshape an existing dataframe
 
 ```
 melt(df, id=('a', 'b'))
@@ -294,7 +294,7 @@ pd.melt(df, id_vars=['a', 'b'])
 **R** 
 
 + Native: plot, hist, boxplot             
-+ Other popular packages: ggplot2 package						
++ Other popular packages: ggplot2						
 
    
 **Python**
