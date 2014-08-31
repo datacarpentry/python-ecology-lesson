@@ -42,6 +42,7 @@ import numpy
 
 For information on reading data into R, see [here](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/R/01-starting-with-data.Rmd) and for the same in Pandas, see [here](https://github.com/datacarpentry/datacarpentry/blob/master/lessons/python/01-starting-with-data.md).
 
+**Note:** We're calling our data frame in the below commands "dat". The reason for this, as it may differ from other documents, is that 'df' is an actual function in R, and we'd rather not name our objects after functions.
 
 ###Data Structures
 
@@ -63,14 +64,14 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 **R**
 
 ```
-df <- read.csv('myfile.csv') 
+dat <- read.csv('myfile.csv') 
 ```
 
 
 **Python**
 
 ```python
- df=pd.read_csv('myfile.csv') 
+ dat=pd.read_csv('myfile.csv') 
 ```
 
 ###Read Data (Excel)
@@ -78,14 +79,14 @@ df <- read.csv('myfile.csv')
 **R - requires gdata package** 
 
 ```
-df <- read.xls('myfile.xlsx', sheet = 1, header = TRUE) 
+dat <- read.xls('myfile.xlsx', sheet = 1, header = TRUE) 
 ```
 
 **Python**
 
 ```python
 xl = pandas.ExcelFile('myfile.xlsx') 
-df = xl.parse('Sheet1')
+dat = xl.parse('Sheet1')
 ```
 
 ###Clean-Up
@@ -95,13 +96,13 @@ df = xl.parse('Sheet1')
 Drop incomplete data
 
 ```
-weight <- subset(df, !is.na(wgt))
+weight <- subset(dat, !is.na(wgt))
 ```
 
 Fixing data errors
 
 ```
-df$temp[which(df$wgt==45)]<-42
+dat$temp[which(dat$wgt==45)]<-42
 ```
 
 **Python**
@@ -109,13 +110,13 @@ df$temp[which(df$wgt==45)]<-42
 Drop incomplete data
 
 ```python
-weight=df.dropna(subset=['wgt'])
+weight=dat.dropna(subset=['wgt'])
 ```
 
 Fixing data errors
 
 ```python
-df['wgt'].replace(45, 42, inplace=True)
+dat['wgt'].replace(45, 42, inplace=True)
 ```
 
 
@@ -126,13 +127,13 @@ df['wgt'].replace(45, 42, inplace=True)
 Access columns by name
 
 ``` 
-df[, c( 'a', 'b', 'c')] 
+dat[, c( 'a', 'b', 'c')] 
 ```
 
 Access columns by location
 
 ```
-df[, c(1:10, 35:40)] 
+dat[, c(1:10, 35:40)] 
 ```
 
 
@@ -140,19 +141,19 @@ df[, c(1:10, 35:40)]
 
 Access columns by name
 ```python
-df[['a', 'b', 'c']] 
+dat[['a', 'b', 'c']] 
 ```
 
 or
 
 ```python
-df.loc[ : , ['a', 'b', 'c']]
+dat.loc[ : , ['a', 'b', 'c']]
 ```
 
 Select multiple, noncontinguous, columns by location--use .iloc and numpy.r
 
 ```python
-df.iloc[ : , np.r_[:10, 35:40]]
+dat.iloc[ : , np.r_[:10, 35:40]]
 ```
 
 ##Match
@@ -193,13 +194,17 @@ pd.Series(pd.match(g,[1,10], np.nan)
 
 Get rows of dataframe that satisfy some statement
 
+##Contributors
+
+Nichole Bennet, April Wright, Ethan White and Francois Michonneau
+
 ```
-subset(df, wgt <= 100)
+subset(dat, wgt <= 100)
 ```
 
 ```
 spec <- c('elephant', 'giraffe','ostrich')
-sub_dat <- [df$species %in% species, ]
+sub_dat <- [dat$species %in% species, ]
 ```
 
 
@@ -208,25 +213,25 @@ sub_dat <- [df$species %in% species, ]
 Get rows of dataframe that satisfy some statement using the query() method 
 
 ```python
-df. query('weight' <= 100) 
+dat. query('weight' <= 100) 
 ```
 
 Subsetting with standard slicing
 
 ```python
-subset = df[df.wgt <= 100] 
+subset = dat[dat.wgt <= 100] 
 ```
 or
 
 ```python
-df.loc[df.weight <=100]
+dat.loc[dat.weight <=100]
 ```
 
 Fancy subsetting with matching
 
 ```python
 spec=['elephant', 'giraffe', 'ostrich']
-sub_dat=df[species['species'].isin(spec)] 
+sub_dat=dat[species['species'].isin(spec)] 
 ```
 
 ##Aggregate
@@ -235,7 +240,7 @@ sub_dat=df[species['species'].isin(spec)]
 
 Aggregate function to split data and compute means for each   
 ```
-aggregate(x=df[, c('v1', 'v2')], by=list(mydf2$by1, mydf2$by2), FUN=mean) 
+aggregate(x=dat[, c('v1', 'v2')], by=list(mydat2$by1, mydat2$by2), FUN=mean) 
 ```
 
 Tapply is similar to aggregate but can be used on ragged arrays
@@ -249,7 +254,7 @@ tapply(animals$avg_wgt,animals$sex, mean)
 grouby() method groups data by some facet or facets of the dataset.
 
 ```python
-g=df.grouby(['by1', 'by2'])
+g=dat.grouby(['by1', 'by2'])
 ```
 
 Pivot_table() method is pandas equivalent of tapply 
@@ -273,7 +278,7 @@ data.frame(melt(a))
 `melt.data.frame` to reshape an existing dataframe
 
 ```
-melt(df, id=('a', 'b'))
+melt(dat, id=('a', 'b'))
 ```
 
 **Python**
@@ -286,7 +291,7 @@ DataFrame(a)
 Melt method for transforming multiple list to data frames
 
 ```python
-pd.melt(df, id_vars=['a', 'b']) 
+pd.melt(dat, id_vars=['a', 'b']) 
 ```
 
 ###Plotting
