@@ -32,8 +32,9 @@
 
 **What is R?** R is a general-purpose statistical programming environment. Similar to many programming languages, it has different packages that users have contributed for use with specific functions. R has many packages for analysis and visualization that can be called upon for functions. 
 
-**What is Pandas?** Pandas is a statistical programming library. Like R, Python has many packages contributed by users for specific functions. Pandas is one such library. It is meant to interoperate with different libraries for analysis and visualization.
-To use these R functions, simply start R. To use pandas functions, open a Python interpreter and type:
+**What is Pandas?** Pandas is a statistical programming library. Like R, Python has many packages contributed by users for specific functions. Pandas is one such library. It is meant to interoperate with different libraries for analysis and visualization. 
+
+To use R functions, simply start R. To use pandas functions, open a Python interpreter and type:
 
 ```python
 import pandas as pd 
@@ -45,6 +46,8 @@ For information on reading data into R, see [here](https://github.com/datacarpen
 **Note:** We're calling our data frame in the below commands "dat". The reason for this, as it may differ from other documents, is that 'df' is an actual function in R, and we'd rather not name our objects after functions.
 
 ###Data Structures
+
+This is a far from exhaustive list, but some data structures you will see in Software and Data Carpentry instructional materials include:
 
 **R**
 
@@ -86,14 +89,14 @@ dat <- read.xls('myfile.xlsx', sheet = 1, header = TRUE)
 
 ```python
 xl = pandas.ExcelFile('myfile.xlsx') 
-xl.sheets() #print how many sheets there are, if you don't know
+xl.sheets #print how many sheets there are, if you don't know
 dat = xl.parse('Sheet1')
 ```
 
 If you do know the number of sheets, you can create a DataFrame directly:
 
 ```python
-dat = pandas.read_excel('myfile.xlsx', sheetname=1, **kwds)
+dat = pandas.read_excel('myfile.xlsx', sheetname = 1, **kwds)
 ```
 
 ###Clean-Up
@@ -106,7 +109,7 @@ Drop incomplete data
 weight <- subset(dat, !is.na(wgt))
 ```
 
-Fixing data errors
+Fixing known erroneous values in your data
 
 ```
 dat$temp[which(dat$wgt==45)]<-42
@@ -120,7 +123,7 @@ Drop incomplete data
 weight = dat.dropna(subset=['wgt'])
 ```
 
-Fixing data errors
+Fixing known erroneous values in your data
 
 ```python
 dat['wgt'].replace(45, 42, inplace=True)
@@ -165,9 +168,10 @@ dat.iloc[ : , np.r_[:10, 35:40]]
 
 ##Match
 
-Select data using %in%, which returns logical vector indicating if there is a match or not
 
 **R**
+
+Select data using %in%, which returns logical vector indicating if there is a match or not
 
 ```
 g %in% c(1,10)
@@ -258,7 +262,7 @@ tapply(animals$avg_wgt,animals$sex, mean)
 grouby() method groups data by some facet or facets of the dataset.
 
 ```python
-g = dat.grouby(['by1', 'by2'])
+g = dat.groupby(['by1', 'by2'])
 ```
 
 Pivot_table() method is pandas equivalent of tapply 
