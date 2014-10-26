@@ -24,7 +24,7 @@ To do all that, we'll have to learn a little bit about programming.
 
 ### Objectives
 * Explain what a library is, and what libraries are used for.
-* Load an Pyhon/pandas library and use the things it contains.
+* Load a Python/pandas library and use the things it contains.
 * Read tabular data from a file into a program.
 * Assign values to variables.
 * Learn about data types
