@@ -13,7 +13,7 @@
 # there are a LOT of objectives up there! Too many??
 
 ##About Libraries
-A library in Python, contains a set of tools (called functions) that perform tasks on our data. Importing a library is like getting a piece of lab equipment out of a storage locker and setting it up on the bench for use in a project. Once a library is setup, it can be used or called to perform many tasks.
+A library in Python contains a set of tools (called functions) that perform tasks on our data. Importing a library is like getting a piece of lab equipment out of a storage locker and setting it up on the bench for use in a project. Once a library is setup, it can be used or called to perform many tasks.
 
 ##Pandas in Python
 One of the best options for working with tabular data in python is to use the [Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. pandas). The Pandas library provides data structures, produces high quality plots with [matplotlib](http://matplotlib.org/), and integrates nicely with other libraries that use [NumPy](http://www.numpy.org/) arrays.
@@ -25,7 +25,7 @@ Python doesn't load all of the libraries available to it by default. We have to 
 import pandas as pd
 ```
 
-In the example above, we have imported pandas as pd. This means we don't have to type out `pandas` each time we call a pandas function. Anytime we want to call a pandas function we can type `pd.FunctionName` instead of `Pandas.FunctionName`.
+Each time we call a function that's in a library, we use the syntax `LibraryName.FunctionName`. Adding the library name with a `.` before the function name tells python where to find the function. In the example above, we have imported pandas as pd. This means we don't have to type out `pandas` each time we call a pandas function. 
 
 
 ##Lesson Overview
@@ -57,14 +57,13 @@ The first few rows of our first file look like this:
 We can automate the process above, using Python programming. It's efficient to spend time building the code to perform these tasks because once it's built, we can use it over and over on different datasets that use a similar format. This makes our methods easily reproducible.  We can also easily share our code with colleagues and they can replicate the same analysis.
 
 # Reading Data Using Pandas CSV
-We will begin by locating and reading our survey data. The data are in CSV format. We can use Pandas `read_csv` function to pull the file directly into a [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe). 
+We will begin by locating and reading our survey data which are in CSV format. We can use Pandas `read_csv` function to pull the file directly into a [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe). 
 
 ##So What's a DataFrame?
-A dataframe is a 2-dimensional data structure that can store data of different types in columns. It is similar to spreadsheets or SQL tables or the `data.frame` in R. It can store a mix of data types, including characters, integers, floating point values, factors and more. 
 
-Let's read the `surveys.csv` file into a python Pandas DataFrame. 
+A DataFrame is a 2-dimensional data structure that can store data of different types (including characters, integers, floating point values, factors and more) in columns. It is similar to spreadsheets or SQL tables or the `data.frame` in R. 
 
-First, let's make sure the python Pandas library is loaded. We will import Pandas using the nickname `pd`. Each time we use a pandas function, like `read_csv`, we will only have to type pd instead of the full name, pandas. We will also import the `os` library to make sure our working directory is set properly.
+First, let's make sure the python Pandas library is loaded. We will import Pandas using the nickname `pd`. 
 
 ```python
 import pandas as pd
@@ -81,7 +80,7 @@ Let's also import the OS library. This library will allow us to make sure we are
 
 ```python
 #note the pd.read_csv is used because we imported pandas as pd
-pd.read_csv("data/biology/surveys.csv")
+pd.read_csv("data/surveys.csv")
 ```
 
 The above command yields the **output** below:
@@ -142,15 +141,6 @@ which gives **output**
 [35549 rows x 8 columns]
 ```
 
-We can figure out the type of object that surveys_df is by typing:
-
-	type(surveys_df)
-
-OUTPUT:
-
-	pandas.core.frame.DataFrame
-
-
 ## Manipulating Our Species Survey Data
 
 Now we can start manipulating our data! First, let's check data type of object that `surveys_df` is using the `type` command. The `type` function and `__class__` attribute tell us that `surveys_df` is `<class 'pandas.core.frame.DataFrame'>` in Python. 
@@ -198,11 +188,12 @@ There are multiple methods that can be used to summarize and access the data sto
 ## Calculating Statistics From Data In A Pandas DataFrame
 
 
-Now, we've read our data into Python. Next, let's perform some quick summary statistics to learn more about what we're working with. We might want to know how many animals we trapped in each plot, or how many of each species were caught. We can perform summary stats quickly using groups. But first we need to figure out what we want to group by.
+Now, we've read our data into Python. Next, let's perform some quick summary statistics to learn more about the data that we're working with. We might want to know how many animals were collected in each plot, or how many of each species were caught. We can perform summary stats quickly using groups. But first we need to figure out what we want to group by.
 
-If you forget the column names in your data, you can type:
+Let's begin by exploring our data:
 
 ```python
+#Look at the column names
 surveys_df.columns.values
 ```
 
@@ -213,8 +204,7 @@ array(['record_id', 'month', 'day', 'year', 'plot', 'species', 'sex', 'wgt'], dt
 ```
 
 
-Let's get a list of all the species.
-The `pd.unique` function tells us all of the unique names in that column.
+Let's get a list of all the species. The `pd.unique` function tells us all of the unique names in that column.
 
 ```python
 pd.unique(surveys_df.species)
@@ -255,7 +245,7 @@ Z    23839.000000  15.000000  1996.000000   3.000000  18.000000
 
 ```
 
-What is returned here is a set of average values for each of our columns for each of our groups. What this also tells us is that there are some weird extra values in this column that we might  need to explore further. Unless we're working with butterflies, Z is unlikely to be a sex. This is why it's important to explore your data, before diving into analysis too quickly!
+What is returned here is a set of average values for each column summarized by groups. What this also tells us is that there are some weird extra values in this column that we might  need to explore further. Unless we're working with butterflies, Z is unlikely to be a sex. This is why it's important to explore your data, before diving into analysis too quickly!
 
 	#we can sort by multiple columns too
 	sorted2 = surveys_df.groupby(['plot','sex'])
@@ -268,7 +258,7 @@ Let's create some more summary stats, this time by plot.
 	byPlot = surveys_df.groupby('plot')
 	byPlot['wgt'].describe()
 
-**A Snipped of the Output looks like:**
+**A Snippet of the Output:**
 
 	plot       
 	1     count    1903.000000
@@ -281,7 +271,7 @@ Let's create some more summary stats, this time by plot.
 	      max       231.000000
 
 
-Now let's see how many of each species we have. To do this, we can use the `nunique()` method which return a pandas SERIES of unique elements in the data and a n associated count of how many rows containing that unique element appear in the DataFrame.
+Now let's see how many of each species we have. To do this, we can use the `nunique()` method which return a pandas SERIES of unique elements in the data and a n associated count of how many rows contain that unique element in the DataFrame.
 
 ```python
 surveys_df.record_id.groupby(surveys_df.species).nunique()
@@ -320,11 +310,10 @@ total_count.plot(kind='bar');
 ```
 
 # Challenge Activities:
-############## have to work through actually doing #3!! not sure how the pandas charts wants the data organized
 
 1. Create a plot of average weight across all species per plot
 2. Create a plot of total males versus total females for the entire dataset
-3. 	now create a stacked bar plot that has male vs female for each plot 
+3. Create a stacked bar plot that has male vs female for each plot 
 
 
 Next, let's perform some actual calculations on the data. 
@@ -366,7 +355,7 @@ surveys_df['wgt'].count()
 
 
 #Summary Plotting Challenge
-For your summary lesson challenge, create a stacked bar plot, with weight on the Y axis, and the stacked variables being sex. Here is some beta to help you solve this challenge:
+Create a stacked bar plot, with weight on the Y axis, and the stacked variables being sex. Here is some beta to help you solve this challenge:
 
 * [For more on Pandas Plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
 * You can use the code that follows to create a stacked bar plot but the data need to be in individual columns like this where each value is a mean weight. The first column represents the plot number and the second and third columns represent the sex. like this:
@@ -382,35 +371,8 @@ plot
 	my_plot.set_ylabel("Weight")
 	
 
-** You can use the command `unstack` to transform grouped data into columns for each plotting. Try the code, `surveys_df.unstack' to see what it yields. 
+* You can use the command `unstack` to transform grouped data into columns for each plotting. Try the code, `surveys_df.unstack' to see what it yields. 
 
 ![Stacked Bar Plot](pics/stackedBar.png)
-
-
-
-# ################ where should this go??? 
-
-#Python Syntax Cheat Sheet 
-* Equals: `==`
-* Greater than, less than: `>` or `<`
-* Not equals: `!=`
-* Greater than or equal to `>=`
-* Less than or equal to `<=`
-
-
-
-
-## Challenge Activities
-
-1. You can use double equal signs `==` as for equal to in python. Use `!=` for no equal to. 
-
-	Select a subset of rows in the surveys_df DataFrame that represent data from the year, 2002. 
-	
-	Now, select a subset of rows in the surveys_df DataFrame that represent data from all years EXCEPT 2002. 
-
-2. You can also combine queries to search for and extract a range of values using the query syntax:
-	`(surveys_df.year>=1980) & (surveys_df.year<=1985)`
-	Create an objected called years that contains all rows that contain data between the years of 1990 and 1995. 
-	
 
 ##############
