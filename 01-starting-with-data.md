@@ -10,8 +10,6 @@
 * Perform mathematical operations on numeric data.
 * Create simple plots of data
 
-# there are a LOT of objectives up there! Too many??
-
 ##About Libraries
 A library in Python contains a set of tools (called functions) that perform tasks on our data. Importing a library is like getting a piece of lab equipment out of a storage locker and setting it up on the bench for use in a project. Once a library is setup, it can be used or called to perform many tasks.
 
