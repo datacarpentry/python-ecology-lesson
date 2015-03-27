@@ -5,46 +5,21 @@ venue:
 address:
 country: United-States
 humandate: April 23-24, 2015
-humantime: 8:30 am - 4:30 pm
-startdate: 2015-04-23
-enddate: 2015-04-24
-latlng: 
-registration: 
 contributors: ["Tracy Teal", "John Gossett"]
-assistant: []
 contact: 
 raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
 ---
-<!--
-    Edit the values in the parameter block above to be appropriate for your bootcamp.
-    Please use three-letter month names for the 'humandate' field.
--->
-
-<!--
-    This block includes the Eventbrite registration widget if 'eventbrite' has been set in the header.
--->
-
 
 #Data Carpentry Python for Ecologists 
 
 <!-- This block displays the instructors' names if they are available. -->
 {% if page.contributors %}
-<p>
-  <strong>Instructors:</strong>
-  {{page.instructor | join: ', ' %}}
-</p>
-<p>
-  <strong>Assistants:</strong>
-  {{page.assistant | join: ', ' %}}
-
+  **Instructors:
+  {{page.contributors | join: ', ' %}}
 {% endif %}
 
-<!--
-    Modify this block to reflect the target audience for your bootcamp.
-    In particular, if it is only open to people from a particular institution,
-    or if specialized prerequisite knowledge is required, please mention that.
--->
+
 
 Short intro to the materials here: 
 
@@ -52,9 +27,9 @@ Data Carpentry's aim is to teach researchers basic concepts, skills,
 and tools for working with data so that they can get more done in less
 time, and with less pain.
 
-Lessons:
+## Lessons:
 
-* L00 
+* [00-short-introduction-to-Python](/00-short-introduction-to-Python)
 * L01 
 * L02
 * L03 
