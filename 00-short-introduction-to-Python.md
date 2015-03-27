@@ -1,6 +1,6 @@
 ---
 layout: lesson
-root: ../..
+root: .
 title: Short Introduction to Programming in Python
 ---
 
