@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: .
+title: Data Types and Formats
+---
+
 # Data Types and Formats
 
 The format of individual columns and rows will impact analysis performed on a dataset read into python. For example, you can't perform mathematical calculations on a string (character formatted data). This might seem obvious, however sometimes numeric values  import into python in a string format. In turn, when you try to perform calculations on the numeric data, you get an error.

@@ -1,3 +1,8 @@
+---
+layout: lesson
+root: .
+title: Data workflows and automation
+---
 
 # Data workflows and automation
 
