@@ -15,7 +15,7 @@ raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
 <!-- This block displays the instructors' names if they are available. -->
 {% if page.contributors %}
-  **Content Contributors:
+  **Content Contributors:**
   {{page.contributors | join: ', ' %}}
 {% endif %}
 
@@ -24,15 +24,19 @@ Short intro to the materials here:
 
 Data Carpentry's aim is to teach researchers basic concepts, skills,
 and tools for working with data so that they can get more done in less
-time, and with less pain.
+time, and with less pain. The lessons below were designed for those interested in 
+working with ecological data in Python. 
 
 ## Lessons:
 
-* [00-short-introduction-to-Python](./00-short-introduction-to-Python)
-* [01-starting-with-data](./01-starting-with-data)
-* L02
-* L03 
-* L04
+* [Short Introduction to Python](./00-short-introduction-to-Python)
+* [Starting With Data](./01-starting-with-data)
+* [Index Slice Subset](./02-index-slice-subset)
+* [Data Types and Format](./03-data-types-and-format) 
+* [Merging Data](./04-merging-data)
+* [Data Analysis Automation: Loops and Functions](./05-loops-and-functions)
+* [Plotting with Matplotlib](./06-plotting-with-matplotlib)
+* [Putting It All Together](./07-putting-it-all-together)
 
 
 >Updates will be posted to this website as they become available.
