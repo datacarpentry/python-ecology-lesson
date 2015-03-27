@@ -1,2 +1,2 @@
-# 2015-04-23-stanford
-Stanford Data Carpentry Workshop 
+# python-ecology
+The Python for Ecology Data Carpentry Materials are stored in this repo. 
