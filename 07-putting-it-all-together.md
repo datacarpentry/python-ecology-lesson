@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: .
+title: Wrap Up Lesson
+---
+
 #NOTE: MARIELA IS WORKING ON THIS
 
 # Data Types and Formats

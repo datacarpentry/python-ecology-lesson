@@ -1,4 +1,8 @@
-
+---
+layout: lesson
+root: .
+title: Indexing, Slicing and Subsetting DataFrames in Python
+---
 #Indexing, Slicing and Subsetting DataFrames in Python
 In lesson 01, we read a CSV into a python Pandas DataFrame. We learned how to save the DataFrame to a named object, how to perform basic math on the data, how to calculate summary statistics and how to create plots of the data. In this lesson, we will explore ways access different parts of the data using indexing, slicing and subsetting. 
 

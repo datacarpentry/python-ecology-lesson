@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: .
+title: Combining DataFrames with pandas
+---
+
 # Combining DataFrames with pandas
 
 In many "real world" situations, the data that we want to use come in multiple files. We often need to combine these files into a single DataFrame to analyze the data. The pandas package provides [various methods for combining DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including `merge` and `concat`.
