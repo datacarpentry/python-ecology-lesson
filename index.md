@@ -5,7 +5,7 @@ venue:
 address:
 country: United-States
 humandate: April 23-24, 2015
-contributors: ["Tracy Teal", "John Gossett"]
+contributors: ["Tracy Teal", "John Gossett", "Mariela Perignon"]
 contact: 
 raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
@@ -15,10 +15,9 @@ raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
 <!-- This block displays the instructors' names if they are available. -->
 {% if page.contributors %}
-  **Instructors:
+  **Content Contributors:
   {{page.contributors | join: ', ' %}}
 {% endif %}
-
 
 
 Short intro to the materials here: 
@@ -29,8 +28,8 @@ time, and with less pain.
 
 ## Lessons:
 
-* [00-short-introduction-to-Python](/00-short-introduction-to-Python)
-* L01 
+* [00-short-introduction-to-Python](./00-short-introduction-to-Python)
+* [01-starting-with-data](./01-starting-with-data)
 * L02
 * L03 
 * L04
