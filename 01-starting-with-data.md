@@ -365,8 +365,8 @@ is important to explore your data, before diving into analysis too quickly.
    represent the sex "Z", "P" or "R".
 2. What happens when you group by two columns using the syntax and then grab
    mean values:
-	`sorted2 = surveys_df.groupby(['plot','sex'])`
-	sorted.mean()
+	- `sorted2 = surveys_df.groupby(['plot','sex'])`
+	- `sorted2.mean()`
 3. Summarize weight values for each plot in your data. HINT: you can use the
    following syntax only create summary statistics for one column in your data
    `byPlot['wgt'].describe()`
