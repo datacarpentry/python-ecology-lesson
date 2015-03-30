@@ -113,7 +113,7 @@ elements. Each element can be accessed by its index:
 
 ```python
 >>> numbers = [1,2,3]
->>> l[0]
+>>> numbers[0]
 1
 ```
 
@@ -181,7 +181,7 @@ AList = [1,2,3]
 
 ### Challenge
 1. What happens when you type `ATuple[2]=5` vs `AList[1]=5` ?
-2. Type `type(ATuple)` into python - what is the object type? 
+2. Type `type(ATuple)` into python - what is the object type?
 
 
 ## Dictionaries
