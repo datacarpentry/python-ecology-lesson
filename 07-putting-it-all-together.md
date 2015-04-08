@@ -1,3 +1,8 @@
+---
+layout: lesson
+root: .
+title: Plotting Your Data - Matplotlib
+---
 
 #Putting it all together
 
