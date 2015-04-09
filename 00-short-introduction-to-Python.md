@@ -22,7 +22,7 @@ Python's main advantages:
 
 Python is an interpreted language. As a consequence, we can use it in two ways:
 
-1. Using interpreter as an "advanced calculator" in interactive mode:
+* Using interpreter as an "advanced calculator" in interactive mode:
 
 ```python
 user:host:~$ python
@@ -35,7 +35,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 Hello World
 ```
 
-2. Executing programs/scripts saved as a text file, usually with `*.py` extension
+* Executing programs/scripts saved as a text file, usually with `*.py` extension:
 
 ```
 user:host:~$ python my_script.py
