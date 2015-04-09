@@ -113,7 +113,7 @@ below.
 import OS
 os.getcwd()
 # if this directory isn't right, use the command below to set the working directory
-os.chdir(YOURPathHere)
+os.chdir("YOURPathHere")
 ```	
 
 ```python
@@ -431,7 +431,7 @@ We can plot our summary stats using Pandas, too.
 	# create a quick bar chart
 	species_table.plot(kind='bar');
 
-![Weight by Species Plot](pics/weightBySpecies.png)
+![Weight by Species Plot](img/weightBySpecies.png)
 Weight by species plot
 
 We can also look at how many animals were captured in each plot:
@@ -478,4 +478,4 @@ my_plot.set_ylabel("Weight")
 * You can use the command `unstack` to transform grouped data into columns for
   each plotting. Try running `surveys_df.unstack' and see what it yields.
 
-![Stacked Bar Plot](pics/stackedBar.png)
+![Stacked Bar Plot](img/stackedBar.png)

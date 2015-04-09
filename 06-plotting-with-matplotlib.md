@@ -4,8 +4,6 @@ root: .
 title: Plotting Your Data - Matplotlib
 ---
 
-# Plotting Your Data - Matplotlib
-
 ## About Matplotlib
 
 [Matplotlib](http://matplotlib.org/) is a library that can be used to visualize data that has been loaded with a library like Pandas, Numpy, or Scipy. For this tutorial, we'll use Pandas.
