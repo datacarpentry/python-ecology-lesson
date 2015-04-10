@@ -1,4 +1,8 @@
-# Matplotlib
+---
+layout: lesson
+root: .
+title: Plotting Your Data - Matplotlib
+---
 
 ## About Matplotlib
 
