@@ -1,24 +1,28 @@
 ---
 layout: lesson
-root: ../..
+root: .
 title: Short Introduction to Programming in Python
 ---
 
 # The Basics of Python
 
-Python is a general purpose programming language, focused on rapid development of scripts and applications.
+Python is a general purpose programming language, focused on rapid development
+of scripts and applications.
 
 Python's main advantages:
+
 * Open Source software, supported by Python Software Foundation
 * Available on all platforms
-* "Batteries Included" philosophy - libraries for common tasks available in standard installation
+* "Batteries Included" philosophy - libraries for common tasks available in
+  standard installation
 * supports multiple programming paradigms
 * very large community
 
 ## Interpreter
 
-Python is interpreted language. As a consequence, we can use it in two ways:
-* using interpreter as an "advanced calculator" in interactive mode
+Python is an interpreted language. As a consequence, we can use it in two ways:
+
+* Using interpreter as an "advanced calculator" in interactive mode:
 
 ```python
 user:host:~$ python
@@ -30,18 +34,20 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> print "Hello World"
 Hello World
 ```
-* executing programs/scripts saved as a text file, usually with `*.py` extension
+
+* Executing programs/scripts saved as a text file, usually with `*.py` extension:
 
 ```
 user:host:~$ python my_script.py
 Hello World
 ```
 
-## Introduction to Python build-in data types
+
+## Introduction to Python built-in data types
 
 ### Strings, integers and floats
 
-Most basic data types in Pythons are strings, integers and floats
+The most basic data types in Python are strings, integers and floats:
 
 ```python
 text = "Data Carpentry"
@@ -54,17 +60,17 @@ using the assignment operator `=`. Python variables don't have to hold specific
 data types - we can reassign them - but be careful as this can be confusing.
 
 To print out the value stored in a variable we can simply type the name of the
-variable into the interpreter
+variable into the interpreter:
 
 ```python
 >>> text
 "Data Carpentry"
 ```
 
-but this only works in the interpreter. In scripts we must use the `print` command
+but this only works in the interpreter. In scripts we must use the `print` command:
 
 ```python
-# Comments starts with #
+# Comments start with #
 # Next line will print out text
 print text
 "Data Carpentry"
@@ -72,7 +78,7 @@ print text
 
 ### Operators
 
-We can do math in Python using the basic operators `+, -, /, *, %`
+We can do math in Python using the basic operators `+, -, /, *, %`:
 
 ```python
 >>> 2 + 2
@@ -86,7 +92,7 @@ We can do math in Python using the basic operators `+, -, /, *, %`
 ```
 
 We can also use comparison and logic operators:
-`<, >, ==, !=, <=, >=, etc.`
+`<, >, ==, !=, <=, >=` etc.
 `and, or, not`
 
 ```python
@@ -98,11 +104,12 @@ True
 True
 ```
 
-## Sequential types: Lists and Dictionaries
+## Sequential types: Lists and Tuples
 
 ### Lists
 
-**Lists** are the most common data structure that can hold a sequence of elements. Each element can be accessed by it's index:
+**Lists** are the most common data structure that can hold a sequence of
+elements. Each element can be accessed by its index:
 
 ```python
 >>> numbers = [1,2,3]
@@ -110,7 +117,7 @@ True
 1
 ```
 
-A `for` loop can be used to access the elements in the sequence one at a time:
+A `for` loop can be used to access the elements in a sequence one at a time:
 
 ```python
 for num in numbers:
@@ -120,9 +127,11 @@ for num in numbers:
 3
 ```
 
-**Indentation** is very important in Python. Note that second line in above example is indented - this is Python's way of marking a block of code. We will discuss this in more detail later.
+**Indentation** is very important in Python. Note that second line in above
+example is indented - this is Python's way of marking a block of code. We will
+discuss this in more detail later.
 
-To add elements to the list, we can use the method `append`.
+To add elements to the list, we can use the `append` method:
 
 ```python
 >>> numbers.append(4)
@@ -145,7 +154,10 @@ class list(object)
  ...
 ```
 
-or we can get a list of methods by using `dir`. Some methods names are surrounded by double underscores. Those methods are called "special", and usually we access them in a different way. For example `__add__` method is responsible for `+` operator.
+or we can get a list of methods by using `dir`. Some methods names are
+surrounded by double underscores. Those methods are called "special", and
+usually we access them in a different way. For example `__add__` method is
+responsible for the `+` operator.
 
 ```python
 dir(numbers)
@@ -153,7 +165,26 @@ dir(numbers)
 ['__add__', '__class__', '__contains__', ...]
 ```
 
-### Dictionaries
+### Tuples
+
+A tuple is similar to a list in that it's a sequence of elements. However,
+tuples can not be changed once created (they are "immutable"). Tuples are
+created by placing comma-separated values inside parentheses `()`.
+
+```python
+# tuples use paratheses
+ATuple= (1,2,3)
+anotherTuple = ('blue','green','red')
+# notes lists uses square brackets
+AList = [1,2,3]
+```
+
+### Challenge
+1. What happens when you type `ATuple[2]=5` vs `AList[1]=5` ?
+2. Type `type(ATuple)` into python - what is the object type? 
+
+
+## Dictionaries
 
 A **dictionary** is a container that holds pairs of objects - keys and values.
 
@@ -162,10 +193,9 @@ A **dictionary** is a container that holds pairs of objects - keys and values.
 >>> translation["one"]
 1
 ```
-
-Dictionaries work a lot like lists - except that you can index them with
-*keys*. Keys can only have particular types - they have to be
-"hashable". Strings and numeric types are acceptable, but lists aren't.
+Dictionaries work a lot like lists - except that you index them with *keys*.
+Keys can only have particular types - they have to be "hashable". Strings and
+numeric types are acceptable, but lists aren't.
 
 ```python
 >>> rev = {1 : "one", 2 : "two"}
@@ -185,7 +215,9 @@ To add an item to the dictionary we assign a value to a new key:
 {1: 'one', 2: 'two', 3: 'three'}
 ```
 
-Using `for` loops with dictionaries is a little more complicated. We can do this in two ways:
+Using `for` loops with dictionaries is a little more complicated. We can do this
+in two ways:
+
 ```python
 >>> for key, value in rev.items():
 ...     print key, "->", value
@@ -194,7 +226,9 @@ Using `for` loops with dictionaries is a little more complicated. We can do this
 2 -> two
 3 -> three
 ```
+
 or
+
 ```python
 >>> for key in rev.keys():
 ...     print key, "->", rev[key]
@@ -208,8 +242,8 @@ or
 ## Functions
 
 Defining part of a program in Python as a function is done using the `def`
-keyword. For example a function that takes two arguments and returns the sum of
-them can be defined as:
+keyword. For example a function that takes two arguments and returns their sum
+can be defined as:
 
 ```python
 def add_function(a, b):
@@ -222,6 +256,7 @@ print z
 ```
 
 Key points here:
- - definition starts with `def`
- - function body is indented
- - `return` keyword precedes returned value
+
+* definition starts with `def`
+* function body is indented
+* `return` keyword precedes returned value
