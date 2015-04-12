@@ -59,7 +59,7 @@ con.close()
 
 Storing your data in an SQLite database can provide substantial performance
 improvements when reading/writing compared to CSV. The difference in performance
-when becomes more noticable as the size of the dataset grows (see for example
-[these benchmarks]).
+becomes more noticable as the size of the dataset grows (see for example [these
+benchmarks]).
 
 [these benchmarks]: http://sebastianraschka.com/Articles/sqlite3_database.html#benchmarks
