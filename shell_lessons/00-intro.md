@@ -9,12 +9,7 @@ minutes: 5
 *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
 *   Explain when and why command-line interfaces should be used instead of graphical interfaces.
 
-At a high level, computers do four things:
-
--   run programs
--   store data
--   communicate with each other
--   interact with us
+# Working with the command-line interface
 
 Computers and humans can interact in many different ways. The earliest computers had to be rewired for every new set of commands. The most cutting-edge methods (which often seem to belong to sci-fi movies!) 
 include direct brain-computer links and speech interfaces.
@@ -25,6 +20,7 @@ but their roots go back to Doug Engelbart's work in the 1960s,
 which you can see in what has been called
 "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
+## What is the command-line interface?
 Between the 1950s and the 1980s, most users interacted with computers using keyboards and line printers. This was initially done using teleprinters (TTY machines), which literally printed onto paper each command sent by the user and the output produced by the computer. In the 1970s, as video displays became more widely available, this text dialog transitioned away from physical paper and onto screens.
 
 This text-based method of interacting with a computer program is called a
@@ -33,6 +29,7 @@ This text-based method of interacting with a computer program is called a
 The command line is often the easiest way to interact with remote machines and supercomputers. 
 Familiarity with the shell is near essential to run many specialized tools and resources, including high-performance computing systems. As clusters and cloud computing become more popular for scientific data crunching, being able to drive them using a command-line interface is becoming a necessary skill. 
 
+## How does the command-line interface work?
 The heart of a CLI is a **read-evaluate-print loop**, or REPL:
 when the user types a command and then presses the enter (or return) key,
 the computer reads it,
@@ -41,6 +38,7 @@ and prints its output. When using a command-line interface, however, the user is
 
 When using a CLI, the interface is a program called a **command shell** that takes what the user types, figures out what commands to run, and orders the computer to execute them (while both CLIs and GUIs are technically shells, the **command shell** is commonly called *the shell*). The shell doesn’t perform any calculations itself. Instead, typing a command in the shell causes its corresponding computer program (also called an executable or script) to run and perform the desired actions.
 
+## Using the command-line
 The most popular shell for the Unix operating system is Bash,
 the Bourne Again SHell
 (so-called because it's derived from a shell written by Stephen Bourne --- this
