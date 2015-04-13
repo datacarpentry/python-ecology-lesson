@@ -6,7 +6,7 @@ title: Short Introduction to Programming in Python
 
 # The Basics of Python
 
-Python is a general purpose programming language, focused on rapid development
+Python is a general purpose programming language, that supports rapid development
 of scripts and applications.
 
 Python's main advantages:
@@ -15,8 +15,8 @@ Python's main advantages:
 * Available on all platforms
 * "Batteries Included" philosophy - libraries for common tasks available in
   standard installation
-* supports multiple programming paradigms
-* very large community
+* Supports multiple programming paradigms
+* Very large community
 
 ## Interpreter
 
@@ -56,8 +56,10 @@ pi_value = 3.1415
 ```
 
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
-using the assignment operator `=`. Python variables don't have to hold specific
-data types - we can reassign them - but be careful as this can be confusing.
+using the assignment operator `=`. The variable called `text` is a string which
+means it can contain letters and numbers. We could reassign the variable `text`
+to an integer too but - but be careful reassigning variables as this can get 
+confusing.
 
 To print out the value stored in a variable we can simply type the name of the
 variable into the interpreter:
@@ -78,7 +80,8 @@ print text
 
 ### Operators
 
-We can do math in Python using the basic operators `+, -, /, *, %`:
+We can perform mathematical calculations in Python using the basic operators
+ `+, -, /, *, %`:
 
 ```python
 >>> 2 + 2
@@ -108,8 +111,8 @@ True
 
 ### Lists
 
-**Lists** are the most common data structure that can hold a sequence of
-elements. Each element can be accessed by its index:
+**Lists** are the most common data structure. They can hold a sequence of
+elements. Each element can be accessed by an index:
 
 ```python
 >>> numbers = [1,2,3]
@@ -117,7 +120,8 @@ elements. Each element can be accessed by its index:
 1
 ```
 
-A `for` loop can be used to access the elements in a sequence one at a time:
+A `for` loop can be used to access the elements in a list or other Python data
+structure one at a time:
 
 ```python
 for num in numbers:
@@ -127,8 +131,8 @@ for num in numbers:
 3
 ```
 
-**Indentation** is very important in Python. Note that second line in above
-example is indented - this is Python's way of marking a block of code. We will
+**Indentation** is very important in Python. Note that second line in the 
+example above is indented. This is Python's way of marking a block of code. We will
 discuss this in more detail later.
 
 To add elements to the list, we can use the `append` method:
@@ -139,9 +143,9 @@ To add elements to the list, we can use the `append` method:
 [1,2,3,4]
 ```
 
-Methods are a way to interact with an object - like a list. Accessing them is
-done by using the dot `.`.
-To find out what methods are available, we can use the built-in `help` command:
+Methods are a way to interact with an object - like a list. We can use or apply 
+a method to a variable or element using the dot `.`. To find out what methods are
+ available, we can use the built-in `help` command:
 
 ```python
 help(numbers)
@@ -154,7 +158,7 @@ class list(object)
  ...
 ```
 
-or we can get a list of methods by using `dir`. Some methods names are
+We can also access a list of methods using `dir`. Some methods names are
 surrounded by double underscores. Those methods are called "special", and
 usually we access them in a different way. For example `__add__` method is
 responsible for the `+` operator.
@@ -193,9 +197,10 @@ A **dictionary** is a container that holds pairs of objects - keys and values.
 >>> translation["one"]
 1
 ```
-Dictionaries work a lot like lists - except that you index them with *keys*.
-Keys can only have particular types - they have to be "hashable". Strings and
-numeric types are acceptable, but lists aren't.
+Dictionaries work a lot like lists - except that you index them with *keys*. 
+You can think about a key as a name for or a unique identifier for a set of values
+in the dictionary. Keys can only have particular types - they have to be 
+"hashable". Strings and numeric types are acceptable, but lists aren't.
 
 ```python
 >>> rev = {1 : "one", 2 : "two"}
