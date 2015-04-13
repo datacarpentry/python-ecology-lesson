@@ -26,8 +26,8 @@ Once a library is set up, it can be used or called to perform many tasks.
 One of the best options for working with tabular data in python is to use the
 [Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. pandas). The
 Pandas library provides data structures, produces high quality plots with
-[matplotlib](http://matplotlib.org/), and integrates nicely with other libraries
-that use [NumPy](http://www.numpy.org/) arrays.
+[matplotlib](http://matplotlib.org/) and integrates nicely with other libraries
+that use [NumPy](http://www.numpy.org/) (which is another Python library) arrays.
 
 Python doesn't load all of the libraries available to it by default. We have to
 add an `import` statement to our code in order to use library functions. To import
@@ -102,9 +102,8 @@ Pandas using the nickname `pd`.
 import pandas as pd
 ```
 
-Let's also import the OS library. This library will allow us to make sure we are
-in the correct working directory.[More about the OS
-Library](https://docs.python.org/2/library/os.html). If you are working in
+Let's also import the [OS Library](https://docs.python.org/2/library/os.html). This library allows us to make sure we are
+in the correct working directory. If you are working in
 IPython Notebook, be sure to start the notebook in the workshop repository.
 If you didn't do that you can always set the working directory using the code
 below.
@@ -188,10 +187,10 @@ which returns:
 
 ## Manipulating Our Species Survey Data
 
-Now we can start manipulating our data! First, let's check data type of object
-that `surveys_df` is using the `type` command. The `type` function and
+Now we can start manipulating our data. First, let's check data type of object
+that `surveys_df` is using the `type` method. The `type` method and
 `__class__` attribute tell us that `surveys_df` is `<class
-'pandas.core.frame.DataFrame'>` in Python.
+'pandas.core.frame.DataFrame'>`.
 
 ```python
 type(surveys_df)
@@ -262,7 +261,7 @@ array(['record_id', 'month', 'day', 'year', 'plot', 'species', 'sex', 'wgt'], dt
 
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
-the unique names in that column.
+the unique values in the species column.
 
 ```python
 pd.unique(surveys_df.species)
@@ -475,7 +474,7 @@ my_plot.set_ylabel("Weight")
 ```
 
 
-* You can use the command `unstack` to transform grouped data into columns for
+* You can use the `unstack` method to transform grouped data into columns for
   each plotting. Try running `surveys_df.unstack' and see what it yields.
 
 ![Stacked Bar Plot](img/stackedBar.png)
