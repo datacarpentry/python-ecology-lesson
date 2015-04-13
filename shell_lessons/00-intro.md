@@ -1,13 +1,13 @@
 ---
-layout: page
+layout: lesson
+root: .
 title: The Unix Shell
 subtitle: Introducing the Shell
 minutes: 5
 ---
-> ## Learning Objectives {.objectives}
->
-> *   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
-> *   Explain when and why command-line interfaces should be used instead of graphical interfaces.
+### Learning Objectives
+*   Explain how the shell relates to the keyboard, the screen, the operating system, and users' programs.
+*   Explain when and why command-line interfaces should be used instead of graphical interfaces.
 
 At a high level, computers do four things:
 
@@ -16,33 +16,38 @@ At a high level, computers do four things:
 -   communicate with each other
 -   interact with us
 
-Computers and humans can interact in many different ways. The earliest computers had to be rewired for every new set of commands. The most cutting-edge methods (which often seem to come right out of sci-fi movies) 
+Computers and humans can interact in many different ways. The earliest computers had to be rewired for every new set of commands. The most cutting-edge methods (which often seem to belong to sci-fi movies!) 
 include direct brain-computer links and speech interfaces.
 Since these are still in their infancy,
-most of us still use windows, icons, mice, and pointers to tell computers what we want them to do.
+most of us are stuck using icons, windows, mice, and pointers to tell computers what we want them to do.
 These technologies didn't become widespread until the 1980s,
 but their roots go back to Doug Engelbart's work in the 1960s,
 which you can see in what has been called
 "[The Mother of All Demos](http://www.youtube.com/watch?v=a11JDLBXtPQ)".
 
-Between the 1950s and the 1980s, most users interacted with computers using line printers. Initially, this was done using teleprinters (TTY machines), which literally printed onto paper each command sent by the user and the output produced by the computer. In the 1970s, as video displays became more widely available, this text dialog transitioned away from physical paper and onto screens. This still only allowed input and output of the letters, numbers, and punctuation that are found on a standard keyboard,
-so programming languages and user interfaces had to be designed around that constraint.
+Between the 1950s and the 1980s, most users interacted with computers using keyboards and line printers. This was initially done using teleprinters (TTY machines), which literally printed onto paper each command sent by the user and the output produced by the computer. In the 1970s, as video displays became more widely available, this text dialog transitioned away from physical paper and onto screens.
 
-This text-based method for interacting with a computer program is called a
-**command-line interface**, or CLI. Even after the widespread adoption of **graphical user interfaces**, or GUIs, the command line continues to be extensively used by programmers and system administrators, as well as for many applications in engineering and scientific disciplines. In addition, the command line is often the easiest way to interact with remote machines and supercomputers. 
+This text-based method of interacting with a computer program is called a
+**command-line interface**, or CLI. Even after the widespread adoption of **graphical user interfaces**, or GUIs, the command line continues to be extensively used by programmers and system administrators, as well as for many applications in engineering and scientific disciplines.
+
+The command line is often the easiest way to interact with remote machines and supercomputers. 
 Familiarity with the shell is near essential to run many specialized tools and resources, including high-performance computing systems. As clusters and cloud computing become more popular for scientific data crunching, being able to drive them using a command-line interface is becoming a necessary skill. 
 
 The heart of a CLI is a **read-evaluate-print loop**, or REPL:
 when the user types a command and then presses the enter (or return) key,
 the computer reads it,
 executes it,
-and prints its output. When using a command-line interface, however, the user is not directly interacting with the guts of the computer. Both CLIs and GUIs are known as **shells** because they are programs that enclose the core of the operating system (the **kernel**) to hide much of its complexity and make it simpler for the user to interact with it. When using a CLI, the interface is a program called a **command shell** that takes what the user types, figures out what commands to run, and orders the computer to execute them (while both CLIs and GUIs are technically shells, the **command shell** is commonly called *the shell*). The shell doesn’t perform any calculations itself. Instead, typing a command in the shell causes its corresponding computer program (also called an executable or script) to run and perform the desired actions.
+and prints its output. When using a command-line interface, however, the user is not directly interacting with the guts of the computer. Both CLIs and GUIs are known as **shells** because they are programs that enclose the core of the operating system (the **kernel**) to hide much of its complexity and make it simpler for the user to interact with it.
+
+When using a CLI, the interface is a program called a **command shell** that takes what the user types, figures out what commands to run, and orders the computer to execute them (while both CLIs and GUIs are technically shells, the **command shell** is commonly called *the shell*). The shell doesn’t perform any calculations itself. Instead, typing a command in the shell causes its corresponding computer program (also called an executable or script) to run and perform the desired actions.
 
 The most popular shell for the Unix operating system is Bash,
 the Bourne Again SHell
 (so-called because it's derived from a shell written by Stephen Bourne --- this
 is what passes for wit among programmers!). Bash is the default shell on most modern implementations of Unix, including MacOS and Linux,
-and in most packages that provide Unix-like tools for Windows. Using the shell to interact with the operating system feels differently than using the desktop environment (the GUI) of any of the popular operating systems. Shell commands are terse (often only a couple of characters long),
+and in most packages that provide Unix-like tools for Windows.
+
+Using the shell to interact with the operating system feels differently than using the desktop environment (the GUI) of any of the popular operating systems. Shell commands are terse (often only a couple of characters long),
 their names are frequently cryptic,
 and their output is lines of text rather than something visual like a graph. While using the command line might sometimes feel cumbersome and unfamiliar, the shell allows us combine existing tools in powerful ways with only a few keystrokes
 and to set up scripts to handle large volumes of data automatically.
