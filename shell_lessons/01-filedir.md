@@ -1,30 +1,33 @@
 ---
-layout: page
+layout: lesson
+root: .
 title: The Unix Shell
 subtitle: Files and Directories
 minutes: 15
 ---
-> ## Learning Objectives
->
-> *   Explain the similarities and differences between a file and a directory.
-> *   Translate an absolute path into a relative path and vice versa.
-> *   Construct absolute and relative paths that identify specific files and directories.
-> *   Explain the steps in the shell's read-run-print cycle.
-> *   Identify the actual command, flags, and filenames in a command-line call.
-> *   Demonstrate the use of tab completion, and explain its advantages.
+### Learning Objectives
+*   Explain the similarities and differences between a file and a directory.
+*   Translate an absolute path into a relative path and vice versa.
+*   Construct absolute and relative paths that identify specific files and directories.
+*   Explain the steps in the shell's read-run-print cycle.
+*   Identify the actual command, flags, and filenames in a command-line call.
+*   Demonstrate the use of tab completion, and explain its advantages.
+
+# Navigating files and directories in the shell
 
 The part of the operating system responsible for managing files and directories
 is called the **file system**.
 It is composed of files,
 which hold information,
-and directories (also called "folders"),
-which hold files or other directories. Several shell commands can be used to create, inspect, rename, and delete files and directories. While you can do many of these things in the desktop environment of your own computer, these commands are fundamental for navigating the file system of  remote machines and supercomputers.
+and directories (or "folders"),
+which hold files or other directories. Several shell commands can be used to create, inspect, rename, and delete files and directories. While you can do many of these things in the desktop environment of your own computer, these commands are fundamental for navigating the file system of remote machines and supercomputers.
+
 
 Start by opening a shell window. You can do this by opening the Terminal in MacOS or Linux, or using an application such as Git Bash or Cygwin in Windows.
 
-~~~ {.input}
+```shell
 $
-~~~
+```
 
 The dollar sign is a **prompt** that shows us that the shell is waiting for input. Your shell might show something more elaborate, like the name of your computer and your current directory followed by the prompt.
 
@@ -34,12 +37,12 @@ In response, the shell will print the command’s output. The command `whoami` p
 i.e.,
 it shows us who the shell thinks we are:
 
-~~~ {.input}
+```shell
 $ whoami
-~~~
-~~~ {.output}
+```
+``` {.output}
 nelle
-~~~
+```
 
 More specifically, when we type `whoami` the shell:
 
@@ -57,12 +60,12 @@ Here,
 the computer's response is `/users/nelle`,
 which is Nelle's **home directory**. The output to the `pwd` command in your computer will almost surely be different (since your name is probably not Nelle!), and it might not even be your home directory:
 
-~~~ {.input}
+```shell
 $ pwd
-~~~
-~~~ {.output}
+```
+``` {.output}
 /users/nelle
-~~~
+```
 
 > ## Alphabet Soup {.callout}
 > 
@@ -93,28 +96,28 @@ The root directory contains multiple other directories, depending on your operat
 
 We can see what’s inside the current working directory (in Nelle’s case, her home directory) using the command `ls`, which stands for "listing":
 
-~~~ {.input}
+```shell
 $ ls
-~~~
-~~~ {.output}
+```
+``` {.output}
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
-~~~
+```
 
 The command `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
 We can make its output more comprehensible by using the **flag** `-F`,
 which tells `ls` to add a trailing `/` to the names of directories:
 
-~~~ {.input}
+```shell
 $ ls -F
-~~~
-~~~ {.output}
+```
+``` {.output}
 creatures/  molecules/           pizza.cfg
 data/       north-pacific-gyre/  solar.pdf
 Desktop/    notes.txt            writing/
-~~~
+```
 
 This is a case where the slash is serving as a separator - a name with a trailing `/` indicates that it is not a file but a directory, which could have more files and directories inside.
 
@@ -165,13 +168,13 @@ the command `ls` with the **arguments** `-F` and `data`.
 The second argument --- the one *without* a leading dash --- tells `ls` that
 we want a listing of something other than our current working directory:
 
-~~~ {.input}
+```shell
 $ ls -F data
-~~~
-~~~ {.output}
+```
+``` {.output}
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
-~~~
+```
 
 The output shows us that there are four text files and two sub-sub-directories.
 Organizing things hierarchically in this way helps us keep track of our work:
@@ -199,13 +202,13 @@ rather than from the root of the file system.
 If we run `ls -F /data` (*with* a leading slash) we get a different answer,
 because `/data` is an **absolute path**:
 
-~~~ {.input}
+```shell
 $ ls -F /data
-~~~
-~~~ {.output}
+```
+``` {.output}
 access.log    backup/    hardware.cfg
 network.cfg
-~~~
+```
 
 The leading `/` tells the computer to follow the path from the root of the filesystem,
 so it always refers to exactly one directory,
@@ -216,20 +219,20 @@ Before we do this,
 `pwd` shows us that we're in `/users/nelle`,
 and `ls` without any arguments shows us that directory's contents:
 
-~~~ {.input}
+```shell
 $ pwd
-~~~
-~~~ {.output}
+```
+``` {.output}
 /users/nelle
-~~~
-~~~ {.input}
+```
+```shell
 $ ls
-~~~
-~~~ {.output}
+```
+``` {.output}
 creatures  molecules           pizza.cfg
 data       north-pacific-gyre  solar.pdf
 Desktop    notes.txt           writing
-~~~
+```
 
 We can use `cd` followed by a directory name to change our working directory.
 `cd` stands for "change directory",
@@ -237,9 +240,9 @@ which is a bit misleading:
 the command doesn't change the directory,
 it changes the shell's idea of what directory we are in.
 
-~~~ {.input}
+```shell
 $ cd data
-~~~
+```
 
 `cd` doesn't print anything,
 but if we run `pwd` after it, we can see that we are now in `/users/nelle/data`.
@@ -247,39 +250,39 @@ If we run `ls` without arguments now,
 it lists the contents of `/users/nelle/data`,
 because that's where we now are:
 
-~~~ {.input}
+```shell
 $ pwd
-~~~
-~~~ {.output}
+```
+``` {.output}
 /users/nelle/data
-~~~
-~~~ {.input}
+```
+```shell
 $ ls -F
-~~~
-~~~ {.output}
+```
+``` {.output}
 amino-acids.txt   elements/     morse.txt
 pdb/              planets.txt   sunspot.txt
-~~~
+```
 
 We now know how to go down the directory tree:
 how do we go up?
 We could use an absolute path:
 
-~~~ {.input}
+```shell
 $ cd /users/nelle
-~~~
+```
 
 but it's almost always simpler to use `cd ..` to go up one level:
 
-~~~ {.input}
+```shell
 $ pwd
-~~~
-~~~ {.output}
+```
+``` {.output}
 /users/nelle/data
-~~~
-~~~ {.input}
+```
+```shell
 $ cd ..
-~~~
+```
 
 `..` is a special directory name meaning
 "the directory containing this one",
@@ -288,25 +291,25 @@ the **parent** of the current directory.
 Sure enough,
 if we run `pwd` after running `cd ..`, we're back in `/users/nelle`:
 
-~~~ {.input}
+```shell
 $ pwd
-~~~
-~~~ {.output}
+```
+``` {.output}
 /users/nelle
-~~~
+```
 
 The special directory `..` doesn't usually show up when we run `ls`.
 If we want to display it, we can give `ls` the `-a` flag:
 
-~~~ {.input}
+```shell
 $ ls -F -a
-~~~
-~~~ {.output}
+```
+``` {.output}
 ./                  creatures/          notes.txt
 ../                 data/               pizza.cfg
 .bash_profile       molecules/          solar.pdf
 Desktop/            north-pacific-gyre/ writing/
-~~~
+```
 
 `-a` stands for "show all";
 it forces `ls` to show us file and directory names that begin with `.`,
@@ -368,24 +371,24 @@ All 1520 files will go into the same directory.
 If she is in her home directory,
 Nelle can see what files she has using the command:
 
-~~~ {.input}
+```shell
 $ ls north-pacific-gyre/2012-07-03/
-~~~
+```
 
 This is a lot to type,
 but she can let the shell do most of the work.
 If she types:
 
-~~~ {.input}
+```shell
 $ ls nor
-~~~
+```
 
 and then presses tab,
 the shell automatically completes the directory name for her:
 
-~~~ {.input}
+```shell
 $ ls north-pacific-gyre/
-~~~
+```
 
 If she presses tab again,
 Bash will add `2012-07-03/` to the command,
@@ -414,9 +417,9 @@ and we will see it in many other tools as we go on.
 > and `-r` tells `ls` to display things in reverse order,
 > what command will display:
 > 
-> ~~~
+> ```
 > pnas-sub/ pnas-final/ original/
-> ~~~
+> ```
 > 
 > 1.  `ls pwd`
 > 2.  `ls -r -F`
