@@ -113,7 +113,7 @@ it imports properly.
 
 ```python	
 # for kicks read our output back into python and make sure all looks good
-newOutput = pd.read_csv('verticalStack.csv', keep_default_na=False, na_values=[""])
+newOutput = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
 ```
 
 ## Challenge
