@@ -238,8 +238,7 @@ merged_inner
 
 ```
  	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-0 	1 	7 	16 	1977 	2 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
-1 	2 	7 	16 	1977 	3 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
+
 2 	3 	7 	16 	1977 	2 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 3 	4 	7 	16 	1977 	7 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 4 	5 	7 	16 	1977 	3 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
