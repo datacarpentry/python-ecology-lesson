@@ -119,7 +119,7 @@ languages like Matlab and R.
 surveys_df[0:3]
 # select the first 5 rows (rows 0,1,2,3,4)
 surveys_df[:5]
-# select the second to last row
+# select the last element in the list
 surveys_df[-1:]
 ```
 
