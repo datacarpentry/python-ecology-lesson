@@ -73,12 +73,14 @@ We can use the `concat` function in Pandas to append either columns or rows from
 one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
-	# read in first 10 lines of surveys table
-	surveySub = surveys_df.head(10)
-	# grab the last 10 rows (minus the last one)
-	surveySubLast10 = surveys_df[-11:-1]
-	#reset the index values to the second dataframe appends properly
-	surveySubLast10=surveySubLast10.reset_index()
+```python
+# read in first 10 lines of surveys table
+surveySub = surveys_df.head(10)
+# grab the last 10 rows (minus the last one)
+surveySubLast10 = surveys_df[-11:-1]
+#reset the index values to the second dataframe appends properly
+surveySubLast10=surveySubLast10.reset_index()
+```
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 Pandas to stack the second DataFrame under the first one. It will automatically
@@ -89,12 +91,13 @@ same columns and associated column format in both datasets. When we stack
 horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
+```python
 	# stack the DataFrames on top of each other
 	verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
 
 	# place the DataFrames side by side
 	horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
-
+```
 
 ## Writing Out Your Data
 
