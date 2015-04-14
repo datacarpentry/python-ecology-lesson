@@ -226,7 +226,7 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:  
 
 ```python
-merged_inner = pd.merge(left=surveys_df, right=species_df, left_on='species', right_on='species_id')
+merged_inner = pd.merge(left=surveySub,right=speciesSub, left_on='species', right_on='species_id')
 
 merged_inner
 # what's the size of the output data?
@@ -238,7 +238,6 @@ merged_inner
 
 ```
  	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-
 2 	3 	7 	16 	1977 	2 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 3 	4 	7 	16 	1977 	7 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 4 	5 	7 	16 	1977 	3 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
@@ -299,7 +298,7 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ```python
-merged_left = pd.merge(left=surveys_df, right=species_df, how='left', left_on='species', right_on='species_id')
+merged_left = pd.merge(left=surveySub,right=speciesSub, how='left', left_on='species', right_on='species_id')
 
 merged_left
 
