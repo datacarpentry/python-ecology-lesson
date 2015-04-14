@@ -444,9 +444,6 @@ total_count.plot(kind='bar');
 
 1. Create a plot of average weight across all species per plot.
 2. Create a plot of total males versus total females for the entire dataset.
-3. Create a stacked bar plot that has male vs female for each plot.
-
-
 
 
 # Summary Plotting Challenge
