@@ -366,7 +366,7 @@ Create a new DataFrame by joining the contents of the `surveys.csv` and
    plots by plot type. 
 2. Calculate a diversity index of your choice for control vs rodent exclosure
    plots. The index should consider both species abundance and number of
-   species. You might choose to use the simply [biodiversity index described
+   species. You might choose to use the simple [biodiversity index described
    here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
    which calculates diversity as:
 
