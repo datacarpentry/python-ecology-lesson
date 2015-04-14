@@ -5,7 +5,7 @@ venue:
 address:
 country: United-States
 humandate: April 23-24, 2015
-contributors: ["Tracy Teal", "John Gosset", "Mariela Perignon", "Pls Add Others"]
+contributors: ["Tracy Teal", "Ethan White",  "Leah Wasser", "John Gosset", "Mariela Perignon"]
 contact: 
 raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
