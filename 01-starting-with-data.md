@@ -360,8 +360,7 @@ is important to explore your data, before diving into analysis too quickly.
 
 # Challenge
 
-1. Have a look at the output of the `describe` method below. How many columns
-   represent the sex "Z", "P" or "R".
+1. How many records contain the sex designations of: "Z", "P" and "R"?
 2. What happens when you group by two columns using the syntax and then grab
    mean values:
 	- `sorted2 = surveys_df.groupby(['plot','sex'])`
