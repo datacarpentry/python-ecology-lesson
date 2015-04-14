@@ -136,16 +136,10 @@ surveys_copy[0:3] = 0
 ## Slicing Subsets of Rows and Columns in Python
 
 We can select specific ranges of our data in both the row and column directions
-using the `loc` and `iloc` arguments. The `loc` argument allows you to select
-data using labels AND numeric integer locations. Put another way, `loc` only
-accepts integer index values. `iloc` only allows you to select ranges using
-labels.
+using either label or integer-based indexing.
 
-NOTE: Index values and labels must be found in the DataFrame or you will get a
-KeyError. Remember that the start bound and the stop bound are included. When
-using `loc` Integers can be used, but they refer to the index label and not the
-position. Thus when you use `loc`, and select 1:4, you will get a different result
-than using `iloc` to select rows 1:4.
+- `loc`: indexing via *labels*
+- `iloc`: indexing via *integers*
 
 To select a subset of rows AND columns from our DataFrame, we can use the `iloc`
 method. For example, we can select month, day and year (columns 2, 3 and 4 if we
@@ -159,15 +153,14 @@ which gives **output**
 
 ```
    month  day  year
-0          1      7   16  1977
-1          2      7   16  1977
-2          3      7   16  1977
+0      7   16  1977
+1      7   16  1977
+2      7   16  1977
 ```
 
 Notice that we asked for a slice from 0:3. This yielded 3 rows of data. When you
 ask for 0:3, you are actually telling python to start at index 0 and select rows
 0, 1, 2 **up to but not including 3**.
-
 
 Let's next explore some other ways to index and select subsets of data:
 
@@ -180,6 +173,12 @@ surveys_df.loc[0, ['species', 'plot', 'wgt']]
 # What happens when you type the code below?
 surveys_df.loc[[0, 10, 35549], :]
 ```
+
+NOTE: Labels must be found in the DataFrame or you will get a `KeyError`. The
+start bound and the stop bound are **included**.  When using `loc`, integers
+*can* also be used, but they refer to the index label and not the position. Thus
+when you use `loc`, and select 1:4, you will get a different result than using
+`iloc` to select rows 1:4.
 
 We can also select a specific data value according to the specific row and
 column location within the data frame using the `iloc` function:
