@@ -152,7 +152,7 @@ method. For example, we can select month, day and year (columns 2, 3 and 4 if we
 start counting at 1), like this:
 
 ```python
-dat.iloc[0:3, 1:4]
+surveys_df.iloc[0:3, 1:4]
 ```
 
 which gives **output**
