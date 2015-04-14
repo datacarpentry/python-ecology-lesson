@@ -77,6 +77,8 @@ works.
 	surveySub = surveys_df.head(10)
 	# grab the last 10 rows (minus the last one)
 	surveySubLast10 = surveys_df[-11:-1]
+	#reset the index values to the second dataframe appends properly
+	surveySubLast10=surveySubLast10.reset_index()
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 Pandas to stack the second DataFrame under the first one. It will automatically
