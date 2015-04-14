@@ -76,7 +76,7 @@ works.
 	# read in first 10 lines of surveys table
 	surveySub = surveys_df.head(10)
 	# grab the last 10 rows (minus the last one)
-	surveySubLast10 = surveys_df[-10:-1]
+	surveySubLast10 = surveys_df[-11:-1]
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 Pandas to stack the second DataFrame under the first one. It will automatically
