@@ -99,6 +99,19 @@ related in some way).
 	horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
 ```
 
+### Row Index Values and Concat
+Have a look at the `horizontalStack` dataframe? Notice anything unusual? The row indexes for the two data frames `surveySub` and `surveySubLast10` are not the same. Thus, when Python tries to concatenate the two dataframes it can't place them next to each other. We can reindex our second dataframe using the `reset_index()` method.
+
+ ```python
+#reindex the data and then run concat again 
+
+surveySubLast10 = surveysSubLast10.reset_index()
+horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
+```
+
+The new `horizontalStack` dataframe is now side by side without the extra `NaN` values.
+
+
 ## Writing Out Your Data
 
 When you are finished merging your DataFrames, you might want to export the data
