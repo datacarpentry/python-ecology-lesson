@@ -23,7 +23,8 @@ providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
 `bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15 
 15 minute intervals (in cubic feet per second) for a streamgage on Boulder 
-Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013.
+Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
+like to use this dataset, please [download it here.](data/bouldercreek_09_2013.txt) 
 
 ##2. Clean up your data and open it using Python and Pandas
 
