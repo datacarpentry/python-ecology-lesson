@@ -112,11 +112,10 @@ horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
 The new `horizontalStack` dataframe is now side by side without the extra `NaN` values.
 
 
-## Writing Out Your Data
+## Writing Out Data to CSV
 
-When you are finished merging your DataFrames, you might want to export the data
-for future use. We can use the `to_csv` command to do this. Note that the code
-below will by default save the data into the current working directory. We could
+We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
 `verticalStack.to_csv('foldername/out.csv')`.
 
@@ -166,13 +165,13 @@ of information to the Survey data.
 
 Storing data in this way has many benefits including:
 
-1. it ensures consistency in the spelling of species attributes (genus, species
+1. It ensures consistency in the spelling of species attributes (genus, species
    and taxa) given each species is only entered once. Imagine the possibilities
    for spelling errors when entering the genus and species thousands of times!
 2. It also makes it easy for us to make changes to the species information once
    without having to find each instance of it in the larger survey data.
 3. It optimizes the size of our data. 
-4. And more!
+
 
 ## Joining Two DataFrames 
 
