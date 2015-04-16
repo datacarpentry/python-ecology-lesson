@@ -29,7 +29,7 @@ exercise. Let's reopen it:
 # first make sure pandas is loaded
 import pandas as pd
 # read in the survey csv
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 # Indexing & Slicing in Python
@@ -70,6 +70,9 @@ order. This is useful when we need to reorganize our data.
 surveys_df[['species', 'plot']]
 # what happens when you flip the order?
 surveys_df[['plot', 'species']]
+#what happens if you ask for a column that doesn't exist?
+surveys_df['speciess']
+
 ```
 
 
@@ -77,7 +80,7 @@ surveys_df[['plot', 'species']]
 
 **REMINDER**: Python Uses 0-based Indexing
 
-Before we dig into python, let's remind ourselves that Python uses 0-based
+Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
 0. This is different from other tools like R and Matlab that index elements
 within objects starting at 1.
@@ -123,7 +126,8 @@ surveys_df[:5]
 surveys_df[-1:]
 ```
 
-We can also reassign values within subsets of our DataFrame:
+We can also reassign values within subsets of our DataFrame. But before we do that, let's make a 
+copy of our DataFrame so as not to modify our original imported data. 
 
 ```python
 # copy the surveys dataframe so we don't modify the original DataFrame
@@ -133,12 +137,33 @@ surveys_copy = surveys_df
 surveys_copy[0:3] = 0
 ```
 
+Next, try the following code: 
+
+```python
+surveys_copy.head()
+surveys_df.head()
+```
+What is the difference between the two data frames?
+
+## Referencing Objects vs Copying Objects in Python
+We might have thought that we were creating a fresh copy of the `surveys_df` objects when we 
+used the code `surveys_copy = surveys_df`. However the statement  y = x doesn’t create a copy of our DataFrame. 
+It creates a new variable y that refers to the **same** object x refers to. This means that there is only one object 
+(the DataFrame), and both x and y refer to it. So when we assign the first 3 columns the value of 0 using the 
+`surveys_copy` DataFrame, the `surveys_df` DataFrame is modified too. To create a fresh copy of the `surveys_df`
+DataFrame we use the syntax y=x.copy().
+
+```python
+surveys_copy= surveys_df.copy()
+
+```
+
 ## Slicing Subsets of Rows and Columns in Python
 
 We can select specific ranges of our data in both the row and column directions
 using either label or integer-based indexing.
 
-- `loc`: indexing via *labels*
+- `loc`: indexing via *labels* or *integers*
 - `iloc`: indexing via *integers*
 
 To select a subset of rows AND columns from our DataFrame, we can use the `iloc`
@@ -281,15 +306,17 @@ with selecting various subsets of the "surveys" data.
    `surveys_df[surveys_df['sex'].isin([listGoesHere])]`. Use the `isin` function
    to find all plots that contain species of sex "Z" or sex "R" or sex "P" in
    the surveys DataFrame. How many records contain these values?
-3. Experiment with other queries to find data that are missing.
+3. Experiment with other queries. Create a query that finds all rows with a weight value > or equal to 0.
+4. The `~` symbol in Python can be used to return the OPPOSITE of the selection that you specify in python. 
+It is equivalent to **is not in**. Write a query that selects all rows that are NOT equal to 'M' or 'F' in the surveys
+data.
 
 
 # Using Masks
 
 A mask can be useful to locate where a particular subset of values exist or
 don't exist - for example,  NaN, or "Not a Number" values. To understand masks,
-we also need to understand `BOOLEAN` objects in python, so let's cover that
-first.
+we also need to understand `BOOLEAN` objects in python.
 
 Boolean values include `true` or `false`. So for example
 
@@ -306,7 +333,7 @@ When we ask python what the value of `x > 5` is, we get `False`. This is because
 is not greater than 5 it is equal to 5. To create a boolean mask, you first create the
 True / False criteria (e.g. values > 5 = True). Python will then assess each
 value in the object to determine whether the value meets the criteria (True) or
-not (False). Python will then create an output object that is the same shape as
+not (False). Python creates an output object that is the same shape as
 the original object, but with a True or False value for each index location.
 
 Let's try this out. Let's identify all locations in the survey data that have
@@ -340,22 +367,22 @@ A snippet of the output is below:
 [35549 rows x 8 columns]
 ```
 
-But what if we just want to select the rows where there are null values? To do
-that we can use the mask as an index to subset our data as follows:
+To select the rows where there are null values,  we can use 
+the mask as an index to subset our data as follows:
 
 ```python
-# select only the rows that contain NaN values
-surveys_df[pd.isnull(surveys_df)]
+#To select just the rows with NaN values, we can use the .any method
+surveys_df[pd.isnull(surveys_df).any(axis=1)]
 ```
 
-Note that there are many null or NaN values in the wgt column of our DataFrame.
+Note that there are many null or NaN values in the `wgt` column of our DataFrame.
 We will explore different ways of dealing with these in Lesson 03.
 
 We can run `isnull` on a particular column too. What does the code below do?
 
 ```python
 # what does this do?
-emptyWeights = surveys_df[pd.isnull(surveys_df.wgt)]
+emptyWeights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['wgt']
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean

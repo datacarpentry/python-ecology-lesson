@@ -4,7 +4,7 @@ root: .
 title: Starting With Data
 ---
 
-# Working With Pandas DataFrames in Python
+## Working With Pandas DataFrames in Python
 
 
 ### Learning Objectives
@@ -141,7 +141,7 @@ The above command yields the **output** below:
 ...
 [35549 rows x 8 columns]
 ```
-We can see that there were 33,549 rows parsed. Each row has 8 associated
+We can see that there were 33,549 rows parsed. Each row has 8 
 columns. It looks like  the `read_csv` function in Pandas read our file
 properly. However, we haven't saved any data to memory so we can work with it.
 We need to assign the DataFrame to a variable. Remember that a variable is a
@@ -385,20 +385,20 @@ Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
 ## Quickly Creating Summary Counts in Pandas
 
 Let's next create a list of unique species in our data. We can do this in a few
-ways.
+ways. But we'll use `groupby` combined with a `count()` method.
 
-1. We can use the `nunique()` method which return a pandas SERIES of unique
-   elements in the data and a n associated count of how many rows contain that
-   unique element in the DataFrame.
 
 ```python
-species_list = surveys_df.record_id.groupby(surveys_df.species).nunique()
+# count the number of samples by species
+species_list = surveys_df['record_id'].groupby(surveys_df.species).count()
+
+['wgt']
 ```
 
 Or, we can also count just the rows that have the species "DO":
 
 ```python
-surveys_df.record_id.groupby(surveys_df['species']).nunique()['DO']
+surveys_df['record_id'].groupby(surveys_df.species).count()['DO']
 ```
 
 ## Basic Math Functions
@@ -427,7 +427,7 @@ We can plot our summary stats using Pandas, too.
 	# make sure figures appear inline in Ipython Notebook
 	%matplotlib inline
 	# create a quick bar chart
-	species_table.plot(kind='bar');
+	species_list.plot(kind='bar');
 
 ![Weight by Species Plot](img/weightBySpecies.png)
 Weight by species plot
@@ -449,7 +449,8 @@ total_count.plot(kind='bar');
 # Summary Plotting Challenge
 
 Create a stacked bar plot, with weight on the Y axis, and the stacked variables
-being sex. Here is some data to help you solve this challenge:
+being sex. The plot should show total weight by sex for each plot. Some 
+tips are below to help you solve this challenge:
 
 * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
 * You can use the code that follows to create a stacked bar plot but the data
@@ -464,13 +465,13 @@ plot
 1 	 	46.311138 	55.950560
 2 	 	52.561845 	51.391382
 
-data.plot(kind='bar',stacked=True,title="Total Weight by Plot and Sex")
+my_plot=data.plot(kind='bar',stacked=True,title="Total Weight by Plot and Sex")
 my_plot.set_xlabel("Plot")
 my_plot.set_ylabel("Weight")
 ```
 
 
-* You can use the `unstack` method to transform grouped data into columns for
+* You can use the `.unstack()` method to transform grouped data into columns for
   each plotting. Try running `surveys_df.unstack' and see what it yields.
 
 ![Stacked Bar Plot](img/stackedBar.png)
