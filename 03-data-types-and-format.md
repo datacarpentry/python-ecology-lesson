@@ -23,9 +23,9 @@ structure and format of our data.
 
 # Types of Data
 
-Let's begin by talking about data types. How information is stored in a
+How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
-calculations as well.
+calculations as well. There are two main types of data that we're explore in this lesson: numeric and character types.
 
 # Numeric Data Types
 
@@ -36,7 +36,7 @@ floating point numbers, Pandas will assign the entire column to the float data
 type so the decimal points are not lost.
 
 An **integer** will never have a decimal point. Thus 1.13 would be stored as 1.
-1234.345 is stored as 1234. You will often see the data type Int64 in python
+1234.345 is stored as 1234. You will often see the data type `Int64` in python
 which stands for 64 bit integer. The 64 simply refers to the memory allocated to
 store data in each cell which effectively relates to how many digits in can
 store in each "cell". Allocating space ahead of time allows computers to
@@ -67,8 +67,8 @@ is in the table below:
 ## Checking the format of our data
 
 Now that we're armed with a basic understanding of numeric and character data
-types, let's explore our data. We'll be working with the same `surveys.csv`
-dataset that we've used in previous lessons.
+types, let's explore the format of our survey data. We'll be working with the 
+same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
@@ -168,7 +168,7 @@ print '10.0/3 is:', 10.0/3
 
 Python does this for historical reasons: integer operations were much
 faster on early computers, and this behavior is actually useful in a lot of
-situations. It's still confusing, though, so Python 3 produces a floating-point
+situations. It's still confusing though, so Python 3 produces a floating-point
 answer when dividing integers if it needs to. We're still using Python 2.7 in
 this class though, so if we want 5/9 to give us the right answer, we have to
 write it as 5.0/9, 5/9.0, or some other variation.
