@@ -1,7 +1,6 @@
-Materials have been developed and adapted by many contributors and were originally adapted from Software Carpentry materials.
+The materials in this Python-Ecology repository were initially developed and adapted and continue to be revised by many contributors. Some of the lessons were adapted from Software Carpentry materials.
 
-The first workshop was run at NESCent on May 8-9, 2014 with the development and
-instruction of lessons by Karen Cranston, Hilmar Lapp, Tracy Teal and Ethan White and contributions from Deb Paul and Mike Smorul.
+The first Python Data Carpentry workshop was run at University of Miami on March 30 2015 John Gossett and Francois Michonneau. During this time materials were refined and they presented again at the UCAR Software Engineering Assembly (SEA) conference in Boulder, Colorado by Leah Wasser (NEON,Inc) and Mariela Perignon.
 
 ## Data
 
@@ -18,23 +17,16 @@ Master_suction_trap_data_list_uncleaned.csv is a pre-cleaning version of a publi
 
 ## Lessons
 
-### shell
+The current list of lessons.
+Note: these lessons were reorganized, cleaned up and developed further by Leah Wasser, Mariela Perignon, John Gossett and Francois Michonneau in April 2015. 
 
-Original materials adapted from Software Carpentry shell lessons by Greg Wilson
-with contributions from Ethan White, Jens vdL, Raniere Silva, Meg Stanton, Amy
-Brown and Doug Latornell.
+    Short Introduction to Python
+    Starting With Data
+    Index Slice Subset
+    Data Types and Format
+    Merging Data
+    Data Analysis Automation: Loops and Functions (Developed by Mariela Perignon with minor edits both Leah Wasser)
+    Plotting with Matplotlib
+    Putting It All Together (Developed by Mariela Perignon with minor revisions by Leah Wasser April 2015)
+    Accessing SQL using Python (Added by John Gosset with minor revisions by Leah Wasser April 2015)
 
-### SQL
-
-Original materials adapted from Software Carpentry SQL lessons for ecologists by
-Ethan White, which were adapted from Greg Wilson's original SQL lessons.
-
-### R materials
-Original materials adapted from SWC Python lessons by Sarah Supp.
-John Blischak led the continued development of materials with contributions
-from Gavin Simpson, Tracy Teal, Greg Wilson, Diego Barneche, Stephen Turner and Karthik Ram. 
-
-### Spreadsheet Best Practices
-Original materials adapted from [Practical Data Management for Bug Counters](http://practicaldatamanagement.wordpress.com/) by Christie Bahlai <br>
-Christie Bahlai and Aleksandra Pawlik led the continued development of materials with contributions
-from Jennifer Bryan, Alexander Duryee, Jeffrey Hollister,  Daisie Huang, Owen Jones, and Ben Marwick
