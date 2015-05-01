@@ -287,6 +287,25 @@ Notice that `merged_inner` has fewer rows than `surveysSub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species` that
 do not exist as value(s) for `species_id` in `species_df`.
 
+## Joining With Identical Column Headers
+Notice that the output of the join above includes two new columns `species_x` and
+ `species_y`. This happened because we had a species field in both tables with 
+ information that could not be joined. Let's fix that.
+ 
+### Fix column headers
+
+```python
+#create a list of column headings
+cols = list(surveys_df.columns)
+#change the species column to species_id
+cols[5] = 'species_id'
+#assign the list of column names back to our DataFrame
+surveys_df.columns = cols
+
+print surveys_df.columns
+```
+
+After fixing the column names, run the join again. Do the results look cleaner?
 
 ## Left joins
 
