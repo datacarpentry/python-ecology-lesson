@@ -1,16 +1,17 @@
 ---
 layout: lesson
 root: .
-title: Plotting Your Data - Matplotlib
+title: Data Ingest & Visualization - Matplotlib & Pandas
 ---
 
-#Putting it all together
 
-Up to this point, we have walked through many of the tasks that are often
-involved in handling and processing data using the clean and well-behaved files
-we provided. In this wrap-up exercise, you are going to perform many of the same
-tasks with real data sets. This lesson also covers one last important aspect of
-data management: displaying the data in graphical form.
+##Putting it all together
+
+Up to this point, we have walked through tasks that are often
+involved in handling and processing data using the workshop ready cleaned  
+files that we have provided. In this wrap-up exercise, we will perform 
+many of the same tasks with real data sets. This lesson also covers data 
+visualization.
 
 As opposed to the previous ones, this lesson does not give step-by-step
 directions to each of the tasks. Use the lesson materials you've already gone
@@ -21,13 +22,14 @@ through as well as the Python documentation to help you along.
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
-`bouldercreek_09_2013.txt` contains 15 minute discharge records (in cubic feet
-per second) for a streamgage on Boulder Creek at North 75th Street (USGS gage
-06730200) for 1-30 September 2013.
+`bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15 
+15 minute intervals (in cubic feet per second) for a streamgage on Boulder 
+Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
+like to use this dataset, please [download it here.](data/bouldercreek_09_2013.txt)
 
 ##2. Clean up your data and open it using Python and Pandas
 
-Attemt to import your data file into Python using Pandas. Did it fail? Your data
+To begin, import your data file into Python using Pandas. Did it fail? Your data
 file probably has a header that Pandas does not recognize as part of the data
 table. Remove this header, but do not simply delete it in a text editor! Use
 either a shell script or Python to do this - you wouldn't want to do it by hand
@@ -77,10 +79,10 @@ also change the name of the columns in the DataFrame like this:
 
 ## 3. Make a line plot of your data
 
-Matplotlib is a library that can be used to visualize data in Python. The
+Matplotlib is a Python library that can be used to visualize data. The
 toolbox `matplotlib.pyplot` is a collection of functions that make matplotlib
 work like MATLAB. In most cases, this is all that you will need to use, but
-there are many other wonderful tools in matplotlib that you should explore.
+there are many other useful tools in matplotlib that you should explore.
 
 We will cover a few basic commands for formatting plots in this lesson. A great
 resource for help styling your figures is the matplotlib gallery

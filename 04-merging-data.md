@@ -73,10 +73,14 @@ We can use the `concat` function in Pandas to append either columns or rows from
 one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
-	# read in first 10 lines of surveys table
-	surveySub = surveys_df.head(10)
-	# grab the last 10 rows (minus the last one)
-	surveySubLast10 = surveys_df[-10:-1]
+```python
+# read in first 10 lines of surveys table
+surveySub = surveys_df.head(10)
+# grab the last 10 rows (minus the last one)
+surveySubLast10 = surveys_df[-11:-1]
+#reset the index values to the second dataframe appends properly
+surveySubLast10=surveySubLast10.reset_index()
+```
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 Pandas to stack the second DataFrame under the first one. It will automatically
@@ -87,18 +91,31 @@ same columns and associated column format in both datasets. When we stack
 horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
+```python
 	# stack the DataFrames on top of each other
 	verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
 
 	# place the DataFrames side by side
 	horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
+```
+
+### Row Index Values and Concat
+Have a look at the `horizontalStack` dataframe? Notice anything unusual? The row indexes for the two data frames `surveySub` and `surveySubLast10` are not the same. Thus, when Python tries to concatenate the two dataframes it can't place them next to each other. We can reindex our second dataframe using the `reset_index()` method.
+
+ ```python
+#reindex the data and then run concat again 
+
+surveySubLast10 = surveysSubLast10.reset_index()
+horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
+```
+
+The new `horizontalStack` dataframe is now side by side without the extra `NaN` values.
 
 
-## Writing Out Your Data
+## Writing Out Data to CSV
 
-When you are finished merging your DataFrames, you might want to export the data
-for future use. We can use the `to_csv` command to do this. Note that the code
-below will by default save the data into the current working directory. We could
+We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
 `verticalStack.to_csv('foldername/out.csv')`.
 
@@ -113,7 +130,7 @@ it imports properly.
 
 ```python	
 # for kicks read our output back into python and make sure all looks good
-newOutput = pd.read_csv('verticalStack.csv', keep_default_na=False, na_values=[""])
+newOutput = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
 ```
 
 ## Challenge
@@ -148,13 +165,13 @@ of information to the Survey data.
 
 Storing data in this way has many benefits including:
 
-1. it ensures consistency in the spelling of species attributes (genus, species
+1. It ensures consistency in the spelling of species attributes (genus, species
    and taxa) given each species is only entered once. Imagine the possibilities
    for spelling errors when entering the genus and species thousands of times!
 2. It also makes it easy for us to make changes to the species information once
    without having to find each instance of it in the larger survey data.
 3. It optimizes the size of our data. 
-4. And more!
+
 
 ## Joining Two DataFrames 
 
@@ -167,7 +184,7 @@ in a subset of the species table.
 surveySub = surveys_df.head(10)
 
 # import a small subset of the species data designed for this part of the lesson
-speciesSub = pd.read_csv('data/biology/speciesSubset.csv', keep_default_na=False, na_values=[""])
+speciesSub = pd.read_csv('speciesSubset.csv', keep_default_na=False, na_values=[""])
 ```
 
 In this example, `speciesSub` is the lookup table containing genus, species, and
@@ -221,7 +238,7 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:  
 
 ```python
-merged_inner = pd.merge(left=surveys_df, right=species_df, left_on='species', right_on='species_id')
+merged_inner = pd.merge(left=surveySub,right=speciesSub, left_on='species', right_on='species_id')
 
 merged_inner
 # what's the size of the output data?
@@ -233,8 +250,6 @@ merged_inner
 
 ```
  	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-0 	1 	7 	16 	1977 	2 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
-1 	2 	7 	16 	1977 	3 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
 2 	3 	7 	16 	1977 	2 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 3 	4 	7 	16 	1977 	7 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
 4 	5 	7 	16 	1977 	3 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
@@ -272,6 +287,25 @@ Notice that `merged_inner` has fewer rows than `surveysSub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species` that
 do not exist as value(s) for `species_id` in `species_df`.
 
+## Joining With Identical Column Headers
+Notice that the output of the join above includes two new columns `species_x` and
+ `species_y`. This happened because we had a species field in both tables with 
+ information that could not be joined. Let's fix that.
+ 
+### Fix column headers
+
+```python
+#create a list of column headings
+cols = list(surveys_df.columns)
+#change the species column to species_id
+cols[5] = 'species_id'
+#assign the list of column names back to our DataFrame
+surveys_df.columns = cols
+
+print surveys_df.columns
+```
+
+After fixing the column names, run the join again. Do the results look cleaner?
 
 ## Left joins
 
@@ -295,7 +329,7 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ```python
-merged_left = pd.merge(left=surveys_df, right=species_df, how='left', left_on='species', right_on='species_id')
+merged_left = pd.merge(left=surveySub,right=speciesSub, how='left', left_on='species', right_on='species_id')
 
 merged_left
 
@@ -363,7 +397,7 @@ Create a new DataFrame by joining the contents of the `surveys.csv` and
    plots by plot type. 
 2. Calculate a diversity index of your choice for control vs rodent exclosure
    plots. The index should consider both species abundance and number of
-   species. You might choose to use the simply [biodiversity index described
+   species. You might choose to use the simple [biodiversity index described
    here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
    which calculates diversity as:
 
