@@ -4,7 +4,7 @@ root: .
 title: Starting With Data
 ---
 
-# Working With Pandas DataFrames in Python
+## Working With Pandas DataFrames in Python
 
 
 ### Learning Objectives
@@ -26,8 +26,8 @@ Once a library is set up, it can be used or called to perform many tasks.
 One of the best options for working with tabular data in python is to use the
 [Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. pandas). The
 Pandas library provides data structures, produces high quality plots with
-[matplotlib](http://matplotlib.org/), and integrates nicely with other libraries
-that use [NumPy](http://www.numpy.org/) arrays.
+[matplotlib](http://matplotlib.org/) and integrates nicely with other libraries
+that use [NumPy](http://www.numpy.org/) (which is another Python library) arrays.
 
 Python doesn't load all of the libraries available to it by default. We have to
 add an `import` statement to our code in order to use library functions. To import
@@ -102,9 +102,8 @@ Pandas using the nickname `pd`.
 import pandas as pd
 ```
 
-Let's also import the OS library. This library will allow us to make sure we are
-in the correct working directory.[More about the OS
-Library](https://docs.python.org/2/library/os.html). If you are working in
+Let's also import the [OS Library](https://docs.python.org/2/library/os.html). This library allows us to make sure we are
+in the correct working directory. If you are working in
 IPython Notebook, be sure to start the notebook in the workshop repository.
 If you didn't do that you can always set the working directory using the code
 below.
@@ -142,7 +141,7 @@ The above command yields the **output** below:
 ...
 [35549 rows x 8 columns]
 ```
-We can see that there were 33,549 rows parsed. Each row has 8 associated
+We can see that there were 33,549 rows parsed. Each row has 8 
 columns. It looks like  the `read_csv` function in Pandas read our file
 properly. However, we haven't saved any data to memory so we can work with it.
 We need to assign the DataFrame to a variable. Remember that a variable is a
@@ -188,10 +187,10 @@ which returns:
 
 ## Manipulating Our Species Survey Data
 
-Now we can start manipulating our data! First, let's check data type of object
-that `surveys_df` is using the `type` command. The `type` function and
+Now we can start manipulating our data. First, let's check data type of object
+that `surveys_df` is using the `type` method. The `type` method and
 `__class__` attribute tell us that `surveys_df` is `<class
-'pandas.core.frame.DataFrame'>` in Python.
+'pandas.core.frame.DataFrame'>`.
 
 ```python
 type(surveys_df)
@@ -262,10 +261,10 @@ array(['record_id', 'month', 'day', 'year', 'plot', 'species', 'sex', 'wgt'], dt
 
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
-the unique names in that column.
+the unique values in the species column.
 
 ```python
-pd.unique(surveys_df.species)
+pd.unique(surveys_df.species_id)
 ```
 
 which **returns**:
@@ -361,8 +360,7 @@ is important to explore your data, before diving into analysis too quickly.
 
 # Challenge
 
-1. Have a look at the output of the `describe` method below. How many columns
-   represent the sex "Z", "P" or "R".
+1. How many records contain the sex designations of: "Z", "P" and "R"?
 2. What happens when you group by two columns using the syntax and then grab
    mean values:
 	- `sorted2 = surveys_df.groupby(['plot','sex'])`
@@ -387,20 +385,20 @@ Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
 ## Quickly Creating Summary Counts in Pandas
 
 Let's next create a list of unique species in our data. We can do this in a few
-ways.
+ways. But we'll use `groupby` combined with a `count()` method.
 
-1. We can use the `nunique()` method which return a pandas SERIES of unique
-   elements in the data and a n associated count of how many rows contain that
-   unique element in the DataFrame.
 
 ```python
-species_list = surveys_df.record_id.groupby(surveys_df.species).nunique()
+# count the number of samples by species
+species_list = surveys_df['record_id'].groupby(surveys_df.species).count()
+
+['wgt']
 ```
 
 Or, we can also count just the rows that have the species "DO":
 
 ```python
-surveys_df.record_id.groupby(surveys_df['species']).nunique()['DO']
+surveys_df['record_id'].groupby(surveys_df.species).count()['DO']
 ```
 
 ## Basic Math Functions
@@ -429,7 +427,7 @@ We can plot our summary stats using Pandas, too.
 	# make sure figures appear inline in Ipython Notebook
 	%matplotlib inline
 	# create a quick bar chart
-	species_table.plot(kind='bar');
+	species_list.plot(kind='bar');
 
 ![Weight by Species Plot](img/weightBySpecies.png)
 Weight by species plot
@@ -446,15 +444,13 @@ total_count.plot(kind='bar');
 
 1. Create a plot of average weight across all species per plot.
 2. Create a plot of total males versus total females for the entire dataset.
-3. Create a stacked bar plot that has male vs female for each plot.
-
-
 
 
 # Summary Plotting Challenge
 
 Create a stacked bar plot, with weight on the Y axis, and the stacked variables
-being sex. Here is some data to help you solve this challenge:
+being sex. The plot should show total weight by sex for each plot. Some 
+tips are below to help you solve this challenge:
 
 * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
 * You can use the code that follows to create a stacked bar plot but the data
@@ -469,13 +465,13 @@ plot
 1 	 	46.311138 	55.950560
 2 	 	52.561845 	51.391382
 
-data.plot(kind='bar',stacked=True,title="Total Weight by Plot and Sex")
+my_plot=data.plot(kind='bar',stacked=True,title="Total Weight by Plot and Sex")
 my_plot.set_xlabel("Plot")
 my_plot.set_ylabel("Weight")
 ```
 
 
-* You can use the command `unstack` to transform grouped data into columns for
+* You can use the `.unstack()` method to transform grouped data into columns for
   each plotting. Try running `surveys_df.unstack' and see what it yields.
 
 ![Stacked Bar Plot](img/stackedBar.png)

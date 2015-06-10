@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: .
-title: Working with SQL
+title: Accessing SQLite Databases Using Python & Pandas
 ---
 
 ## Objectives
@@ -10,11 +10,17 @@ title: Working with SQL
 - Read the result of an SQL query into a pandas DataFrame
 - Understand the difference in performance when interacting with data stored as
   CSV vs SQLite
+- Understand the benefits of accessing data using a database compared to CSVs
 
 
 ## Python and SQL
 
-Python is often used to interact with SQL databases. In the following lesson,
+When you open a CSV in python, and assign it to a variable name, you are using 
+your computers memory to save that variable. Accessing data from a database like 
+SQL is not only more efficient, but also it allows you to subset and import only 
+the parts of the data that you need.
+
+In the following lesson,
 we'll see some approaches that can be taken to do so.
 
 ### The `sqlite3` module
@@ -27,25 +33,30 @@ SQLite databases.
 ```python
 import sqlite3
 
+# Create a SQL connection to our SQLite database
 con = sqlite3.connect("data/portal_mammals.sqlite")
-cur = connection.cursor()
+
+cur = con.cursor()
 
 # the result of a "cursor.execute" can be iterated over by row
-for row in cur.execute('SELECT * FROM surveys;'):
+for row in cur.execute('SELECT * FROM species;'):
     print row
 
+#Be sure to close the connection.
 con.close()
 ```
 
-## Python and pandas and SQL
+## Accessing data stored in SQLite using Python and Pandas
 
-An example of using pandas together with sqlite is shown below:
+Using pandas, we can import results of a SQLite query into a dataframe. Note that 
+you can use the same SQL commands / syntax that we used in the SQLite lesson. An 
+example of using pandas together with sqlite is below:
 
 ```python
 import pandas as pd
 import sqlite3
 
-# Read sqlite data into a pandas DataFrame
+# Read sqlite query results into a pandas DataFrame
 con = sqlite3.connect("data/portal_mammals.sqlite")
 df = pd.read_sql_query("SELECT * from surveys", con)
 
@@ -63,3 +74,14 @@ becomes more noticable as the size of the dataset grows (see for example [these
 benchmarks]).
 
 [these benchmarks]: http://sebastianraschka.com/Articles/sqlite3_database.html#benchmarks
+
+
+## Challenges
+
+1. Create a query that contains survey data collected between 1998 - 2001
+ for observations of sex "male" or "female" that includes observation's genus and 
+species and plot type for the sample. How many records are returned? 
+
+2. Create a dataframe that contains the total number of observations (count) 
+made for all years, and sum of observation weights for each plot, ordered by 
+plot ID. 
