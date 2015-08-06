@@ -264,7 +264,7 @@ Let's get a list of all the species. The `pd.unique` function tells us all of
 the unique values in the species column.
 
 ```python
-pd.unique(surveys_df.species_id)
+pd.unique(surveys_df.species)
 ```
 
 which **returns**:
