@@ -85,7 +85,7 @@ surveySubLast10=surveySubLast10.reset_index()
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 Pandas to stack the second DataFrame under the first one. It will automatically
 detect whether the column names are the same and will stack accordingly.
-`axis=0` will stack the columns in the second DataFrame to the RIGHT of the
+`axis=1` will stack the columns in the second DataFrame to the RIGHT of the
 first DataFrame. To stack the data vertically, we need to make sure we have the
 same columns and associated column format in both datasets. When we stack
 horizonally, we want to make sure what we are doing makes sense (ie the data are
