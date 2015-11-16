@@ -1,6 +1,6 @@
 The materials in this Python-Ecology repository were initially developed and adapted and continue to be revised by many contributors. Some of the lessons were adapted from Software Carpentry materials.
 
-The first Python Data Carpentry workshop was run at University of Miami on March 30 2015 John Gossett and Francois Michonneau. During this time materials were refined and they presented again at the UCAR Software Engineering Assembly (SEA) conference in Boulder, Colorado by Leah Wasser (NEON,Inc) and Mariela Perignon.
+The first Python Data Carpentry workshop was run at University of Miami on March 30 2015 John Gosset and Francois Michonneau. During this time materials were refined and they presented again at the UCAR Software Engineering Assembly (SEA) conference in Boulder, Colorado by Leah Wasser (NEON,Inc) and Mariela Perignon.
 
 ## Data
 
@@ -18,7 +18,7 @@ Master_suction_trap_data_list_uncleaned.csv is a pre-cleaning version of a publi
 ## Lessons
 
 The current list of lessons.
-Note: these lessons were reorganized, cleaned up and developed further by Leah Wasser, Mariela Perignon, John Gossett and Francois Michonneau in April 2015. 
+Note: these lessons were reorganized, cleaned up and developed further by Leah Wasser, Mariela Perignon, John Gosset and Francois Michonneau in April 2015. 
 
     Short Introduction to Python
     Starting With Data
