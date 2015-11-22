@@ -476,7 +476,8 @@ We can plot the above with
 
 ```
 # plot stacked data so columns 'one' and 'two' are stacked
-da.plot(kind='bar',stacked=True,title="The title of my graph")
+my_df = pd.DataFrame(d)
+my_df.plot(kind='bar',stacked=True,title="The title of my graph")
 ```
 
 ![Stacked Bar Plot](img/stackedBar1.png)
@@ -496,8 +497,8 @@ Answer to Summary Challenge
 The next two lines group data by plot and by sex, and then have sum the total for each plot.
 
 ```
-by_species_sex = surveys_df.groupby(['plot','sex'])
-pl_sx_count = by_species_sex['wgt'].sum()
+by_plot_sex = surveys_df.groupby(['plot','sex'])
+plot_sex_count = by_plot_sex['wgt'].sum()
 ```
 
 This calculates the sums of weights for each sex within each plot as a table
@@ -519,9 +520,9 @@ plot  sex
 Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
 
 ```
-by_species_sex = surveys_df.groupby(['plot','sex'])
-sp_sx_count = by_species_sex['wgt'].sum()
-sp_sx_count.unstack()
+by_plot_sex = surveys_df.groupby(['plot','sex'])
+plot_sex_count = by_plot_sex['wgt'].sum()
+plot_sex_count.unstack()
 ```
 
 Will give us output like the following if we display it
@@ -541,9 +542,9 @@ Now, create a stacked bar plot with that data where the weights for each sex are
 Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows
 
 ```
-by_species_sex = surveys_df.groupby(['plot','sex'])
-pl_sx_count = by_species_sex['wgt'].sum()
-spc = pl_sx_count.unstack()
+by_plot_sex = surveys_df.groupby(['plot','sex'])
+plot_sex_count = by_plot_sex['wgt'].sum()
+spc = plot_sex_count.unstack()
 s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by plot and sex")
 s_plot.set_ylabel("Weight")
 s_plot.set_xlabel("Plot")
