@@ -281,7 +281,7 @@ surveys_df[surveys_df.year != 2002]
 We can define sets of criteria too:
 
 ```python
->>> surveys_df[(surveys_df.year >= 1980) & (surveys_df.year <= 1985)]
+surveys_df[(surveys_df.year >= 1980) & (surveys_df.year <= 1985)]
 ```
 
 # Python Syntax Cheat Sheet
