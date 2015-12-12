@@ -390,9 +390,7 @@ ways. But we'll use `groupby` combined with a `count()` method.
 
 ```python
 # count the number of samples by species
-species_list = surveys_df['record_id'].groupby(surveys_df.species).count()
-
-['wgt']
+surveys_df['record_id'].groupby(surveys_df.species).count()
 ```
 
 Or, we can also count just the rows that have the species "DO":
