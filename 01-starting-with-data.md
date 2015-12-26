@@ -16,6 +16,40 @@ title: Starting With Data
 * Perform mathematical operations on numeric data.
 * Create simple plots of data.
 
+## Presentation of the survey data
+
+For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+
+We are studying the species and weight of animals caught in plots in our study
+area. The dataset is stored as a `csv` file: each row holds information for a
+single animal, and the columns represent:
+
+| Column           | Description                        |
+|------------------|------------------------------------|
+| record\_id       | Unique id for the observation      |
+| month            | month of observation               |
+| day              | day of observation                 |
+| year             | year of observation                |
+| plot           | ID of a particular plot            |
+| species       | 2-letter code                      |
+| sex              | sex of animal ("M", "F")           |
+| weight           | weight of the animal in grams      |
+| genus            | genus of animal                    |
+| species          | species of animal                  |
+| taxa             | e.g. Rodent, Reptile, Bird, Rabbit |
+| plot\_type       | type of plot                       |
+
+
+
+### Download lesson data
+
+We will be using multiple files from the 'data' folder. Download the data here:    [https://raw.githubusercontent.com/datacarpentry/python-ecology/gh-pages/data.zip](https://raw.githubusercontent.com/datacarpentry/python-ecology/gh-pages/)
+
+or it is available through the GitHub repository: [https://github.com/datacarpentry/python-ecology/](https://github.com/datacarpentry/python-ecology/)
+
+---
+
+
 ## About Libraries
 A library in Python contains a set of tools (called functions) that perform
 tasks on our data. Importing a library is like getting a piece of lab equipment
@@ -48,6 +82,8 @@ time we call a Pandas function.
 
 
 ## Lesson Overview
+
+For this lesson we will be using the Portal Teaching data.
 
 We are studying the species and weight of animals caught in plots in a study
 area. The data sets are stored in .csv (comma separated values) format. Within
@@ -115,7 +151,7 @@ import os
 os.getcwd()
 # if this directory isn't right, use the command below to set the working directory
 os.chdir("YOURPathHere")
-```	
+```
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
@@ -144,7 +180,7 @@ The above command yields the **output** below:
 [35549 rows x 8 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 8 
+We can see that there were 33,549 rows parsed. Each row has 8
 columns. It looks like  the `read_csv` function in Pandas read our file
 properly. However, we haven't saved any data to memory so we can work with it.
 We need to assign the DataFrame to a variable. Remember that a variable is a
@@ -449,7 +485,7 @@ total_count.plot(kind='bar');
 # Summary Plotting Challenge
 
 Create a stacked bar plot, with weight on the Y axis, and the stacked variable
-being sex. The plot should show total weight by sex for each plot. Some 
+being sex. The plot should show total weight by sex for each plot. Some
 tips are below to help you solve this challenge:
 
 * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
