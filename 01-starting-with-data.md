@@ -144,7 +144,7 @@ The above command yields the **output** below:
 [35549 rows x 8 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 8 
+We can see that there were 33,549 rows parsed. Each row has 8
 columns. It looks like  the `read_csv` function in Pandas read our file
 properly. However, we haven't saved any data to memory so we can work with it.
 We need to assign the DataFrame to a variable. Remember that a variable is a
@@ -449,7 +449,7 @@ total_count.plot(kind='bar');
 # Summary Plotting Challenge
 
 Create a stacked bar plot, with weight on the Y axis, and the stacked variable
-being sex. The plot should show total weight by sex for each plot. Some 
+being sex. The plot should show total weight by sex for each plot. Some
 tips are below to help you solve this challenge:
 
 * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
