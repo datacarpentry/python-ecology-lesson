@@ -29,7 +29,7 @@ exercise. Let's reopen it:
 # first make sure pandas is loaded
 import pandas as pd
 # read in the survey csv
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 ```
 
 # Indexing & Slicing in Python
@@ -46,9 +46,9 @@ we can select all of data from a column named `species` from the `surveys_df`
 DataFrame by name:
 
 ```python
-surveys_df['species']
+surveys_df['species_id']
 # this syntax, calling the column as an attribute, gives you the same output
-surveys_df.species
+surveys_df.species_id
 ```
 
 We can also create an new object that contains the data within the species
@@ -56,7 +56,7 @@ column as follows:
 
 ```python
 # create an object named surveys_species that only contains the species column
-surveys_species = surveys_df['species']
+surveys_species = surveys_df['species_id']
 ```
 
 We can pass a list of column names too, as an index to select columns in that
@@ -67,12 +67,11 @@ order. This is useful when we need to reorganize our data.
 
 ```python
 # select the species and plot columns from the DataFrame
-surveys_df[['species', 'plot']]
+surveys_df[['species_id', 'plot_id']]
 # what happens when you flip the order?
-surveys_df[['plot', 'species']]
+surveys_df[['plot_id', 'species_id']]
 #what happens if you ask for a column that doesn't exist?
 surveys_df['speciess']
-
 ```
 
 
@@ -193,7 +192,7 @@ Let's next explore some other ways to index and select subsets of data:
 # select all columns for rows of index values 0 and 10
 surveys_df.loc[[0, 10], :]
 # what does this do?
-surveys_df.loc[0, ['species', 'plot', 'wgt']]
+surveys_df.loc[0, ['species_id', 'plot_id', 'weight']]
 
 # What happens when you type the code below?
 surveys_df.loc[[0, 10, 35549], :]
@@ -250,26 +249,20 @@ surveys_df[surveys_df.year == 2002]
 Which produces the following output:
 
 ```python
-       record_id  month  day  year  plot species  sex  wgt
-33320      33321      1   12  2002     1      DM    M   44
-33321      33322      1   12  2002     1      DO    M   58
-33322      33323      1   12  2002     1      PB    M   45
-33323      33324      1   12  2002     1      AB  NaN  NaN
-33324      33325      1   12  2002     1      DO    M   29
-33325      33326      1   12  2002     2      OT    F   26
-33326      33327      1   12  2002     2      OT    M   24
+record_id  month  day  year  plot_id species_id  sex  hindfoot_length  weight
+33320      33321      1   12  2002        1         DM    M     38      44 
+33321      33322      1   12  2002        1         DO    M     37      58
+33322      33323      1   12  2002        1         PB    M     28      45
+33323      33324      1   12  2002        1         AB  NaN    NaN     NaN
+33324      33325      1   12  2002        1         DO    M     35      29
+...
+35544      35545     12   31  2002       15         AH  NaN    NaN     NaN
+35545      35546     12   31  2002       15         AH  NaN    NaN     NaN
+35546      35547     12   31  2002       10         RM    F     15      14
+35547      35548     12   31  2002        7         DO    M     36      51
+35548      35549     12   31  2002        5        NaN  NaN    NaN     NaN
 
-...          ...    ...  ...   ...   ...     ...  ...  ...
-35541      35542     12   31  2002    15      PB    F   29
-35542      35543     12   31  2002    15      PB    F   34
-35543      35544     12   31  2002    15      US  NaN  NaN
-35544      35545     12   31  2002    15      AH  NaN  NaN
-35545      35546     12   31  2002    15      AH  NaN  NaN
-35546      35547     12   31  2002    10      RM    F   14
-35547      35548     12   31  2002     7      DO    M   51
-35548      35549     12   31  2002     5     NaN  NaN  NaN
-
-[2229 rows x 8 columns]
+[2229 rows x 9 columns]
 ```
 
 Or we can select all rows that do not contain the year 2002.
@@ -303,8 +296,8 @@ with selecting various subsets of the "surveys" data.
    many columns did you end up with? What did your neighbor get?
 2. You can use the `isin` command in python to query a DataFrame based upon a
    list of values as follows:
-   `surveys_df[surveys_df['sex'].isin([listGoesHere])]`. Use the `isin` function
-   to find all plots that contain species of sex "Z" or sex "R" or sex "P" in
+   `surveys_df[surveys_df['species_id'].isin([listGoesHere])]`. Use the `isin` function
+   to find all plots that contain particular species in
    the surveys DataFrame. How many records contain these values?
 3. Experiment with other queries. Create a query that finds all rows with a weight value > or equal to 0.
 4. The `~` symbol in Python can be used to return the OPPOSITE of the selection that you specify in python. 
@@ -349,22 +342,14 @@ pd.isnull(surveys_df)
 A snippet of the output is below:
 
 ```python
-      record_id  month    day   year   plot species    sex    wgt
-0         False  False  False  False  False    True  False   True
-1         False  False  False  False  False    True  False   True
-2         False  False  False  False  False   False  False   True
-3         False  False  False  False  False   False  False   True
-4         False  False  False  False  False   False  False   True
-5         False  False  False  False  False   False  False   True
-6         False  False  False  False  False   False  False   True
-7         False  False  False  False  False   False  False   True
-8         False  False  False  False  False   False  False   True
-9         False  False  False  False  False   False  False   True
-10        False  False  False  False  False   False  False   True
-11        False  False  False  False  False   False  False   True
+      record_id  month    day   year plot_id species_id    sex  hindfoot_length weight
+0         False  False  False  False   False      False  False   False      True
+1         False  False  False  False   False      False  False   False      True
+2         False  False  False  False   False      False  False   False      True
+3         False  False  False  False   False      False  False   False      True
+4         False  False  False  False   False      False  False   False      True
 
-
-[35549 rows x 8 columns]
+[35549 rows x 9 columns]
 ```
 
 To select the rows where there are null values,  we can use 
@@ -375,14 +360,14 @@ the mask as an index to subset our data as follows:
 surveys_df[pd.isnull(surveys_df).any(axis=1)]
 ```
 
-Note that there are many null or NaN values in the `wgt` column of our DataFrame.
+Note that there are many null or NaN values in the `weight` column of our DataFrame.
 We will explore different ways of dealing with these in Lesson 03.
 
 We can run `isnull` on a particular column too. What does the code below do?
 
 ```python
 # what does this do?
-emptyWeights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['wgt']
+emptyWeights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['weight']
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean
