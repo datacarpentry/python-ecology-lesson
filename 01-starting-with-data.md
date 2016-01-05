@@ -57,18 +57,16 @@ columns represent: record_id, month, day, year, plot, species, sex, wgt.
 The first few rows of our first file look like this:
 
 ```
-
-"record_id","month","day","year", "plot","species","sex","wgt"
-
-"63","8","19","1977","3","DM","M","40"
-
-"64","8","19","1977","7","DM","M","48"
-
-"65","8","19","1977","4","DM","F","29"
-
-"66","8","19","1977","4","DM","F","46"
-
-"67","8","19","1977","7","DM","M","36"
+record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
+1,7,16,1977,2,NL,M,32,
+2,7,16,1977,3,NL,M,33,
+3,7,16,1977,2,DM,F,37,
+4,7,16,1977,7,DM,M,36,
+5,7,16,1977,3,DM,M,35,
+6,7,16,1977,1,PF,M,14,
+7,7,16,1977,2,PE,F,,
+8,7,16,1977,1,DM,M,37,
+9,7,16,1977,1,DM,F,34,
 ```
 
 ### We want to:
@@ -115,36 +113,33 @@ import os
 os.getcwd()
 # if this directory isn't right, use the command below to set the working directory
 os.chdir("YOURPathHere")
-```	
+```
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("data/surveys.csv")
+pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 ```
 
 The above command yields the **output** below:
 
 ```
-       record_id  month  day  year  plot species  sex  wgt
-0              1      7   16  1977     2     NaN    M  NaN
-1              2      7   16  1977     3     NaN    M  NaN
-2              3      7   16  1977     2      DM    F  NaN
-3              4      7   16  1977     7      DM    M  NaN
-4              5      7   16  1977     3      DM    M  NaN
-5              6      7   16  1977     1      PF    M  NaN
-6              7      7   16  1977     2      PE    F  NaN
-7              8      7   16  1977     1      DM    M  NaN
-8              9      7   16  1977     1      DM    F  NaN
-9             10      7   16  1977     6      PF    F  NaN
-10            11      7   16  1977     5      DS    F  NaN
-11            12      7   16  1977     7      DM    M  NaN
-12            13      7   16  1977     3      DM    M  NaN
-13            14      7   16  1977     8      DM  NaN  NaN
+record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+0          1      7   16  1977        2         NL   M               32   NaN
+1          2      7   16  1977        3         NL   M               33   NaN
+2          3      7   16  1977        2         DM   F               37   NaN
+3          4      7   16  1977        7         DM   M               36   NaN
+4          5      7   16  1977        3         DM   M               35   NaN
 ...
-[35549 rows x 8 columns]
+35544      35545     12   31  2002       15     AH  NaN              NaN  NaN
+35545      35546     12   31  2002       15     AH  NaN              NaN  NaN
+35546      35547     12   31  2002       10     RM    F               15   14
+35547      35548     12   31  2002        7     DO    M               36   51
+35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
+
+[35549 rows x 9 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 8
+We can see that there were 33,549 rows parsed. Each row has 9
 columns. It looks like  the `read_csv` function in Pandas read our file
 properly. However, we haven't saved any data to memory so we can work with it.
 We need to assign the DataFrame to a variable. Remember that a variable is a
@@ -154,7 +149,7 @@ variable name by assigning a value to it using `=`.
 Let's call the imported survey data `surveys_df`:
 
 ```python
-surveys_df = pd.read_csv("data/surveys.csv")
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 ```
 
 Notice when you assign the imported DataFrame to a variable, Python does not
@@ -165,28 +160,7 @@ object by typing its name into the Python command prompt.
 surveys_df
 ```
 
-which returns:
-
-
-```
-       record_id  month  day  year  plot species  sex  wgt
-0              1      7   16  1977     2     NaN    M  NaN
-1              2      7   16  1977     3     NaN    M  NaN
-2              3      7   16  1977     2      DM    F  NaN
-3              4      7   16  1977     7      DM    M  NaN
-4              5      7   16  1977     3      DM    M  NaN
-5              6      7   16  1977     1      PF    M  NaN
-6              7      7   16  1977     2      PE    F  NaN
-7              8      7   16  1977     1      DM    M  NaN
-8              9      7   16  1977     1      DM    F  NaN
-9             10      7   16  1977     6      PF    F  NaN
-10            11      7   16  1977     5      DS    F  NaN
-11            12      7   16  1977     7      DM    M  NaN
-12            13      7   16  1977     3      DM    M  NaN
-13            14      7   16  1977     8      DM  NaN  NaN
-...
-[35549 rows x 8 columns]
-```
+which prints contents like above
 
 ## Manipulating Our Species Survey Data
 
@@ -209,14 +183,15 @@ represents numbers with decimals.
 which returns:
 
 ```
-record_id      int64
-month          int64
-day            int64
-year           int64
-plot           int64
-species       object
-sex           object
-wgt          float64
+record_id            int64
+month                int64
+day                  int64
+year                 int64
+plot_id              int64
+species_id          object
+sex                 object
+hindfoot_length    float64
+weight             float64
 dtype: object
 ```
 
@@ -259,23 +234,26 @@ surveys_df.columns.values
 which **returns**:
 
 ```
-array(['record_id', 'month', 'day', 'year', 'plot', 'species', 'sex', 'wgt'], dtype=object)
+array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+       'hindfoot_length', 'weight'], dtype=object)
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
 the unique values in the species column.
 
 ```python
-pd.unique(surveys_df.species)
+pd.unique(surveys_df.species_id)
 ```
 
 which **returns**:
 
-	array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
-    	   'OL', 'RM', nan, 'SA', 'PM', 'AH', 'DX', 'AB', 'CB', 'CM', 'CQ',
-    	   'RF', 'PC', 'PG', 'PH', 'PU', 'CV', 'UR', 'UP', 'ZL', 'UL', 'CS',
-       	   'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
-       	  'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
+```python
+array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
+       'OL', 'RM', nan, 'SA', 'PM', 'AH', 'DX', 'AB', 'CB', 'CM', 'CQ',
+       'RF', 'PC', 'PG', 'PH', 'PU', 'CV', 'UR', 'UP', 'ZL', 'UL', 'CS',
+       'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
+       'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
+```
 
 ## Challenges
 
@@ -293,7 +271,7 @@ We can calculate basic statistics for all records in a single column using the
 syntax below:
 
 ```python
-surveys_df['wgt'].describe()
+surveys_df['weight'].describe()
 ```
 gives **output**
 
@@ -306,17 +284,17 @@ min          4.000000
 50%         37.000000
 75%         48.000000
 max        280.000000
-dtype: float64
+Name: weight, dtype: float64
 ```
 
 We can also extract one specific metric if we wish:
 
 ```python
-surveys_df['wgt'].min()
-surveys_df['wgt'].max()
-surveys_df['wgt'].mean()
-surveys_df['wgt'].std()
-surveys_df['wgt'].count()
+surveys_df['weight'].min()
+surveys_df['weight'].max()
+surveys_df['weight'].mean()
+surveys_df['weight'].std()
+surveys_df['weight'].count()
 ```
 
 But if we want to summarize by one or more variables, for example sex, we can
@@ -343,37 +321,36 @@ sorted.mean()
 `sorted.mean()` **OUTPUT:**
 
 ```python
-        record_id        day         year       plot        wgt
-sex
-F    18036.412046  16.007138  1990.644997  11.440854  42.170555
-M    17754.835601  16.184286  1990.480401  11.098282  42.995379
-P    22488.000000  21.000000  1995.000000   8.000000  13.000000
-R    21704.000000  12.000000  1994.000000  12.000000        NaN
-Z    23839.000000  15.000000  1996.000000   3.000000  18.000000
+        record_id     month        day         year    plot_id  \
+sex                                                              
+F    18036.412046  6.583047  16.007138  1990.644997  11.440854   
+M    17754.835601  6.392668  16.184286  1990.480401  11.098282   
+
+     hindfoot_length     weight  
+sex                              
+F          28.836780  42.170555  
+M          29.709578  42.995379  
 
 ```
 
 The `groupby` command is powerful in that it allows us to quickly generate
-summary stats. This is also useful for initial examination of our data. We can
-immediately notice some unusual values in our data that we might need to explore
-further. Unless we're working with butterflies, "Z" is unlikely to be a sex. Also
-it looks like there are no weight values for the species that is of sex "R". It
-is important to explore your data, before diving into analysis too quickly.
+summary stats.
 
 # Challenge
 
-1. How many records contain the sex designations of: "Z", "P" and "R"?
-2. What happens when you group by two columns using the following syntax and then grab
-   mean values:
-	- `sorted2 = surveys_df.groupby(['plot','sex'])`
+1. How many recorded individuals are female `F` and how many male `M`
+2. What happens when you group by two columns using the following syntax and
+    then grab mean values:
+	- `sorted2 = surveys_df.groupby(['plot_id','sex'])`
 	- `sorted2.mean()`
 3. Summarize weight values for each plot in your data. HINT: you can use the
    following syntax to only create summary statistics for one column in your data
-   `byPlot['wgt'].describe()`
+   `byPlot['weight'].describe()`
 
 
 Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
 
+```
 	plot
 	1     count    1903.000000
 	      mean       51.822911
@@ -383,6 +360,8 @@ Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
 	      50%        44.000000
 	      75%        53.000000
 	      max       231.000000
+          ...
+```
 
 ## Quickly Creating Summary Counts in Pandas
 
@@ -392,13 +371,13 @@ ways, but we'll use `groupby` combined with a `count()` method.
 
 ```python
 # count the number of samples by species
-surveys_df['record_id'].groupby(surveys_df.species).count()
+species_counts = surveys_df.groupby('species_id')['record_id'].count()
 ```
 
 Or, we can also count just the rows that have the species "DO":
 
 ```python
-surveys_df['record_id'].groupby(surveys_df.species).count()['DO']
+surveys_df.groupby('species_id')['record_id'].count()['DO']
 ```
 
 ## Basic Math Functions
@@ -409,7 +388,7 @@ be to normalize the data according to a mean, area, or some other value
 calculated from our data.
 
 	# multiply all weight values by 2
-	surveys_df['wgt']*2
+	surveys_df['weight']*2
 
 
 ## Another Challenge
@@ -427,7 +406,7 @@ We can plot our summary stats using Pandas, too.
 	# make sure figures appear inline in Ipython Notebook
 	%matplotlib inline
 	# create a quick bar chart
-	species_list.plot(kind='bar');
+	species_counts.plot(kind='bar');
 
 ![Weight by Species Plot](img/weightBySpecies.png)
 Weight by species plot
@@ -435,7 +414,7 @@ Weight by species plot
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count=surveys_df.record_id.groupby(surveys_df['plot']).nunique()
+total_count=surveys_df.record_id.groupby(surveys_df['plot_id']).nunique()
 # let's plot that too
 total_count.plot(kind='bar');
 ```
@@ -495,43 +474,43 @@ a stacked plot.
 First we group data by plot and by sex, and then calculate a total for each plot.
 
 ```python
-by_plot_sex = surveys_df.groupby(['plot','sex'])
-plot_sex_count = by_plot_sex['wgt'].sum()
+by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+plot_sex_count = by_plot_sex['weight'].sum()
 ```
 
 This calculates the sums of weights for each sex within each plot as a table
 
 ```
 plot  sex
-1     F      38253
-      M      59979
-2     F      50144
-      M      57250
-3     F      27251
-      M      28253
-      Z         18
-4     F      39796
-      M      49377
+plot_id  sex
+1        F      38253
+         M      59979
+2        F      50144
+         M      57250
+3        F      27251
+         M      28253
+4        F      39796
+         M      49377
 <other plots removed for brevity>
 ```
 
 Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
 
 ```python
-by_plot_sex = surveys_df.groupby(['plot','sex'])
-plot_sex_count = by_plot_sex['wgt'].sum()
+by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+plot_sex_count = by_plot_sex['weight'].sum()
 plot_sex_count.unstack()
 ```
 
 The `unstack` function above will display the following output:
 
 ```
-sex       F      M   P   R   Z
-plot
-1     38253  59979 NaN NaN NaN
-2     50144  57250 NaN NaN NaN
-3     27251  28253 NaN NaN  18
-4     39796  49377 NaN NaN NaN
+sex          F      M
+plot_id              
+1        38253  59979
+2        50144  57250
+3        27251  28253
+4        39796  49377
 <other plots removed for brevity>
 ```
 
@@ -540,8 +519,8 @@ Now, create a stacked bar plot with that data where the weights for each sex are
 Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 
 ```python
-by_plot_sex = surveys_df.groupby(['plot','sex'])
-plot_sex_count = by_plot_sex['wgt'].sum()
+by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+plot_sex_count = by_plot_sex['weight'].sum()
 spc = plot_sex_count.unstack()
 s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by plot and sex")
 s_plot.set_ylabel("Weight")
