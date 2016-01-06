@@ -25,7 +25,8 @@ structure and format of our data.
 
 How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
-calculations as well. There are two main types of data that we're explore in this lesson: numeric and character types.
+calculations as well. There are two main types of data that we're explore in
+this lesson: numeric and character types.
 
 # Numeric Data Types
 
@@ -38,7 +39,7 @@ type so the decimal points are not lost.
 An **integer** will never have a decimal point. Thus 1.13 would be stored as 1.
 1234.345 is stored as 1234. You will often see the data type `Int64` in python
 which stands for 64 bit integer. The 64 simply refers to the memory allocated to
-store data in each cell which effectively relates to how many digits in can
+store data in each cell which effectively relates to how many digits it can
 store in each "cell". Allocating space ahead of time allows computers to
 optimize storage and processing efficiency.
 
@@ -72,7 +73,7 @@ same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 ```
 
 Remember that we can check the type of an object like this:
@@ -125,7 +126,7 @@ dtype: object
 ```
 
 Note that most of the columns in our Survey data are of type `int64`. This means
-that they are 64 bit integers. But the wgt column is a floating point value
+that they are 64 bit integers. But the weight column is a floating point value
 which means it contains decimals. The species and sex columns are objects which
 means they contain strings.
 
@@ -211,19 +212,19 @@ surveys_df['record_id'].dtype
 What happens if we try to convert weight values to integers?
 
 ```python
-surveys_df['wgt'].astype('int')
+surveys_df['weight'].astype('int')
 ```
 
 Notice that this throws a value error: `ValueError: Cannot convert NA to
-integer`. If we look at the `wgt` column in the surveys data we notice that
+integer`. If we look at the `weight` column in the surveys data we notice that
 there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
 an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable
-properties: if we were to average the `wgt` column without replacing our NaNs,
+properties: if we were to average the `weight` column without replacing our NaNs,
 Python would know to skip over those cells.
 
 ```python
-surveys_df['wgt'].mean()
+surveys_df['weight'].mean()
 42.672428212991356
 ```
 
@@ -252,18 +253,18 @@ weight. We can also create a new subset from our data that only contains rows
 with weight values > 0 (ie select meaningful weight values):
 
 ```python
-len(surveys_df[pd.isnull(surveys_df.wgt)])
-# how many rows have wgt values?
-len(surveys_df[surveys_df.wgt> 0])
+len(surveys_df[pd.isnull(surveys_df.weight)])
+# how many rows have weight values?
+len(surveys_df[surveys_df.weight> 0])
 ```
 
 We can replace all NaN values with zeroes using the `.fillna()` method (after
 making a copy of the data so we don't lose our work):
 
 ```python
-df1 = surveys_df
+df1 = surveys_df.copy()
 # fill all NaN values with 0
-df1['wgt'] = df1['wgt'].fillna(0)
+df1['weight'] = df1['weight'].fillna(0)
 ```
 
 However NaN and 0 yield different analysis results. The mean value when NaN
@@ -271,15 +272,15 @@ values are replaced with 0 is different from when NaN values are simply thrown
 out or ignored.
 
 ```python
-df1['wgt'].mean()
+df1['weight'].mean()
 38.751976145601844
 ```
 
 We can fill NaN values with any value that we chose. The code below fills all
-NaN values with a mean for all wgt values.
+NaN values with a mean for all weight values.
 
 ```python
- df1['wgt'] = df['wgt'].fillna(df['wgt'].mean())
+ df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ```
 
 We could also chose to create a subset of our data, only keeping rows that do
