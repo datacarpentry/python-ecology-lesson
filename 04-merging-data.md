@@ -21,9 +21,9 @@ To work through the examples below, we first need to load the species and
 surveys files into pandas DataFrames. In iPython:
 
 ```python
->>> import pandas as pd
->>> surveys_df = pd.read_csv('data/surveys.csv', keep_default_na=False, na_values=[""])
->>> surveys_df
+import pandas as pd
+surveys_df = pd.read_csv('data/surveys.csv', keep_default_na=False, na_values=[""])
+surveys_df
 
        record_id  month  day  year  plot species  sex  wgt
 0              1      7   16  1977     2      NA    M  NaN
@@ -40,8 +40,8 @@ surveys files into pandas DataFrames. In iPython:
 
 [35549 rows x 8 columns]
 
->>> species_df = pd.read_csv('data/species.csv', keep_default_na=False, na_values=[""])
->>> species_df
+species_df = pd.read_csv('data/species.csv', keep_default_na=False, na_values=[""])
+species_df
 
    species_id             genus          species                   taxa
 0          AB        Amphispiza        bilineata                   Bird
@@ -92,11 +92,11 @@ horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
 ```python
-	# stack the DataFrames on top of each other
-	verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
+# stack the DataFrames on top of each other
+verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
 
-	# place the DataFrames side by side
-	horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
+# place the DataFrames side by side
+horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
 ```
 
 ### Row Index Values and Concat
