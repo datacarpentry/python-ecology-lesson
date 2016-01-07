@@ -21,42 +21,43 @@ To work through the examples below, we first need to load the species and
 surveys files into pandas DataFrames. In iPython:
 
 ```python
->>> import pandas as pd
->>> surveys_df = pd.read_csv('data/surveys.csv', keep_default_na=False, na_values=[""])
->>> surveys_df
+import pandas as pd
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172",
+                         keep_default_na=False, na_values=[""])
+surveys_df
 
-       record_id  month  day  year  plot species  sex  wgt
-0              1      7   16  1977     2      NA    M  NaN
-1              2      7   16  1977     3      NA    M  NaN
-2              3      7   16  1977     2      DM    F  NaN
-3              4      7   16  1977     7      DM    M  NaN
-4              5      7   16  1977     3      DM    M  NaN
-...          ...    ...  ...   ...   ...     ...  ...  ...
-35544      35545     12   31  2002    15      AH  NaN  NaN
-35545      35546     12   31  2002    15      AH  NaN  NaN
-35546      35547     12   31  2002    10      RM    F   14
-35547      35548     12   31  2002     7      DO    M   51
-35548      35549     12   31  2002     5     NaN  NaN  NaN
+       record_id  month  day  year  plot species  sex  hindfoot_length weight
+0              1      7   16  1977     2      NA    M               32  NaN
+1              2      7   16  1977     3      NA    M               33  NaN
+2              3      7   16  1977     2      DM    F               37  NaN
+3              4      7   16  1977     7      DM    M               36  NaN
+4              5      7   16  1977     3      DM    M               35  NaN
+...          ...    ...  ...   ...   ...     ...  ...              ...  ...
+35544      35545     12   31  2002    15      AH  NaN              NaN  NaN
+35545      35546     12   31  2002    15      AH  NaN              NaN  NaN
+35546      35547     12   31  2002    10      RM    F               15   14
+35547      35548     12   31  2002     7      DO    M               36   51
+35548      35549     12   31  2002     5     NaN  NaN              NaN  NaN
 
-[35549 rows x 8 columns]
+[35549 rows x 9 columns]
 
->>> species_df = pd.read_csv('data/species.csv', keep_default_na=False, na_values=[""])
->>> species_df
+species_df = pd.read_csv('https://ndownloader.figshare.com/files/3299483',
+                         keep_default_na=False, na_values=[""])
+species_df
+  species_id             genus          species     taxa
+0          AB        Amphispiza        bilineata     Bird
+1          AH  Ammospermophilus          harrisi   Rodent
+2          AS        Ammodramus       savannarum     Bird
+3          BA           Baiomys          taylori   Rodent
+4          CB   Campylorhynchus  brunneicapillus     Bird
+..        ...               ...              ...      ...
+49         UP            Pipilo              sp.     Bird
+50         UR            Rodent              sp.   Rodent
+51         US           Sparrow              sp.     Bird
+52         ZL       Zonotrichia       leucophrys     Bird
+53         ZM           Zenaida         macroura     Bird
 
-   species_id             genus          species                   taxa
-0          AB        Amphispiza        bilineata                   Bird
-1          AH  Ammospermophilus          harrisi    Rodent-not censused
-2          AS        Ammodramus       savannarum                   Bird
-3          BA           Baiomys          taylori                 Rodent
-4          CB   Campylorhynchus  brunneicapillus                   Bird
-..        ...               ...              ...                    ...
-50         UR            Rodent              sp.                 Rodent
-51         US           Sparrow              sp.                   Bird
-52         XX               NaN              NaN  Zero Trapping Success
-53         ZL       Zonotrichia       leucophrys                   Bird
-54         ZM           Zenaida         macroura                   Bird
-
-[55 rows x 4 columns]
+[54 rows x 4 columns]
 ```
 
 Take note that the `read_csv` method we used can take some additional options which
@@ -79,7 +80,8 @@ surveySub = surveys_df.head(10)
 # grab the last 10 rows (minus the last one)
 surveySubLast10 = surveys_df[-11:-1]
 #reset the index values to the second dataframe appends properly
-surveySubLast10=surveySubLast10.reset_index()
+surveySubLast10=surveySubLast10.reset_index(drop=True)
+# drop=True option avoids adding new index column with old index values
 ```
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
@@ -92,25 +94,17 @@ horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
 ```python
-	# stack the DataFrames on top of each other
-	verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
+# stack the DataFrames on top of each other
+verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
 
-	# place the DataFrames side by side
-	horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
-```
-
-### Row Index Values and Concat
-Have a look at the `horizontalStack` dataframe? Notice anything unusual? The row indexes for the two data frames `surveySub` and `surveySubLast10` are not the same. Thus, when Python tries to concatenate the two dataframes it can't place them next to each other. We can reindex our second dataframe using the `reset_index()` method.
-
- ```python
-#reindex the data and then run concat again 
-
-surveySubLast10 = surveysSubLast10.reset_index()
+# place the DataFrames side by side
 horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
 ```
 
-The new `horizontalStack` dataframe is now side by side without the extra `NaN` values.
-
+### Row Index Values and Concat
+Have a look at the `verticalStack` dataframe? Notice anything unusual?
+The row indexes for the two data frames `surveySub` and `surveySubLast10`
+have been repeated. We can reindex the new dataframe using the `reset_index()` method.
 
 ## Writing Out Data to CSV
 
@@ -205,16 +199,16 @@ information.
 ```python
 speciesSub.columns
 
-Out[32]: Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
+Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
 surveySub.columns
 
-Out[33]: Index([u'record_id', u'month', u'day', u'year', u'plot', u'species', u'sex', u'wgt'], dtype='object')
+Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
+       u'sex', u'hindfoot_length', u'weight'], dtype='object')
 ```
 
 In our example, the join key is the column containing the two-letter species
-identifier, which is called `species` in `surveys_df` and `species_id` in
-`species_df`.
+identifier, which is called `species_id`.
 
 Now that we know the fields with the common species ID attributes in each
 DataFrame, we are almost ready to join our data. However, since there are
@@ -238,9 +232,10 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:  
 
 ```python
-merged_inner = pd.merge(left=surveySub,right=speciesSub, left_on='species', right_on='species_id')
+merged_inner = pd.merge(left=surveySub,right=speciesSub, left_on='species_id', right_on='species_id')
+# in this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
+# and `right_on` arguments we would still get the same result
 
-merged_inner
 # what's the size of the output data?
 merged_inner.shape
 merged_inner
@@ -249,13 +244,25 @@ merged_inner
 **OUTPUT:**
 
 ```
- 	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-2 	3 	7 	16 	1977 	2 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-3 	4 	7 	16 	1977 	7 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-4 	5 	7 	16 	1977 	3 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-5 	8 	7 	16 	1977 	1 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-6 	9 	7 	16 	1977 	1 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-7 	7 	7 	16 	1977 	2 	PE 	F 	NaN 	PE 	Peromyscus 	eremicus 	Rodent
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+0          1      7   16  1977        2         NL   M               32   
+1          2      7   16  1977        3         NL   M               33   
+2          3      7   16  1977        2         DM   F               37   
+3          4      7   16  1977        7         DM   M               36   
+4          5      7   16  1977        3         DM   M               35   
+5          8      7   16  1977        1         DM   M               37   
+6          9      7   16  1977        1         DM   F               34   
+7          7      7   16  1977        2         PE   F              NaN   
+
+   weight       genus   species    taxa  
+0     NaN     Neotoma  albigula  Rodent  
+1     NaN     Neotoma  albigula  Rodent  
+2     NaN   Dipodomys  merriami  Rodent  
+3     NaN   Dipodomys  merriami  Rodent  
+4     NaN   Dipodomys  merriami  Rodent  
+5     NaN   Dipodomys  merriami  Rodent  
+6     NaN   Dipodomys  merriami  Rodent  
+7     NaN  Peromyscus  eremicus  Rodent  
 ```
 
 The result of an inner join of `surveySub` and `speciesSub` is a new DataFrame
@@ -278,10 +285,7 @@ not matter.
 
 The result `merged_inner` DataFrame contains all of the columns from `surveySub`
 (record id, month, day, etc.) as well as all the columns from `speciesSub`
-(species id, genus, species, and taxa). Because both original DataFrames contain
-a column named `species`, pandas automatically appends a `_x` to the column name
-from the `left` DataFrame and a `_y` to the column name from the `right`
-DataFrame.
+(species_id, genus, species, and taxa).
 
 Notice that `merged_inner` has fewer rows than `surveysSub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species` that
@@ -292,21 +296,6 @@ Notice that the output of the join above includes two new columns `species_x` an
  `species_y`. This happened because we had a species field in both tables with 
  information that could not be joined. Let's fix that.
  
-### Fix column headers
-
-```python
-#create a list of column headings
-cols = list(surveys_df.columns)
-#change the species column to species_id
-cols[5] = 'species_id'
-#assign the list of column names back to our DataFrame
-surveys_df.columns = cols
-
-print surveys_df.columns
-```
-
-After fixing the column names, run the join again. Do the results look cleaner?
-
 ## Left joins
 
 What if we want to add information from `speciesSub` to `surveysSub` without
@@ -329,22 +318,35 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ```python
-merged_left = pd.merge(left=surveySub,right=speciesSub, how='left', left_on='species', right_on='species_id')
+merged_left = pd.merge(left=surveySub,right=speciesSub, how='left', left_on='species_id', right_on='species_id')
 
 merged_left
 
-OUTPUT: 
- 	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-0 	1 	7 	16 	1977 	2 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
-1 	2 	7 	16 	1977 	3 	NL 	M 	NaN 	NL 	Neotoma 	albigula 	Rodent
-2 	3 	7 	16 	1977 	2 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-3 	4 	7 	16 	1977 	7 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-4 	5 	7 	16 	1977 	3 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-5 	8 	7 	16 	1977 	1 	DM 	M 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-6 	9 	7 	16 	1977 	1 	DM 	F 	NaN 	DM 	Dipodomys 	merriami 	Rodent
-7 	6 	7 	16 	1977 	1 	PF 	M 	NaN 	NaN 	NaN 	NaN 	NaN
-8 	10 	7 	16 	1977 	6 	PF 	F 	NaN 	NaN 	NaN 	NaN 	NaN
-9 	7 	7 	16 	1977 	2 	PE 	F 	NaN 	PE 	Peromyscus 	eremicus 	Rodent
+**OUTPUT:**
+
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+0          1      7   16  1977        2         NL   M               32   
+1          2      7   16  1977        3         NL   M               33   
+2          3      7   16  1977        2         DM   F               37   
+3          4      7   16  1977        7         DM   M               36   
+4          5      7   16  1977        3         DM   M               35   
+5          6      7   16  1977        1         PF   M               14   
+6          7      7   16  1977        2         PE   F              NaN   
+7          8      7   16  1977        1         DM   M               37   
+8          9      7   16  1977        1         DM   F               34   
+9         10      7   16  1977        6         PF   F               20   
+
+   weight       genus   species    taxa  
+0     NaN     Neotoma  albigula  Rodent  
+1     NaN     Neotoma  albigula  Rodent  
+2     NaN   Dipodomys  merriami  Rodent  
+3     NaN   Dipodomys  merriami  Rodent  
+4     NaN   Dipodomys  merriami  Rodent  
+5     NaN         NaN       NaN     NaN  
+6     NaN  Peromyscus  eremicus  Rodent  
+7     NaN   Dipodomys  merriami  Rodent  
+8     NaN   Dipodomys  merriami  Rodent  
+9     NaN         NaN       NaN     NaN  
 ```
 
 The result DataFrame from a left join (`merged_left`) looks very much like the
@@ -352,19 +354,23 @@ result DataFrame from an inner join (`merged_inner`) in terms of the columns it
 contains. However, unlike `merged_inner`, `merged_left` contains the **same
 number of rows** as the original `surveysSub` DataFrame. When we inspect
 `merged_left`, we find there are rows where the information that should have
-come from `speciesSub` (i.e., `species_id`, `genus`, `species_y`, and `taxa`) is
+come from `speciesSub` (i.e., `species_id`, `genus`, and `taxa`) is
 missing (they contain NaN values):
 
 ```python
-merged_left[ pd.isnull(merged_left.species_id) ]
-# Output: 
- 	record_id 	month 	day 	year 	plot 	species_x 	sex 	wgt 	species_id 	genus 	species_y 	taxa
-7 	6 	7 	16 	1977 	1 	PF 	M 	NaN 	NaN 	NaN 	NaN 	NaN
-8 	10 	7 	16 	1977 	6 	PF 	F 	NaN 	NaN 	NaN 	NaN 	NaN
+merged_left[ pd.isnull(merged_left.genus) ]
+**OUTPUT:** 
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+5          6      7   16  1977        1         PF   M               14   
+9         10      7   16  1977        6         PF   F               20   
+
+   weight genus species taxa  
+5     NaN   NaN     NaN  NaN  
+9     NaN   NaN     NaN  NaN
 ```
 
-These rows are the ones where the value of `species` from `surveySub` (in this
-case, `NaN`) does not occur in `speciesSub`.
+These rows are the ones where the value of `species_id` from `surveySub` (in this
+case, `PF`) does not occur in `speciesSub`.
 
 
 ## Other join types
@@ -402,4 +408,3 @@ Create a new DataFrame by joining the contents of the `surveys.csv` and
    which calculates diversity as:
 
         the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
-
