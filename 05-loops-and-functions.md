@@ -114,7 +114,7 @@ that performs those three steps in sequence for the year 2002:
 import pandas as pd
 
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('data/surveys.csv')
+surveys_df = pd.read_csv('https://ndownloader.figshare.com/files/2292172')
 
 # Select only data for 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
@@ -630,7 +630,9 @@ data for a given year and display an alert to the user (Hint: use conditional
 statements and if loops to do this. For an extra challenge, use `try`
 statements!)
 
-3. The code below checks to see whether a directory exists and creates one if it doesn't. Add some code to your function that writes out the CSV files, to check for a directory to write to.
+3. The code below checks to see whether a directory exists and creates one if it
+doesn't. Add some code to your function that writes out the CSV files, to check
+for a directory to write to.
 
 ```Python 
 	if 'dirNameHere' in os.listdir('.'):
@@ -640,7 +642,13 @@ statements!)
 	    print 'Processed directory created' 
 ```
 
-4. The code that you have written so far to loop through the years is good, however it is not necessarily reproducible with different datasets. For instance, what happens to the code if we have additional years of data in our CSV files? Using the tools that you learned in the previous activities, make a list of all years represented in the data. Then create a loop to process your data, that begins at the earliest year and ends at the latest year using that list.
+4. The code that you have written so far to loop through the years is good,
+however it is not necessarily reproducible with different datasets.
+For instance, what happens to the code if we have additional years of data
+in our CSV files? Using the tools that you learned in the previous activities,
+make a list of all years represented in the data. Then create a loop to process
+your data, that begins at the earliest year and ends at the latest year using
+that list.
 
 HINT: you can create a loop with a list as follows: `for years in yearList:`
  
