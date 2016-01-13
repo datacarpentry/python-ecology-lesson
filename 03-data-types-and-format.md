@@ -159,7 +159,7 @@ print(10/3)
 3.3333333333333335
 ```
 
-We can also convert a floating point number to an integer or an intege to
+We can also convert a floating point number to an integer or an integer to
 floating point number. Notice that Python by default rounds down when it
 converts from floating point to integer.
 
