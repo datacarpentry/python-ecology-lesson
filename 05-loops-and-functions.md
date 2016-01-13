@@ -30,11 +30,11 @@ spelling bee:
 
 ```python
 >>> word = 'species'
->>> print word
+>>> print(word)
 species
 
 >>> for letter in word:
-...    print letter
+...    print(letter)
 s
 p
 e
@@ -57,7 +57,7 @@ and will have the value of the last entry in the collection:
 >>> for letter in word:
 ...    pass
 
->>> print 'The loop variable is now: ' + letter
+>>> print('The loop variable is now: ' + letter)
 The loop variable is now: s
 ```
 
@@ -70,8 +70,8 @@ the loop. The statement `pass` in the body of the loop just means "do nothing".
 1. What happens if we don't include the `pass` statement?
 
 2. Rewrite the loop so that the letters are separated by dashes, not returns
-(Hint: You can concatenate strings using a plus sign. For example,  `print
-string1 + string2` outputs 'string1string2').
+(Hint: You can concatenate strings using a plus sign. For example,
+`print(string1 + string2)` outputs 'string1string2').
 
 ## Automating data processing using For Loops
 
@@ -143,7 +143,7 @@ of numbers starts at zero.
 ```python
 >>> for year in range(1977,2002):
 ...    filename = 'data/yearly_files/surveys' + str(year) + '.csv'
-...    print filename
+...    print(filename)
 ...
 data/yearly_files/surveys1977.csv
 data/yearly_files/surveys1978.csv
@@ -179,14 +179,14 @@ is easier to see if we create a sequence of numbers that stops part-way through
 a step:
 
 ```python
->>> print 'This one stops at half a step:', range(0,5,2)
+>>> print('This one stops at half a step:', range(0,5,2))
 This one stops at half a step: [0, 2, 4]
 ```
 
 Notice, that the output is the same if your range ends at 6.
 
 ```python
->>> print 'This one stops at half a step, too:', range(0,6,2)
+>>> print('This one stops at half a step, too:', range(0,6,2))
 This one stops at half a step, too: [0, 2, 4]
 ```
 
@@ -197,7 +197,7 @@ goes too far:
 ```python
 >>> for year in range(1977,2003):
 ...     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
-...     print filename
+...     print(filename)
 ...
 data/yearly_files/surveys1977.csv
 data/yearly_files/surveys1978.csv
@@ -305,7 +305,7 @@ def this_is_the_function_name(input_argument1, input_argument2):
     
     # The body of the function is indented
     # This function prints the two arguments to screen
-    print 'The function arguments are:', input_argument1, input_argument2, '(this is done inside the function!)'
+    print('The function arguments are:', input_argument1, input_argument2, '(this is done inside the function!)')
     
     # And returns their product
     return input_argument1 * input_argument2
@@ -322,7 +322,7 @@ This is how we call the function:
 >>> product_of_inputs = this_is_the_function_name(2,5)
 The function arguments are: 2 5 (this is done inside the function!)
 
->>> print 'Their product is:', product_of_inputs, '(this is done outside the function!)'
+>>> print('Their product is:', product_of_inputs, '(this is done outside the function!)')
 Their product is: 10 (this is done outside the function!)
 ```
 
@@ -462,10 +462,10 @@ argument with default values (which are optional in the function call).
             
         
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'Both optional arguments:\t', start, end
+    print('Both optional arguments:\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
+    print('Default values:\t\t\t', start, end)
 ```
 
 ```
@@ -499,10 +499,10 @@ dates are not provided:
             
         
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'Both optional arguments:\t', start, end
+    print('Both optional arguments:\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
+    print('Default values:\t\t\t', start, end)
 ```
 ```
     Both optional arguments:	1988 1993
@@ -539,17 +539,17 @@ the loop when some condition is met. They commonly look something like this:
     if a<0: # meets first condition?
         
         # if a IS less than zero
-        print 'a is a negative number'
+        print('a is a negative number')
         
     elif a>0: # did not meet first condition. meets second condition?
         
         # if a ISN'T less than zero and IS more than zero
-        print 'a is a positive number'
+        print('a is a positive number')
         
     else: # met neither condition
         
         # if a ISN'T less than zero and ISN'T more than zero
-        print 'a must be zero!'
+        print('a must be zero!')
 
     a is a positive number
 ```
@@ -594,22 +594,22 @@ values to the function using these keywords:
             
     
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
+    print('Default values:\t\t\t', start, end)
         
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'No keywords:\t\t\t', start, end
+    print('No keywords:\t\t\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
-    print 'Both keywords, in order:\t', start, end
+    print('Both keywords, in order:\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
-    print 'Both keywords, flipped:\t\t', start, end
+    print('Both keywords, flipped:\t\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
-    print 'One keyword, default end:\t', start, end
+    print('One keyword, default end:\t', start, end)
     
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
-    print 'One keyword, default start:\t', start, end
+    print('One keyword, default start:\t', start, end)
 ```
 ```
     Default values:			1977 2002
@@ -636,10 +636,10 @@ for a directory to write to.
 
 ```Python 
 	if 'dirNameHere' in os.listdir('.'):
-	    print 'Processed directory exists'
+	    print('Processed directory exists')
 	else:
 	    os.mkdir('dirNameHere')
-	    print 'Processed directory created' 
+	    print('Processed directory created')
 ```
 
 4. The code that you have written so far to loop through the years is good,

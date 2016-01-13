@@ -26,12 +26,12 @@ Python is an interpreted language. As a consequence, we can use it in two ways:
 
 ```python
 user:host:~$ python
-Python 2.7.7 (default, Jun  3 2014, 16:16:56)
+Python 3.5.1 (default, Oct 23 2015, 18:05:06)
 [GCC 4.8.3] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 2 + 2
 4
->>> print "Hello World"
+>>> print("Hello World")
 Hello World
 ```
 
@@ -69,12 +69,12 @@ variable into the interpreter:
 "Data Carpentry"
 ```
 
-but this only works in the interpreter. In scripts we must use the `print` command:
+but this only works in the interpreter. In scripts we must use the `print` function:
 
 ```python
 # Comments start with #
 # Next line will print out text
-print text
+print(text)
 "Data Carpentry"
 ```
 
@@ -125,7 +125,7 @@ structure one at a time:
 
 ```python
 for num in numbers:
-    print num
+    print(num)
 1
 2
 3
@@ -139,7 +139,7 @@ To add elements to the list, we can use the `append` method:
 
 ```python
 >>> numbers.append(4)
->>> print numbers
+>>> print(numbers)
 [1,2,3,4]
 ```
 
@@ -225,7 +225,7 @@ in two ways:
 
 ```python
 >>> for key, value in rev.items():
-...     print key, "->", value
+...     print(key, "->", value)
 ...
 1 -> one
 2 -> two
@@ -236,7 +236,7 @@ or
 
 ```python
 >>> for key in rev.keys():
-...     print key, "->", rev[key]
+...     print(key, "->", rev[key])
 ...
 1 -> one
 2 -> two
@@ -256,7 +256,7 @@ def add_function(a, b):
     return result
 
 z = add_function(20, 22)
-print z
+print(z)
 42
 ```
 
