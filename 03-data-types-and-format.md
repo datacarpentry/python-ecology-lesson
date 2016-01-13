@@ -137,62 +137,42 @@ So we've learned that computers store numbers in one of two ways: as integers or
 as floating-point numbers (or floats). Integers are the numbers we usually count
 with. Floats have fractional parts (decimal places).  Let's next consider how
 the data type can impact mathematical operations on our data. Addition,
-subtraction and multiplication work on floats and integers as we'd expect.
-However, division works differently.
+subtraction, division and multiplication work on floats and integers as we'd expect.
 
 ```python
-print 5+5
+print(5+5)
 10
 
-print 24-4
+print(24-4)
 20
 ```
 
-If we divide one integer by another, we get the quotient without the remainder.
-In the example below, 9 goes into 5 as an integer 0 times.
+If we divide one integer by another, we get a float.
+The result on python 3 is different than in python 2, where the result is an
+integer (integer division). 
 
 ```python
-print 5/9
-0
-# 3 goes into 10, 3 times
-print 10/3
-3
+print(5/9)
+0.5555555555555556
+
+print(10/3)
+3.3333333333333335
 ```
 
-If either part of the division is a float, on the other hand, python
-returns a floating-point result:
+We can also convert a floating point number to an integer or an integer to
+floating point number. Notice that Python by default rounds down when it
+converts from floating point to integer.
 
 ```python
-print '10.0/3 is:', 10.0/3
-10.0/3 is: 3.33333333333
-```
-
-Python does this for historical reasons: integer operations were much
-faster on early computers, and this behavior is actually useful in a lot of
-situations. It's still confusing though, so Python 3 produces a floating-point
-answer when dividing integers if it needs to. We're still using Python 2.7 in
-this class though, so if we want 5/9 to give us the right answer, we have to
-write it as 5.0/9, 5/9.0, or some other variation.
-
-Another way to create a floating-point answer is to explicitly tell the computer
-that you desire one. This is achieved by **casting** one of the numbers as a float:
-
-```python
-print 'float(10)/3 is:', float(10)/3
-```
-
-We can also convert a floating point number to an integer. Notice that Python by
-default rounds down when it converts from floating point to integer.
-
-```python
-a = 7.33
 # convert a to integer
+a = 7.33
 int(a)
 7
 
-b = 7.89
-int(b)
-7
+# convert to float
+b = 7
+float(b)
+7.0
 ```
 
 # Working With Our Survey Data

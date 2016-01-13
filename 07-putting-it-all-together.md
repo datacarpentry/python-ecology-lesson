@@ -56,12 +56,12 @@ also change the name of the columns in the DataFrame like this:
 
 ```python
     df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
-    print 'With the old column names:\n' # the \n makes a new line, so it's easier to see
-    print df
+    print('With the old column names:\n') # the \n makes a new line, so it's easier to see
+    print(df)
     
     df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
-    print '\n\nWith the new column names:\n'
-    print df
+    print('\n\nWith the new column names:\n')
+    print(df)
  
     With the old column names:
     
