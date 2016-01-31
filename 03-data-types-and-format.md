@@ -114,20 +114,21 @@ surveys_df.dtypes
 which **returns**:
 
 ```
-record_id      int64
-month          int64
-day            int64
-year           int64
-plot           int64
-species       object
-sex           object
-wgt          float64
+record_id            int64
+month                int64
+day                  int64
+year                 int64
+plot_id              int64
+species_id          object
+sex                 object
+hindfoot_length    float64
+weight             float64
 dtype: object
 ```
 
 Note that most of the columns in our Survey data are of type `int64`. This means
 that they are 64 bit integers. But the weight column is a floating point value
-which means it contains decimals. The species and sex columns are objects which
+which means it contains decimals. The `species_id` and `sex` columns are objects which
 means they contain strings.
 
 
