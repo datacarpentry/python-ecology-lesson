@@ -42,7 +42,7 @@ numeric ranges or specific x,y index locations.
 ## Selecting Data Using Labels (Column Headings)
 
 We use square brackets `[]` to select a subset of an Python object. For example,
-we can select all of data from a column named `species` from the `surveys_df`
+we can select all of data from a column named `species_id` from the `surveys_df`
 DataFrame by name:
 
 ```python
@@ -51,11 +51,11 @@ surveys_df['species_id']
 surveys_df.species_id
 ```
 
-We can also create an new object that contains the data within the species
+We can also create an new object that contains the data within the `species_id`
 column as follows:
 
 ```python
-# create an object named surveys_species that only contains the species column
+# create an object named surveys_species that only contains the `species_id` column
 surveys_species = surveys_df['species_id']
 ```
 
