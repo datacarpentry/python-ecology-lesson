@@ -269,15 +269,15 @@ The result of an inner join of `surveySub` and `speciesSub` is a new DataFrame
 that contains the combined set of columns from `surveySub` and `speciesSub`. It
 *only* contains rows that have two-letter species codes that are the same in
 both the surveysSub and speciesSub DataFrames. In other words, if a row in
-`surveySub` has a value of `species` that does *not* appear in the `species_id`
+`surveySub` has a value of `species_id` that does *not* appear in the `species_id`
 column of `species`, it will not be included in the DataFrame returned by an
 inner join.  Similarly, if a row in `speciesSub` has a value of `species_id`
-that does *not* appear in the `species` column of `surveySub`, that row will not
+that does *not* appear in the `species_id` column of `surveySub`, that row will not
 be included in the DataFrame returned by an inner join.
 
 The two DataFrames that we want to join are passed to the `merge` function using
 the `left` and `right` argument. The `left_on='species'` argument tells `merge`
-to use the `species` column as the join key from `surveySub` (the `left`
+to use the `species_id` column as the join key from `surveySub` (the `left`
 DataFrame). Similarly , the `right_on='species_id'` argument tells `merge` to
 use the `species_id` column as the join key from `speciesSub` (the `right`
 DataFrame). For inner joins, the order of the `left` and `right` arguments does
@@ -288,13 +288,8 @@ The result `merged_inner` DataFrame contains all of the columns from `surveySub`
 (species_id, genus, species, and taxa).
 
 Notice that `merged_inner` has fewer rows than `surveysSub`. This is an
-indication that there were rows in `surveys_df` with value(s) for `species` that
+indication that there were rows in `surveys_df` with value(s) for `species_id` that
 do not exist as value(s) for `species_id` in `species_df`.
-
-## Joining With Identical Column Headers
-Notice that the output of the join above includes two new columns `species_x` and
- `species_y`. This happened because we had a species field in both tables with 
- information that could not be joined. Let's fix that.
  
 ## Left joins
 
@@ -383,8 +378,7 @@ The pandas `merge` function supports two other join types:
   discarded.
 * Full (outer) join: Invoked by passing `how='outer'` as an argument. This join
   type returns the all pairwise combinations of rows from both DataFrames; i.e.,
-  the result DataFrame will contain rows `(left_1, right_1)`, `(left_1,
-  right_2)`, `(left_2, right_1)`, `(left_2, right_2)`, etc. This join type is
+  the result DataFrame will `NaN` where data is missing in one of the dataframes. This join type is
   very rarely used.
 
 # Final Challenges

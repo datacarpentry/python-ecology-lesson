@@ -239,7 +239,7 @@ array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
-the unique values in the species column.
+the unique values in the `species_id` column.
 
 ```python
 pd.unique(surveys_df.species_id)
