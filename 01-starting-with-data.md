@@ -16,6 +16,40 @@ title: Starting With Data
 * Perform mathematical operations on numeric data.
 * Create simple plots of data.
 
+## Presentation of the survey data
+
+For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+
+We are studying the species and weight of animals caught in plots in our study
+area. The dataset is stored as a `csv` file: each row holds information for a
+single animal, and the columns represent:
+
+| Column           | Description                        |
+|------------------|------------------------------------|
+| record\_id       | Unique id for the observation      |
+| month            | month of observation               |
+| day              | day of observation                 |
+| year             | year of observation                |
+| plot           | ID of a particular plot            |
+| species       | 2-letter code                      |
+| sex              | sex of animal ("M", "F")           |
+| weight           | weight of the animal in grams      |
+| genus            | genus of animal                    |
+| species          | species of animal                  |
+| taxa             | e.g. Rodent, Reptile, Bird, Rabbit |
+| plot\_type       | type of plot                       |
+
+
+
+### Download lesson data
+
+We will be using multiple files from the 'data' folder. Download the data here:    [https://raw.githubusercontent.com/datacarpentry/python-ecology/gh-pages/data.zip](https://raw.githubusercontent.com/datacarpentry/python-ecology/gh-pages/)
+
+or it is available through the GitHub repository: [https://github.com/datacarpentry/python-ecology/](https://github.com/datacarpentry/python-ecology/)
+
+---
+
+
 ## About Libraries
 A library in Python contains a set of tools (called functions) that perform
 tasks on our data. Importing a library is like getting a piece of lab equipment
@@ -48,6 +82,8 @@ time we call a Pandas function.
 
 
 ## Lesson Overview
+
+For this lesson we will be using the Portal Teaching data.
 
 We are studying the species and weight of animals caught in plots in a study
 area. The data sets are stored in .csv (comma separated values) format. Within
