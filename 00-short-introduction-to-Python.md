@@ -131,7 +131,7 @@ for num in numbers:
 3
 ```
 
-**Indentation** is very important in Python. Note that second line in the 
+**Indentation** is very important in Python. Note that the second line in the
 example above is indented. This is Python's way of marking a block of code. We will
 discuss this in more detail later.
 
