@@ -111,7 +111,7 @@ True
 
 ### Lists
 
-**Lists** are the most common data structure. They can hold a sequence of
+**Lists** are a common data structure to hold a sequence of
 elements. Each element can be accessed by an index:
 
 ```python
