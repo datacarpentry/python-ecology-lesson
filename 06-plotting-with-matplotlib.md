@@ -126,7 +126,7 @@ It is also possible to control the margin between the edge of the axes box and
 the edge of the image:
 
 ```python
-plt. subplots_adjust(left=0.1, bottom=0.2, right=0.99, top=0.99)
+plt.subplots_adjust(left=0.1, bottom=0.2, right=0.99, top=0.99)
 ```
 
 Values are fractions of the image size and denote the position of the
