@@ -199,7 +199,7 @@ plt.plot(plot_data, 'o')
 The `o` means a dot. There are a variety of markers you can use. Here's a
 complete list: http://matplotlib.org/api/markers_api.html#module-matplotlib.markers
 
-A simple bar plot:
+A simple dashed line:
 
 ```
 plt.plot(plot_data, linestyle='--')
@@ -384,7 +384,7 @@ for group in grouped_plot_data:
     color = colors[color_index]
     group_label = group[0]
     group_data = group[1]
-    plt.plot(group_data['plot'], color=color, label=group_label)
+    plt.plot(group_data['plot_id'], color=color, label=group_label)
     color_index += 1
 plt.legend()
 ```
