@@ -38,12 +38,9 @@ working with ecological data in Python.
 * [Accessing SQL using Python](./08-working-with-sql)
 
 
->Updates will be posted to this website as they become available.
+Data for this lesson is from the Portal Project Teaching Database - [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
-Data files for the workshop are available at: (LINK HERE)[]
-
-
-
+The data files used in this lesson are surveys.csv [download link - https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172) and species.csv [download link - https://ndownloader.figshare.com/files/3299483](https://ndownloader.figshare.com/files/3299483).
 
 
 <p>
