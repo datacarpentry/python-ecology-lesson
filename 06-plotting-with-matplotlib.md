@@ -389,6 +389,14 @@ for group in grouped_plot_data:
 plt.legend()
 ```
 
+## Plotting a Parabola {.challenge}
+
+ Use the function np.linspace to create an array x with 
+ 1000 equal spaced points between -10 and 10. Calculate
+ the y values for each element of x by y=x**2. Plot y over x and limit
+ the x axis from -10 to 10.
+
+
 ## More Information
 
 This is a basic tutorial to get you started using Python to make your graphs.
