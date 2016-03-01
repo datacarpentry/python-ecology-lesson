@@ -73,7 +73,7 @@ improvements when reading/writing compared to CSV. The difference in performance
 becomes more noticable as the size of the dataset grows (see for example [these
 benchmarks]).
 
-[these benchmarks]: http://sebastianraschka.com/Articles/sqlite3_database.html#benchmarks
+[these benchmarks]: http://sebastianraschka.com/Articles/2013_sqlite_database.html#results-and-conclusions
 
 
 ## Challenges
