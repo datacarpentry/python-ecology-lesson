@@ -132,8 +132,8 @@ for num in numbers:
 ```
 
 **Indentation** is very important in Python. Note that the second line in the
-example above is indented. This is Python's way of marking a block of code. We will
-discuss this in more detail later.
+example above is indented. This is Python's way of marking a block of code. We
+discuss this in more detail below.
 
 To add elements to the list, we can use the `append` method:
 
@@ -243,6 +243,85 @@ or
 3 -> three
 >>>
 ```
+
+## Syntax: Indentation and Code Blocks
+
+In Python, differently from other programming languages, there are no specific
+markers for code blocks. A code block  is defined by the text indentation of the
+block itself.
+
+A code block section starts by a Python `if`, `for`, etc. statement, or a function
+or class definition, `def`,  followed by a period `:`. The code block to which the
+statement or definition refers to, it is indented by at least one space more than
+the initial statement itself. It is the indentation  what marks the following code
+block extension. Unindentation marks the end of the code block.
+
+This is better seen with an example:
+
+```python
+for i in [1,2,3]:
+    print (i)
+    print ("Inside the loop")
+print ("Loop ended")
+```
+
+Which executed as a script yields:
+
+```
+1
+Inside the loop
+2
+Inside the loop
+3
+Inside the loop
+Loop ended
+```
+
+And indentation can be nested:
+
+```python
+for i in [1,2,3]:
+    print (i)
+    if i % 2 == 0:
+        print (i, "is even")
+    else:
+        print (i, "is odd")
+        if i == 1:
+            print ("...and is one too!")
+print ("Loop ended")
+```
+
+And running the script this time we get:
+
+```
+1
+1 is odd
+...and is one too!
+2
+2 is even
+3
+3 is odd
+Loop ended
+```
+
+As we saw, we don't need to explicitly mark the begining or end of a block. 
+Indentation does it for us.
+
+This may seem weird on a first sight, but notice that it makes the code *much*
+more readable. In fact, forcing code indentation is one of the things that makes
+Python code so readable.
+
+There are no hard rules about the indentation depth. The convention is two or four
+spaces, but as long as the code is indented and vertically aligned, it is ok. 
+Beware of tabs, better always use spaces instead.
+
+Exercises:
+
+1. In the second example, indent the first `print i` example an extra space and 
+check for the `IndentationError`.
+2. Now, revert the previous chenge and indent more the `print (i, "is even")` 
+statement. Why we do not get an `IndentationError` now?
+
 
 ## Functions
 
