@@ -5,7 +5,7 @@ title: Data Ingest & Visualization - Matplotlib & Pandas
 ---
 
 
-##Putting it all together
+## Putting it all together
 
 Up to this point, we have walked through tasks that are often
 involved in handling and processing data using the workshop ready cleaned  
@@ -17,7 +17,7 @@ As opposed to the previous ones, this lesson does not give step-by-step
 directions to each of the tasks. Use the lesson materials you've already gone
 through as well as the Python documentation to help you along.
 
-##1. Obtain data
+## 1. Obtain data
 
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
@@ -27,7 +27,7 @@ use any data that is relevant to your research. The file
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please [download it here.](data/bouldercreek_09_2013.txt)
 
-##2. Clean up your data and open it using Python and Pandas
+## 2. Clean up your data and open it using Python and Pandas
 
 To begin, import your data file into Python using Pandas. Did it fail? Your data
 file probably has a header that Pandas does not recognize as part of the data
@@ -253,7 +253,7 @@ the number of the space in the grid that particular plot is occupying:
     plt.show()
 ```
 
-##4. Make other types of plots:
+## 4. Make other types of plots:
 
 Matplotlib can make many other types of plots in much the same way that it makes
 2 dimensional line plots. Look through the examples in

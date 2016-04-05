@@ -11,7 +11,7 @@ raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
 
 ---
 
-#Data Carpentry Python for Ecologists 
+# Data Carpentry Python for Ecologists
 
 <!-- This block displays the instructors' names if they are available. -->
 {% if page.contributors %}
