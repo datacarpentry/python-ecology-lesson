@@ -221,7 +221,7 @@ values were handled.
 For instance, in some disciplines, like Remote Sensing, missing data values are
 often defined as -9999. Having a bunch of -9999 values in your data could really
 alter numeric calculations. Often in spreadsheets, cells are left empty where no
-data are available. Python will, by default, replace those missing values with
+data are available. Pandas will, by default, replace those missing values with
 NaN. However it is good practice to get in the habit of intentionally marking
 cells that have no data, with a no data value! That way there are no questions
 in the future when you (or someone else) explores your data.
