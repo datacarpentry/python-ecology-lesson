@@ -150,9 +150,10 @@ used the code `surveys_copy = surveys_df`. However the statement  y = x doesn’
 It creates a new variable y that refers to the **same** object x refers to. This means that there is only one object 
 (the DataFrame), and both x and y refer to it. So when we assign the first 3 columns the value of 0 using the 
 `surveys_copy` DataFrame, the `surveys_df` DataFrame is modified too. To create a fresh copy of the `surveys_df`
-DataFrame we use the syntax y=x.copy().
+DataFrame we use the syntax y=x.copy(). But before we have to read the surveys_df again because the current version contains the unintentional changes made to the first 3 columns.
 
 ```python
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 surveys_copy= surveys_df.copy()
 
 ```
