@@ -166,7 +166,7 @@ converts from floating point to integer.
 
 ```python
 # convert a to integer
-a = 7.33
+a = 7.83
 int(a)
 7
 
