@@ -17,7 +17,10 @@ title: Starting With Data
 
 ## Presentation of the survey data
 
-For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+For this lesson, we will be using the Portal Teaching data, a subset of the
+data from Ernst et al [Long-term monitoring and experimental manipulation of a
+Chihuahuan Desert ecosystem near Portal, Arizona,
+USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
 
 We are studying the species and weight of animals caught in plots in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
