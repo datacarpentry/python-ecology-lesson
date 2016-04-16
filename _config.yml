@@ -1,3 +1,6 @@
+highlighter: rouge
 markdown: kramdown
-# redcarpet:
-#   extensions: ["tables"]
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge

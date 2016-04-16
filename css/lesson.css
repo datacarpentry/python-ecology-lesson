@@ -3,11 +3,6 @@
     color: purple;
 }
 
-/* Highlighted changes in code. */
-.highlight {
-    background-color: mistyrose;
-}
-
 /* Manual input. */
 .in {
     color: darkgreen;
