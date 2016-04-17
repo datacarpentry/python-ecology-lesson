@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: .
-title: "License: Python Ecology Lesson"
+title: "Data Carpentry: Licenses"
 ---
 
 ### Instructional Material
