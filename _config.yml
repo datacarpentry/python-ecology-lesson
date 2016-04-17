@@ -1,0 +1,23 @@
+#--------------------------------------------------------------------------------
+# Values for this lesson.
+#--------------------------------------------------------------------------------
+lesson_repo   : "https://github.com/datacarpentry/python-ecology-lesson"
+lesson_site   : "https://datacarpentry.github.io/python-ecology-lesson"
+#--------------------------------------------------------------------------------
+# Standard Data Carpentry settings - should not need to be modified.
+#--------------------------------------------------------------------------------
+dc_blog        : "https://datacarpentry.github.io/blog"
+dc_contact     : "admin@datacarpentry.org"
+dc_github      : "https://github.com/datacarpentry"
+swc_installer   : "http://files.software-carpentry.org/SWCarpentryInstaller.exe"
+dc_site        : "http://datacarpentry.org"
+dc_twitter     : "https://twitter.com/datacarpentry"
+#swc_vm          : "https://docs.google.com/uc?id=0B4Kr6DYkzkQtSTZLQzF4aVB4NDQ&export=download"
+#--------------------------------------------------------------------------------
+# Settings for Jekyll - should not need to be modified.
+#--------------------------------------------------------------------------------
+markdown        : kramdown
+kramdown        :
+  entity_output : as_input # &mdash; is output as &mdash;
+  smart_quotes  : [39, 39, 34, 34] # decimal for left/right single/double quotes
+exclude         : [tools]
