@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: .
+title: "License: Python Ecology Lesson"
+---
+
 ### Instructional Material
 
 All Data Carpentry instructional material is made available under
