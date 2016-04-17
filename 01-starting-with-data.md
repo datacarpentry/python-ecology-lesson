@@ -134,7 +134,7 @@ Pandas using the nickname `pd`.
 import pandas as pd
 ```
 
-Let's also import the [OS Library](https://docs.python.org/2/library/os.html).
+Let's also import the [OS Library](https://docs.python.org/3/library/os.html).
 This library allows us to make sure we are in the correct working directory. If
 you are working in IPython Notebook, be sure to start the notebook in the
 workshop repository.  If you didn't do that you can always set the working
@@ -245,7 +245,7 @@ Try out the methods below to see what they return.
 3. `surveys_df.tail()`.
 4. `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
 
-HINT: [More on tuples, here](https://docs.python.org/2/tutorial/datastructures.html#tuples-and-sequences).
+HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
 
 
 ## Calculating Statistics From Data In A Pandas DataFrame

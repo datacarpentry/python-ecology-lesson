@@ -28,7 +28,7 @@ we'll see some approaches that can be taken to do so.
 The [sqlite3] module provides a straightforward interface for interacting with
 SQLite databases.
 
-[sqlite3]: https://docs.python.org/2.7/library/sqlite3.html
+[sqlite3]: https://docs.python.org/3/library/sqlite3.html
 
 ```python
 import sqlite3
