@@ -8,3 +8,4 @@ on how to contribute updates, bug fixes, or other corrections.
 
 - April Wright ([@wrightaprilm](https://github.com/wrightaprilm))
 - John Gosset ([@qjcg](https://github.com/qjcg))
+- Mateusz Kuzak ([@mkuzak](https://github.com/mkuzak))
