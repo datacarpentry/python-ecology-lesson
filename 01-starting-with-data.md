@@ -21,7 +21,7 @@ title: Starting With Data
 For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
 
 We are studying the species and weight of animals caught in plots in our study
-area. The dataset is stored as a `csv` file: each row holds information for a
+area. The dataset is stored as a `.csv` file: each row holds information for a
 single animal, and the columns represent:
 
 | Column           | Description                        |
@@ -39,9 +39,9 @@ single animal, and the columns represent:
 
 ### Download lesson data
 
-We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459)
+We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
-This section will use surveys.csv that can be downloaded here: [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+This section will use the `surveys.csv` file that can be downloaded here: [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
 
 ---
 
@@ -82,7 +82,7 @@ time we call a Pandas function.
 For this lesson we will be using the Portal Teaching data.
 
 We are studying the species and weight of animals caught in plots in a study
-area. The data sets are stored in .csv (comma separated values) format. Within
+area. The data sets are stored in `.csv` (comma separated values) format. Within
 the `.csv` files, each row holds information for a single animal, and the
 columns represent: record_id, month, day, year, plot, species, sex, wgt.
 
@@ -103,9 +103,9 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 
 ### We want to:
 
-1. Load that data into memory in Python.
+1. Load that data into memory using Python.
 2. Calculate the average weight of all individuals sampled, by species.
-3. Plot the average weights by species and perhaps by plot too.
+3. Plot the average weights by species and perhaps by plot_id too.
 
 We can automate the process above using Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
@@ -128,7 +128,8 @@ in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` i
 R.
 
 First, let's make sure the Python Pandas library is loaded. We will import
-Pandas using the nickname `pd`.
+Pandas using the nickname `pd`.  This is a common convention on the internet,
+so if you look up Pandas usage, you will often see it this way.
 
 ```python
 import pandas as pd
@@ -149,7 +150,7 @@ os.chdir("YOURPathHere")
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+pd.read_csv("surveys.csv")
 ```
 
 The above command yields the **output** below:
@@ -181,7 +182,7 @@ variable name by assigning a value to it using `=`.
 Let's call the imported survey data `surveys_df`:
 
 ```python
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 Notice when you assign the imported DataFrame to a variable, Python does not
