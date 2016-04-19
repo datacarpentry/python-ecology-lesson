@@ -12,6 +12,7 @@ title: Starting With Data
 * Load a Python/Pandas library.
 * Read tabular data from a file into Python using Pandas using `read_csv`.
 * Learn about the Pandas DataFrame object.
+* Learn about data slicing and indexing.
 * Perform mathematical operations on numeric data.
 * Create simple plots of data.
 
