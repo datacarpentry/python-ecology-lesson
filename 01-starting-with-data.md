@@ -16,77 +16,108 @@ title: Starting With Data
 * Perform mathematical operations on numeric data.
 * Create simple plots of data.
 
-## Presentation of the survey data
+## Lesson overview
 
-For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+For this lesson, we will be using a subset of the data from Ernst et al.
+[Long-term monitoring and experimental manipulation of a Chihuahuan Desert
+ecosystem near Portal, Arizona,
+USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm) called the
+[Portal Project Teaching
+Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
-We are studying the species and weight of animals caught in plots in our study
-area. The dataset is stored as a `.csv` file: each row holds information for a
-single animal, and the columns represent:
+In this lesson, we will
+
+1. Read the data file
+2. Calculate statistics from the data
+3. Create some basic statistical graphs
+
+We will create a file with a set of commands that will do all those things.
+The advantage to creating a file is that we have a record of _exactly_ what we
+did, we can run it over and over and it will always do the same thing.  This
+is a huge advantage if corrections are made to the data and the analyses need
+to be rerun and the plots regenerated, or if you will have many datasets all
+with the same structure and to which the same procedures will be applied.  For
+example, if you get daily measurements of air quality, temperature, humidity,
+and those are used the same way every day.  This makes our methods easily
+reproducible.  We can provide the code and the data to our colleagues and they
+can replicate our work.
+
+There are several data files that are part of the teaching database, but we
+will only use the `survey.csv` file for this lesson.
+
+[https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+
+Download that now and place it into your lesson folder.
+
+The study area was divided into plots (not to be confused with the graphical
+plots we will create later), and for each specimen, the species was identified
+along with its sex, weight, and the length of its hind foot.
+
+In the data file, each row holds information for a single animal
 
 | Column           | Description                        |
 |------------------|------------------------------------|
-| record_id       | Unique id for the observation      |
-| month            | month of observation               |
-| day              | day of observation                 |
-| year             | year of observation                |
-| plot_id           | ID of a particular plot            |
-| species_id       | 2-letter code                      |
-| sex              | sex of animal ("M", "F")           |
-| hindfoot_length  | length of the hindfoot in mm
-| weight           | weight of the animal in grams      |
-
-
-### Download lesson data
-
-We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
-
-This section will use the `surveys.csv` file that can be downloaded here: [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+| record_id        |  Unique id for the observation     |
+| month            |  Month of observation              |
+| day              |  Day of observation                |
+| year             |  Year of observation               |
+| plot_id          |  ID of a particular plot           |
+| species_id       |  Two-letter code                   |
+| sex              |  Sex of animal ("M", "F")          |
+| hindfoot_length  |  Length of the hindfoot in mm      |
+| weight           |  Weight of the animal in grams     |
 
 ---
 
 
 ## About Libraries
-A library in Python contains a set of tools (called functions) that perform
-tasks on our data. Importing a library is like getting a piece of lab equipment
-out of a storage locker and setting it up on the bench for use in a project.
-Once a library is set up, it can be used or called to perform many tasks.
 
-## Pandas in Python
-One of the best options for working with tabular data in Python is to use the
-[Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. Pandas). The
-Pandas library provides data structures, produces high quality plots with
-[matplotlib](http://matplotlib.org/) and integrates nicely with other libraries
-that use [NumPy](http://www.numpy.org/) (which is another Python library) arrays.
+As we emphasize, reusing code is a good thing.  There is a lot of code that has
+been written and collected into _libraries_, which are then made available for
+others to install and use.  The great variety of available libraries is one
+of Python's strenths.  A library typically contains a set of functions, and to
+access the functions, you load the library.  One analogy is that a library is
+like a music CD, where each function is a track.  If you load the music from the
+CD into your music player, you can play the functions from it.  Like the music
+player, two functions may have the same name, so usually the function will be
+referred to with the library name (or an assigned alias), a dot, and the function
+name.  Adding the library name unquely identifies a function.
 
-Python doesn't load all of the libraries available to it by default. We have to
-add an `import` statement to our code in order to use library functions. To import
-a library, we use the syntax `import libraryName`. If we want to give the
-library a nickname to shorten the command, we can add `as nickNameHere`.  An
-example of importing the pandas library using the common nickname `pd` is below.
+## The Pandas library
 
+The [Python Data Analysis Library](http://pandas.pydata.org/), or Pandas,
+provides data structures and functions that are commonly used in data analysis
+(as you would expect from the name), it produces high quality graphs by using
+another library [matplotlib](http://matplotlib.org/), and Pandas integrates well
+with other libraries that use yet another library, [NumPy](http://www.numpy.org/),
+which provides most of the basic mathematical functionality.  That is a _lot_
+of reuseable code!
+
+Python doesn't load libraries unless it is told to. We add an `import` statement
+to our code in order to use a library and its functions, and we add the name of
+the library after the `import`.  For example,
+
+```python
+import pandas
+```
+
+Since the library name is used as a prefix to function names, it is common to give a
+library an alias (a nickname) to decrease what we have to type.  This is done by
+adding `as <alias>` to the import statement.  It is very common on the internet
+to see people use the `pd` alias for Pandas, an we would load it with that alias
+like this.
 
 ```python
 import pandas as pd
 ```
-
-Each time we call a function that's in a library, we use the syntax
-`LibraryName.FunctionName`. Adding the library name with a `.` before the
-function name tells Python where to find the function. In the example above, we
-have imported Pandas as `pd`. This means we don't have to type out `pandas` each
-time we call a Pandas function.
+From then on, we can use, for example, `pd.read_csv` instead of `pandas.read_csv`.
+Your carpal tunnels will thank you.
 
 
-## Lesson Overview
+## Reading data using Pandas
 
-For this lesson we will be using the Portal Teaching data.
-
-We are studying the species and weight of animals caught in plots in a study
-area. The data sets are stored in `.csv` (comma separated values) format. Within
-the `.csv` files, each row holds information for a single animal, and the
-columns represent: record_id, month, day, year, plot, species, sex, wgt.
-
-The first few rows of our first file look like this:
+If you recall from the shell lessons, we can use the `head` command to look at
+the first few rows of our data file, which look like this.
 
 ```
 record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
@@ -101,83 +132,70 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 9,7,16,1977,1,DM,F,34,
 ```
 
-### We want to:
-
-1. Load that data into memory using Python.
-2. Calculate the average weight of all individuals sampled, by species.
-3. Plot the average weights by species and perhaps by plot_id too.
-
-We can automate the process above using Python. It's efficient to spend time
-building the code to perform these tasks because once it's built, we can use it
-over and over on different datasets that use a similar format. This makes our
-methods easily reproducible. We can also easily share our code with colleagues
-and they can replicate the same analysis.
-
-
-# Reading CSV Data Using Pandas
-
-We will begin by locating and reading our survey data which are in CSV format.
-We can use Pandas' `read_csv` function to pull the file directly into a
-[DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
-
-## So What's a DataFrame?
-
-A DataFrame is a 2-dimensional data structure that can store data of different
-types (including characters, integers, floating point values, factors and more)
-in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
-R.
-
-First, let's make sure the Python Pandas library is loaded. We will import
-Pandas using the nickname `pd`.  This is a common convention on the internet,
-so if you look up Pandas usage, you will often see it this way.
+We need to first load the Pandas library using the `pd` alias we saw above,
+and we will also load the `os` library, which comes with Python, as it provides
+useful functions to query our operating system
 
 ```python
 import pandas as pd
-```
-
-Let's also import the [OS Library](https://docs.python.org/3/library/os.html).
-This library allows us to make sure we are in the correct working directory. If
-you are working in IPython Notebook, be sure to start the notebook in the
-workshop repository.  If you didn't do that you can always set the working
-directory using the code below.
-
-```python
 import os
-os.getcwd()
-# if this directory isn't right, use the command below to set the working directory
-os.chdir("YOURPathHere")
 ```
 
+See the [Python OS Library documentation](https://docs.python.org/3/library/os.html)
+for more details.  This library provides, among other things, a function to say
+which directory we are in and another function to change directories. If
+you are working in IPython Notebook, be sure to start the notebook in the
+workshop repository.
+
+You can use the `os.getcwd()` function to find the current directory name, and
+you can use the `os.listdir()`function to list the files in it, so
+
 ```python
-# note that pd.read_csv is used because we imported pandas as pd
+os.listdir(os.getcwd())
+```
+will print the files in the current directory.  If you do not see `surveys.csv`,
+
+```python
+os.chdir("/the/correct/path/here")
+```
+
+will fix that.
+
+To read data from a `.csv` file, we will use the Pandas function `read_csv()`.
+Remember, we are being kind to our wrists, so the full name will use the alias.
+
+```python
 pd.read_csv("surveys.csv")
 ```
 
-The above command yields the **output** below:
+The result of that command is what's called a _DataFrame_, which is just printed
+(in abbreviated form, thankfully!) because we aren't saying to do anything else.
+
+A DataFrame is a two-dimensional data structure that can store data of mixed
+types (including strings, integers, floating point values, factors, and more)
+in columns. It is similar to a spreadsheet, an SQL table, or the `data.frame` in
+R.
+
+Here's an even more abbreviated version of what that command prints.
 
 ```
 record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 0          1      7   16  1977        2         NL   M               32   NaN
 1          2      7   16  1977        3         NL   M               33   NaN
-2          3      7   16  1977        2         DM   F               37   NaN
-3          4      7   16  1977        7         DM   M               36   NaN
-4          5      7   16  1977        3         DM   M               35   NaN
 ...
-35544      35545     12   31  2002       15     AH  NaN              NaN  NaN
-35545      35546     12   31  2002       15     AH  NaN              NaN  NaN
-35546      35547     12   31  2002       10     RM    F               15   14
 35547      35548     12   31  2002        7     DO    M               36   51
 35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
 
 [35549 rows x 9 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 9
-columns. It looks like  the `read_csv` function in Pandas read our file
-properly. However, we haven't saved any data to memory so we can work with it.
-We need to assign the DataFrame to a variable. Remember that a variable is a
-name for a value, such as `x`, or  `data`. We can create a new object with a
-variable name by assigning a value to it using `=`.
+We can see that there were 33,549 rows parsed. Each row has 9 columns. It
+looks like  the `read_csv` function in Pandas read our file properly (compare
+the values from using the shell's `head` and `tail` commands on
+`surveys.csv`).  However, we haven't saved any data to memory so we can work
+with it.  We need to assign the DataFrame to a variable. Remember that a
+variable is a name, such as `x` or `data`, assigned ot an object.  To create a
+new object and assign a variable name to it using an equals sign.
 
 Let's call the imported survey data `surveys_df`:
 
