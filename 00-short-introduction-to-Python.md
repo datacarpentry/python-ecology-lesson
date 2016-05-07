@@ -88,9 +88,9 @@ We can perform mathematical calculations in Python using the basic operators
 4
 >>> 6 * 7
 42
->>> 2 ** 16 # power
+>>> 2 ** 16  # power
 65536
->>> 13 % 5 # modulo
+>>> 13 % 5  # modulo
 3
 ```
 
