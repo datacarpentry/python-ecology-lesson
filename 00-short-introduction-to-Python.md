@@ -90,8 +90,8 @@ We can perform mathematical calculations in Python using the basic operators
 42
 >>> 2 ** 16 # power
 65536
->>> 3 % 2 # modulo
-1
+>>> 13 % 5 # modulo
+3
 ```
 
 We can also use comparison and logic operators:
