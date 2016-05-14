@@ -277,7 +277,7 @@ included in the yearly files.
 2. What happens if there is no data for a year in the sequence (for example,
 imagine we had used 1976 as the start year in `range`)?
 
-3. Let's say you only want to look at data from a given multiple years. How would you modify your loop in order to generate a data file for only every 5th year starting from the first year that there is data?
+3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 
 ## Building reusable and modular code with functions
 
