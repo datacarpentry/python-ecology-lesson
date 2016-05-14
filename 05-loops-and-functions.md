@@ -84,7 +84,7 @@ these files using the module `os`:
 
 ```python
     import os
-    
+
     os.mkdir('data/yearly_files')
 ```
 
@@ -237,7 +237,7 @@ for year in range(1977,2003):
 
     # Select data for the year
     surveys_year = surveys_df[surveys_df.year == year]
-    
+
     # Write the new DataFrame to a csv file
     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
     surveys_year.to_csv(filename)
@@ -248,7 +248,7 @@ just created to confirm that everything worked as expected.
 
 ## Writing Unique FileNames
 
-Notice that the code above created a unique filename for each year. 
+Notice that the code above created a unique filename for each year.
 
 	filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 
@@ -277,6 +277,8 @@ included in the yearly files.
 2. What happens if there is no data for a year in the sequence (for example,
 imagine we had used 1976 as the start year in `range`)?
 
+3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
+
 ## Building reusable and modular code with functions
 
 Suppose that separating large data files into individual yearly files is a task
@@ -302,11 +304,11 @@ Functions are declared following this general structure:
 
 ```python
 def this_is_the_function_name(input_argument1, input_argument2):
-    
+
     # The body of the function is indented
     # This function prints the two arguments to screen
     print('The function arguments are:', input_argument1, input_argument2, '(this is done inside the function!)')
-    
+
     # And returns their product
     return input_argument1 * input_argument2
 ```
@@ -350,10 +352,10 @@ def one_year_csv_writer(this_year, all_data):
     this_year --- year for which data is extracted
     all_data --- DataFrame with multi-year data
     """
-    
+
     # Select data for the year
     surveys_year = all_data[all_data.year == this_year]
-    
+
     # Write the new DataFrame to a csv file
     filename = 'data/yearly_files/function_surveys' + str(this_year) + '.csv'
     surveys_year.to_csv(filename)
@@ -392,7 +394,7 @@ def yearly_data_csv_writer(start_year, end_year, all_data):
     end_year --- the last year of data we want
     all_data --- DataFrame with multi-year data
     """
-    
+
     # "end_year" is the last year of data we want to pull, so we loop to end_year+1
     for year in range(start_year, end_year+1):
         one_year_csv_writer(year, all_data)
@@ -452,18 +454,18 @@ argument with default values (which are optional in the function call).
     def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: 1977
         end_year --- the last year of data we want --- default: 2002
         all_data --- DataFrame with multi-year data
         """
-        
+
         return start_year, end_year
-            
-        
+
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
     print('Both optional arguments:\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df)
     print('Default values:\t\t\t', start, end)
 ```
@@ -484,23 +486,23 @@ dates are not provided:
     def yearly_data_arg_test(all_data, start_year = None, end_year = None):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: None - check all_data
         end_year --- the last year of data we want --- default: None - check all_data
         all_data --- DataFrame with multi-year data
         """
-        
+
         if not start_year:
             start_year = min(all_data.year)
         if not end_year:
             end_year = max(all_data.year)
-        
+
         return start_year, end_year
-            
-        
+
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
     print('Both optional arguments:\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df)
     print('Default values:\t\t\t', start, end)
 ```
@@ -535,19 +537,19 @@ the loop when some condition is met. They commonly look something like this:
 
 ```python
     a = 5
-    
+
     if a<0: # meets first condition?
-        
+
         # if a IS less than zero
         print('a is a negative number')
-        
+
     elif a>0: # did not meet first condition. meets second condition?
-        
+
         # if a ISN'T less than zero and IS more than zero
         print('a is a positive number')
-        
+
     else: # met neither condition
-        
+
         # if a ISN'T less than zero and ISN'T more than zero
         print('a must be zero!')
 
@@ -579,35 +581,35 @@ values to the function using these keywords:
     def yearly_data_arg_test(all_data, start_year = None, end_year = None):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: None - check all_data
         end_year --- the last year of data we want --- default: None - check all_data
         all_data --- DataFrame with multi-year data
         """
-        
+
         if not start_year:
             start_year = min(all_data.year)
         if not end_year:
             end_year = max(all_data.year)
-        
+
         return start_year, end_year
-            
-    
+
+
     start,end = yearly_data_arg_test (surveys_df)
     print('Default values:\t\t\t', start, end)
-        
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
     print('No keywords:\t\t\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
     print('Both keywords, in order:\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
     print('Both keywords, flipped:\t\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
     print('One keyword, default end:\t', start, end)
-    
+
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
     print('One keyword, default start:\t', start, end)
 ```
@@ -634,7 +636,7 @@ statements!)
 doesn't. Add some code to your function that writes out the CSV files, to check
 for a directory to write to.
 
-```Python 
+```Python
 	if 'dirNameHere' in os.listdir('.'):
 	    print('Processed directory exists')
 	else:
@@ -651,4 +653,3 @@ your data, that begins at the earliest year and ends at the latest year using
 that list.
 
 HINT: you can create a loop with a list as follows: `for years in yearList:`
- 
