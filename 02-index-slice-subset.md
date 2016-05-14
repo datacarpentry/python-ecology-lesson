@@ -38,6 +38,7 @@ We often want to work with subsets of a **DataFrame** object. There are
 different ways to accomplish this including: using labels (column headings),
 numeric ranges or specific x,y index locations.
 
+
 ## Selecting Data Using Labels (Column Headings)
 
 We use square brackets `[]` to select a subset of an Python object. For example,
@@ -88,7 +89,8 @@ within objects starting at 1.
 a = [1,2,3,4,5]
 ```
 
-![Indexing vs slicing](img/slicing.svg)
+![indexing diagram](img/slicing-indexing.svg)
+![slicing diagram](img/slicing-slicing.svg)
 
 ## Challenges
 
