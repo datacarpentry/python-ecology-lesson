@@ -58,7 +58,7 @@ pi_value = 3.1415
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
 using the assignment operator `=`. The variable called `text` is a string which
 means it can contain letters and numbers. We could reassign the variable `text`
-to an integer too but - but be careful reassigning variables as this can get 
+to an integer too - but be careful reassigning variables as this can get 
 confusing.
 
 To print out the value stored in a variable we can simply type the name of the
@@ -69,7 +69,7 @@ variable into the interpreter:
 "Data Carpentry"
 ```
 
-but this only works in the interpreter. In scripts we must use the `print` function:
+however, in scripts we must use the `print` function:
 
 ```python
 # Comments start with #
