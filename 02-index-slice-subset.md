@@ -89,6 +89,8 @@ within objects starting at 1.
 a = [1,2,3,4,5]
 ```
 
+![indexing diagram](img/slicing-indexing.svg)
+![slicing diagram](img/slicing-slicing.svg)
 
 ## Challenges
 
