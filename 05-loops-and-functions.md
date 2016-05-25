@@ -69,7 +69,7 @@ the loop. The statement `pass` in the body of the loop just means "do nothing".
 
 1. What happens if we don't include the `pass` statement?
 
-2. Rewrite the loop so that the letters are separated by dashes, not returns
+2. Rewrite the loop so that the letters are separated by dashes, not new lines
 (Hint: You can concatenate strings using a plus sign. For example,
 `print(string1 + string2)` outputs 'string1string2').
 
