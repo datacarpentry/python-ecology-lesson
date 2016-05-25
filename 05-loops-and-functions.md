@@ -279,6 +279,9 @@ imagine we had used 1976 as the start year in `range`)?
 
 3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 
+4. Instead of splitting out the data by years, a collegue wants to do analyse each species seperatly. How would you write a unique csv file for each species?
+
+
 ## Building reusable and modular code with functions
 
 Suppose that separating large data files into individual yearly files is a task
