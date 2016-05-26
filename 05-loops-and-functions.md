@@ -25,51 +25,49 @@ year, for example). Loops lighten our work load by performing repeated tasks
 without our direct involvement and make it less likely that we'll introduce
 errors by making mistakes while processing each file by hand.
 
-Let's write a simple for loop that simulates what a kid would say during a
-spelling bee:
+Let's write a simple for loop that simulates what a kid might see during a
+visit to the zoo:
 
 ```python
->>> word = 'species'
->>> print(word)
-species
+>>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+>>> print(animals)
+['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
 
->>> for letter in word:
-...    print(letter)
-s
-p
-e
-c
-i
-e
-s
+>>> for creature in animals:
+...    print(creature)
+lion
+tiger
+crocodile
+vulture
+hippo
 ```
 
 The line defining the loop must start with `for` and end with a colon, and the
 body of the loop must be indented.
 
-In this example, `letter` is the loop variable that takes the value of the next
-entry in `word` every time the loop goes around. We can call the loop variable
+In this example, `creature` is the loop variable that takes the value of the next
+entry in `animals` every time the loop goes around. We can call the loop variable
 anything we like. After the loop finishes, the loop variable will still exist
 and will have the value of the last entry in the collection:
 
 ```python
->>> word = 'species'
->>> for letter in word:
+>>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+>>> for creature in animals:
 ...    pass
 
->>> print('The loop variable is now: ' + letter)
-The loop variable is now: s
+>>> print('The loop variable is now: ' + creature)
+The loop variable is now: hippo
 ```
 
 We are not asking python to print the value of the loop variable anymore, but
-the for loop still runs and the value of `letter` changes on each pass through
+the for loop still runs and the value of `creature` changes on each pass through
 the loop. The statement `pass` in the body of the loop just means "do nothing".
 
 ### Challenge:
 
 1. What happens if we don't include the `pass` statement?
 
-2. Rewrite the loop so that the letters are separated by dashes, not returns
+2. Rewrite the loop so that the animals are separated by commas, not new lines
 (Hint: You can concatenate strings using a plus sign. For example,
 `print(string1 + string2)` outputs 'string1string2').
 
