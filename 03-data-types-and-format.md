@@ -16,9 +16,25 @@ structure and format of our data.
 
 ## Learning Objectives
 
-* Learn about character and numeric data types.
-* Learn how to explore the structure of your data.
-* Understand NaN values and different ways to deal with them.
+*Level I - Remember*
+* List the Pandas Type associated with each of the following Native Python Types: (1) string, (2) int, (3) float 
+* Explain what an ‘NaN’ value is, and list at least two challenges of dealing with NaN data.  
+
+*Level II - Understand*
+* Describe the difference between floating point and integer numeric data types. 
+* Identify a major limitation of storing numbers as strings, e.g. ‘5678’ or ’3.16’. 
+
+*Level III - Apply*
+* Practice checking the data type of an object, e.g. a data frame,  as well as a column within a data frame
+* Demonstrate how you would convert a float to an integer, then demonstrate how you would convert an integer to a float.  
+* Demonstrate how you would replace NaN values with another value, e.g. 0 or -9999 
+
+*Level IV - Analyze*
+* Investigate how leaving NaN values as-is versus replacing with 0 impacts analysis results, such as calculation of the mean value. 
+
+*Level V - Evaluate*
+* Given what you’ve learned in this lesson, recommend an approach for dealing with NaN values in all attributes of the example dataset (surveys.csv) and explain your rationale
+
 
 
 # Types of Data
