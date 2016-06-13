@@ -398,7 +398,7 @@ Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
 
 ## Quickly Creating Summary Counts in Pandas
 
-Let's next create a list of unique species in our data. We can do this in a few
+Let's next count the number of samples for each species. We can do this in a few
 ways, but we'll use `groupby` combined with a `count()` method.
 
 
