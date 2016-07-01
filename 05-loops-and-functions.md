@@ -75,7 +75,7 @@ the loop. The statement `pass` in the body of the loop just means "do nothing".
 values, the life span of each of them:
 ages = {'lion': 35, 'tiger': 22, 'crocodile': 45, 'vulture': 30, 'hippo': 45}.
 Use the loop so that the program displays :
- " The <animal> lives <animal_life_span> in average. "
+ " The <animal> lives <animal_life_span> years in average. "
 
 
 
