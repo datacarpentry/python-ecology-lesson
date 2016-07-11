@@ -111,7 +111,7 @@ True
 
 ### Lists
 
-**Lists** are a common data structure to hold a sequence of
+**Lists** are a common data structure to hold an ordered sequence of
 elements. Each element can be accessed by an index:
 
 ```python
@@ -135,7 +135,7 @@ for num in numbers:
 example above is indented. This is Python's way of marking a block of code. We will
 discuss this in more detail later.
 
-To add elements to the list, we can use the `append` method:
+To add elements to the end of a list, we can use the `append` method:
 
 ```python
 >>> numbers.append(4)
@@ -171,7 +171,7 @@ dir(numbers)
 
 ### Tuples
 
-A tuple is similar to a list in that it's a sequence of elements. However,
+A tuple is similar to a list in that it's an ordered sequence of elements. However,
 tuples can not be changed once created (they are "immutable"). Tuples are
 created by placing comma-separated values inside parentheses `()`.
 
@@ -243,6 +243,11 @@ or
 3 -> three
 >>>
 ```
+
+It is important to note that dictionaries are "unordered" and do not remember the
+sequence of their items (i.e. the order in which key:value pairs were added to 
+the dictionary). Because of this, the order in which items are returned from loops
+over dictionaries might appear random and can even change with time.
 
 ## Functions
 
