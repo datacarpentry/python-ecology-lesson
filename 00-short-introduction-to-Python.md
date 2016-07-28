@@ -177,15 +177,15 @@ created by placing comma-separated values inside parentheses `()`.
 
 ```python
 # tuples use paratheses
-ATuple= (1,2,3)
-anotherTuple = ('blue','green','red')
+a_tuple= (1,2,3)
+another_tuple = ('blue','green','red')
 # notes lists uses square brackets
-AList = [1,2,3]
+a_list = [1,2,3]
 ```
 
 ### Challenge
-1. What happens when you type `ATuple[2]=5` vs `AList[1]=5` ?
-2. Type `type(ATuple)` into python - what is the object type?
+1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
+2. Type `type(a_tuple)` into python - what is the object type?
 
 
 ## Dictionaries
