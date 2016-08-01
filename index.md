@@ -15,6 +15,8 @@ maintainers:
   - April Wright
   - John Gosset
   - Mateusz Kuzak
+
+software: Python
 ---
 
 **Content Contributors:** {{ page.contributors | join: ', ' }}
@@ -53,13 +55,26 @@ Specifically, the data files we use in these lessons are:
 
 ## Requirements
 
-Data Carpentry's teaching is hands-on, so participants are encouraged to bring
-in and use their own laptops to ensure the proper setup of tools for an
-efficient workflow once you leave the workshop.  (We will provide instructions
-on setting up the required software several days in advance).  _There are no
-pre-requisites, and we will assume no prior knowledge about the tools._
-Participants are required to abide by Software Carpentry's
-[Code of Conduct](https://software-carpentry.org/conduct/).
+Data Carpentry's teaching is hands-on, so participants are encouraged to use
+their own computers to insure the proper setup of tools for an efficient workflow.
+*These lessons assume no prior knowledge of the skills or tools*, but working
+through this lesson requires working copies of the software described below.
+To most effectively use these materials, please make sure to install everything
+*before* working through this lesson.
+
+Participants are required to abide by Data Carpentry's
+[Code of Conduct](http://www.datacarpentry.org/code-of-conduct/).
+
+
+{% if page.software == "Python" %}
+{% include pythonSetup.html %}
+{% elsif page.software == "Spreadsheets" %}
+{% include spreadsheetSetup.html %}
+{% elsif page.software == "R" %}
+{% include rSetup.html %}
+{% else %}
+{% include anySetup.html %}
+{% endif %}
 
 
 ## Acknowledgements & Support
