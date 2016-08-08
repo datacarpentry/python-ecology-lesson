@@ -125,7 +125,8 @@ We can use Pandas' `read_csv` function to pull the file directly into a
 A DataFrame is a 2-dimensional data structure that can store data of different
 types (including characters, integers, floating point values, factors and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
-R.
+R. A DataFrame always has an index (0-based). An index refers to the position of 
+an element in the data structure.
 
 First, let's make sure the Python Pandas library is loaded. We will import
 Pandas using the nickname `pd`.  This is a common convention on the internet,
@@ -173,11 +174,12 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 ```
 
 We can see that there were 33,549 rows parsed. Each row has 9
-columns. It looks like  the `read_csv` function in Pandas read our file
-properly. However, we haven't saved any data to memory so we can work with it.
-We need to assign the DataFrame to a variable. Remember that a variable is a
-name for a value, such as `x`, or  `data`. We can create a new object with a
-variable name by assigning a value to it using `=`.
+columns. The first column is the index of the DataFrame. The index is not an
+actual column of the DataFrame. It looks like  the `read_csv` function in Pandas 
+read our file properly. However, we haven't saved any data to memory so we can 
+work with it.We need to assign the DataFrame to a variable. Remember that a 
+variable is a name for a value, such as `x`, or  `data`. We can create a new 
+object with a variable name by assigning a value to it using `=`.
 
 Let's call the imported survey data `surveys_df`:
 
