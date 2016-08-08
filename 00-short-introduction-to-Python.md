@@ -243,6 +243,20 @@ or
 3 -> three
 >>>
 ```
+### Challenge
+Can you do reassignment in a dictionary? Give it a try. 
+
+1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
+    
+    Type:
+`>>> rev`
+
+    You should see the following output:
+`{1: 'one', 2: 'two', 3: 'three'}`
+2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+`>>> rev[2] = "apple-sauce"`
+3. Now display `rev` again to see if it has changed; you should see the following:
+`{1: 'one', 2: 'apple-sauce', 3: 'three'}`
 
 It is important to note that dictionaries are "unordered" and do not remember the
 sequence of their items (i.e. the order in which key:value pairs were added to 
