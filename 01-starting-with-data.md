@@ -174,12 +174,12 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 ```
 
 We can see that there were 33,549 rows parsed. Each row has 9
-columns. The first column is the index of the DataFrame. The index is not an
-actual column of the DataFrame. It looks like  the `read_csv` function in Pandas 
-read our file properly. However, we haven't saved any data to memory so we can 
-work with it.We need to assign the DataFrame to a variable. Remember that a 
-variable is a name for a value, such as `x`, or  `data`. We can create a new 
-object with a variable name by assigning a value to it using `=`.
+columns. The first column is the index of the DataFrame. The index is used to
+identify the position of the data, but it is not an actual column of the DataFrame. 
+It looks like  the `read_csv` function in Pandas  read our file properly. However, 
+we haven't saved any data to memory so we can work with it.We need to assign the 
+DataFrame to a variable. Remember that a variable is a name for a value, such as `x`, 
+or  `data`. We can create a new  object with a variable name by assigning a value to it using `=`.
 
 Let's call the imported survey data `surveys_df`:
 
