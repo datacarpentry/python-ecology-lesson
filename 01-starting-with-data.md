@@ -293,7 +293,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 ## Challenges
 
 1. Create a list of unique plot ID's found in the surveys data. Call it
-   `plotNames`. How many unique plots are there in the data? How many unique
+   `plot_names`. How many unique plots are there in the data? How many unique
    species are in the data?
 
 # Groups in Pandas
@@ -380,7 +380,7 @@ summary stats.
 	- `sorted2.mean()`
 3. Summarize weight values for each plot in your data. HINT: you can use the
    following syntax to only create summary statistics for one column in your data
-   `byPlot['weight'].describe()`
+   `by_plot['weight'].describe()`
 
 
 Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**

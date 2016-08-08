@@ -370,7 +370,7 @@ We can run `isnull` on a particular column too. What does the code below do?
 
 ```python
 # what does this do?
-emptyWeights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['weight']
+empty_weights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['weight']
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean
