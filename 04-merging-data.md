@@ -76,11 +76,11 @@ works.
 
 ```python
 # read in first 10 lines of surveys table
-surveySub = surveys_df.head(10)
+survey_sub = surveys_df.head(10)
 # grab the last 10 rows (minus the last one)
-surveySubLast10 = surveys_df[-11:-1]
+survey_sub_last10 = surveys_df[-11:-1]
 #reset the index values to the second dataframe appends properly
-surveySubLast10=surveySubLast10.reset_index(drop=True)
+survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
 ```
 
@@ -95,15 +95,15 @@ related in some way).
 
 ```python
 # stack the DataFrames on top of each other
-verticalStack = pd.concat([surveySub, surveySubLast10], axis=0)
+vertical_stack = pd.concat([survey_sub, survey_sub_last10], axis=0)
 
 # place the DataFrames side by side
-horizontalStack = pd.concat([surveySub, surveySubLast10], axis=1)
+horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 ```
 
 ### Row Index Values and Concat
-Have a look at the `verticalStack` dataframe? Notice anything unusual?
-The row indexes for the two data frames `surveySub` and `surveySubLast10`
+Have a look at the `vertical_stack` dataframe? Notice anything unusual?
+The row indexes for the two data frames `survey_sub` and `survey_sub_last10`
 have been repeated. We can reindex the new dataframe using the `reset_index()` method.
 
 ## Writing Out Data to CSV
@@ -111,11 +111,11 @@ have been repeated. We can reindex the new dataframe using the `reset_index()` m
 We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
-`verticalStack.to_csv('foldername/out.csv')`.
+`vertical_stack.to_csv('foldername/out.csv')`.
 
 ```python
 # Write DataFrame to CSV 
-verticalStack.to_csv('out.csv')
+vertical_stack.to_csv('out.csv')
 ```
 
 Check out your working directory to make sure the CSV wrote out properly, and
@@ -175,14 +175,14 @@ in a subset of the species table.
 
 ```python
 # read in first 10 lines of surveys table
-surveySub = surveys_df.head(10)
+survey_sub = surveys_df.head(10)
 
 # import a small subset of the species data designed for this part of the lesson
-speciesSub = pd.read_csv('speciesSubset.csv', keep_default_na=False, na_values=[""])
+species_sub = pd.read_csv('species_subset.csv', keep_default_na=False, na_values=[""])
 ```
 
-In this example, `speciesSub` is the lookup table containing genus, species, and
-taxa names that we want to join with the data in `surveySub` to produce a new
+In this example, `species_sub` is the lookup table containing genus, species, and
+taxa names that we want to join with the data in `survey_sub` to produce a new
 DataFrame that contains all of the columns from both `species_df` *and*
 `survey_df`.
 
@@ -197,11 +197,11 @@ identify a (differently-named) column in each DataFrame that contains the same
 information.
 
 ```python
-speciesSub.columns
+species_sub.columns
 
 Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
-surveySub.columns
+survey_sub.columns
 
 Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
        u'sex', u'hindfoot_length', u'weight'], dtype='object')
@@ -232,7 +232,7 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:  
 
 ```python
-merged_inner = pd.merge(left=surveySub,right=speciesSub, left_on='species_id', right_on='species_id')
+merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
 # in this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
 # and `right_on` arguments we would still get the same result
 
@@ -265,36 +265,36 @@ merged_inner
 7     NaN  Peromyscus  eremicus  Rodent  
 ```
 
-The result of an inner join of `surveySub` and `speciesSub` is a new DataFrame
-that contains the combined set of columns from `surveySub` and `speciesSub`. It
+The result of an inner join of `survey_sub` and `species_sub` is a new DataFrame
+that contains the combined set of columns from `survey_sub` and `species_sub`. It
 *only* contains rows that have two-letter species codes that are the same in
-both the surveysSub and speciesSub DataFrames. In other words, if a row in
-`surveySub` has a value of `species_id` that does *not* appear in the `species_id`
+both the `survey_sub` and `species_sub` DataFrames. In other words, if a row in
+`survey_sub` has a value of `species_id` that does *not* appear in the `species_id`
 column of `species`, it will not be included in the DataFrame returned by an
-inner join.  Similarly, if a row in `speciesSub` has a value of `species_id`
-that does *not* appear in the `species_id` column of `surveySub`, that row will not
+inner join.  Similarly, if a row in `species_sub` has a value of `species_id`
+that does *not* appear in the `species_id` column of `survey_sub`, that row will not
 be included in the DataFrame returned by an inner join.
 
 The two DataFrames that we want to join are passed to the `merge` function using
 the `left` and `right` argument. The `left_on='species'` argument tells `merge`
-to use the `species_id` column as the join key from `surveySub` (the `left`
+to use the `species_id` column as the join key from `survey_sub` (the `left`
 DataFrame). Similarly , the `right_on='species_id'` argument tells `merge` to
-use the `species_id` column as the join key from `speciesSub` (the `right`
+use the `species_id` column as the join key from `species_sub` (the `right`
 DataFrame). For inner joins, the order of the `left` and `right` arguments does
 not matter.
 
-The result `merged_inner` DataFrame contains all of the columns from `surveySub`
-(record id, month, day, etc.) as well as all the columns from `speciesSub`
+The result `merged_inner` DataFrame contains all of the columns from `survey_sub`
+(record id, month, day, etc.) as well as all the columns from `species_sub`
 (species_id, genus, species, and taxa).
 
-Notice that `merged_inner` has fewer rows than `surveysSub`. This is an
+Notice that `merged_inner` has fewer rows than `survey_sub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species_id` that
 do not exist as value(s) for `species_id` in `species_df`.
  
 ## Left joins
 
-What if we want to add information from `speciesSub` to `surveysSub` without
-losing any of the information from `surveySub`? In this case, we use a different
+What if we want to add information from `species_sub` to `survey_sub` without
+losing any of the information from `survey_sub`? In this case, we use a different
 type of join called a "left outer join", or a "left join".
 
 Like an inner join, a left join uses join keys to combine two DataFrames. Unlike
@@ -313,7 +313,7 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ```python
-merged_left = pd.merge(left=surveySub,right=speciesSub, how='left', left_on='species_id', right_on='species_id')
+merged_left = pd.merge(left=survey_sub,right=species_sub, how='left', left_on='species_id', right_on='species_id')
 
 merged_left
 
@@ -347,9 +347,9 @@ merged_left
 The result DataFrame from a left join (`merged_left`) looks very much like the
 result DataFrame from an inner join (`merged_inner`) in terms of the columns it
 contains. However, unlike `merged_inner`, `merged_left` contains the **same
-number of rows** as the original `surveysSub` DataFrame. When we inspect
+number of rows** as the original `survey_sub` DataFrame. When we inspect
 `merged_left`, we find there are rows where the information that should have
-come from `speciesSub` (i.e., `species_id`, `genus`, and `taxa`) is
+come from `species_sub` (i.e., `species_id`, `genus`, and `taxa`) is
 missing (they contain NaN values):
 
 ```python
@@ -364,8 +364,8 @@ merged_left[ pd.isnull(merged_left.genus) ]
 9     NaN   NaN     NaN  NaN
 ```
 
-These rows are the ones where the value of `species_id` from `surveySub` (in this
-case, `PF`) does not occur in `speciesSub`.
+These rows are the ones where the value of `species_id` from `survey_sub` (in this
+case, `PF`) does not occur in `species_sub`.
 
 
 ## Other join types
