@@ -132,70 +132,39 @@ to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
 
-We are using a function called `range` that creates a list of integers using the
-syntax `range(start, end, step)`. The values of `start`,`end` and `step` must all
-be integers. If this function only receives two numbers, it assumes that the
-step length is 1. If it only receives one number, it assumes that the sequence
-of numbers starts at zero.
+We have seen that we can loop over a list of items, so we need a list of years 
+to loop over. We can get the years in our DataFrame with:
 
 ```python
->>> for year in range(1977,2002):
-...    filename = 'data/yearly_files/surveys' + str(year) + '.csv'
+>>> surveys_df['year']
+
+0        1977
+1        1977
+2        1977
+3        1977
+         ...
+35545    2002
+35546    2002
+35547    2002
+35548    2002
+```
+
+but we want only unique years, which we can get using the `unique` function 
+which we have already seen.  
+
+```python
+>>> surveys_df['year'].unique()
+array([1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987,
+       1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+       1999, 2000, 2001, 2002], dtype=int64)
+```
+
+Putting this into our for loop we get
+
+```python
+>>> for year in surveys_df['year'].unique():
+...    filename='data/yearly_files/surveys' + str(year) + '.csv'
 ...    print(filename)
-...
-data/yearly_files/surveys1977.csv
-data/yearly_files/surveys1978.csv
-data/yearly_files/surveys1979.csv
-data/yearly_files/surveys1980.csv
-data/yearly_files/surveys1981.csv
-data/yearly_files/surveys1982.csv
-data/yearly_files/surveys1983.csv
-data/yearly_files/surveys1984.csv
-data/yearly_files/surveys1985.csv
-data/yearly_files/surveys1986.csv
-data/yearly_files/surveys1987.csv
-data/yearly_files/surveys1988.csv
-data/yearly_files/surveys1989.csv
-data/yearly_files/surveys1990.csv
-data/yearly_files/surveys1991.csv
-data/yearly_files/surveys1992.csv
-data/yearly_files/surveys1993.csv
-data/yearly_files/surveys1994.csv
-data/yearly_files/surveys1995.csv
-data/yearly_files/surveys1996.csv
-data/yearly_files/surveys1997.csv
-data/yearly_files/surveys1998.csv
-data/yearly_files/surveys1999.csv
-data/yearly_files/surveys2000.csv
-data/yearly_files/surveys2001.csv
-```
-
-Our list of filenames is incomplete! It correctly started with 1977 and stepped
-forward by 1 year, but it stopped with 2001. The function `range` continues to
-add integers to the sequence as long as they are less than the stop value. This
-is easier to see if we create a sequence of numbers that stops part-way through
-a step:
-
-```python
->>> print('This one stops at half a step:', range(0,5,2))
-This one stops at half a step: [0, 2, 4]
-```
-
-Notice, that the output is the same if your range ends at 6.
-
-```python
->>> print('This one stops at half a step, too:', range(0,6,2))
-This one stops at half a step, too: [0, 2, 4]
-```
-
-To write a loop that includes the year 2002, we must make the stop value for
-`range` an integer greater than that value but not so large that the sequence
-goes too far:
-
-```python
->>> for year in range(1977,2003):
-...     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
-...     print(filename)
 ...
 data/yearly_files/surveys1977.csv
 data/yearly_files/surveys1978.csv
@@ -231,7 +200,7 @@ We can now add the rest of the steps we need to create separate text files:
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-for year in range(1977,2003):
+for year in surveys_df['year'].unique():
 
     # Select data for the year
     surveys_year = surveys_df[surveys_df.year == year]
