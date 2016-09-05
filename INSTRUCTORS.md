@@ -56,12 +56,12 @@ Instead of getting the column of the groupby and counting it, you can also count
 
 `surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')`
 
-![average weight across all species for each plot](img/01_chall_bar_meanweight.png) 
+![average weight across all species for each plot](./img/01_chall_bar_meanweight.png) 
 
 * Create a plot of total males versus total females for the entire datase
 
 `surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')`
-![total males versus total females for the entire dataset](img/01_chall_bar_totalsex.png)
+![total males versus total females for the entire dataset](./img/01_chall_bar_totalsex.png)
 
 ## 02-index-slice-subset
 
@@ -115,14 +115,41 @@ New dataframe with the not male/female values: `surveys_df[~surveys_df['sex'].is
 * Create a new DataFrame that contains only observations that are of sex male or female and where weight values are greater than 0. Create a stacked bar plot of average weight by plot with male vs female values stacked for each plot.
 
 The selection of the data can be done with the `isin` operator: 
-`stack_selection = surveys_df[(surveys_df['sex'].isin(['M', 'F'])) & surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]`. As we now the other values are all Nan values, we can also select all not null values: `stack_selection = surveys_df[(surveys_df['sex'].notnull()) & surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]` 
+`stack_selection = surveys_df[(surveys_df['sex'].isin(['M', 'F'])) & surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]`. As we now the other values are all Nan values, we can also select all not null values (just preview, more on this in next lesson): `stack_selection = surveys_df[(surveys_df['sex'].notnull()) & surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]` 
 Next, we calculate the mean weight for each plot id and sex combination: `stack_selection = stack_selection.groupby(["plot_id", "sex"]).mean().unstack()`
 And we can make a stacked bar plot from this:
 `stack_selection.plot(kind='bar', stacked=True)`
 
-![average weight for each plot per sex](/img/02_chall_stack_levelissue.png)
+![average weight for each plot per sex](./img/02_chall_stack_levelissue.png)
 
 However, due to the `unstack` command, the legend header contains two levels. In order to remove this, the column naming need to be simplified : 
+`stack_selection.columns = stack_selection.columns.droplevel()`
+
+![average weight for each plot per sex](./img/02_chall_stack_level.png)
+
+## 04-merging-data.md
+
+* In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
+
+Read the files:
+`survey2001 = pd.read_csv("data/survey2001.csv")`
+`survey2002 = pd.read_csv("data/survey2002.csv")`
+Concatenate:
+`survey_all = pd.concat([survey2001, survey2002], axis=0)`
+Get the weight for each year, grouped by sex:
+`weight_year = survey_all.groupby(['year', 'sex']).mean()["wgt"].unstack()`
+Plot: 
+`weight_year.plot(kind="bar")`
+![average weight for each year, grouped by sex](./img/04_chall_weight_year.png)
+Writing to file:
+`weight_year.to_csv("weight_for_year.csv")`
+Reading it back in:
+`pd.read_csv("weight_for_year.csv", index_col=0)`
+
+
+
+
+
 
 
 
