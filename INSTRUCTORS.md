@@ -140,11 +140,119 @@ Get the weight for each year, grouped by sex:
 `weight_year = survey_all.groupby(['year', 'sex']).mean()["wgt"].unstack()`
 Plot: 
 `weight_year.plot(kind="bar")`
+`plt.tight_layout()`
 ![average weight for each year, grouped by sex](./img/04_chall_weight_year.png)
 Writing to file:
 `weight_year.to_csv("weight_for_year.csv")`
 Reading it back in:
 `pd.read_csv("weight_for_year.csv", index_col=0)`
+
+* Create a new DataFrame by joining the contents of the surveys.csv and species.csv tables. 
+
+`merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")`
+
+Then calculate and plot the distribution of: 
+
+**1. taxa per plot** (number of specis of each taxa per plot):
+
+Species distribution (number of taxa for each plot) can be derived as follows:
+```python
+merged_left.groupby(["plot_id"])["taxa"].nunique().plot(kind='bar')
+```
+
+![taxa per plot](./img/04_chall_ntaxa_per_plot.png)
+
+It is also possible to plot the number of individuals for each taxa in each plot (stacked bar chart):
+```python
+merged_left.groupby(["plot_id", "taxa"]).count()["record_id"].unstack().plot(kind='bar', stacked=True)
+plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.05))
+```
+(the legend otherwise overlaps the bar plot)
+
+![taxa per plot](./img/04_chall_taxa_per_plot.png)
+
+**2. taxa by sex by plot**:
+Providing the Nan values with the M|F values (can also already be changed to 'x'):
+```python
+merged_left.loc[merged_left["sex"].isnull(), "sex"] = 'M|F'
+```
+
+Number of taxa for each plot/sex combination:
+```python
+ntaxa_sex_plot = merged_left.groupby(["plot_id", "sex"])["taxa"].nunique().reset_index(level=1)
+ntaxa_sex_plot = ntaxa_sex_plot.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_plot.index)
+ntaxa_sex_plot.plot(kind="bar", legend=False)
+plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.08),
+           fontsize='small', frameon=False)
+```
+
+![taxa per plot per sex](./img/04_chall_ntaxa_per_plot_sex.png)
+
+**Optional extension (for discussion only)**: 
+
+The number of individuals for each taxa in each plot pet sex can be derived as well
+
+```python
+sex_taxa_plot  = merged_left.groupby(["plot_id", "taxa", "sex"]).count()['record_id']
+sex_taxa_plot.unstack(level=[1, 2]).plot(kind='bar', logy=True)
+plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.15), 
+           fontsize='small', frameon=False)
+```
+
+![taxa per plot per sex](./img/04_chall_sex_taxa_plot_intro.png)
+
+This is not really the best plot choice: not readable,... A first opion to make this better, is to make facets. However, pandas/matplotlib doe not provide this by default. Just as a pure matplotlib example (`M|F` if for not-defined sex records):
+
+```python
+fig, axs = plt.subplots(3, 1)
+for sex, ax in zip(["M", "F", "M|F"], axs):
+    sex_taxa_plot[sex_taxa_plot["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
+    ax.set_ylabel(sex)
+    if not ax.is_last_row():
+        ax.set_xticks([])
+        ax.set_xlabel("")
+axs[0].legend(loc='upper center', ncol=5, bbox_to_anchor=(0.5, 1.3), 
+              fontsize='small', frameon=False)
+```
+
+![taxa per plot per sex](./img/04_chall_sex_taxa_plot.png)
+
+However, it would be better to link to [Seaborn](https://stanford.edu/~mwaskom/software/seaborn/)  and [Altair](https://github.com/ellisonbg/altair)  for tis kind of multivariate visualisations. 
+
+* In the data folder, there is a plot CSV that contains information about the type associated with each plot. Use that data to summarize the number of plots by plot type.
+
+```python
+plot_info = pd.read_csv("data/plots.csv")
+plot_info.groupby("plot_type").count()
+```
+
+* Calculate a diversity index of your choice for control vs rodent exclosure plots. The index should consider both species abundance and number of species. You might choose to use the simple biodiversity index described here which calculates diversity as `the number of species in the plot / the total number of individuals in the plot = Biodiversity index.`
+
+```python
+merged_plot_type = pd.merge(merged_left, plot_info, on='plot_id')
+# For each plot, get the number of species for each plot
+nspecies_plot = merged_plot_type.groupby(["plot_id"])["species"].nunique().rename("nspecies")
+# For each plot, get the number of individuals
+nindividuals_plot = merged_plot_type.groupby(["plot_id"]).count()['record_id'].rename("nindiv")
+# combine the two series
+diversity_index = pd.concat([nspecies_plot, nindividuals_plot], axis=1)
+# calculate the diversity index
+diversity_index['diversity'] = diversity_index['nspecies']/diversity_index['nindiv']
+```
+
+Making a bar chart:
+
+```python
+diversity_index['diversity'].plot(kind="barh")
+plt.xlabel("Diversity index")
+```
+
+![taxa per plot per sex](./img/04_chall_diversity_index.png)
+
+
+## 05
+
+
 
 
 
