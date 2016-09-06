@@ -127,7 +127,7 @@ However, due to the `unstack` command, the legend header contains two levels. In
 
 ![average weight for each plot per sex](./img/02_chall_stack_level.png)
 
-## 04-merging-data.md
+## 04-merging-data
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
 
@@ -250,8 +250,179 @@ plt.xlabel("Diversity index")
 ![taxa per plot per sex](./img/04_chall_diversity_index.png)
 
 
-## 05
+## 05-loops-and-functions
 
+* What happens if we don't include the `pass` statement?
+
+`SyntaxError:`
+
+* Rewrite the loop so that the animals are separated by commas, not new lines (Hint: You can concatenate strings using a plus sign. For example, `print(string1 + string2)` outputs 'string1string2').
+
+```python
+for creature in animals:
+    print(creature+',', end='')
+```
+
+Actually, a loop-free solution would be more optimal here: `','.join(animals)`
+
+* Some of the surveys you saved are missing data (they have null values that show up as NaN - Not A Number - in the DataFrames and do not show up in the text files). Modify the for loop so that the entries with null values are not included in the yearly files.
+
+```python
+surveys_year = surveys_df[surveys_df.year == year].dropna()
+```
+
+* What happens if there is no data for a year in the sequence (for example, imagine we had used 1976 as the start year in range)
+
+An empty file with only the headers
+
+* Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
+
+You could just make a list manually, however, why not check the first and last year making use of the code itself? 
+
+```python
+n_year = 5 # better overview by making variable from it
+first_year = surveys_df['year'].min()
+last_year = surveys_df['year'].max()
+
+for year in range(first_year, last_year, n_year):
+    print(year)
+
+    # Select data for the year
+    surveys_year = surveys_df[surveys_df.year == year].dropna()
+```
+
+* Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
+
+Similar to previous example, but use the `species_id` column. `surveys_df['species_id'].unique()`. However, the species names would improve interpretation of the file naming. A join with the species: `merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")` and using the `species` column.
+
+* Change the values of the arguments in the function and check its output
+* Try calling the function by giving it the wrong number of arguments (not 2) or not assigning the function call to a variable (no product_of_inputs =)
+* Declare a variable inside the function and test to see where it exists (Hint: can you print it from outside the function?)
+* Explore what happens when a variable both inside and outside the function have the same name. What happens to the global variable when you change the value of the local variable?
+
+Show these in a debugging environment to make this more clear!
+
+* Add two arguments to the functions we wrote that take the path of the directory where the files will be written and the root of the file name. Create a new set of files with a different name in a different directory.
+
+```python
+def one_year_csv_writer(this_year, all_data, folder_to_save, root_name):
+    """
+    Writes a csv file for data from a given year.
+
+    Parameters
+    ---------
+    this_year : int
+        year for which data is extracted
+    all_data: pd.DataFrame
+        DataFrame with multi-year data 
+    folder_to_save : str
+        folder to save the data files
+    root_name: str
+        root of the filenames to save the data
+    """
+
+    # Select data for the year
+    surveys_year = all_data[all_data.year == this_year]
+
+    # Write the new DataFrame to a csv file
+    filename = os.path.join(folder_to_save, ''.join([root_name, str(this_year), '.csv']))
+    surveys_year.to_csv(filename)
+```
+Also adapt function `yearly_data_csv_writer` with the additional inputs.
+
+* How could you use the function yearly_data_csv_writer to create a csv file for only one year? (Hint: think about the syntax for range)
+
+Adapt the input arguments, e.g. 1978, 1979
+
+* Make the functions return a list of the files they have written. There are many ways you can do this (and you should try them all!): 
+	* either of the functions can print to screen, 
+	justa add `print("year " + str(this_year)+ " written to disk")` statement
+	* either can use a return statement to give back numbers or strings to their function call, 
+	* or you can use some combination of the two. 
+
+```python
+filenames = []
+for year in range(start_year, end_year+1):
+filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))
+return filenames
+```	
+	
+	* You could also try using the os library to list the contents of directories.
+	`os.listdir`
+	
+* Explore what happens when variables are declared inside each of the functions versus in the main (non-indented) body of your code. What is the scope of the variables (where are they visible)? What happens when they have the same name but are given different values?
+
+* What type of object corresponds to a variable declared as None? (Hint: create a variable set to None and use the function type())
+
+`NoneType`
+
+* Compare the behavior of the function yearly_data_arg_test when the arguments have None as a default and when they do not have default values.
+
+* What happens if you only include a value for start_year in the function call? Can you write the function call with only a value for end_year? (Hint: think about how the function must be assigning values to each of the arguments - this is related to the need to put the arguments without default values before those with default values in the function definition!)
+
+`yearly_data_arg_test(surveys_df, end_year=2001)`
+
+* Rewrite the `one_year_csv_writer` and `yearly_data_csv_writer` functions to have keyword arguments with default values
+
+```python
+def one_year_csv_writer(this_year, all_data, folder_to_save='./', root_name='survey'):
+    """
+    Writes a csv file for data from a given year.
+
+    Parameters
+    ---------
+    this_year : int
+        year for which data is extracted
+    all_data: pd.DataFrame
+        DataFrame with multi-year data 
+    folder_to_save : str
+        folder to save the data files
+    root_name: str
+        root of the filenames to save the data
+    """
+
+    # Select data for the year
+    surveys_year = all_data[all_data.year == this_year]
+
+    # Write the new DataFrame to a csv file
+    filename = os.path.join(folder_to_save, ''.join([root_name, str(this_year), '.csv']))
+    surveys_year.to_csv(filename)
+```
+
+* Modify the functions so that they don't create yearly files if there is no data for a given year and display an alert to the user (Hint: use conditional statements and if loops to do this. For an extra challenge, use try statements!)
+
+```python
+    # Write the new DataFrame to a csv file
+    if len(surveys_year) > 0:
+        filename = os.path.join(folder_to_save, ''.join([root_name, str(this_year), '.csv']))
+        surveys_year.to_csv(filename)
+    else:
+        print("No data for year " + str(this_year))
+```
+
+* The code that you have written so far to loop through the years is good, however it is not necessarily reproducible with different datasets. For instance, what happens to the code if we have additional years of data in our CSV files? Using the tools that you learned in the previous activities, make a list of all years represented in the data. Then create a loop to process your data, that begins at the earliest year and ends at the latest year using that list.
+
+```python
+def yearly_data_csv_writer(all_data, yearcolumn="year", 
+                           folder_to_save='./', root_name='survey'):
+    """
+    Writes separate csv files for each year of data.
+
+    all_data --- DataFrame with multi-year data
+    yearcolumn --- column name containing the year of the data
+    folder_to_save --- folder name to store files
+    root_name --- start of the file names stored
+    """
+    years = all_data["year"].unique()
+
+    # "end_year" is the last year of data we want to pull, so we loop to end_year+1
+    filenames = []
+    for year in years:
+        filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))
+    return filenames
+```
+
+## 6
 
 
 
