@@ -176,10 +176,10 @@ tuples can not be changed once created (they are "immutable"). Tuples are
 created by placing comma-separated values inside parentheses `()`.
 
 ```python
-# tuples use paratheses
+# tuples use parentheses
 a_tuple= (1,2,3)
 another_tuple = ('blue','green','red')
-# Note: lists use square brackets, tuples use parentheses
+# Note: lists use square brackets
 a_list = [1,2,3]
 ```
 
