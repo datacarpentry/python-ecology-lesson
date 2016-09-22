@@ -6,7 +6,7 @@ title: Short Introduction to Programming in Python
 
 # The Basics of Python
 
-Python is a general purpose programming language, that supports rapid development
+Python is a general purpose programming language that supports rapid development
 of scripts and applications.
 
 Python's main advantages:
@@ -143,9 +143,9 @@ To add elements to the end of a list, we can use the `append` method:
 [1,2,3,4]
 ```
 
-Methods are a way to interact with an object - like a list. We can use or apply 
-a method to a variable or element using the dot `.`. To find out what methods are
- available, we can use the built-in `help` command:
+Methods are a way to interact with an object (a list, for example). We can invoke 
+a method using the dot `.` followed by the method name and a list of arguments in parentheses. 
+To find out what methods are available for an object, we can use the built-in `help` command:
 
 ```python
 help(numbers)
@@ -176,10 +176,10 @@ tuples can not be changed once created (they are "immutable"). Tuples are
 created by placing comma-separated values inside parentheses `()`.
 
 ```python
-# tuples use paratheses
+# tuples use parentheses
 a_tuple= (1,2,3)
 another_tuple = ('blue','green','red')
-# notes lists uses square brackets
+# Note: lists use square brackets
 a_list = [1,2,3]
 ```
 
