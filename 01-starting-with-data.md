@@ -296,6 +296,8 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
    `plot_names`. How many unique plots are there in the data? How many unique
    species are in the data?
 
+2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+
 # Groups in Pandas
 
 We often want to calculate summary statistics grouped by subsets or attributes
