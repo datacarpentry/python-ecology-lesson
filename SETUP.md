@@ -16,7 +16,7 @@ For this lecture we use Python version 3.x
 * [Matplotlib](http://matplotlib.org/)
 
 
-## How to install this Packages
+## How to install these Packages
 For installing these packages we will use Anaconda or Miniconda.
 They both use [Conda](http://conda.pydata.org/docs/), the main difference is that Anaconda comes with a lot of packages installed by default.
 With Miniconda you need to install the packages that you need.
