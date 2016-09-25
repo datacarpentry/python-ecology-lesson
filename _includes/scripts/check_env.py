@@ -4,7 +4,7 @@ import sys
 from pkgutil import iter_modules
 
 
-# Thanks @ericmj for function below.
+# Thanks @ericmjl for function below.
 def check_import(packagename):
     """Checks whether a package is installed"""
     if packagename in (name for _, name, _ in iter_modules()):
