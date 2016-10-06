@@ -6,7 +6,7 @@ scientific computing, and great for general-purpose programming as
 well.  Installing all of its scientific packages individually can be
 a bit difficult, so we recommend an all-in-one installer.
 
-For this lecture we use Python version 3.x
+For this workshop we use Python version 3.x
 
 ## Python Packages we will use
 
@@ -52,4 +52,4 @@ After you installed Anaconda or Miniconda (plus the additional packages) to laun
 ```
 jupyter notebook
 ```
-You can then connect to: http://localhost:8888
+You can then open this link in your browser: http://localhost:8888
