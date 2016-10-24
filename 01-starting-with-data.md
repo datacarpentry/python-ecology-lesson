@@ -277,7 +277,7 @@ Let's get a list of all the species. The `pd.unique` function tells us all of
 the unique values in the `species_id` column.
 
 ```python
-pd.unique(surveys_df.species_id)
+pd.unique(surveys_df['species_id'])
 ```
 
 which **returns**:
@@ -295,6 +295,8 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 1. Create a list of unique plot ID's found in the surveys data. Call it
    `plot_names`. How many unique plots are there in the data? How many unique
    species are in the data?
+
+2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
 
 # Groups in Pandas
 
@@ -449,7 +451,7 @@ Weight by species plot
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count=surveys_df.record_id.groupby(surveys_df['plot_id']).nunique()
+total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
 # let's plot that too
 total_count.plot(kind='bar');
 ```
