@@ -12,6 +12,8 @@ work under [these licenses](LICENSE.md).
 
 *   [Working With GitHub](#working-with-github)
 *   [Locations and Formats](#locations-and-formats)
+*	[Formatting of the material](#formatting-of-the-material)
+*	[Suggestions for Instructor Checkout](#suggestions)
 *   [FAQ](#faq)
 
 
@@ -67,6 +69,20 @@ guidelines:
 * No trailing white space
 * Wrap lines at 80 characters (unless it breaks URLs)
 * Use unclosed [atx-style headers](http://spec.commonmark.org/0.25/#atx-headings)
+
+
+## Suggestions for Instructor Checkout
+
+- [ ]  Check links on setup [and install webapge](http://www.datacarpentry.org/python-ecology-lesson/).  
+- [ ]  Check for presence of all "required" folders and csvs. We did some remodeling, and there might be references that need scrubbing. 
+- [ ]  Attendees have asked for a little more data manipulation. 
+- [ ]  Publication quality plots. 
+- [ ] Lesson 7  repeats some matplot content, but with a new dataset. Rework to use the previous lesson data.
+- [ ] The column name plot_id  in surveys.csv confused a few participants who didn't think of the word 'plot_id' 
+in terms of land, but in terms of a drawing. Maybe rename to just ID or something similar?
+- [ ]  The 'short introduction to python' lesson overlaps quite a bit with the 'data types and format' 
+lesson when it comes to datatypes. Look over and eliminate overlap.
+- [ ] Read over challenges for precision, and check that the answers in the instructor guide make sense (it's new).
 
 
 ## FAQ
