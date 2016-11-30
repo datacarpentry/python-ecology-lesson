@@ -75,7 +75,6 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 
 ---
 
-
 ## About Libraries
 A library in Python contains a set of tools (called functions) that perform
 tasks on our data. Importing a library is like getting a piece of lab equipment
@@ -120,14 +119,6 @@ types (including characters, integers, floating point values, factors and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
 R. A DataFrame always has an index (0-based). An index refers to the position of 
 an element in the data structure.
-
-First, let's make sure the Python Pandas library is loaded. We will import
-Pandas using the nickname `pd`.  This is a common convention on the internet,
-so if you look up Pandas usage, you will often see it this way.
-
-```python
-import pandas as pd
-```
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
