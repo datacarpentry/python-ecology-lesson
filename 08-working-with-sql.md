@@ -26,7 +26,7 @@ we'll see some approaches that can be taken to do so.
 ### The `sqlite3` module
 
 The [sqlite3] module provides a straightforward interface for interacting with
-SQLite databases.
+SQLite databases. A connection object is created using `sqlite3.connect()`; the connection must be closed at the end of the session with the `.close()` command. While the connection is open, any interactions with the database require you to make a cursor object with the `.cursor()` command. The cursor is then ready to perform all kinds of operations with `.execute()`.
 
 [sqlite3]: https://docs.python.org/3/library/sqlite3.html
 
@@ -41,6 +41,30 @@ cur = con.cursor()
 # the result of a "cursor.execute" can be iterated over by row
 for row in cur.execute('SELECT * FROM species;'):
     print(row)
+
+#Be sure to close the connection.
+con.close()
+```
+
+### Queries
+
+One of the most common ways to interact with a database is by querying: retrieving data based on some search parameters. Use a SELECT statement string. The query is returned as a single tuple or a tuple of tuples. Add a WHERE statement to filter your results based on some parameter.
+
+```python
+import sqlite3
+
+# Create a SQL connection to our SQLite database
+con = sqlite3.connect("data/portal_mammals.sqlite")
+
+cur = con.cursor()
+
+# Return all results of query
+cur.execute('SELECT plot_id FROM plots WHERE plot_type="Control"')
+cur.fetchall()
+
+# Return first result of query
+cur.execute('SELECT species FROM species WHERE taxa="Bird"')
+cur.fetchone()
 
 #Be sure to close the connection.
 con.close()
