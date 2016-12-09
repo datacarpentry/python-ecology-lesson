@@ -4,8 +4,21 @@ root: .
 title: Starting With Data
 ---
 
-## Working With Pandas DataFrames in Python
+# Working With Pandas DataFrames in Python
 
+## Lesson Overview 
+
+For this lesson we will be downloading some data that we want to:
+
+1. Load into memory using Python
+2. Run group our data and run calculations on it
+3. Graph a few plots to visualize our data 
+
+We can automate the process above using Python. It's efficient to spend time
+building the code to perform these tasks because once it's built, we can use it
+over and over on different datasets that use a similar format. This makes our
+methods easily reproducible. We can also easily share our code with colleagues
+and they can replicate the same analysis.
 
 ### Learning Objectives
 * Explain what a library is, and what libraries are used for.
@@ -16,9 +29,17 @@ title: Starting With Data
 * Perform mathematical operations on numeric data.
 * Create simple plots of data.
 
-## Presentation of the survey data
+### Starting in the same spot
+
+To help the lesson run smoothly, let's ensure everyone is in the same directory. This should help us avoid path and file name issues. At this time please navigate to the workshop directory. If you working in IPython Notebook be sure that you start your notebook in the workshop directory. 
+
+A quick aside that there are Python libraries like [OS Library](https://docs.python.org/3/library/os.html) that can work with our directory structure, however, that is not our focus today. 
+
+### Our Data 
 
 For this lesson, we will be using the Portal Teaching data, a subset of the data from Ernst et al [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+
+We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459). This section will use the `surveys.csv` file that can be downloaded here: [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
 
 We are studying the species and weight of animals caught in plots in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
@@ -26,25 +47,33 @@ single animal, and the columns represent:
 
 | Column           | Description                        |
 |------------------|------------------------------------|
-| record_id       | Unique id for the observation      |
+| record_id        | Unique id for the observation      |
 | month            | month of observation               |
 | day              | day of observation                 |
 | year             | year of observation                |
-| plot_id           | ID of a particular plot            |
+| plot_id          | ID of a particular plot            |
 | species_id       | 2-letter code                      |
 | sex              | sex of animal ("M", "F")           |
-| hindfoot_length  | length of the hindfoot in mm
+| hindfoot_length  | length of the hindfoot in mm       |
 | weight           | weight of the animal in grams      |
 
 
-### Download lesson data
+The first few rows of our first file look like this:
 
-We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
-
-This section will use the `surveys.csv` file that can be downloaded here: [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+```
+record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
+1,7,16,1977,2,NL,M,32,
+2,7,16,1977,3,NL,M,33,
+3,7,16,1977,2,DM,F,37,
+4,7,16,1977,7,DM,M,36,
+5,7,16,1977,3,DM,M,35,
+6,7,16,1977,1,PF,M,14,
+7,7,16,1977,2,PE,F,,
+8,7,16,1977,1,DM,M,37,
+9,7,16,1977,1,DM,F,34,
+```
 
 ---
-
 
 ## About Libraries
 A library in Python contains a set of tools (called functions) that perform
@@ -77,43 +106,6 @@ have imported Pandas as `pd`. This means we don't have to type out `pandas` each
 time we call a Pandas function.
 
 
-## Lesson Overview
-
-For this lesson we will be using the Portal Teaching data.
-
-We are studying the species and weight of animals caught in plots in a study
-area. The data sets are stored in `.csv` (comma separated values) format. Within
-the `.csv` files, each row holds information for a single animal, and the
-columns represent: record_id, month, day, year, plot, species, sex, wgt.
-
-The first few rows of our first file look like this:
-
-```
-record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
-1,7,16,1977,2,NL,M,32,
-2,7,16,1977,3,NL,M,33,
-3,7,16,1977,2,DM,F,37,
-4,7,16,1977,7,DM,M,36,
-5,7,16,1977,3,DM,M,35,
-6,7,16,1977,1,PF,M,14,
-7,7,16,1977,2,PE,F,,
-8,7,16,1977,1,DM,M,37,
-9,7,16,1977,1,DM,F,34,
-```
-
-### We want to:
-
-1. Load that data into memory using Python.
-2. Calculate the average weight of all individuals sampled, by species.
-3. Plot the average weights by species and perhaps by plot_id too.
-
-We can automate the process above using Python. It's efficient to spend time
-building the code to perform these tasks because once it's built, we can use it
-over and over on different datasets that use a similar format. This makes our
-methods easily reproducible. We can also easily share our code with colleagues
-and they can replicate the same analysis.
-
-
 # Reading CSV Data Using Pandas
 
 We will begin by locating and reading our survey data which are in CSV format.
@@ -127,27 +119,6 @@ types (including characters, integers, floating point values, factors and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
 R. A DataFrame always has an index (0-based). An index refers to the position of 
 an element in the data structure.
-
-First, let's make sure the Python Pandas library is loaded. We will import
-Pandas using the nickname `pd`.  This is a common convention on the internet,
-so if you look up Pandas usage, you will often see it this way.
-
-```python
-import pandas as pd
-```
-
-Let's also import the [OS Library](https://docs.python.org/3/library/os.html).
-This library allows us to make sure we are in the correct working directory. If
-you are working in IPython Notebook, be sure to start the notebook in the
-workshop repository.  If you didn't do that you can always set the working
-directory using the code below.
-
-```python
-import os
-os.getcwd()
-# if this directory isn't right, use the command below to set the working directory
-os.chdir("YOURPathHere")
-```
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
