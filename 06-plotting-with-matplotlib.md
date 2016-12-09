@@ -61,15 +61,15 @@ The data has now been plotted, to see it we can do 2 things:
 
 1. We can interact with the plot by using `plt.show` like so:
 
-```python
-plt.show()
-```
+    ```python
+    plt.show()
+    ```
 
 2. Or we can save the plot to a file using `plt.savefig` like so:
 
-```python
-plt.savefig('myplot.png')
-```
+    ```python
+    plt.savefig('myplot.png')
+    ```
 
 This would save the file as a rasterized PNG image. The format is deduced from
 the file name or can be given explicitly using `format` parameter,
