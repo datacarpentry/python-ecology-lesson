@@ -196,8 +196,9 @@ constructed like so:
 plt.plot(plot_data, 'o')
 ```
 
-The `o` means a dot. There are a variety of markers you can use. Here's a
-complete list: http://matplotlib.org/api/markers_api.html#module-matplotlib.markers
+The `o` means a dot. There are a variety of markers you can use.
+Refer to the official documentation
+[for a full list of markers](http://matplotlib.org/api/markers_api.html#module-matplotlib.markers)
 
 A simple dashed line:
 
@@ -306,9 +307,8 @@ One can change the location and labels of the axes ticks using `plt.xticks` and
 `plt.yticks` methods:
 
 ```python
-`plt.xticks([1,2,3,4])` # put ticks in given locations of X-axis
-
-`plt.yticks([1,2,3], ['A', 'B', 'C'])` # put ticks in given locations on Y-axis, denote them with letters
+plt.xticks([1,2,3,4]) # put ticks in given locations of X-axis
+plt.yticks([1,2,3], ['A', 'B', 'C']) # put ticks in given locations on Y-axis, denote them with letters
 ```
 
 Labels can be rotated by adding parameter `rotation=angle_in_degrees`. To draw
@@ -346,7 +346,7 @@ plt.bar(plot_data.index, plot_data.values)
 There are excellent examples on [Matplotlib](http://matplotlib.org/) website,
 especially:
 
-* [Matplotlib Gallery](http://matplotlib.org/gallery.html) 
+* [Matplotlib Gallery](http://matplotlib.org/gallery.html)
 * [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
 
 A box and whisker plot:
@@ -392,4 +392,4 @@ plt.legend()
 ## More Information
 
 This is a basic tutorial to get you started using Python to make your graphs.
-For more information on Matplotlib, visit the official site: http://matplotlib.org/
+For more information on Matplotlib, visit the [official site](http://matplotlib.org/)
