@@ -95,8 +95,10 @@ We can perform mathematical calculations in Python using the basic operators
 ```
 
 We can also use comparison and logic operators:
-`<, >, ==, !=, <=, >=` etc.
-`and, or, not`
+`<, >, ==, !=, <=, >=` and statements of identity such as
+`and, or, not`. The data type returned by this is 
+called a _boolean_.
+
 
 ```python
 >>> 3 > 4
