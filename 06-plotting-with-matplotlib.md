@@ -6,6 +6,10 @@ title: Plotting Your Data - Matplotlib
 
 ## About Matplotlib
 
+
+
+
+
 [Matplotlib](http://matplotlib.org/) is a library that can be used to visualize
 data that has been loaded with a library like Pandas, Numpy, or Scipy.
 For this tutorial, we'll use Pandas.
@@ -56,6 +60,7 @@ and give it a label.
 ```python
 plt.plot(plot_data, label='My Data')
 ```
+![](img/06_simple_plotting_myplot.png)
 
 The data has now been plotted, to see it we can do 2 things:
 
@@ -93,6 +98,7 @@ plt.xlabel('Index')
 plt.ylabel('Plot Value')
 plt.title('The Plot Value From surveys.csv')
 ```
+![](img/06_plot_essentials.png)
 
 ## Clearing the Plot
 
@@ -128,6 +134,8 @@ the edge of the image:
 ```python
 plt.subplots_adjust(left=0.1, bottom=0.2, right=0.99, top=0.99)
 ```
+
+![](img/06_managing_figures.png)
 
 Values are fractions of the image size and denote the position of the
 respective edge of the axes bounding box. Lower left corner of the image is at
@@ -171,6 +179,7 @@ color-encoded plots in a loop):
 ```
 plt.plot(plot_data, color=(0.1, 0.9, 0.6))
 ```
+![](img/06_managing_styles_colors.png)
 
 ### Line style
 
@@ -180,6 +189,7 @@ specifying `linewidth` or `lw`:
 ```python
 plt.plot(plot_data, linewidth=3)
 ```
+![](img/06_managing_styles_line_style.png)
 
 The default linewidth is 1. A linewidth of 3 would be 3 times as thick as the
 default. Likewise, a linewidth of .75 would be 3/4 of the thickness of the
@@ -195,6 +205,7 @@ constructed like so:
 ```python
 plt.plot(plot_data, 'o')
 ```
+![](img/06_managing_styles_other_styles_dot.png)
 
 The `o` means a dot. There are a variety of markers you can use.
 Refer to the official documentation
@@ -250,7 +261,7 @@ use:
 ```
 plt.xlim(-10, 15)
 ```
-
+![](img/06_plot_range.png)
 ### Plot scale
 
 In many cases it is useful to use logarithmic scale on one or both axes. One
@@ -262,9 +273,14 @@ Method | Result
 `plt.semilogy`|logarithmic scaling on Y-axis
 `plt.loglog`|logarithmic scaling on both axes (log-log plot)
 
+
+
 ```python
 plt.loglog(plot_data)
 ```
+
+
+![](img/06_plot_scale.png)
 
 ### Two independent X or Y axes
 
@@ -277,6 +293,8 @@ plt.bar(plot_data.index, plot_data.values)
 plt.twinx()
 plt.plot(1/ plot_data, color='k')
 ```
+
+![](img/06_two_independent_axes.png)
 
 This will create a plot with two independent Y axes, one for barplot and one
 for line plot of inverse values. Both plots will share the same X-axis.
@@ -307,8 +325,9 @@ One can change the location and labels of the axes ticks using `plt.xticks` and
 `plt.yticks` methods:
 
 ```python
-plt.xticks([1,2,3,4]) # put ticks in given locations of X-axis
-plt.yticks([1,2,3], ['A', 'B', 'C']) # put ticks in given locations on Y-axis, denote them with letters
+plt.xticks([1,2,3,5,8,13,21,34,55]) # put ticks in given locations of X-axis
+plt.yticks([0,10,20,30], ['A', 'B', 'C', 'D']) # put ticks in given locations on Y-axis, denote them with letters
+
 ```
 
 Labels can be rotated by adding parameter `rotation=angle_in_degrees`. To draw
@@ -329,6 +348,10 @@ To set a title use
 plt.title('Plot title')
 ```
 
+Using the examples in the section would create an plot like this:
+
+![](img/06_describing_the_plot_leged_ticks_labels.png)
+
 ## Plot variations
 
 Matplotlib supports a number of different plot variations, eg. bar plot
@@ -341,6 +364,18 @@ To use a bar plot:
 plt.bar(plot_data.index, plot_data.values)
 ```
 
+
+![](img/06_plot_variations_bar_plot.png)
+
+A box and whisker plot:
+
+```python
+plt.boxplot(plot_data.values)
+```
+
+![](img/06_plot_variations_wisker_plot.png)
+
+
 # Go exploring
 
 There are excellent examples on [Matplotlib](http://matplotlib.org/) website,
@@ -349,11 +384,6 @@ especially:
 * [Matplotlib Gallery](http://matplotlib.org/gallery.html)
 * [Scipy Cookbook](http://wiki.scipy.org/Cookbook/Matplotlib)
 
-A box and whisker plot:
-
-```python
-plt.boxplot(plot_data.values)
-```
 
 # A Realistic Example
 
@@ -389,6 +419,7 @@ for group in grouped_plot_data:
 plt.legend()
 ```
 
+![](img/06_a_realistic_example.png)
 ## More Information
 
 This is a basic tutorial to get you started using Python to make your graphs.
