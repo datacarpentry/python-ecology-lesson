@@ -12,9 +12,12 @@ DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
 
 
 # Learning Objectives
-* Learn how to concatenate two DataFrames together (append one dataFrame to a second dataFrame)
-* Learn how to join two DataFrames together using a uniqueID found in both DataFrames
-* Learn how to write out a DataFrame to csv using Pandas
+
+* Combine data from multiple files into a single DataFrame using merge and concat.
+* Combine two DataFrames using a unique ID found in both DataFrames.
+* Employ to_csv to export a DataFrame in CSV format.
+* Join DataFrames using common fields (join keys).
+
 
 
 To work through the examples below, we first need to load the species and
