@@ -16,9 +16,14 @@ structure and format of our data.
 
 ## Learning Objectives
 
-* Learn about character and numeric data types.
-* Learn how to explore the structure of your data.
-* Understand NaN values and different ways to deal with them.
+* Describe how information is stored in a Python DataFrame.
+* Define the two main types of data in Python: characters and numerics.
+* Examine the structure of a DataFrame.	
+* Modify the format of values in a DataFrame.	
+* Describe how data types impact operations.
+* Define, manipulate, and interconvert integers and floats in Python.
+* Analyze datasets having missing/null values (NaN values).
+
 
 
 # Types of Data
