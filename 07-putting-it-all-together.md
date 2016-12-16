@@ -7,6 +7,10 @@ title: Data Ingest & Visualization - Matplotlib & Pandas
 
 ## Putting it all together
 
+## Learning Objectives
+
+* Import the pyplot toolbox to create figures in Python.
+
 Up to this point, we have walked through tasks that are often
 involved in handling and processing data using the workshop ready cleaned  
 files that we have provided. In this wrap-up exercise, we will perform 
