@@ -6,13 +6,19 @@ title: Starting With Data
 
 # Working With Pandas DataFrames in Python
 
-## Lesson Overview 
+## Learning Objectives
 
-For this lesson we will be downloading some data that we want to:
-
-1. Load into memory using Python
-2. Run group our data and run calculations on it
-3. Graph a few plots to visualize our data 
+* Navigate the workshop directory and download a dataset.
+* Explain what a library is and what libraries are used for.
+* Describe what the Python Data Analysis Library (Pandas) is.
+* Load the Python Data Analysis Library (Pandas).
+* Use read_csv to read tabular data into Python.
+* Describe what a DataFrame is in Python.
+* Access and summarize data stored in a DataFrame.
+* Define indexing as it relates to data structures.
+* Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame.
+* Create simple plots.
+ 
 
 We can automate the process above using Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
