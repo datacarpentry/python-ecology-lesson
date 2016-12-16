@@ -4,13 +4,12 @@ root: .
 title: Accessing SQLite Databases Using Python & Pandas
 ---
 
-## Objectives
+## Learning Objectives
 
-- Query an sqlite3 database using Python
-- Read the result of an SQL query into a pandas DataFrame
-- Understand the difference in performance when interacting with data stored as
-  CSV vs SQLite
-- Understand the benefits of accessing data using a database compared to CSVs
+* Use the sqlite3 module to interact with a SQL database.
+* Access data stored in SQLite using Python.
+* Describe the difference in interacting with data stored as a CSV file versus in SQLite.
+*Describe the benefits of accessing data using a database compared to a CSV file.
 
 
 ## Python and SQL
