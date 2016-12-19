@@ -8,13 +8,17 @@ title: Starting With Data
 
 
 ### Learning Objectives
-* Explain what a library is, and what libraries are used for.
-* Load a Python/Pandas library.
-* Read tabular data from a file into Python using Pandas using `read_csv`.
-* Learn about the Pandas DataFrame object.
-* Learn about data slicing and indexing.
-* Perform mathematical operations on numeric data.
-* Create simple plots of data.
+* Navigate the workshop directory and download a dataset.
+* Explain what a library is and what libraries are used for.
+* Describe what the Python Data Analysis Library (Pandas) is.
+* Load the Python Data Analysis Library (Pandas).
+* Use read_csv to read tabular data into Python.
+* Describe what a DataFrame is in Python.
+* Access and summarize data stored in a DataFrame.
+* Define indexing as it relates to data structures.
+* Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame.
+* Create simple plots.
+
 
 ## Presentation of the survey data
 
