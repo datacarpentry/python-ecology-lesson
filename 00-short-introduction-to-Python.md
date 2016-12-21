@@ -114,7 +114,8 @@ True
 ### Lists
 
 **Lists** are a common data structure to hold an ordered sequence of
-elements. Each element can be accessed by an index:
+elements. Each element can be accessed by an index.  Note that Python
+indexes start with 0 instead of 1:
 
 ```python
 >>> numbers = [1,2,3]
