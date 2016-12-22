@@ -11,10 +11,12 @@ automate data processing through the use of loops and functions.
 
 # Learning Objectives
 
-* Review the basics of a python for loop
-* Review how to create a function
-* Learn how to loop through a directory of files, to automate processing
-* Learn the basics of conditional statements (if, then, else)
+* Describe why for loops are used in Python.
+* Employ for loops to automate data analysis.
+* Write unique filenames in Python.
+* Build reusable code in Python.
+* Write functions using conditional statements (if, then, else).
+
 
 ## For loops
 
