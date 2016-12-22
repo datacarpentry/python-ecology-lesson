@@ -12,12 +12,16 @@ slicing and subsetting.
 
 ## Learning Objectives
 
-*  Learn about 0-based indexing in Python.
-*  Learn about numeric vs. label based indexes.
-*  Learn how to select subsets of data from a DataFrame using Slicing and
-   Indexing methods.
-*  Understand what a boolean object is and how it can be used to "mask" or
-   identify particular sets of values within another object.
+* Describe what 0-based indexing is.
+* Manipulate and extract data using column headings and index locations.
+* Employ slicing to select sets of data from a DataFrame.
+* Employ label and integer-based indexing to select ranges of data in a dataframe.
+* Reassign values within subsets of a DataFrame.
+* Create a copy of a DataFrame.
+* Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=.
+* Locate subsets of data using masks. 
+* Describe BOOLEAN objects in Python and manipulate data using BOOLEANs.
+
 
 
 ## Making Sure Our Data Are Loaded

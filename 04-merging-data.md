@@ -12,7 +12,6 @@ DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
 
 
 # Learning Objectives
-
 * Combine data from multiple files into a single DataFrame using merge and concat.
 * Combine two DataFrames using a unique ID found in both DataFrames.
 * Employ to_csv to export a DataFrame in CSV format.

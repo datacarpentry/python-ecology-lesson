@@ -9,6 +9,12 @@ title: Short Introduction to Programming in Python
 Python is a general purpose programming language that supports rapid development
 of scripts and applications.
 
+# Learning Objectives
+* Describe the advantages of using programming vs. completing repetitive tasks by hand. 
+* Define the following data types in Python: strings, integers, and floats.
+* Perform mathematical operations in Python using basic operators.
+* Define the following as it relates to Python: lists, tuples, and dictionaries.
+
 Python's main advantages:
 
 * Open Source software, supported by Python Software Foundation
