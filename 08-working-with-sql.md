@@ -9,7 +9,7 @@ title: Accessing SQLite Databases Using Python & Pandas
 * Use the sqlite3 module to interact with a SQL database.
 * Access data stored in SQLite using Python.
 * Describe the difference in interacting with data stored as a CSV file versus in SQLite.
-*Describe the benefits of accessing data using a database compared to a CSV file.
+* Describe the benefits of accessing data using a database compared to a CSV file.
 
 
 ## Python and SQL
