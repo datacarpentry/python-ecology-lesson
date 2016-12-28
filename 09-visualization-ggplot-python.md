@@ -1088,7 +1088,7 @@ ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_com
 ```
 
 
-![png](output_6_0.png)
+![png](img/output_6_0.png)
 
 
 
@@ -1110,7 +1110,7 @@ ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geo
 ```
 
 
-![png](output_8_0.png)
+![png](img/output_8_0.png)
 
 
 
@@ -1138,7 +1138,7 @@ surveys_plot + geom_point()
 ```
 
 
-![png](output_10_0.png)
+![png](img/output_10_0.png)
 
 
 
@@ -1171,7 +1171,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + ge
 ```
 
 
-![png](output_12_0.png)
+![png](img/output_12_0.png)
 
 
 
@@ -1194,7 +1194,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 ```
 
 
-![png](output_14_0.png)
+![png](img/output_14_0.png)
 
 
 
@@ -1216,7 +1216,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 ```
 
 
-![png](output_16_0.png)
+![png](img/output_16_0.png)
 
 
 
@@ -1241,7 +1241,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
 ```
 
 
-![png](output_18_0.png)
+![png](img/output_18_0.png)
 
 
 
@@ -1257,21 +1257,12 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
 Visualising the distribution of weight within each species.
 
 
-
-R code:
-
-```R
-ggplot(data = surveys_complete, aes(x = species_id, y = hindfoot_length)) +
-    geom_boxplot()
-```
-
-
 ```python
 ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) + geom_boxplot()
 ```
 
 
-![png](output_21_0.png)
+![png](img/output_21_0.png)
 
 
 
@@ -1284,15 +1275,6 @@ ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) +
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
-
-
-
-R code:
-```R
-ggplot(data = surveys_complete, aes(x = species_id, y = hindfoot_length)) +
-    geom_jitter(alpha = 0.3, color = "tomato") +
-  geom_boxplot(alpha = 0)
-```
 
 
 ```python
@@ -1821,7 +1803,7 @@ ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
 ```
 
 
-![png](output_35_0.png)
+![png](img/output_35_0.png)
 
 
 
@@ -1838,31 +1820,12 @@ the aesthetic function to include `group = species_id`.
 
 
 
-
-```python
-%%R
-ggplot(data = yearly_counts, aes(x = year, y = n, group = species_id)) +
-    geom_line()
-
-```
-
-
 ```python
 ggplot(aes(x = 'year', y = 'n', group='species_id'),data = yearly_counts) + geom_line()
 ```
 
 
 We will be able to distinguish species in the plot if we add colors.
-
-
-
-
-```python
-##R
-
-ggplot(data = yearly_counts, aes(x = year, y = n, group = species_id, colour = species_id)) +
-    geom_line()
-```
 
 
 ```python
@@ -1875,14 +1838,6 @@ ggplot(aes(x = 'year', y = 'n', color='species_id'),data = yearly_counts) + geom
 ggplot has a special technique called *faceting* that allows to split one plot
 into multiple plots based on a factor included in the dataset. We will use it to
 make one plot for a time series for each species.
-
-
-
-%%R
-ggplot(data = yearly_counts, aes(x = year, y = n, group = species_id, colour = species_id)) +
-    geom_line() +
-    facet_wrap(~ species_id)
-
 
 
 ```python
@@ -1898,16 +1853,6 @@ measured. To do that we need to make counts in data frame grouped by year,
 species_id, and sex:
 
 
-
-
-```python
- ##R 
-yearly_sex_counts <- surveys_complete %>%
-                      group_by(year, species_id, sex) %>%
-                      tally
-```
-
-
 ```python
 yearly_sex_counts = surveys_complete.groupby( ['year','species_id', 'sex']).count()
 yearly_sex_counts['n']  = yearly_sex_counts['record_id']
@@ -1918,15 +1863,6 @@ yearly_sex_counts
 
 We can now make the faceted plot splitting further by sex (within a single plot):
 
-
-
-
-```python
- ##R
-ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = species_id, group = sex)) +
-     geom_line() +
-     facet_wrap(~ species_id)
-```
 
 
 ```python
@@ -1968,17 +1904,6 @@ To make the plot easier to read, we can color by sex instead of species (species
 are already in separate plots, so we don't need to distinguish them further).
 
 
-
-
-```python
-%%R
-ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex, group = sex)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    theme_bw()
-```
-
-
 ```python
 ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex_counts) + \
     geom_line() + \
@@ -1995,30 +1920,10 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
 
 <!-- Answer
 
-
-
-```python
-%%R
-yearly_weight <- surveys_complete %>%
-                 group_by(year, species_id) %>%
-                 summarise(avg_weight = mean(weight))
-
-```
-
-
 ```python
 yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
 yearly_weight.columns =   ["year", "species_id","avg_weight"]  
 yearly_weight
-```
-
-
-```python
-##R
-ggplot(data = yearly_weight, aes(x=year, y=avg_weight, color = species_id, group = species_id)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    theme_bw()
 ```
 
 
@@ -2053,17 +1958,6 @@ has changed through time.
 
 
 
-
-```python
-##R
-## One column, facet by rows
-yearly_sex_weight <- surveys_complete %>%
-    group_by(year, sex, species_id) %>%
-    summarize(avg_weight = mean(weight))
-    
-```
-
-
 ```python
 ## One column, facet by rows
 yearly_sex_weight = surveys_complete[
@@ -2072,15 +1966,6 @@ yearly_sex_weight = surveys_complete[
 yearly_sex_weight.columns = ['year','sex','species_id','avg_weight']
 yearly_sex_weight
 ```
-
-
-```python
-%%R
-ggplot(data = yearly_sex_weight, aes(x=year, y=avg_weight, color = species_id, group = species_id)) +
-    geom_line() +
-    facet_grid(sex ~ .)
-```
-
 
 ```python
 ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_sex_weight) + \
@@ -2116,21 +2001,6 @@ Now, let's change names of axes to something more informative than 'year'
 and 'n' and add a title to this figure:
 
 
-
-
-```python
-%%R
-
-ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex, group = sex)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    labs(title = 'Observed species in time',
-         x = 'Year of observation',
-         y = 'Number of species') +
-    theme_bw()
-```
-
-
 ```python
 ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
     geom_line() + \
@@ -2145,21 +2015,6 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
 The axes have more informative names, but their readability can be improved by
 increasing the font size. While we are at it, we'll also change the font family:
 
-
-
-
-```python
-%%R
-
-ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex, group = sex)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    labs(title = 'Observed species in time',
-        x = 'Year of observation',
-        y = 'Number of species') +
-    theme_bw() +
-    theme(text=element_text(size=16, family="Arial"))
-```
 
 
 ```python
@@ -2180,24 +2035,6 @@ properly readable. Let's change the orientation of the labels and adjust them
 vertically and horizontally so they don't overlap. You can use a 90 degree
 angle, or experiment to find the appropriate angle for diagonally oriented
 labels.
-
-
-
-
-```python
-%%R
-
-ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex, group = sex)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    labs(title = 'Observed species in time',
-        x = 'Year of observation',
-        y = 'Number of species') +
-    theme_bw() +
-    theme(axis.text.x = element_text(colour="grey20", size=12, angle=90, hjust=.5, vjust=.5),
-                        axis.text.y = element_text(colour="grey20", size=12),
-          text=element_text(size=16, family="Arial"))
-```
 
 
 ```python
@@ -2254,24 +2091,6 @@ Here are some ideas:
 After creating your plot, you can save it to a file in your favourite format.
 You can easily change the dimension (and its resolution) of your plot by
 adjusting the appropriate arguments (`width`, `height` and `dpi`):
-
-
-
-
-```python
-%%R
-my_plot <- ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = sex, group = sex)) +
-    geom_line() +
-    facet_wrap(~ species_id) +
-    labs(title = 'Observed species in time',
-        x = 'Year of observation',
-        y = 'Number of species') +
-    theme_bw() +
-    theme(axis.text.x = element_text(colour="grey20", size=12, angle=90, hjust=.5, vjust=.5),
-                        axis.text.y = element_text(colour="grey20", size=12),
-          text=element_text(size=16, family="Arial"))
-ggsave("name_of_file.png", my_plot, width=15, height=10)
-```
 
 
 ```python
