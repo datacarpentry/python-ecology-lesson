@@ -4,6 +4,11 @@ root: .
 title: Plotting Your Data - Matplotlib
 ---
 
+## Learning Objectives
+* Describe what the Matplotlib library is used for.
+* Produce simple plots in Python and manipulate styles and plot parameters including titles, axis labels, and legends.
+* Create and manage figures using multiple plot calls.
+
 ## About Matplotlib
 
 [Matplotlib](http://matplotlib.org/) is a library that can be used to visualize
