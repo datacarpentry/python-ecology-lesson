@@ -6,8 +6,14 @@ title: Short Introduction to Programming in Python
 
 # The Basics of Python
 
-Python is a general purpose programming language, that supports rapid development
+Python is a general purpose programming language that supports rapid development
 of scripts and applications.
+
+# Learning Objectives
+* Describe the advantages of using programming vs. completing repetitive tasks by hand. 
+* Define the following data types in Python: strings, integers, and floats.
+* Perform mathematical operations in Python using basic operators.
+* Define the following as it relates to Python: lists, tuples, and dictionaries.
 
 Python's main advantages:
 
@@ -26,12 +32,12 @@ Python is an interpreted language. As a consequence, we can use it in two ways:
 
 ```python
 user:host:~$ python
-Python 2.7.7 (default, Jun  3 2014, 16:16:56)
+Python 3.5.1 (default, Oct 23 2015, 18:05:06)
 [GCC 4.8.3] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
 >>> 2 + 2
 4
->>> print "Hello World"
+>>> print("Hello World")
 Hello World
 ```
 
@@ -58,7 +64,7 @@ pi_value = 3.1415
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
 using the assignment operator `=`. The variable called `text` is a string which
 means it can contain letters and numbers. We could reassign the variable `text`
-to an integer too but - but be careful reassigning variables as this can get 
+to an integer too - but be careful reassigning variables as this can get 
 confusing.
 
 To print out the value stored in a variable we can simply type the name of the
@@ -69,12 +75,12 @@ variable into the interpreter:
 "Data Carpentry"
 ```
 
-but this only works in the interpreter. In scripts we must use the `print` command:
+however, in scripts we must use the `print` function:
 
 ```python
 # Comments start with #
 # Next line will print out text
-print text
+print(text)
 "Data Carpentry"
 ```
 
@@ -88,15 +94,17 @@ We can perform mathematical calculations in Python using the basic operators
 4
 >>> 6 * 7
 42
->>> 2 ** 16 # power
+>>> 2 ** 16  # power
 65536
->>> 3 % 2 # modulo
-1
+>>> 13 % 5  # modulo
+3
 ```
 
 We can also use comparison and logic operators:
-`<, >, ==, !=, <=, >=` etc.
-`and, or, not`
+`<, >, ==, !=, <=, >=` and statements of identity such as
+`and, or, not`. The data type returned by this is 
+called a _boolean_.
+
 
 ```python
 >>> 3 > 4
@@ -111,8 +119,9 @@ True
 
 ### Lists
 
-**Lists** are the most common data structure. They can hold a sequence of
-elements. Each element can be accessed by an index:
+**Lists** are a common data structure to hold an ordered sequence of
+elements. Each element can be accessed by an index.  Note that Python
+indexes start with 0 instead of 1:
 
 ```python
 >>> numbers = [1,2,3]
@@ -125,27 +134,27 @@ structure one at a time:
 
 ```python
 for num in numbers:
-    print num
+    print(num)
 1
 2
 3
 ```
 
-**Indentation** is very important in Python. Note that second line in the 
+**Indentation** is very important in Python. Note that the second line in the
 example above is indented. This is Python's way of marking a block of code. We will
 discuss this in more detail later.
 
-To add elements to the list, we can use the `append` method:
+To add elements to the end of a list, we can use the `append` method:
 
 ```python
 >>> numbers.append(4)
->>> print numbers
+>>> print(numbers)
 [1,2,3,4]
 ```
 
-Methods are a way to interact with an object - like a list. We can use or apply 
-a method to a variable or element using the dot `.`. To find out what methods are
- available, we can use the built-in `help` command:
+Methods are a way to interact with an object (a list, for example). We can invoke 
+a method using the dot `.` followed by the method name and a list of arguments in parentheses. 
+To find out what methods are available for an object, we can use the built-in `help` command:
 
 ```python
 help(numbers)
@@ -171,21 +180,21 @@ dir(numbers)
 
 ### Tuples
 
-A tuple is similar to a list in that it's a sequence of elements. However,
+A tuple is similar to a list in that it's an ordered sequence of elements. However,
 tuples can not be changed once created (they are "immutable"). Tuples are
 created by placing comma-separated values inside parentheses `()`.
 
 ```python
-# tuples use paratheses
-ATuple= (1,2,3)
-anotherTuple = ('blue','green','red')
-# notes lists uses square brackets
-AList = [1,2,3]
+# tuples use parentheses
+a_tuple= (1,2,3)
+another_tuple = ('blue','green','red')
+# Note: lists use square brackets
+a_list = [1,2,3]
 ```
 
 ### Challenge
-1. What happens when you type `ATuple[2]=5` vs `AList[1]=5` ?
-2. Type `type(ATuple)` into python - what is the object type?
+1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
+2. Type `type(a_tuple)` into python - what is the object type?
 
 
 ## Dictionaries
@@ -225,7 +234,7 @@ in two ways:
 
 ```python
 >>> for key, value in rev.items():
-...     print key, "->", value
+...     print(key, "->", value)
 ...
 1 -> one
 2 -> two
@@ -236,13 +245,32 @@ or
 
 ```python
 >>> for key in rev.keys():
-...     print key, "->", rev[key]
+...     print(key, "->", rev[key])
 ...
 1 -> one
 2 -> two
 3 -> three
 >>>
 ```
+### Challenge
+Can you do reassignment in a dictionary? Give it a try. 
+
+1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
+    
+    Type:
+`>>> rev`
+
+    You should see the following output:
+`{1: 'one', 2: 'two', 3: 'three'}`
+2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+`>>> rev[2] = "apple-sauce"`
+3. Now display `rev` again to see if it has changed; you should see the following:
+`{1: 'one', 2: 'apple-sauce', 3: 'three'}`
+
+It is important to note that dictionaries are "unordered" and do not remember the
+sequence of their items (i.e. the order in which key:value pairs were added to 
+the dictionary). Because of this, the order in which items are returned from loops
+over dictionaries might appear random and can even change with time.
 
 ## Functions
 
@@ -256,7 +284,7 @@ def add_function(a, b):
     return result
 
 z = add_function(20, 22)
-print z
+print(z)
 42
 ```
 

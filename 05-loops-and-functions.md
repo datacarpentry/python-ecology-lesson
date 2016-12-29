@@ -11,10 +11,12 @@ automate data processing through the use of loops and functions.
 
 # Learning Objectives
 
-* Review the basics of a python for loop
-* Review how to create a function
-* Learn how to loop through a directory of files, to automate processing
-* Learn the basics of conditional statements (if, then, else)
+* Describe why for loops are used in Python.
+* Employ for loops to automate data analysis.
+* Write unique filenames in Python.
+* Build reusable code in Python.
+* Write functions using conditional statements (if, then, else).
+
 
 ## For loops
 
@@ -25,53 +27,51 @@ year, for example). Loops lighten our work load by performing repeated tasks
 without our direct involvement and make it less likely that we'll introduce
 errors by making mistakes while processing each file by hand.
 
-Let's write a simple for loop that simulates what a kid would say during a
-spelling bee:
+Let's write a simple for loop that simulates what a kid might see during a
+visit to the zoo:
 
 ```python
->>> word = 'species'
->>> print word
-species
+>>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+>>> print(animals)
+['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
 
->>> for letter in word:
-...    print letter
-s
-p
-e
-c
-i
-e
-s
+>>> for creature in animals:
+...    print(creature)
+lion
+tiger
+crocodile
+vulture
+hippo
 ```
 
 The line defining the loop must start with `for` and end with a colon, and the
 body of the loop must be indented.
 
-In this example, `letter` is the loop variable that takes the value of the next
-entry in `word` every time the loop goes around. We can call the loop variable
+In this example, `creature` is the loop variable that takes the value of the next
+entry in `animals` every time the loop goes around. We can call the loop variable
 anything we like. After the loop finishes, the loop variable will still exist
 and will have the value of the last entry in the collection:
 
 ```python
->>> word = 'species'
->>> for letter in word:
+>>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+>>> for creature in animals:
 ...    pass
 
->>> print 'The loop variable is now: ' + letter
-The loop variable is now: s
+>>> print('The loop variable is now: ' + creature)
+The loop variable is now: hippo
 ```
 
 We are not asking python to print the value of the loop variable anymore, but
-the for loop still runs and the value of `letter` changes on each pass through
+the for loop still runs and the value of `creature` changes on each pass through
 the loop. The statement `pass` in the body of the loop just means "do nothing".
 
 ### Challenge:
 
 1. What happens if we don't include the `pass` statement?
 
-2. Rewrite the loop so that the letters are separated by dashes, not returns
-(Hint: You can concatenate strings using a plus sign. For example,  `print
-string1 + string2` outputs 'string1string2').
+2. Rewrite the loop so that the animals are separated by commas, not new lines
+(Hint: You can concatenate strings using a plus sign. For example,
+`print(string1 + string2)` outputs 'string1string2').
 
 ## Automating data processing using For Loops
 
@@ -84,7 +84,7 @@ these files using the module `os`:
 
 ```python
     import os
-    
+
     os.mkdir('data/yearly_files')
 ```
 
@@ -114,7 +114,7 @@ that performs those three steps in sequence for the year 2002:
 import pandas as pd
 
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('data/surveys.csv')
+surveys_df = pd.read_csv('https://ndownloader.figshare.com/files/2292172')
 
 # Select only data for 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
@@ -134,70 +134,39 @@ to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
 
-We are using a function called `range` that creates a list of integers using the
-syntax `range(start, end, step)`. The values of `start`,`end` and `step` must all
-be integers. If this function only receives two numbers, it assumes that the
-step length is 1. If it only receives one number, it assumes that the sequence
-of numbers starts at zero.
+We have seen that we can loop over a list of items, so we need a list of years 
+to loop over. We can get the years in our DataFrame with:
 
 ```python
->>> for year in range(1977,2002):
-...    filename = 'data/yearly_files/surveys' + str(year) + '.csv'
-...    print filename
-...
-data/yearly_files/surveys1977.csv
-data/yearly_files/surveys1978.csv
-data/yearly_files/surveys1979.csv
-data/yearly_files/surveys1980.csv
-data/yearly_files/surveys1981.csv
-data/yearly_files/surveys1982.csv
-data/yearly_files/surveys1983.csv
-data/yearly_files/surveys1984.csv
-data/yearly_files/surveys1985.csv
-data/yearly_files/surveys1986.csv
-data/yearly_files/surveys1987.csv
-data/yearly_files/surveys1988.csv
-data/yearly_files/surveys1989.csv
-data/yearly_files/surveys1990.csv
-data/yearly_files/surveys1991.csv
-data/yearly_files/surveys1992.csv
-data/yearly_files/surveys1993.csv
-data/yearly_files/surveys1994.csv
-data/yearly_files/surveys1995.csv
-data/yearly_files/surveys1996.csv
-data/yearly_files/surveys1997.csv
-data/yearly_files/surveys1998.csv
-data/yearly_files/surveys1999.csv
-data/yearly_files/surveys2000.csv
-data/yearly_files/surveys2001.csv
+>>> surveys_df['year']
+
+0        1977
+1        1977
+2        1977
+3        1977
+         ...
+35545    2002
+35546    2002
+35547    2002
+35548    2002
 ```
 
-Our list of filenames is incomplete! It correctly started with 1977 and stepped
-forward by 1 year, but it stopped with 2001. The function `range` continues to
-add integers to the sequence as long as they are less than the stop value. This
-is easier to see if we create a sequence of numbers that stops part-way through
-a step:
+but we want only unique years, which we can get using the `unique` function 
+which we have already seen.  
 
 ```python
->>> print 'This one stops at half a step:', range(0,5,2)
-This one stops at half a step: [0, 2, 4]
+>>> surveys_df['year'].unique()
+array([1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987,
+       1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
+       1999, 2000, 2001, 2002], dtype=int64)
 ```
 
-Notice, that the output is the same if your range ends at 6.
+Putting this into our for loop we get
 
 ```python
->>> print 'This one stops at half a step, too:', range(0,6,2)
-This one stops at half a step, too: [0, 2, 4]
-```
-
-To write a loop that includes the year 2002, we must make the stop value for
-`range` an integer greater than that value but not so large that the sequence
-goes too far:
-
-```python
->>> for year in range(1977,2003):
-...     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
-...     print filename
+>>> for year in surveys_df['year'].unique():
+...    filename='data/yearly_files/surveys' + str(year) + '.csv'
+...    print(filename)
 ...
 data/yearly_files/surveys1977.csv
 data/yearly_files/surveys1978.csv
@@ -233,11 +202,11 @@ We can now add the rest of the steps we need to create separate text files:
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-for year in range(1977,2003):
+for year in surveys_df['year'].unique():
 
     # Select data for the year
     surveys_year = surveys_df[surveys_df.year == year]
-    
+
     # Write the new DataFrame to a csv file
     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
     surveys_year.to_csv(filename)
@@ -248,7 +217,7 @@ just created to confirm that everything worked as expected.
 
 ## Writing Unique FileNames
 
-Notice that the code above created a unique filename for each year. 
+Notice that the code above created a unique filename for each year.
 
 	filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 
@@ -277,6 +246,11 @@ included in the yearly files.
 2. What happens if there is no data for a year in the sequence (for example,
 imagine we had used 1976 as the start year in `range`)?
 
+3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
+
+4. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
+
+
 ## Building reusable and modular code with functions
 
 Suppose that separating large data files into individual yearly files is a task
@@ -302,11 +276,11 @@ Functions are declared following this general structure:
 
 ```python
 def this_is_the_function_name(input_argument1, input_argument2):
-    
+
     # The body of the function is indented
     # This function prints the two arguments to screen
-    print 'The function arguments are:', input_argument1, input_argument2, '(this is done inside the function!)'
-    
+    print('The function arguments are:', input_argument1, input_argument2, '(this is done inside the function!)')
+
     # And returns their product
     return input_argument1 * input_argument2
 ```
@@ -322,7 +296,7 @@ This is how we call the function:
 >>> product_of_inputs = this_is_the_function_name(2,5)
 The function arguments are: 2 5 (this is done inside the function!)
 
->>> print 'Their product is:', product_of_inputs, '(this is done outside the function!)'
+>>> print('Their product is:', product_of_inputs, '(this is done outside the function!)')
 Their product is: 10 (this is done outside the function!)
 ```
 
@@ -350,10 +324,10 @@ def one_year_csv_writer(this_year, all_data):
     this_year --- year for which data is extracted
     all_data --- DataFrame with multi-year data
     """
-    
+
     # Select data for the year
     surveys_year = all_data[all_data.year == this_year]
-    
+
     # Write the new DataFrame to a csv file
     filename = 'data/yearly_files/function_surveys' + str(this_year) + '.csv'
     surveys_year.to_csv(filename)
@@ -392,7 +366,7 @@ def yearly_data_csv_writer(start_year, end_year, all_data):
     end_year --- the last year of data we want
     all_data --- DataFrame with multi-year data
     """
-    
+
     # "end_year" is the last year of data we want to pull, so we loop to end_year+1
     for year in range(start_year, end_year+1):
         one_year_csv_writer(year, all_data)
@@ -452,20 +426,20 @@ argument with default values (which are optional in the function call).
     def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: 1977
         end_year --- the last year of data we want --- default: 2002
         all_data --- DataFrame with multi-year data
         """
-        
+
         return start_year, end_year
-            
-        
+
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'Both optional arguments:\t', start, end
-    
+    print('Both optional arguments:\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
+    print('Default values:\t\t\t', start, end)
 ```
 
 ```
@@ -484,25 +458,25 @@ dates are not provided:
     def yearly_data_arg_test(all_data, start_year = None, end_year = None):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: None - check all_data
         end_year --- the last year of data we want --- default: None - check all_data
         all_data --- DataFrame with multi-year data
         """
-        
+
         if not start_year:
             start_year = min(all_data.year)
         if not end_year:
             end_year = max(all_data.year)
-        
+
         return start_year, end_year
-            
-        
+
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'Both optional arguments:\t', start, end
-    
+    print('Both optional arguments:\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
+    print('Default values:\t\t\t', start, end)
 ```
 ```
     Both optional arguments:	1988 1993
@@ -535,21 +509,21 @@ the loop when some condition is met. They commonly look something like this:
 
 ```python
     a = 5
-    
+
     if a<0: # meets first condition?
-        
+
         # if a IS less than zero
-        print 'a is a negative number'
-        
+        print('a is a negative number')
+
     elif a>0: # did not meet first condition. meets second condition?
-        
+
         # if a ISN'T less than zero and IS more than zero
-        print 'a is a positive number'
-        
+        print('a is a positive number')
+
     else: # met neither condition
-        
+
         # if a ISN'T less than zero and ISN'T more than zero
-        print 'a must be zero!'
+        print('a must be zero!')
 
     a is a positive number
 ```
@@ -579,37 +553,37 @@ values to the function using these keywords:
     def yearly_data_arg_test(all_data, start_year = None, end_year = None):
         """
         Modified from yearly_data_csv_writer to test default argument values!
-    
+
         start_year --- the first year of data we want --- default: None - check all_data
         end_year --- the last year of data we want --- default: None - check all_data
         all_data --- DataFrame with multi-year data
         """
-        
+
         if not start_year:
             start_year = min(all_data.year)
         if not end_year:
             end_year = max(all_data.year)
-        
+
         return start_year, end_year
-            
-    
+
+
     start,end = yearly_data_arg_test (surveys_df)
-    print 'Default values:\t\t\t', start, end
-        
+    print('Default values:\t\t\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print 'No keywords:\t\t\t', start, end
-    
+    print('No keywords:\t\t\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
-    print 'Both keywords, in order:\t', start, end
-    
+    print('Both keywords, in order:\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
-    print 'Both keywords, flipped:\t\t', start, end
-    
+    print('Both keywords, flipped:\t\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
-    print 'One keyword, default end:\t', start, end
-    
+    print('One keyword, default end:\t', start, end)
+
     start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
-    print 'One keyword, default start:\t', start, end
+    print('One keyword, default start:\t', start, end)
 ```
 ```
     Default values:			1977 2002
@@ -630,17 +604,24 @@ data for a given year and display an alert to the user (Hint: use conditional
 statements and if loops to do this. For an extra challenge, use `try`
 statements!)
 
-3. The code below checks to see whether a directory exists and creates one if it doesn't. Add some code to your function that writes out the CSV files, to check for a directory to write to.
+3. The code below checks to see whether a directory exists and creates one if it
+doesn't. Add some code to your function that writes out the CSV files, to check
+for a directory to write to.
 
-```Python 
+```Python
 	if 'dirNameHere' in os.listdir('.'):
-	    print 'Processed directory exists'
+	    print('Processed directory exists')
 	else:
 	    os.mkdir('dirNameHere')
-	    print 'Processed directory created' 
+	    print('Processed directory created')
 ```
 
-4. The code that you have written so far to loop through the years is good, however it is not necessarily reproducible with different datasets. For instance, what happens to the code if we have additional years of data in our CSV files? Using the tools that you learned in the previous activities, make a list of all years represented in the data. Then create a loop to process your data, that begins at the earliest year and ends at the latest year using that list.
+4. The code that you have written so far to loop through the years is good,
+however it is not necessarily reproducible with different datasets.
+For instance, what happens to the code if we have additional years of data
+in our CSV files? Using the tools that you learned in the previous activities,
+make a list of all years represented in the data. Then create a loop to process
+your data, that begins at the earliest year and ends at the latest year using
+that list.
 
 HINT: you can create a loop with a list as follows: `for years in yearList:`
- 
