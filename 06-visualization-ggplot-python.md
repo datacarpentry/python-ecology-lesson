@@ -1,6 +1,8 @@
-
-# Table of Contents
- <p><div class="lev1"><a href="#Learning-Objectives"><span class="toc-item-num">1&nbsp;&nbsp;</span>Learning Objectives</a></div><div class="lev2"><a href="#Disclaimer"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Disclaimer</a></div><div class="lev1"><a href="#Plotting-with-ggplot"><span class="toc-item-num">2&nbsp;&nbsp;</span>Plotting with ggplot</a></div><div class="lev1"><a href="#Building-your-plots-iteratively"><span class="toc-item-num">3&nbsp;&nbsp;</span>Building your plots iteratively</a></div><div class="lev1"><a href="#Boxplot"><span class="toc-item-num">4&nbsp;&nbsp;</span>Boxplot</a></div><div class="lev2"><a href="#Challenges"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Challenges</a></div><div class="lev1"><a href="#Plotting-time-series-data"><span class="toc-item-num">5&nbsp;&nbsp;</span>Plotting time series data</a></div><div class="lev1"><a href="#Faceting"><span class="toc-item-num">6&nbsp;&nbsp;</span>Faceting</a></div><div class="lev1"><a href="#Challenge"><span class="toc-item-num">7&nbsp;&nbsp;</span>Challenge</a></div><div class="lev1"><a href="#Customization"><span class="toc-item-num">8&nbsp;&nbsp;</span>Customization</a></div>
+---
+layout: lesson
+root: .
+title: Plotting with ggplot
+---
 
 # Learning Objectives #
 By the end of this lesson the learner will:
