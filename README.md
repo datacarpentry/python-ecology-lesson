@@ -1,17 +1,11 @@
----
-layout: lesson
-root: .
-title: Programming with Python
----
+## Data Carpentry Python Lessons with Ecological Data
 
-## Python lessons for Data Carpentry
+This repository contains the Data Carpentry Python material based on ecological
+data. Please see our [contribution guidelines](CONTRIBUTING.md) for information
+on how to contribute updates, bug fixes, or other corrections.
 
-There are several files and directories in this repository
+### Maintainers
 
-* 00-short-introduction-to-Python.md - the Python intro including information on data types
-* 02-index-slice-subset.md 
-* 03-data-types-and-format.md
-* 04-merging-data.md 
-* 05-data-workflows-and-automation-functions.md
-* 06-plotting-with-matplotlib.md
-* 07-putting-it-all-together.md
+- April Wright ([@wrightaprilm](https://github.com/wrightaprilm))
+- John Gosset ([@qjcg](https://github.com/qjcg))
+- Mateusz Kuzak ([@mkuzak](https://github.com/mkuzak))

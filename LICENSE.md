@@ -1,3 +1,9 @@
+---
+layout: lesson
+root: .
+title: "Data Carpentry: Licenses"
+---
+
 ### Instructional Material
 
 All Data Carpentry instructional material is made available under

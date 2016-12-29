@@ -1,129 +1,97 @@
 ---
 layout: lesson
 root: .
-venue: 
-address:
-country: United-States
-humandate: April 23-24, 2015
-contributors: ["April Wright","Tracy Teal", "Ethan White",  "Leah Wasser", "John Gosset", "Mariela Perignon"]
-contact: 
-raw: raw.github.com/datacarpentry/2015-04-23-stanford/gh-pages
+title: "Data Carpentry: Python for Ecologists"
 
+contributors:
+  - April Wright
+  - Ethan White
+  - John Gosset
+  - Leah Wasser
+  - Mariela Perignon
+  - Tracy Teal
+
+maintainers:
+  - April Wright
+  - John Gosset
+  - Mateusz Kuzak
+
+software: Python
 ---
 
-#Data Carpentry Python for Ecologists 
+**Content Contributors:** {{ page.contributors | join: ', ' }}
 
-<!-- This block displays the instructors' names if they are available. -->
-{% if page.contributors %}
-  **Content Contributors:**
-  {{page.contributors | join: ', ' %}}
+**Lesson Maintainers:** {{ page.maintainers | join: ', ' }}
+
+Data Carpentry's aim is to teach researchers basic concepts, skills, and tools
+for working with data so that they can get more done in less time, and with less
+pain. The lessons below were designed for those interested in working with
+ecological data in Python.
+
+
+## Lessons
+
+- [Short Introduction to Python](00-short-introduction-to-Python)
+- [Starting With Data](01-starting-with-data)
+- [Index Slice Subset](02-index-slice-subset)
+- [Data Types and Format](03-data-types-and-format)
+- [Merging Data](04-merging-data)
+- [Data Analysis Automation: Loops and Functions](05-loops-and-functions)
+- [Plotting with Matplotlib](06-plotting-with-matplotlib)
+- [Putting It All Together](07-putting-it-all-together)
+- [Accessing SQL using Python](08-working-with-sql)
+
+
+## Data
+
+Data for this lesson is from the Portal Project Teaching Database -
+[available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+
+Specifically, the data files we use in these lessons are:
+
+- [surveys.csv](https://ndownloader.figshare.com/files/2292172)
+- [species.csv](https://ndownloader.figshare.com/files/3299483)
+
+
+## Requirements
+
+Data Carpentry's teaching is hands-on, so participants are encouraged to use
+their own computers to insure the proper setup of tools for an efficient workflow.
+*These lessons assume no prior knowledge of the skills or tools*, but working
+through this lesson requires working copies of the software described below.
+To most effectively use these materials, please make sure to install everything
+*before* working through this lesson.
+
+Participants are required to abide by Data Carpentry's
+[Code of Conduct](http://www.datacarpentry.org/code-of-conduct/).
+
+
+{% if page.software == "Python" %}
+{% include pythonSetup.html %}
+{% elsif page.software == "Spreadsheets" %}
+{% include spreadsheetSetup.html %}
+{% elsif page.software == "R" %}
+{% include rSetup.html %}
+{% else %}
+{% include anySetup.html %}
 {% endif %}
 
 
-Data Carpentry's aim is to teach researchers basic concepts, skills,
-and tools for working with data so that they can get more done in less
-time, and with less pain. The lessons below were designed for those interested in 
-working with ecological data in Python. 
+## Acknowledgements & Support
 
-## Lessons:
-
-* [Short Introduction to Python](./00-short-introduction-to-Python)
-* [Starting With Data](./01-starting-with-data)
-* [Index Slice Subset](./02-index-slice-subset)
-* [Data Types and Format](./03-data-types-and-format) 
-* [Merging Data](./04-merging-data)
-* [Data Analysis Automation: Loops and Functions](./05-loops-and-functions)
-* [Plotting with Matplotlib](./06-plotting-with-matplotlib)
-* [Putting It All Together](./07-putting-it-all-together)
-* [Accessing SQL using Python](./08-working-with-sql)
+Data Carpentry is supported by the [Gordon and Betty Moore Foundation] and a
+partnership of several NSF-funded [BIO] Centers ([NESCent], [iPlant], [iDigBio],
+[BEACON] and [SESYNC]) and [Software Carpentry], and is sponsored by the [Data
+Observation Network for Earth] (DataONE). The structure and objectives of the
+curriculum as well as the teaching style are informed by [Software Carpentry].
 
 
->Updates will be posted to this website as they become available.
-
-Data files for the workshop are available at: (LINK HERE)[]
-
-
-
-
-
-<p>
-  <strong>Requirements:</strong>
-Data Carpentry's teaching is hands-on, so participants are encouraged to bring in and use their own laptops to insure the proper setup of tools for an efficient workflow once you leave the workshop.  (We will provide instructions on setting up the required software several days in advance, and the classroom will have computers with the software installed). <em> There are no pre-requisites, and we will assume no prior knowledge about the tools.</em> Participants are required to abide by Software Carpentry's
-<a href="http://software-carpentry.org/conduct.html">Code of Conduct</a>.
-</p>
-
-
-
-
-<p><strong>Twitter</strong>: #datacarpentry</p> @datacarpentry
-
-
-<h2>Acknowledgements &amp; Support</h2>
-<!--
-<div class="pull-right" style="max-width: 320px; padding-left: 6px;">
-</div>
--->
-<p>
-Data Carpentry is supported by the <a href=http://http://www.moore.org/>Gordon and Betty Moore Foundation</a> and a partnership of several NSF-funded <a href="http://www.nsf.gov/dir/index.jsp?org=BIO" target="_blank">BIO</a> Centers (<a href="http://nescent.org" target="_blank">NESCent</a>, <a href="http://iplantcollaborative.org" target="_blank">iPlant</a>, <a href="http://idigbio.org" target="_blank">iDigBio</a>, <a href="http://beacon-center.org/" target="_blank">BEACON</a> and <a href="http://sesync.org" target="_blank">SESYNC</a>) and <a href="http://software-carpentry.org" target="_blank">Software Carpentry</a>, and is sponsored by the <a href="http://dataone.org" target="_blank">Data Observation Network for Earth</a> (DataONE). The structure and objectives of the curriculum as well as the teaching style are informed by <a href="http://software-carpentry.org" target="_blank">Software Carpentry</a>.
-</p>
-
-
-
-
-<!--
-    Edit the setup instructions in _includes/setup.html to reflect your bootcamp.
-    (In particular, most bootcamps teach either Python or R, not both.)
-
-
-
-
-<h2>Additional Resources</h2>
-
-<h3>shell</h3>
-<ul>
-<li><a href=http://fosswire.com/post/2007/08/unixlinux-command-cheat-sheet/>Unix/Linux Command Reference</a>
-<li><a href=https://github.com/swcarpentry/boot-camps/blob/master/shell/shell_cheatsheet.md
->Shell cheat sheet</a>
-<li><a href=http://software-carpentry.org/v4/shell/index.html>Software Carpentry shell lessons</a>
-</ul>
-
-<h3>R</h3>
-
-<b>Where to learn more about R</b>
-<ul>
-<li><a href=http://www.statmethods.net/>http://www.statmethods.net/</a> - good for data organization, basics stats and graphs
-<li><a href=http://www.gardenersown.co.uk/Education/Lectures/R/anova.htm>http://www.gardenersown.co.uk/Education/Lectures/R/anova.htm</a> - basic parametric and non-parametric stats
-<li><a href=http://www.cyclismo.org/tutorial/R/index.html>http://www.cyclismo.org/tutorial/R/index.html</a> - R tutorial
-<li><a href=http://www.amazon.com/R-Action-Robert-Kabacoff/dp/1935182390>R in Action</a> - good book as an R reference
-<li><a href=http://www.twotorials.com/>http://www.twotorials.com/</a>
-<li><a href=http://www.r-bloggers.com/>http://www.r-bloggers.com/</a>
-<li><a href=http://tryr.codeschool.com/>http://tryr.codeschool.com/</a>
-<li><a href=http://adv-r.had.co.nz/>Advanced R Programming by Hadley Wickham</a>
-<li><a href=http://www.computerworld.com/s/article/9239625/Beginner_s_guide_to_R_Introduction>Beginner's Guide to R from Computer World</a>
-<li><a href=http://www.scoop.it/t/r-for-journalists>R for Journalists</a>
-<li><a href=http://www.r-bloggers.com/>R Bloggers</a>
-<li><a href=http://www.inside-r.org/>inside-R</a> 
-<li><a href=http://ropensci.org/>rOpenSci</a>
-</ul>
-
-
-
-<!--
-<h2>Setup</h2>
-
-<p>
-  To participate in a Data Carpentry workshop, 
-  you will need working copies of the software described below.
-  Please make sure to install everything
-  (or at least to download the installers)
-  <em>before</em> the start of your bootcamp. 
-  
-Participants should bring and use their own laptops to insure the proper setup of tools for an efficient workflow once you leave the workshop.
-  
-  
-</p>
-
-{% include setup.html %}
--->
-
-
+[Gordon and Betty Moore Foundation]: https://www.moore.org
+[BIO]: https://www.nsf.gov/dir/index.jsp?org=BIO
+[NESCent]: https://nescent.org
+[iPlant]: http://www.iplantcollaborative.org
+[iDigBio]: https://www.idigbio.org
+[BEACON]: http://beacon-center.org
+[SESYNC]: https://sesync.org
+[Software Carpentry]: https://software-carpentry.org
+[Data Observation Network for Earth]: https://www.dataone.org

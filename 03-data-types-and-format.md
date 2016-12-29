@@ -16,16 +16,22 @@ structure and format of our data.
 
 ## Learning Objectives
 
-* Learn about character and numeric data types.
-* Learn how to explore the structure of your data.
-* Understand NaN values and different ways to deal with them.
+* Describe how information is stored in a Python DataFrame.
+* Define the two main types of data in Python: characters and numerics.
+* Examine the structure of a DataFrame.	
+* Modify the format of values in a DataFrame.	
+* Describe how data types impact operations.
+* Define, manipulate, and interconvert integers and floats in Python.
+* Analyze datasets having missing/null values (NaN values).
+
 
 
 # Types of Data
 
 How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
-calculations as well. There are two main types of data that we're explore in this lesson: numeric and character types.
+calculations as well. There are two main types of data that we're explore in
+this lesson: numeric and character types.
 
 # Numeric Data Types
 
@@ -38,7 +44,7 @@ type so the decimal points are not lost.
 An **integer** will never have a decimal point. Thus 1.13 would be stored as 1.
 1234.345 is stored as 1234. You will often see the data type `Int64` in python
 which stands for 64 bit integer. The 64 simply refers to the memory allocated to
-store data in each cell which effectively relates to how many digits in can
+store data in each cell which effectively relates to how many digits it can
 store in each "cell". Allocating space ahead of time allows computers to
 optimize storage and processing efficiency.
 
@@ -72,7 +78,7 @@ same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 ```
 
 Remember that we can check the type of an object like this:
@@ -113,20 +119,21 @@ surveys_df.dtypes
 which **returns**:
 
 ```
-record_id      int64
-month          int64
-day            int64
-year           int64
-plot           int64
-species       object
-sex           object
-wgt          float64
+record_id            int64
+month                int64
+day                  int64
+year                 int64
+plot_id              int64
+species_id          object
+sex                 object
+hindfoot_length    float64
+weight             float64
 dtype: object
 ```
 
 Note that most of the columns in our Survey data are of type `int64`. This means
-that they are 64 bit integers. But the wgt column is a floating point value
-which means it contains decimals. The species and sex columns are objects which
+that they are 64 bit integers. But the weight column is a floating point value
+which means it contains decimals. The `species_id` and `sex` columns are objects which
 means they contain strings.
 
 
@@ -136,62 +143,42 @@ So we've learned that computers store numbers in one of two ways: as integers or
 as floating-point numbers (or floats). Integers are the numbers we usually count
 with. Floats have fractional parts (decimal places).  Let's next consider how
 the data type can impact mathematical operations on our data. Addition,
-subtraction and multiplication work on floats and integers as we'd expect.
-However, division works differently.
+subtraction, division and multiplication work on floats and integers as we'd expect.
 
 ```python
-print 5+5
+print(5+5)
 10
 
-print 24-4
+print(24-4)
 20
 ```
 
-If we divide one integer by another, we get the quotient without the remainder.
-In the example below, 9 goes into 5 as an integer 0 times.
+If we divide one integer by another, we get a float.
+The result on python 3 is different than in python 2, where the result is an
+integer (integer division). 
 
 ```python
-print 5/9
-0
-# 3 goes into 10, 3 times
-print 10/3
-3
+print(5/9)
+0.5555555555555556
+
+print(10/3)
+3.3333333333333335
 ```
 
-If either part of the division is a float, on the other hand, python
-returns a floating-point result:
+We can also convert a floating point number to an integer or an integer to
+floating point number. Notice that Python by default rounds down when it
+converts from floating point to integer.
 
 ```python
-print '10.0/3 is:', 10.0/3
-10.0/3 is: 3.33333333333
-```
-
-Python does this for historical reasons: integer operations were much
-faster on early computers, and this behavior is actually useful in a lot of
-situations. It's still confusing though, so Python 3 produces a floating-point
-answer when dividing integers if it needs to. We're still using Python 2.7 in
-this class though, so if we want 5/9 to give us the right answer, we have to
-write it as 5.0/9, 5/9.0, or some other variation.
-
-Another way to create a floating-point answer is to explicitly tell the computer
-that you desire one. This is achieved by **casting** one of the numbers as a float:
-
-```python
-print 'float(10)/3 is:', float(10)/3
-```
-
-We can also convert a floating point number to an integer. Notice that Python by
-default rounds down when it converts from floating point to integer.
-
-```python
-a = 7.33
 # convert a to integer
+a = 7.83
 int(a)
 7
 
-b = 7.89
-int(b)
-7
+# convert to float
+b = 7
+float(b)
+7.0
 ```
 
 # Working With Our Survey Data
@@ -211,19 +198,19 @@ surveys_df['record_id'].dtype
 What happens if we try to convert weight values to integers?
 
 ```python
-surveys_df['wgt'].astype('int')
+surveys_df['weight'].astype('int')
 ```
 
 Notice that this throws a value error: `ValueError: Cannot convert NA to
-integer`. If we look at the `wgt` column in the surveys data we notice that
+integer`. If we look at the `weight` column in the surveys data we notice that
 there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
 an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable
-properties: if we were to average the `wgt` column without replacing our NaNs,
+properties: if we were to average the `weight` column without replacing our NaNs,
 Python would know to skip over those cells.
 
 ```python
-surveys_df['wgt'].mean()
+surveys_df['weight'].mean()
 42.672428212991356
 ```
 
@@ -239,7 +226,7 @@ values were handled.
 For instance, in some disciplines, like Remote Sensing, missing data values are
 often defined as -9999. Having a bunch of -9999 values in your data could really
 alter numeric calculations. Often in spreadsheets, cells are left empty where no
-data are available. Python will, by default, replace those missing values with
+data are available. Pandas will, by default, replace those missing values with
 NaN. However it is good practice to get in the habit of intentionally marking
 cells that have no data, with a no data value! That way there are no questions
 in the future when you (or someone else) explores your data.
@@ -252,18 +239,18 @@ weight. We can also create a new subset from our data that only contains rows
 with weight values > 0 (ie select meaningful weight values):
 
 ```python
-len(surveys_df[pd.isnull(surveys_df.wgt)])
-# how many rows have wgt values?
-len(surveys_df[surveys_df.wgt> 0])
+len(surveys_df[pd.isnull(surveys_df.weight)])
+# how many rows have weight values?
+len(surveys_df[surveys_df.weight> 0])
 ```
 
 We can replace all NaN values with zeroes using the `.fillna()` method (after
 making a copy of the data so we don't lose our work):
 
 ```python
-df1 = surveys_df
+df1 = surveys_df.copy()
 # fill all NaN values with 0
-df1['wgt'] = df1['wgt'].fillna(0)
+df1['weight'] = df1['weight'].fillna(0)
 ```
 
 However NaN and 0 yield different analysis results. The mean value when NaN
@@ -271,15 +258,15 @@ values are replaced with 0 is different from when NaN values are simply thrown
 out or ignored.
 
 ```python
-df1['wgt'].mean()
+df1['weight'].mean()
 38.751976145601844
 ```
 
 We can fill NaN values with any value that we chose. The code below fills all
-NaN values with a mean for all wgt values.
+NaN values with a mean for all weight values.
 
 ```python
- df1['wgt'] = df['wgt'].fillna(df['wgt'].mean())
+ df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ```
 
 We could also chose to create a subset of our data, only keeping rows that do
