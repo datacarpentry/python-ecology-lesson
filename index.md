@@ -37,7 +37,7 @@ ecological data in Python.
 - [Data Types and Format](03-data-types-and-format)
 - [Merging Data](04-merging-data)
 - [Data Analysis Automation: Loops and Functions](05-loops-and-functions)
-- [Plotting with Matplotlib](06-plotting-with-matplotlib)
+- [Plotting with ggplot](06-visualization-ggplot-python)
 - [Putting It All Together](07-putting-it-all-together)
 - [Accessing SQL using Python](08-working-with-sql)
 
