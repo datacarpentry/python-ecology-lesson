@@ -33,7 +33,7 @@ exercise. Let's reopen it:
 # first make sure pandas is loaded
 import pandas as pd
 # read in the survey csv
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 # Indexing & Slicing in Python
@@ -233,11 +233,9 @@ the element that is 3 rows down and 7 columns over in the DataFrame.
 
 1. What happens when you type:
 
-```python
-surveys_df[0:3]
-surveys_df[:5]
-surveys_df[-1:]
-```
+	- surveys_df[0:3]
+	- surveys_df[:5]
+	- surveys_df[-1:]
 
 2. What happens when you call:
     - `dat.iloc[0:4, 1:4]`
