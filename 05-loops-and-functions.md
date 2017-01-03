@@ -609,10 +609,10 @@ doesn't. Add some code to your function that writes out the CSV files, to check
 for a directory to write to.
 
 ```Python
-	if 'dirNameHere' in os.listdir('.'):
+	if 'dir_name_here' in os.listdir('.'):
 	    print('Processed directory exists')
 	else:
-	    os.mkdir('dirNameHere')
+	    os.mkdir('dir_name_here')
 	    print('Processed directory created')
 ```
 
@@ -624,4 +624,4 @@ make a list of all years represented in the data. Then create a loop to process
 your data, that begins at the earliest year and ends at the latest year using
 that list.
 
-HINT: you can create a loop with a list as follows: `for years in yearList:`
+HINT: you can create a loop with a list as follows: `for years in year_list:`
