@@ -39,8 +39,7 @@ Make sure it is also clear that access to 'the second value' is actually just ab
 rev[2] = "apple-sauce"
 ```
 
-*  
-```python
+*  ```python
 {1: 'one', 2: 'apple-sauce', 3: 'three'}
 ```
 
@@ -338,6 +337,8 @@ plt.xlabel("Diversity index")
 
 ## 05-loops-and-functions
 
+### Basic Loop Challenges 
+
 * What happens if we don't include the `pass` statement?
 
 	`SyntaxError:`
@@ -350,6 +351,8 @@ for creature in animals:
 ```
 
 Actually, a loop-free solution would be more optimal here: `','.join(animals)`
+
+### Looping Over Dataframe Challenges 
 
 * Some of the surveys you saved are missing data (they have null values that show up as NaN - Not A Number - in the DataFrames and do not show up in the text files). Modify the for loop so that the entries with null values are not included in the yearly files.
 
@@ -381,12 +384,16 @@ for year in range(first_year, last_year, n_year):
 
 	Similar to previous example, but use the `species_id` column. `surveys_df['species_id'].unique()`. However, the species names would improve interpretation of the file naming. A join with the species: `merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")` and using the `species` column.
 
+### Functions Challenges
+
 * Change the values of the arguments in the function and check its output
 * Try calling the function by giving it the wrong number of arguments (not 2) or not assigning the function call to a variable (no product_of_inputs =)
 * Declare a variable inside the function and test to see where it exists (Hint: can you print it from outside the function?)
 * Explore what happens when a variable both inside and outside the function have the same name. What happens to the global variable when you change the value of the local variable?
 
 	Show these in a debugging environment to make this more clear!
+
+### Additional Functions Challenges 
 
 * Add two arguments to the functions we wrote that take the path of the directory where the files will be written and the root of the file name. Create a new set of files with a different name in a different directory.
 
@@ -416,9 +423,14 @@ def one_year_csv_writer(this_year, all_data, folder_to_save, root_name):
 ```
 Also adapt function `yearly_data_csv_writer` with the additional inputs.
 
+### Additional Functions Challenges 
+
+
 * How could you use the function yearly_data_csv_writer to create a csv file for only one year? (Hint: think about the syntax for range)
 
 	Adapt the input arguments, e.g. 1978, 1979
+
+### Output Management Challenges 
 
 * Make the functions return a list of the files they have written. There are many ways you can do this (and you should try them all!): 
 	* either of the functions can print to screen, 
