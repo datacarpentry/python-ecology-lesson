@@ -17,6 +17,8 @@ installation. Otherwise, it will tell you that the system is  good to go and rea
 
 ## 00-short-introduction-to-Python
 
+### Tuples Challenges
+
 * What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5`?
 
 	As a tuple is immutable, it does not support item assignment. Elements in a list can be altered individually.
@@ -25,21 +27,26 @@ installation. Otherwise, it will tell you that the system is  good to go and rea
 
 	`tuple`
 
+### Dictionaries Challenges
 * Can you do reassignment in a dictionary? Give it a try.
 
 Make sure it is also clear that access to 'the second value' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
 
-1. You should see the following output:
+* You should see the following output:
 `{1: 'one', 2: 'two', 3: 'three'}`
 
-2. ```python
+* ```python
 rev[2] = "apple-sauce"
 ```
 
-3. `{1: 'one', 2: 'apple-sauce', 3: 'three'}`
-
+*  
+```python
+{1: 'one', 2: 'apple-sauce', 3: 'three'}
+```
 
 ## 01-starting-with-data
+
+### Dataframe Challenges
 
 * `surveys_df.columns` 
 
@@ -57,9 +64,17 @@ rev[2] = "apple-sauce"
 
 	`type(surveys_df.shape)` -> `Tuple`
 
+### Calculating Statistics Challenges
+
 * Create a list of unique plot ID's found in the surveys data. Call it `plot_names`. How many unique plots are there in the data? How many unique species are in the data?
 
 	`plot_names = pd.unique(surveys_df["plot_id"])` Number of unique plot ID's: `plot_names.size` or `len(plot_names)`; Number of unique species in the data: `len(pd.unique(surveys_df["species"]))`
+
+* What is the difference between len(plot_names) and plot_names.nunique()?
+
+Length includes duplicate names.
+
+### Grouping Challenges 
 
 * How many recorded individuals are female `F` and how many male `M`?
 
@@ -85,6 +100,8 @@ surveys_df.groupby(['plot_id'])['weight'].describe()
 
 	Instead of getting the column of the groupby and counting it, you can also count on the groupby (all columns) and make a selection of the resulting data frame: `surveys_df.groupby('species_id').count()["record_id"]` 
 
+### Plotting Challenges 
+
 * Create a plot of average weight across all species per plot.
 
 ```python
@@ -102,6 +119,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 
 ## 02-index-slice-subset
 
+### Indexing Challenges 
+
 * What value does the code below return? `a[0]`
 
 	`1`, as  Python starts with element 0 (for Matlab users: this is different!)
@@ -118,6 +137,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 
 	5th element is a not existing element of the list (going from 0 till 4)
 
+### Selection Challenges 
+
 * What happens when you type:
 
 	`surveys_df[0:3]`
@@ -129,6 +150,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 * difference of `dat.iloc[0:4, 1:4]` versus `dat.loc[0:4, 1:4]`
 
 	Check the position, or the name. Cfr. the second is like it would be in a dictionary, asling for the key-names. Column names 1:4 do not exist, resulting in an error. Check also difference between `dat.loc[0:4]` and `dat.iloc[0:4]`
+
+### Advanced Selection Challenges 
 
 * Select a subset of rows in the `surveys_df` DataFrame that contain data from the year 1999 and that contain weight values less than or equal to 8. How many columns did you end up with? What did your neighbor get?
 
@@ -150,6 +173,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 ```python
 surveys_df[~surveys_df["sex"].isin(['M', 'F'])]
 ```
+
+### Masking Challenges 
 
 * Create a new DataFrame that only contains observations with sex values that are not female or male. Assign each sex value in the new DataFrame to a new value of 'x'.  Determine the number of null values in the subset.
 
