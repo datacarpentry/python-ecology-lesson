@@ -29,6 +29,16 @@ installation. Otherwise, it will tell you that the system is  good to go and rea
 
 Make sure it is also clear that access to 'the second value' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
 
+1. You should see the following output:
+`{1: 'one', 2: 'two', 3: 'three'}`
+
+2. ```python
+rev[2] = "apple-sauce"
+```
+
+3. `{1: 'one', 2: 'apple-sauce', 3: 'three'}`
+
+
 ## 01-starting-with-data
 
 * `surveys_df.columns` 
