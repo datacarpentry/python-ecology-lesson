@@ -1,23 +1,69 @@
-#--------------------------------------------------------------------------------
+#------------------------------------------------------------
 # Values for this lesson.
-#--------------------------------------------------------------------------------
-lesson_repo   : "https://github.com/datacarpentry/python-ecology-lesson"
-lesson_site   : "https://datacarpentry.github.io/python-ecology-lesson"
-#--------------------------------------------------------------------------------
-# Standard Data Carpentry settings - should not need to be modified.
-#--------------------------------------------------------------------------------
-dc_blog        : "https://datacarpentry.github.io/blog"
-dc_contact     : "admin@datacarpentry.org"
-dc_github      : "https://github.com/datacarpentry"
-swc_installer   : "http://files.software-carpentry.org/SWCarpentryInstaller.exe"
-dc_site        : "http://datacarpentry.org"
-dc_twitter     : "https://twitter.com/datacarpentry"
-#swc_vm          : "https://docs.google.com/uc?id=0B4Kr6DYkzkQtSTZLQzF4aVB4NDQ&export=download"
-#--------------------------------------------------------------------------------
-# Settings for Jekyll - should not need to be modified.
-#--------------------------------------------------------------------------------
-markdown        : kramdown
-kramdown        :
-  entity_output : as_input # &mdash; is output as &mdash;
-  smart_quotes  : [39, 39, 34, 34] # decimal for left/right single/double quotes
-exclude         : [tools]
+#------------------------------------------------------------
+
+# Which carpentry is this ("swc" or "dc")?
+carpentry: "dc"
+
+# Overall title for pages.
+title: "Python for ecologists"
+
+# Contact email address.
+email: lessons@software-carpentry.org
+
+#------------------------------------------------------------
+# Generic settings (should not need to change).
+#------------------------------------------------------------
+
+# What kind of thing is this ("workshop" or "lesson")?
+kind: "lesson"
+
+# Magic to make URLs resolve both locally and on GitHub.
+# See https://help.github.com/articles/repository-metadata-on-github-pages/.
+repository: datacarpentry/python-ecology-lesson
+
+# Sites.
+amy_site: "https://amy.software-carpentry.org/workshops"
+dc_site: "http://datacarpentry.org"
+swc_github: "https://github.com/swcarpentry"
+swc_site: "https://software-carpentry.org"
+swc_pages: "https://swcarpentry.github.io"
+template_repo: "https://github.com/swcarpentry/styles"
+example_repo: "https://github.com/swcarpentry/lesson-example"
+example_site: "https://swcarpentry.github.com/lesson-example"
+workshop_repo: "https://github.com/swcarpentry/workshop-template"
+workshop_site: "https://swcarpentry.github.io/workshop-template"
+training_site: "https://swcarpentry.github.io/instructor-training"
+
+# Surveys.
+pre_survey: "https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id="
+post_survey: "https://www.surveymonkey.com/r/swc_post_workshop_v1?workshop_id="
+
+# Start time in minutes (0 to be clock-independent, 540 to show a start at 09:00 am)
+start_time: 0
+
+# Specify that things in the episodes collection should be output.
+collections:
+  episodes:
+    output: true
+    permalink: /:path/
+  extras:
+    output: true
+
+# Set the default layout for things in the episodes collection.
+defaults:
+  - values:
+      root: ..
+  - scope:
+      path: ""
+      type: episodes
+    values:
+      layout: episode
+
+# Files and directories that are not to be copied.
+exclude:
+  - Makefile
+  - bin
+
+# Turn off built-in syntax highlighting.
+highlighter: false
