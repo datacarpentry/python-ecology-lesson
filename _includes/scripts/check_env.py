@@ -24,7 +24,7 @@ assert 'anaconda' in sys.prefix, ("Anaconda is NOT installed as your "
 assert sys.version_info.major >= 3, 'Please install Python 3!'
 
 # Packages necessary for workshop
-packages = ['numpy', 'matplotlib','pandas', 'jupyter']
+packages = ['numpy', 'matplotlib','pandas', 'jupyter', 'ggplot']
 
 
 # Throw error if any of the necessary packages is not installed
