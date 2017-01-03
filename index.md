@@ -1,7 +1,6 @@
 ---
 layout: lesson
 root: .
-title: "Data Carpentry: Python for Ecologists"
 
 contributors:
   - April Wright
