@@ -69,6 +69,7 @@ guidelines:
 * No trailing white space
 * Wrap lines at 80 characters (unless it breaks URLs)
 * Use unclosed [atx-style headers](http://spec.commonmark.org/0.25/#atx-headings)
+* For Python code adhere to Style Guide defined in [PEP 8](https://www.python.org/dev/peps/pep-0008/)
 
 
 ## Suggestions for Instructor Checkout
