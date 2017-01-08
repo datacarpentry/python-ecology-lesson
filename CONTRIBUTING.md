@@ -10,11 +10,11 @@ work under [these licenses](LICENSE.md).
 
 **Table of Contents**
 
-*   [Working With GitHub](#working-with-github)
-*   [Locations and Formats](#locations-and-formats)
-*	[Formatting of the material](#formatting-of-the-material)
-*	[Suggestions for Instructor Checkout](#suggestions-for-instructor-checkout)
-*   [FAQ](#faq)
+- [Working With GitHub](#working-with-github)
+- [Locations and Formats](#locations-and-formats)
+- [Formatting of the material](#formatting-of-the-material)
+- [Suggestions for Instructor Checkout](#suggestions-for-instructor-checkout)
+- [FAQ](#faq)
 
 
 ## Working With GitHub
@@ -66,29 +66,35 @@ programmers don't have to install the Jupyter Notebook).
 To ensure a consistent formatting of the lessons, we recommend the following
 guidelines:
 
-* No trailing white space
-* Wrap lines at 80 characters (unless it breaks URLs)
-* Use unclosed [atx-style headers](http://spec.commonmark.org/0.25/#atx-headings)
-* For Python code adhere to Style Guide defined in [PEP 8](https://www.python.org/dev/peps/pep-0008/)
+- No trailing white space
+- Wrap lines at 80 characters (unless it breaks URLs)
+- Use unclosed [atx-style headers](http://spec.commonmark.org/0.25/#atx-headings)
+- For Python code adhere to Style Guide defined in [PEP 8](https://www.python.org/dev/peps/pep-0008/)
 
 
 ## Suggestions for Instructor Checkout
 
-- [ ]  Check links on setup [and install webapge](http://www.datacarpentry.org/python-ecology-lesson/).  
-- [ ]  Check for presence of all "required" folders and csvs. We did some remodeling, and there might be references that need scrubbing. 
-- [ ]  Attendees have asked for a little more data manipulation and sorting. 
-- [ ]  The plotting lesson could really use some love, and a discussion of exporting high-quality plots.
-- [ ] Lesson 7  repeats some matplot content, but with a new dataset. Rework to use the previous lesson data.
-- [ ] The column name plot_id  in surveys.csv confused a few participants who didn't think of the word 'plot_id' 
-in terms of land, but in terms of a drawing. Consider a rename to site_id.
-- [ ]  The 'short introduction to python' lesson overlaps quite a bit with the 'data types and format' 
-lesson when it comes to datatypes. Look over and eliminate overlap.
-- [ ] Read over challenges for precision, and check that the answers in the (brand-new!) instructor guide make sense.
+- [ ] Check links on setup [and install webapge](http://www.datacarpentry.org/python-ecology-lesson/).
+- [ ] Check for presence of all "required" folders and csvs. We did some
+  remodeling, and there might be references that need scrubbing.
+- [ ] Attendees have asked for a little more data manipulation and sorting.
+- [ ] The plotting lesson could really use some love, and a discussion of
+  exporting high-quality plots.
+- [ ] Lesson 7 repeats some matplot content, but with a new dataset. Rework to
+  use the previous lesson data.
+- [ ] The column name `plot_id` in surveys.csv confused a few participants who
+  didn't think of the word `plot_id` in terms of land, but in terms of a
+  drawing. Consider a rename to `site_id`.
+- [ ]  The 'short introduction to python' lesson overlaps quite a bit with the
+  'data types and format' lesson when it comes to datatypes. Look over and
+  eliminate overlap.
+- [ ] Read over challenges for precision, and check that the answers in the
+  (brand-new!) instructor guide make sense.
 
 
 ## FAQ
 
-*   *Where can I get help?*
+-   *Where can I get help?*
     <br/>
     Mail us at [board@datacarpentry.org](mailto:board@datacarpentry.org)
 
