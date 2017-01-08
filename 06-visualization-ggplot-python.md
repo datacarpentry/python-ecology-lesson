@@ -4,7 +4,7 @@ root: .
 title: Plotting with ggplot
 ---
 
-# Learning Objectives #
+# Learning Objectives
 By the end of this lesson the learner will:
 
 * Be able to create a ggplot object
@@ -14,11 +14,17 @@ By the end of this lesson the learner will:
 * Be able to edit the axis labels
 * Know how to use a step-by-step approach to build complex plots
 * Be able to create, scatter plots, box plots and time series plots
-* Use the facet_wrap and facet_grid commands to create a collection of plots splitting the data by a factor variable
+* Use the `facet_wrap` and `facet_grid` commands to create a collection of plots splitting the data by a factor variable
 * Be able to create customized plot styles to meet their needs
 
-## Disclaimer ##
- Python has powerful built-in plotting capabilities such as `matplotlib`, but for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson.
+## Disclaimer
+ Python has powerful built-in plotting capabilities such as `matplotlib`, but
+ for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/)
+ package, which facilitates the creation of highly-informative plots of
+ structured data based on the R implementation of
+ [`ggplot2`](http://ggplot2.org/) and [The Grammar of
+ Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland
+ Wilkinson.
 
 
 
