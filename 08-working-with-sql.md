@@ -14,18 +14,21 @@ title: Accessing SQLite Databases Using Python & Pandas
 
 ## Python and SQL
 
-When you open a CSV in python, and assign it to a variable name, you are using 
-your computers memory to save that variable. Accessing data from a database like 
-SQL is not only more efficient, but also it allows you to subset and import only 
+When you open a CSV in python, and assign it to a variable name, you are using
+your computers memory to save that variable. Accessing data from a database like
+SQL is not only more efficient, but also it allows you to subset and import only
 the parts of the data that you need.
 
-In the following lesson,
-we'll see some approaches that can be taken to do so.
+In the following lesson, we'll see some approaches that can be taken to do so.
 
 ### The `sqlite3` module
 
 The [sqlite3] module provides a straightforward interface for interacting with
-SQLite databases. A connection object is created using `sqlite3.connect()`; the connection must be closed at the end of the session with the `.close()` command. While the connection is open, any interactions with the database require you to make a cursor object with the `.cursor()` command. The cursor is then ready to perform all kinds of operations with `.execute()`.
+SQLite databases. A connection object is created using `sqlite3.connect()`; the
+connection must be closed at the end of the session with the `.close()` command.
+While the connection is open, any interactions with the database require you to
+make a cursor object with the `.cursor()` command. The cursor is then ready to
+perform all kinds of operations with `.execute()`.
 
 [sqlite3]: https://docs.python.org/3/library/sqlite3.html
 
@@ -47,7 +50,10 @@ con.close()
 
 ### Queries
 
-One of the most common ways to interact with a database is by querying: retrieving data based on some search parameters. Use a SELECT statement string. The query is returned as a single tuple or a tuple of tuples. Add a WHERE statement to filter your results based on some parameter.
+One of the most common ways to interact with a database is by querying:
+retrieving data based on some search parameters. Use a SELECT statement string.
+The query is returned as a single tuple or a tuple of tuples. Add a WHERE
+statement to filter your results based on some parameter.
 
 ```python
 import sqlite3
@@ -71,9 +77,9 @@ con.close()
 
 ## Accessing data stored in SQLite using Python and Pandas
 
-Using pandas, we can import results of a SQLite query into a dataframe. Note that 
-you can use the same SQL commands / syntax that we used in the SQLite lesson. An 
-example of using pandas together with sqlite is below:
+Using pandas, we can import results of a SQLite query into a dataframe. Note
+that you can use the same SQL commands / syntax that we used in the SQLite
+lesson. An example of using pandas together with sqlite is below:
 
 ```python
 import pandas as pd
@@ -101,10 +107,10 @@ benchmarks]).
 
 ## Challenges
 
-1. Create a query that contains survey data collected between 1998 - 2001
- for observations of sex "male" or "female" that includes observation's genus and 
-species and plot type for the sample. How many records are returned? 
+1. Create a query that contains survey data collected between 1998 - 2001 for
+   observations of sex "male" or "female" that includes observation's genus and
+   species and plot type for the sample. How many records are returned?
 
-2. Create a dataframe that contains the total number of observations (count) 
-made for all years, and sum of observation weights for each plot, ordered by 
-plot ID. 
+2. Create a dataframe that contains the total number of observations (count)
+   made for all years, and sum of observation weights for each plot, ordered by
+   plot ID.
