@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Plotting with ggplot
 ---
 

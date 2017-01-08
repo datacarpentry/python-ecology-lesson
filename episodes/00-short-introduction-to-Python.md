@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Short Introduction to Programming in Python
 ---
 

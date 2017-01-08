@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Starting With Data
 ---
 

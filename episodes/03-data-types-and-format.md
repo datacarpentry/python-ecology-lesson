@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Data Types and Formats
 ---
 
