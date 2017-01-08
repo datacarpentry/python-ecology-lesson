@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Combining DataFrames with pandas
 ---
 

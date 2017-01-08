@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Data workflows and automation
 ---
 

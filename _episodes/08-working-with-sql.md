@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Accessing SQLite Databases Using Python & Pandas
 ---
 

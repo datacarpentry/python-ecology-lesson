@@ -1,5 +1,4 @@
 ---
-layout: lesson
 title: Indexing, Slicing and Subsetting DataFrames in Python
 ---
 
