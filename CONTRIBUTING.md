@@ -13,7 +13,7 @@ work under [these licenses](LICENSE.md).
 *   [Working With GitHub](#working-with-github)
 *   [Locations and Formats](#locations-and-formats)
 *	[Formatting of the material](#formatting-of-the-material)
-*	[Suggestions for Instructor Checkout](#suggestions)
+*	[Suggestions for Instructor Checkout](#suggestions-for-instructor-checkout)
 *   [FAQ](#faq)
 
 
