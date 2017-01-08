@@ -1,20 +1,19 @@
 ---
 title: Data workflows and automation
+teaching: 0
+exercises: 0
+objectives:
+    - Describe why for loops are used in Python.
+    - Employ for loops to automate data analysis.
+    - Write unique filenames in Python.
+    - Build reusable code in Python.
+    - Write functions using conditional statements (if, then, else).
 ---
 
 So far, we've used Python and the pandas library to explore and manipulate
 individual datasets by hand, much like we would do in a spreadsheet. The beauty
 of using a programming language like Python, though, comes from the ability to
 automate data processing through the use of loops and functions.
-
-# Learning Objectives
-
-* Describe why for loops are used in Python.
-* Employ for loops to automate data analysis.
-* Write unique filenames in Python.
-* Build reusable code in Python.
-* Write functions using conditional statements (if, then, else).
-
 
 ## For loops
 

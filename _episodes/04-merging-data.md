@@ -1,5 +1,12 @@
 ---
 title: Combining DataFrames with pandas
+teaching: 0
+exercises: 0
+objectives:
+    - Combine data from multiple files into a single DataFrame using merge and concat.
+    - Combine two DataFrames using a unique ID found in both DataFrames.
+    - Employ `to_csv` to export a DataFrame in CSV format.
+    - Join DataFrames using common fields (join keys).
 ---
 
 In many "real world" situations, the data that we want to use come in multiple
@@ -7,15 +14,6 @@ files. We often need to combine these files into a single DataFrame to analyze
 the data. The pandas package provides [various methods for combining
 DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
 `merge` and `concat`.
-
-
-# Learning Objectives
-* Combine data from multiple files into a single DataFrame using merge and concat.
-* Combine two DataFrames using a unique ID found in both DataFrames.
-* Employ `to_csv` to export a DataFrame in CSV format.
-* Join DataFrames using common fields (join keys).
-
-
 
 To work through the examples below, we first need to load the species and
 surveys files into pandas DataFrames. In iPython:

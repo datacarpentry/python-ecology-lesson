@@ -1,5 +1,17 @@
 ---
 title: Indexing, Slicing and Subsetting DataFrames in Python
+teaching: 0
+exercises: 0
+objectives:
+    - Describe what 0-based indexing is.
+    - Manipulate and extract data using column headings and index locations.
+    - Employ slicing to select sets of data from a DataFrame.
+    - Employ label and integer-based indexing to select ranges of data in a dataframe.
+    - Reassign values within subsets of a DataFrame.
+    - Create a copy of a DataFrame.
+    - "Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=."
+    - Locate subsets of data using masks.
+    - Describe BOOLEAN objects in Python and manipulate data using BOOLEANs.
 ---
 
 In lesson 01, we read a CSV into a python Pandas DataFrame.  We learned how to
@@ -8,21 +20,7 @@ to calculate summary statistics and how to create plots of the data. In this
 lesson, we will explore ways to access different parts of the data using indexing,
 slicing and subsetting.
 
-## Learning Objectives
-
-* Describe what 0-based indexing is.
-* Manipulate and extract data using column headings and index locations.
-* Employ slicing to select sets of data from a DataFrame.
-* Employ label and integer-based indexing to select ranges of data in a dataframe.
-* Reassign values within subsets of a DataFrame.
-* Create a copy of a DataFrame.
-* Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=.
-* Locate subsets of data using masks. 
-* Describe BOOLEAN objects in Python and manipulate data using BOOLEANs.
-
-
-
-## Making Sure Our Data Are Loaded
+# Making Sure Our Data Are Loaded
 
 We will continue to use the surveys dataset that we worked with in the last
 exercise. Let's reopen it:
