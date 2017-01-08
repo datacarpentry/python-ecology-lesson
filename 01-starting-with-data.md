@@ -26,15 +26,6 @@ over and over on different datasets that use a similar format. This makes our
 methods easily reproducible. We can also easily share our code with colleagues
 and they can replicate the same analysis.
 
-### Learning Objectives
-* Explain what a library is, and what libraries are used for.
-* Load a Python/Pandas library.
-* Read tabular data from a file into Python using Pandas using `read_csv`.
-* Learn about the Pandas DataFrame object.
-* Learn about data slicing and indexing.
-* Perform mathematical operations on numeric data.
-* Create simple plots of data.
-
 ### Starting in the same spot
 
 To help the lesson run smoothly, let's ensure everyone is in the same directory. This should help us avoid path and file name issues. At this time please navigate to the workshop directory. If you working in IPython Notebook be sure that you start your notebook in the workshop directory. 
