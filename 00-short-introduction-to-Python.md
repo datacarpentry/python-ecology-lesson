@@ -19,8 +19,7 @@ Python's main advantages:
 
 * Open Source software, supported by Python Software Foundation
 * Available on all platforms
-* "Batteries Included" philosophy - libraries for common tasks available in
-  standard installation
+* It is a general-purpose programming language
 * Supports multiple programming paradigms
 * Very large community
 
