@@ -1,6 +1,11 @@
-# Setup instructions for Data Carpentry Python Lesson with Ecological Data
+---
+layout: page
+title: Setup Instructions for Learners
+permalink: /setup/
+---
 
-## Python
+# Python
+
 [Python](http://python.org) is a popular language for
 scientific computing, and great for general-purpose programming as
 well.  Installing all of its scientific packages individually can be
@@ -15,13 +20,14 @@ For this workshop we use Python version 3.x
 * [Numpy](http://www.numpy.org/)
 * [Matplotlib](http://matplotlib.org/)
 
-
 ## How to install these Packages
+
 For installing these packages we will use Anaconda or Miniconda.
 They both use [Conda](http://conda.pydata.org/docs/), the main difference is that Anaconda comes with a lot of packages installed by default.
 With Miniconda you need to install the packages that you need.
 
 ### Using Anaconda
+
 If you use Anaconda all the packages you need will be installed with Anaconda.
 
 #### Download and install Anaconda
@@ -52,4 +58,4 @@ After you installed Anaconda or Miniconda (plus the additional packages) to laun
 ```
 jupyter notebook
 ```
-You can then open this link in your browser: http://localhost:8888
+You can then open this link in your browser: <http://localhost:8888>
