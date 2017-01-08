@@ -419,7 +419,7 @@ We can plot our summary stats using Pandas, too.
 	# create a quick bar chart
 	species_counts.plot(kind='bar');
 
-![Weight by Species Plot](img/weightBySpecies.png)
+![Weight by Species Plot](../fig/weightBySpecies.png)
 Weight by species plot
 
 We can also look at how many animals were captured in each plot:
@@ -470,7 +470,7 @@ my_df = pd.DataFrame(d)
 my_df.plot(kind='bar',stacked=True,title="The title of my graph")
 ```
 
-![Stacked Bar Plot](img/stackedBar1.png)
+![Stacked Bar Plot](../fig/stackedBar1.png)
 
 * You can use the `.unstack()` method to transform grouped data into columns
 for each plotting.  Try running `.unstack()` on some DataFrames above and see
@@ -538,4 +538,4 @@ s_plot.set_ylabel("Weight")
 s_plot.set_xlabel("Plot")
 ```
 
-![Stacked Bar Plot](img/stackedBar.png)
+![Stacked Bar Plot](../fig/stackedBar.png)

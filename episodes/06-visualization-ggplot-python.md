@@ -1093,7 +1093,7 @@ ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_com
 ```
 
 
-![png](img/output_6_0.png)
+![png](../fig/output_6_0.png)
 
 
 
@@ -1115,7 +1115,7 @@ ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geo
 ```
 
 
-![png](img/output_8_0.png)
+![png](../fig/output_8_0.png)
 
 
 
@@ -1143,7 +1143,7 @@ surveys_plot + geom_point()
 ```
 
 
-![png](img/output_10_0.png)
+![png](../fig/output_10_0.png)
 
 
 
@@ -1176,7 +1176,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + ge
 ```
 
 
-![png](img/output_12_0.png)
+![png](../fig/output_12_0.png)
 
 
 
@@ -1199,7 +1199,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 ```
 
 
-![png](img/output_14_0.png)
+![png](../fig/output_14_0.png)
 
 
 
@@ -1221,7 +1221,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 ```
 
 
-![png](img/output_16_0.png)
+![png](../fig/output_16_0.png)
 
 
 
@@ -1246,7 +1246,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
 ```
 
 
-![png](img/output_18_0.png)
+![png](../fig/output_18_0.png)
 
 
 
@@ -1267,7 +1267,7 @@ ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) +
 ```
 
 
-![png](img/output_21_0.png)
+![png](../fig/output_21_0.png)
 
 
 
@@ -1808,7 +1808,7 @@ ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
 ```
 
 
-![png](img/output_35_0.png)
+![png](../fig/output_35_0.png)
 
 
 

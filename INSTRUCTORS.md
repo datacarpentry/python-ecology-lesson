@@ -107,14 +107,14 @@ surveys_df.groupby(['plot_id'])['weight'].describe()
 surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')
 ```
 
-![average weight across all species for each plot](./img/01_chall_bar_meanweight.png) 
+![average weight across all species for each plot](fig/01_chall_bar_meanweight.png)
 
 * Create a plot of total males versus total females for the entire datase
 
 ```python
 surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 ```
-![total males versus total females for the entire dataset](./img/01_chall_bar_totalsex.png)
+![total males versus total females for the entire dataset](fig/01_chall_bar_totalsex.png)
 
 ## 02-index-slice-subset
 
@@ -197,14 +197,14 @@ stack_selection = surveys_df[(surveys_df['sex'].notnull()) &
 					surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
 ```
 
-![average weight for each plot per sex](./img/02_chall_stack_levelissue.png)
+![average weight for each plot per sex](fig/02_chall_stack_levelissue.png)
 
 However, due to the `unstack` command, the legend header contains two levels. In order to remove this, the column naming need to be simplified : 
 ```python
 stack_selection.columns = stack_selection.columns.droplevel()
 ```
 
-![average weight for each plot per sex](./img/02_chall_stack_level.png)
+![average weight for each plot per sex](fig/02_chall_stack_level.png)
 
 ## 04-merging-data
 
@@ -222,7 +222,7 @@ weight_year = survey_all.groupby(['year', 'sex']).mean()["wgt"].unstack()
 weight_year.plot(kind="bar")
 plt.tight_layout()  # tip(!)
 ```
-![average weight for each year, grouped by sex](./img/04_chall_weight_year.png)
+![average weight for each year, grouped by sex](fig/04_chall_weight_year.png)
 ```python
 # writing to file:
 `weight_year.to_csv("weight_for_year.csv")`
@@ -245,7 +245,7 @@ Species distribution (number of taxa for each plot) can be derived as follows:
 merged_left.groupby(["plot_id"])["taxa"].nunique().plot(kind='bar')
 ```
 
-![taxa per plot](./img/04_chall_ntaxa_per_plot.png)
+![taxa per plot](fig/04_chall_ntaxa_per_plot.png)
 
 *Suggestion*: It is also possible to plot the number of individuals for each taxa in each plot (stacked bar chart):
 ```python
@@ -254,7 +254,7 @@ plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.05))
 ```
 (the legend otherwise overlaps the bar plot)
 
-![taxa per plot](./img/04_chall_taxa_per_plot.png)
+![taxa per plot](fig/04_chall_taxa_per_plot.png)
 
 **2. taxa by sex by plot**:
 Providing the Nan values with the M|F values (can also already be changed to 'x'):
@@ -271,7 +271,7 @@ plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.08),
            fontsize='small', frameon=False)
 ```
 
-![taxa per plot per sex](./img/04_chall_ntaxa_per_plot_sex.png)
+![taxa per plot per sex](fig/04_chall_ntaxa_per_plot_sex.png)
 
 *Suggestion (for discussion only)*: 
 
@@ -284,7 +284,7 @@ plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.15),
            fontsize='small', frameon=False)
 ```
 
-![taxa per plot per sex](./img/04_chall_sex_taxa_plot_intro.png)
+![taxa per plot per sex](fig/04_chall_sex_taxa_plot_intro.png)
 
 This is not really the best plot choice: not readable,... A first opion to make this better, is to make facets. However, pandas/matplotlib doe not provide this by default. Just as a pure matplotlib example (`M|F` if for not-defined sex records):
 
@@ -300,7 +300,7 @@ axs[0].legend(loc='upper center', ncol=5, bbox_to_anchor=(0.5, 1.3),
               fontsize='small', frameon=False)
 ```
 
-![taxa per plot per sex](./img/04_chall_sex_taxa_plot.png)
+![taxa per plot per sex](fig/04_chall_sex_taxa_plot.png)
 
 However, it would be better to link to [Seaborn](https://stanford.edu/~mwaskom/software/seaborn/)  and [Altair](https://github.com/ellisonbg/altair)  for tis kind of multivariate visualisations. 
 
@@ -332,7 +332,7 @@ diversity_index['diversity'].plot(kind="barh")
 plt.xlabel("Diversity index")
 ```
 
-![taxa per plot per sex](./img/04_chall_diversity_index.png)
+![taxa per plot per sex](fig/04_chall_diversity_index.png)
 
 
 ## 05-loops-and-functions
