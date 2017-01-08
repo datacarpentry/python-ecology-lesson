@@ -15,27 +15,22 @@ objectives:
 ---
 
 ## Disclaimer
- Python has powerful built-in plotting capabilities such as `matplotlib`, but
- for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/)
- package, which facilitates the creation of highly-informative plots of
- structured data based on the R implementation of
- [`ggplot2`](http://ggplot2.org/) and [The Grammar of
- Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland
- Wilkinson.
 
-
-
+Python has powerful built-in plotting capabilities such as `matplotlib`, but
+for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/)
+package, which facilitates the creation of highly-informative plots of
+structured data based on the R implementation of
+[`ggplot2`](http://ggplot2.org/) and [The Grammar of
+Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland
+Wilkinson.
 
 ```python
 import pandas as pd
-
 
 surveys_complete = pd.read_csv( 'data_output/surveys_complete.csv', index_col=0)
 surveys_complete.index.name = 'X'
 surveys_complete
 ```
-
-
 
 
 <div>
