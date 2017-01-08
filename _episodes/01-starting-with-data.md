@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: .
 title: Starting With Data
 ---
 

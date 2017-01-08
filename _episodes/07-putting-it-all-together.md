@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: .
 title: Data Ingest & Visualization - Matplotlib & Pandas
 ---
 

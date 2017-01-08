@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: .
 title: Data Types and Formats
 ---
 
