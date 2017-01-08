@@ -1,6 +1,5 @@
 ---
 layout: lesson
-root: .
 title: Combining DataFrames with pandas
 ---
 
