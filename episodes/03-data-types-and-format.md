@@ -1,5 +1,15 @@
 ---
 title: Data Types and Formats
+teaching: 0
+exercises: 0
+objectives:
+    - Describe how information is stored in a Python DataFrame.
+    - "Define the two main types of data in Python: characters and numerics."
+    - Examine the structure of a DataFrame.
+    - Modify the format of values in a DataFrame.
+    - Describe how data types impact operations.
+    - Define, manipulate, and interconvert integers and floats in Python.
+    - Analyze datasets having missing/null values (NaN values).
 ---
 
 The format of individual columns and rows will impact analysis performed on a
@@ -11,18 +21,6 @@ numeric data, you get an error.
 
 In this lesson we will review ways to explore and better understand the
 structure and format of our data.
-
-## Learning Objectives
-
-* Describe how information is stored in a Python DataFrame.
-* Define the two main types of data in Python: characters and numerics.
-* Examine the structure of a DataFrame.	
-* Modify the format of values in a DataFrame.	
-* Describe how data types impact operations.
-* Define, manipulate, and interconvert integers and floats in Python.
-* Analyze datasets having missing/null values (NaN values).
-
-
 
 # Types of Data
 
