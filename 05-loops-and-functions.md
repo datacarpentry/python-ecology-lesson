@@ -73,6 +73,14 @@ the loop. The statement `pass` in the body of the loop just means "do nothing".
 (Hint: You can concatenate strings using a plus sign. For example,
 `print(string1 + string2)` outputs 'string1string2').
 
+3. We now consider the following dictionary for which the keys are the animals and the 
+values, the life span of each of them:
+ages = {'lion': 35, 'tiger': 22, 'crocodile': 45, 'vulture': 30, 'hippo': 45}.
+Use the loop so that the program displays :
+ " The <animal> lives <animal_life_span> years in average. "
+
+
+
 ## Automating data processing using For Loops
 
 The file we've been using so far, `surveys.csv`, contains 25 years of data and is
