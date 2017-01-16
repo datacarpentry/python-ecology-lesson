@@ -74,7 +74,7 @@ guidelines:
 
 ## Suggestions for Instructor Checkout
 
-- [ ] Check links on setup [and install webapge](http://www.datacarpentry.org/python-ecology-lesson/).
+- [ ] Check links on setup [and install webpage](http://www.datacarpentry.org/python-ecology-lesson/).
 - [ ] Check for presence of all "required" folders and csvs. We did some
   remodeling, and there might be references that need scrubbing.
 - [ ] Attendees have asked for a little more data manipulation and sorting.
