@@ -190,7 +190,6 @@ another_tuple = ('blue','green','red')
 # Note: lists use square brackets
 a_list = [1,2,3]
 ```
-
 ### Challenge
 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
 2. Type `type(a_tuple)` into python - what is the object type?
@@ -293,3 +292,20 @@ Key points here:
 * definition starts with `def`
 * function body is indented
 * `return` keyword precedes returned value
+
+### Challenge
+Can you create a function that takes two lists of the same size and returns a dictionary containing with the first list as the keys and the second list as the values? For example, this is the expected behaviour if you called your function merge_lists(x, y).
+
+```
+def merge_lists(x, y):
+	...
+```
+```
+>>> a = [1,2,3]
+>>> b = [a,b,c]
+>>> merge_lists(a, b)
+{1: 'a', 2: 'b', 3: 'c'}
+
+```
+
+To do this you will have to use many of the ideas discussed so far.
