@@ -277,7 +277,8 @@ just need to be cautious about how the decisions that we make impact scientific
 results.
 
 ### Challenge 
-Count the number of missing values per column. Hint: The method .count() the number of non-NA observations per column.
+Count the number of missing values per column. Hint: The method .count() gives you 
+the number of non-NA observations per column.
 
 
 ## Recap
