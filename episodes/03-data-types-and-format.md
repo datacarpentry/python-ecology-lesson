@@ -37,12 +37,12 @@ example: 1.13, 2.0 1234.345. If we have a column that contains both integers and
 floating point numbers, Pandas will assign the entire column to the float data
 type so the decimal points are not lost.
 
-An **integer** will never have a decimal point. Thus 1.13 would be stored as 1.
-1234.345 is stored as 1234. You will often see the data type `Int64` in python
-which stands for 64 bit integer. The 64 simply refers to the memory allocated to
-store data in each cell which effectively relates to how many digits it can
-store in each "cell". Allocating space ahead of time allows computers to
-optimize storage and processing efficiency.
+An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as 
+an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You 
+will often see the data type `Int64` in python which stands for 64 bit integer. The 64 
+simply refers to the memory allocated to store data in each cell which effectively 
+relates to how many digits it can store in each "cell". Allocating space ahead of time 
+allows computers to optimize storage and processing efficiency.
 
 ## Character Data Types
 
@@ -275,6 +275,10 @@ impact the scientific conclusions made from the data.
 Python gives us all of the tools that we need to account for these issues. We
 just need to be cautious about how the decisions that we make impact scientific
 results.
+
+### Challenge 
+Count the number of missing values per column. Hint: The method .count() gives you 
+the number of non-NA observations per column.
 
 
 ## Recap
