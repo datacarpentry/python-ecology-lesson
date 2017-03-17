@@ -95,7 +95,7 @@ surveys_df.groupby(['plot_id','sex']).agg({"year": 'min',
 surveys_df.groupby(['plot_id'])['weight'].describe()
 ```
 
-* Another Chappenge: What is another way to create a list of species and the associated count of the records in the data? 
+* Another Challenge: What is another way to create a list of species and the associated count of the records in the data? 
 
 	Instead of getting the column of the groupby and counting it, you can also count on the groupby (all columns) and make a selection of the resulting data frame: `surveys_df.groupby('species_id').count()["record_id"]` 
 
