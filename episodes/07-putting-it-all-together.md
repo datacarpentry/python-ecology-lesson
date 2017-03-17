@@ -1,7 +1,9 @@
 ---
-layout: lesson
-root: .
 title: Data Ingest & Visualization - Matplotlib & Pandas
+teaching: 0
+exercises: 0
+objectives:
+    - Import the pyplot toolbox to create figures in Python.
 ---
 
 

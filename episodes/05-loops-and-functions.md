@@ -1,20 +1,19 @@
 ---
-layout: lesson
-root: .
 title: Data workflows and automation
+teaching: 0
+exercises: 0
+objectives:
+    - Describe why for loops are used in Python.
+    - Employ for loops to automate data analysis.
+    - Write unique filenames in Python.
+    - Build reusable code in Python.
+    - Write functions using conditional statements (if, then, else).
 ---
 
 So far, we've used Python and the pandas library to explore and manipulate
 individual datasets by hand, much like we would do in a spreadsheet. The beauty
 of using a programming language like Python, though, comes from the ability to
 automate data processing through the use of loops and functions.
-
-# Learning Objectives
-
-* Review the basics of a python for loop
-* Review how to create a function
-* Learn how to loop through a directory of files, to automate processing
-* Learn the basics of conditional statements (if, then, else)
 
 ## For loops
 
@@ -607,10 +606,10 @@ doesn't. Add some code to your function that writes out the CSV files, to check
 for a directory to write to.
 
 ```Python
-	if 'dirNameHere' in os.listdir('.'):
+	if 'dir_name_here' in os.listdir('.'):
 	    print('Processed directory exists')
 	else:
-	    os.mkdir('dirNameHere')
+	    os.mkdir('dir_name_here')
 	    print('Processed directory created')
 ```
 
@@ -622,4 +621,4 @@ make a list of all years represented in the data. Then create a loop to process
 your data, that begins at the earliest year and ends at the latest year using
 that list.
 
-HINT: you can create a loop with a list as follows: `for years in yearList:`
+HINT: you can create a loop with a list as follows: `for years in year_list:`

@@ -1,7 +1,17 @@
 ---
-layout: lesson
-root: .
 title: Indexing, Slicing and Subsetting DataFrames in Python
+teaching: 0
+exercises: 0
+objectives:
+    - Describe what 0-based indexing is.
+    - Manipulate and extract data using column headings and index locations.
+    - Employ slicing to select sets of data from a DataFrame.
+    - Employ label and integer-based indexing to select ranges of data in a dataframe.
+    - Reassign values within subsets of a DataFrame.
+    - Create a copy of a DataFrame.
+    - "Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=."
+    - Locate subsets of data using masks.
+    - Describe BOOLEAN objects in Python and manipulate data using BOOLEANs.
 ---
 
 In lesson 01, we read a CSV into a python Pandas DataFrame.  We learned how to
@@ -10,17 +20,7 @@ to calculate summary statistics and how to create plots of the data. In this
 lesson, we will explore ways to access different parts of the data using indexing,
 slicing and subsetting.
 
-## Learning Objectives
-
-*  Learn about 0-based indexing in Python.
-*  Learn about numeric vs. label based indexes.
-*  Learn how to select subsets of data from a DataFrame using Slicing and
-   Indexing methods.
-*  Understand what a boolean object is and how it can be used to "mask" or
-   identify particular sets of values within another object.
-
-
-## Making Sure Our Data Are Loaded
+# Making Sure Our Data Are Loaded
 
 We will continue to use the surveys dataset that we worked with in the last
 exercise. Let's reopen it:
@@ -29,7 +29,7 @@ exercise. Let's reopen it:
 # first make sure pandas is loaded
 import pandas as pd
 # read in the survey csv
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 # Indexing & Slicing in Python
@@ -89,8 +89,8 @@ within objects starting at 1.
 a = [1,2,3,4,5]
 ```
 
-![indexing diagram](img/slicing-indexing.svg)
-![slicing diagram](img/slicing-slicing.svg)
+![indexing diagram](../fig/slicing-indexing.svg)
+![slicing diagram](../fig/slicing-slicing.svg)
 
 ## Challenges
 
@@ -229,11 +229,9 @@ the element that is 3 rows down and 7 columns over in the DataFrame.
 
 1. What happens when you type:
 
-```python
-surveys_df[0:3]
-surveys_df[:5]
-surveys_df[-1:]
-```
+	- surveys_df[0:3]
+	- surveys_df[:5]
+	- surveys_df[-1:]
 
 2. What happens when you call:
     - `dat.iloc[0:4, 1:4]`
@@ -370,7 +368,7 @@ We can run `isnull` on a particular column too. What does the code below do?
 
 ```python
 # what does this do?
-empty_weights = surveys_df[pd.isnull(surveys_df).any(axis=1)]['weight']
+empty_weights = surveys_df[pd.isnull(surveys_df['weight'])]['weight']
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean

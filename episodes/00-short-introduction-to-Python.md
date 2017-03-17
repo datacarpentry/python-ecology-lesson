@@ -1,7 +1,15 @@
 ---
-layout: lesson
-root: .
 title: Short Introduction to Programming in Python
+teaching: 0
+exercises: 0
+questions:
+  - "What is Python?"
+  - "Why should I learn Python?"
+objectives:
+  - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
+  - "Define the following data types in Python: strings, integers, and floats."
+  - "Perform mathematical operations in Python using basic operators."
+  - "Define the following as it relates to Python: lists, tuples, and dictionaries."
 ---
 
 # The Basics of Python
@@ -13,8 +21,7 @@ Python's main advantages:
 
 * Open Source software, supported by Python Software Foundation
 * Available on all platforms
-* "Batteries Included" philosophy - libraries for common tasks available in
-  standard installation
+* It is a general-purpose programming language
 * Supports multiple programming paradigms
 * Very large community
 
@@ -22,7 +29,7 @@ Python's main advantages:
 
 Python is an interpreted language. As a consequence, we can use it in two ways:
 
-* Using interpreter as an "advanced calculator" in interactive mode:
+* "Interactive" Mode: As an "advanced calculator" e.g. one command at a time:
 
 ```python
 user:host:~$ python
@@ -35,7 +42,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 Hello World
 ```
 
-* Executing programs/scripts saved as a text file, usually with `*.py` extension:
+* "Scripting" Mode: Executing a series of "commands" saved in text file, usually
+with a ".py" extension after the name of your file:
 
 ```
 user:host:~$ python my_script.py
@@ -57,12 +65,10 @@ pi_value = 3.1415
 
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
 using the assignment operator `=`. The variable called `text` is a string which
-means it can contain letters and numbers. We could reassign the variable `text`
-to an integer too - but be careful reassigning variables as this can get 
-confusing.
-
-To print out the value stored in a variable we can simply type the name of the
-variable into the interpreter:
+means it can contain letters and numbers. Notice that in order to define a 
+string you need to have quotes around your text. To print out the value 
+stored in a variable we can simply type the name of the variable into the 
+interpreter:
 
 ```python
 >>> text
@@ -114,7 +120,8 @@ True
 ### Lists
 
 **Lists** are a common data structure to hold an ordered sequence of
-elements. Each element can be accessed by an index:
+elements. Each element can be accessed by an index.  Note that Python
+indexes start with 0 instead of 1:
 
 ```python
 >>> numbers = [1,2,3]
@@ -134,8 +141,7 @@ for num in numbers:
 ```
 
 **Indentation** is very important in Python. Note that the second line in the
-example above is indented. This is Python's way of marking a block of code. We will
-discuss this in more detail later.
+example above is indented. This is Python's way of marking a block of code. 
 
 To add elements to the end of a list, we can use the `append` method:
 
@@ -158,17 +164,6 @@ class list(object)
  |  list() -> new empty list
  |  list(iterable) -> new list initialized from iterable's items
  ...
-```
-
-We can also access a list of methods using `dir`. Some methods names are
-surrounded by double underscores. Those methods are called "special", and
-usually we access them in a different way. For example `__add__` method is
-responsible for the `+` operator.
-
-```python
-dir(numbers)
->>> dir(numbers)
-['__add__', '__class__', '__contains__', ...]
 ```
 
 ### Tuples
@@ -245,20 +240,21 @@ or
 3 -> three
 >>>
 ```
+
 ### Challenge
+
 Can you do reassignment in a dictionary? Give it a try. 
 
 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
     
     Type:
-`>>> rev`
+```python
+>>> rev
+```
 
-    You should see the following output:
-`{1: 'one', 2: 'two', 3: 'three'}`
 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
-`>>> rev[2] = "apple-sauce"`
-3. Now display `rev` again to see if it has changed; you should see the following:
-`{1: 'one', 2: 'apple-sauce', 3: 'three'}`
+
+3. Now display `rev` again to see if it has changed. 
 
 It is important to note that dictionaries are "unordered" and do not remember the
 sequence of their items (i.e. the order in which key:value pairs were added to 
