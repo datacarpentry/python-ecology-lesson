@@ -42,7 +42,7 @@ Wasser, Mariela Perignon, John Gosset and Francois Michonneau in April 2015.
     Data Types and Format
     Merging Data
     Data Analysis Automation: Loops and Functions (Developed by Mariela Perignon with minor edits both Leah Wasser)
-    Plotting with Matplotlib
+    Visualizing Data with ggplot (Developed by Jeremy Zucker November 2016)
     Putting It All Together (Developed by Mariela Perignon with minor revisions by Leah Wasser April 2015)
     Accessing SQL using Python (Added by John Gosset with minor revisions by Leah Wasser April 2015)
 
