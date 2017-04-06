@@ -65,8 +65,8 @@ conda install -y numpy pandas matplotlib jupyter
 
 ## Launch a Jupyter notebook
 
-After installing Anaconda or Miniconda (plus the workshop packages), launch
-a Jupyter notebook by typing this command from the terminal:
+After installing either Anaconda or Miniconda and the workshop packages,
+launch a Jupyter notebook by typing this command from the terminal:
 
 ```
 jupyter notebook
@@ -78,6 +78,9 @@ wish to use a different browser, open this link: <http://localhost:8888>.
 ---
 
 ## Overview of the Jupyter notebook (Optional)
+
+![Example Jupyter Notebook](./fig/0_jupyter_notebook_example.jpg)  
+*Screenshot of a [Jupyter Notebook on quantum mechanics](https://github.com/jrjohansson/qutip-lectures) by Robert Johansson*
 
 ### How the Jupyter notebook works
 
@@ -107,10 +110,7 @@ This workflow has several advantages:
 - It allows you to display figures next to the code that produces them
   to tell a complete story of the analysis.
 
-![Example Jupyter Notebook](./fig/0_jupyter_notebook_example.jpg)  
-*Screenshot of a [Jupyter Notebook on quantum mechanics](https://github.com/jrjohansson/qutip-lectures) by Robert Johansson*
-
-### How is the notebook stored
+### How the notebook is stored
 
 * The notebook file is stored in a format called JSON and has the suffix
   `.ipynb`.
