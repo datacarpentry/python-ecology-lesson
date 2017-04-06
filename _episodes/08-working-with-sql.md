@@ -102,12 +102,14 @@ benchmarks]).
 [these benchmarks]: http://sebastianraschka.com/Articles/2013_sqlite_database.html#results-and-conclusions
 
 
-## Challenges
+> ## Challenge - SQL
+>
+> 1. Create a query that contains survey data collected between 1998 - 2001 for
+>   observations of sex "male" or "female" that includes observation's genus and
+>   species and plot type for the sample. How many records are returned?
+>
+> 2. Create a dataframe that contains the total number of observations (count)
+>   made for all years, and sum of observation weights for each plot, ordered by
+>   plot ID.
+{: .challenge}
 
-1. Create a query that contains survey data collected between 1998 - 2001 for
-   observations of sex "male" or "female" that includes observation's genus and
-   species and plot type for the sample. How many records are returned?
-
-2. Create a dataframe that contains the total number of observations (count)
-   made for all years, and sum of observation weights for each plot, ordered by
-   plot ID.
