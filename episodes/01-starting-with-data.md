@@ -209,15 +209,19 @@ We'll talk a bit more about what the different formats mean in a different lesso
 ### Useful Ways to View DataFrame objects in Python
 
 There are many ways to summarize and access the data stored in DataFrames, 
-using attributes and methods provided by the DataFrame object. Attributes 
-are called using the DataFrame object name `surveys_df.attribute`, so the 
-attribute `surveys_df.columns` provides an index of all of the column names 
-in our DataFrame.
+using attributes and methods provided by the DataFrame object. 
 
-Methods are called using the syntax `surveys_df.method()` and we can supply extra 
-information in the brackets to control behaviour.  
+To access an attribute, use the DataFrame object name followed by the attribute 
+name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute 
+`columns`, an index of all the column names in the DataFrame can be accessed 
+with `surveys_df.columns`.
 
-Let's try out a few. 
+Methods are called in a similar fashion using the syntax `df_object.method()`. 
+As an example, `survey_df.head()` gets the first few rows in the DataFrame 
+`survey_df` using the `head()` method. With a method, we can supply extra 
+information in the parens to control behaviour.
+
+Let's look at the data using these. 
 
 ## Challenges
 
