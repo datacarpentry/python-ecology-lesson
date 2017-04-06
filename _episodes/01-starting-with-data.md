@@ -213,17 +213,16 @@ stored in DataFrames. Let's try out a few. Note that we call the method by using
 the object name `surveys_df.method`. So `surveys_df.columns` provides an index
 of all of the column names in our DataFrame.
 
-## Challenges
-
-Try out the methods below to see what they return.
-
-1. `surveys_df.columns`.
-2. `surveys_df.head()`. Also, what does `surveys_df.head(15)` do?
-3. `surveys_df.tail()`.
-4. `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
-
-HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
-
+> ## Challenge - DataFrames
+>
+> Try out the methods below to see what they return.
+> 
+> 1. `surveys_df.columns`.
+> 2. `surveys_df.head()`. Also, what does `surveys_df.head(15)` do?
+> 3. `surveys_df.tail()`.
+> 4. `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
+>     HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+{: .challenge}
 
 ## Calculating Statistics From Data In A Pandas DataFrame
 
@@ -264,13 +263,14 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
        'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
 ```
 
-## Challenges
-
-1. Create a list of unique plot ID's found in the surveys data. Call it
-   `plot_names`. How many unique plots are there in the data? How many unique
-   species are in the data?
-
-2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+> ## Challenge - Statistics
+>
+> 1. Create a list of unique plot ID's found in the surveys data. Call it
+>   `plot_names`. How many unique plots are there in the data? How many unique
+>   species are in the data?
+>
+> 2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+{: .challenge}
 
 # Groups in Pandas
 
@@ -347,32 +347,35 @@ M          29.709578  42.995379
 The `groupby` command is powerful in that it allows us to quickly generate
 summary stats.
 
-# Challenge
-
-1. How many recorded individuals are female `F` and how many male `M`
-2. What happens when you group by two columns using the following syntax and
-    then grab mean values:
-	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
-	- `sorted_data2.mean()`
-3. Summarize weight values for each plot in your data. HINT: you can use the
-   following syntax to only create summary statistics for one column in your data
-   `by_plot['weight'].describe()`
-
-
-Did you get #3 right? **A Snippet of the Output from challenge 3 looks like:**
-
-```
-	plot
-	1     count    1903.000000
-	      mean       51.822911
-	      std        38.176670
-	      min         4.000000
-	      25%        30.000000
-	      50%        44.000000
-	      75%        53.000000
-	      max       231.000000
-          ...
-```
+> ## Challenge - Summary Data
+>
+> 1. How many recorded individuals are female `F` and how many male `M`
+> 2. What happens when you group by two columns using the following syntax and
+>    then grab mean values:
+>	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `sorted_data2.mean()`
+> 3. Summarize weight values for each plot in your data. HINT: you can use the
+>   following syntax to only create summary statistics for one column in your data
+>   `by_plot['weight'].describe()`
+>
+>
+>> ## Did you get #3 right? 
+>> **A Snippet of the Output from challenge 3 looks like:**
+>>
+>> ```
+>>	plot
+>>	1     count    1903.000000
+>>	      mean       51.822911
+>>	      std        38.176670
+>>	      min         4.000000
+>>	      25%        30.000000
+>>	      50%        44.000000
+>>	      75%        53.000000
+>>	      max       231.000000
+>>          ...
+>> ```
+> {: .solution}
+{: .challenge}
 
 ## Quickly Creating Summary Counts in Pandas
 
@@ -402,13 +405,12 @@ calculated from our data.
 	surveys_df['weight']*2
 
 
-## Another Challenge
-
-1. What's another way to create a list of species and associated `count` of the
-   records in the data? Hint: you can perform `count`, `min`, etc functions on
-   groupby DataFrames in the same way you can perform them on regular
-   DataFrames.
-
+> ## Challenge - Make a list
+>
+>  What's another way to create a list of species and associated `count` of the
+>  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  groupby DataFrames in the same way you can perform them on regular DataFrames.
+{: .challenge}
 
 # Quick & Easy Plotting Data Using Pandas
 
@@ -430,112 +432,114 @@ total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
 total_count.plot(kind='bar');
 ```
 
-# Challenge Activities
+> ## Challenge - Plots
+>
+> 1. Create a plot of average weight across all species per plot.
+> 2. Create a plot of total males versus total females for the entire dataset.
+{: .challenge}
 
-1. Create a plot of average weight across all species per plot.
-2. Create a plot of total males versus total females for the entire dataset.
-
-
-# Summary Plotting Challenge
-
-Create a stacked bar plot, with weight on the Y axis, and the stacked variable
-being sex. The plot should show total weight by sex for each plot. Some
-tips are below to help you solve this challenge:
-
-* [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
-* You can use the code that follows to create a stacked bar plot but the data to stack
-  need to be in individual columns.  Here's a simple example with some data where
-  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
-
-```
-d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']),'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
-pd.DataFrame(d)
-```
-
-shows the following data
-
-```
-       one  two
-   a    1    1
-   b    2    2
-   c    3    3
-   d  NaN    4
-```
-
-We can plot the above with
-
-```
-# plot stacked data so columns 'one' and 'two' are stacked
-my_df = pd.DataFrame(d)
-my_df.plot(kind='bar',stacked=True,title="The title of my graph")
-```
-
-![Stacked Bar Plot](../fig/stackedBar1.png)
-
-* You can use the `.unstack()` method to transform grouped data into columns
-for each plotting.  Try running `.unstack()` on some DataFrames above and see
-what it yields.
-
-Start by transforming the grouped data (by plot and sex) into an unstacked layout, then create
-a stacked plot.
-
-
-## Solution to Summary Challenge
-
-First we group data by plot and by sex, and then calculate a total for each plot.
-
-```python
-by_plot_sex = surveys_df.groupby(['plot_id','sex'])
-plot_sex_count = by_plot_sex['weight'].sum()
-```
-
-This calculates the sums of weights for each sex within each plot as a table
-
-```
-plot  sex
-plot_id  sex
-1        F      38253
-         M      59979
-2        F      50144
-         M      57250
-3        F      27251
-         M      28253
-4        F      39796
-         M      49377
-<other plots removed for brevity>
-```
-
-Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
-
-```python
-by_plot_sex = surveys_df.groupby(['plot_id','sex'])
-plot_sex_count = by_plot_sex['weight'].sum()
-plot_sex_count.unstack()
-```
-
-The `unstack` function above will display the following output:
-
-```
-sex          F      M
-plot_id              
-1        38253  59979
-2        50144  57250
-3        27251  28253
-4        39796  49377
-<other plots removed for brevity>
-```
-
-Now, create a stacked bar plot with that data where the weights for each sex are stacked by plot.
-
-Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
-
-```python
-by_plot_sex = surveys_df.groupby(['plot_id','sex'])
-plot_sex_count = by_plot_sex['weight'].sum()
-spc = plot_sex_count.unstack()
-s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by plot and sex")
-s_plot.set_ylabel("Weight")
-s_plot.set_xlabel("Plot")
-```
-
-![Stacked Bar Plot](../fig/stackedBar.png)
+> ## Summary Plotting Challenge
+>
+> Create a stacked bar plot, with weight on the Y axis, and the stacked variable
+> being sex. The plot should show total weight by sex for each plot. Some
+> tips are below to help you solve this challenge:
+>
+> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
+> * You can use the code that follows to create a stacked bar plot but the data to stack
+>  need to be in individual columns.  Here's a simple example with some data where
+>  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
+>
+> ```
+> d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']),'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
+> pd.DataFrame(d)
+> ```
+>
+> shows the following data
+>
+> ```
+>       one  two
+>   a    1    1
+>   b    2    2
+>   c    3    3
+>   d  NaN    4
+> ```
+>
+> We can plot the above with
+>
+> ```
+> # plot stacked data so columns 'one' and 'two' are stacked
+> my_df = pd.DataFrame(d)
+> my_df.plot(kind='bar',stacked=True,title="The title of my graph")
+> ```
+> 
+> ![Stacked Bar Plot](../fig/stackedBar1.png)
+> 
+> * You can use the `.unstack()` method to transform grouped data into columns
+> for each plotting.  Try running `.unstack()` on some DataFrames above and see
+> what it yields.
+>
+> Start by transforming the grouped data (by plot and sex) into an unstacked layout, then create
+> a stacked plot.
+> 
+>
+>> ## Solution to Summary Challenge
+>>
+>> First we group data by plot and by sex, and then calculate a total for each plot.
+>> 
+>> ```python
+>> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+>> plot_sex_count = by_plot_sex['weight'].sum()
+>> ```
+>> 
+>> This calculates the sums of weights for each sex within each plot as a table
+>>
+>> ```
+>> plot  sex
+>> plot_id  sex
+>> 1        F      38253
+>>          M      59979
+>> 2        F      50144
+>>          M      57250
+>> 3        F      27251
+>>          M      28253
+>> 4        F      39796
+>>          M      49377
+>> <other plots removed for brevity>
+>> ```
+>>
+>> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
+>> 
+>> ```python
+>> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+>> plot_sex_count = by_plot_sex['weight'].sum()
+>> plot_sex_count.unstack()
+>> ```
+>>
+>> The `unstack` function above will display the following output:
+>>
+>> ```
+>> sex          F      M
+>> plot_id              
+>> 1        38253  59979
+>> 2        50144  57250
+>> 3        27251  28253
+>> 4        39796  49377
+>> <other plots removed for brevity>
+>> ```
+>>
+>> Now, create a stacked bar plot with that data where the weights for each sex are stacked by plot.
+>>
+>> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
+>>
+>> ```python
+>> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
+>> plot_sex_count = by_plot_sex['weight'].sum()
+>> spc = plot_sex_count.unstack()
+>> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by plot and sex")
+>> s_plot.set_ylabel("Weight")
+>> s_plot.set_xlabel("Plot")
+>> ```
+>> 
+>> ![Stacked Bar Plot](../fig/stackedBar.png)
+> {: .soultion}
+{: .challenge}

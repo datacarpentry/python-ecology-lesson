@@ -180,7 +180,7 @@ another_tuple = ('blue','green','red')
 a_list = [1,2,3]
 ```
 
-> ### Challenge
+> ## Challenge - Tuples
 > 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
 > 2. Type `type(a_tuple)` into python - what is the object type?
 >
@@ -242,9 +242,7 @@ or
 >>>
 ```
 
-> ## Challenge
-> 
-> Can you do reassignment in a dictionary? Give it a try. 
+> ## Challenge - Can you do reassignment in a dictionary?
 > 
 > 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
 >     
@@ -263,6 +261,8 @@ It is important to note that dictionaries are "unordered" and do not remember th
 sequence of their items (i.e. the order in which key:value pairs were added to 
 the dictionary). Because of this, the order in which items are returned from loops
 over dictionaries might appear random and can even change with time.
+
+
 
 ## Functions
 
