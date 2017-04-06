@@ -1296,8 +1296,8 @@ Notice how the boxplot layer is behind the jitter layer? What do you need to
 change in the code to put the boxplot in front of the points such that it's not
 hidden.
 
-## Challenges
-
+> ## Challenges
+>
 > Boxplots are useful summaries, but hide the *shape* of the distribution. For
 > example, if there is a bimodal distribution, this would not be observed with a
 > boxplot. An alternative to the boxplot is the violin plot (sometimes known as a
@@ -1317,70 +1317,64 @@ hidden.
 >
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
-
-Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
-from integer to factor. Why does this change how R makes the graph?
-
-
-
-
-```python
-## Challenges:
-##  Start with the boxplot we created:
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0)
-```
-
-
-```python
-##  1. Replace the box plot with a violin plot; see `geom_violin()`.
-
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_violin(alpha=0)
-```
-
-
-```python
-##  2. Represent weight on the log10 scale; see `scale_y_log10()`.
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_violin(alpha=0) + \
-            scale_y_log(base=10)
-```
-
-
-```python
-##  3. Create boxplot for `hindfoot_length`.
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.01) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0) + \
-            scale_y_log(base=10)
-            
-```
-
-
-```python
-##  4. Add color to the datapoints on your boxplot according to the
-##  plot from which the sample was taken (`plot_id`).
-##  Hint: Check the class for `plot_id`. Consider changing the class
-##  of `plot_id` from integer to factor. Why does this change how R
-##  makes the graph?
-
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
-    geom_jitter(alpha=0.01) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0) + \
-            scale_y_log(base=10)
-     
-```
-
-
+> 
+> Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
+> from integer to factor. Why does this change how R makes the graph?
+>
+>> ## Solution
+>> ```python
+>> ## Challenges:
+>> ##  Start with the boxplot we created:
+>> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
+>>    geom_jitter(alpha=0.3) + \
+>>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
+>>                         xlab('species_id') + geom_boxplot(alpha=0)
+>> ```
+>>
+>> ```python
+>> ##  1. Replace the box plot with a violin plot; see `geom_violin()`.
+>> 
+>> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
+>>    geom_jitter(alpha=0.3) + \
+>>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
+>>                         xlab('species_id') + geom_violin(alpha=0)
+>> ```
+>>
+>> ```python
+>> ##  2. Represent weight on the log10 scale; see `scale_y_log10()`.
+>> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
+>>    geom_jitter(alpha=0.3) + \
+>>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
+>>                         xlab('species_id') + geom_violin(alpha=0) + \
+>>            scale_y_log(base=10)
+>> ```
+>>
+>> ```python
+>> ##  3. Create boxplot for `hindfoot_length`.
+>> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
+>>     geom_jitter(alpha=0.01) + \
+>>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
+>>                         xlab('species_id') + geom_boxplot(alpha=0) + \
+>>            scale_y_log(base=10)
+>>            
+>> ```
+>>
+>> ```python
+>> ##  4. Add color to the datapoints on your boxplot according to the
+>> ##  plot from which the sample was taken (`plot_id`).
+>> ##  Hint: Check the class for `plot_id`. Consider changing the class
+>> ##  of `plot_id` from integer to factor. Why does this change how R
+>> ##  makes the graph?
+>> 
+>> ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
+>>     geom_jitter(alpha=0.01) + \
+>>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
+>>                         xlab('species_id') + geom_boxplot(alpha=0) + \
+>>            scale_y_log(base=10)
+>>     
+>> ```
+> {: .solution}
+{: .challenge}
 
 # Plotting time series data
 
@@ -1913,38 +1907,27 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
 
 
 
-# Challenge
-
+> ## Challenge - Plotting
+>
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
-
-<!-- Answer
-
-```python
-yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
-yearly_weight.columns =   ["year", "species_id","avg_weight"]  
-yearly_weight
-```
-
-
-```python
-ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_weight) + \
-    geom_line() + \
-    facet_wrap("species_id") + \
-    theme_bw()
-```
-
--->
-
-
-
-
-```python
-## Plotting time series challenge:
-##  Use what you just learned to create a plot that depicts how the
-##  average weight of each species changes through the years.
-
-```
+>
+>> Solution
+>>
+>> ```python
+>> yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
+>> yearly_weight.columns =   ["year", "species_id","avg_weight"]  
+>> yearly_weight
+>> ```
+>>
+>> ```python
+>> ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_weight) + \
+>>    geom_line() + \
+>>    facet_wrap("species_id") + \
+>>    theme_bw()
+>> ```
+> {: .solution}
+{: .challenge}
 
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
@@ -2106,13 +2089,11 @@ my_plot += theme(axis_text_x = element_text(color="grey", size=10, angle=90, hju
 my_plot.save("name_of_file.png", width=15, height=10)
 ```
 
+> ## Final plotting challenge
+>  With all of this information in hand, please take another five
+>  minutes to either improve one of the plots generated in this
+>  exercise or create a beautiful graph of your own. Use the RStudio
+>  ggplot2 cheat sheet for inspiration:
+>  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
+{: .challenge}
 
-```python
-## Final plotting challenge:
-##  With all of this information in hand, please take another five
-##  minutes to either improve one of the plots generated in this
-##  exercise or create a beautiful graph of your own. Use the RStudio
-##  ggplot2 cheat sheet for inspiration:
-##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
-
-```
