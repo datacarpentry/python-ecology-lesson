@@ -383,6 +383,7 @@ ways, but we'll use `groupby` combined with a `count()` method.
 ```python
 # count the number of samples by species
 species_counts = surveys_df.groupby('species_id')['record_id'].count()
+print(species_counts)
 ```
 
 Or, we can also count just the rows that have the species "DO":
@@ -487,6 +488,7 @@ First we group data by plot and by sex, and then calculate a total for each plot
 ```python
 by_plot_sex = surveys_df.groupby(['plot_id','sex'])
 plot_sex_count = by_plot_sex['weight'].sum()
+print(plot_sex_count)
 ```
 
 This calculates the sums of weights for each sex within each plot as a table
