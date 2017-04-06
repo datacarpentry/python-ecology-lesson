@@ -184,6 +184,7 @@ a_list = [1,2,3]
 > 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
 > 2. Type `type(a_tuple)` into python - what is the object type?
 >
+{: .challenge}
 
 ## Dictionaries
 
@@ -256,6 +257,7 @@ or
 >
 > 3. Now display `rev` again to see if it has changed. 
 >
+{: .challenge}
 
 It is important to note that dictionaries are "unordered" and do not remember the
 sequence of their items (i.e. the order in which key:value pairs were added to 
