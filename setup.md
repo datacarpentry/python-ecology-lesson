@@ -123,13 +123,16 @@ After typing the command `jupyter notebook`, the following happens:
   ![Code cell](./fig/00_5_jupyter_code_before.png)  
   *A Code cell*
 
-* This is a **Code** cell (see the cell type dropdown with the word **Code**). To run the cell, type Shift-Enter.
+* This is a **Code** cell (see the cell type dropdown with the word **Code**).
+  To run the cell, type Shift-Enter.
 
   ![Code cell and its output](./fig/00_6_jupyter_code_after.png)  
   *A Code cell and its output*
 
 * Let's look at a **Markdown** cell. Markdown is a text manipulation
-  language that is readable yet offers additional formatting.
+  language that is readable yet offers additional formatting. Don't forget
+  to select **Markdown** from the cell type dropdown. Click in the cell and
+  enter the markdown text.
 
   ![markdown input cell](./fig/00_7_jupyter_markdown_before.png)  
   *A markdown input cell*
