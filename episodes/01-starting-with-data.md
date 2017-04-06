@@ -214,7 +214,7 @@ are called using the DataFrame object name `surveys_df.attribute`, so the
 attribute `surveys_df.columns` provides an index of all of the column names 
 in our DataFrame.
 
-Methods are called using the syntax `surveys_df.method()`. We can supply extra 
+Methods are called using the syntax `surveys_df.method()` and we can supply extra 
 information in the brackets to control behaviour.  
 
 Let's try out a few. 
