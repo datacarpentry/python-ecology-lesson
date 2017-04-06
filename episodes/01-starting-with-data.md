@@ -208,22 +208,33 @@ We'll talk a bit more about what the different formats mean in a different lesso
 
 ### Useful Ways to View DataFrame objects in Python
 
-There are multiple methods that can be used to summarize and access the data
-stored in DataFrames. Let's try out a few. Note that we call the method by using
-the object name `surveys_df.method`. So `surveys_df.columns` provides an index
-of all of the column names in our DataFrame.
+There are many ways to summarize and access the data stored in DataFrames, 
+using attributes and methods provided by the DataFrame object. 
+
+To access an attribute, use the DataFrame object name followed by the attribute 
+name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute 
+`columns`, an index of all the column names in the DataFrame can be accessed 
+with `surveys_df.columns`.
+
+Methods are called in a similar fashion using the syntax `df_object.method()`. 
+As an example, `survey_df.head()` gets the first few rows in the DataFrame 
+`survey_df` using the `head()` method. With a method, we can supply extra 
+information in the parens to control behaviour.
+
+Let's look at the data using these. 
 
 ## Challenges
 
-Try out the methods below to see what they return.
+Using our DataFrame `surveys_df`, try out the attributes & methods below to see 
+what they return.
 
-1. `surveys_df.columns`.
-2. `surveys_df.head()`. Also, what does `surveys_df.head(15)` do?
-3. `surveys_df.tail()`.
-4. `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
-
-HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
-
+1. `surveys_df.columns`
+2. `surveys_df.shape` Take note of the output of `shape` - what format does it
+    return the shape of the DataFrame in?
+    
+    HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
+4. `surveys_df.tail()`
 
 ## Calculating Statistics From Data In A Pandas DataFrame
 
