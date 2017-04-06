@@ -208,22 +208,29 @@ We'll talk a bit more about what the different formats mean in a different lesso
 
 ### Useful Ways to View DataFrame objects in Python
 
-There are multiple methods that can be used to summarize and access the data
-stored in DataFrames. Let's try out a few. Note that we call the method by using
-the object name `surveys_df.method`. So `surveys_df.columns` provides an index
-of all of the column names in our DataFrame.
+There are many ways to summarize and access the data stored in DataFrames, 
+using attributes and methods provided by the DataFrame object. Attributes 
+are called using the DataFrame object name `surveys_df.attribute`, so the 
+attribute `surveys_df.columns` provides an index of all of the column names 
+in our DataFrame.
+
+Methods are called using the syntax `surveys_df.method()`. We can supply extra 
+information in the brackets to control behaviour.  
+
+Let's try out a few. 
 
 ## Challenges
 
-Try out the methods below to see what they return.
+Using our DataFrame `surveys_df`, try out the attributes & methods below to see 
+what they return.
 
-1. `surveys_df.columns`.
-2. `surveys_df.head()`. Also, what does `surveys_df.head(15)` do?
-3. `surveys_df.tail()`.
-4. `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
-
-HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
-
+1. `surveys_df.columns`
+2. `surveys_df.shape` Take note of the output of `shape` - what format does it
+    return the shape of the DataFrame in?
+    
+    HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
+4. `surveys_df.tail()`
 
 ## Calculating Statistics From Data In A Pandas DataFrame
 
