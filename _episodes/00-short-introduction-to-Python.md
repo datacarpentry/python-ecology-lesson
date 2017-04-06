@@ -180,10 +180,10 @@ another_tuple = ('blue','green','red')
 a_list = [1,2,3]
 ```
 
-### Challenge
-1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
-2. Type `type(a_tuple)` into python - what is the object type?
-
+> ### Challenge
+> 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
+> 2. Type `type(a_tuple)` into python - what is the object type?
+>
 
 ## Dictionaries
 
@@ -241,20 +241,21 @@ or
 >>>
 ```
 
-### Challenge
-
-Can you do reassignment in a dictionary? Give it a try. 
-
-1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
-    
-    Type:
-```python
->>> rev
-```
-
-2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
-
-3. Now display `rev` again to see if it has changed. 
+> ## Challenge
+> 
+> Can you do reassignment in a dictionary? Give it a try. 
+> 
+> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
+>     
+>    Type:
+> ```python
+> >>> rev
+> ```
+>
+> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+>
+> 3. Now display `rev` again to see if it has changed. 
+>
 
 It is important to note that dictionaries are "unordered" and do not remember the
 sequence of their items (i.e. the order in which key:value pairs were added to 
