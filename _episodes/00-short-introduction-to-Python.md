@@ -92,6 +92,10 @@ $ python example.py
 Data Carpentry
 ```
 
+**Tip**: The `print` function is a built-in function in Python. Later in this
+lesson, we will introduce methods and user-defined functions. The Python
+documentation is excellent for reference on the differences between them.
+
 ### Operators
 
 We can perform mathematical calculations in Python using the basic operators
