@@ -44,6 +44,7 @@ surveys_complete
 | 8 | 2184 | 11 | 17 | 1979 | 2 | NL | F | 30 | 186 | Neotoma | albigula | Rodent | Control |
 | 9 | 2406 | 1 | 16 | 1980 | 2 | NL | F | 33 | 184 | Neotoma | albigula | Rodent | Control |
 | 10 | 3000 | 5 | 18 | 1980 | 2 | NL | F | 31 | 87 | Neotoma | albigula | Rodent | Control |
+30463 rows × 13 columns
 
 ```python
 %matplotlib inline
