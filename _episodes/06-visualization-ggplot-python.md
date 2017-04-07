@@ -293,7 +293,7 @@ yearly_counts.columns = ['year','species_id', 'n']
 yearly_counts
 ```
 | x | year | species_id | n |
-| - | ---- | ---------- | - |
+| --- | ---- | ---------- | --- |
 | 0 | 1977 | DM | 181 |
 | 1 | 1977 | DO | 12 |
 | 2 | 1977 | DS | 29 |
