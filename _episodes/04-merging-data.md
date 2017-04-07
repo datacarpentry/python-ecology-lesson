@@ -125,13 +125,13 @@ it imports properly.
 new_output = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
 ```
 
-## Challenge
-
-In the data folder, there are two survey data files: `survey2001.csv` and
-`survey2002.csv`. Read the data into python and combine the files to make one
-new data frame. Create a plot of average plot weight by year grouped by sex.
-Export your results as a CSV and make sure it reads back into python properly.
-
+> ## Challenge - Combine Data
+>
+> In the data folder, there are two survey data files: `survey2001.csv` and
+> `survey2002.csv`. Read the data into python and combine the files to make one
+> new data frame. Create a plot of average plot weight by year grouped by sex.
+> Export your results as a CSV and make sure it reads back into python properly.
+{: .challenge}
 
 # Joining DataFrames
 
@@ -381,22 +381,25 @@ The pandas `merge` function supports two other join types:
 
 # Final Challenges
 
-## Challenge 1
-Create a new DataFrame by joining the contents of the `surveys.csv` and
-`species.csv` tables. Then calculate and plot the distribution of:
+> ## Challenge - Distributions
+> Create a new DataFrame by joining the contents of the `surveys.csv` and
+> `species.csv` tables. Then calculate and plot the distribution of:
+> 
+> 1. taxa by plot
+> 2. taxa by sex by plot
+{: .challenge}
 
-1. taxa by plot
-2. taxa by sex by plot
+> ## Challenge - Diversity Index
+>
+> 1. In the data folder, there is a plot `CSV` that contains information about the
+>    type associated with each plot. Use that data to summarize the number of
+>   plots by plot type. 
+> 2. Calculate a diversity index of your choice for control vs rodent exclosure
+>   plots. The index should consider both species abundance and number of
+>   species. You might choose to use the simple [biodiversity index described
+>   here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
+>   which calculates diversity as:
+>
+>        the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
+{: .challenge}
 
-## Challenge 2
-
-1. In the data folder, there is a plot `CSV` that contains information about the
-   type associated with each plot. Use that data to summarize the number of
-   plots by plot type. 
-2. Calculate a diversity index of your choice for control vs rodent exclosure
-   plots. The index should consider both species abundance and number of
-   species. You might choose to use the simple [biodiversity index described
-   here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
-   which calculates diversity as:
-
-        the number of species in the plot / the total number of individuals in the plot = Biodiversity index.

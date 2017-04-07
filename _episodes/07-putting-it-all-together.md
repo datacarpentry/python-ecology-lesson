@@ -93,15 +93,16 @@ styles and the source code that creates them. The simplest of plots is the 2
 dimensional line plot. These examples walk through the basic commands for making
 line plots using pyplots.
 
-### Challenge:
-Make a variety of line plots from your data. If you are using the streamgage
-data, these could include (1) a hydrograph of the entire month of September
-2013, (2) the discharge record for the week of the 2013 Front Range flood
-(September 9 through 15), (3) discharge vs. time of day, for every day in the
-record in one figure (Hint: use loops to combine strings and give every line a
-different style and color), and (4) minimum, maximum, and mean daily discharge
-values. Add axis labels, titles, and legends to your figures. Make at least one
-figure with multiple plots using the function `subplot()`.
+> ## Challenge - Lots of plots
+> Make a variety of line plots from your data. If you are using the streamgage
+> data, these could include (1) a hydrograph of the entire month of September
+> 2013, (2) the discharge record for the week of the 2013 Front Range flood
+> (September 9 through 15), (3) discharge vs. time of day, for every day in the
+> record in one figure (Hint: use loops to combine strings and give every line a
+> different style and color), and (4) minimum, maximum, and mean daily discharge
+> values. Add axis labels, titles, and legends to your figures. Make at least one
+> figure with multiple plots using the function `subplot()`.
+{: .challenge}
 
 ### Using pyplot:
 
@@ -263,12 +264,12 @@ http://matplotlib.org/users/screenshots.html and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
 
-### Challenge:
-Display your data using one or more plot types from the example gallery. Which
-ones to choose will depend on the content of your own data file. If you are
-using the streamgage file, you could make a histogram of the number of days with
-a given mean discharge, use bar plots to display daily discharge statistics, or
-explore the different ways matplotlib can handle dates and times for figures.
-
+> ## Challenge - Final Plot
+> Display your data using one or more plot types from the example gallery. Which
+> ones to choose will depend on the content of your own data file. If you are
+> using the streamgage file, you could make a histogram of the number of days with
+> a given mean discharge, use bar plots to display daily discharge statistics, or
+> explore the different ways matplotlib can handle dates and times for figures.
+{: .challenge}
 
     
