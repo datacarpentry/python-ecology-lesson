@@ -106,27 +106,27 @@ a = [1, 2, 3, 4, 5]
 ![slicing diagram](../fig/slicing-slicing.svg)
 
 
-## Challenge - Extracting data
-
-1. What value does the code below return?
-
-    ```python
-    a[0]
-    ```
-
-2. How about this:
-
-    ```python
-    a[5]
-    ```
-
-3. Or this?
-
-    ```python
-    a[len(a)]
-    ```
-
-4. In the example above, calling `a[5]` returns an error. Why is that?
+> ## Challenge - Extracting data
+>
+> 1. What value does the code below return?
+>
+>    ```python
+>    a[0]
+>    ```
+>
+> 2. How about this:
+>
+>    ```python
+>    a[5]
+>    ```
+>
+> 3. Or this?
+>
+>    ```python
+>    a[len(a)]
+>    ```
+>
+> 4. In the example above, calling `a[5]` returns an error. Why is that?
 {: .challenge}
 
 
@@ -147,9 +147,6 @@ The stop bound in Python is different from what you might be used to in
 languages like Matlab and R.
 
 ```python
-# select the first, second and third rows from the surveys DataFrame
-surveys_df[0:3]
-
 # select the first 5 rows (rows 0, 1, 2, 3, 4)
 surveys_df[:5]
 
@@ -307,20 +304,20 @@ Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 
-## Challenge - Range
-
-1. What happens when you execute:
-
-    - `surveys_df[0:1]`
-    - `surveys_df[:4]`
-    - `surveys_df[:-1]`
-
-2. What happens when you call:
-
-    - `dat.iloc[0:4, 1:4]`
-    - `dat.loc[0:4, 1:4]`
-
-- How are the two commands different?
+> ## Challenge - Range
+> 
+> 1. What happens when you execute:
+>
+>    - `surveys_df[0:1]`
+>    - `surveys_df[:4]`
+>    - `surveys_df[:-1]`
+>
+> 2. What happens when you call:
+>
+>    - `dat.iloc[0:4, 1:4]`
+>    - `dat.loc[0:4, 1:4]`
+>
+> - How are the two commands different?
 {: .challenge}
 
 
@@ -376,30 +373,29 @@ Experiment with selecting various subsets of the "surveys" data.
 * Less than or equal to `<=`
 
 
-## Challenge - Queries
-
-1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
-   the year 1999 and that contain weight values less than or equal to 8. How
-   many columns did you end up with? What did your neighbor get?
-
-2. You can use the `isin` command in Python to query a DataFrame based upon a
-   list of values as follows:
-
-    ```python
-    surveys_df[surveys_df['species_id'].isin([listGoesHere])]
-    ```
-
-   Use the `isin` function to find all plots that contain particular species
-   in the "surveys" DataFrame. How many records contain these values?
-
-
-3. Experiment with other queries. Create a query that finds all rows with a
-   weight value > or equal to 0.
-
-4. The `~` symbol in Python can be used to return the OPPOSITE of the
-   selection that you specify in Python. It is equivalent to **is not in**.
-   Write a query that selects all rows that are NOT equal to 'M' or 'F' in
-   the "surveys" data.
+> ## Challenge - Queries
+>
+> 1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
+>   the year 1999 and that contain weight values less than or equal to 8. How
+>   many columns did you end up with? What did your neighbor get?
+>
+> 2. You can use the `isin` command in Python to query a DataFrame based upon a
+>   list of values as follows:
+>
+>    ```python
+>    surveys_df[surveys_df['species_id'].isin([listGoesHere])]
+>    ```
+>
+>   Use the `isin` function to find all plots that contain particular species
+>   in the "surveys" DataFrame. How many records contain these values?
+>
+> 3. Experiment with other queries. Create a query that finds all rows with a
+>   weight value > or equal to 0.
+>
+> 4. The `~` symbol in Python can be used to return the OPPOSITE of the
+>   selection that you specify in Python. It is equivalent to **is not in**.
+>   Write a query that selects all rows that are NOT equal to 'M' or 'F' in
+>   the "surveys" data.
 {: .challenge}
 
 
@@ -480,14 +476,14 @@ object `pd.isnull(surveys_df['weight'])` as an index to `surveys_df`. We are
 asking Python to select rows that have a `NaN` value or weight.
 
 
-# Challenge - Putting it all together
-
-1. Create a new DataFrame that only contains observations with sex values that
-   are **not** female or male. Assign each sex value in the new DataFrame to a
-   new value of 'x'. Determine the number of null values in the subset.
-   
-2. Create a new DataFrame that contains only observations that are of sex male
-   or female and where weight values are greater than 0. Create a stacked bar
-   plot of average weight by plot with male vs female values stacked for each
-   plot.
+> ## Challenge - Putting it all together
+>
+> 1. Create a new DataFrame that only contains observations with sex values that
+>   are **not** female or male. Assign each sex value in the new DataFrame to a
+>   new value of 'x'. Determine the number of null values in the subset.
+>   
+> 2. Create a new DataFrame that contains only observations that are of sex male
+>   or female and where weight values are greater than 0. Create a stacked bar
+>   plot of average weight by plot with male vs female values stacked for each
+>   plot.
 {: .challenge}
