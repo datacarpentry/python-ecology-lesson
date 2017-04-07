@@ -184,20 +184,20 @@ DataFrame.
 Let's look at what happens when we reassign the values within a subset of the
 DataFrame that references another DataFrame object:
 
-    ```python
+   ```
     # Assign the value `0` to the first three rows of data in the DataFrame
     ref_surveys_df[0:3] = 0
     ```
 
 Let's try the following code:
 
-    ```python
-    # ref_surveys_df was created using the '=' operator
+    ```
+   # ref_surveys_df was created using the '=' operator
     ref_surveys_df.head()
 
     # surveys_df is the original dataframe
     surveys_df.head()
-    ```
+```
 
 What is the difference between these two dataframes?
 
@@ -212,7 +212,7 @@ the other will see the same changes to the reference object.
 
 - **Copy** uses the dataframe's `copy()` method
 
-    ```python
+    ```
     true_copy_surveys_df = surveys_df.copy()
     ```
 - A **Reference** is created using the `=` operator
