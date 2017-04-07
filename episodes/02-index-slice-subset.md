@@ -317,8 +317,8 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 2. What happens when you call:
 
-    - `dat.iloc[0:4, 1:4]`
-    - `dat.loc[0:4, 1:4]`
+    - `surveys_df.iloc[0:4, 1:4]`
+    - `surveys_df.loc[0:4, 1:4]`
 
 - How are the two commands different?
 {: .challenge}
