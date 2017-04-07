@@ -249,7 +249,7 @@ pd.read_csv("weight_for_year.csv", index_col=0)
 * Create a new DataFrame by joining the contents of the surveys.csv and species.csv tables. 
 
 ```python
-merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")
+merged_left = pd.merge(left=surveys_df,right=species_df, how='left', on="species_id")
 ```
 
 Then calculate and plot the distribution of: 
