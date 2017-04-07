@@ -44,6 +44,7 @@ surveys_complete
 | 8 | 2184 | 11 | 17 | 1979 | 2 | NL | F | 30 | 186 | Neotoma | albigula | Rodent | Control |
 | 9 | 2406 | 1 | 16 | 1980 | 2 | NL | F | 33 | 184 | Neotoma | albigula | Rodent | Control |
 | 10 | 3000 | 5 | 18 | 1980 | 2 | NL | F | 31 | 87 | Neotoma | albigula | Rodent | Control |
+
 30463 rows × 13 columns
 
 ```python
@@ -304,6 +305,7 @@ yearly_counts
 | 8 | 1978 |  DM | 336 |
 | 9 | 1978 | DO | 21 |
 | 10 | 1978 | DS | 272 |
+
 292 rows × 3 columns
 
 Timelapse data can be visualised as a line plot with years on x axis and counts
