@@ -31,212 +31,30 @@ surveys_complete = pd.read_csv( 'data_output/surveys_complete.csv', index_col=0)
 surveys_complete.index.name = 'X'
 surveys_complete
 ```
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>record_id</th>
-      <th>month</th>
-      <th>day</th>
-      <th>year</th>
-      <th>plot_id</th>
-      <th>species_id</th>
-      <th>sex</th>
-      <th>hindfoot_length</th>
-      <th>weight</th>
-      <th>genus</th>
-      <th>species</th>
-      <th>taxa</th>
-      <th>plot_type</th>
-    </tr>
-    <tr>
-      <th>X</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>845</td>
-      <td>5</td>
-      <td>6</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>204</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1164</td>
-      <td>8</td>
-      <td>5</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>34</td>
-      <td>199</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1261</td>
-      <td>9</td>
-      <td>4</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>197</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1756</td>
-      <td>4</td>
-      <td>29</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>33</td>
-      <td>166</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1818</td>
-      <td>5</td>
-      <td>30</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>184</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1882</td>
-      <td>7</td>
-      <td>4</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>206</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2133</td>
-      <td>10</td>
-      <td>25</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>33</td>
-      <td>274</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2184</td>
-      <td>11</td>
-      <td>17</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>30</td>
-      <td>186</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2406</td>
-      <td>1</td>
-      <td>16</td>
-      <td>1980</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>33</td>
-      <td>184</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>3000</td>
-      <td>5</td>
-      <td>18</td>
-      <td>1980</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>31</td>
-      <td>87</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-  </tbody>
-</table>
-<p>30463 rows × 13 columns</p>
-</div>
-
-
-
+| <feff> | record_id | month | day | year | plot_id | species_id | sex |
+hindfoot_length | weight | genus | species | taxa | plot_type |                                                                           
+| --- | --------- | ----- | --- | ---- | ------- | ---------- | --- |
+--------------- | ------ | ----- | ------- | ---- | --------- |
+| 1 | 845 | 5 | 6 | 1978 | 2 | NL | M | 32 | 204 | Neotoma | albigula | Rodent
+| Control |
+| 2 | 1164 | 8 | 5 | 1978 | 2 | NL | M | 34 | 199 | Neotoma | albigula | Rodent
+| Control |
+| 3 | 1261 | 9 | 4 | 1978 | 2 | NL | M | 32 | 197 | Neotoma | albigula | Rodent
+| Control |
+| 4 | 1756 | 4 | 29 | 1979 | 2 | NL | M | 33 | 166 | Neotoma | albigula |
+Rodent | Control |
+| 5 | 1818 | 5 | 30 | 1979 | 2 | NL | M | 32 | 184 | Neotoma | albigula |
+Rodent | Control |
+| 6 | 1882 | 7 | 4 | 1979 | 2 | NL | M | 32 | 206 | Neotoma | albigula | Rodent
+| Control |
+| 7 | 2133 | 10 | 25 | 1979 | 2 | NL | F | 33 | 274 | Neotoma | albigula |
+Rodent | Control |
+| 8 | 2184 | 11 | 17 | 1979 | 2 | NL | F | 30 | 186 | Neotoma | albigula |
+Rodent | Control |
+| 9 | 2406 | 1 | 16 | 1980 | 2 | NL | F | 33 | 184 | Neotoma | albigula |
+Rodent | Control |
+| 10 | 3000 | 5 | 18 | 1980 | 2 | NL | F | 31 | 87 | Neotoma | albigula |
+Rodent | Control |
 
 ```python
 %matplotlib inline
