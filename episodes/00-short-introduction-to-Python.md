@@ -200,9 +200,11 @@ another_tuple = ('blue', 'green', 'red')
 a_list = [1, 2, 3]
 ```
 
-### Challenge
-1. What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5` ?
-2. Type `type(a_tuple)` into Python - what is the object type?
+> ## Challenge - Tuples
+> 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
+> 2. Type `type(a_tuple)` into python - what is the object type?
+>
+{: .challenge}
 
 
 ## Dictionaries
@@ -265,28 +267,28 @@ or
 >>>
 ```
 
-### Challenge
-
-Can you do reassignment in a dictionary? Give it a try.
-
-1. First check what `rev` is right now (remember `rev` is the name of our
-   dictionary).
-
-    Type:
-```python
->>> rev
-```
-
-2. Try to reassign the key `2` to have a new value (in the *key value pair*)
-   so that it no longer reads "two" but instead reads "apple-sauce".
-
-3. Now display `rev` again to see if it has changed.
+> ## Challenge - Can you do reassignment in a dictionary?
+> 
+> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
+>     
+>    Type:
+> ```python
+> >>> rev
+> ```
+>
+> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+>
+> 3. Now display `rev` again to see if it has changed. 
+>
+{: .challenge}
 
 It is important to note that dictionaries are "unordered" and do not remember
 the sequence of their items (i.e. the order in which key:value pairs were
 added to the dictionary). Because of this, the order in which items are
 returned from loops over dictionaries might appear random and can even change
 with time.
+
+
 
 ## Functions
 

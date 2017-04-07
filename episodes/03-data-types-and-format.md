@@ -276,10 +276,10 @@ Python gives us all of the tools that we need to account for these issues. We
 just need to be cautious about how the decisions that we make impact scientific
 results.
 
-### Challenge 
-Count the number of missing values per column. Hint: The method .count() gives you 
-the number of non-NA observations per column.
-
+> ## Challenge - Counting
+> Count the number of missing values per column. Hint: The method .count() gives you 
+> the number of non-NA observations per column.
+{: .challenge}
 
 ## Recap
 
