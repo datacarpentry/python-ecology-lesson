@@ -28,7 +28,7 @@ using:
 - slicing, and
 - subsetting.
 
-## Making Sure Our Data Are Loaded
+## Loading our data
 
 We will continue to use the surveys dataset that we worked with in the last
 lesson. Let's reopen and read in the data again:
@@ -397,41 +397,47 @@ Experiment with selecting various subsets of the "surveys" data.
    weight value > or equal to 0.
 
 4. The `~` symbol in Python can be used to return the OPPOSITE of the
-   selection that you specify in python. It is equivalent to **is not in**.
+   selection that you specify in Python. It is equivalent to **is not in**.
    Write a query that selects all rows that are NOT equal to 'M' or 'F' in
    the "surveys" data.
 {: .challenge}
 
 
-# Using Masks
+# Using masks to identify a specific condition
 
-A mask can be useful to locate where a particular subset of values exist or
+A **mask** can be useful to locate where a particular subset of values exist or
 don't exist - for example,  NaN, or "Not a Number" values. To understand masks,
-we also need to understand `BOOLEAN` objects in python.
+we also need to understand `BOOLEAN` objects in Python.
 
-Boolean values include `true` or `false`. So for example
+Boolean values include `True` or `False`. For example,
 
 ```python
 # set x to 5
 x = 5
+
 # what does the code below return?
 x > 5
+
 # how about this?
 x == 5
 ```
 
-When we ask python what the value of `x > 5` is, we get `False`. This is because x
-is not greater than 5 it is equal to 5. To create a boolean mask, you first create the
-True / False criteria (e.g. values > 5 = True). Python will then assess each
-value in the object to determine whether the value meets the criteria (True) or
-not (False). Python creates an output object that is the same shape as
-the original object, but with a True or False value for each index location.
+When we ask Python what the value of `x > 5` is, we get `False`. This is
+because the condition,`x` is not greater than 5, is not met since `x` is equal
+to 5.
+
+To create a boolean mask:
+
+- Set the True / False criteria (e.g. `values > 5 = True`)
+- Python will then assess each value in the object to determine whether the
+  value meets the criteria (True) or not (False).
+- Python creates an output object that is the same shape as the original
+  object, but with a `True` or `False` value for each index location.
 
 Let's try this out. Let's identify all locations in the survey data that have
 null (missing or NaN) data values. We can use the `isnull` method to do this.
-Each cell with a null value will be assigned a value of  `True` in the new
-boolean object.
-
+The `isnull` method will compare each cell with a null value. If an element
+has a null value, it will be assigned a value of  `True` in the output object.
 
 ```python
 pd.isnull(surveys_df)
@@ -450,16 +456,16 @@ A snippet of the output is below:
 [35549 rows x 9 columns]
 ```
 
-To select the rows where there are null values,  we can use
+To select the rows where there are null values, we can use
 the mask as an index to subset our data as follows:
 
 ```python
-#To select just the rows with NaN values, we can use the .any method
+# To select just the rows with NaN values, we can use the 'any()' method
 surveys_df[pd.isnull(surveys_df).any(axis=1)]
 ```
 
-Note that there are many null or NaN values in the `weight` column of our DataFrame.
-We will explore different ways of dealing with these in Lesson 03.
+Note that the `weight` column of our DataFrame contains many `null` or `NaN`
+values. We will explore ways of dealing with this in Lesson 03.
 
 We can run `isnull` on a particular column too. What does the code below do?
 
@@ -470,8 +476,8 @@ print(empty_weights)
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean
-object as an index. We are asking python to select rows that have a `NaN` value
-for weight.
+object `pd.isnull(surveys_df['weight'])` as an index to `surveys_df`. We are
+asking Python to select rows that have a `NaN` value or weight.
 
 
 # Challenge - Putting it all together
@@ -479,6 +485,7 @@ for weight.
 1. Create a new DataFrame that only contains observations with sex values that
    are **not** female or male. Assign each sex value in the new DataFrame to a
    new value of 'x'. Determine the number of null values in the subset.
+   
 2. Create a new DataFrame that contains only observations that are of sex male
    or female and where weight values are greater than 0. Create a stacked bar
    plot of average weight by plot with male vs female values stacked for each
