@@ -308,17 +308,21 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 1. What happens when you execute:
 
-- `surveys_df[0:3]`
-- `surveys_df[:5]`
-- `surveys_df[-1:]`
+    - `surveys_df[0:1]`
+    - `surveys_df[:4]`
+    - `surveys_df[:-1]`
 
 2. What happens when you call:
 
     - `dat.iloc[0:4, 1:4]`
     - `dat.loc[0:4, 1:4]`
 
+<<<<<<< HEAD
 - How are the two commands different?
 {: .challenge}
+=======
+    - How are the two commands different?
+>>>>>>> Edit challenge q's for #161
 
 ## Subsetting Data using Criteria
 
@@ -465,13 +469,13 @@ object as an index. We are asking python to select rows that have a `NaN` value
 for weight.
 
 
-> # Challenge - Putting it all together
->
-> 1. Create a new DataFrame that only contains observations with sex values that
->   are **not** female or male. Assign each sex value in the new DataFrame to a
->   new value of 'x'. Determine the number of null values in the subset.
-> 2. Create a new DataFrame that contains only observations that are of sex male
->   or female and where weight values are greater than 0. Create a stacked bar
->   plot of average weight by plot with male vs female values stacked for each
->   plot.
+# Challenge - Putting it all together
+
+1. Create a new DataFrame that only contains observations with sex values that
+   are **not** female or male. Assign each sex value in the new DataFrame to a
+   new value of 'x'. Determine the number of null values in the subset.
+2. Create a new DataFrame that contains only observations that are of sex male
+   or female and where weight values are greater than 0. Create a stacked bar
+   plot of average weight by plot with male vs female values stacked for each
+   plot.
 {: .challenge}
