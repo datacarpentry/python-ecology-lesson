@@ -28,7 +28,7 @@ using:
 - slicing, and
 - subsetting.
 
-# Making Sure Our Data Are Loaded
+## Making Sure Our Data Are Loaded
 
 We will continue to use the surveys dataset that we worked with in the last
 lesson. Let's reopen and read in the data again:
@@ -41,7 +41,7 @@ import pandas as pd
 surveys_df = pd.read_csv("surveys.csv")
 ```
 
-# Indexing and Slicing in Python
+## Indexing and Slicing in Python
 
 We often want to work with subsets of a **DataFrame** object. There are
 different ways to accomplish this including: using labels (column headings),
@@ -159,8 +159,8 @@ surveys_df[-1:]
 
 We can also reassign values within subsets of our DataFrame.
 
-But before we do that, let's look at difference between the concept of copying
-objects and the concept of referencing objects in Python.
+But before we do that, let's look at the difference between the concept of
+copying objects and the concept of referencing objects in Python.
 
 ## Copying Objects vs Referencing Objects in Python
 
@@ -185,7 +185,7 @@ In contrast, the `copy()` method for a DataFrame creates a true copy of the
 DataFrame.
 
 Let's look at what happens when we reassign the values within a subset of the
-DataFrame:
+DataFrame that references another DataFrame object:
 
     ```python
     # Assign the value `0` to the first three rows of data in the DataFrame
@@ -208,8 +208,8 @@ When we assigned the first 3 columns the value of `0` using the
 `ref_surveys_df` DataFrame, the `surveys_df` DataFrame is modified too.
 Remember we created the reference `ref_survey_df` object above when we did
 `ref_survey_df = surveys_df`. Remember `surveys_df` and `ref_surveys_df`
-refer to the same exact object. If either one changes the object, the other
-will see the same changes to the reference object.
+refer to the same exact DataFrame object. If either one changes the object,
+the other will see the same changes to the reference object.
 
 **To review and recap**:
 
@@ -236,18 +236,20 @@ surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
 We can select specific ranges of our data in both the row and column directions
 using either label or integer-based indexing.
 
-- `loc`: indexing via *labels* or *integers*
-- `iloc`: indexing via *integers*
+- `loc` is primarily *label* based indexing. *Integers* may be used but
+  they are interpreted as a *label*.
+- `iloc` is primarily *integer* based indexing
 
 To select a subset of rows **and** columns from our DataFrame, we can use the
 `iloc` method. For example, we can select month, day and year (columns 2, 3
 and 4 if we start counting at 1), like this:
 
 ```python
+# iloc[row slicing, column slicing]
 surveys_df.iloc[0:3, 1:4]
 ```
 
-which gives **output**
+which gives the **output**
 
 ```
    month  day  year
@@ -257,10 +259,10 @@ which gives **output**
 ```
 
 Notice that we asked for a slice from 0:3. This yielded 3 rows of data. When you
-ask for 0:3, you are actually telling python to start at index 0 and select rows
+ask for 0:3, you are actually telling Python to start at index 0 and select rows
 0, 1, 2 **up to but not including 3**.
 
-Let's next explore some other ways to index and select subsets of data:
+Let's explore some other ways to index and select subsets of data:
 
 ```python
 # select all columns for rows of index values 0 and 10
@@ -275,26 +277,27 @@ surveys_df.loc[[0, 10, 35549], :]
 
 **NOTE**: Labels must be found in the DataFrame or you will get a `KeyError`.
 
-Indexing by labels or integers `loc` differs from indexing by integers `iloc`.
+Indexing by labels `loc` differs from indexing by integers `iloc`.
 With `iloc`, the start bound and the stop bound are **inclusive**. When using
 `loc` instead, integers *can* also be used, but the integers refer to the
-index label and not the position. For example,  using `loc` and select 1:4
+index label and not the position. For example, using `loc` and select 1:4
 will get a different result than using `iloc` to select rows 1:4.
 
-We can also select a specific data value according to the specific row and
-column location within the data frame using the `iloc` function:
+We can also select a specific data value using a row and
+column location within the DataFrame and `iloc` indexing:
 
 ```python
+# Syntax for iloc indexing to finding a specific data element
 dat.iloc[row, column]
 ```
 
-For example,
+In this `iloc` example,
 
 ```python
 surveys_df.iloc[2, 6]
 ```
 
-which gives the **output**
+gives the **output**
 
 ```
 'F'
@@ -317,17 +320,14 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
     - `dat.iloc[0:4, 1:4]`
     - `dat.loc[0:4, 1:4]`
 
-<<<<<<< HEAD
 - How are the two commands different?
 {: .challenge}
-=======
-    - How are the two commands different?
->>>>>>> Edit challenge q's for #161
+
 
 ## Subsetting Data using Criteria
 
 We can also select a subset of our data using criteria. For example, we can
-select all rows that have a year value of 2002.
+select all rows that have a year value of 2002:
 
 ```python
 surveys_df[surveys_df.year == 2002]
@@ -352,7 +352,7 @@ record_id  month  day  year  plot_id species_id  sex  hindfoot_length  weight
 [2229 rows x 9 columns]
 ```
 
-Or we can select all rows that do not contain the year 2002.
+Or we can select all rows that do not contain the year 2002:
 
 ```python
 surveys_df[surveys_df.year != 2002]
@@ -364,10 +364,10 @@ We can define sets of criteria too:
 surveys_df[(surveys_df.year >= 1980) & (surveys_df.year <= 1985)]
 ```
 
-# Python Syntax Cheat Sheet
+### Python Syntax Cheat Sheet
 
-Use can use the syntax below when querying data from a DataFrame. Experiment
-with selecting various subsets of the "surveys" data.
+Use can use the syntax below when querying data by criteria from a DataFrame.
+Experiment with selecting various subsets of the "surveys" data.
 
 * Equals: `==`
 * Not equals: `!=`
@@ -382,11 +382,16 @@ with selecting various subsets of the "surveys" data.
    the year 1999 and that contain weight values less than or equal to 8. How
    many columns did you end up with? What did your neighbor get?
 
-2. You can use the `isin` command in python to query a DataFrame based upon a
+2. You can use the `isin` command in Python to query a DataFrame based upon a
    list of values as follows:
-   `surveys_df[surveys_df['species_id'].isin([listGoesHere])]`. Use the `isin` function
-   to find all plots that contain particular species in
-   the surveys DataFrame. How many records contain these values?
+
+    ```python
+    surveys_df[surveys_df['species_id'].isin([listGoesHere])]
+    ```
+
+   Use the `isin` function to find all plots that contain particular species
+   in the "surveys" DataFrame. How many records contain these values?
+
 
 3. Experiment with other queries. Create a query that finds all rows with a
    weight value > or equal to 0.
@@ -394,7 +399,7 @@ with selecting various subsets of the "surveys" data.
 4. The `~` symbol in Python can be used to return the OPPOSITE of the
    selection that you specify in python. It is equivalent to **is not in**.
    Write a query that selects all rows that are NOT equal to 'M' or 'F' in
-   the surveys data.
+   the "surveys" data.
 {: .challenge}
 
 
