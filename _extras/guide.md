@@ -156,9 +156,9 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 	
 	*Suggestion*: You can also select every Nth row: `surveys_df[1:10:2]`. So, how to interpret `surveys_df[::-1]`?
 
-* What is the difference between `dat.iloc[0:4, 1:4]` and `dat.loc[0:4, 1:4]`?
+* What is the difference between `surveys_df.iloc[0:4, 1:4]` and `surveys_df.loc[0:4, 1:4]`?
 
-	Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference between `dat.loc[0:4]` and `dat.iloc[0:4]`
+	Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`
 
 ### Advanced Selection Challenges 
 
