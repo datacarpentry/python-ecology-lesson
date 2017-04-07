@@ -51,6 +51,10 @@ rev[2] = "apple-sauce"
 
 ## 01-starting-with-data
 
+###Bug Note:
+
+Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runtime error.
+
 ### Dataframe Challenges
 
 * `surveys_df.columns` 
@@ -83,7 +87,7 @@ rev[2] = "apple-sauce"
 
 * How many recorded individuals are female `F` and how many male `M`?
 
-	`sorted.count()`
+	`sorted_data.count()`
 
 * What happens when you group by two columns using the following syntax and then grab mean values?
 
@@ -101,7 +105,7 @@ surveys_df.groupby(['plot_id','sex']).agg({"year": 'min',
 surveys_df.groupby(['plot_id'])['weight'].describe()
 ```
 
-* What is another way to create a list of species and the associated count of the records in the data? 
+* Another Challenge: What is another way to create a list of species and the associated count of the records in the data? 
 
 	Instead of getting the column of the groupby and counting it, you can also count on the groupby (all columns) and make a selection of the resulting data frame: `surveys_df.groupby('species_id').count()["record_id"]` 
 
@@ -133,14 +137,14 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 * How about this: `a[5]`
 
 	`IndexError`
-
-* Or this? `a[len(a)]`
-
-	`IndexError`
-
+	
 * In the example above, calling `a[5]` returns an error. Why is that?
 
 	The list has no element with index 5 (going from 0 till 4).
+
+* What about? `a[len(a)]`
+
+	`IndexError`
 
 ### Selection Challenges 
 
@@ -182,8 +186,14 @@ surveys_df[~surveys_df["sex"].isin(['M', 'F'])]
 ### Masking Challenges 
 
 * Create a new DataFrame that only contains observations with sex values that are not female or male. Assign each sex value in the new DataFrame to a new value of 'x'. Determine the number of null values in the subset.
+	
+```python
+new = surveys_df[~surveys_df['sex'].isin(['M', 'F'])].copy()
+new['sex']='x'
+print(len(new))
+```
 
-	New dataframe with the not male/female values: `surveys_df[~surveys_df['sex'].isin(['M', 'F'])]`. Calculating the number of Nan values `sum(surveys_df['sex'].isnull())`, which is equal to the number of none female/male records.
+Can verify the number of Nan values with `sum(surveys_df['sex'].isnull())`, which is equal to the number of none female/male records.
 
 * Create a new DataFrame that contains only observations that are of sex male or female and where weight values are greater than 0. Create a stacked bar plot of average weight by plot with male vs female values stacked for each plot.
 

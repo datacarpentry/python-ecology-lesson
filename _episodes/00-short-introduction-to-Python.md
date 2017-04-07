@@ -23,13 +23,14 @@ Python's main advantages:
 * Available on all platforms
 * It is a general-purpose programming language
 * Supports multiple programming paradigms
-* Very large community
+* Very large community with a rich ecosystem of third-party packages
 
 ## Interpreter
 
-Python is an interpreted language. As a consequence, we can use it in two ways:
+Python is an interpreted language which can be used in two ways:
 
-* "Interactive" Mode: As an "advanced calculator" e.g. one command at a time:
+* "Interactive" Mode: It functions like an "advanced calculator" Executing
+  one command at a time:
 
 ```python
 user:host:~$ python
@@ -42,10 +43,10 @@ Type "help", "copyright", "credits" or "license" for more information.
 Hello World
 ```
 
-* "Scripting" Mode: Executing a series of "commands" saved in text file, usually
-with a ".py" extension after the name of your file:
+* "Scripting" Mode: Executing a series of "commands" saved in text file,
+  usually with a `.py` extension after the name of your file:
 
-```
+```bash
 user:host:~$ python my_script.py
 Hello World
 ```
@@ -55,7 +56,8 @@ Hello World
 
 ### Strings, integers and floats
 
-The most basic data types in Python are strings, integers and floats:
+Python has built-in numeric types for integers, floats, and complex numbers.
+Strings are a built-in textual type.:
 
 ```python
 text = "Data Carpentry"
@@ -65,9 +67,9 @@ pi_value = 3.1415
 
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
 using the assignment operator `=`. The variable called `text` is a string which
-means it can contain letters and numbers. Notice that in order to define a 
-string you need to have quotes around your text. To print out the value 
-stored in a variable we can simply type the name of the variable into the 
+means it can contain letters and numbers. Notice that in order to define a
+string you need to have quotes around your text. To print out the value
+stored in a variable we can simply type the name of the variable into the
 interpreter:
 
 ```python
@@ -75,14 +77,24 @@ interpreter:
 "Data Carpentry"
 ```
 
-however, in scripts we must use the `print` function:
+However, in a script, a `print` function is needed to output the `text`:
 
+*example.py*
 ```python
-# Comments start with #
-# Next line will print out text
+# A Python script file
+# Comments in Python start with #
+# The next line uses the print function to print out the text string
 print(text)
-"Data Carpentry"
 ```
+*Running the script*
+```bash
+$ python example.py
+Data Carpentry
+```
+
+**Tip**: The `print` function is a built-in function in Python. Later in this
+lesson, we will introduce methods and user-defined functions. The Python
+documentation is excellent for reference on the differences between them.
 
 ### Operators
 
@@ -102,7 +114,7 @@ We can perform mathematical calculations in Python using the basic operators
 
 We can also use comparison and logic operators:
 `<, >, ==, !=, <=, >=` and statements of identity such as
-`and, or, not`. The data type returned by this is 
+`and, or, not`. The data type returned by this is
 called a _boolean_.
 
 
@@ -124,7 +136,7 @@ elements. Each element can be accessed by an index.  Note that Python
 indexes start with 0 instead of 1:
 
 ```python
->>> numbers = [1,2,3]
+>>> numbers = [1, 2, 3]
 >>> numbers[0]
 1
 ```
@@ -133,27 +145,35 @@ A `for` loop can be used to access the elements in a list or other Python data
 structure one at a time:
 
 ```python
-for num in numbers:
-    print(num)
+>>> for num in numbers:
+...     print(num)
+...
 1
 2
 3
+>>>
 ```
 
 **Indentation** is very important in Python. Note that the second line in the
-example above is indented. This is Python's way of marking a block of code. 
+example above is indented. Just like three chevrons `>>>` indicate an
+interactive prompt in Python, the three dots `...` are Python's prompt for
+multiple lines. This is Python's way of marking a block of code. [Note: you
+do not type `>>>` or `...`.]
 
-To add elements to the end of a list, we can use the `append` method:
+To add elements to the end of a list, we can use the `append` method. Methods
+are a way to interact with an object (a list, for example). We can invoke a
+method using the dot `.` followed by the method name and a list of arguments
+in parentheses. Let's look at an example using `append`:
 
 ```python
 >>> numbers.append(4)
 >>> print(numbers)
-[1,2,3,4]
+[1, 2, 3, 4]
+>>>
 ```
 
-Methods are a way to interact with an object (a list, for example). We can invoke 
-a method using the dot `.` followed by the method name and a list of arguments in parentheses. 
-To find out what methods are available for an object, we can use the built-in `help` command:
+To find out what methods are available for an
+object, we can use the built-in `help` command:
 
 ```python
 help(numbers)
@@ -168,16 +188,16 @@ class list(object)
 
 ### Tuples
 
-A tuple is similar to a list in that it's an ordered sequence of elements. However,
-tuples can not be changed once created (they are "immutable"). Tuples are
-created by placing comma-separated values inside parentheses `()`.
+A tuple is similar to a list in that it's an ordered sequence of elements.
+However, tuples can not be changed once created (they are "immutable"). Tuples
+are created by placing comma-separated values inside parentheses `()`.
 
 ```python
 # tuples use parentheses
-a_tuple= (1,2,3)
-another_tuple = ('blue','green','red')
+a_tuple= (1, 2, 3)
+another_tuple = ('blue', 'green', 'red')
 # Note: lists use square brackets
-a_list = [1,2,3]
+a_list = [1, 2, 3]
 ```
 
 > ## Challenge - Tuples
@@ -186,44 +206,49 @@ a_list = [1,2,3]
 >
 {: .challenge}
 
+
 ## Dictionaries
 
 A **dictionary** is a container that holds pairs of objects - keys and values.
 
 ```python
->>> translation = {"one" : 1, "two" : 2}
->>> translation["one"]
+>>> translation = {'one': 1, 'two': 2}
+>>> translation['one']
 1
 ```
-Dictionaries work a lot like lists - except that you index them with *keys*. 
+Dictionaries work a lot like lists - except that you index them with *keys*.
 You can think about a key as a name for or a unique identifier for a set of values
-in the dictionary. Keys can only have particular types - they have to be 
+in the dictionary. Keys can only have particular types - they have to be
 "hashable". Strings and numeric types are acceptable, but lists aren't.
 
 ```python
->>> rev = {1 : "one", 2 : "two"}
+>>> rev = {1: 'one', 2: 'two'}
 >>> rev[1]
 'one'
->>> bad = {[1,2,3] : 3}
-...
+>>> bad = {[1, 2, 3]: 3}
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
 ```
+
+In Python, a "Traceback" is an multi-line error block printed out for the
+user.
 
 To add an item to the dictionary we assign a value to a new key:
 
 ```python
->>> rev = {1 : "one", 2 : "two"}
->>> rev[3] = "three"
+>>> rev = {1: 'one', 2: 'two'}
+>>> rev[3] = 'three'
 >>> rev
 {1: 'one', 2: 'two', 3: 'three'}
 ```
 
-Using `for` loops with dictionaries is a little more complicated. We can do this
-in two ways:
+Using `for` loops with dictionaries is a little more complicated. We can do
+this in two ways:
 
 ```python
 >>> for key, value in rev.items():
-...     print(key, "->", value)
+...     print(key, '->', value)
 ...
 1 -> one
 2 -> two
@@ -234,7 +259,7 @@ or
 
 ```python
 >>> for key in rev.keys():
-...     print(key, "->", rev[key])
+...     print(key, '->', rev[key])
 ...
 1 -> one
 2 -> two
@@ -257,16 +282,17 @@ or
 >
 {: .challenge}
 
-It is important to note that dictionaries are "unordered" and do not remember the
-sequence of their items (i.e. the order in which key:value pairs were added to 
-the dictionary). Because of this, the order in which items are returned from loops
-over dictionaries might appear random and can even change with time.
+It is important to note that dictionaries are "unordered" and do not remember
+the sequence of their items (i.e. the order in which key:value pairs were
+added to the dictionary). Because of this, the order in which items are
+returned from loops over dictionaries might appear random and can even change
+with time.
 
 
 
 ## Functions
 
-Defining part of a program in Python as a function is done using the `def`
+Defining a section of code as a function in Python is done using the `def`
 keyword. For example a function that takes two arguments and returns their sum
 can be defined as:
 
@@ -280,7 +306,7 @@ print(z)
 42
 ```
 
-Key points here:
+Key points about functions are:
 
 * definition starts with `def`
 * function body is indented
