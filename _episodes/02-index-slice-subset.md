@@ -304,6 +304,7 @@ Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 
+
 > ## Challenge - Range
 > 
 > 1. What happens when you execute:
@@ -318,6 +319,7 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 >    - `dat.loc[0:4, 1:4]`
 >
 > - How are the two commands different?
+
 {: .challenge}
 
 
