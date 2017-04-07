@@ -119,14 +119,14 @@ a = [1, 2, 3, 4, 5]
 >    ```python
 >    a[5]
 >    ```
+> 
+> 3. In the example above, calling `a[5]` returns an error. Why is that?
 >
-> 3. Or this?
+> 4. What about?
 >
 >    ```python
 >    a[len(a)]
 >    ```
->
-> 4. In the example above, calling `a[5]` returns an error. Why is that?
 {: .challenge}
 
 
