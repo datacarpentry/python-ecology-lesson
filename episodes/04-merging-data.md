@@ -20,7 +20,7 @@ surveys files into pandas DataFrames. In iPython:
 
 ```python
 import pandas as pd
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172",
+surveys_df = pd.read_csv("surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
 
@@ -39,7 +39,7 @@ surveys_df
 
 [35549 rows x 9 columns]
 
-species_df = pd.read_csv('https://ndownloader.figshare.com/files/3299483',
+species_df = pd.read_csv("species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
   species_id             genus          species     taxa
