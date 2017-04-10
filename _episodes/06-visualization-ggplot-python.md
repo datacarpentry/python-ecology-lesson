@@ -32,7 +32,7 @@ surveys_complete.index.name = 'X'
 surveys_complete
 ```
 
-| X | record_id | month | day | year | plot_id | species_id | sex | hindfoot_length | weight | genus | species | taxa | plot_type |
+| <feff> | record_id | month | day | year | plot_id | species_id | sex | hindfoot_length | weight | genus | species | taxa | plot_type |
 | --- | --------- | ----- | --- | ---- | ------- | ---------- | --- | --------------- | ------ | ----- | ------- | ---- | --------- |
 | 1 | 845 | 5 | 6 | 1978 | 2 | NL | M | 32 | 204 | Neotoma | albigula | Rodent | Control |
 | 2 | 1164 | 8 | 5 | 1978 | 2 | NL | M | 34 | 199 | Neotoma | albigula | Rodent | Control |
