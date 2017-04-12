@@ -20,7 +20,7 @@ surveys files into pandas DataFrames. In iPython:
 
 ```python
 import pandas as pd
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172",
+surveys_df = pd.read_csv("surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
 
@@ -39,7 +39,7 @@ surveys_df
 
 [35549 rows x 9 columns]
 
-species_df = pd.read_csv('https://ndownloader.figshare.com/files/3299483',
+species_df = pd.read_csv("species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
   species_id             genus          species     taxa
@@ -175,8 +175,9 @@ in a subset of the species table.
 # read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
 
-# import a small subset of the species data designed for this part of the lesson
-species_sub = pd.read_csv('species_subset.csv', keep_default_na=False, na_values=[""])
+# import a small subset of the species data designed for this part of the lesson.
+# It is stored in the data folder.
+species_sub = pd.read_csv('data/speciesSubset.csv', keep_default_na=False, na_values=[""])
 ```
 
 In this example, `species_sub` is the lookup table containing genus, species, and

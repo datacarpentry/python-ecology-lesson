@@ -112,7 +112,7 @@ that performs those three steps in sequence for the year 2002:
 import pandas as pd
 
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('https://ndownloader.figshare.com/files/2292172')
+surveys_df = pd.read_csv('data/surveys.csv')
 
 # Select only data for 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
