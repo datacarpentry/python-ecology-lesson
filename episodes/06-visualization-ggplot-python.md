@@ -14,7 +14,7 @@ objectives:
     - Be able to create customized plot styles to meet their needs
 ---
 
-## Disclaimer
+#### Disclaimer
 
 Python has powerful built-in plotting capabilities such as `matplotlib`, but
 for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/)
@@ -32,217 +32,25 @@ surveys_complete.index.name = 'X'
 surveys_complete
 ```
 
+| X | record_id | month | day | year | plot_id | species_id | sex | hindfoot_length | weight | genus | species | taxa | plot_type |
+| --- | --------- | ----- | --- | ---- | ------- | ---------- | --- | --------------- | ------ | ----- | ------- | ---- | --------- |
+| 1 | 845 | 5 | 6 | 1978 | 2 | NL | M | 32 | 204 | Neotoma | albigula | Rodent | Control |
+| 2 | 1164 | 8 | 5 | 1978 | 2 | NL | M | 34 | 199 | Neotoma | albigula | Rodent | Control |
+| 3 | 1261 | 9 | 4 | 1978 | 2 | NL | M | 32 | 197 | Neotoma | albigula | Rodent | Control |
+| 4 | 1756 | 4 | 29 | 1979 | 2 | NL | M | 33 | 166 | Neotoma | albigula | Rodent | Control |
+| 5 | 1818 | 5 | 30 | 1979 | 2 | NL | M | 32 | 184 | Neotoma | albigula | Rodent | Control |
+| 6 | 1882 | 7 | 4 | 1979 | 2 | NL | M | 32 | 206 | Neotoma | albigula | Rodent | Control |
+| 7 | 2133 | 10 | 25 | 1979 | 2 | NL | F | 33 | 274 | Neotoma | albigula | Rodent | Control |
+| 8 | 2184 | 11 | 17 | 1979 | 2 | NL | F | 30 | 186 | Neotoma | albigula | Rodent | Control |
+| 9 | 2406 | 1 | 16 | 1980 | 2 | NL | F | 33 | 184 | Neotoma | albigula | Rodent | Control |
+| 10 | 3000 | 5 | 18 | 1980 | 2 | NL | F | 31 | 87 | Neotoma | albigula | Rodent | Control |
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>record_id</th>
-      <th>month</th>
-      <th>day</th>
-      <th>year</th>
-      <th>plot_id</th>
-      <th>species_id</th>
-      <th>sex</th>
-      <th>hindfoot_length</th>
-      <th>weight</th>
-      <th>genus</th>
-      <th>species</th>
-      <th>taxa</th>
-      <th>plot_type</th>
-    </tr>
-    <tr>
-      <th>X</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>845</td>
-      <td>5</td>
-      <td>6</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>204</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1164</td>
-      <td>8</td>
-      <td>5</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>34</td>
-      <td>199</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1261</td>
-      <td>9</td>
-      <td>4</td>
-      <td>1978</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>197</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1756</td>
-      <td>4</td>
-      <td>29</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>33</td>
-      <td>166</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1818</td>
-      <td>5</td>
-      <td>30</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>184</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1882</td>
-      <td>7</td>
-      <td>4</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>M</td>
-      <td>32</td>
-      <td>206</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>2133</td>
-      <td>10</td>
-      <td>25</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>33</td>
-      <td>274</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2184</td>
-      <td>11</td>
-      <td>17</td>
-      <td>1979</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>30</td>
-      <td>186</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>2406</td>
-      <td>1</td>
-      <td>16</td>
-      <td>1980</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>33</td>
-      <td>184</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>3000</td>
-      <td>5</td>
-      <td>18</td>
-      <td>1980</td>
-      <td>2</td>
-      <td>NL</td>
-      <td>F</td>
-      <td>31</td>
-      <td>87</td>
-      <td>Neotoma</td>
-      <td>albigula</td>
-      <td>Rodent</td>
-      <td>Control</td>
-    </tr>
-  </tbody>
-</table>
-<p>30463 rows × 13 columns</p>
-</div>
-
-
-
+30463 rows × 13 columns
 
 ```python
 %matplotlib inline
 from ggplot import *
 ```
-
 
 # Plotting with ggplot
 
@@ -258,60 +66,32 @@ To build a ggplot we need to:
 
 - bind the plot to a specific data frame using the `data` argument
 
-
-
-
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
-
-
-
 
 ```python
 ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete)
 ```
 
-
 ![png](../fig/output_6_0.png)
-
-
-
-
 
     <ggplot: (-9223372036552543572)>
 
-
-
-
 - add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
-
-
-
 
 ```python
 ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geom_point()
 ```
 
-
 ![png](../fig/output_8_0.png)
 
-
-
-
-
     <ggplot: (295366541)>
-
-
-
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
 "templates" and conveniently explore different types of plots, so the above
 plot can also be generated with code like this:
-
-
-
 
 ```python
 # Create
@@ -321,17 +101,9 @@ surveys_plot = ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_
 surveys_plot + geom_point()
 ```
 
-
 ![png](../fig/output_10_0.png)
 
-
-
-
-
     <ggplot: (295593725)>
-
-
-
 
 Notes:
 
@@ -341,80 +113,43 @@ Notes:
 - You can also specify aesthetics for a given geom independently of the
   aesthetics defined globally in the `ggplot()` function.
 
-
 # Building your plots iteratively
 
 Building plots with ggplot is typically an iterative process. We start by
 defining the dataset we'll use, lay the axes, and choose a geom.
 
-
-
-
 ```python
 ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + geom_point()
 ```
 
-
 ![png](../fig/output_12_0.png)
-
-
-
-
 
     <ggplot: (-9223372036581788156)>
 
-
-
-
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (alpha) to avoid overplotting.
-
-
-
 
 ```python
 ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
     geom_point(alpha = 0.1)
 ```
 
-
 ![png](../fig/output_14_0.png)
-
-
-
-
 
     <ggplot: (295894448)>
 
-
-
-
 We can also add colors for all the points
-
-
-
 
 ```python
 ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
     geom_point(alpha = 0.1, color = "blue")
 ```
 
-
 ![png](../fig/output_16_0.png)
-
-
-
-
 
     <ggplot: (291993969)>
 
-
-
-
 Or to color each species in the plot differently:
-
-
-
 
 ```python
 # ggplot(data = surveys_complete, aes(x = weight, y = hindfoot_length)) +
@@ -424,17 +159,9 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
     geom_point( alpha = 0.1)
 ```
 
-
 ![png](../fig/output_18_0.png)
 
-
-
-
-
     <ggplot: (295600781)>
-
-
-
 
 # Boxplot
 
@@ -445,17 +172,9 @@ Visualising the distribution of weight within each species.
 ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) + geom_boxplot()
 ```
 
-
 ![png](../fig/output_21_0.png)
 
-
-
-
-
     <ggplot: (-9223372036559103053)>
-
-
-
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -463,7 +182,6 @@ measurements and of their distribution:
 
 ```python
 surveys_complete['species_factor'] = surveys_complete['species_id'].astype('category').cat.codes
-
 
 xlabels = sorted(set(surveys_complete['species_id'].values) )
 xcodes = sorted(set(surveys_complete['species_factor'].values))
@@ -475,12 +193,11 @@ ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete)
 
 ```
 
-
 Notice how the boxplot layer is behind the jitter layer? What do you need to
 change in the code to put the boxplot in front of the points such that it's not
 hidden.
 
-> ## Challenges
+> ## Challenge - Boxplot
 >
 > Boxplots are useful summaries, but hide the *shape* of the distribution. For
 > example, if there is a bimodal distribution, this would not be observed with a
@@ -507,8 +224,7 @@ hidden.
 >
 >> ## Solution
 >> ```python
->> ## Challenges:
->> ##  Start with the boxplot we created:
+>> Start with the boxplot we created:
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>    geom_jitter(alpha=0.3) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -516,7 +232,7 @@ hidden.
 >> ```
 >>
 >> ```python
->> ##  1. Replace the box plot with a violin plot; see `geom_violin()`.
+>> 1. Replace the box plot with a violin plot; see `geom_violin()`.
 >> 
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>    geom_jitter(alpha=0.3) + \
@@ -525,7 +241,7 @@ hidden.
 >> ```
 >>
 >> ```python
->> ##  2. Represent weight on the log10 scale; see `scale_y_log10()`.
+>> 2. Represent weight on the log10 scale; see `scale_y_log10()`.
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>    geom_jitter(alpha=0.3) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -534,7 +250,7 @@ hidden.
 >> ```
 >>
 >> ```python
->> ##  3. Create boxplot for `hindfoot_length`.
+>> 3. Create boxplot for `hindfoot_length`.
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>     geom_jitter(alpha=0.01) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -544,11 +260,11 @@ hidden.
 >> ```
 >>
 >> ```python
->> ##  4. Add color to the datapoints on your boxplot according to the
->> ##  plot from which the sample was taken (`plot_id`).
->> ##  Hint: Check the class for `plot_id`. Consider changing the class
->> ##  of `plot_id` from integer to factor. Why does this change how R
->> ##  makes the graph?
+>> 4. Add color to the datapoints on your boxplot according to the
+>>    plot from which the sample was taken (`plot_id`).
+>>    Hint: Check the class for `plot_id`. Consider changing the class
+>>    of `plot_id` from integer to factor. Why does this change how R
+>>    makes the graph?
 >> 
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
 >>     geom_jitter(alpha=0.01) + \
@@ -565,15 +281,11 @@ hidden.
 Let's calculate number of counts per year for each species. To do that we need
 to group data first and count records within each group.
 
-
-
-
 ```python
 #yearly_counts <- surveys_complete %>%
                  group_by(year, species_id) %>%
                  tally
 ```
-
 
 ```python
 yearly_counts = surveys_complete[['year','species_id','species']].groupby(['year', 'species_id']).count().reset_index()
@@ -581,142 +293,52 @@ yearly_counts.columns = ['year','species_id', 'n']
 yearly_counts
 ```
 
+| x | year | species_id | n |
+| - | ---- | ---------- | - |
+| 0 | 1977 | DM | 181 |
+| 1 | 1977 | DO | 12 |
+| 2 | 1977 | DS | 29 |
+| 3 | 1977 | OL | 1 |
+| 4 | 1977 | PE | 2 |
+| 5 | 1977 | PF | 22 |
+| 6 | 1977 | PP | 3 |
+| 7 | 1977 | RM | 2 |
+| 8 | 1978 |  DM | 336 |
+| 9 | 1978 | DO | 21 |
+| 10 | 1978 | DS | 272 |
 
-
-
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>year</th>
-      <th>species_id</th>
-      <th>n</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1977</td>
-      <td>DM</td>
-      <td>181</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1977</td>
-      <td>DO</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1977</td>
-      <td>DS</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1977</td>
-      <td>OL</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1977</td>
-      <td>PE</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>1977</td>
-      <td>PF</td>
-      <td>22</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1977</td>
-      <td>PP</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1977</td>
-      <td>RM</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1978</td>
-      <td>DM</td>
-      <td>336</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1978</td>
-      <td>DO</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>1978</td>
-      <td>DS</td>
-      <td>272</td>
-    </tr>
-  </tbody>
-</table>
-<p>292 rows × 3 columns</p>
-</div>
-
-
-
+292 rows × 3 columns
 
 Timelapse data can be visualised as a line plot with years on x axis and counts
 on y axis.
-
-
-
 
 ```python
 ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
      geom_line()
 ```
 
-
 ![png](../fig/output_35_0.png)
 
-
-
-
-
     <ggplot: (-9223372036580461736)>
-
-
-
 
 Unfortunately this does not work, because we plot data for all the species
 together. We need to tell ggplot to draw a line for each species by modifying
 the aesthetic function to include `group = species_id`.
 
-
-
 ```python
 ggplot(aes(x = 'year', y = 'n', group='species_id'),data = yearly_counts) + geom_line()
 ```
-
-
 We will be able to distinguish species in the plot if we add colors.
-
 
 ```python
 ggplot(aes(x = 'year', y = 'n', color='species_id'),data = yearly_counts) + geom_line()
 ```
-
 
 # Faceting
 
 ggplot has a special technique called *faceting* that allows to split one plot
 into multiple plots based on a factor included in the dataset. We will use it to
 make one plot for a time series for each species.
-
 
 ```python
 ggplot(aes(x = "year", y = "n", colour = "species_id"),data = yearly_counts) + \
@@ -725,11 +347,9 @@ ggplot(aes(x = "year", y = "n", colour = "species_id"),data = yearly_counts) + \
     
 ```
 
-
 Now we would like to split line in each plot by sex of each individual
 measured. To do that we need to make counts in data frame grouped by year,
 species_id, and sex:
-
 
 ```python
 yearly_sex_counts = surveys_complete.groupby( ['year','species_id', 'sex']).count()
@@ -738,10 +358,7 @@ yearly_sex_counts = yearly_sex_counts['n'].reset_index()
 yearly_sex_counts
 ```
 
-
 We can now make the faceted plot splitting further by sex (within a single plot):
-
-
 
 ```python
  ggplot(aes(x = "year", y = "n", color = "species_id", group = "sex"), data = yearly_sex_counts, ) + \
@@ -749,13 +366,9 @@ We can now make the faceted plot splitting further by sex (within a single plot)
          facet_wrap( "species_id")
 ```
 
-
 Usually plots with white background look more readable when printed.  We can set
 the background to white using the function `theme_bw()`. Additionally you can also remove
 the grid.
-
-
-
 
 ```python
  ggplot(data = yearly_sex_counts, aes(x = year, y = n, color = species_id, group = sex)) +
@@ -768,7 +381,6 @@ the grid.
 	   panel.grid.minor.y = element_blank())
 ```
 
-
 ```python
  ggplot(aes(x = "year", y = "n", color = "species_id", group = "sex"),data = yearly_sex_counts ) + \
      geom_line() + \
@@ -777,10 +389,8 @@ the grid.
                 theme()
 ```
 
-
 To make the plot easier to read, we can color by sex instead of species (species
 are already in separate plots, so we don't need to distinguish them further).
-
 
 ```python
 ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex_counts) + \
@@ -788,8 +398,6 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
     facet_wrap("species_id") + \
     theme_bw() 
 ```
-
-
 
 > ## Challenge - Plotting
 >
@@ -813,7 +421,6 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
 > {: .solution}
 {: .challenge}
 
-
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
 geometry allows you to explicitly specify how you want your plots to be
@@ -822,8 +429,6 @@ a placeholder that indicates only one row or column).
 
 Let's modify the previous plot to compare how the weights of male and females
 has changed through time.
-
-
 
 ```python
 ## One column, facet by rows
@@ -840,22 +445,18 @@ ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"
     facet_grid("sex")
 ```
 
-
 ```python
 # One row, facet by column
 ggplot(data = yearly_sex_weight, aes(x=year, y=avg_weight, color = species_id, group = species_id)) +
     geom_line() +
     facet_grid(. ~ sex)
 ```
-
-
 ```python
 # One row, facet by column
 ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_sex_weight) + \
     geom_line() + \
     facet_grid(None, "sex")
 ```
-
 
 # Customization
 
@@ -867,7 +468,6 @@ comments in the Etherpad.
 Now, let's change names of axes to something more informative than 'year'
 and 'n' and add a title to this figure:
 
-
 ```python
 ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
     geom_line() + \
@@ -878,11 +478,8 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
     theme_bw() 
 ```
 
-
 The axes have more informative names, but their readability can be improved by
 increasing the font size. While we are at it, we'll also change the font family:
-
-
 
 ```python
 ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
@@ -921,10 +518,6 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
 If you like the changes you created to the default theme, you can save them as
 an object to easily apply them to other plots you may create:
 
-
-
-
-
 ```python
 arial_grey_theme <- theme(axis.text.x = element_text(colour="grey20", size=12, angle=90, hjust=.5, vjust=.5),
                           axis.text.y = element_text(colour="grey20", size=12),
@@ -934,7 +527,6 @@ ggplot(surveys_complete, aes(x = species_id, y = hindfoot_length)) +
     arial_grey_theme
 ```
 
-
 ```python
 arial_grey_theme = theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
                           axis_text_y = element_text(color="grey", size=10))
@@ -942,7 +534,6 @@ ggplot(surveys_complete, aes(x = 'species_id', y = 'hindfoot_length')) + \
     geom_boxplot() + \
     arial_grey_theme
 ```
-
 
 With all of this information in hand, please take another five minutes to either
 improve one of the plots generated in this exercise or create a beautiful graph
