@@ -74,7 +74,7 @@ same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 Remember that we can check the type of an object like this:
@@ -131,7 +131,6 @@ Note that most of the columns in our Survey data are of type `int64`. This means
 that they are 64 bit integers. But the weight column is a floating point value
 which means it contains decimals. The `species_id` and `sex` columns are objects which
 means they contain strings.
-
 
 ## Working With Integers and Floats
 
@@ -191,27 +190,33 @@ surveys_df['record_id'].dtype
 
 **OUTPUT:** `dtype('float64')`
 
-What happens if we try to convert weight values to integers?
+
+## Challenge - Changing Types
+
+> Try converting the column `plot_id` to floats using 
 
 ```python
-surveys_df['weight'].astype('int')
+surveys_df.record_id.astype("float")
 ```
 
-Notice that this throws a value error: `ValueError: Cannot convert NA to
-integer`. If we look at the `weight` column in the surveys data we notice that
-there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
+> Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you? 
+> We will talk about some solutions to this later.
+{: .challenge}
+
+## Missing Data Values - NaN
+
+What happened in the last challenge activity? Notice that this throws a value error: 
+`ValueError: Cannot convert NA to integer`. If we look at the `weight` column in the surveys 
+data we notice that there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
-an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable
-properties: if we were to average the `weight` column without replacing our NaNs,
-Python would know to skip over those cells.
+an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we 
+were to average the `weight` column without replacing our NaNs, Python would know to skip 
+over those cells.
 
 ```python
 surveys_df['weight'].mean()
 42.672428212991356
 ```
-
-## Missing Data Values - NaN
-
 Dealing with missing data values is always a challenge. It's sometimes hard to
 know why values are missing - was it because of a data entry error? Or data that
 someone was unable to collect? Should the value be 0? We need to know how
@@ -278,7 +283,7 @@ results.
 
 > ## Challenge - Counting
 > Count the number of missing values per column. Hint: The method .count() gives you 
-> the number of non-NA observations per column.
+> the number of non-NA observations per column. Try looking to the .isnull() method.
 {: .challenge}
 
 ## Recap
