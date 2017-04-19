@@ -2,6 +2,9 @@
 title: Combining DataFrames with pandas
 teaching: 0
 exercises: 0
+questions:
+- " Can I work with data from multiple sources?"
+- " How can I combine data from different data sets?"
 objectives:
     - Combine data from multiple files into a single DataFrame using merge and concat.
     - Combine two DataFrames using a unique ID found in both DataFrames.
@@ -112,7 +115,7 @@ save it to a different folder by adding the foldername and a slash to the file
 `vertical_stack.to_csv('foldername/out.csv')`.
 
 ```python
-# Write DataFrame to CSV 
+# Write DataFrame to CSV
 vertical_stack.to_csv('out.csv')
 ```
 
@@ -120,7 +123,7 @@ Check out your working directory to make sure the CSV wrote out properly, and
 that you can open it! If you want, try to bring it back into python to make sure
 it imports properly.
 
-```python	
+```python
 # for kicks read our output back into python and make sure all looks good
 new_output = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
 ```
@@ -141,7 +144,7 @@ DataFrames is to use columns in each dataset that contain common values (a
 common unique id). Combining DataFrames using a common field is called
 "joining". The columns containing the common values are called "join key(s)".
 Joining DataFrames in this way is often useful when one DataFrame is a "lookup
-table" containing additional data that we want to include in the other. 
+table" containing additional data that we want to include in the other.
 
 NOTE: This process of joining tables is similar to what we do with tables in an
 SQL database.
@@ -162,14 +165,14 @@ Storing data in this way has many benefits including:
    for spelling errors when entering the genus and species thousands of times!
 2. It also makes it easy for us to make changes to the species information once
    without having to find each instance of it in the larger survey data.
-3. It optimizes the size of our data. 
+3. It optimizes the size of our data.
 
 
-## Joining Two DataFrames 
+## Joining Two DataFrames
 
 To better understand joins, let's grab the first 10 lines of our data as a
 subset to work with. We'll use the `.head` method to do this. We'll also read
-in a subset of the species table. 
+in a subset of the species table.
 
 ```python
 # read in first 10 lines of surveys table
@@ -219,7 +222,7 @@ also need to decide which type of join makes sense for our analysis.
 The most common type of join is called an _inner join_. An inner join combines
 two DataFrames based on a join key and returns a new DataFrame that contains
 **only** those rows that have matching values in *both* of the original
-DataFrames. 
+DataFrames.
 
 Inner joins yield a DataFrame that contains only rows where the value being
 joins exists in BOTH tables. An example of an inner join, adapted from [this
@@ -289,7 +292,7 @@ The result `merged_inner` DataFrame contains all of the columns from `survey_sub
 Notice that `merged_inner` has fewer rows than `survey_sub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species_id` that
 do not exist as value(s) for `species_id` in `species_df`.
- 
+
 ## Left joins
 
 What if we want to add information from `species_sub` to `survey_sub` without
@@ -353,7 +356,7 @@ missing (they contain NaN values):
 
 ```python
 merged_left[ pd.isnull(merged_left.genus) ]
-**OUTPUT:** 
+**OUTPUT:**
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M               14   
 9         10      7   16  1977        6         PF   F               20   
@@ -385,7 +388,7 @@ The pandas `merge` function supports two other join types:
 > ## Challenge - Distributions
 > Create a new DataFrame by joining the contents of the `surveys.csv` and
 > `species.csv` tables. Then calculate and plot the distribution of:
-> 
+>
 > 1. taxa by plot
 > 2. taxa by sex by plot
 {: .challenge}
@@ -394,7 +397,7 @@ The pandas `merge` function supports two other join types:
 >
 > 1. In the data folder, there is a plot `CSV` that contains information about the
 >    type associated with each plot. Use that data to summarize the number of
->   plots by plot type. 
+>   plots by plot type.
 > 2. Calculate a diversity index of your choice for control vs rodent exclosure
 >   plots. The index should consider both species abundance and number of
 >   species. You might choose to use the simple [biodiversity index described
@@ -403,4 +406,3 @@ The pandas `merge` function supports two other join types:
 >
 >        the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
 {: .challenge}
-
