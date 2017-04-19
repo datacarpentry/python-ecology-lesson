@@ -2,6 +2,10 @@
 title: Starting With Data
 teaching: 0
 exercises: 0
+questions:
+    - " How can I import data in Python?"
+    - " What is Pandas?"
+    - " Why should I use Pandas to work with data?"
 objectives:
     - "Navigate the workshop directory and download a dataset."
     - "Explain what a library is and what libraries are used for."

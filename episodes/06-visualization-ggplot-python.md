@@ -2,6 +2,9 @@
 title: Plotting with ggplot
 teaching: 0
 exercises: 0
+questions:
+    - " Can I use Python to create plots? "
+    - " How can I customize plots generated in Python? "
 objectives:
     - Be able to create a ggplot object
     - Be able to set universal plot settings
@@ -218,7 +221,7 @@ hidden.
 >
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
-> 
+>
 > Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
 > from integer to factor. Why does this change how R makes the graph?
 >
@@ -233,7 +236,7 @@ hidden.
 >>
 >> ```python
 >> 1. Replace the box plot with a violin plot; see `geom_violin()`.
->> 
+>>
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>    geom_jitter(alpha=0.3) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -265,7 +268,7 @@ hidden.
 >>    Hint: Check the class for `plot_id`. Consider changing the class
 >>    of `plot_id` from integer to factor. Why does this change how R
 >>    makes the graph?
->> 
+>>
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
 >>     geom_jitter(alpha=0.01) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -344,7 +347,7 @@ make one plot for a time series for each species.
 ggplot(aes(x = "year", y = "n", colour = "species_id"),data = yearly_counts) + \
     geom_line() + \
     facet_wrap("species_id")
-    
+
 ```
 
 Now we would like to split line in each plot by sex of each individual
@@ -396,7 +399,7 @@ are already in separate plots, so we don't need to distinguish them further).
 ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex_counts) + \
     geom_line() + \
     facet_wrap("species_id") + \
-    theme_bw() 
+    theme_bw()
 ```
 
 > ## Challenge - Plotting
@@ -475,7 +478,7 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
     labs(title = 'Observed species in time',
          x = 'Year of observation',
          y = 'Number of species') + \
-    theme_bw() 
+    theme_bw()
 ```
 
 The axes have more informative names, but their readability can be improved by
@@ -511,7 +514,7 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
     theme_bw() + \
     theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
           axis_text_y = element_text(color="grey", size=10, hjust=0),
-         ) 
+         )
 ```
 
 
@@ -552,13 +555,13 @@ adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
-my_plot =  ggplot(yearly_sex_counts, aes(x = "year", y = "n", color = "sex", group = "sex")) 
-my_plot += geom_line() 
-my_plot += facet_wrap("species_id") 
+my_plot =  ggplot(yearly_sex_counts, aes(x = "year", y = "n", color = "sex", group = "sex"))
+my_plot += geom_line()
+my_plot += facet_wrap("species_id")
 my_plot += labs(title = 'Observed species in time',
                 x = 'Year of observation',
-                y = 'Number of species') 
-my_plot += theme_bw() 
+                y = 'Number of species')
+my_plot += theme_bw()
 my_plot += theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
                         axis_text_y = element_text(color="grey", size=10))
 my_plot.save("name_of_file.png", width=15, height=10)
@@ -571,4 +574,3 @@ my_plot.save("name_of_file.png", width=15, height=10)
 >  ggplot2 cheat sheet for inspiration:
 >  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
 {: .challenge}
-

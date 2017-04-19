@@ -2,6 +2,7 @@
 title: Accessing SQLite Databases Using Python & Pandas
 teaching: 0
 exercises: 0
+
 objectives:
     - Use the sqlite3 module to interact with a SQL database.
     - Access data stored in SQLite using Python.
@@ -112,4 +113,3 @@ benchmarks]).
 >   made for all years, and sum of observation weights for each plot, ordered by
 >   plot ID.
 {: .challenge}
-
