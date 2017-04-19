@@ -2,6 +2,8 @@
 title: Data Ingest & Visualization - Matplotlib & Pandas
 teaching: 0
 exercises: 0
+questions:
+ - " What other tools can I use to create plots apart from ggplot? "
 objectives:
     - Import the pyplot toolbox to create figures in Python.
 ---
@@ -11,8 +13,8 @@ objectives:
 
 Up to this point, we have walked through tasks that are often
 involved in handling and processing data using the workshop ready cleaned  
-files that we have provided. In this wrap-up exercise, we will perform 
-many of the same tasks with real data sets. This lesson also covers data 
+files that we have provided. In this wrap-up exercise, we will perform
+many of the same tasks with real data sets. This lesson also covers data
 visualization.
 
 As opposed to the previous ones, this lesson does not give step-by-step
@@ -24,8 +26,8 @@ through as well as the Python documentation to help you along.
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
-`bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15 
-15 minute intervals (in cubic feet per second) for a streamgage on Boulder 
+`bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15
+15 minute intervals (in cubic feet per second) for a streamgage on Boulder
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
 
@@ -60,20 +62,20 @@ also change the name of the columns in the DataFrame like this:
     df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
     print('With the old column names:\n') # the \n makes a new line, so it's easier to see
     print(df)
-    
+
     df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
     print('\n\nWith the new column names:\n')
     print(df)
- 
+
     With the old column names:
-    
+
        1stcolumn  2ndcolumn
     0        100         10
     1        200         20
-    
-    
+
+
     With the new column names:
-    
+
        FirstColumn  SecondColumn
     0          100            10
     1          200            20
@@ -172,17 +174,17 @@ optionally line styles):
 
 ```python
     import numpy as np
-    
+
     # create a numpy array between 0 and 10, with values evenly spaced every 0.5
     t = np.arange(0., 10., 0.5)
-    
+
     # red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
     plt.plot(t, t, 'r--', t, t**2, 'bs-', t, t**3, 'g^:')
-    
+
     plt.xlabel('This is the x axis')
     plt.ylabel('This is the y axis')
     plt.title('This is the figure title')
-    
+
     plt.show()
 ```
 
@@ -198,13 +200,13 @@ several times:
     plt.plot(t, t, 'r--', label='linear')
     plt.plot(t, t**2, 'bs-', label='square')
     plt.plot(t, t**3, 'g^:', label='cubic')
-    
+
     plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    
+
     plt.xlabel('This is the x axis')
     plt.ylabel('This is the y axis')
     plt.title('This is the figure title')
-    
+
     plt.show()
 ```
 
@@ -221,19 +223,19 @@ figure number inside the parentheses:
     # this is the first figure
     plt.figure(1)
     plt.plot(t, t, 'r--', label='linear')
-    
+
     plt.legend(loc='upper left', shadow=True, fontsize='x-large')
     plt.title('This is figure 1')
-    
+
     plt.show()
-    
+
     # this is a second figure
     plt.figure(2)
     plt.plot(t, t**2, 'bs-', label='square')
-    
+
     plt.legend(loc='upper left', shadow=True, fontsize='x-large')
     plt.title('This is figure 2')
-    
+
     plt.show()
 ```
 
@@ -243,16 +245,16 @@ the number of the space in the grid that particular plot is occupying:
 
 ```python
     plt.figure(1)
-    
+
     plt.subplot(2,2,1) # two row, two columns, position 1
     plt.plot(t, t, 'r--', label='linear')
-    
+
     plt.subplot(2,2,2) # two row, two columns, position 2
     plt.plot(t, t**2, 'bs-', label='square')
-    
+
     plt.subplot(2,2,3) # two row, two columns, position 3
     plt.plot(t, t**3, 'g^:', label='cubic')
-    
+
     plt.show()
 ```
 
@@ -271,5 +273,3 @@ save as a text file with a `.py` extension and run in the command line).
 > a given mean discharge, use bar plots to display daily discharge statistics, or
 > explore the different ways matplotlib can handle dates and times for figures.
 {: .challenge}
-
-    
