@@ -2,6 +2,8 @@
 title: Indexing, Slicing and Subsetting DataFrames in Python
 teaching: 0
 exercises: 0
+questions:
+    - "How can I access specific data within my data set? "
 objectives:
     - Describe what 0-based indexing is.
     - Manipulate and extract data using column headings and index locations.
@@ -119,7 +121,7 @@ a = [1, 2, 3, 4, 5]
 >    ```python
 >    a[5]
 >    ```
-> 
+>
 > 3. In the example above, calling `a[5]` returns an error. Why is that?
 >
 > 4. What about?
@@ -306,7 +308,7 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 
 > ## Challenge - Range
-> 
+>
 > 1. What happens when you execute:
 >
 >    - `surveys_df[0:1]`
