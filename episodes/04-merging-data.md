@@ -3,8 +3,8 @@ title: Combining DataFrames with pandas
 teaching: 0
 exercises: 0
 questions:
-- " Can I work with data from multiple sources?"
-- " How can I combine data from different data sets?"
+- " Can I work with data from multiple sources? "
+- " How can I combine data from different data sets? "
 objectives:
     - Combine data from multiple files into a single DataFrame using merge and concat.
     - Combine two DataFrames using a unique ID found in both DataFrames.

@@ -3,7 +3,8 @@ title: Indexing, Slicing and Subsetting DataFrames in Python
 teaching: 0
 exercises: 0
 questions:
-    - "How can I access specific data within my data set? "
+    - " How can I access specific data within my data set? "
+    - " How  can Python and Pandas help me to analyse my data?"
 objectives:
     - Describe what 0-based indexing is.
     - Manipulate and extract data using column headings and index locations.

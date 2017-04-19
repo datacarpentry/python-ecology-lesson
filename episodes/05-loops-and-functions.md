@@ -4,7 +4,7 @@ teaching: 0
 exercises: 0
 questions:
   - " Can I automate operations in Python? "
-  - " What are functions and how can I use them? "
+  - " What are functions and why should I use them? "
 objectives:
     - Describe why for loops are used in Python.
     - Employ for loops to automate data analysis.

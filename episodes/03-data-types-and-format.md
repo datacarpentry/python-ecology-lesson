@@ -5,7 +5,7 @@ exercises: 0
 questions:
   - " What types of data can be contained in a DataFrame?
   "
-  - " Can I use integers and floats interchangeably?"
+  - " Why is the data type important? "
 objectives:
     - Describe how information is stored in a Python DataFrame.
     - "Define the two main types of data in Python: characters and numerics."
