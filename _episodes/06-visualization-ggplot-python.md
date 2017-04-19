@@ -3,7 +3,7 @@ title: Plotting with ggplot
 teaching: 0
 exercises: 0
 questions:
-    - " How can I make data plots in Python? "
+    - " Can I use Python to create plots? "
     - " How can I customize plots generated in Python? "
 objectives:
     - Be able to create a ggplot object

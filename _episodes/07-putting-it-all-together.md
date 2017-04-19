@@ -4,6 +4,7 @@ teaching: 0
 exercises: 0
 questions:
  - " What other tools can I use to create plots apart from ggplot? "
+ - " Why should I use Python to create plots?"
 objectives:
     - Import the pyplot toolbox to create figures in Python.
 ---
