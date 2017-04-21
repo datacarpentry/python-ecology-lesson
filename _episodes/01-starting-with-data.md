@@ -2,6 +2,10 @@
 title: Starting With Data
 teaching: 0
 exercises: 0
+questions:
+    - " How can I import data in Python?"
+    - " What is Pandas?"
+    - " Why should I use Pandas to work with data?"
 objectives:
     - "Navigate the workshop directory and download a dataset."
     - "Explain what a library is and what libraries are used for."
@@ -34,7 +38,7 @@ A quick aside that there are Python libraries like [OS
 Library](https://docs.python.org/3/library/os.html) that can work with our
 directory structure, however, that is not our focus today.
 
-### Our Data 
+### Our Data
 
 For this lesson, we will be using the Portal Teaching data, a subset of the data
 from Ernst et al
@@ -120,7 +124,7 @@ We can use Pandas' `read_csv` function to pull the file directly into a
 A DataFrame is a 2-dimensional data structure that can store data of different
 types (including characters, integers, floating point values, factors and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
-R. A DataFrame always has an index (0-based). An index refers to the position of 
+R. A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
 
 ```python
@@ -149,10 +153,10 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 
 We can see that there were 33,549 rows parsed. Each row has 9
 columns. The first column is the index of the DataFrame. The index is used to
-identify the position of the data, but it is not an actual column of the DataFrame. 
-It looks like  the `read_csv` function in Pandas  read our file properly. However, 
-we haven't saved any data to memory so we can work with it.We need to assign the 
-DataFrame to a variable. Remember that a variable is a name for a value, such as `x`, 
+identify the position of the data, but it is not an actual column of the DataFrame.
+It looks like  the `read_csv` function in Pandas  read our file properly. However,
+we haven't saved any data to memory so we can work with it.We need to assign the
+DataFrame to a variable. Remember that a variable is a name for a value, such as `x`,
 or  `data`. We can create a new  object with a variable name by assigning a value to it using `=`.
 
 Let's call the imported survey data `surveys_df`:
@@ -174,8 +178,8 @@ which prints contents like above
 ## Manipulating Our Species Survey Data
 
 Now we can start manipulating our data. First, let's check the data type of the
-data stored in `surveys_df` using the `type` method. The `type` method and
-`__class__` attribute tell us that `surveys_df` is `<class 'pandas.core.frame.DataFrame'>`.
+data stored in `surveys_df` using the `type` method. **The `type` method and
+`__class__` attribute** tell us that `surveys_df` is `<class 'pandas.core.frame.DataFrame'>`.
 
 ```python
 type(surveys_df)
@@ -208,24 +212,24 @@ We'll talk a bit more about what the different formats mean in a different lesso
 
 ### Useful Ways to View DataFrame objects in Python
 
-There are many ways to summarize and access the data stored in DataFrames, 
-using attributes and methods provided by the DataFrame object. 
+There are many ways to summarize and access the data stored in DataFrames,
+using attributes and methods provided by the DataFrame object.
 
-To access an attribute, use the DataFrame object name followed by the attribute 
-name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute 
-`columns`, an index of all the column names in the DataFrame can be accessed 
+To access an attribute, use the DataFrame object name followed by the attribute
+name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
+`columns`, an index of all the column names in the DataFrame can be accessed
 with `surveys_df.columns`.
 
-Methods are called in a similar fashion using the syntax `df_object.method()`. 
-As an example, `survey_df.head()` gets the first few rows in the DataFrame 
-`survey_df` using the `head()` method. With a method, we can supply extra 
+Methods are called in a similar fashion using the syntax `df_object.method()`.
+As an example, `survey_df.head()` gets the first few rows in the DataFrame
+`survey_df` using **the `head()` method**. With a method, we can supply extra
 information in the parens to control behaviour.
 
-Let's look at the data using these. 
+Let's look at the data using these.
 
 > ## Challenge - DataFrames
 >
-> Using our DataFrame `surveys_df`, try out the attributes & methods below to see 
+> Using our DataFrame `surveys_df`, try out the attributes & methods below to see
 > what they return.
 >
 > 1. `surveys_df.columns`
@@ -323,7 +327,7 @@ surveys_df['weight'].count()
 ```
 
 But if we want to summarize by one or more variables, for example sex, we can
-use Pandas' `.groupby` method. Once we've created a groupby DataFrame, we
+use **Pandas' `.groupby` method**. Once we've created a groupby DataFrame, we
 can quickly calculate summary statistics by a group of our choice.
 
 ```python
@@ -331,7 +335,7 @@ can quickly calculate summary statistics by a group of our choice.
 sorted_data = surveys_df.groupby('sex')
 ```
 
-The Pandas function `describe` will return descriptive stats including: mean,
+The **pandas function `describe`** will return descriptive stats including: mean,
 median, max, min, std and count for a particular column in the data. Pandas'
 `describe` function will only return summary values for columns containing
 numeric data.
@@ -373,7 +377,7 @@ summary stats.
 >   `by_plot['weight'].describe()`
 >
 >
->> ## Did you get #3 right? 
+>> ## Did you get #3 right?
 >> **A Snippet of the Output from challenge 3 looks like:**
 >>
 >> ```
@@ -394,7 +398,7 @@ summary stats.
 ## Quickly Creating Summary Counts in Pandas
 
 Let's next count the number of samples for each species. We can do this in a few
-ways, but we'll use `groupby` combined with a `count()` method.
+ways, but we'll use `groupby` combined with **a `count()` method**.
 
 
 ```python
@@ -486,26 +490,26 @@ total_count.plot(kind='bar');
 > my_df = pd.DataFrame(d)
 > my_df.plot(kind='bar',stacked=True,title="The title of my graph")
 > ```
-> 
+>
 > ![Stacked Bar Plot](../fig/stackedBar1.png)
-> 
+>
 > * You can use the `.unstack()` method to transform grouped data into columns
 > for each plotting.  Try running `.unstack()` on some DataFrames above and see
 > what it yields.
 >
 > Start by transforming the grouped data (by plot and sex) into an unstacked layout, then create
 > a stacked plot.
-> 
+>
 >
 >> ## Solution to Summary Challenge
 >>
 >> First we group data by plot and by sex, and then calculate a total for each plot.
->> 
+>>
 >> ```python
 >> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
 >> plot_sex_count = by_plot_sex['weight'].sum()
 >> ```
->> 
+>>
 >> This calculates the sums of weights for each sex within each plot as a table
 >>
 >> ```
@@ -523,7 +527,7 @@ total_count.plot(kind='bar');
 >> ```
 >>
 >> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
->> 
+>>
 >> ```python
 >> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
 >> plot_sex_count = by_plot_sex['weight'].sum()
@@ -554,7 +558,7 @@ total_count.plot(kind='bar');
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
 >> ```
->> 
+>>
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}
 {: .challenge}
