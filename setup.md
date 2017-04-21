@@ -55,12 +55,13 @@ From the terminal, type:
 conda list
 ```
 
-#### Install the required workshop packages with conda
+## Install the required workshop packages with conda
 
 From the terminal, type:
 
 ```
 conda install -y numpy pandas matplotlib jupyter
+conda install -c bokeh ggplot
 ```
 
 ## Launch a Jupyter notebook

@@ -51,7 +51,6 @@ surveys_complete
 30463 rows × 13 columns
 
 ```python
-%matplotlib inline
 from ggplot import *
 ```
 
@@ -78,7 +77,7 @@ ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_com
 
 ![png](../fig/output_6_0.png)
 
-    <ggplot: (-9223372036552543572)>
+<ggplot: (-9223372036552543572)>
 
 - add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
@@ -89,7 +88,7 @@ ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geo
 
 ![png](../fig/output_8_0.png)
 
-    <ggplot: (295366541)>
+<ggplot: (295366541)>
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
@@ -106,7 +105,7 @@ surveys_plot + geom_point()
 
 ![png](../fig/output_10_0.png)
 
-    <ggplot: (295593725)>
+<ggplot: (295593725)>
 
 Notes:
 
@@ -127,7 +126,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + ge
 
 ![png](../fig/output_12_0.png)
 
-    <ggplot: (-9223372036581788156)>
+<ggplot: (-9223372036581788156)>
 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (alpha) to avoid overplotting.
@@ -139,7 +138,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 
 ![png](../fig/output_14_0.png)
 
-    <ggplot: (295894448)>
+<ggplot: (295894448)>
 
 We can also add colors for all the points
 
@@ -150,7 +149,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 
 ![png](../fig/output_16_0.png)
 
-    <ggplot: (291993969)>
+<ggplot: (291993969)>
 
 Or to color each species in the plot differently:
 
@@ -164,7 +163,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
 
 ![png](../fig/output_18_0.png)
 
-    <ggplot: (295600781)>
+<ggplot: (295600781)>
 
 # Boxplot
 
@@ -177,7 +176,7 @@ ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) +
 
 ![png](../fig/output_21_0.png)
 
-    <ggplot: (-9223372036559103053)>
+<ggplot: (-9223372036559103053)>
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -322,7 +321,7 @@ ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
 
 ![png](../fig/output_35_0.png)
 
-    <ggplot: (-9223372036580461736)>
+<ggplot: (-9223372036580461736)>
 
 Unfortunately this does not work, because we plot data for all the species
 together. We need to tell ggplot to draw a line for each species by modifying
