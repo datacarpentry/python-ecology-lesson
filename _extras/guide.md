@@ -156,9 +156,9 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 	
 	*Suggestion*: You can also select every Nth row: `surveys_df[1:10:2]`. So, how to interpret `surveys_df[::-1]`?
 
-* What is the difference between `dat.iloc[0:4, 1:4]` and `dat.loc[0:4, 1:4]`?
+* What is the difference between `surveys_df.iloc[0:4, 1:4]` and `surveys_df.loc[0:4, 1:4]`?
 
-	Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference between `dat.loc[0:4]` and `dat.iloc[0:4]`
+	Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`
 
 ### Advanced Selection Challenges 
 
@@ -222,6 +222,15 @@ stack_selection.columns = stack_selection.columns.droplevel()
 
 ![average weight for each plot per sex](../fig/02_chall_stack_level.png)
 
+## 03-data-types-and-format
+
+### Challenge - Changing Types
+
+Pandas cannot convert types from float to int if the column contains NaN values.
+
+### Challenge - Counting
+surveys_df.isnull()
+
 ## 04-merging-data
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
@@ -249,7 +258,7 @@ pd.read_csv("weight_for_year.csv", index_col=0)
 * Create a new DataFrame by joining the contents of the surveys.csv and species.csv tables. 
 
 ```python
-merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")
+merged_left = pd.merge(left=surveys_df,right=species_df, how='left', on="species_id")
 ```
 
 Then calculate and plot the distribution of: 
