@@ -2,6 +2,9 @@
 title: Data workflows and automation
 teaching: 0
 exercises: 0
+questions:
+  - " Can I automate operations in Python? "
+  - " What are functions and why should I use them? "
 objectives:
     - Describe why for loops are used in Python.
     - Employ for loops to automate data analysis.
@@ -112,7 +115,7 @@ that performs those three steps in sequence for the year 2002:
 import pandas as pd
 
 # Load the data into a DataFrame
-surveys_df = pd.read_csv('https://ndownloader.figshare.com/files/2292172')
+surveys_df = pd.read_csv('data/surveys.csv')
 
 # Select only data for 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
@@ -132,7 +135,7 @@ to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
 
-We have seen that we can loop over a list of items, so we need a list of years 
+We have seen that we can loop over a list of items, so we need a list of years
 to loop over. We can get the years in our DataFrame with:
 
 ```python
@@ -149,7 +152,7 @@ to loop over. We can get the years in our DataFrame with:
 35548    2002
 ```
 
-but we want only unique years, which we can get using the `unique` function 
+but we want only unique years, which we can get using the `unique` function
 which we have already seen.  
 
 ```python
@@ -298,7 +301,7 @@ The function arguments are: 2 5 (this is done inside the function!)
 Their product is: 10 (this is done outside the function!)
 ```
 
-> ## Challenge - Functions 
+> ## Challenge - Functions
 >
 > 1. Change the values of the arguments in the function and check its output
 > 2. Try calling the function by giving it the wrong number of arguments (not 2)
@@ -624,7 +627,6 @@ values to the function using these keywords:
 > make a list of all years represented in the data. Then create a loop to process
 > your data, that begins at the earliest year and ends at the latest year using
 > that list.
-> 
+>
 > HINT: you can create a loop with a list as follows: `for years in year_list:`
 {: .challenge}
-
