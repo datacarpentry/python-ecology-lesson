@@ -65,9 +65,7 @@ Take note that the `read_csv` method we used can take some additional options wh
 we didn't use previously. Many functions in python have a set of options that
 can be set by the user if needed. In this case, we have told Pandas to assign
 empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
-[http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html](More
-about all of the read_csv options here.)
-
+[More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
 
 # Concatenating DataFrames
 
