@@ -1,7 +1,7 @@
 ---
 title: Plotting with ggplot
-teaching: 45
-exercises: 2
+teaching: 20
+exercises: 25
 questions:
     - " Can I use Python to create plots? "
     - " How can I customize plots generated in Python? "
