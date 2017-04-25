@@ -1,7 +1,7 @@
 ---
 title: Data workflows and automation
-teaching: 0
-exercises: 0
+teaching: 40
+exercises: 50
 questions:
   - " Can I automate operations in Python? "
   - " What are functions and why should I use them? "

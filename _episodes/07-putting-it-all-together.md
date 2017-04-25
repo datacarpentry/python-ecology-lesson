@@ -1,7 +1,7 @@
 ---
 title: Data Ingest & Visualization - Matplotlib & Pandas
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 25
 questions:
  - " What other tools can I use to create plots apart from ggplot? "
  - " Why should I use Python to create plots?"
