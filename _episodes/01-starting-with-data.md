@@ -1,7 +1,7 @@
 ---
 title: Starting With Data
-teaching: 0
-exercises: 0
+teaching: 60
+exercises: 6
 questions:
     - " How can I import data in Python?"
     - " What is Pandas?"
