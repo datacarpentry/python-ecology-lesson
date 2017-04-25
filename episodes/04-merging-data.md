@@ -1,7 +1,7 @@
 ---
 title: Combining DataFrames with pandas
-teaching: 0
-exercises: 0
+teaching: 45
+exercises: 3
 questions:
 - " Can I work with data from multiple sources? "
 - " How can I combine data from different data sets? "
