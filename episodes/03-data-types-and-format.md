@@ -195,14 +195,14 @@ surveys_df['record_id'].dtype
 **OUTPUT:** `dtype('float64')`
 
 
-## Challenge - Changing Types
-
+> ## Challenge - Changing Types
+>
 > Try converting the column `plot_id` to floats using
-
-```python
-surveys_df.record_id.astype("float")
-```
-
+>
+> ```python
+> surveys_df.record_id.astype("float")
+> ```
+>
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
 > We will talk about some solutions to this later.
 {: .challenge}
