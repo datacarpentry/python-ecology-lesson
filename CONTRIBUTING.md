@@ -38,7 +38,7 @@ work under [these licenses](LICENSE.md).
 
 If it is easier for you to send them to us some other way,
 please mail us at
-[board@datacarpentry.org](mailto:board@datacarpentry.org).
+[admin@datacarpentry.org](mailto:admin@datacarpentry.org).
 Given a choice between you creating content or wrestling with Git,
 we'd rather have you doing the former.
 
@@ -96,5 +96,5 @@ guidelines:
 
 -   *Where can I get help?*
     <br/>
-    Mail us at [board@datacarpentry.org](mailto:board@datacarpentry.org)
+    Mail us at [admin@datacarpentry.org](mailto:admin@datacarpentry.org)
 
