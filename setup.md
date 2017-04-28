@@ -57,8 +57,8 @@ conda install -c conda-forge ggplot
 
 ### Miniconda installation
 
-Miniconda is a "light" version of Anaconda that you can install instead. 
-If you install and use Miniconda you will also need to install the workshop packages.
+Miniconda is an alternative "light" version of Anaconda. 
+If you install and use Miniconda you will also need to install all the workshop packages.
 
 #### Download and install Miniconda
 
@@ -79,6 +79,8 @@ conda list
 From the terminal, type:
 
 ```
+conda create -n py34 python=3.4
+source activate py34
 conda install -y numpy pandas matplotlib jupyter
 conda install -c conda-forge ggplot
 ```
