@@ -1,7 +1,7 @@
 ---
 title: Plotting with ggplot
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 25
 questions:
     - " Can I use Python to create plots? "
     - " How can I customize plots generated in Python? "
@@ -71,7 +71,11 @@ To build a ggplot we need to:
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
+We also set some notebook settings with a "%" statement to get interactive and
+exportable plots
+
 ```python
+%matplotlib notebook
 ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete)
 ```
 
