@@ -55,7 +55,7 @@ From the terminal, type:
 conda list
 ```
 
-## Install the required workshop packages with conda
+### Install the required workshop packages with conda
 
 From the terminal, type:
 
