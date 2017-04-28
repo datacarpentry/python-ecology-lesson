@@ -34,11 +34,17 @@ Anaconda will install the workshop packages for you.
 #### Download and install Anaconda
 
 Download and install Anaconda3 version 4.2:
+
 [Mac](https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.pkg)
+
 [Windows 32 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86.exe)
+
 [Windows 64 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86_64.exe)
+
 [Linux 32 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86.sh)
+
 [Linux 64 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh)
+
 Currently, more recent versions of Anaconda does not easily support ggplot.
 
 #### Install ggplot
