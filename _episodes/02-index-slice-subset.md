@@ -158,6 +158,8 @@ surveys_df[-1]
 ```
 
 # also selects the last element in the list
+# the slice starts at the last element,
+# and ends at the end of the list.
 surveys_df[-1:]
 ```
 
