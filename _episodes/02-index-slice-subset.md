@@ -154,6 +154,12 @@ languages like Matlab and R.
 surveys_df[:5]
 
 # select the last element in the list
+surveys_df[-1]
+```
+
+# also selects the last element in the list
+# the slice starts at the last element,
+# and ends at the end of the list.
 surveys_df[-1:]
 ```
 
