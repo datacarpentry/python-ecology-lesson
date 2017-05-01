@@ -1,11 +1,23 @@
 ---
 layout: page
-title: Setup Instructions for Learners
+title: Setup 
 permalink: /setup/
 ---
 
-# Python
+> ## Data
+{: .prereq}
+Data for this lesson is from the Portal Project Teaching Database -
+[available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
+For this lesson, we will use two files for the data. Download these files to your computer. Once you click on them they will be automatically downloaded to your default download directory.
+
+- [surveys.csv](https://ndownloader.figshare.com/files/2292172)
+- [species.csv](https://ndownloader.figshare.com/files/3299483)
+
+
+
+> ## Software
+{: .prereq}
 [Python](http://python.org) is a popular language for
 scientific computing, and great for general-purpose programming as
 well.  Installing all of its scientific packages individually can be
@@ -80,7 +92,7 @@ wish to use a different browser, open this link: <http://localhost:8888>.
 
 ## Overview of the Jupyter notebook (Optional)
 
-![Example Jupyter Notebook](./fig/00_0_jupyter_notebook_example.jpg)  
+![Example Jupyter Notebook](../fig/00_0_jupyter_notebook_example.jpg)  
 *Screenshot of a [Jupyter Notebook on quantum mechanics](https://github.com/jrjohansson/qutip-lectures) by Robert Johansson*
 
 ### How the Jupyter notebook works
@@ -93,26 +105,26 @@ After typing the command `jupyter notebook`, the following happens:
 * The Jupyter Notebook server opens the Jupyter notebook client, also known
   as the notebook user interface, in your default web browser.
 
-  ![Jupyter notebook file browser](./fig/00_1_jupyter_file_browser.png)  
+  ![Jupyter notebook file browser](../fig/00_1_jupyter_file_browser.png)  
   *The Jupyter notebook file browser*
 
 * To create a new Python notebook select the "New" dropdown on the upper
   right of the screen.
 
-  ![Jupyter notebook file browser](./fig/00_2_jupyter_new_notebook.png)  
+  ![Jupyter notebook file browser](../fig/00_2_jupyter_new_notebook.png)  
   *The Jupyter notebook file browser*
 
 * When you can create a new notebook and type code into the browser, the web
   browser and the Jupyter notebook server communicate with each other.
 
-  ![new Jupyter notebook](./fig/00_3_jupyter_blank_notebook.png)  
+  ![new Jupyter notebook](../fig/00_3_jupyter_blank_notebook.png)  
   *A new, blank Jupyter notebook*
 
 * Under the "help" menu, take a quick interactive tour of how to
   use the notebook. Help on Jupyter and key workshop packages is
   available here too.
 
-  ![Jupyter tour and help](./fig/00_4_jupyter_tour_help.png)  
+  ![Jupyter tour and help](../fig/00_4_jupyter_tour_help.png)  
   *User interface tour and Help*
 
 * The Jupyter Notebook server does the work and calculations, and the web
@@ -121,13 +133,13 @@ After typing the command `jupyter notebook`, the following happens:
 
 * For example, click in the first cell and type some Python code.
 
-  ![Code cell](./fig/00_5_jupyter_code_before.png)  
+  ![Code cell](../fig/00_5_jupyter_code_before.png)  
   *A Code cell*
 
 * This is a **Code** cell (see the cell type dropdown with the word **Code**).
   To run the cell, type Shift-Enter.
 
-  ![Code cell and its output](./fig/00_6_jupyter_code_after.png)  
+  ![Code cell and its output](../fig/00_6_jupyter_code_after.png)  
   *A Code cell and its output*
 
 * Let's look at a **Markdown** cell. Markdown is a text manipulation
@@ -135,12 +147,12 @@ After typing the command `jupyter notebook`, the following happens:
   to select **Markdown** from the cell type dropdown. Click in the cell and
   enter the markdown text.
 
-  ![markdown input cell](./fig/00_7_jupyter_markdown_before.png)  
+  ![markdown input cell](../fig/00_7_jupyter_markdown_before.png)  
   *A markdown input cell*
 
 * To run the cell, type Shift-Enter.
 
-  ![rendered markdown cell](./fig/00_8_jupyter_markdown_after.png)  
+  ![rendered markdown cell](../fig/00_8_jupyter_markdown_after.png)  
   *A rendered markdown cell*
 
 
