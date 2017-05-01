@@ -76,8 +76,8 @@ works.
 ```python
 # read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
-# grab the last 10 rows (minus the last one)
-survey_sub_last10 = surveys_df[-11:-1]
+# grab the last 10 rows 
+survey_sub_last10 = surveys_df.tail(10)
 #reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
@@ -110,11 +110,12 @@ have been repeated. We can reindex the new dataframe using the `reset_index()` m
 We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
-`vertical_stack.to_csv('foldername/out.csv')`.
+`vertical_stack.to_csv('foldername/out.csv')`. We use the 'index=False' so that
+pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-vertical_stack.to_csv('out.csv')
+vertical_stack.to_csv('out.csv', index=False)
 ```
 
 Check out your working directory to make sure the CSV wrote out properly, and
