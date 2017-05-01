@@ -154,6 +154,10 @@ languages like Matlab and R.
 surveys_df[:5]
 
 # select the last element in the list
+surveys_df[-1]
+```
+
+# also selects the last element in the list
 surveys_df[-1:]
 ```
 
