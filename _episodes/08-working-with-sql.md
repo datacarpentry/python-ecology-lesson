@@ -143,3 +143,4 @@ con.close()
 >
 > 2. What are some of the reasons you might want to save the results of your queries back into the
 >   database? What are some of the reasons you might avoid doing this.
+{: .challenge}
