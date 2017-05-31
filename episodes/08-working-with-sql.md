@@ -113,3 +113,33 @@ benchmarks]).
 >   made for all years, and sum of observation weights for each plot, ordered by
 >   plot ID.
 {: .challenge}
+
+## Storing data: Create new tables using Pandas
+
+We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an excercise we did before with CSV files using our SQLite database. We first read in our survey data, then select only those survey results for 2002, and then save it out to its own table so we can work with it on its own later.
+
+```python
+import pandas as pd
+import sqlite3
+
+con = sqlite3.connect("data/portal_mammals.sqlite")
+
+# Load the data into a DataFrame
+surveys_df = pd.read_sql_query("SELECT * from surveys", con)
+
+# Select only data for 2002
+surveys2002 = surveys_df[surveys_df.year == 2002]
+
+# Write the new DataFrame to a new SQLite table
+surveys2002.to_sql("surveys2002", con, if_exists="replace")
+
+con.close()
+```
+
+> ## Challenge - Saving your work
+>
+> 1. For each of the challenges in the previous challenge block, modify your code to save the
+>   results to their own tables in the portal database.
+>
+> 2. What are some of the reasons you might want to save the results of your queries back into the
+>   database? What are some of the reasons you might avoid doing this.
