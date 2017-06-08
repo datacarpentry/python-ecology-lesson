@@ -6,15 +6,15 @@ questions:
     - " Can I use Python to create plots? "
     - " How can I customize plots generated in Python? "
 objectives:
-    - Be able to create a ggplot object
-    - Be able to set universal plot settings
-    - Be able to modify an existing ggplot object
-    - Be able to change the aesthetics of a plot such as colour
-    - Be able to edit the axis labels
-    - Know how to use a step-by-step approach to build complex plots
-    - Be able to create, scatter plots, box plots and time series plots
+    - Create a ggplot object
+    - Set universal plot settings
+    - Modify an existing ggplot object
+    - Change the aesthetics of a plot such as colour
+    - Edit the axis labels
+    - Build complex plots using a step-by-step approach
+    - Create scatter plots, box plots, and time series plots
     - Use the `facet_wrap` and `facet_grid` commands to create a collection of plots splitting the data by a factor variable
-    - Be able to create customized plot styles to meet their needs
+    - Create customized plot styles to meet their needs
 ---
 
 #### Disclaimer
