@@ -507,6 +507,8 @@ doesn't correspond to any existing object.
 > those with default values in the function definition!)
 {: .challenge}
 
+## If Loops
+
 The body of the test function now has two conditional loops (if loops) that
 check the values of `start_year` and `end_year`. If loops execute the body of
 the loop when some condition is met. They commonly look something like this:
@@ -528,7 +530,11 @@ the loop when some condition is met. They commonly look something like this:
 
         # if a ISN'T less than zero and ISN'T more than zero
         print('a must be zero!')
+```
 
+Which would return:
+
+```
     a is a positive number
 ```
 

@@ -154,12 +154,8 @@ languages like Matlab and R.
 surveys_df[:5]
 
 # select the last element in the list
-surveys_df[-1]
-```
-
-# also selects the last element in the list
-# the slice starts at the last element,
-# and ends at the end of the list.
+# (the slice starts at the last element,
+# and ends at the end of the list)
 surveys_df[-1:]
 ```
 
@@ -234,7 +230,7 @@ Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
 
 ```python
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 ## Slicing Subsets of Rows and Columns in Python
@@ -328,7 +324,6 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 >    - `dat.loc[0:4, 1:4]`
 >
 > - How are the two commands different?
-
 {: .challenge}
 
 
@@ -388,7 +383,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
 >   the year 1999 and that contain weight values less than or equal to 8. How
->   many columns did you end up with? What did your neighbor get?
+>   many rows did you end up with? What did your neighbor get?
 >
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
@@ -405,7 +400,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 4. The `~` symbol in Python can be used to return the OPPOSITE of the
 >   selection that you specify in Python. It is equivalent to **is not in**.
->   Write a query that selects all rows that are NOT equal to 'M' or 'F' in
+>   Write a query that selects all rows with sex NOT equal to 'M' or 'F' in
 >   the "surveys" data.
 {: .challenge}
 
@@ -484,7 +479,7 @@ print(empty_weights)
 
 Let's take a minute to look at the statement above. We are using the Boolean
 object `pd.isnull(surveys_df['weight'])` as an index to `surveys_df`. We are
-asking Python to select rows that have a `NaN` value or weight.
+asking Python to select rows that have a `NaN` value of weight.
 
 
 > ## Challenge - Putting it all together
