@@ -200,7 +200,7 @@ surveys_df['record_id'].dtype
 > Try converting the column `plot_id` to floats using
 >
 > ```python
-> surveys_df.record_id.astype("float")
+> surveys_df.plot_id.astype("float")
 > ```
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?

@@ -198,11 +198,11 @@ identify a (differently-named) column in each DataFrame that contains the same
 information.
 
 ```python
-species_sub.columns
+>>> species_sub.columns
 
 Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
-survey_sub.columns
+>>> survey_sub.columns
 
 Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
        u'sex', u'hindfoot_length', u'weight'], dtype='object')
