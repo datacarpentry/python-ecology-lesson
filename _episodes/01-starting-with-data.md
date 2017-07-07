@@ -221,8 +221,8 @@ name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
 with `surveys_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
-As an example, `survey_df.head()` gets the first few rows in the DataFrame
-`survey_df` using **the `head()` method**. With a method, we can supply extra
+As an example, `surveys_df.head()` gets the first few rows in the DataFrame
+`surveys_df` using **the `head()` method**. With a method, we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
@@ -463,7 +463,7 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each plot. Some
 > tips are below to help you solve this challenge:
 >
-> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
+> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
