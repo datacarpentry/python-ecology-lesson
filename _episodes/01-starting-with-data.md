@@ -445,7 +445,7 @@ Weight by species plot
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
+total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # let's plot that too
 total_count.plot(kind='bar');
 ```
