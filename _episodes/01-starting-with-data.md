@@ -332,7 +332,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ```python
 # Group data by sex
-sorted_data = surveys_df.groupby('sex')
+grouped_data = surveys_df.groupby('sex')
 ```
 
 The **pandas function `describe`** will return descriptive stats including: mean,
@@ -342,12 +342,12 @@ numeric data.
 
 ```python
 # summary statistics for all numeric columns by sex
-sorted_data.describe()
+grouped_data.describe()
 # provide the mean for each numeric column by sex
-sorted_data.mean()
+grouped_data.mean()
 ```
 
-`sorted_data.mean()` **OUTPUT:**
+`grouped_data.mean()` **OUTPUT:**
 
 ```python
         record_id     month        day         year    plot_id  \
@@ -370,8 +370,8 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
->	- `sorted_data2.mean()`
+>	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `grouped_data2.mean()`
 > 3. Summarize weight values for each plot in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_plot['weight'].describe()`
