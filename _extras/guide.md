@@ -87,7 +87,7 @@ Both do result in the same output, making it alternative ways of getting the uni
 
 * How many recorded individuals are female `F` and how many male `M`?
 
-	`sorted_data.count()`
+	`grouped_data.count()`
 
 * What happens when you group by two columns using the following syntax and then grab mean values?
 
