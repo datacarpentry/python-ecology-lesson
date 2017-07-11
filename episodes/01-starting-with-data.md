@@ -287,7 +287,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
