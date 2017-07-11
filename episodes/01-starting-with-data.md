@@ -413,6 +413,13 @@ Or, we can also count just the rows that have the species "DO":
 surveys_df.groupby('species_id')['record_id'].count()['DO']
 ```
 
+> ## Challenge - Make a list
+>
+>  What's another way to create a list of species and associated `count` of the
+>  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  groupby DataFrames in the same way you can perform them on regular DataFrames.
+{: .challenge}
+
 ## Basic Math Functions
 
 If we wanted to, we could perform math on an entire column of our data. For
@@ -422,14 +429,6 @@ calculated from our data.
 
 	# multiply all weight values by 2
 	surveys_df['weight']*2
-
-
-> ## Challenge - Make a list
->
->  What's another way to create a list of species and associated `count` of the
->  records in the data? Hint: you can perform `count`, `min`, etc functions on
->  groupby DataFrames in the same way you can perform them on regular DataFrames.
-{: .challenge}
 
 # Quick & Easy Plotting Data Using Pandas
 
