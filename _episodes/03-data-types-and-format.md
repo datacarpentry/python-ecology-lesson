@@ -8,7 +8,7 @@ questions:
   - " Why is the data type important? "
 objectives:
     - Describe how information is stored in a Python DataFrame.
-    - "Define the two main types of data in Python: characters and numerics."
+    - "Define the two main types of data in Python: text and numerics."
     - Examine the structure of a DataFrame.
     - Modify the format of values in a DataFrame.
     - Describe how data types impact operations.
@@ -18,7 +18,7 @@ objectives:
 
 The format of individual columns and rows will impact analysis performed on a
 dataset read into python. For example, you can't perform mathematical
-calculations on a string (character formatted data). This might seem obvious,
+calculations on a string (text formatted data). This might seem obvious,
 however sometimes numeric values are read into python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
 numeric data, you get an error.
@@ -31,9 +31,9 @@ structure and format of our data.
 How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
 calculations as well. There are two main types of data that we're explore in
-this lesson: numeric and character types.
+this lesson: numeric and text data types.
 
-# Numeric Data Types
+## Numeric Data Types
 
 Numeric data types include integers and floats. A **floating point** (known as a
 float) number has decimal points even if that decimal point value is 0. For
@@ -48,14 +48,14 @@ simply refers to the memory allocated to store data in each cell which effective
 relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
 
-## Character Data Types
+## Text Data Type
 
-Strings, known as Objects in Pandas, are values that contain numbers and / or
-characters. For example, a string might be a word, a sentence, or several
-sentences. A Pandas object might also be a plot name like 'plot1'. A string can
-also contain or consist of numbers. For instance, '1234' could be stored as a
-string. As could '10.23'. However **strings that contain numbers can not be used
-for mathematical operations**!
+Text data type is known as Strings in Python, or Objects in Pandas. Strings can
+contain numbers and / or characters. For example, a string might be a word, a
+sentence, or several sentences. A Pandas object might also be a plot name like
+'plot1'. A string can also contain or consist of numbers. For instance, '1234'
+could be stored as a string. As could '10.23'. However **strings that contain
+numbers can not be used for mathematical operations**!
 
 Pandas and base Python use slightly different names for data types. More on this
 is in the table below:
@@ -72,7 +72,7 @@ is in the table below:
 
 ## Checking the format of our data
 
-Now that we're armed with a basic understanding of numeric and character data
+Now that we're armed with a basic understanding of numeric and text data
 types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
@@ -100,7 +100,7 @@ surveys_df['sex'].dtype
 **OUTPUT:** `dtype('O')`
 
 A type 'O' just stands for "object" which in Pandas' world is a string
-(characters).
+(text).
 
 ```python
 surveys_df['record_id'].dtype
