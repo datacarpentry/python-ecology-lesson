@@ -79,15 +79,15 @@ Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runt
 
 	`plot_names = pd.unique(surveys_df["plot_id"])` Number of unique plot ID's: `plot_names.size` or `len(plot_names)`; Number of unique species in the data: `len(pd.unique(surveys_df["species"]))`
 
-* What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+* What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 
-`len(plot_names)` includes duplicate names.
+Both do result in the same output, making it alternative ways of getting the unique values. `nunique` combines the count and unique value extraction.
 
 ### Grouping Challenges 
 
 * How many recorded individuals are female `F` and how many male `M`?
 
-	`sorted_data.count()`
+	`grouped_data.count()`
 
 * What happens when you group by two columns using the following syntax and then grab mean values?
 

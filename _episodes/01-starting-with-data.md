@@ -287,7 +287,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
@@ -332,7 +332,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ```python
 # Group data by sex
-sorted_data = surveys_df.groupby('sex')
+grouped_data = surveys_df.groupby('sex')
 ```
 
 The **pandas function `describe`** will return descriptive stats including: mean,
@@ -342,12 +342,12 @@ numeric data.
 
 ```python
 # summary statistics for all numeric columns by sex
-sorted_data.describe()
+grouped_data.describe()
 # provide the mean for each numeric column by sex
-sorted_data.mean()
+grouped_data.mean()
 ```
 
-`sorted_data.mean()` **OUTPUT:**
+`grouped_data.mean()` **OUTPUT:**
 
 ```python
         record_id     month        day         year    plot_id  \
@@ -370,8 +370,8 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
->	- `sorted_data2.mean()`
+>	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `grouped_data2.mean()`
 > 3. Summarize weight values for each plot in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_plot['weight'].describe()`
@@ -413,6 +413,13 @@ Or, we can also count just the rows that have the species "DO":
 surveys_df.groupby('species_id')['record_id'].count()['DO']
 ```
 
+> ## Challenge - Make a list
+>
+>  What's another way to create a list of species and associated `count` of the
+>  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  groupby DataFrames in the same way you can perform them on regular DataFrames.
+{: .challenge}
+
 ## Basic Math Functions
 
 If we wanted to, we could perform math on an entire column of our data. For
@@ -422,14 +429,6 @@ calculated from our data.
 
 	# multiply all weight values by 2
 	surveys_df['weight']*2
-
-
-> ## Challenge - Make a list
->
->  What's another way to create a list of species and associated `count` of the
->  records in the data? Hint: you can perform `count`, `min`, etc functions on
->  groupby DataFrames in the same way you can perform them on regular DataFrames.
-{: .challenge}
 
 # Quick & Easy Plotting Data Using Pandas
 
@@ -446,7 +445,7 @@ Weight by species plot
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
+total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # let's plot that too
 total_count.plot(kind='bar');
 ```
