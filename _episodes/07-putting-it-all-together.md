@@ -220,7 +220,7 @@ Scientists often operate on mathematical equations. Being able to use them in th
  ```python
     plt.plot(t, t, 'r--', label='$y=x$')
     plt.plot(t, t**2 , 'bs-', label='$y=x^2$')
-    plt.plot(t, (t - 5)**2 + 5 * t - 0.5, 'g^:', label='$y=(x - 5)^2 + 5  x - \\frac{1}{2}$')
+    plt.plot(t, (t - 5)**2 + 5 * t - 0.5, 'g^:', label='$y=(x - 5)^2 + 5  x - \\frac{1}{2}$') # note the double backslash 
     
     plt.legend(loc='upper left', shadow=True, fontsize='x-large')
     
