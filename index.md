@@ -5,7 +5,6 @@ root: .
 maintainers:
   - April Wright
   - John Gosset
-  - Mateusz Kuzak
 ---
 
 **Lesson Maintainers:** {{ page.maintainers | join: ', ' }}
