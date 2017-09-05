@@ -9,7 +9,7 @@ objectives:
   - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
   - "Define the following data types in Python: strings, integers, and floats."
   - "Perform mathematical operations in Python using basic operators."
-  - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+  - "Define the following data structures as they relate to Python: lists, tuples, and dictionaries."
 keypoints:
   - "Use Python in interactive or scripting mode."
   - "Python stores data as strings, integers or floats."

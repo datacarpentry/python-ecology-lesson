@@ -106,7 +106,7 @@ horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 ```
 
 ### Row Index Values and Concat
-Have a look at the `vertical_stack` dataframe? Notice anything unusual?
+Have a look at the `vertical_stack` dataframe. Notice anything unusual?
 The row indexes for the two data frames `survey_sub` and `survey_sub_last10`
 have been repeated. We can reindex the new dataframe using the `reset_index()` method.
 

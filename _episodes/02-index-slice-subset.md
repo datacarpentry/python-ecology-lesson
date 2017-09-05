@@ -104,8 +104,8 @@ surveys_df['speciess']
 
 Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
-0. This is different from other tools like R and Matlab that index elements
-within objects starting at 1.
+0. This is different from other tools like R and Matlab where the index of elements
+within objects starts at 1.
 
 ```python
 # Create a list of numbers:
