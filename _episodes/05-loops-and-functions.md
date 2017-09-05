@@ -11,6 +11,10 @@ objectives:
     - Write unique filenames in Python.
     - Build reusable code in Python.
     - Write functions using conditional statements (if, then, else).
+keypoints:
+    - "Use for loops to execute the same code multiple times."
+    - "Use if statements to execute parts of the code based on conditions."
+    - "Use functions to encapsulate parts of the code to make them reusable and portable." 
 ---
 
 So far, we've used Python and the pandas library to explore and manipulate
