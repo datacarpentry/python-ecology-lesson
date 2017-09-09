@@ -404,7 +404,7 @@ ways, but we'll use `groupby` combined with **a `count()` method**.
 ```python
 # count the number of samples by species
 species_counts = surveys_df.groupby('species_id')['record_id'].count()
-print(species_counts)
+print(species_counts) # in python 3  and use 'print species_counts' in python 2
 ```
 
 Or, we can also count just the rows that have the species "DO":
@@ -447,6 +447,7 @@ We can also look at how many animals were captured in each plot:
 ```python
 total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # let's plot that too
+import seaborn  # just to have R type plot without ggplot2 in python
 total_count.plot(kind='bar');
 ```
 
