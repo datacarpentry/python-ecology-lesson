@@ -2,12 +2,18 @@
 title: Accessing SQLite Databases Using Python & Pandas
 teaching: 20
 exercises: 25
-
+questions:
+    - "Can I use Python to create and interact with SQLite databases?"
+    - "Why do I need to use SQLite databases?"
 objectives:
     - Use the sqlite3 module to interact with a SQL database.
     - Access data stored in SQLite using Python.
     - Describe the difference in interacting with data stored as a CSV file versus in SQLite.
     - Describe the benefits of accessing data using a database compared to a CSV file.
+keypoints:
+    - "Create and interact with SQLite databases with the sqlite3 library."
+    - "Perform queries on SQLite databases with sqlite3 or pandas."
+    - "Store data as a SQLite table with the .to_sql() method from pandas library."
 ---
 
 ## Python and SQL

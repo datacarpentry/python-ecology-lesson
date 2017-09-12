@@ -14,6 +14,11 @@ objectives:
     - Describe how data types impact operations.
     - Define, manipulate, and interconvert integers and floats in Python.
     - Analyze datasets having missing/null values (NaN values).
+keypoints:
+    - "Convert between data types in Python with int(string), float(string), and str(int-or-float)."
+    - "Convert between data types in Pandas with .astype()."
+    - "NaN stands for Not-a-Number and represents a missing value."
+    - "Replace NaN values with the .fillna() method."
 ---
 
 The format of individual columns and rows will impact analysis performed on a

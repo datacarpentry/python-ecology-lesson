@@ -15,6 +15,9 @@ objectives:
     - Create scatter plots, box plots, and time series plots
     - Use the `facet_wrap` and `facet_grid` commands to create a collection of plots splitting the data by a factor variable
     - Create customized plot styles to meet their needs
+keypoints:
+    - "Several libraries are available in Python to create graphics: matplotlib and ggplot among others."
+    - "ggplot allows the modular construction of graphics for the representation of statistics."
 ---
 
 #### Disclaimer

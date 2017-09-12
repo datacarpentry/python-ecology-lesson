@@ -17,6 +17,14 @@ objectives:
     - "Define indexing as it relates to data structures."
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
+keypoints:
+    - "Use import LibraryName as LibraryNickname to use a library with the optionally specified name."
+    - "Assign data to a variable to store it in memory."
+    - "Use the .read_csv() method to read CSV files and create a dataframe."
+    - "Use the .dtype() to explore the data types present in the dataframe."
+    - "Use [columnName].describe(), .mean(), .max(), .min(), .count(), .std() to get statistics of the data set."
+    - "Use the .groupby() method to group data by one or more variables."
+    - "Use .plot() method to create graphics of the data and their statistics."
 ---
 
 # Working With Pandas DataFrames in Python
