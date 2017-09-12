@@ -15,6 +15,13 @@ objectives:
     - "Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=."
     - Locate subsets of data using masks.
     - Describe BOOLEAN objects in Python and manipulate data using BOOLEANs.
+keypoints:
+    - "Python uses 0-based indexing."
+    - "Select specific elements by label or integer index with the [] operator."
+    - "Select data using .loc() or .iloc() methods."
+    - "Use .copy() to create a true copy of a data frame."
+    - "Use = operator to create a new reference to the data frame."
+    - "Use boolean operators ==, !=, ~, >, <, >=, <= to extract subsets of data sets based on conditions."
 ---
 
 In lesson 01, we read a CSV into a Python pandas DataFrame.  We learned:
@@ -97,8 +104,8 @@ surveys_df['speciess']
 
 Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
-0. This is different from other tools like R and Matlab that index elements
-within objects starting at 1.
+0. This is different from other tools like R and Matlab where the index of elements
+within objects starts at 1.
 
 ```python
 # Create a list of numbers:

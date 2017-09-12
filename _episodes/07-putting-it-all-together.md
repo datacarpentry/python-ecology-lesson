@@ -7,6 +7,9 @@ questions:
  - " Why should I use Python to create plots?"
 objectives:
     - Import the pyplot toolbox to create figures in Python.
+keypoints:
+    - "Use matplotlib to create graphics using a MATLAB-like syntax."
+    - "Numpy is a Python library aimed towards numerical mathematics and scientific computing."
 ---
 
 

@@ -9,7 +9,13 @@ objectives:
   - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
   - "Define the following data types in Python: strings, integers, and floats."
   - "Perform mathematical operations in Python using basic operators."
-  - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+  - "Define the following data structures as they relate to Python: lists, tuples, and dictionaries."
+keypoints:
+  - "Use Python in interactive or scripting mode."
+  - "Python stores data as strings, integers or floats."
+  - "Lists are sequential, ordered and mutable data structures."
+  - "Tuples are sequential, ordered and immutable data structures."
+  - "Dictionaries are non-sequential, unordered and mutable data structures."
 ---
 
 # The Basics of Python
@@ -268,17 +274,17 @@ or
 ```
 
 > ## Challenge - Can you do reassignment in a dictionary?
-> 
-> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
+>
+> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary).
 >     
 >    Type:
 > ```python
 > >>> rev
 > ```
 >
-> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce".
 >
-> 3. Now display `rev` again to see if it has changed. 
+> 3. Now display `rev` again to see if it has changed.
 >
 {: .challenge}
 

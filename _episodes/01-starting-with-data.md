@@ -17,6 +17,14 @@ objectives:
     - "Define indexing as it relates to data structures."
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
+keypoints:
+    - "Use import LibraryName as LibraryNickname to use a library with the optionally specified name."
+    - "Assign data to a variable to store it in memory."
+    - "Use the .read_csv() method to read CSV files and create a dataframe."
+    - "Use the .dtype() to explore the data types present in the dataframe."
+    - "Use [columnName].describe(), .mean(), .max(), .min(), .count(), .std() to get statistics of the data set."
+    - "Use the .groupby() method to group data by one or more variables."
+    - "Use .plot() method to create graphics of the data and their statistics."
 ---
 
 # Working With Pandas DataFrames in Python
@@ -31,7 +39,7 @@ and they can replicate the same analysis.
 
 To help the lesson run smoothly, let's ensure everyone is in the same directory.
 This should help us avoid path and file name issues. At this time please
-navigate to the workshop directory. If you working in IPython Notebook be sure
+navigate to the workshop directory. If you're working in IPython Notebook be sure
 that you start your notebook in the workshop directory.
 
 A quick aside that there are Python libraries like [OS
@@ -223,7 +231,7 @@ with `surveys_df.columns`.
 Methods are called in a similar fashion using the syntax `df_object.method()`.
 As an example, `surveys_df.head()` gets the first few rows in the DataFrame
 `surveys_df` using **the `head()` method**. With a method, we can supply extra
-information in the parens to control behaviour.
+information in the parentheses to control behaviour.
 
 Let's look at the data using these.
 

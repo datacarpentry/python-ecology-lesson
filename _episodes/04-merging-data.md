@@ -10,6 +10,11 @@ objectives:
     - Combine two DataFrames using a unique ID found in both DataFrames.
     - Employ `to_csv` to export a DataFrame in CSV format.
     - Join DataFrames using common fields (join keys).
+keypoints:
+    - "Concatenate DataFrames with the .concat() method."
+    - "Write data to CSV file format with .to_csv()."
+    - "Join DataFrames by a common field using .merge()."
+    - ".merge() performs inner, right outer, left outer, full outer joins of datasets."
 ---
 
 In many "real world" situations, the data that we want to use come in multiple
@@ -76,7 +81,7 @@ works.
 ```python
 # read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
-# grab the last 10 rows 
+# grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
 #reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
@@ -101,7 +106,7 @@ horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 ```
 
 ### Row Index Values and Concat
-Have a look at the `vertical_stack` dataframe? Notice anything unusual?
+Have a look at the `vertical_stack` dataframe. Notice anything unusual?
 The row indexes for the two data frames `survey_sub` and `survey_sub_last10`
 have been repeated. We can reindex the new dataframe using the `reset_index()` method.
 
