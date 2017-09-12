@@ -214,25 +214,8 @@ several times:
 The function `legend()` adds a legend to the figure, and the optional keyword
 arguments change its style. By default [typing just `plt.legend()`], the legend
 is on the upper right corner and has no shadow.
-
-Scientists often operate on mathematical equations. Being able to use them in their graphics has a lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation, surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot. Since backslash has a special meaning in the python strings, you should replace all the LaTeX-related backslashes with two backslashes. 
  
- ```python
-    plt.plot(t, t, 'r--', label='$y=x$')
-    plt.plot(t, t**2 , 'bs-', label='$y=x^2$')
-    plt.plot(t, (t - 5)**2 + 5 * t - 0.5, 'g^:', label='$y=(x - 5)^2 + 5  x - \\frac{1}{2}$') # note the double backslash 
-    
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    
-    # Note the double backslashes in the line below. 
-    plt.xlabel('This is the x axis. It can also contain math such as $\\bar{x}=\\frac{\\sum_{i=1}^{n} {x}} {N}$')
-    plt.ylabel('This is the y axis')
-    plt.title('This is the figure title')
-    
-    plt.show()
-```
-
-
+ The functions `xlabel`, `ylabel`, `title`, `legend`, and many others create text labels. It is good to know that, in addition to the plain text, you may use mathematical notation using a subset of LaTeX language. See [this link](https://matplotlib.org/users/mathtext.html) for more information. 
 
 
 Like MATLAB, pyplot is stateful; it keeps track of the current figure and
