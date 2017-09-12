@@ -21,7 +21,7 @@ objectives:
 
 # Working With Pandas DataFrames in Python
 
-We can automate the process above using Python. It's efficient to spend time
+We can automate the process of performing data manipulations in Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
 over and over on different datasets that use a similar format. This makes our
 methods easily reproducible. We can also easily share our code with colleagues
