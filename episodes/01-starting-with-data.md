@@ -254,14 +254,15 @@ Let's begin by exploring our data:
 
 ```python
 # Look at the column names
-surveys_df.columns.values
+surveys_df.columns
 ```
 
 which **returns**:
 
 ```
-array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
-       'hindfoot_length', 'weight'], dtype=object)
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+       'hindfoot_length', 'weight'],
+      dtype='object')
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
