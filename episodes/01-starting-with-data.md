@@ -1,7 +1,11 @@
 ---
 title: Starting With Data
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 30
+questions:
+    - " How can I import data in Python?"
+    - " What is Pandas?"
+    - " Why should I use Pandas to work with data?"
 objectives:
     - "Navigate the workshop directory and download a dataset."
     - "Explain what a library is and what libraries are used for."
@@ -217,8 +221,8 @@ name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
 with `surveys_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
-As an example, `survey_df.head()` gets the first few rows in the DataFrame
-`survey_df` using **the `head()` method**. With a method, we can supply extra
+As an example, `surveys_df.head()` gets the first few rows in the DataFrame
+`surveys_df` using **the `head()` method**. With a method, we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
@@ -250,14 +254,15 @@ Let's begin by exploring our data:
 
 ```python
 # Look at the column names
-surveys_df.columns.values
+surveys_df.columns
 ```
 
 which **returns**:
 
 ```
-array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
-       'hindfoot_length', 'weight'], dtype=object)
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+       'hindfoot_length', 'weight'],
+      dtype='object')
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
@@ -283,7 +288,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
@@ -328,7 +333,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ```python
 # Group data by sex
-sorted_data = surveys_df.groupby('sex')
+grouped_data = surveys_df.groupby('sex')
 ```
 
 The **pandas function `describe`** will return descriptive stats including: mean,
@@ -338,12 +343,12 @@ numeric data.
 
 ```python
 # summary statistics for all numeric columns by sex
-sorted_data.describe()
+grouped_data.describe()
 # provide the mean for each numeric column by sex
-sorted_data.mean()
+grouped_data.mean()
 ```
 
-`sorted_data.mean()` **OUTPUT:**
+`grouped_data.mean()` **OUTPUT:**
 
 ```python
         record_id     month        day         year    plot_id  \
@@ -366,8 +371,8 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
->	- `sorted_data2.mean()`
+>	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `grouped_data2.mean()`
 > 3. Summarize weight values for each plot in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_plot['weight'].describe()`
@@ -409,6 +414,13 @@ Or, we can also count just the rows that have the species "DO":
 surveys_df.groupby('species_id')['record_id'].count()['DO']
 ```
 
+> ## Challenge - Make a list
+>
+>  What's another way to create a list of species and associated `count` of the
+>  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  groupby DataFrames in the same way you can perform them on regular DataFrames.
+{: .challenge}
+
 ## Basic Math Functions
 
 If we wanted to, we could perform math on an entire column of our data. For
@@ -418,14 +430,6 @@ calculated from our data.
 
 	# multiply all weight values by 2
 	surveys_df['weight']*2
-
-
-> ## Challenge - Make a list
->
->  What's another way to create a list of species and associated `count` of the
->  records in the data? Hint: you can perform `count`, `min`, etc functions on
->  groupby DataFrames in the same way you can perform them on regular DataFrames.
-{: .challenge}
 
 # Quick & Easy Plotting Data Using Pandas
 
@@ -442,7 +446,7 @@ Weight by species plot
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
+total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # let's plot that too
 total_count.plot(kind='bar');
 ```
@@ -459,7 +463,7 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each plot. Some
 > tips are below to help you solve this challenge:
 >
-> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
+> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.

@@ -1,7 +1,10 @@
 ---
 title: Indexing, Slicing and Subsetting DataFrames in Python
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 30
+questions:
+    - " How can I access specific data within my data set? "
+    - " How  can Python and Pandas help me to analyse my data?"
 objectives:
     - Describe what 0-based indexing is.
     - Manipulate and extract data using column headings and index locations.
@@ -119,7 +122,7 @@ a = [1, 2, 3, 4, 5]
 >    ```python
 >    a[5]
 >    ```
-> 
+>
 > 3. In the example above, calling `a[5]` returns an error. Why is that?
 >
 > 4. What about?
@@ -151,6 +154,8 @@ languages like Matlab and R.
 surveys_df[:5]
 
 # select the last element in the list
+# (the slice starts at the last element,
+# and ends at the end of the list)
 surveys_df[-1:]
 ```
 
@@ -225,7 +230,7 @@ Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
 
 ```python
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("surveys.csv")
 ```
 
 ## Slicing Subsets of Rows and Columns in Python
@@ -275,8 +280,8 @@ surveys_df.loc[[0, 10, 35549], :]
 **NOTE**: Labels must be found in the DataFrame or you will get a `KeyError`.
 
 Indexing by labels `loc` differs from indexing by integers `iloc`.
-With `iloc`, the start bound and the stop bound are **inclusive**. When using
-`loc` instead, integers *can* also be used, but the integers refer to the
+With `loc`, the both start bound and the stop bound are **inclusive**. When using
+`loc`, integers *can* be used, but the integers refer to the
 index label and not the position. For example, using `loc` and select 1:4
 will get a different result than using `iloc` to select rows 1:4.
 
@@ -306,7 +311,7 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
 
 > ## Challenge - Range
-> 
+>
 > 1. What happens when you execute:
 >
 >    - `surveys_df[0:1]`
@@ -319,7 +324,6 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 >    - `dat.loc[0:4, 1:4]`
 >
 > - How are the two commands different?
-
 {: .challenge}
 
 
@@ -379,7 +383,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
 >   the year 1999 and that contain weight values less than or equal to 8. How
->   many columns did you end up with? What did your neighbor get?
+>   many rows did you end up with? What did your neighbor get?
 >
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
@@ -396,7 +400,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 4. The `~` symbol in Python can be used to return the OPPOSITE of the
 >   selection that you specify in Python. It is equivalent to **is not in**.
->   Write a query that selects all rows that are NOT equal to 'M' or 'F' in
+>   Write a query that selects all rows with sex NOT equal to 'M' or 'F' in
 >   the "surveys" data.
 {: .challenge}
 
@@ -475,7 +479,7 @@ print(empty_weights)
 
 Let's take a minute to look at the statement above. We are using the Boolean
 object `pd.isnull(surveys_df['weight'])` as an index to `surveys_df`. We are
-asking Python to select rows that have a `NaN` value or weight.
+asking Python to select rows that have a `NaN` value of weight.
 
 
 > ## Challenge - Putting it all together

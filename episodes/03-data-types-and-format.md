@@ -1,10 +1,14 @@
 ---
 title: Data Types and Formats
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 25
+questions:
+  - " What types of data can be contained in a DataFrame?
+  "
+  - " Why is the data type important? "
 objectives:
     - Describe how information is stored in a Python DataFrame.
-    - "Define the two main types of data in Python: characters and numerics."
+    - "Define the two main types of data in Python: text and numerics."
     - Examine the structure of a DataFrame.
     - Modify the format of values in a DataFrame.
     - Describe how data types impact operations.
@@ -14,7 +18,7 @@ objectives:
 
 The format of individual columns and rows will impact analysis performed on a
 dataset read into python. For example, you can't perform mathematical
-calculations on a string (character formatted data). This might seem obvious,
+calculations on a string (text formatted data). This might seem obvious,
 however sometimes numeric values are read into python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
 numeric data, you get an error.
@@ -27,9 +31,9 @@ structure and format of our data.
 How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
 calculations as well. There are two main types of data that we're explore in
-this lesson: numeric and character types.
+this lesson: numeric and text data types.
 
-# Numeric Data Types
+## Numeric Data Types
 
 Numeric data types include integers and floats. A **floating point** (known as a
 float) number has decimal points even if that decimal point value is 0. For
@@ -37,21 +41,21 @@ example: 1.13, 2.0 1234.345. If we have a column that contains both integers and
 floating point numbers, Pandas will assign the entire column to the float data
 type so the decimal points are not lost.
 
-An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as 
-an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You 
-will often see the data type `Int64` in python which stands for 64 bit integer. The 64 
-simply refers to the memory allocated to store data in each cell which effectively 
-relates to how many digits it can store in each "cell". Allocating space ahead of time 
+An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as
+an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You
+will often see the data type `Int64` in python which stands for 64 bit integer. The 64
+simply refers to the memory allocated to store data in each cell which effectively
+relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
 
-## Character Data Types
+## Text Data Type
 
-Strings, known as Objects in Pandas, are values that contain numbers and / or
-characters. For example, a string might be a word, a sentence, or several
-sentences. A Pandas object might also be a plot name like 'plot1'. A string can
-also contain or consist of numbers. For instance, '1234' could be stored as a
-string. As could '10.23'. However **strings that contain numbers can not be used
-for mathematical operations**!
+Text data type is known as Strings in Python, or Objects in Pandas. Strings can
+contain numbers and / or characters. For example, a string might be a word, a
+sentence, or several sentences. A Pandas object might also be a plot name like
+'plot1'. A string can also contain or consist of numbers. For instance, '1234'
+could be stored as a string. As could '10.23'. However **strings that contain
+numbers can not be used for mathematical operations**!
 
 Pandas and base Python use slightly different names for data types. More on this
 is in the table below:
@@ -68,8 +72,8 @@ is in the table below:
 
 ## Checking the format of our data
 
-Now that we're armed with a basic understanding of numeric and character data
-types, let's explore the format of our survey data. We'll be working with the 
+Now that we're armed with a basic understanding of numeric and text data
+types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
@@ -96,7 +100,7 @@ surveys_df['sex'].dtype
 **OUTPUT:** `dtype('O')`
 
 A type 'O' just stands for "object" which in Pandas' world is a string
-(characters).
+(text).
 
 ```python
 surveys_df['record_id'].dtype
@@ -150,7 +154,7 @@ print(24-4)
 
 If we divide one integer by another, we get a float.
 The result on python 3 is different than in python 2, where the result is an
-integer (integer division). 
+integer (integer division).
 
 ```python
 print(5/9)
@@ -191,26 +195,26 @@ surveys_df['record_id'].dtype
 **OUTPUT:** `dtype('float64')`
 
 
-## Challenge - Changing Types
-
-> Try converting the column `plot_id` to floats using 
-
-```python
-surveys_df.record_id.astype("float")
-```
-
-> Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you? 
+> ## Challenge - Changing Types
+>
+> Try converting the column `plot_id` to floats using
+>
+> ```python
+> surveys_df.plot_id.astype("float")
+> ```
+>
+> Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
 > We will talk about some solutions to this later.
 {: .challenge}
 
 ## Missing Data Values - NaN
 
-What happened in the last challenge activity? Notice that this throws a value error: 
-`ValueError: Cannot convert NA to integer`. If we look at the `weight` column in the surveys 
+What happened in the last challenge activity? Notice that this throws a value error:
+`ValueError: Cannot convert NA to integer`. If we look at the `weight` column in the surveys
 data we notice that there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
-an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we 
-were to average the `weight` column without replacing our NaNs, Python would know to skip 
+an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we
+were to average the `weight` column without replacing our NaNs, Python would know to skip
 over those cells.
 
 ```python
@@ -282,7 +286,7 @@ just need to be cautious about how the decisions that we make impact scientific
 results.
 
 > ## Challenge - Counting
-> Count the number of missing values per column. Hint: The method .count() gives you 
+> Count the number of missing values per column. Hint: The method .count() gives you
 > the number of non-NA observations per column. Try looking to the .isnull() method.
 {: .challenge}
 

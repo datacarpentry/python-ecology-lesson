@@ -1,7 +1,10 @@
 ---
 title: Data workflows and automation
-teaching: 0
-exercises: 0
+teaching: 40
+exercises: 50
+questions:
+  - " Can I automate operations in Python? "
+  - " What are functions and why should I use them? "
 objectives:
     - Describe why for loops are used in Python.
     - Employ for loops to automate data analysis.
@@ -132,7 +135,7 @@ to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
 
-We have seen that we can loop over a list of items, so we need a list of years 
+We have seen that we can loop over a list of items, so we need a list of years
 to loop over. We can get the years in our DataFrame with:
 
 ```python
@@ -149,7 +152,7 @@ to loop over. We can get the years in our DataFrame with:
 35548    2002
 ```
 
-but we want only unique years, which we can get using the `unique` function 
+but we want only unique years, which we can get using the `unique` function
 which we have already seen.  
 
 ```python
@@ -241,12 +244,9 @@ AND the file name itself.
 > files). Modify the for loop so that the entries with null values are not
 > included in the yearly files.
 >
-> 2. What happens if there is no data for a year in the sequence (for example,
-> imagine we had used 1976 as the start year in `range`)?
+> 2. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 >
-> 3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
->
-> 4. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
+> 3. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
 {: .challenge}
 
 ## Building reusable and modular code with functions
@@ -298,7 +298,7 @@ The function arguments are: 2 5 (this is done inside the function!)
 Their product is: 10 (this is done outside the function!)
 ```
 
-> ## Challenge - Functions 
+> ## Challenge - Functions
 >
 > 1. Change the values of the arguments in the function and check its output
 > 2. Try calling the function by giving it the wrong number of arguments (not 2)
@@ -504,6 +504,8 @@ doesn't correspond to any existing object.
 > those with default values in the function definition!)
 {: .challenge}
 
+## If Loops
+
 The body of the test function now has two conditional loops (if loops) that
 check the values of `start_year` and `end_year`. If loops execute the body of
 the loop when some condition is met. They commonly look something like this:
@@ -525,7 +527,11 @@ the loop when some condition is met. They commonly look something like this:
 
         # if a ISN'T less than zero and ISN'T more than zero
         print('a must be zero!')
+```
 
+Which would return:
+
+```
     a is a positive number
 ```
 
@@ -624,7 +630,6 @@ values to the function using these keywords:
 > make a list of all years represented in the data. Then create a loop to process
 > your data, that begins at the earliest year and ends at the latest year using
 > that list.
-> 
+>
 > HINT: you can create a loop with a list as follows: `for years in year_list:`
 {: .challenge}
-
