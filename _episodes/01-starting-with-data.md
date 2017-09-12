@@ -448,6 +448,7 @@ We can also look at how many animals were captured in each plot:
 ```python
 total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # let's plot that too
+import seaborn # To have R type plot without using ggplot on python
 total_count.plot(kind='bar');
 ```
 
