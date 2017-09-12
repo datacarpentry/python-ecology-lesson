@@ -1,17 +1,20 @@
 ---
 title: Plotting with ggplot
-teaching: 0
-exercises: 0
+teaching: 20
+exercises: 25
+questions:
+    - " Can I use Python to create plots? "
+    - " How can I customize plots generated in Python? "
 objectives:
-    - Be able to create a ggplot object
-    - Be able to set universal plot settings
-    - Be able to modify an existing ggplot object
-    - Be able to change the aesthetics of a plot such as colour
-    - Be able to edit the axis labels
-    - Know how to use a step-by-step approach to build complex plots
-    - Be able to create, scatter plots, box plots and time series plots
+    - Create a ggplot object
+    - Set universal plot settings
+    - Modify an existing ggplot object
+    - Change the aesthetics of a plot such as colour
+    - Edit the axis labels
+    - Build complex plots using a step-by-step approach
+    - Create scatter plots, box plots, and time series plots
     - Use the `facet_wrap` and `facet_grid` commands to create a collection of plots splitting the data by a factor variable
-    - Be able to create customized plot styles to meet their needs
+    - Create customized plot styles to meet their needs
 ---
 
 #### Disclaimer
@@ -48,7 +51,6 @@ surveys_complete
 30463 rows × 13 columns
 
 ```python
-%matplotlib inline
 from ggplot import *
 ```
 
@@ -69,13 +71,17 @@ To build a ggplot we need to:
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
+We also set some notebook settings with a "%" statement to get interactive and
+exportable plots
+
 ```python
+%matplotlib notebook
 ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete)
 ```
 
 ![png](../fig/output_6_0.png)
 
-    <ggplot: (-9223372036552543572)>
+<ggplot: (-9223372036552543572)>
 
 - add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
@@ -86,7 +92,7 @@ ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geo
 
 ![png](../fig/output_8_0.png)
 
-    <ggplot: (295366541)>
+<ggplot: (295366541)>
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
@@ -103,7 +109,7 @@ surveys_plot + geom_point()
 
 ![png](../fig/output_10_0.png)
 
-    <ggplot: (295593725)>
+<ggplot: (295593725)>
 
 Notes:
 
@@ -124,7 +130,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + ge
 
 ![png](../fig/output_12_0.png)
 
-    <ggplot: (-9223372036581788156)>
+<ggplot: (-9223372036581788156)>
 
 Then, we start modifying this plot to extract more information from it. For
 instance, we can add transparency (alpha) to avoid overplotting.
@@ -136,7 +142,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 
 ![png](../fig/output_14_0.png)
 
-    <ggplot: (295894448)>
+<ggplot: (295894448)>
 
 We can also add colors for all the points
 
@@ -147,7 +153,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 
 ![png](../fig/output_16_0.png)
 
-    <ggplot: (291993969)>
+<ggplot: (291993969)>
 
 Or to color each species in the plot differently:
 
@@ -161,7 +167,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surve
 
 ![png](../fig/output_18_0.png)
 
-    <ggplot: (295600781)>
+<ggplot: (295600781)>
 
 # Boxplot
 
@@ -174,7 +180,7 @@ ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) +
 
 ![png](../fig/output_21_0.png)
 
-    <ggplot: (-9223372036559103053)>
+<ggplot: (-9223372036559103053)>
 
 By adding points to boxplot, we can have a better idea of the number of
 measurements and of their distribution:
@@ -218,7 +224,7 @@ hidden.
 >
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
-> 
+>
 > Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
 > from integer to factor. Why does this change how R makes the graph?
 >
@@ -233,7 +239,7 @@ hidden.
 >>
 >> ```python
 >> 1. Replace the box plot with a violin plot; see `geom_violin()`.
->> 
+>>
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
 >>    geom_jitter(alpha=0.3) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -265,7 +271,7 @@ hidden.
 >>    Hint: Check the class for `plot_id`. Consider changing the class
 >>    of `plot_id` from integer to factor. Why does this change how R
 >>    makes the graph?
->> 
+>>
 >> ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
 >>     geom_jitter(alpha=0.01) + \
 >>        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
@@ -319,7 +325,7 @@ ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
 
 ![png](../fig/output_35_0.png)
 
-    <ggplot: (-9223372036580461736)>
+<ggplot: (-9223372036580461736)>
 
 Unfortunately this does not work, because we plot data for all the species
 together. We need to tell ggplot to draw a line for each species by modifying
@@ -344,7 +350,7 @@ make one plot for a time series for each species.
 ggplot(aes(x = "year", y = "n", colour = "species_id"),data = yearly_counts) + \
     geom_line() + \
     facet_wrap("species_id")
-    
+
 ```
 
 Now we would like to split line in each plot by sex of each individual
@@ -396,7 +402,7 @@ are already in separate plots, so we don't need to distinguish them further).
 ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex_counts) + \
     geom_line() + \
     facet_wrap("species_id") + \
-    theme_bw() 
+    theme_bw()
 ```
 
 > ## Challenge - Plotting
@@ -475,7 +481,7 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
     labs(title = 'Observed species in time',
          x = 'Year of observation',
          y = 'Number of species') + \
-    theme_bw() 
+    theme_bw()
 ```
 
 The axes have more informative names, but their readability can be improved by
@@ -511,7 +517,7 @@ ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex
     theme_bw() + \
     theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
           axis_text_y = element_text(color="grey", size=10, hjust=0),
-         ) 
+         )
 ```
 
 
@@ -552,13 +558,13 @@ adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
-my_plot =  ggplot(yearly_sex_counts, aes(x = "year", y = "n", color = "sex", group = "sex")) 
-my_plot += geom_line() 
-my_plot += facet_wrap("species_id") 
+my_plot =  ggplot(yearly_sex_counts, aes(x = "year", y = "n", color = "sex", group = "sex"))
+my_plot += geom_line()
+my_plot += facet_wrap("species_id")
 my_plot += labs(title = 'Observed species in time',
                 x = 'Year of observation',
-                y = 'Number of species') 
-my_plot += theme_bw() 
+                y = 'Number of species')
+my_plot += theme_bw()
 my_plot += theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
                         axis_text_y = element_text(color="grey", size=10))
 my_plot.save("name_of_file.png", width=15, height=10)
@@ -571,4 +577,3 @@ my_plot.save("name_of_file.png", width=15, height=10)
 >  ggplot2 cheat sheet for inspiration:
 >  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
 {: .challenge}
-

@@ -102,9 +102,9 @@ We can perform mathematical calculations in Python using the basic operators
  `+, -, /, *, %`:
 
 ```python
->>> 2 + 2
+>>> 2 + 2   #  addition
 4
->>> 6 * 7
+>>> 6 * 7   #  multiplication
 42
 >>> 2 ** 16  # power
 65536
