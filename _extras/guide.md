@@ -555,6 +555,8 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
 
+iPython notebooks for plotting can be viewed in the _extras folder
+
 ## 07-putting-it-all-together
 
 Scientists often operate on mathematical equations. Being able to use them in their graphics has a lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation, surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot. Since backslash has a special meaning in the python strings, you should replace all the LaTeX-related backslashes with two backslashes. 
