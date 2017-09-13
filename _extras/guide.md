@@ -231,6 +231,9 @@ Pandas cannot convert types from float to int if the column contains NaN values.
 ### Challenge - Counting
 surveys_df.isnull()
 
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should generate.
+
 ## 04-merging-data
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
@@ -547,7 +550,10 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
     return filenames
 ```
 
+## 06-plotting-with-ggplot
 
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should have generated in lesson 3.
 
 ## 07-putting-it-all-together
 
