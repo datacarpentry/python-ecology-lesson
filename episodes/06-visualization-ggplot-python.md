@@ -1,21 +1,20 @@
-
 ---
-title: Plotting with ggplot
+title: Making Plots With ggplot
 teaching: 40
 exercises: 50
 questions:
-  - " How can I visualize my data using Python?"
-  - " What are the functions to build plots using ggplot?"
+    - " How can I visualize data in Python?"
+    - " What is 'grammar of graphics'?"
 objectives:
-    - Create a ggplot object
-    - Set universal plot settings
-    - Modify an existing ggplot object
-    - Change the aesthetics of a plot such as colour
-    - Edit the axis labels
-    - Build complex plots using a step-by-step approach
-    - Create scatter plots, box plots, and time series plots
-    - Use the facet_wrap and facet_grid commands to create a collection of plots splitting the data by a factor variable
-    - Create customized plot styles to meet their needs
+    - "Create a ggplot object."
+    - "Set universal plot settings."
+    - "Modify an existing ggplot object."
+    - "Change the aesthetics of a plot such as colour."
+    - "Edit the axis labels."
+    - "Build complex plots using a step-by-step approach."
+    - "Create scatter plots, box plots, and time series plots."
+    - "Use the facet_wrap and facet_grid commands to create a collection of plots splitting the data by a factor variable."
+    - "Create customized plot styles to meet their needs."
 ---
 
 
