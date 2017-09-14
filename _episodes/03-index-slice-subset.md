@@ -16,7 +16,17 @@ objectives:
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
-    - "FIXME"
+    - "use `df['column_name']` or  `df.column_name` to select a subset of the data using the column name."
+    - "More than one column with `df_name[['column_name1', 'column_name2']]` ."
+    - "Row Slicing: use `df[low:high]` to select rows of a dataFrame from `low` to `high-1`."
+    - "`y = x.copy()` creates a copy of x and `x = y` creates a reference of x."
+    - "A copy is an independent object and a reference is a new variable to call the same object."
+    - "use `iloc` and `loc` to slice subsets of rows and columns."
+    - "`df.iloc[low_row:high_row, low_col:high_col]`: rows from `low_row` to `high_row-1` and columns from `low_col` to `high_col-1`."
+    - "`df.loc[low_row:high_row, ['column_name1','column_name_2']]` to select columns by their labels."
+    - "use `df[boolean_condition]`to show the observations which meet the condition."
+    - "use `df['column_name'].isin([listOfValues])` to ask if the values of a column belong to the list."
+    - "use `pd.isnull(df)` to ask for the missing values in the dataset."
 ---
 
 In lesson 01, we read a CSV into a Python pandas DataFrame.  We learned:

@@ -18,7 +18,11 @@ objectives:
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
 keypoints:
-    - "FIXME"
+    - "DataFrames objets are data structure."
+    - "`df.columns`,`df.shapedf.head(),`df.tail()` to get information stored in the DataFrame."
+    - "To get quicky statistics with DataFrames: `df.describe()`, `df.count()`, `df.mean()`."
+    - "Groups: `df.groupby(column_name or list_of_columns)`."
+    - "Plotting summary stats: `df.plot(kind='bar')` ."
 ---
 
 # Working With Pandas DataFrames in Python

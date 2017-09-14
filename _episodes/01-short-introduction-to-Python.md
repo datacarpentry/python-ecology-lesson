@@ -11,7 +11,13 @@ objectives:
     - "Perform mathematical operations in Python using basic operators."
     - "Define the following as it relates to Python: lists, tuples, and dictionaries."
 keypoints:
-    - "FIXME"
+    - "Python has two mode to work with: interactive and scripting mode."
+    - "Some build-in data types in Python are: Strings, integers and floats."
+    - "This is a list `numbers = [1,2,3]` and this is a tuple `numbers = (1,2,3)`."
+    - "Tuples are immutable."
+    - "A dictionary holds pairs of keys and values."
+    - " `dictionary_name = {'key1':value1, 'key2':value2}`."
+    - "Functions are sections of code `def`,`return`are keywords,the body indented is needed."
 ---
 
 ## Interpreter
