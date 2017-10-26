@@ -21,7 +21,7 @@ objectives:
 
 # Working With Pandas DataFrames in Python
 
-We can automate the process above using Python. It's efficient to spend time
+We can automate the process of performing data manipulations in Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
 over and over on different datasets that use a similar format. This makes our
 methods easily reproducible. We can also easily share our code with colleagues
@@ -254,14 +254,15 @@ Let's begin by exploring our data:
 
 ```python
 # Look at the column names
-surveys_df.columns.values
+surveys_df.columns
 ```
 
 which **returns**:
 
 ```
-array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
-       'hindfoot_length', 'weight'], dtype=object)
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+       'hindfoot_length', 'weight'],
+      dtype='object')
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of

@@ -83,6 +83,8 @@ However, in a script, a `print` function is needed to output the `text`:
 ```python
 # A Python script file
 # Comments in Python start with #
+# The next line assigns the string "Data Carpentry" to the variable "text".
+text = "Data Carpentry"
 # The next line uses the print function to print out the text string
 print(text)
 ```

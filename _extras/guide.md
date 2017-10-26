@@ -233,6 +233,9 @@ Pandas cannot convert types from float to int if the column contains NaN values.
 ### Challenge - Counting
 surveys_df.isnull()
 
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should generate.
+
 ## 04-merging-data
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
@@ -548,6 +551,37 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
         filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))
     return filenames
 ```
+
+## 06-plotting-with-ggplot
+
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should have generated in lesson 3.
+
+iPython notebooks for plotting can be viewed in the _extras folder
+
+## 07-putting-it-all-together
+
+Scientists often operate on mathematical equations. Being able to use them in their graphics has a lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation, surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot. Since backslash has a special meaning in the python strings, you should replace all the LaTeX-related backslashes with two backslashes. 
+ 
+ ```python
+    plt.plot(t, t, 'r--', label='$y=x$')
+    plt.plot(t, t**2 , 'bs-', label='$y=x^2$')
+    plt.plot(t, (t - 5)**2 + 5 * t - 0.5, 'g^:', label='$y=(x - 5)^2 + 5  x - \\frac{1}{2}$') # note the double backslash 
+    
+    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
+    
+    # Note the double backslashes in the line below. 
+    plt.xlabel('This is the x axis. It can also contain math such as $\\bar{x}=\\frac{\\sum_{i=1}^{n} {x}} {N}$')
+    plt.ylabel('This is the y axis')
+    plt.title('This is the figure title')
+    
+    plt.show()
+```
+
+[This page](https://matplotlib.org/users/mathtext.html) contains more information.
+
+
+
 
 
 
