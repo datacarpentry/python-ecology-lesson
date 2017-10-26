@@ -14,6 +14,8 @@ objectives:
     - Describe how data types impact operations.
     - Define, manipulate, and interconvert integers and floats in Python.
     - Analyze datasets having missing/null values (NaN values).
+    - Write manipulated data to a file.
+
 ---
 
 The format of individual columns and rows will impact analysis performed on a
@@ -290,6 +292,43 @@ results.
 > the number of non-NA observations per column. Try looking to the .isnull() method.
 {: .challenge}
 
+## Writing Out Data to CSV
+
+We've learned about using manipulating data to get desired outputs. But we've also discussed
+keeping data that has been manipulated separate from our raw data. Something we might be interested 
+in doing is working with only the columns that have full data. First, let's reload the data so
+we're not mixing up all of our previous manipulations.
+
+```python
+surveys_df = pd.read_csv("data/surveys.csv")
+```
+Next, let's drop all the rows that contain missing values. We will use the command `drop_na`.
+By default, dropna removes columns that contain missing data for even just one row. 
+
+```python
+df_na = df.dropna()
+
+```
+
+If you now type ```drop_na```, you should observe that the resulting DataFrame has 30676 rows
+and 9 columns, much smaller than the 35549 row original.
+
+We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+below will by default save the data into the current working directory. We can
+save it to a different folder by adding the foldername and a slash to the file
+`df1.to_csv('foldername/out.csv')`. We use the 'index=False' so that
+pandas doesn't include the index number for each line.
+
+```python
+# Write DataFrame to CSV
+vertical_stack.to_csv('data_output/surveys_complete.csv', index=False)
+```
+
+We will use this data file later in the workshop. Check out your working directory to make 
+sure the CSV wrote out properly, and that you can open it! If you want, try to bring it 
+back into python to make sure it imports properly. 
+
+
 ## Recap
 
 What we've learned:
@@ -298,3 +337,4 @@ What we've learned:
 + How to change the data type
 + What NaN values are, how they might be represented, and what this means for your work
 + How to replace NaN values, if desired
++ How to use `to_csv` to write manipulated data to a file.
