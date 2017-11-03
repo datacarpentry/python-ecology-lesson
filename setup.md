@@ -14,8 +14,10 @@ For this lesson, we will use two files for the data. Download these files to you
 - [surveys.csv](https://ndownloader.figshare.com/files/2292172)
 - [species.csv](https://ndownloader.figshare.com/files/3299483)
 - [speciesSubset.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/speciesSubset.csv)
+- [surveys2001.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2001.csv)
+- [surveys2002.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2002.csv)
+- [plots.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/plots.csv)
 - [SQL Database](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/portal_mammals.sqlite)
-
 
 
 > ## Software
