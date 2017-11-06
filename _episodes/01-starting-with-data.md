@@ -166,7 +166,7 @@ surveys_df = pd.read_csv("surveys.csv")
 ```
 
 Notice when you assign the imported DataFrame to a variable, Python does not
-produce any output on the screen. We can print the value of the `surveys_df`
+produce any output on the screen. We can view the value of the `surveys_df`
 object by typing its name into the Python command prompt.
 
 ```python
@@ -175,27 +175,23 @@ surveys_df
 
 which prints contents like above
 
-## Manipulating Our Species Survey Data
+## Exploring Our Species Survey Data
 
-Now we can start manipulating our data. First, let's check the data type of the
-data stored in `surveys_df` using the `type` method. **The `type` method and
-`__class__` attribute** tell us that `surveys_df` is `<class 'pandas.core.frame.DataFrame'>`.
+Again, we can use the `type` function to see what kind of thing `surveys_df` is:
 
 ```python
-type(surveys_df)
-# this does the same thing as the above!
-surveys_df.__class__
+>>> type(surveys_df)
+<class 'pandas.core.frame.DataFrame'>
 ```
-We can also enter `surveys_df.dtypes` at our prompt to view the data type for each
-column in our DataFrame. `int64` represents numeric integer values - `int64` cells
-can not store decimals. `object` represents strings (letters and numbers). `float64`
-represents numbers with decimals.
 
-	surveys_df.dtypes
+As expected, it's a DataFrame (or, to use the full name that Python uses to refer
+to it internally, a `pandas.core.frame.DataFrame`).
 
-which returns:
+What kind of things does `surveys_df` contain? DataFrames have an attribute
+called `dtypes` that answers this:
 
-```
+```python
+>>> surveys_df.dtypes
 record_id            int64
 month                int64
 day                  int64
@@ -207,6 +203,12 @@ hindfoot_length    float64
 weight             float64
 dtype: object
 ```
+
+All the values in a column have the same type. For example, months have type
+`int64`, which is a kind of integer. Cells in the month column cannot have
+fractional values, but the weight and hindfoot_length columns can, because they
+have type `float64`. The `object` type doesn't have a very helpful name, but in
+this case it represents strings (such as 'M' and 'F' in the case of sex).
 
 We'll talk a bit more about what the different formats mean in a different lesson.
 
