@@ -128,6 +128,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 
 ## 02-index-slice-subset
 
+Tip: use `.head()` method throughout this lesson to keep your display neater for students.  Encourage students to try with and without `.head()` to reinforce this useful tool and then to use it or not at their preference. For example, if a student worries about keeping up in pace with typing, let them know they can skip the `.head()`, but that you'll use it to keep more lines of previous steps visible. 
+
 ### Indexing Challenges 
 
 * What value does the code below return? `a[0]`

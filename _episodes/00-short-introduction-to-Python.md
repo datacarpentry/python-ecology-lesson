@@ -59,9 +59,9 @@ Hello World
 One of the most basic things we can do in Python is assign values to variables:
 
 ```python
-text = "Data Carpentry"
-number = 42
-pi_value = 3.1415
+text = "Data Carpentry" #an example of a string
+number = 42 #an example of an integer
+pi_value = 3.1415 #an example of a float
 ```
 
 Here we've assigned data to the variables `text`, `number` and `pi_value`,
