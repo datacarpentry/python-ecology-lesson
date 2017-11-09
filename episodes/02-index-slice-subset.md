@@ -58,12 +58,13 @@ we can select all data from a column named `species_id` from the `surveys_df`
 DataFrame by name. There are two ways to do this:
 
 ```python
+# TIP: use the .head() method we saw earlier to make output shorter
 # Method 1: select a 'subset' of the data using the column name
 surveys_df['species_id']
 
 # Method 2: use the column name as an 'attribute'; gives the same output
 surveys_df.species_id
-```
+``` 
 
 We can also create a new object that contains only the data within the
 `species_id` column as follows:
@@ -77,7 +78,7 @@ We can pass a list of column names too, as an index to select columns in that
 order. This is useful when we need to reorganize our data.
 
 **NOTE:** If a column name is not contained in the DataFrame, an exception
-(error) will be raised.
+(error) will be raised. 
 
 ```python
 # select the species and plot columns from the DataFrame
@@ -90,6 +91,7 @@ surveys_df[['plot_id', 'species_id']]
 surveys_df['speciess']
 ```
 
+Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related python data type dictionary).
 
 ## Extracting Range based Subsets: Slicing
 
