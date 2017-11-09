@@ -504,11 +504,11 @@ doesn't correspond to any existing object.
 > those with default values in the function definition!)
 {: .challenge}
 
-## If Loops
+## If Statements
 
-The body of the test function now has two conditional loops (if loops) that
-check the values of `start_year` and `end_year`. If loops execute the body of
-the loop when some condition is met. They commonly look something like this:
+The body of the test function now has two conditionals (if statements) that
+check the values of `start_year` and `end_year`. If statements execute a segment 
+of code when some condition is met. They commonly look something like this:
 
 ```python
     a = 5
@@ -538,11 +538,11 @@ Which would return:
 Change the value of `a` to see how this function works. The statement `elif`
 means "else if", and all of the conditional statements must end in a colon.
 
-The if loops in the function `yearly_data_arg_test` check whether there is an
+The if statements in the function `yearly_data_arg_test` check whether there is an
 object associated with the variable names `start_year` and `end_year`. If those
-variables are `None`, the if loops return the boolean `True` and execute whaever
+variables are `None`, the if statements return the boolean `True` and execute whatever
 is in their body. On the other hand, if the variable names are associated with
-some value (they got a number in the function call), the if loops return `False`
+some value (they got a number in the function call), the if statements return `False`
 and do not execute. The opposite conditional statements, which would return
 `True` if the variables were associated with objects (if they had received value
 in the function call), would be `if start_year` and `if end_year`.
@@ -608,7 +608,7 @@ values to the function using these keywords:
 >
 > 2. Modify the functions so that they don't create yearly files if there is no
 > data for a given year and display an alert to the user (Hint: use conditional
-> statements and if loops to do this. For an extra challenge, use `try`
+> statements to do this. For an extra challenge, use `try`
 > statements!)
 >
 > 3. The code below checks to see whether a directory exists and creates one if it
