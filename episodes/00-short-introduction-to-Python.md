@@ -57,12 +57,12 @@ Hello World
 ### Strings, integers and floats
 
 Python has built-in numeric types for integers, floats, and complex numbers.
-Strings are a built-in textual type.:
+Strings are a built-in textual type:
 
 ```python
-text = "Data Carpentry"
-number = 42
-pi_value = 3.1415
+text = "Data Carpentry" #an example of a string
+number = 42 #an example of an integer
+pi_value = 3.1415 #an example of a float
 ```
 
 Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
