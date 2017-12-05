@@ -9,7 +9,7 @@ permalink: /setup/
 Data for this lesson is from the Portal Project Teaching Database -
 [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
-For this lesson, we will use two files for the data. Download these files to your computer. Once you click on them they will be automatically downloaded to your default download directory.
+For this lesson, we will use eight files for the data. Download these files to your computer. Once you click on them they will be automatically downloaded to your default download directory.
 
 - [surveys.csv](https://ndownloader.figshare.com/files/2292172)
 - [species.csv](https://ndownloader.figshare.com/files/3299483)
@@ -17,7 +17,9 @@ For this lesson, we will use two files for the data. Download these files to you
 - [surveys2001.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2001.csv)
 - [surveys2002.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2002.csv)
 - [plots.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/plots.csv)
+- [bouldercreek_09_2013.txt](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/bouldercreek_09_2013.txt)
 - [SQL Database](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/portal_mammals.sqlite)
+
 
 
 > ## Software
