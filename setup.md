@@ -11,14 +11,18 @@ Data for this lesson is from the Portal Project Teaching Database -
 
 For this lesson, we will use eight files for the data. Download these files to your computer. Once you click on them they will be automatically downloaded to your default download directory.
 
-- [surveys.csv](https://ndownloader.figshare.com/files/2292172)
-- [species.csv](https://ndownloader.figshare.com/files/3299483)
-- [speciesSubset.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/speciesSubset.csv)
-- [surveys2001.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2001.csv)
-- [surveys2002.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/survey2002.csv)
-- [plots.csv](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/plots.csv)
-- [bouldercreek_09_2013.txt](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/bouldercreek_09_2013.txt)
-- [SQL Database](https://github.com/datacarpentry/python-ecology-lesson/blob/gh-pages/data/portal_mammals.sqlite)
+Get everything in a [single zip file](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data).  You'll need to unzip this file after downloading it.
+
+Or download individual files:
+
+- [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
+- [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
+- [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
+- [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
+- [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
+- [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
+- [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
+- [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
 
 
 
