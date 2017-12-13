@@ -507,7 +507,7 @@ doesn't correspond to any existing object.
 ## If Statements
 
 The body of the test function now has two conditionals (if statements) that
-check the values of `start_year` and `end_year`. If statements execute a segment 
+check the values of `start_year` and `end_year`. If statements execute a segment
 of code when some condition is met. They commonly look something like this:
 
 ```python

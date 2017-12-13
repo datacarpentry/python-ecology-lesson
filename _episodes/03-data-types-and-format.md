@@ -295,7 +295,7 @@ results.
 ## Writing Out Data to CSV
 
 We've learned about using manipulating data to get desired outputs. But we've also discussed
-keeping data that has been manipulated separate from our raw data. Something we might be interested 
+keeping data that has been manipulated separate from our raw data. Something we might be interested
 in doing is working with only the columns that have full data. First, let's reload the data so
 we're not mixing up all of our previous manipulations.
 
@@ -303,7 +303,7 @@ we're not mixing up all of our previous manipulations.
 surveys_df = pd.read_csv("data/surveys.csv")
 ```
 Next, let's drop all the rows that contain missing values. We will use the command `drop_na`.
-By default, dropna removes columns that contain missing data for even just one row. 
+By default, dropna removes columns that contain missing data for even just one row.
 
 ```python
 df_na = df.dropna()
@@ -324,9 +324,9 @@ pandas doesn't include the index number for each line.
 vertical_stack.to_csv('data_output/surveys_complete.csv', index=False)
 ```
 
-We will use this data file later in the workshop. Check out your working directory to make 
-sure the CSV wrote out properly, and that you can open it! If you want, try to bring it 
-back into python to make sure it imports properly. 
+We will use this data file later in the workshop. Check out your working directory to make
+sure the CSV wrote out properly, and that you can open it! If you want, try to bring it
+back into python to make sure it imports properly.
 
 
 ## Recap

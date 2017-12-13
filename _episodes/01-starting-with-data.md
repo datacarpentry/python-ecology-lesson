@@ -129,7 +129,7 @@ an element in the data structure.
 
 ```python
 # note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("surveys.csv")
+pd.read_csv("data/surveys.csv")
 ```
 
 The above command yields the **output** below:
@@ -162,7 +162,7 @@ or  `data`. We can create a new  object with a variable name by assigning a valu
 Let's call the imported survey data `surveys_df`:
 
 ```python
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 Notice when you assign the imported DataFrame to a variable, Python does not
