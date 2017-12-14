@@ -23,7 +23,7 @@ surveys files into pandas DataFrames. In iPython:
 
 ```python
 import pandas as pd
-surveys_df = pd.read_csv("surveys.csv",
+surveys_df = pd.read_csv("data/surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
 
@@ -42,7 +42,7 @@ surveys_df
 
 [35549 rows x 9 columns]
 
-species_df = pd.read_csv("species.csv",
+species_df = pd.read_csv("data/species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
   species_id             genus          species     taxa
@@ -76,7 +76,7 @@ works.
 ```python
 # read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
-# grab the last 10 rows 
+# grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
 #reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
@@ -115,7 +115,7 @@ pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-vertical_stack.to_csv('out.csv', index=False)
+vertical_stack.to_csv('data_output/out.csv', index=False)
 ```
 
 Check out your working directory to make sure the CSV wrote out properly, and
@@ -124,7 +124,7 @@ it imports properly.
 
 ```python
 # for kicks read our output back into python and make sure all looks good
-new_output = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
+new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
 ```
 
 > ## Challenge - Combine Data

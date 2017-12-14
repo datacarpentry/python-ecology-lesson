@@ -214,8 +214,8 @@ several times:
 The function `legend()` adds a legend to the figure, and the optional keyword
 arguments change its style. By default [typing just `plt.legend()`], the legend
 is on the upper right corner and has no shadow.
- 
- The functions `xlabel`, `ylabel`, `title`, `legend`, and many others create text labels. It is good to know that, in addition to the plain text, you may use mathematical notation using a subset of LaTeX language. See [this link](https://matplotlib.org/users/mathtext.html) for more information. 
+
+ The functions `xlabel`, `ylabel`, `title`, `legend`, and many others create text labels. It is good to know that, in addition to the plain text, you may use mathematical notation using a subset of LaTeX language. See [this link](https://matplotlib.org/users/mathtext.html) for more information.
 
 
 Like MATLAB, pyplot is stateful; it keeps track of the current figure and
