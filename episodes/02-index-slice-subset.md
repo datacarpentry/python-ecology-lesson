@@ -41,7 +41,7 @@ lesson. Let's reopen and read in the data again:
 import pandas as pd
 
 # read in the survey csv
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 ## Indexing and Slicing in Python
@@ -64,7 +64,7 @@ surveys_df['species_id']
 
 # Method 2: use the column name as an 'attribute'; gives the same output
 surveys_df.species_id
-``` 
+```
 
 We can also create a new object that contains only the data within the
 `species_id` column as follows:
@@ -78,7 +78,7 @@ We can pass a list of column names too, as an index to select columns in that
 order. This is useful when we need to reorganize our data.
 
 **NOTE:** If a column name is not contained in the DataFrame, an exception
-(error) will be raised. 
+(error) will be raised.
 
 ```python
 # select the species and plot columns from the DataFrame
@@ -191,19 +191,19 @@ DataFrame.
 Let's look at what happens when we reassign the values within a subset of the
 DataFrame that references another DataFrame object:
 
-   ```
-    # Assign the value `0` to the first three rows of data in the DataFrame
-    ref_surveys_df[0:3] = 0
-    ```
+```python
+# Assign the value `0` to the first three rows of data in the DataFrame
+ref_surveys_df[0:3] = 0
+```
 
 Let's try the following code:
 
-    ```
-   # ref_surveys_df was created using the '=' operator
-    ref_surveys_df.head()
+```python
+# ref_surveys_df was created using the '=' operator
+ref_surveys_df.head()
 
-    # surveys_df is the original dataframe
-    surveys_df.head()
+# surveys_df is the original dataframe
+surveys_df.head()
 ```
 
 What is the difference between these two dataframes?
@@ -219,20 +219,20 @@ the other will see the same changes to the reference object.
 
 - **Copy** uses the dataframe's `copy()` method
 
-    ```
-    true_copy_surveys_df = surveys_df.copy()
-    ```
+  ```python
+  true_copy_surveys_df = surveys_df.copy()
+  ```
 - A **Reference** is created using the `=` operator
 
-    ```python
-    ref_surveys_df = surveys_df
-    ```
+  ```python
+  ref_surveys_df = surveys_df
+  ```
 
 Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
 
 ```python
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 ## Slicing Subsets of Rows and Columns in Python
