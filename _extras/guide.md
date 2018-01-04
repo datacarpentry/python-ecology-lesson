@@ -6,10 +6,10 @@ permalink: /guide/
 
 # Challenge solutions
 
-## Install the required workshop packages on Mac OS 
+## Install the required workshop packages on Mac OS with Homebrew
 
 
-Here we are using one of the popular package manager called Homebrew.
+Homebrew is one of the popular package managers used by many Mac users.
 
 To install Homebrew, you need have xcode command line tools installed, 
 
