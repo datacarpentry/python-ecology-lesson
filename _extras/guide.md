@@ -6,6 +6,49 @@ permalink: /guide/
 
 # Challenge solutions
 
+## Install the required workshop packages on Mac OS 
+
+
+Here we are using one of the popular package manager called Homebrew.
+
+To install Homebrew, you need have xcode command line tools installed, 
+
+from the terminal, type:
+```
+xcode-select --install
+```
+
+then
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Run the following command to ensure Homebrew is installed properly:
+
+```
+brew doctor
+```
+
+install python 3:
+
+```
+brew install python3
+```
+
+All the rest of workshop packages can be installed by pip3 which comes together with python 3:
+
+```
+pip3 install numpy pandas matplotlib jupyter
+pip3 install bokeh ggplot
+```
+
+pip3 can automatically figure out all the dependencies that required by the above packages.
+
+Launch a python command prompt, type:
+```
+python3
+```
+
 ## Checking installations. 
 
 In the include/scripts directory, you will find a script called check_env.py This checks the functionality of the Anaconda install.
