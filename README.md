@@ -7,4 +7,3 @@ on how to contribute updates, bug fixes, or other corrections.
 ### Maintainers
 
 - April Wright ([@wrightaprilm](https://github.com/wrightaprilm))
-- John Gosset ([@qjcg](https://github.com/qjcg))
