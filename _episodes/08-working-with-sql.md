@@ -1,5 +1,5 @@
 ---
-title: Accessing SQLite Databases Using Python & Pandas
+title: Accessing SQLite Databases Using Python and Pandas
 teaching: 20
 exercises: 25
 
