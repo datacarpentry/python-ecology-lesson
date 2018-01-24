@@ -79,7 +79,7 @@ types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
-# note that pd.read_csv is used because we imported pandas as pd
+# Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
@@ -171,12 +171,12 @@ floating point number. Notice that Python by default rounds down when it
 converts from floating point to integer.
 
 ```python
-# convert a to integer
+# Convert a to integer
 a = 7.83
 int(a)
 7
 
-# convert to float
+# Convert to float
 b = 7
 float(b)
 7.0
@@ -189,7 +189,7 @@ we want. For instance, we could convert the `record_id` field to floating point
 values.
 
 ```python
-# convert the record_id field from an integer to a float
+# Convert the record_id field from an integer to a float
 surveys_df['record_id'] = surveys_df['record_id'].astype('float64')
 surveys_df['record_id'].dtype
 ```
@@ -247,7 +247,7 @@ with weight values > 0 (ie select meaningful weight values):
 
 ```python
 len(surveys_df[pd.isnull(surveys_df.weight)])
-# how many rows have weight values?
+# How many rows have weight values?
 len(surveys_df[surveys_df.weight> 0])
 ```
 
@@ -256,7 +256,7 @@ making a copy of the data so we don't lose our work):
 
 ```python
 df1 = surveys_df.copy()
-# fill all NaN values with 0
+# Fill all NaN values with 0
 df1['weight'] = df1['weight'].fillna(0)
 ```
 
