@@ -74,11 +74,11 @@ one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
 ```python
-# read in first 10 lines of surveys table
+# Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
-# grab the last 10 rows
+# Grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
-#reset the index values to the second dataframe appends properly
+# Reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
 ```
@@ -93,10 +93,10 @@ horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
 ```python
-# stack the DataFrames on top of each other
+# Stack the DataFrames on top of each other
 vertical_stack = pd.concat([survey_sub, survey_sub_last10], axis=0)
 
-# place the DataFrames side by side
+# Place the DataFrames side by side
 horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 ```
 
@@ -123,7 +123,7 @@ that you can open it! If you want, try to bring it back into python to make sure
 it imports properly.
 
 ```python
-# for kicks read our output back into python and make sure all looks good
+# For kicks read our output back into python and make sure all looks good
 new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
 ```
 
@@ -174,10 +174,10 @@ subset to work with. We'll use the `.head` method to do this. We'll also read
 in a subset of the species table.
 
 ```python
-# read in first 10 lines of surveys table
+# Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
 
-# import a small subset of the species data designed for this part of the lesson.
+# Import a small subset of the species data designed for this part of the lesson.
 # It is stored in the data folder.
 species_sub = pd.read_csv('data/speciesSubset.csv', keep_default_na=False, na_values=[""])
 ```
@@ -234,10 +234,10 @@ the default option:
 
 ```python
 merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
-# in this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
-# and `right_on` arguments we would still get the same result
+# In this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
+# And `right_on` arguments we would still get the same result
 
-# what's the size of the output data?
+# What's the size of the output data?
 merged_inner.shape
 merged_inner
 ```
