@@ -171,12 +171,12 @@ floating point number. Notice that Python by default rounds down when it
 converts from floating point to integer.
 
 ```python
-# Convert a to integer
+# Convert a to an integer
 a = 7.83
 int(a)
 7
 
-# Convert to float
+# Convert b to a float
 b = 7
 float(b)
 7.0
