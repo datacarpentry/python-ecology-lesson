@@ -38,11 +38,11 @@ con = sqlite3.connect("data/portal_mammals.sqlite")
 
 cur = con.cursor()
 
-# the result of a "cursor.execute" can be iterated over by row
+# The result of a "cursor.execute" can be iterated over by row
 for row in cur.execute('SELECT * FROM species;'):
     print(row)
 
-#Be sure to close the connection.
+# Be sure to close the connection
 con.close()
 ```
 
@@ -69,7 +69,7 @@ cur.fetchall()
 cur.execute('SELECT species FROM species WHERE taxa="Bird"')
 cur.fetchone()
 
-#Be sure to close the connection.
+# Be sure to close the connection
 con.close()
 ```
 
@@ -87,7 +87,7 @@ import sqlite3
 con = sqlite3.connect("data/portal_mammals.sqlite")
 df = pd.read_sql_query("SELECT * from surveys", con)
 
-# verify that result of SQL query is stored in the dataframe
+# Verify that result of SQL query is stored in the dataframe
 print(df.head())
 
 con.close()
