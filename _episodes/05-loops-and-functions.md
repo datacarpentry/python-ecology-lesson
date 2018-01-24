@@ -117,7 +117,7 @@ import pandas as pd
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-# Select only data for 2002
+# Select only data for the year 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
 
 # Write the new DataFrame to a CSV file
