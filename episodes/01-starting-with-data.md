@@ -128,7 +128,7 @@ R. A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
 
 ```python
-# note that pd.read_csv is used because we imported pandas as pd
+# Note that pd.read_csv is used because we imported pandas as pd
 pd.read_csv("data/surveys.csv")
 ```
 
@@ -344,9 +344,9 @@ median, max, min, std and count for a particular column in the data. Pandas'
 numeric data.
 
 ```python
-# summary statistics for all numeric columns by sex
+# Summary statistics for all numeric columns by sex
 grouped_data.describe()
-# provide the mean for each numeric column by sex
+# Provide the mean for each numeric column by sex
 grouped_data.mean()
 ```
 
@@ -405,7 +405,7 @@ ways, but we'll use `groupby` combined with **a `count()` method**.
 
 
 ```python
-# count the number of samples by species
+# Count the number of samples by species
 species_counts = surveys_df.groupby('species_id')['record_id'].count()
 print(species_counts)
 ```
@@ -430,16 +430,16 @@ example let's multiply all weight values by 2. A more practical use of this migh
 be to normalize the data according to a mean, area, or some other value
 calculated from our data.
 
-	# multiply all weight values by 2
+	# Multiply all weight values by 2
 	surveys_df['weight']*2
 
 # Quick & Easy Plotting Data Using Pandas
 
 We can plot our summary stats using Pandas, too.
 
-	# make sure figures appear inline in Ipython Notebook
+	# Make sure figures appear inline in Ipython Notebook
 	%matplotlib inline
-	# create a quick bar chart
+	# Create a quick bar chart
 	species_counts.plot(kind='bar');
 
 ![Weight by Species Plot](../fig/weightBySpecies.png)
@@ -449,7 +449,7 @@ We can also look at how many animals were captured in each plot:
 
 ```python
 total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
-# let's plot that too
+# Let's plot that too
 total_count.plot(kind='bar');
 ```
 
@@ -488,7 +488,7 @@ total_count.plot(kind='bar');
 > We can plot the above with
 >
 > ```
-> # plot stacked data so columns 'one' and 'two' are stacked
+> # Plot stacked data so columns 'one' and 'two' are stacked
 > my_df = pd.DataFrame(d)
 > my_df.plot(kind='bar',stacked=True,title="The title of my graph")
 > ```
