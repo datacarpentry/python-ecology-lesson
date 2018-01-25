@@ -1,5 +1,5 @@
 ---
-title: Data workflows and automation
+title: Data Workflows and Automation
 teaching: 40
 exercises: 50
 questions:

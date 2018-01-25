@@ -1,5 +1,5 @@
 ---
-title: Data Ingest & Visualization - Matplotlib & Pandas
+title: Data Ingest and Visualization - Matplotlib and Pandas
 teaching: 20
 exercises: 25
 questions:
@@ -22,7 +22,7 @@ As opposed to the previous ones, this lesson does not give step-by-step
 directions to each of the tasks. Use the lesson materials you've already gone
 through as well as the Python documentation to help you along.
 
-## 1. Obtain data
+## Obtain data
 
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
@@ -32,7 +32,7 @@ use any data that is relevant to your research. The file
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
 
-## 2. Clean up your data and open it using Python and Pandas
+## Clean up your data and open it using Python and Pandas
 
 To begin, import your data file into Python using Pandas. Did it fail? Your data
 file probably has a header that Pandas does not recognize as part of the data
@@ -82,7 +82,7 @@ also change the name of the columns in the DataFrame like this:
     1          200            20
 ```
 
-## 3. Make a line plot of your data
+## Make a line plot of your data
 
 Matplotlib is a Python library that can be used to visualize data. The
 toolbox `matplotlib.pyplot` is a collection of functions that make matplotlib
@@ -262,7 +262,7 @@ the number of the space in the grid that particular plot is occupying:
     plt.show()
 ```
 
-## 4. Make other types of plots:
+## Make other types of plots:
 
 Matplotlib can make many other types of plots in much the same way that it makes
 2 dimensional line plots. Look through the examples in

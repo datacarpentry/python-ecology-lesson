@@ -225,9 +225,11 @@ hidden.
 >
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
+>
+> Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
+> from integer to factor. Why does this change how R makes the graph?
+{: .challenge}
 
-Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
-from integer to factor. Why does this change how R makes the graph?
 
 
 

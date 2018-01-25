@@ -3,13 +3,17 @@ title: Short Introduction to Programming in Python
 teaching: 0
 exercises: 0
 questions:
-  - "What is Python?"
-  - "Why should I learn Python?"
+    - "What is Python?"
+    - "Why should I learn Python?"
 objectives:
-  - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
-  - "Define the following data types in Python: strings, integers, and floats."
-  - "Perform mathematical operations in Python using basic operators."
-  - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+    - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
+    - "Define the following data types in Python: strings, integers, and floats."
+    - "Perform mathematical operations in Python using basic operators."
+    - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+keypoints:
+    - definition starts with `def`
+    - function body is indented
+    - `return` keyword precedes returned value
 ---
 
 # The Basics of Python
@@ -332,9 +336,3 @@ z = add_function(20, 22)
 print(z)
 42
 ```
-
-Key points about functions are:
-
-* definition starts with `def`
-* function body is indented
-* `return` keyword precedes returned value
