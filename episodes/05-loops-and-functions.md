@@ -108,7 +108,7 @@ The command `os.listdir` is equivalent to `ls` in the shell.
 
 In previous lessons, we saw how to use the library pandas to load the species
 data into memory as a DataFrame, how to select a subset of the data using some
-criteria, and how to write the DataFrame into a csv file. Let's write a script
+criteria, and how to write the DataFrame into a CSV file. Let's write a script
 that performs those three steps in sequence for the year 2002:
 
 ```python
@@ -117,10 +117,10 @@ import pandas as pd
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-# Select only data for 2002
+# Select only data for the year 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
 
-# Write the new DataFrame to a csv file
+# Write the new DataFrame to a CSV file
 surveys2002.to_csv('data/yearly_files/surveys2002.csv')
 ```
 
@@ -208,7 +208,7 @@ for year in surveys_df['year'].unique():
     # Select data for the year
     surveys_year = surveys_df[surveys_df.year == year]
 
-    # Write the new DataFrame to a csv file
+    # Write the new DataFrame to a CSV file
     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
     surveys_year.to_csv(filename)
 ```
@@ -246,7 +246,7 @@ AND the file name itself.
 >
 > 2. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 >
-> 3. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
+> 3. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique CSV file for each species?
 {: .challenge}
 
 ## Building reusable and modular code with functions
@@ -346,7 +346,7 @@ one_year_csv_writer?
 one_year_csv_writer(2002,surveys_df)
 ```
 
-We changed the root of the name of the csv file so we can distinguish it from
+We changed the root of the name of the CSV file so we can distinguish it from
 the one we wrote before. Check the `yearly_files` directory for the file. Did it
 do what you expect?
 
@@ -359,7 +359,7 @@ calling the function we just wrote, `one_year_csv_writer`:
 ```python
 def yearly_data_csv_writer(start_year, end_year, all_data):
     """
-    Writes separate csv files for each year of data.
+    Writes separate CSV files for each year of data.
 
     start_year --- the first year of data we want
     end_year --- the last year of data we want
@@ -383,7 +383,7 @@ function:
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-# Create csv files
+# Create CSV files
 yearly_data_csv_writer(1977, 2002, surveys_df)
 ```
 
@@ -399,7 +399,7 @@ output to change.
 > 1. Add two arguments to the functions we wrote that take the path of the
 >    directory where the files will be written and the root of the file name.
 >    Create a new set of files with a different name in a different directory.
-> 2. How could you use the function `yearly_data_csv_writer` to create a csv file
+> 2. How could you use the function `yearly_data_csv_writer` to create a CSV file
 >    for only one year? (Hint: think about the syntax for `range`)
 > 3. Make the functions return a list of the files they have written. There are
 >    many ways you can do this (and you should try them all!): either of the
@@ -513,17 +513,17 @@ of code when some condition is met. They commonly look something like this:
 ```python
     a = 5
 
-    if a<0: # meets first condition?
+    if a<0:  # Meets first condition?
 
         # if a IS less than zero
         print('a is a negative number')
 
-    elif a>0: # did not meet first condition. meets second condition?
+    elif a>0:  # Did not meet first condition. meets second condition?
 
         # if a ISN'T less than zero and IS more than zero
         print('a is a positive number')
 
-    else: # met neither condition
+    else:  # Met neither condition
 
         # if a ISN'T less than zero and ISN'T more than zero
         print('a must be zero!')

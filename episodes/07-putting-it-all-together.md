@@ -176,10 +176,10 @@ optionally line styles):
 ```python
     import numpy as np
 
-    # create a numpy array between 0 and 10, with values evenly spaced every 0.5
+    # Create a numpy array between 0 and 10, with values evenly spaced every 0.5
     t = np.arange(0., 10., 0.5)
 
-    # red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
+    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
     plt.plot(t, t, 'r--', t, t**2, 'bs-', t, t**3, 'g^:')
 
     plt.xlabel('This is the x axis')
@@ -197,7 +197,7 @@ lines can also be plotted in the same figure by calling the `plot()` function
 several times:
 
 ```python
-    # red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
+    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
     plt.plot(t, t, 'r--', label='linear')
     plt.plot(t, t**2, 'bs-', label='square')
     plt.plot(t, t**3, 'g^:', label='cubic')
@@ -224,7 +224,7 @@ more than one figure, we use the command `plt.figure()` with an increasing
 figure number inside the parentheses:
 
 ```python
-    # this is the first figure
+    # This is the first figure
     plt.figure(1)
     plt.plot(t, t, 'r--', label='linear')
 
@@ -233,7 +233,7 @@ figure number inside the parentheses:
 
     plt.show()
 
-    # this is a second figure
+    # This is a second figure
     plt.figure(2)
     plt.plot(t, t**2, 'bs-', label='square')
 
@@ -250,13 +250,13 @@ the number of the space in the grid that particular plot is occupying:
 ```python
     plt.figure(1)
 
-    plt.subplot(2,2,1) # two row, two columns, position 1
+    plt.subplot(2,2,1)  # Two row, two columns, position 1
     plt.plot(t, t, 'r--', label='linear')
 
-    plt.subplot(2,2,2) # two row, two columns, position 2
+    plt.subplot(2,2,2)  # Two row, two columns, position 2
     plt.plot(t, t**2, 'bs-', label='square')
 
-    plt.subplot(2,2,3) # two row, two columns, position 3
+    plt.subplot(2,2,3)  # Two row, two columns, position 3
     plt.plot(t, t**3, 'g^:', label='cubic')
 
     plt.show()

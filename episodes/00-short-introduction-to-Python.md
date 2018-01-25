@@ -63,9 +63,9 @@ Hello World
 One of the most basic things we can do in Python is assign values to variables:
 
 ```python
-text = "Data Carpentry" #an example of a string
-number = 42 #an example of an integer
-pi_value = 3.1415 #an example of a float
+text = "Data Carpentry"  # An example of a string
+number = 42  # An example of an integer
+pi_value = 3.1415  # An example of a float
 ```
 
 Here we've assigned data to the variables `text`, `number` and `pi_value`,
@@ -133,13 +133,13 @@ We can perform mathematical calculations in Python using the basic operators
  `+, -, /, *, %`:
 
 ```python
->>> 2 + 2   #  addition
+>>> 2 + 2  # Addition
 4
->>> 6 * 7   #  multiplication
+>>> 6 * 7  # Multiplication
 42
->>> 2 ** 16  # power
+>>> 2 ** 16  # Power
 65536
->>> 13 % 5  # modulo
+>>> 13 % 5  # Modulo
 3
 ```
 
@@ -224,7 +224,7 @@ However, tuples can not be changed once created (they are "immutable"). Tuples
 are created by placing comma-separated values inside parentheses `()`.
 
 ```python
-# tuples use parentheses
+# Tuples use parentheses
 a_tuple= (1, 2, 3)
 another_tuple = ('blue', 'green', 'red')
 # Note: lists use square brackets
