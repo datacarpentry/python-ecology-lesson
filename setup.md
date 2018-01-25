@@ -9,11 +9,9 @@ permalink: /setup/
 Data for this lesson is from the Portal Project Teaching Database -
 [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 
-For this lesson, we will use eight files for the data. Download these files to your computer. Once you click on them they will be automatically downloaded to your default download directory.
+We will use the eight files listed below for the data in this lesson.  Download these files to your computer either by clicking [this link ](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data), which will give you everything in a single compressed file.  You'll need to unzip this file after downloading it.
 
-Get everything in a [single zip file](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data).  You'll need to unzip this file after downloading it.
-
-Or download individual files:
+Or download each file indvidually with the following links:
 
 - [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
 - [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
