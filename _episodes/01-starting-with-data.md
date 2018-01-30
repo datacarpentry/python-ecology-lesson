@@ -173,7 +173,79 @@ object by typing its name into the Python command prompt.
 surveys_df
 ```
 
-which prints contents like above
+which prints contents like above.
+
+Note: if the output is too wide to print on your narrow terminal window, you may see something 
+slightly different as the large set of data scrolls past. You may see simply the last column
+of data:
+```python
+17        NaN  
+18        NaN  
+19        NaN  
+20        NaN  
+21        NaN  
+22        NaN  
+23        NaN  
+24        NaN  
+25        NaN  
+26        NaN  
+27        NaN  
+28        NaN  
+29        NaN  
+...       ...  
+35519    36.0  
+35520    48.0  
+35521    45.0  
+35522    44.0  
+35523    27.0  
+35524    26.0  
+35525    24.0  
+35526    43.0  
+35527     NaN  
+35528    25.0  
+35529     NaN  
+35530     NaN  
+35531    43.0  
+35532    48.0  
+35533    56.0  
+35534    53.0  
+35535    42.0  
+35536    46.0  
+35537    31.0  
+35538    68.0  
+35539    23.0  
+35540    31.0  
+35541    29.0  
+35542    34.0  
+35543     NaN  
+35544     NaN  
+35545     NaN  
+35546    14.0  
+35547    51.0  
+35548     NaN  
+
+[35549 rows x 9 columns]
+```
+Never fear, all the data is there, if you scroll up. Selecting just a few rows, so it is
+easier to fit on one window, you can see that pandas has neatly formatted the data to fit
+our screen:
+```python
+# the [x:y] appended to the variable name selects a slice of the data, columns x through y-1
+>>> surveys_df[5:10]
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+5          6      7   16  1977        1         PF   M             14.0   
+6          7      7   16  1977        2         PE   F              NaN   
+7          8      7   16  1977        1         DM   M             37.0   
+8          9      7   16  1977        1         DM   F             34.0   
+9         10      7   16  1977        6         PF   F             20.0   
+
+   weight  
+5     NaN  
+6     NaN  
+7     NaN  
+8     NaN  
+9     NaN  
+```
 
 ## Exploring Our Species Survey Data
 
