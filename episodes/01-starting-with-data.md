@@ -230,8 +230,9 @@ Never fear, all the data is there, if you scroll up. Selecting just a few rows, 
 easier to fit on one window, you can see that pandas has neatly formatted the data to fit
 our screen:
 ```python
-# the [x:y] appended to the variable name selects a slice of the data, columns x through y-1
->>> surveys_df[5:10]
+
+>>> surveys_df.head() # The head() function displays the first several lines of a file. It
+		      # is discussed below.
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M             14.0   
 6          7      7   16  1977        2         PE   F              NaN   
