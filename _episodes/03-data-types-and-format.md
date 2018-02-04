@@ -39,7 +39,7 @@ this lesson: numeric and text data types.
 
 Numeric data types include integers and floats. A **floating point** (known as a
 float) number has decimal points even if that decimal point value is 0. For
-example: 1.13, 2.0 1234.345. If we have a column that contains both integers and
+example: 1.13, 2.0, 1234.345. If we have a column that contains both integers and
 floating point numbers, Pandas will assign the entire column to the float data
 type so the decimal points are not lost.
 
@@ -66,7 +66,7 @@ is in the table below:
 |-------------|--------------------|-------------|
 | object | string | The most general dtype. Will be assigned to your column if column has mixed types (numbers and strings). |
 | int64  | int | Numeric characters. 64 refers to the memory allocated to hold this character. |
-| float64 | float | Numeric characters with decimals. If a column contains numbers and NaNs(see below), pandas will default to float64, in case your missing value has a decimal. |
+| float64 | float | Numeric characters with decimals. If a column contains numbers and NaNs (see below), pandas will default to float64, in case your missing value has a decimal. |
 | datetime64, timedelta[ns] | N/A (but see the [datetime] module in Python's standard library) | Values meant to hold time data. Look into these for time series experiments. |
 
 [datetime]: http://doc.python.org/2/library/datetime.html
@@ -243,7 +243,7 @@ in the future when you (or someone else) explores your data.
 Let's explore the NaN values in our data a bit further. Using the tools we
 learned in lesson 02, we can figure out how many rows contain NaN values for
 weight. We can also create a new subset from our data that only contains rows
-with weight values > 0 (ie select meaningful weight values):
+with weight values > 0 (i.e., select meaningful weight values):
 
 ```python
 len(surveys_df[pd.isnull(surveys_df.weight)])
@@ -302,7 +302,7 @@ we're not mixing up all of our previous manipulations.
 ```python
 surveys_df = pd.read_csv("data/surveys.csv")
 ```
-Next, let's drop all the rows that contain missing values. We will use the command `drop_na`.
+Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
 By default, dropna removes columns that contain missing data for even just one row.
 
 ```python
@@ -310,18 +310,18 @@ df_na = df.dropna()
 
 ```
 
-If you now type ```drop_na```, you should observe that the resulting DataFrame has 30676 rows
+If you now type ```df_na```, you should observe that the resulting DataFrame has 30676 rows
 and 9 columns, much smaller than the 35549 row original.
 
 We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
-save it to a different folder by adding the foldername and a slash to the file
-`df1.to_csv('foldername/out.csv')`. We use the 'index=False' so that
+save it to a different folder by adding the foldername and a slash before the filename:
+`df1.to_csv('foldername/out.csv')`. We use 'index=False' so that
 pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-vertical_stack.to_csv('data_output/surveys_complete.csv', index=False)
+df_na.to_csv('data_output/surveys_complete.csv', index=False)
 ```
 
 We will use this data file later in the workshop. Check out your working directory to make
