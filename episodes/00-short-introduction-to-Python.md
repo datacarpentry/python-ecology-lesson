@@ -10,10 +10,6 @@ objectives:
     - "Define the following data types in Python: strings, integers, and floats."
     - "Perform mathematical operations in Python using basic operators."
     - "Define the following as it relates to Python: lists, tuples, and dictionaries."
-keypoints:
-    - definition starts with `def`
-    - function body is indented
-    - `return` keyword precedes returned value
 ---
 
 # The Basics of Python
