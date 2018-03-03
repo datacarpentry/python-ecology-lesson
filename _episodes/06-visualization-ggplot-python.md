@@ -37,59 +37,50 @@ surveys_complete = pd.read_csv('data_output/surveys_complete.csv')
 surveys_complete
 ```
 
-# Plotting with ggplot
+# Plotting with plotnine
 
-We will make the same plot using the `ggplot` package.
+The `plotnine` package (cfr. other packages conform [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0)) supports the creation of complex plots from data in a dataframe. It uses default settings, which help creating publication quality plots with a minimal amount of settings and tweaking.
 
-`ggplot` is a plotting package that makes it simple to create complex plots
-from data in a dataframe. It uses default settings, which help creating
-publication quality plots with a minimal amount of settings and tweaking.
+`plotnine` graphics are built step by step by adding new elementsadding different elements on top of each other using the `+` operator. Putting the individual steps together in brackets `()` provides Python-compatible syntax.
 
-ggplot graphics are built step by step by adding new elements.
+To build a `plotnine` graphic we need to:
 
-To build a ggplot we need to:
-
-- bind the plot to a specific data frame using the `data` argument
-
-
-
-
-- define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
-     such as plotting size, shape color, etc.,
-
-
-
+- Bind the plot to a specific data frame using the `data` argument:
 
 ```python
-ggplot( aesthetics= aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete)
+(pn.ggplot(data=surveys_complete))
 ```
+As we have not defined anything else, just an empty figure is available.
 
 
-- add `geoms` -- graphical representation of the data in the plot (points,
-     lines, bars). To add a geom to the plot use `+` operator:
-
-
-
+- Define aesthetics (`aes`), by **selecting variables** used in the plot and linking them to presentation such as plotting size, shape color, etc. You can interpret this as: *which** of the variables will influence the plotted objects/geometries:
 
 ```python
-ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + geom_point()
+(pn.ggplot(data=surveys_complete,
+           pn.aes(x='weight', y='hindfoot_length')))
 ```
 
+The most important aes are: `x`, `y`, `alpha`, `color`, `colour`, `fill`, `linetype`, `shape`, `size` and `stroke`.
 
-The `+` in the `ggplot2` package is particularly useful because it allows you
-to modify existing `ggplot` objects. This means you can easily set up plot
-"templates" and conveniently explore different types of plots, so the above
-plot can also be generated with code like this:
+- Still nothing plotted yet, as we have to define what kind of geometry will be used for the plot. The easiest is probably using points. Points is one of the `geoms` options, the graphical representation of the data in the plot. Others are lines, bars,... To add a geom to the plot use `+` operator:
 
+```python
+(pn.ggplot(data=surveys_complete,
+           pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+)
+```
 
+The `+` in the `plotnine` package is particularly useful because it allows you to modify existing `plotnine` objects. This means you can easily set up plot *templates* and conveniently explore different types of plots, so the above plot can also be generated with code like this:
 
 
 ```python
 # Create
-surveys_plot = ggplot( aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete)
+surveys_plot = pn.ggplot(data=surveys_complete,
+                         pn.aes(x='weight', y='hindfoot_length'))
 
 # Draw the plot
-surveys_plot + geom_point()
+surveys_plot + pn.geom_point()
 ```
 
 
