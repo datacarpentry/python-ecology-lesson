@@ -18,25 +18,24 @@ objectives:
 ---
 
 ## Disclaimer ##
- Python has powerful built-in plotting capabilities such as `matplotlib`, but for this exercise, we will be using the [`ggplot`](http://ggplot.yhathq.com/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson.
 
+Python has powerful built-in plotting capabilities such as `matplotlib`, but for this exercise, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package is built on top of Matplotlib and interacts well with Pandas.
 
-
+Just as with the other packages, `plotnine` need to be imported. It is good practice to not just load an entire package such as `from plotnine import *`, but to use an abbreviation as we used `pd` for Pandas:
 
 ```python
-import pandas as pd
+%matplotlib inline
+import plotnine as pn
+```
 
+From now on, the functions of `plotnine` are available using `pn.`. For the exercise, we will use the `surveys_complete.csv` data set, created in the previous episodes.
+ 
+```python
+import pandas as pd
 
 surveys_complete = pd.read_csv('data_output/surveys_complete.csv')
 surveys_complete
 ```
-
-
-```python
-%matplotlib inline
-from ggplot import *
-```
-
 
 # Plotting with ggplot
 
