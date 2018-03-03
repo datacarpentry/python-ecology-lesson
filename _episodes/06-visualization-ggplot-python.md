@@ -17,7 +17,7 @@ objectives:
     - "Create customized plot styles to meet their needs."
 ---
 
-## Disclaimer ##
+## Disclaimer
 
 Python has powerful built-in plotting capabilities such as `matplotlib`, but for this exercise, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package is built on top of Matplotlib and interacts well with Pandas.
 
