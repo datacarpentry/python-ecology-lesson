@@ -83,6 +83,41 @@ surveys_plot = pn.ggplot(data=surveys_complete,
 surveys_plot + pn.geom_point()
 ```
 
+The `data`, `aes` and `geom-*` are the elementary elements to have a graph, but other elements and customization can be added to the graph as well:
+
+- Change the labels:
+
+```python
+(pn.ggplot(data=surveys_complete,
+           pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+    + pn.xlab("Weight (g)")
+)
+```
+
+- Use the power of `groupby` and define `facets` to group the plot by a grouping variable:
+
+```python
+(pn.ggplot(data=surveys_complete,
+           pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+    + pn.xlab("Weight (g)")
+    + pn.facet_wrap('sex')
+)
+```
+
+- Defining scale for colors, axes,... For example, a log-version of the y-axis could support the interpretation of the lower numbers:
+
+```python
+(pn.ggplot(data=surveys_complete,
+           pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+    + pn.xlab("Weight (g)")
+    + pn.facet_wrap('sex')
+    + pn.scale_y_log10()
+)
+```
+
 
 Notes:
 
