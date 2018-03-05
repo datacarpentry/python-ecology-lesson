@@ -258,7 +258,7 @@ yearly_counts = surveys_complete.groupby(['year', 'species_id'])['species_id'].c
 yearly_counts
 ```
 
-When checking the result of the previous calculation, we actually have both the `year` and the `species_id` as a row index. W can reset this index to use them as column variable:
+When checking the result of the previous calculation, we actually have both the `year` and the `species_id` as a row index. We can reset this index to use both as column variable:
 
 ```python
 yearly_counts = yearly_counts.reset_index(name='counts')
