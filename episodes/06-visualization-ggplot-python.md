@@ -6,10 +6,10 @@ questions:
     - " How can I visualize data in Python?"
     - " What is 'grammar of graphics'?"
 objectives:
-    - "Create a ggplot object."
+    - "Create a plotnine object."
     - "Set universal plot settings."
-    - "Modify an existing ggplot object."
-    - "Change the aesthetics of a plot such as colour."
+    - "Modify an existing plotnine object."
+    - "Change the aesthetics of a plot such as color."
     - "Edit the axis labels."
     - "Build complex plots using a step-by-step approach."
     - "Create scatter plots, box plots, and time series plots."
