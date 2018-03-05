@@ -181,8 +181,8 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 )
 ```
 
-> ## Challenge - 
-> Adapt the bar plot of the previous exercise by mapping the `sex` variable to the color fill of the bar chart. Change the `scale` of the color fill by providing the colors `blue` and `orange` manually. 
+> ## Challenge - Bar plot adaptations
+> Adapt the bar plot of the previous exercise by mapping the `sex` variable to the color fill of the bar chart. Change the `scale` of the color fill by providing the colors `blue` and `orange` manually (see [API reference](https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales) to find the appropriate function). 
 > 
 > > ## Answers
 > > 
@@ -198,144 +198,55 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 {: .challenge}
 
 
-# Boxplot
+# Plotting distributions
 
-Visualising the distribution of weight within each species.
-
-
-
-R code:
-
-```R
-ggplot(data = surveys_complete, aes(x = species_id, y = hindfoot_length)) +
-    geom_boxplot()
-```
-
+Visualizing distributions is a common task during data exploration and analysis. To visualize the distribution of `weight` within each `species_id` group, a boxplot can be used:
 
 ```python
-ggplot( aes(x = 'species_id', y = 'hindfoot_length'), data = surveys_complete) + geom_boxplot()
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='species_id', 
+                          y='weight'))
+    + pn.geom_boxplot()
+)
 ```
 
-
-By adding points to boxplot, we can have a better idea of the number of
-measurements and of their distribution:
-
-
-
-R code:
-```R
-ggplot(data = surveys_complete, aes(x = species_id, y = hindfoot_length)) +
-    geom_jitter(alpha = 0.3, color = "tomato") +
-  geom_boxplot(alpha = 0)
-```
-
+By adding points of he individual observations to the boxplot, we can have a better idea of the number of measurements and of their distribution:
 
 ```python
-surveys_complete['species_factor'] = surveys_complete['species_id'].astype('category').cat.codes
-
-
-xlabels = sorted(set(surveys_complete['species_id'].values) )
-xcodes = sorted(set(surveys_complete['species_factor'].values))
-
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_point(position='jitter',alpha=0.7,jittersize=0.4) + \
-        scale_x_continuous(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0)
-
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='species_id', 
+                          y='weight'))
+    + pn.geom_jitter(alpha=0.2)
+    + pn.geom_boxplot(alpha=0.)
+)
 ```
 
-
-Notice how the boxplot layer is behind the jitter layer? What do you need to
-change in the code to put the boxplot in front of the points such that it's not
-hidden.
-
-## Challenges
-
-> Boxplots are useful summaries, but hide the *shape* of the distribution. For
-> example, if there is a bimodal distribution, this would not be observed with a
-> boxplot. An alternative to the boxplot is the violin plot (sometimes known as a
-> beanplot), where the shape (of the density of points) is drawn.
->
-> - Replace the box plot with a violin plot; see `geom_violin()`
->
-> In many types of data, it is important to consider the *scale* of the
-> observations.  For example, it may be worth changing the scale of the axis to
-> better distribute the observations in the space of the plot.  Changing the scale
-> of the axes is done similarly to adding/modifying other components (i.e., by
-> incrementally adding commands).
->
-> - Represent weight on the log10 scale; see `scale_y_log10()`
->
-> - Create boxplot for `hindfoot_length`.
->
+> ## Challenge - distributions
+> 
+> Boxplots are useful summaries, but hide the *shape* of the distribution. For example, if there is a bimodal distribution, this would not be observed with a boxplot. An alternative to the boxplot is the violin plot (sometimes known as a beanplot), where the shape (of the density of points) is drawn.
+> 
+> In many types of data, it is important to consider the *scale* of the observations.  For example, it may be worth changing the scale of the axis to better distribute the observations in the space of the plot.
+> 
+> - Replace the box plot with a violin plot, see `geom_violin()`
+> - Represent weight on the log10 scale, see `scale_y_log10()`
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
 >
-> Hint: Check the class for `plot_id`. Consider changing the class of `plot_id`
-> from integer to factor. Why does this change how R makes the graph?
+> Hint: Check the class for `plot_id`. By using `factor()` within the `aes` mapping of a variable, `plotnine` will handle the values as category values.
+> 
+> > ## Answers
+> > 
+> > (pn.ggplot(data=surveys_complete,
+> >            mapping=pn.aes(x='species_id', 
+> >                           y='weight',
+> >                           color='factor(plot_id)'))
+> >     + pn.geom_jitter(alpha=0.3)
+> >     + pn.geom_violin(alpha=0, color="0.7")
+> >     + pn.scale_y_log10()
+> > )
+> > {: .language-python}
+> {: .solution}
 {: .challenge}
-
-
-
-
-
-```python
-## Challenges:
-##  Start with the boxplot we created:
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0)
-```
-
-
-```python
-##  1. Replace the box plot with a violin plot; see `geom_violin()`.
-
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_violin(alpha=0)
-```
-
-
-```python
-##  2. Represent weight on the log10 scale; see `scale_y_log10()`.
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.3) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_violin(alpha=0) + \
-            scale_y_log(base=10)
-```
-
-
-```python
-##  3. Create boxplot for `hindfoot_length`.
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_jitter(alpha=0.01) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0) + \
-            scale_y_log(base=10)
-
-```
-
-
-```python
-##  4. Add color to the datapoints on your boxplot according to the
-##  plot from which the sample was taken (`plot_id`).
-##  Hint: Check the class for `plot_id`. Consider changing the class
-##  of `plot_id` from integer to factor. Why does this change how R
-##  makes the graph?
-
-ggplot(aes(x = 'species_factor', y = 'hindfoot_length', color='plot_id'),data = surveys_complete) + \
-    geom_jitter(alpha=0.01) + \
-        scale_x_discrete(breaks=xcodes, labels=xlabels) + \
-                         xlab('species_id') + geom_boxplot(alpha=0) + \
-            scale_y_log(base=10)
-
-```
-
-
 
 # Plotting time series data
 
