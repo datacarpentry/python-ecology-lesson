@@ -15,6 +15,9 @@ objectives:
     - "Create scatter plots, box plots, and time series plots."
     - "Use the facet_wrap and facet_grid commands to create a collection of plots splitting the data by a factor variable."
     - "Create customized plot styles to meet their needs."
+keypoints:
+- "The `data`, `aes` variables and a `geometry` are the main elements of a plotnine graph"
+- "With the `+` operator, additional `scale_*`, `theme_*`, `xlab/ylab` and `facet_*` elements are added"
 ---
 
 ## Disclaimer
