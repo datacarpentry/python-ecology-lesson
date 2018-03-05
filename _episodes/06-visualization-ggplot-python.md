@@ -85,98 +85,88 @@ surveys_plot = pn.ggplot(data=surveys_complete,
 surveys_plot + pn.geom_point()
 ```
 
-The `data`, `aes` and `geom-*` are the elementary elements to have a graph, but other elements and customization can be added to the graph as well:
+Notes:
+
+- Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the `x` and `y` axis you set up in `aes()`.
+- You can also specify aesthetics for a given `geom` independently of the aesthetics defined globally in the `ggplot()` function.
+
+
+# Building your plots iteratively
+
+Building plots with `plotnine` is typically an iterative process. We start by defining the dataset we'll use, lay the axes, and choose a geom. Hence, the `data`, `aes` and `geom-*` are the elementary elements of any graph:
+
+```python
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+)
+```
+
+Then, we start modifying this plot to extract more information from it. For instance, we can add transparency (alpha) to avoid overplotting:
+
+
+```python
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
+)
+```
+
+We can also add colors for all the points
+
+```python
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1, color='blue')
+)
+```
+
+Or to color each species in the plot differently, map the `species_id` column to the color aesthetic:
+
+
+```python
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', 
+                          y='hindfoot_length',
+                          color='species_id'))
+    + pn.geom_point(alpha=0.1)
+)
+```
+
+Apart from the adaptations of the arguments and settings of the `data`, `aes` and `geom-*` elements, additional elements can be added as well, using the `+` operator:
 
 - Changing the labels:
 
 ```python
 (pn.ggplot(data=surveys_complete,
-           pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
     + pn.xlab("Weight (g)")
 )
 ```
 
-- Use the power of `groupby` and define `facets` to group the plot by a grouping variable:
+- Defining scale for colors, axes,... For example, a log-version of the x-axis could support the interpretation of the lower numbers:
 
 ```python
 (pn.ggplot(data=surveys_complete,
-           pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
     + pn.xlab("Weight (g)")
-    + pn.facet_wrap('sex')
+    + pn.scale_x_log10()
 )
 ```
 
-- Defining scale for colors, axes,... For example, a log-version of the y-axis could support the interpretation of the lower numbers:
+- Changing the theme (`theme_*`) or some specific theming (`theme`) elements:
 
 ```python
 (pn.ggplot(data=surveys_complete,
-           pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
     + pn.xlab("Weight (g)")
-    + pn.facet_wrap('sex')
-    
+    + pn.scale_x_log10()
+    + pn.theme_bw()
+    + pn.theme(text=pn.element_text(size=16))
 )
-```
-
-
-Notes:
-
-- Anything you put in the `ggplot()` function can be seen by any geom layers
-  that you add (i.e., these are universal plot settings). This includes the x and
-  y axis you set up in `aes()`.
-- You can also specify aesthetics for a given geom independently of the
-  aesthetics defined globally in the `ggplot()` function.
-
-
-# Building your plots iteratively
-
-Building plots with ggplot is typically an iterative process. We start by
-defining the dataset we'll use, lay the axes, and choose a geom.
-
-
-
-
-```python
-ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete, ) + geom_point()
-```
-
-
-Then, we start modifying this plot to extract more information from it. For
-instance, we can add transparency (alpha) to avoid overplotting.
-
-
-
-
-```python
-ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
-    geom_point(alpha = 0.1)
-```
-
-
-We can also add colors for all the points
-
-
-
-
-```python
-ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
-    geom_point(alpha = 0.1, color = "blue")
-```
-
-
-Or to color each species in the plot differently:
-
-
-
-
-```python
-# ggplot(data = surveys_complete, aes(x = weight, y = hindfoot_length)) +
-#    geom_point(alpha = 0.1, aes(color=species_id))
-
-ggplot(aes(x = 'weight', y = 'hindfoot_length', color='species_id'),data = surveys_complete) + \
-    geom_point( alpha = 0.1)
 ```
 
 
