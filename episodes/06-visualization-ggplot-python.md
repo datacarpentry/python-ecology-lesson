@@ -181,6 +181,22 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 )
 ```
 
+> ## Challenge - 
+> Adapt the bar plot of the previous exercise by mapping the `sex` variable to the color fill of the bar chart. Change the `scale` of the color fill by providing the colors `blue` and `orange` manually. 
+> 
+> > ## Answers
+> > 
+> > (pn.ggplot(data=surveys_complete,
+> >            mapping=pn.aes(x='plot_id', 
+> >                           fill='sex'))
+> >     + pn.geom_bar()
+> >     + pn.scale_fill_manual(["blue", "orange"])
+> > )
+> > 
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 
 # Boxplot
 
