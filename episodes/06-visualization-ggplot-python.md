@@ -22,16 +22,26 @@ keypoints:
 
 ## Disclaimer
 
-Python has powerful built-in plotting capabilities such as `matplotlib`, but for this episode, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package is built on top of Matplotlib and interacts well with Pandas.
+Python has powerful built-in plotting capabilities such as `matplotlib`, but for 
+this episode, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) 
+package, which facilitates the creation of highly-informative plots of 
+structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) 
+and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) 
+by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) 
+package is built on top of Matplotlib and interacts well with Pandas.
 
-Just as with the other packages, `plotnine` need to be imported. It is good practice to not just load an entire package such as `from plotnine import *`, but to use an abbreviation as we used `pd` for Pandas:
+Just as with the other packages, `plotnine` need to be imported. It is good 
+practice to not just load an entire package such as `from plotnine import *`, 
+but to use an abbreviation as we used `pd` for Pandas:
 
 ```python
 %matplotlib inline
 import plotnine as pn
 ```
 
-From now on, the functions of `plotnine` are available using `pn.`. For the exercise, we will use the `surveys_complete.csv` data set, created in the previous episodes.
+From now on, the functions of `plotnine` are available using `pn.`. For the 
+exercise, we will use the `surveys_complete.csv` data set, created in the 
+previous episodes.
  
 ```python
 import pandas as pd
@@ -41,9 +51,13 @@ surveys_complete = pd.read_csv('data_output/surveys_complete.csv')
 
 # Plotting with plotnine
 
-The `plotnine` package (cfr. other packages conform [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0)) supports the creation of complex plots from data in a dataframe. It uses default settings, which help creating publication quality plots with a minimal amount of settings and tweaking.
+The `plotnine` package (cfr. other packages conform [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0)) supports the creation of complex plots from data in a 
+dataframe. It uses default settings, which help creating publication quality 
+plots with a minimal amount of settings and tweaking.
 
-`plotnine` graphics are built step by step by adding new elementsadding different elements on top of each other using the `+` operator. Putting the individual steps together in brackets `()` provides Python-compatible syntax.
+`plotnine` graphics are built step by step by adding new elementsadding 
+different elements on top of each other using the `+` operator. Putting the 
+individual steps together in brackets `()` provides Python-compatible syntax.
 
 To build a `plotnine` graphic we need to:
 
@@ -52,19 +66,28 @@ To build a `plotnine` graphic we need to:
 ```python
 (pn.ggplot(data=surveys_complete))
 ```
-As we have not defined anything else, just an empty figure is available and presented.
+As we have not defined anything else, just an empty figure is available and 
+presented.
 
 
-- Define aesthetics (`aes`), by **selecting variables** used in the plot and `mapping` them to a presentation such as plotting size, shape color, etc. You can interpret this as: *which** of the variables will influence the plotted objects/geometries:
+- Define aesthetics (`aes`), by **selecting variables** used in the plot and 
+`mapping` them to a presentation such as plotting size, shape color, etc. You 
+can interpret this as: *which** of the variables will influence the plotted 
+objects/geometries:
 
 ```python
 (pn.ggplot(data=surveys_complete,
            mapping=pn.aes(x='weight', y='hindfoot_length')))
 ```
 
-The most important aes mappings are: `x`, `y`, `alpha`, `color`, `colour`, `fill`, `linetype`, `shape`, `size` and `stroke`.
+The most important aes mappings are: `x`, `y`, `alpha`, `color`, `colour`, 
+`fill`, `linetype`, `shape`, `size` and `stroke`.
 
-- Still no specific data is plotted, as we have to define what kind of geometry will be used for the plot. The most straightforward is probably using points. Points is one of the `geoms` options, the graphical representation of the data in the plot. Others are lines, bars,... To add a geom to the plot use `+` operator:
+- Still no specific data is plotted, as we have to define what kind of geometry 
+will be used for the plot. The most straightforward is probably using points. 
+Points is one of the `geoms` options, the graphical representation of the data 
+in the plot. Others are lines, bars,... To add a geom to the plot use `+` 
+operator:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -73,7 +96,10 @@ The most important aes mappings are: `x`, `y`, `alpha`, `color`, `colour`, `fill
 )
 ```
 
-The `+` in the `plotnine` package is particularly useful because it allows you to modify existing `plotnine` objects. This means you can easily set up plot *templates* and conveniently explore different types of plots, so the above plot can also be generated with code like this:
+The `+` in the `plotnine` package is particularly useful because it allows you 
+to modify existing `plotnine` objects. This means you can easily set up plot 
+*templates* and conveniently explore different types of plots, so the above 
+plot can also be generated with code like this:
 
 
 ```python
@@ -86,7 +112,9 @@ surveys_plot + pn.geom_point()
 ```
 
 > ## Challenge - bar chart
-> Working on the `surveys_complete` data set, use the `plot-id` column to create a `bar`-plot that counts the number of records for each plot. (Check the documentation of the bar geometry to handle the counts)
+> Working on the `surveys_complete` data set, use the `plot-id` column to 
+> create a `bar`-plot that counts the number of records for each plot. (Check 
+> the documentation of the bar geometry to handle the counts)
 > 
 > > ## Answers
 > > 
@@ -100,12 +128,17 @@ surveys_plot + pn.geom_point()
 
 Notes:
 
-- Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the `x` and `y` axis you set up in `aes()`.
-- You can also specify aesthetics for a given `geom` independently of the aesthetics defined globally in the `ggplot()` function.
+- Anything you put in the `ggplot()` function can be seen by any geom layers 
+that you add (i.e., these are universal plot settings). This includes the `x` 
+and `y` axis you set up in `aes()`.
+- You can also specify aesthetics for a given `geom` independently of the 
+aesthetics defined globally in the `ggplot()` function.
 
 # Building your plots iteratively
 
-Building plots with `plotnine` is typically an iterative process. We start by defining the dataset we'll use, lay the axes, and choose a geom. Hence, the `data`, `aes` and `geom-*` are the elementary elements of any graph:
+Building plots with `plotnine` is typically an iterative process. We start by 
+defining the dataset we'll use, lay the axes, and choose a geom. Hence, the 
+`data`, `aes` and `geom-*` are the elementary elements of any graph:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -114,7 +147,8 @@ Building plots with `plotnine` is typically an iterative process. We start by de
 )
 ```
 
-Then, we start modifying this plot to extract more information from it. For instance, we can add transparency (alpha) to avoid overplotting:
+Then, we start modifying this plot to extract more information from it. For 
+instance, we can add transparency (alpha) to avoid overplotting:
 
 
 ```python
@@ -133,7 +167,8 @@ We can also add colors for all the points
 )
 ```
 
-Or to color each species in the plot differently, map the `species_id` column to the color aesthetic:
+Or to color each species in the plot differently, map the `species_id` column 
+to the color aesthetic:
 
 
 ```python
@@ -145,7 +180,9 @@ Or to color each species in the plot differently, map the `species_id` column to
 )
 ```
 
-Apart from the adaptations of the arguments and settings of the `data`, `aes` and `geom-*` elements, additional elements can be added as well, using the `+` operator:
+Apart from the adaptations of the arguments and settings of the `data`, `aes` 
+and `geom-*` elements, additional elements can be added as well, using the `+` 
+operator:
 
 - Changing the labels:
 
@@ -157,7 +194,8 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 )
 ```
 
-- Defining scale for colors, axes,... For example, a log-version of the x-axis could support the interpretation of the lower numbers:
+- Defining scale for colors, axes,... For example, a log-version of the x-axis 
+could support the interpretation of the lower numbers:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -168,7 +206,9 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 )
 ```
 
-- Changing the theme (`theme_*`) or some specific theming (`theme`) elements. Usually plots with white background look more readable when printed.  We can set the background to white using the function `theme_bw()`.
+- Changing the theme (`theme_*`) or some specific theming (`theme`) elements. 
+Usually plots with white background look more readable when printed.  We can 
+set the background to white using the function `theme_bw()`.
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -182,7 +222,10 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 ```
 
 > ## Challenge - Bar plot adaptations
-> Adapt the bar plot of the previous exercise by mapping the `sex` variable to the color fill of the bar chart. Change the `scale` of the color fill by providing the colors `blue` and `orange` manually (see [API reference](https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales) to find the appropriate function). 
+> Adapt the bar plot of the previous exercise by mapping the `sex` variable to 
+> the color fill of the bar chart. Change the `scale` of the color fill by 
+> providing the colors `blue` and `orange` manually 
+> (see [API reference](https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales) to find the appropriate function). 
 > 
 > > ## Answers
 > > 
@@ -200,7 +243,9 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 
 # Plotting distributions
 
-Visualizing distributions is a common task during data exploration and analysis. To visualize the distribution of `weight` within each `species_id` group, a boxplot can be used:
+Visualizing distributions is a common task during data exploration and 
+analysis. To visualize the distribution of `weight` within each `species_id` 
+group, a boxplot can be used:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -210,7 +255,8 @@ Visualizing distributions is a common task during data exploration and analysis.
 )
 ```
 
-By adding points of he individual observations to the boxplot, we can have a better idea of the number of measurements and of their distribution:
+By adding points of he individual observations to the boxplot, we can have a 
+better idea of the number of measurements and of their distribution:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -223,16 +269,22 @@ By adding points of he individual observations to the boxplot, we can have a bet
 
 > ## Challenge - distributions
 > 
-> Boxplots are useful summaries, but hide the *shape* of the distribution. For example, if there is a bimodal distribution, this would not be observed with a boxplot. An alternative to the boxplot is the violin plot (sometimes known as a beanplot), where the shape (of the density of points) is drawn.
+> Boxplots are useful summaries, but hide the *shape* of the distribution. 
+> For example, if there is a bimodal distribution, this would not be observed 
+> with a boxplot. An alternative to the boxplot is the violin plot (sometimes 
+> known as a beanplot), where the shape (of the density of points) is drawn.
 > 
-> In many types of data, it is important to consider the *scale* of the observations.  For example, it may be worth changing the scale of the axis to better distribute the observations in the space of the plot.
+> In many types of data, it is important to consider the *scale* of the 
+> observations.  For example, it may be worth changing the scale of the axis 
+> to better distribute the observations in the space of the plot.
 > 
 > - Replace the box plot with a violin plot, see `geom_violin()`
 > - Represent weight on the log10 scale, see `scale_y_log10()`
 > - Add color to the datapoints on your boxplot according to the plot from which
 >   the sample was taken (`plot_id`)
 >
-> Hint: Check the class for `plot_id`. By using `factor()` within the `aes` mapping of a variable, `plotnine` will handle the values as category values.
+> Hint: Check the class for `plot_id`. By using `factor()` within the `aes` 
+> mapping of a variable, `plotnine` will handle the values as category values.
 > 
 > > ## Answers
 > > 
@@ -251,21 +303,25 @@ By adding points of he individual observations to the boxplot, we can have a bet
 
 # Plotting time series data
 
-Let's calculate number of counts per year for each species. To do that we need to group data first and count the species (`species_id`) within each group.
+Let's calculate number of counts per year for each species. To do that we need 
+to group data first and count the species (`species_id`) within each group.
 
 ```python
 yearly_counts = surveys_complete.groupby(['year', 'species_id'])['species_id'].count()
 yearly_counts
 ```
 
-When checking the result of the previous calculation, we actually have both the `year` and the `species_id` as a row index. We can reset this index to use both as column variable:
+When checking the result of the previous calculation, we actually have both the 
+`year` and the `species_id` as a row index. We can reset this index to use both 
+as column variable:
 
 ```python
 yearly_counts = yearly_counts.reset_index(name='counts')
 yearly_counts
 ```
 
-Timelapse data can be visualised as a line plot (`geom_line`) with years on `x` axis and counts on the `y` axis.
+Timelapse data can be visualised as a line plot (`geom_line`) with years on `x` 
+axis and counts on the `y` axis.
 
 
 ```python
@@ -276,7 +332,9 @@ Timelapse data can be visualised as a line plot (`geom_line`) with years on `x` 
 )
 ```
 
-Unfortunately this does not work, because we plot data for all the species together. We need to tell `plotnine` to draw a line for each species by modifying the aesthetic function and map the species_id to the color:
+Unfortunately this does not work, because we plot data for all the species 
+together. We need to tell `plotnine` to draw a line for each species by 
+modifying the aesthetic function and map the species_id to the color:
 
 ```python
 (pn.ggplot(data=yearly_counts,
@@ -289,9 +347,12 @@ Unfortunately this does not work, because we plot data for all the species toget
 
 # Faceting
 
-As any other library supporting the Grammar of Graphics, `plotnine` has a special technique called *faceting* that allows to split one plot into multiple plots based on a factor variable included in the dataset.
+As any other library supporting the Grammar of Graphics, `plotnine` has a 
+special technique called *faceting* that allows to split one plot into multiple 
+plots based on a factor variable included in the dataset.
 
-Consider our scatter plot of the `weight` versus the `hindfoot_length` from the previous sections:
+Consider our scatter plot of the `weight` versus the `hindfoot_length` from the 
+previous sections:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -301,7 +362,9 @@ Consider our scatter plot of the `weight` versus the `hindfoot_length` from the 
 )
 ```
 
-We can now keep the same code and at the `facet_wrap` on a chosen variable to split out the graph and make a separate graph for each of the groups in that variabel. As an example, use `sex`:
+We can now keep the same code and at the `facet_wrap` on a chosen variable to 
+split out the graph and make a separate graph for each of the groups in that 
+variable. As an example, use `sex`:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -323,9 +386,15 @@ We can apply the same concept on any of the available categorical variables:
 )
 ```
 
-The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions to allow them to cleanly fit on one page. On the other hand, the `facet_grid` geometry allows you to explicitly specify how you want your plots to be arranged via formula notation (`rows ~ columns`; a `.` can be used as a placeholder that indicates only one row or column).
+The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions 
+to allow them to cleanly fit on one page. On the other hand, the `facet_grid` 
+geometry allows you to explicitly specify how you want your plots to be 
+arranged via formula notation (`rows ~ columns`; a `.` can be used as a 
+placeholder that indicates only one row or column).
 
-Consider we want to compare the scatter plots among males/females for 2 specific years 2000 and 2001. By using `facet_grid`, we can make the scatter plot for each of the combinations of the year and the sex:
+Consider we want to compare the scatter plots among males/females for 2 
+specific years 2000 and 2001. By using `facet_grid`, we can make the scatter 
+plot for each of the combinations of the year and the sex:
 
 ```python
 # only selecte the years of interes
@@ -340,7 +409,8 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 ```
 
 > ## Challenge - facetting
-> Create a separate plot for each of the species that depicts how the average weight of the species changes through the years.
+> Create a separate plot for each of the species that depicts how the average 
+> weight of the species changes through the years.
 > 
 > > ## Answers
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
@@ -357,7 +427,9 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 
 > ## Challenge - facetting
-> Based on the previous exercise, visually compare how the weights of male and females has changed through time by creating a separate plot for each sex and an individual color assigned to each `species_id`. 
+> Based on the previous exercise, visually compare how the weights of male and 
+> females has changed through time by creating a separate plot for each sex and 
+> an individual color assigned to each `species_id`. 
 > 
 > > ## Answers
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id', 'sex'])['weight'].mean().reset_index()
@@ -376,9 +448,13 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 # Further customization
 
-As the syntax of `plotnine` follows the original R package `ggplot2`, the documentation of `ggplot2` can provide information and inspiration to customize graphs. Take a look at the `ggplot2` [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf), and think of ways to improve the plot. You can write down some of your ideas as comments in the Etherpad. 
+As the syntax of `plotnine` follows the original R package `ggplot2`, the 
+documentation of `ggplot2` can provide information and inspiration to customize 
+graphs. Take a look at the `ggplot2` [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf), and think of ways to improve the plot. You can write down some 
+of your ideas as comments in the Etherpad. 
 
-The theming options provide a rich set of visual adaptations. Consider the following example of a bar plot with the counts per year.
+The theming options provide a rich set of visual adaptations. Consider the 
+following example of a bar plot with the counts per year.
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -387,7 +463,10 @@ The theming options provide a rich set of visual adaptations. Consider the follo
 )
 ```
 
-Notice that we use the `year` here as a categorical variable by using the `factor` functionality. However, by doing so, we have the individual year labels overlapping with eachother. The `theme` functionality provides a way to rotate the text of the x-axis labels:
+Notice that we use the `year` here as a categorical variable by using the 
+`factor` functionality. However, by doing so, we have the individual year 
+labels overlapping with eachother. The `theme` functionality provides a way to 
+rotate the text of the x-axis labels:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -398,7 +477,8 @@ Notice that we use the `year` here as a categorical variable by using the `facto
 )
 ```
 
-When you like a specific set of theme-customizations you created, you can save them as an object to easily apply them to other plots you may create:
+When you like a specific set of theme-customizations you created, you can save 
+them as an object to easily apply them to other plots you may create:
 
 
 ```python
@@ -413,7 +493,8 @@ my_custom_theme = pn.theme(axis_text_x = pn.element_text(color="grey", size=10,
 ```
 
 > ## Challenge - customization
-> Please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own.
+> Please take another five minutes to either improve one of the plots 
+generated in this exercise or create a beautiful graph of your own.
 > 
 > Here are some ideas:
 > 
@@ -423,7 +504,9 @@ my_custom_theme = pn.theme(axis_text_x = pn.element_text(color="grey", size=10,
 {: .challenge}
 
 
-After creating your plot, you can save it to a file in your favourite format. You can easily change the dimension (and its resolution) of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`):
+After creating your plot, you can save it to a file in your favourite format. 
+You can easily change the dimension (and its resolution) of your plot by 
+adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
