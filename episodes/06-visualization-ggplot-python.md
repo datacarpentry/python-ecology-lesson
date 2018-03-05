@@ -373,126 +373,63 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > {: .solution}
 {: .challenge}
 
-# Customization
 
-Take a look at the ggplot2 cheat sheet
-(https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf), and
-think of ways to improve the plot. You can write down some of your ideas as
-comments in the Etherpad.
+# Further customization
 
-Now, let's change names of axes to something more informative than 'year'
-and 'n' and add a title to this figure:
+As the syntax of `plotnine` follows the original R package `ggplot2`, the documentation of `ggplot2` can provide information and inspiration to customize graphs. Take a look at the `ggplot2` [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf), and think of ways to improve the plot. You can write down some of your ideas as comments in the Etherpad. 
 
-
-
+The theming options provide a rich set of visual adaptations. Consider the following example of a bar plot with the counts per year.
 
 ```python
-ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
-    geom_line() + \
-    facet_wrap( "species_id" ) + \
-    labs(title = 'Observed species in time',
-         x = 'Year of observation',
-         y = 'Number of species') + \
-    theme_bw()
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='factor(year)'))
+    + pn.geom_bar()
+)
 ```
 
-
-The axes have more informative names, but their readability can be improved by
-increasing the font size. While we are at it, we'll also change the font family:
-
-
-
+Notice that we use the `year` here as a categorical variable by using the `factor` functionality. However, by doing so, we have the individual year labels overlapping with eachother. The `theme` functionality provides a way to rotate the text of the x-axis labels:
 
 ```python
-ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
-    geom_line() + \
-    facet_wrap( "species_id" ) + \
-    theme_bw() + \
-    theme(axis_title_x = element_text(size=16, family="Arial"),
-         axis_title_y = element_text(size=16, family="Arial")) + \
-    labs(title = 'Observed species in time',
-        x = 'Year of observation',
-        y = 'Number of species')
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='factor(year)'))
+    + pn.geom_bar()
+    + pn.theme_bw()
+    + pn.theme(axis_text_x = pn.element_text(angle=90))
+)
 ```
 
-
-After our manipulations we notice that the values on the x-axis are still not
-properly readable. Let's change the orientation of the labels and adjust them
-vertically and horizontally so they don't overlap. You can use a 90 degree
-angle, or experiment to find the appropriate angle for diagonally oriented
-labels.
-
-
+When you like a specific set of theme-customizations you created, you can save them as an object to easily apply them to other plots you may create:
 
 
 ```python
-ggplot( aes(x = "year", y = "n", color = "sex", group = "sex"),data = yearly_sex_counts) + \
-    geom_line() + \
-    facet_wrap( "species_id" ) + \
-    labs(title = 'Observed species in time',
-        x = 'Year of observation',
-        y = 'Number of species') + \
-    theme_bw() + \
-    theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
-          axis_text_y = element_text(color="grey", size=10, hjust=0),
-         )
+my_custom_theme = pn.theme(axis_text_x = pn.element_text(color="grey", size=10,
+                                                         angle=90, hjust=.5), 
+                           axis_text_y = pn.element_text(color="grey", size=10))
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='factor(year)'))
+    + pn.geom_bar()
+    + my_custom_theme
+)
 ```
 
-
-If you like the changes you created to the default theme, you can save them as
-an object to easily apply them to other plots you may create:
-
-
-
-
-
-```python
-arial_grey_theme = theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
-                          axis_text_y = element_text(color="grey", size=10))
-ggplot(surveys_complete, aes(x = 'species_id', y = 'hindfoot_length')) + \
-    geom_boxplot() + \
-    arial_grey_theme
-```
+> ## Challenge - customization
+> Please take another five minutes to either improve one of the plots generated in this exercise or create a beautiful graph of your own.
+> 
+> Here are some ideas:
+> 
+> * See if you can change thickness of lines for the line plot .
+> * Can you find a way to change the name of the legend? What about its labels?
+> * Use a different color palette (see http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+{: .challenge}
 
 
-With all of this information in hand, please take another five minutes to either
-improve one of the plots generated in this exercise or create a beautiful graph
-of your own. Use the RStudio ggplot2 cheat sheet, which we linked earlier for
-inspiration.
-
-Here are some ideas:
-
-* See if you can change thickness of the lines.
-* Can you find a way to change the name of the legend? What about its labels?
-* Use a different color palette (see http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
-
-After creating your plot, you can save it to a file in your favourite format.
-You can easily change the dimension (and its resolution) of your plot by
-adjusting the appropriate arguments (`width`, `height` and `dpi`):
-
-
+After creating your plot, you can save it to a file in your favourite format. You can easily change the dimension (and its resolution) of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
-my_plot =  ggplot(yearly_sex_counts, aes(x = "year", y = "n", color = "sex", group = "sex"))
-my_plot += geom_line()
-my_plot += facet_wrap("species_id")
-my_plot += labs(title = 'Observed species in time',
-                x = 'Year of observation',
-                y = 'Number of species')
-my_plot += theme_bw()
-my_plot += theme(axis_text_x = element_text(color="grey", size=10, angle=90, hjust=.5, vjust=.5),
-                        axis_text_y = element_text(color="grey", size=10))
-my_plot.save("name_of_file.png", width=15, height=10)
-```
-
-
-```python
-## Final plotting challenge:
-##  With all of this information in hand, please take another five
-##  minutes to either improve one of the plots generated in this
-##  exercise or create a beautiful graph of your own. Use the RStudio
-##  ggplot2 cheat sheet for inspiration:
-##  https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
-
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
+    + pn.geom_point()
+)
+my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 ```
