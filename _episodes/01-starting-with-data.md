@@ -528,7 +528,7 @@ total_count.plot(kind='bar');
 
 > ## Challenge - Plots
 >
-> 1. Create a plot of average weight across all species per plot.
+> 1. Create a plot of sum of the weights across all species per plot. This is called the biomass for a given plot.
 > 2. Create a plot of total males versus total females for the entire dataset.
 {: .challenge}
 
