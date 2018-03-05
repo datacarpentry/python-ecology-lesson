@@ -49,23 +49,23 @@ To build a `plotnine` graphic we need to:
 ```python
 (pn.ggplot(data=surveys_complete))
 ```
-As we have not defined anything else, just an empty figure is available.
+As we have not defined anything else, just an empty figure is available and presented.
 
 
-- Define aesthetics (`aes`), by **selecting variables** used in the plot and linking them to presentation such as plotting size, shape color, etc. You can interpret this as: *which** of the variables will influence the plotted objects/geometries:
+- Define aesthetics (`aes`), by **selecting variables** used in the plot and `mapping` them to a presentation such as plotting size, shape color, etc. You can interpret this as: *which** of the variables will influence the plotted objects/geometries:
 
 ```python
 (pn.ggplot(data=surveys_complete,
-           pn.aes(x='weight', y='hindfoot_length')))
+           mapping=pn.aes(x='weight', y='hindfoot_length')))
 ```
 
-The most important aes are: `x`, `y`, `alpha`, `color`, `colour`, `fill`, `linetype`, `shape`, `size` and `stroke`.
+The most important aes mappings are: `x`, `y`, `alpha`, `color`, `colour`, `fill`, `linetype`, `shape`, `size` and `stroke`.
 
-- Still nothing plotted yet, as we have to define what kind of geometry will be used for the plot. The easiest is probably using points. Points is one of the `geoms` options, the graphical representation of the data in the plot. Others are lines, bars,... To add a geom to the plot use `+` operator:
+- Still no specific data is plotted, as we have to define what kind of geometry will be used for the plot. The most straightforward is probably using points. Points is one of the `geoms` options, the graphical representation of the data in the plot. Others are lines, bars,... To add a geom to the plot use `+` operator:
 
 ```python
 (pn.ggplot(data=surveys_complete,
-           pn.aes(x='weight', y='hindfoot_length'))
+           mapping=pn.aes(x='weight', y='hindfoot_length'))
     + pn.geom_point()
 )
 ```
@@ -76,7 +76,7 @@ The `+` in the `plotnine` package is particularly useful because it allows you t
 ```python
 # Create
 surveys_plot = pn.ggplot(data=surveys_complete,
-                         pn.aes(x='weight', y='hindfoot_length'))
+                         mapping=pn.aes(x='weight', y='hindfoot_length'))
 
 # Draw the plot
 surveys_plot + pn.geom_point()
@@ -84,7 +84,7 @@ surveys_plot + pn.geom_point()
 
 The `data`, `aes` and `geom-*` are the elementary elements to have a graph, but other elements and customization can be added to the graph as well:
 
-- Change the labels:
+- Changing the labels:
 
 ```python
 (pn.ggplot(data=surveys_complete,
@@ -113,7 +113,7 @@ The `data`, `aes` and `geom-*` are the elementary elements to have a graph, but 
     + pn.geom_point()
     + pn.xlab("Weight (g)")
     + pn.facet_wrap('sex')
-    + pn.scale_y_log10()
+    
 )
 ```
 
