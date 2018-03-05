@@ -22,7 +22,7 @@ keypoints:
 
 ## Disclaimer
 
-Python has powerful built-in plotting capabilities such as `matplotlib`, but for this exercise, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package is built on top of Matplotlib and interacts well with Pandas.
+Python has powerful built-in plotting capabilities such as `matplotlib`, but for this episode, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package, which facilitates the creation of highly-informative plots of structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/) and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0) by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/) package is built on top of Matplotlib and interacts well with Pandas.
 
 Just as with the other packages, `plotnine` need to be imported. It is good practice to not just load an entire package such as `from plotnine import *`, but to use an abbreviation as we used `pd` for Pandas:
 
@@ -85,11 +85,23 @@ surveys_plot = pn.ggplot(data=surveys_complete,
 surveys_plot + pn.geom_point()
 ```
 
+> ## Challenge - bar chart
+> Working on the `surveys_complete` data set, use the `plot-id` column to create a `bar`-plot that counts the number of records for each plot. (Check the documentation of the bar geometry to handle the counts)
+> 
+> > ## Answers
+> > 
+> > (pn.ggplot(data=surveys_complete,
+> >            mapping=pn.aes(x='plot_id'))
+> >     + pn.geom_bar()
+> > )
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 Notes:
 
 - Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the `x` and `y` axis you set up in `aes()`.
 - You can also specify aesthetics for a given `geom` independently of the aesthetics defined globally in the `ggplot()` function.
-
 
 # Building your plots iteratively
 
