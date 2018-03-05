@@ -34,7 +34,6 @@ From now on, the functions of `plotnine` are available using `pn.`. For the exer
 import pandas as pd
 
 surveys_complete = pd.read_csv('data_output/surveys_complete.csv')
-surveys_complete
 ```
 
 # Plotting with plotnine
