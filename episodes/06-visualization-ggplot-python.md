@@ -339,7 +339,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 )
 ```
 
-> ## Challenge - 
+> ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average weight of the species changes through the years.
 > 
 > > ## Answers
@@ -356,36 +356,22 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 {: .challenge}
 
 
-Let's modify the previous plot to compare how the weights of male and females
-has changed through time.
-
-
-
-
-```python
-## One column, facet by rows
-yearly_sex_weight = surveys_complete[
-    ['year','sex','species_id','weight']].groupby(
-    ["year", "sex", "species_id"]).mean().reset_index()
-yearly_sex_weight.columns = ['year','sex','species_id','avg_weight']
-yearly_sex_weight
-```
-
-
-```python
-ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_sex_weight) + \
-    geom_line() + \
-    facet_grid("sex")
-```
-
-
-```python
-# One row, facet by column
-ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_sex_weight) + \
-    geom_line() + \
-    facet_grid(None, "sex")
-```
-
+> ## Challenge - facetting
+> Based on the previous exercise, visually compare how the weights of male and females has changed through time by creating a separate plot for each sex and an individual color assigned to each `species_id`. 
+> 
+> > ## Answers
+> > yearly_weight = surveys_complete.groupby(['year', 'species_id', 'sex'])['weight'].mean().reset_index()
+> > 
+> > (pn.ggplot(data=yearly_weight,
+> >            mapping=pn.aes(x='year', 
+> >                           y='weight'))
+> >                           color='species_id'))
+> >     + pn.geom_line()
+> >     + pn.facet_wrap("sex")
+> > )
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
 # Customization
 
