@@ -168,7 +168,7 @@ Apart from the adaptations of the arguments and settings of the `data`, `aes` an
 )
 ```
 
-- Changing the theme (`theme_*`) or some specific theming (`theme`) elements:
+- Changing the theme (`theme_*`) or some specific theming (`theme`) elements. Usually plots with white background look more readable when printed.  We can set the background to white using the function `theme_bw()`.
 
 ```python
 (pn.ggplot(data=surveys_complete,
