@@ -262,40 +262,29 @@ When checking the result of the previous calculation, we actually have both the 
 
 ```python
 yearly_counts = yearly_counts.reset_index(name='counts')
+yearly_counts
 ```
 
-
-Timelapse data can be visualised as a line plot with years on x axis and counts
-on y axis.
-
-
+Timelapse data can be visualised as a line plot (`geom_line`) with years on `x` axis and counts on the `y` axis.
 
 
 ```python
-ggplot(aes(x = 'year', y = 'n'),data = yearly_counts) + \
-     geom_line()
+(pn.ggplot(data=yearly_counts,
+           mapping=pn.aes(x='year', 
+                          y='counts'))
+    + pn.geom_line()
+)
 ```
 
-
-Unfortunately this does not work, because we plot data for all the species
-together. We need to tell ggplot to draw a line for each species by modifying
-the aesthetic function to include `group = species_id`.
-
-
-
+Unfortunately this does not work, because we plot data for all the species together. We need to tell `plotnine` to draw a line for each species by modifying the aesthetic function and map the species_id to the color:
 
 ```python
-ggplot(aes(x = 'year', y = 'n', group='species_id'),data = yearly_counts) + geom_line()
-```
-
-
-We will be able to distinguish species in the plot if we add colors.
-
-
-
-
-```python
-ggplot(aes(x = 'year', y = 'n', color='species_id'),data = yearly_counts) + geom_line()
+(pn.ggplot(data=yearly_counts,
+           mapping=pn.aes(x='year', 
+                          y='counts',
+                          color='species_id'))
+    + pn.geom_line()
+)
 ```
 
 
