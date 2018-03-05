@@ -287,111 +287,74 @@ Unfortunately this does not work, because we plot data for all the species toget
 )
 ```
 
-
 # Faceting
 
-ggplot has a special technique called *faceting* that allows to split one plot
-into multiple plots based on a factor included in the dataset. We will use it to
-make one plot for a time series for each species.
+As any other library supporting the Grammar of Graphics, `plotnine` has a special technique called *faceting* that allows to split one plot into multiple plots based on a factor variable included in the dataset.
 
-
-
-
-Now we would like to split line in each plot by sex of each individual
-measured. To do that we need to make counts in data frame grouped by year,
-species_id, and sex:
-
-
-
+Consider our scatter plot of the `weight` versus the `hindfoot_length` from the previous sections:
 
 ```python
-yearly_sex_counts = surveys_complete.groupby( ['year','species_id', 'sex']).count()
-yearly_sex_counts['n']  = yearly_sex_counts['record_id']
-yearly_sex_counts = yearly_sex_counts['n'].reset_index()
-yearly_sex_counts
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', 
+                          y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
+)
 ```
 
-
-We can now make the faceted plot splitting further by sex (within a single plot):
-
-
-
+We can now keep the same code and at the `facet_wrap` on a chosen variable to split out the graph and make a separate graph for each of the groups in that variabel. As an example, use `sex`:
 
 ```python
- ggplot(aes(x = "year", y = "n", color = "species_id", group = "sex"), data = yearly_sex_counts, ) + \
-     geom_line() + \
-         facet_wrap( "species_id")
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', 
+                          y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
+    + pn.facet_wrap("sex")
+)
 ```
 
-
-Usually plots with white background look more readable when printed.  We can set
-the background to white using the function `theme_bw()`. Additionally you can also remove
-the grid.
-
-
-
+We can apply the same concept on any of the available categorical variables:
 
 ```python
- ggplot(aes(x = "year", y = "n", color = "species_id", group = "sex"),data = yearly_sex_counts ) + \
-     geom_line() + \
-            facet_wrap( "species_id") + \
-                theme_bw() + \
-                theme()
+(pn.ggplot(data=surveys_complete,
+           mapping=pn.aes(x='weight', 
+                          y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
+    + pn.facet_wrap("plot_id")
+)
 ```
 
+The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions to allow them to cleanly fit on one page. On the other hand, the `facet_grid` geometry allows you to explicitly specify how you want your plots to be arranged via formula notation (`rows ~ columns`; a `.` can be used as a placeholder that indicates only one row or column).
 
-To make the plot easier to read, we can color by sex instead of species (species
-are already in separate plots, so we don't need to distinguish them further).
-
-
-
+Consider we want to compare the scatter plots among males/females for 2 specific years 2000 and 2001. By using `facet_grid`, we can make the scatter plot for each of the combinations of the year and the sex:
 
 ```python
-ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex_counts) + \
-    geom_line() + \
-    facet_wrap("species_id") + \
-    theme_bw()
+# only selecte the years of interes
+survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
+
+(pn.ggplot(data=survey_2000,
+           mapping=pn.aes(x='weight', 
+                          y='hindfoot_length'))
+    + pn.geom_point(alpha=0.1)
+    + pn.facet_grid("year ~ sex")
+)
 ```
 
+> ## Challenge - 
+> Create a separate plot for each of the species that depicts how the average weight of the species changes through the years.
+> 
+> > ## Answers
+> > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
+> > 
+> > (pn.ggplot(data=yearly_weight,
+> >            mapping=pn.aes(x='year', 
+> >                           y='weight'))
+> >     + pn.geom_line()
+> >     + pn.facet_wrap("species_id")
+> > )
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
 
-
-# Challenge
-
-> Use what you just learned to create a plot that depicts how the average weight
-> of each species changes through the years.
-
-<!-- Answer
-
-
-
-```python
-yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
-yearly_weight.columns =   ["year", "species_id","avg_weight"]  
-yearly_weight
-```
-
-
-```python
-ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_weight) + \
-    geom_line() + \
-    facet_wrap("species_id") + \
-    theme_bw()
-```
-
-
-```python
-## Plotting time series challenge:
-##  Use what you just learned to create a plot that depicts how the
-##  average weight of each species changes through the years.
-
-```
-
-
-The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
-to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
-geometry allows you to explicitly specify how you want your plots to be
-arranged via formula notation (`rows ~ columns`; a `.` can be used as
-a placeholder that indicates only one row or column).
 
 Let's modify the previous plot to compare how the weights of male and females
 has changed through time.
