@@ -248,18 +248,20 @@ By adding points of he individual observations to the boxplot, we can have a bet
 > {: .solution}
 {: .challenge}
 
+
 # Plotting time series data
 
-Let's calculate number of counts per year for each species. To do that we need
-to group data first and count records within each group.
-
-
-
+Let's calculate number of counts per year for each species. To do that we need to group data first and count records (or get the size) within each group.
 
 ```python
-yearly_counts = surveys_complete[['year','species_id']].groupby(['year', 'species_id']).size().reset_index()
-yearly_counts.columns = ['year','species_id', 'n']
+yearly_counts = surveys_complete.groupby(['year', 'species_id']).size()
 yearly_counts
+```
+
+When checking the result of the previous calculation, we actually have both the `year` and the `species_id` as a row index. W can reset this index to use them as column variable:
+
+```python
+yearly_counts = yearly_counts.reset_index(name='counts')
 ```
 
 
