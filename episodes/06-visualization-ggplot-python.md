@@ -36,10 +36,10 @@ but to use an abbreviation as we used `pd` for Pandas:
 
 ```python
 %matplotlib inline
-import plotnine as pn
+import plotnine as p9
 ```
 
-From now on, the functions of `plotnine` are available using `pn.`. For the 
+From now on, the functions of `plotnine` are available using `p9.`. For the 
 exercise, we will use the `surveys_complete.csv` data set, created in the 
 previous episodes.
  
@@ -64,7 +64,7 @@ To build a `plotnine` graphic we need to:
 - Bind the plot to a specific data frame using the `data` argument:
 
 ```python
-(pn.ggplot(data=surveys_complete))
+(p9.ggplot(data=surveys_complete))
 ```
 As we have not defined anything else, just an empty figure is available and 
 presented.
@@ -76,8 +76,8 @@ can interpret this as: *which** of the variables will influence the plotted
 objects/geometries:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length')))
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length')))
 ```
 
 The most important aes mappings are: `x`, `y`, `alpha`, `color`, `colour`, 
@@ -90,9 +90,9 @@ in the plot. Others are lines, bars,... To add a geom to the plot use `+`
 operator:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point()
 )
 ```
 
@@ -104,11 +104,11 @@ plot can also be generated with code like this:
 
 ```python
 # Create
-surveys_plot = pn.ggplot(data=surveys_complete,
-                         mapping=pn.aes(x='weight', y='hindfoot_length'))
+surveys_plot = p9.ggplot(data=surveys_complete,
+                         mapping=p9.aes(x='weight', y='hindfoot_length'))
 
 # Draw the plot
-surveys_plot + pn.geom_point()
+surveys_plot + p9.geom_point()
 ```
 
 > ## Challenge - bar chart
@@ -118,9 +118,9 @@ surveys_plot + pn.geom_point()
 > 
 > > ## Answers
 > > 
-> > (pn.ggplot(data=surveys_complete,
-> >            mapping=pn.aes(x='plot_id'))
-> >     + pn.geom_bar()
+> > (p9.ggplot(data=surveys_complete,
+> >            mapping=p9.aes(x='plot_id'))
+> >     + p9.geom_bar()
 > > )
 > > {: .language-python}
 > {: .solution}
@@ -141,9 +141,9 @@ defining the dataset we'll use, lay the axes, and choose a geom. Hence, the
 `data`, `aes` and `geom-*` are the elementary elements of any graph:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point()
 )
 ```
 
@@ -152,18 +152,18 @@ instance, we can add transparency (alpha) to avoid overplotting:
 
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point(alpha=0.1)
 )
 ```
 
 We can also add colors for all the points
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1, color='blue')
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point(alpha=0.1, color='blue')
 )
 ```
 
@@ -172,11 +172,11 @@ to the color aesthetic:
 
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', 
                           y='hindfoot_length',
                           color='species_id'))
-    + pn.geom_point(alpha=0.1)
+    + p9.geom_point(alpha=0.1)
 )
 ```
 
@@ -187,10 +187,10 @@ operator:
 - Changing the labels:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.xlab("Weight (g)")
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point(alpha=0.1)
+    + p9.xlab("Weight (g)")
 )
 ```
 
@@ -198,11 +198,11 @@ operator:
 could support the interpretation of the lower numbers:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.xlab("Weight (g)")
-    + pn.scale_x_log10()
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point(alpha=0.1)
+    + p9.xlab("Weight (g)")
+    + p9.scale_x_log10()
 )
 ```
 
@@ -211,13 +211,13 @@ Usually plots with white background look more readable when printed.  We can
 set the background to white using the function `theme_bw()`.
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.xlab("Weight (g)")
-    + pn.scale_x_log10()
-    + pn.theme_bw()
-    + pn.theme(text=pn.element_text(size=16))
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point(alpha=0.1)
+    + p9.xlab("Weight (g)")
+    + p9.scale_x_log10()
+    + p9.theme_bw()
+    + p9.theme(text=p9.element_text(size=16))
 )
 ```
 
@@ -229,11 +229,11 @@ set the background to white using the function `theme_bw()`.
 > 
 > > ## Answers
 > > 
-> > (pn.ggplot(data=surveys_complete,
-> >            mapping=pn.aes(x='plot_id', 
+> > (p9.ggplot(data=surveys_complete,
+> >            mapping=p9.aes(x='plot_id', 
 > >                           fill='sex'))
-> >     + pn.geom_bar()
-> >     + pn.scale_fill_manual(["blue", "orange"])
+> >     + p9.geom_bar()
+> >     + p9.scale_fill_manual(["blue", "orange"])
 > > )
 > > 
 > > {: .language-python}
@@ -248,10 +248,10 @@ analysis. To visualize the distribution of `weight` within each `species_id`
 group, a boxplot can be used:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='species_id', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='species_id', 
                           y='weight'))
-    + pn.geom_boxplot()
+    + p9.geom_boxplot()
 )
 ```
 
@@ -259,11 +259,11 @@ By adding points of he individual observations to the boxplot, we can have a
 better idea of the number of measurements and of their distribution:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='species_id', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='species_id', 
                           y='weight'))
-    + pn.geom_jitter(alpha=0.2)
-    + pn.geom_boxplot(alpha=0.)
+    + p9.geom_jitter(alpha=0.2)
+    + p9.geom_boxplot(alpha=0.)
 )
 ```
 
@@ -288,13 +288,13 @@ better idea of the number of measurements and of their distribution:
 > 
 > > ## Answers
 > > 
-> > (pn.ggplot(data=surveys_complete,
-> >            mapping=pn.aes(x='species_id', 
+> > (p9.ggplot(data=surveys_complete,
+> >            mapping=p9.aes(x='species_id', 
 > >                           y='weight',
 > >                           color='factor(plot_id)'))
-> >     + pn.geom_jitter(alpha=0.3)
-> >     + pn.geom_violin(alpha=0, color="0.7")
-> >     + pn.scale_y_log10()
+> >     + p9.geom_jitter(alpha=0.3)
+> >     + p9.geom_violin(alpha=0, color="0.7")
+> >     + p9.scale_y_log10()
 > > )
 > > {: .language-python}
 > {: .solution}
@@ -325,10 +325,10 @@ axis and counts on the `y` axis.
 
 
 ```python
-(pn.ggplot(data=yearly_counts,
-           mapping=pn.aes(x='year', 
+(p9.ggplot(data=yearly_counts,
+           mapping=p9.aes(x='year', 
                           y='counts'))
-    + pn.geom_line()
+    + p9.geom_line()
 )
 ```
 
@@ -337,11 +337,11 @@ together. We need to tell `plotnine` to draw a line for each species by
 modifying the aesthetic function and map the species_id to the color:
 
 ```python
-(pn.ggplot(data=yearly_counts,
-           mapping=pn.aes(x='year', 
+(p9.ggplot(data=yearly_counts,
+           mapping=p9.aes(x='year', 
                           y='counts',
                           color='species_id'))
-    + pn.geom_line()
+    + p9.geom_line()
 )
 ```
 
@@ -355,10 +355,10 @@ Consider our scatter plot of the `weight` versus the `hindfoot_length` from the
 previous sections:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', 
                           y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
+    + p9.geom_point(alpha=0.1)
 )
 ```
 
@@ -367,22 +367,22 @@ split out the graph and make a separate graph for each of the groups in that
 variable. As an example, use `sex`:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', 
                           y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.facet_wrap("sex")
+    + p9.geom_point(alpha=0.1)
+    + p9.facet_wrap("sex")
 )
 ```
 
 We can apply the same concept on any of the available categorical variables:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', 
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', 
                           y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.facet_wrap("plot_id")
+    + p9.geom_point(alpha=0.1)
+    + p9.facet_wrap("plot_id")
 )
 ```
 
@@ -400,11 +400,11 @@ plot for each of the combinations of the year and the sex:
 # only selecte the years of interes
 survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
-(pn.ggplot(data=survey_2000,
-           mapping=pn.aes(x='weight', 
+(p9.ggplot(data=survey_2000,
+           mapping=p9.aes(x='weight', 
                           y='hindfoot_length'))
-    + pn.geom_point(alpha=0.1)
-    + pn.facet_grid("year ~ sex")
+    + p9.geom_point(alpha=0.1)
+    + p9.facet_grid("year ~ sex")
 )
 ```
 
@@ -415,11 +415,11 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > > ## Answers
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
 > > 
-> > (pn.ggplot(data=yearly_weight,
-> >            mapping=pn.aes(x='year', 
+> > (p9.ggplot(data=yearly_weight,
+> >            mapping=p9.aes(x='year', 
 > >                           y='weight'))
-> >     + pn.geom_line()
-> >     + pn.facet_wrap("species_id")
+> >     + p9.geom_line()
+> >     + p9.facet_wrap("species_id")
 > > )
 > > {: .language-python}
 > {: .solution}
@@ -434,12 +434,12 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > > ## Answers
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id', 'sex'])['weight'].mean().reset_index()
 > > 
-> > (pn.ggplot(data=yearly_weight,
-> >            mapping=pn.aes(x='year', 
+> > (p9.ggplot(data=yearly_weight,
+> >            mapping=p9.aes(x='year', 
 > >                           y='weight'))
 > >                           color='species_id'))
-> >     + pn.geom_line()
-> >     + pn.facet_wrap("sex")
+> >     + p9.geom_line()
+> >     + p9.facet_wrap("sex")
 > > )
 > > {: .language-python}
 > {: .solution}
@@ -457,9 +457,9 @@ The theming options provide a rich set of visual adaptations. Consider the
 following example of a bar plot with the counts per year.
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='factor(year)'))
-    + pn.geom_bar()
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='factor(year)'))
+    + p9.geom_bar()
 )
 ```
 
@@ -469,11 +469,11 @@ labels overlapping with eachother. The `theme` functionality provides a way to
 rotate the text of the x-axis labels:
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='factor(year)'))
-    + pn.geom_bar()
-    + pn.theme_bw()
-    + pn.theme(axis_text_x = pn.element_text(angle=90))
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='factor(year)'))
+    + p9.geom_bar()
+    + p9.theme_bw()
+    + p9.theme(axis_text_x = p9.element_text(angle=90))
 )
 ```
 
@@ -482,12 +482,12 @@ them as an object to easily apply them to other plots you may create:
 
 
 ```python
-my_custom_theme = pn.theme(axis_text_x = pn.element_text(color="grey", size=10,
+my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
                                                          angle=90, hjust=.5), 
-                           axis_text_y = pn.element_text(color="grey", size=10))
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='factor(year)'))
-    + pn.geom_bar()
+                           axis_text_y = p9.element_text(color="grey", size=10))
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='factor(year)'))
+    + p9.geom_bar()
     + my_custom_theme
 )
 ```
@@ -510,9 +510,9 @@ adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
-(pn.ggplot(data=surveys_complete,
-           mapping=pn.aes(x='weight', y='hindfoot_length'))
-    + pn.geom_point()
+(p9.ggplot(data=surveys_complete,
+           mapping=p9.aes(x='weight', y='hindfoot_length'))
+    + p9.geom_point()
 )
 my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 ```
