@@ -128,7 +128,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 ```
 
 
-We can also add colors for all the points
+We can also add colors for all the points.
 
 
 
@@ -139,7 +139,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 ```
 
 
-Or to color each species in the plot differently:
+Or to color each species in the plot differently.
 
 
 
