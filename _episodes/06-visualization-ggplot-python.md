@@ -412,7 +412,7 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
 
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
-
+{: .challenge}
 <!-- Answer
 
 
