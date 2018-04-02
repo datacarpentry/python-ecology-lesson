@@ -128,7 +128,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'), data = surveys_complete) + \
 ```
 
 
-We can also add colors for all the points
+We can also add colors for all the points.
 
 
 
@@ -139,7 +139,7 @@ ggplot(aes(x = 'weight', y = 'hindfoot_length'),data = surveys_complete) + \
 ```
 
 
-Or to color each species in the plot differently:
+Or to color each species in the plot differently.
 
 
 
@@ -412,7 +412,7 @@ ggplot(aes(x = "year", y = "n", color = "sex", group = "sex"), data = yearly_sex
 
 > Use what you just learned to create a plot that depicts how the average weight
 > of each species changes through the years.
-
+{: .challenge}
 <!-- Answer
 
 
