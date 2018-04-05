@@ -43,16 +43,17 @@ Hello World
 {: .language-bash}
 
 
-## Introduction to Python built-in data types
+## Introduction to variables in Python
 
-### Strings, integers and floats
+### Assiging values to variables
 
 One of the most basic things we can do in Python is assign values to variables:
 
 ~~~
-text = "Data Carpentry"  # An example of a string
-number = 42  # An example of an integer
-pi_value = 3.1415  # An example of a float
+text = "Data Carpentry"  # An example of assigning a value to a new text variable,
+                         # also known as a string data type in Python
+number = 42              # An example of assigning a numeric value, or an integer data type
+pi_value = 3.1415        # An example of assigning a value that is a float data type
 ~~~
 {: .language-python}
 
@@ -65,23 +66,6 @@ can type the name of the variable into the interpreter and press <kbd>Return</kb
 "Data Carpentry"
 ~~~
 {: .language-python}
-
-Everything in Python has a type. To get the type of something, we can pass it
-to the built-in function `type`:
-
-~~~
->>> type(text)
-<class 'str'>
->>> type(number)
-<class 'int'>
->>> type(6.02)
-<class 'float'>
-~~~
-{: .language-python}
-
-The variable `text` is of type `str`, short for "string". Strings hold
-sequences of characters, which can be letters, numbers, punctuation
-or more exotic forms of text (even emoji!).
 
 We can also see the value of something using another built-in function, `print`:
 
