@@ -464,9 +464,9 @@ dates are not provided:
         all_data --- DataFrame with multi-year data
         """
 
-        if not start_year:
+        if start_year is None:
             start_year = min(all_data.year)
-        if not end_year:
+        if end_year is None:
             end_year = max(all_data.year)
 
         return start_year, end_year
