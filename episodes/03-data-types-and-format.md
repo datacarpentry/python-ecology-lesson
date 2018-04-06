@@ -306,7 +306,7 @@ Next, let's drop all the rows that contain missing values. We will use the comma
 By default, dropna removes columns that contain missing data for even just one row.
 
 ```python
-df_na = df.dropna()
+df_na = surveys_df.dropna()
 
 ```
 
@@ -316,7 +316,7 @@ and 9 columns, much smaller than the 35549 row original.
 We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash before the filename:
-`df1.to_csv('foldername/out.csv')`. We use 'index=False' so that
+`df.to_csv('foldername/out.csv')`. We use 'index=False' so that
 pandas doesn't include the index number for each line.
 
 ```python
