@@ -44,7 +44,7 @@ vulture
 hippo
 ```
 
-The line defining the loop must start with `for` and end with a colon, and the
+Here, the line defining the loop start with `for` and end with a colon, and the
 body of the loop must be indented.
 
 In this example, `creature` is the loop variable that takes the value of the next
@@ -258,11 +258,11 @@ A more elegant solution would be to create a reusable tool that performs this
 task with minimum input from the user. To do this, we are going to turn the code
 we've already written into a function.
 
-Functions are reusable, self-contained pieces of code that are called with a
+Functions are reusable, self-contained pieces of code that can be called with a
 single command. They can be designed to accept arguments as input and return
 values, but they don't need to do either. Variables declared inside functions
 only exist while the function is running and if a variable within the function
-(a local variable) has the same name as a variable somewhere else in the code,
+(a local variable) has the same name as a variable somewhere else in the code (a global variable),
 the local variable hides but doesn't overwrite the other.
 
 Every method used in Python (for example, `print`) is a function, and the
