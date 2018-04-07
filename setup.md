@@ -53,13 +53,32 @@ Anaconda will install the workshop packages for you.
 
 #### Download and install Anaconda
 
-Download and install [Anaconda](https://www.continuum.io/downloads).
-Remember to download and install the installer for Python 3.x.
+Download and install Anaconda3 version 4.2:
+
+[Mac](https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.pkg)
+
+[Windows 32 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86.exe)
+
+[Windows 64 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Windows-x86_64.exe)
+
+[Linux 32 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86.sh)
+
+[Linux 64 bit](https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh)
+
+Currently, more recent versions of Anaconda does not easily support ggplot.
+
+#### Install ggplot
+
+From the terminal, type:
+
+```
+conda install -c conda-forge ggplot
+```
 
 ### Miniconda installation
 
-Miniconda is a "light" version of Anaconda. If you install and use Miniconda
-you will also need to install the workshop packages.
+Miniconda is an alternative "light" version of Anaconda. 
+If you install and use Miniconda you will also need to install all the workshop packages.
 
 #### Download and install Miniconda
 
@@ -75,13 +94,15 @@ From the terminal, type:
 conda list
 ```
 
-### Install the required workshop packages with conda
+#### Install the required workshop packages
 
 From the terminal, type:
 
 ```
+conda create -n py34 python=3.4
+source activate py34
 conda install -y numpy pandas matplotlib jupyter
-conda install -c bokeh ggplot
+conda install -c conda-forge ggplot
 ```
 
 ## Launch a Jupyter notebook
