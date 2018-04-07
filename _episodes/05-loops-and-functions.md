@@ -343,7 +343,7 @@ one_year_csv_writer?
 ```
 
 ```python
-one_year_csv_writer(2002,surveys_df)
+one_year_csv_writer(2002, surveys_df)
 ```
 
 We changed the root of the name of the CSV file so we can distinguish it from
@@ -444,7 +444,7 @@ argument with default values (which are optional in the function call).
 
 ```
     Both optional arguments:	1988 1993
-    Default values:			1977 2002
+    Default values:		1977 2002
 ```
 
 The "\t" in the `print` statements are tabs, used to make the text align and be
@@ -480,7 +480,7 @@ dates are not provided:
 ```
 ```
     Both optional arguments:	1988 1993
-    Default values:			1977 2002
+    Default values:		1977 2002
 ```
 
 The default values of the `start_year` and `end_year` arguments in the function
@@ -557,23 +557,6 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ```python
-    def yearly_data_arg_test(all_data, start_year = None, end_year = None):
-        """
-        Modified from yearly_data_csv_writer to test default argument values!
-
-        start_year --- the first year of data we want --- default: None - check all_data
-        end_year --- the last year of data we want --- default: None - check all_data
-        all_data --- DataFrame with multi-year data
-        """
-
-        if not start_year:
-            start_year = min(all_data.year)
-        if not end_year:
-            end_year = max(all_data.year)
-
-        return start_year, end_year
-
-
     start,end = yearly_data_arg_test (surveys_df)
     print('Default values:\t\t\t', start, end)
 
@@ -593,10 +576,10 @@ values to the function using these keywords:
     print('One keyword, default start:\t', start, end)
 ```
 ```
-    Default values:			1977 2002
-    No keywords:			1988 1993
+    Default values:		1977 2002
+    No keywords:		1988 1993
     Both keywords, in order:	1988 1993
-    Both keywords, flipped:		1988 1993
+    Both keywords, flipped:	1988 1993
     One keyword, default end:	1988 2002
     One keyword, default start:	1977 1993
 ```
