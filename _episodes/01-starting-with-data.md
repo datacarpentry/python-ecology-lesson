@@ -46,7 +46,7 @@ from Ernst et al
 
 We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 This section will use the `surveys.csv` file that can be downloaded here:
-[https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+[https://ndownloader.figshare.com/files/10717177](https://ndownloader.figshare.com/files/10717177)
 
 We are studying the species and weight of animals caught in sites in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
