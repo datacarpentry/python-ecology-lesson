@@ -119,16 +119,18 @@ We will begin by locating and reading our survey data which are in CSV format. C
 We can use Pandas' `read_csv` function to pull the file directly into a
 [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
 
-## So What's a DataFrame?
+### So What's a DataFrame?
 
 A DataFrame is a 2-dimensional data structure that can store data of different
 types (including characters, integers, floating point values, factors and more)
-in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
-R. A DataFrame always has an index (0-based). An index refers to the position of
+in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in R. 
+It has columns, with column headers and rows representing observations. A column needs to be of the same data type, i.e. either numeric or character, but different columns can differ in their data type. That means, pandas DataFrames are ideal to hold observational data tables imported into python.
+A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
 
 ```python
 # Note that pd.read_csv is used because we imported pandas as pd
+# the 'data/' stands for the subfolder data in our working directory
 pd.read_csv("data/surveys.csv")
 ```
 
@@ -226,9 +228,8 @@ of data:
 
 [35549 rows x 9 columns]
 ```
-Never fear, all the data is there, if you scroll up. Selecting just a few rows, so it is
-easier to fit on one window, you can see that pandas has neatly formatted the data to fit
-our screen:
+Never fear, all the data is there, if you scroll up. Selecting just a few rows, so it is easier to fit on one window, you can see that pandas has neatly formatted the data to fit our screen:
+
 ```python
 
 >>> surveys_df.head() # The head() function displays the first several lines of a file. It
@@ -253,7 +254,8 @@ our screen:
 Again, we can use the `type` function to see what kind of thing `surveys_df` is:
 
 ```python
->>> type(surveys_df)
+type(surveys_df)
+
 <class 'pandas.core.frame.DataFrame'>
 ```
 
@@ -264,7 +266,8 @@ What kind of things does `surveys_df` contain? DataFrames have an attribute
 called `dtypes` that answers this:
 
 ```python
->>> surveys_df.dtypes
+surveys_df.dtypes
+
 record_id            int64
 month                int64
 day                  int64
@@ -304,16 +307,22 @@ Let's look at the data using these.
 
 > ## Challenge - DataFrames
 >
-> Using our DataFrame `surveys_df`, try out the attributes & methods below to see
-> what they return.
->
-> 1. `surveys_df.columns`
-> 2. `surveys_df.shape` Take note of the output of `shape` - what format does it
+> Using our DataFrame `surveys_df`, try out the attributes & methods below to see what they return.
+> `.columns`, `.axes`, `.ndim`, `.size`, `.shape`, `.head()`, `.tail()`, `.describe`
+> 
+> (Remember you can use `?`, e.g. `?surveys_df.head()`, to get some information about an attribute in the console or check the [pandas documentation](http://pandas.pydata.org/pandas-docs/stable/index.html))
+> 
+> Can you answer the following questions:
+> 
+> 1. How many rows and how many columns are in `surveys_df`?
+> 
+> 2. What is the value of `weight` in row 11 and what in the second last row?
+> 
+> 3. What is the mean value and what the median of `hindfoot_length`?
+> 
+> 4. Take note of the output of `.shape` - what format does it
 >    return the shape of the DataFrame in?
->    
->    HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
-> 3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
-> 4. `surveys_df.tail()`
+>    (HINT: More on tuples, [here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences))
 {: .challenge}
 
 
@@ -366,7 +375,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 > 2. What is the difference between `len(site_names)` and `surveys_df['site_id'].nunique()`?
 {: .challenge}
 
-# Groups in Pandas
+## Groups in Pandas
 
 We often want to calculate summary statistics grouped by subsets or attributes
 within fields of our data. For example, we might want to calculate the average
@@ -443,7 +452,7 @@ summary stats.
 
 > ## Challenge - Summary Data
 >
-> 1. How many recorded individuals are female `F` and how many male `M`
+> 1. How many recorded individuals are female `F` and how many male `M`?
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
 >	- `grouped_data2 = surveys_df.groupby(['site_id','sex'])`
@@ -471,7 +480,7 @@ summary stats.
 > {: .solution}
 {: .challenge}
 
-## Quickly Creating Summary Counts in Pandas
+### Quickly Creating Summary Counts in Pandas
 
 Let's next count the number of samples for each species. We can do this in a few
 ways, but we'll use `groupby` combined with **a `count()` method**.
@@ -496,24 +505,17 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 >  groupby DataFrames in the same way you can perform them on regular DataFrames.
 {: .challenge}
 
-## Basic Math Functions
 
-If we wanted to, we could perform math on an entire column of our data. For
-example let's multiply all weight values by 2. A more practical use of this might
-be to normalize the data according to a mean, area, or some other value
-calculated from our data.
-
-	# Multiply all weight values by 2
-	surveys_df['weight']*2
-
-# Quick & Easy Plotting Data Using Pandas
+## Quick & Easy Plotting Data Using Pandas
 
 We can plot our summary stats using Pandas, too.
 
-	# Make sure figures appear inline in Ipython Notebook
-	%matplotlib inline
-	# Create a quick bar chart
-	species_counts.plot(kind='bar');
+If you work in the Jpyter Notebook, make sure figures appear inline by running `%matplotlib inline`. If you are working in Spyder, the default setting for the Ipython console is `inline` plotting (it can be changed in preferences).
+
+```
+# Create a quick bar chart
+species_counts.plot(kind='bar');
+```
 
 ![Weight by Species Site](../fig/countPerSpecies.png)
 Count per species site
@@ -531,6 +533,71 @@ total_count.plot(kind='bar');
 > 1. Create a plot of average weight across all species per site.
 > 2. Create a plot of total males versus total females for the entire dataset.
 {: .challenge}
+
+
+## Mutating columns
+
+If we wanted to, we could perform math on an entire column of our data. For
+example let's multiply all weight values by 2 or take the `log` of weight. 
+Remember if we want to apply a function to all elements in an array like object we can use functions from `numpy`, e.g. `np.log()`.
+
+```
+# Multiply all weight values by 2
+surveys_df['weight']*2
+# take the log of all values
+np.log(surveys_df['weight'])
+```
+	
+We can create a new variable for the 'mutated' weight or adding it as a new column to our dataframe `surveys_df`:
+
+```
+# adding the column `ln_weight` to `surveys_df`
+rainfall_df['ln_weight'] = np.log(rainfall_df['weight'])
+rainfall_df.head()
+```
+A more practical use of this might be to normalize the data according to a mean, area, or some other value calculated from our data.
+
+
+## A few words on dates
+Dates in python are represented by `date`, `time` and `datetime` objects from the 'datetime' module. 
+
+```python
+import datetime as dt
+# a date
+dt.date(year = 2018, month = 01, day = 11)
+# a time
+dt.time(hour = 9, minute=30, second=15)
+# a datetime
+dt.datetime(2018, 01, 11, 9, 30, 15)
+```
+A defined format for date is important when calculating e.g. differences between dates etc.
+
+Let's try:
+```python
+dt1 = dt.datetime(2018, 01, 11, 9, 30, 00)
+dt2 = dt.datetime(2018, 01, 11, 10, 00, 00)
+dt2 - dt1
+datetime.timedelta(0, 1800)
+```
+
+This yields a `timedelta` object with a value of 1800. `datetime` objects are represented in seconds, so the difference is given in seconds, and 1800 sec = 30 min.
+
+
+Now back to our surveys data. The date is represented by the columns year, month, and day. To create a datetime column, Pandas has the function `to_datetime`:
+
+We can combine year, month and day to a date.
+
+```python
+surveys_df['date'] = pd.to_datetime(surveys_df[['year', 'month', 'day']])
+```
+
+> ## Challenge - datetime objects
+> 1. Sometimes you have a dataframe with one date column and you want to extract just the day or year from this column. 
+> Look up the methods of the _datetime_ package to extract individual date and time elements from the `datetime` column.
+> Create a new `day` column from the `date` column we just created.
+{: .challenge}
+
+
 
 > ## Summary Plotting Challenge
 >
