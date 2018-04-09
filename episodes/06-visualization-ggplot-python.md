@@ -40,13 +40,13 @@ import plotnine as p9
 ```
 
 From now on, the functions of `plotnine` are available using `p9.`. For the 
-exercise, we will use the `surveys_complete.csv` data set, created in the 
-previous episodes.
- 
+exercise, we will use the `surveys.csv` data set, with the `NA` values removed
+
 ```python
 import pandas as pd
 
-surveys_complete = pd.read_csv('data_output/surveys_complete.csv')
+surveys_complete = pd.read_csv('data/surveys.csv')
+surveys_complete = surveys_complete.dropna()
 ```
 
 # Plotting with plotnine
