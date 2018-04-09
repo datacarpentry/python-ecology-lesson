@@ -436,7 +436,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > > 
 > > (p9.ggplot(data=yearly_weight,
 > >            mapping=p9.aes(x='year', 
-> >                           y='weight'))
+> >                           y='weight', 
 > >                           color='species_id'))
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("sex")
