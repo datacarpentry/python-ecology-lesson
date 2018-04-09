@@ -510,7 +510,7 @@ adjusting the appropriate arguments (`width`, `height` and `dpi`):
 
 
 ```python
-(p9.ggplot(data=surveys_complete,
+my_plot = (p9.ggplot(data=surveys_complete,
            mapping=p9.aes(x='weight', y='hindfoot_length'))
     + p9.geom_point()
 )
