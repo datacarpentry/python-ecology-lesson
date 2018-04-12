@@ -7,13 +7,13 @@ questions:
   - "Why should I learn Python?"
 objectives:
 - Describe the purpose of the editor, console, help, variable explorer and file explorer panes in Spyder.
-- Organize files and directories for a set of analyses as a python/spyder project, and understand the purpose of the working directory.
+- Organize files and directories for a set of analyses as a python project, and understand the purpose of the working directory.
 - Know where to find help
 - Demonstrate how to provide sufficient information for troubleshooting with the python user community.
 keypoints: 
 - python is an open source and platform independent programming language
 - the SciPy ecosystem for python provides the tools necessary for scientific computing 
-- Spyder is a great IDE to code in and interact with python
+- Jupyter Notebook and the Spyder IDE are great tools to code in and interact with python
 - with its large community it is easy to find help in the internet
 ---
 
@@ -55,7 +55,7 @@ With `numpy`, `pandas`, `sciPy`, `matplotlib` and many other modules that can be
 To do scientific computions in python, [SciPy](https://scipy.org) offers a collection of open source software for mathematics, science, and engineering:
 
 * [NumPy](http://www.numpy.org), the fundamental package for numerical computation, defines the numerical array and matrix types and basic operations on them. 
-* [SciPy](https://scipy.org/scipylib/index.html) is a collection of numerical algorithms and domain-specific toolboxes, including signal processing, optimization, statistics and much more.
+* [SciPy library](https://scipy.org/scipylib/index.html) is a collection of numerical algorithms and domain-specific toolboxes, including signal processing, optimization, statistics and much more.
 * [Matplotlib](http://matplotlib.org) is a mature and popular plotting package, that provides publication-quality 2D plotting as well as rudimentary 3D plotting.
 * [Pandas](http://pandas.pydata.org) provides high-performance, easy to use data structures.
 * [SymPy](http://www.sympy.org/en/index.html) is for symbolic mathematics and computer algebra.
@@ -64,12 +64,12 @@ These software can be installed as libraries in python and comes pre-installed w
 
 ### Python works on data of all shapes and sizes
 The skills you learn with python scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you.
-[pandas](http://pandas.pydata.org), a python data analysis library, comes with special data structures and data types that make handling of missing data and statistical factors convenient.
-Python can connect to spreadsheets, databases, and many other data formats, on your computer or on the web.
+[pandas](http://pandas.pydata.org), a python data analysis library, comes with special data structures and data types that make handling of missing data and categorial data convenient.
+Python can read text files, connect to databases, and many other data formats, on your computer or on the web.
 
 
 ### Python produces high-quality graphics
-The plotting functionalities in python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is the most popular plotting library in python. 
+The plotting functionalities in python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is a popular plotting library in python. [plotnine](http://plotnine.readthedocs.io/en/stable/) is an implementation of a _grammar of graphics_ in Python and builds upon matplotlib. _Grammar of graphics_ is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers 
 
 ### Python has a large and welcoming community
 Thousands of people use python daily. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com), or on the [Anaconda community](https://www.anaconda.com/community/).
@@ -77,23 +77,21 @@ Thousands of people use python daily. Many of them are willing to help you throu
 ### Not only is python free, but it is also open-source and cross-platform
 Anyone can inspect the source code to see how python works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs.
 
-## Knowing your way around Anaconda and Spyder
+## Knowing your way around Anaconda
 
+The [Anaconda](https://www.anaconda.com) distribution includes Python as well as popular programs such as the IPython console, Jupyter Notebook, and Spyder IDE.
+Have a quick look around the Anaconda Navigator. You can launch programs from the navigator or use the command line.
+
+The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
 [Spyder](https://spyder-ide.github.io
-) is currently a popular way to not only write your python scripts but also to interact with the python software; it is an interactive development enviroment, a so called IDE. To function correctly, Spyder needs python and therefore both need to be installed on your computer. The [Anaconda](https://www.anaconda.com) distribution includes python as well as Spyder and other programs such as the IPython console and Jupyter notebook.
+) is a popular way to write python scripts and also to interact with the python software; it is an interactive development enviroment, a so called IDE.  
 
-### Getting set up
+Anaconda also comes with a package manager, [Conda](https://conda.io/docs/), which makes it easy to install and update additional packages.
+
+## Getting set up
 
 It is good practice to keep a set of related data, analyses, and text self-contained in a single folder, called the working directory. All of the scripts within this folder can then use relative paths to files that indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without worrying about whether or not the underlying scripts will still work.
 
-Spyder provides a helpful set of tools to do this through its “Projects” interface, which not only creates a working directory for you but also remembers its location (allowing you to quickly navigate to it) and optionally preserves custom settings and open files to make it easier to resume work after a break. Below, we will go through the steps for creating an “Python Project” for this tutorial.
-
-* Start _Anaconda Navigator_ and launch _Spyder_ 
-* Under the _Projects_ menu, click on _New project_, choose _New directory_
-* Enter a name for this new folder (or “directory”), and choose a convenient location for it. This will be your working directory for the rest of the day (e.g., ~/data-carpentry)
-* Click on _Create_
-* You can customise how Spyder looks like under the _View_ menu, under _Window layouts_ please chose _Spyder Default Layout_, which we want to use for this lesson
-* Choose the _Project Explorer_ tab in the top right window of the screen, right click, choose _New_ and _Folder_ and create a folder named data within your newly created working directory (e.g., ~/data-carpentry/data)
 
 ### Organizing your working directory
 Using a consistent folder structure across your projects will help keep things organized, and will also make it easy to find/file things in the future. This can be especially helpful when you have multiple projects. In general, you may create directories (folders) for scripts, data, and documents.
@@ -105,10 +103,16 @@ Using a consistent folder structure across your projects will help keep things o
 **`scripts/`** This would be the location to keep your python scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a `data/` folder to store our raw data, and we will create later a `data_output/` folder when we learn how to export data as CSV files.
 
+
 ## Interacting with Python
 The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or code, instructions in python because it is a common language that both the computer and we can understand. We call the instructions commands and we tell the computer to follow the instructions by executing (also called running) those commands.
 
-There are two main ways of interacting with python: by using the console or by using script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press Enter to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
+##### If you are working with Jupyter notebook: 
+You can type python code into a code cell and then execute the code by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd>. Any output will be printed directly under the input cell. You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output is marked by `Out[ ]:`. Pressing the __+__ button in the menu bar will add a new cell. All your commands as well as any output will be saved with the notebook.
+
+##### If you are working with Spyder: 
+
+You can either use the console or use script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press Enter to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
 
 Because we want our code and workflow to be reproducible, it is better to type the commands we want in the script editor, and save the script. This way, there is a complete record of what we did, and anyone (including our future selves!) can easily replicate the results on their computer.
 
@@ -125,10 +129,10 @@ The material we cover during this workshop will give you an initial taste of how
 
 ## Seeking help
 
-* check under _Help_ menu
-* type `help()` in console
-* [python documentation](https://www.python.org/doc/)
+* check under the _Help_ menu
+* type `help()`
 * type `?object` or `help(object)` to get information about an object
+* [python documentation](https://www.python.org/doc/)
 
 Finally, a generic Google or internet search “python task” will often either send you to the appropriate module documentation or a helpful forum where someone else has already asked your question.
 
@@ -137,7 +141,7 @@ Start by googling the error message. However, this doesn’t always work very we
 
 However, you should check Stack Overflow. Search using the [python] tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: <http://stackoverflow.com/questions/tagged/python>
 
-## Asking for help
+### Asking for help
 The key to receiving help from someone is for them to rapidly grasp your problem. You should make it as easy as possible to pinpoint where the issue might be.
 
 Try to use the correct words to describe your problem. For instance, a package is not the same thing as a library. Most people will understand what you meant, but others have really strong feelings about the difference in meaning. The key point is that it can make things confusing for people trying to help you. Be as precise as possible when describing your problem.
@@ -152,3 +156,7 @@ If possible, try to reduce what doesn’t work to a simple reproducible example.
 
 ## More resources
 [PyPI - the Python Package Index](https://pypi.python.org/pypi)
+
+[The Hitchhiker's Guide to Python](http://docs.python-guide.org/en/latest/)
+
+[Dive into Python 3](http://getpython3.com/diveintopython3/)
