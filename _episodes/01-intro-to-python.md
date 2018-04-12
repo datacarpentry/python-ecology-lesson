@@ -59,6 +59,9 @@ Variables can be given any name such as `x`, `current_temperature`, or
 see [here](https://docs.python.org/2.5/ref/keywords.html) for a complete list). In general, even if it's allowed, it's best to not use other function names (e.g., `list`, `mean`, `data`, `len`). If in doubt, check the help to see if the name is already in use. It's also not allowd to use a dot or minus (`.`, `-`) within a variable name as in `my.dataset` or `my-dataset`. 
 It is also recommended to use _nouns_ for variable names, and _verbs_ for function names. It's important to be consistent in the styling of your
 code (where you put spaces, how you name variables, etc.). A speciality of python is [indentation](https://docs.python.org/3/reference/lexical_analysis.html#indentation), which is used to define code blocks and consequently structures a program. While this is generally a good style for program code, in the case of python, it is a language requirement. Using a consistent coding style makes your code clearer to read for your future self and your collaborators. There are several style guides for python, e.g. [python's PEP 8](https://www.python.org/dev/peps/pep-0008/), [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html), and [The Hitchhiker's Guide to Python](http://docs.python-guide.org/en/latest/writing/style/). 
+### Comments
+It is useful to leave notes, and explanations in your scripts.
+The comment character in python is `#`, anything to the right of a `#` in a script will be ignored by python. 
 
 Just remember how we assigned a value to `weight_kg`:
 
@@ -94,10 +97,6 @@ weight_kg = 100
 
 What do you think is the current content of the object `weight_lb`? 126.5 or 220?
 
-## Comments
-
-The comment character in python is `#`, anything to the right of a `#` in a script will be ignored by python. It is useful to leave notes, and explanations in your scripts.
-Spyder makes it easy to comment or uncomment a paragraph: after selecting the lines you  want to comment press at the same time <kbd>Ctrl</kbd> (or <kbd>Cmd</kbd> on a Mac) and <kbd>1</kbd>. If you only want to comment out one line, you can put the cursor at any location of that line (i.e. no need to select the whole line), then press <kbd>Ctrl</kbd> + <kbd>1</kbd>.
 
 > ## Challenge
 >
@@ -168,7 +167,7 @@ rounding) first in your function call, and to specify the names of all optional 
 
 ### Using modules and external libraries with python
 
-The always available [built-in functions](https://docs.python.org/3/library/functions.html) in python are limited. To get to use more functions for e.g. mathematical operations, *modules* can be used. A module in python contains a set of tools, the functions, that perform tasks on our data. There are a couple of modules that come with the [python standard library](https://docs.python.org/3.6/library/index.html) including for example the `math` module, which provides access to mathematical functions and the `statistics` module for calculations of mathematical statistics.
+The by default available [built-in functions](https://docs.python.org/3/library/functions.html) in python are limited. To get to use more functions for e.g. mathematical operations, *modules* can be used. A module in python contains a set of tools, the functions, that perform tasks on our data. There are a couple of modules that come with the [python standard library](https://docs.python.org/3.6/library/index.html) including for example the `math` module, which provides access to mathematical functions and the `statistics` module for calculations of mathematical statistics.
 
 Modules need to be imported using `import` and their functions can then be used by calling the name of the function together with the module name using the syntax `module_name.function_name`. Adding the module name with a `.` before the function name tells python where to find the function. 
 For example the function `sqrt` is part of the module `math` and can be called using `math.sqrt()`:
@@ -195,7 +194,7 @@ np.cos(3.14159)
 In the example above, we have imported numPy as np. This means we don't have to type out `numpy` each time we call a numPy function. `np.cos` calculates the cosine.
 
 > ## Challenge
-> 1. Import numpy, try the function `pi` to represent the number pi (remember to call the function with `np.pi`). 
+> 1. Import numpy, try the function `pi` to represent the number pi (remember you can call the function with `np.pi`). 
 > 2. Calculate the sine and cosine of pi. 
 > 3. What do `floor` and `ceil` do?
 {: .challenge}
@@ -230,7 +229,7 @@ Another important data type are booleans (`bool`), i.e. `True` and `False`. Bool
 
 ### Data structures
 #### Lists
-Data structures represent data types that can contain more than one value. Lists are the most versatile of python's compound data types. A list contains items separated by commas and enclosed within square brackets ([ ]). For example we can create a list of animal weights and assign it to a new variable `weight_g`:
+Data structures represent data types that can contain more than one value. Lists are the most versatile of python's compound data types. A list contains items separated by commas and enclosed within square brackets (`[]`). For example we can create a list of animal weights and assign it to a new variable `weight_g`:
 
 ```
 weight_g = [50, 60, 65, 82]
@@ -265,7 +264,7 @@ type(animals)
 ```
 
 #### Methods
-Objects in python can have `methods`, which allow for changes (mutations) of the object. They are like object specific functions, that is they only work with e.g. `list`s or `int`s whereas normal functions are more general. We call `object methods` by adding the `method` to the `object` using a `.` (dot). For example, you can use the `append()` method to add other values to the end of your list:
+Objects in python can have `methods`, which allow for changes (mutations) of the object. They are like object specific functions, that is they only work with e.g. a `list` or an `int` whereas normal functions are more general. We call `object methods` by adding the `method` to the `object` using a `.`. For example, you can use the `append()` method to add other values to the end of your list:
 
 ```
 weight_g.append(90)    # adds 90 to the end of the list
@@ -297,12 +296,13 @@ array([50, 60, 65, 82])
 NumPy arrays are multidimensional containers of items of the same type. That is, unlike lists, numpy arrays can only contain e.g. integers/floats or strings, but not both. They allow us to perform batch operations on data without any `for` loops (we will discuss loops in episode 5). This is called _vectorization_ and is something that is not possible on python's lists.
 
 > ## Challenge - lists and numpy arrays
-> Create a list, `l1`, with numbers 2,4,6,8 and another list, `l2`,  with letters a,b,c,d. Create two numpy arrays, a1 and a2, with the same content as the lists l1 and l2. 
-> Then do the following operations. Note: some of the operations will cause error messages, can you find out why?:
-> 1. multiply `l1`, `l2`, `a1`, and `a2` by 2
-> 2. add 2 to `l1`, `l2`, `a1`, and `a2`
-> 3. divide `l1`, `l2`, `a1`, and `a2` by 2
-> 4. try `l1 + l2`, `a1 + a2`, `l1 + a1`, `l2 + a1`
+> Create a list, `list1`, with numbers 2, 4, 6, 8 and another list, `list2`,  with letters a, b, c, d. Create two numpy arrays, `array1` and `array2`, with the same content as the `list1` and `list2`, resp. 
+> Then do the following operations. __Note: some of the operations will cause error messages, can you find out why?__:
+> 
+> 1. multiply `list1`, `list2`, `array1`, and `array2` by 2
+> 2. add 2 to `list1`, `list2`, `array1`, and `array`
+> 3. divide `list1`, `list2`, `array1`, and `array2` by 2
+> 4. try `list1 + list2`, `array1 + array2`, `list1 + array1`, `list2 + array1`
 > 
 > Discuss the different behaviour of lists and numpy arrays with your neighbour.
 {: .challenge}
@@ -356,12 +356,16 @@ animals[-1]
 Python indices start at 0, that is if you want to access the first element of `animals` you need to type `animals[0]`. Languages in the C family (including C++, Java, Perl, and Python) count from 0 because that's simpler for computers to do.
 Programming languages like Fortran, MATLAB, Julia, and R start counting at 1, because that's what human beings typically do.
 
-We can also subset numpy arrays using `[ ]`, and with arrays we can define several indices at the same time, they need to be given as a list or an array:
+We can also subset numpy arrays using `[]`, and with arrays we can define several indices at the same time, they need to be given as a list or an array:
 
 ```
 animals_array = np.array(["mouse", "rat", "dog", "cat"])
+```
+```
 animals_array[2]
 'dog'
+```
+```
 animals_array[[0,2]]
 array(['mouse', 'dog'], 
       dtype='<U5')
@@ -370,6 +374,8 @@ We can also repeat the indices to create an object with more elements than the o
 
 ```
 more_animals = animals_array[[0, 1, 2, 1, 0, 3]]
+```
+```
 more_animals
 array(['mouse', 'rat', 'dog', 'rat', 'mouse', 'cat'], 
       dtype='<U5')
@@ -414,6 +420,8 @@ You can combine multiple tests using `&` (both conditions are true, AND) or `|` 
 ```
 weight_g[(weight_g < 30) | (weight_g > 50)]
 array([21, 54, 55])
+```
+```
 weight_g[(weight_g >= 30) & (weight_g == 21)]
 array([], dtype=int64)  # --> empty array returned
 ```
@@ -424,7 +432,9 @@ Here, `<` stands for “less than”, `>` for “greater than”, `>=` for “gr
 > ## Challenge - subsetting
 > Create the following list: 
 > `sizes = ['S','M','2XL']`
+> 
 > 1. Take the first element of `sizes` and put it into a new variable. 
+> 
 > 2. Add elements to `sizes` so that the list ranges from `XS` to `3XL`, the elements should be in the right order. 
 > (Hint: check out the method `.insert(index, value)`)
 > 
@@ -436,4 +446,4 @@ Here, `<` stands for “less than”, `>` for “greater than”, `>=` for “gr
 > {: .solution}
 {: .challenge}
 
-Now that we have learned how to write scripts, and the basics of python's data structures, we are ready to start working with a real dataset, and learn about data frames.
+Now, that we have learned how to write scripts and the basics of python's data structures, we are ready to start working with a real dataset, and learn about data frames.
