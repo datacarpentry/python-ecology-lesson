@@ -160,6 +160,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 
 We can also add colors for all the points
 
+
 ```python
 (p9.ggplot(data=surveys_complete,
            mapping=p9.aes(x='weight', y='hindfoot_length'))
@@ -169,6 +170,7 @@ We can also add colors for all the points
 
 Or to color each species in the plot differently, map the `species_id` column 
 to the color aesthetic:
+
 
 
 ```python
@@ -392,9 +394,28 @@ geometry allows you to explicitly specify how you want your plots to be
 arranged via formula notation (`rows ~ columns`; a `.` can be used as a 
 placeholder that indicates only one row or column).
 
-Consider we want to compare the scatter plots among males/females for 2 
-specific years 2000 and 2001. By using `facet_grid`, we can make the scatter 
-plot for each of the combinations of the year and the sex:
+# Challenge
+
+> Use what you just learned to create a plot that depicts how the average weight
+> of each species changes through the years.
+{: .challenge}
+<!-- Answer
+
+
+
+```python
+yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
+yearly_weight.columns =   ["year", "species_id","avg_weight"]  
+yearly_weight
+```
+
+
+```python
+ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_weight) + \
+    geom_line() + \
+    facet_wrap("species_id") + \
+    theme_bw()
+```
 
 ```python
 # only selecte the years of interes

@@ -151,7 +151,7 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 [35549 rows x 9 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 9
+We can see that there were 35,549 rows parsed. Each row has 9
 columns. The first column is the index of the DataFrame. The index is used to
 identify the position of the data, but it is not an actual column of the DataFrame.
 It looks like  the `read_csv` function in Pandas  read our file properly. However,
@@ -515,8 +515,8 @@ We can plot our summary stats using Pandas, too.
 	# Create a quick bar chart
 	species_counts.plot(kind='bar');
 
-![Weight by Species Plot](../fig/weightBySpecies.png)
-Weight by species plot
+![Weight by Species Plot](../fig/countPerSpecies.png)
+Count per species plot
 
 We can also look at how many animals were captured in each plot:
 
