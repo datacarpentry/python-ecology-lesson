@@ -408,7 +408,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ```python
 # Group data by sex
-grouped_data = surveys_df.groupby('sex')
+grouped_data = surveys_df.groupby('species_id')
 ```
 
 The **pandas function `describe`** will return descriptive stats including: mean,
@@ -426,16 +426,15 @@ grouped_data.mean()
 `grouped_data.mean()` **OUTPUT:**
 
 ```python
-        record_id     month        day         year    plot_id  \
-sex                                                              
-F    18036.412046  6.583047  16.007138  1990.644997  11.440854   
-M    17754.835601  6.392668  16.184286  1990.480401  11.098282   
-
-     hindfoot_length     weight  
-sex                              
-F          28.836780  42.170555  
-M          29.709578  42.995379  
-
+	record_id	month	day	year	plot_id	hindfoot_length	weight 
+species_id							
+AB	13201.702970	4.993399	15.788779	1987.171617	13.973597	NaN	NaN
+AH	21631.716247	6.565217	16.427918	1993.352403	14.780320	33.000000	NaN
+AS	19760.000000	4.500000	15.500000	1992.000000	15.500000	NaN	NaN
+BA	18586.043478	7.021739	12.826087	1990.760870	10.521739	13.000000	8.600000
+...
+US	35524.250000	12.000000	31.000000	2002.000000	12.500000	NaN	NaN
+ZL	14300.500000	3.500000	18.500000	1988.000000	20.500000	NaN	NaN
 ```
 
 The `groupby` command is powerful in that it allows us to quickly generate
