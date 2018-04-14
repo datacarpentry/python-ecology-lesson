@@ -394,31 +394,8 @@ geometry allows you to explicitly specify how you want your plots to be
 arranged via formula notation (`rows ~ columns`; a `.` can be used as a 
 placeholder that indicates only one row or column).
 
-# Challenge
-
-> Use what you just learned to create a plot that depicts how the average weight
-> of each species changes through the years.
-{: .challenge}
-<!-- Answer
-
-
-
 ```python
-yearly_weight = surveys_complete[["year", "species_id","weight"]].groupby(["year", "species_id"]).mean().reset_index()
-yearly_weight.columns =   ["year", "species_id","avg_weight"]  
-yearly_weight
-```
-
-
-```python
-ggplot( aes(x="year", y="avg_weight", color = "species_id", group = "species_id"),data = yearly_weight) + \
-    geom_line() + \
-    facet_wrap("species_id") + \
-    theme_bw()
-```
-
-```python
-# only selecte the years of interes
+# only selecte the years of interest
 survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 (p9.ggplot(data=survey_2000,
