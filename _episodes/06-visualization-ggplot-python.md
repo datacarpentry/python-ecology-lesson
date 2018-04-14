@@ -395,7 +395,7 @@ arranged via formula notation (`rows ~ columns`; a `.` can be used as a
 placeholder that indicates only one row or column).
 
 ```python
-# only selecte the years of interes
+# only selecte the years of interest
 survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 (p9.ggplot(data=survey_2000,
