@@ -609,7 +609,7 @@ total_count.plot(kind='bar');
 >> plot_sex_count.unstack()
 >> ```
 >>
->> The `unstack` function above will display the following output:
+>> The `unstack` method above will display the following output:
 >>
 >> ```
 >> sex          F      M
