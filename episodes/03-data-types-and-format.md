@@ -125,7 +125,7 @@ record_id            int64
 month                int64
 day                  int64
 year                 int64
-plot_id              int64
+site_id              int64
 species_id          object
 sex                 object
 hindfoot_length    float64
@@ -199,10 +199,10 @@ surveys_df['record_id'].dtype
 
 > ## Challenge - Changing Types
 >
-> Try converting the column `plot_id` to floats using
+> Try converting the column `site_id` to floats using
 >
 > ```python
-> surveys_df.plot_id.astype("float")
+> surveys_df.site_id.astype("float")
 > ```
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?

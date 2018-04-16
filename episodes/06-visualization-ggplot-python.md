@@ -119,7 +119,7 @@ surveys_plot + p9.geom_point()
 > > ## Answers
 > > 
 > > (p9.ggplot(data=surveys_complete,
-> >            mapping=p9.aes(x='plot_id'))
+> >            mapping=p9.aes(x='site_id'))
 > >     + p9.geom_bar()
 > > )
 > > {: .language-python}
@@ -232,7 +232,7 @@ set the background to white using the function `theme_bw()`.
 > > ## Answers
 > > 
 > > (p9.ggplot(data=surveys_complete,
-> >            mapping=p9.aes(x='plot_id', 
+> >            mapping=p9.aes(x='site_id', 
 > >                           fill='sex'))
 > >     + p9.geom_bar()
 > >     + p9.scale_fill_manual(["blue", "orange"])
@@ -283,9 +283,9 @@ better idea of the number of measurements and of their distribution:
 > - Replace the box plot with a violin plot, see `geom_violin()`
 > - Represent weight on the log10 scale, see `scale_y_log10()`
 > - Add color to the datapoints on your boxplot according to the plot from which
->   the sample was taken (`plot_id`)
+>   the sample was taken (`site_id`)
 >
-> Hint: Check the class for `plot_id`. By using `factor()` within the `aes` 
+> Hint: Check the class for `site_id`. By using `factor()` within the `aes` 
 > mapping of a variable, `plotnine` will handle the values as category values.
 > 
 > > ## Answers
@@ -293,7 +293,7 @@ better idea of the number of measurements and of their distribution:
 > > (p9.ggplot(data=surveys_complete,
 > >            mapping=p9.aes(x='species_id', 
 > >                           y='weight',
-> >                           color='factor(plot_id)'))
+> >                           color='factor(site_id)'))
 > >     + p9.geom_jitter(alpha=0.3)
 > >     + p9.geom_violin(alpha=0, color="0.7")
 > >     + p9.scale_y_log10()
@@ -384,7 +384,7 @@ We can apply the same concept on any of the available categorical variables:
            mapping=p9.aes(x='weight', 
                           y='hindfoot_length'))
     + p9.geom_point(alpha=0.1)
-    + p9.facet_wrap("plot_id")
+    + p9.facet_wrap("site_id")
 )
 ```
 

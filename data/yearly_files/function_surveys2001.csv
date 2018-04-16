@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 31710,31711,1,21,2001,1,PB,F,25.0
 31711,31712,1,21,2001,1,DM,M,43.0
 31712,31713,1,21,2001,1,PB,M,44.0

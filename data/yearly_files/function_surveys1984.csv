@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 8808,8809,2,4,1984,16,RM,F,7.0
 8809,8810,2,4,1984,12,DS,F,122.0
 8810,8811,2,4,1984,22,OT,M,25.0
