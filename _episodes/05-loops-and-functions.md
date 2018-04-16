@@ -152,7 +152,7 @@ to loop over. We can get the years in our DataFrame with:
 35548    2002
 ```
 
-but we want only unique years, which we can get using the `unique` function
+but we want only unique years, which we can get using the `unique` method
 which we have already seen.  
 
 ```python
