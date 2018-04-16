@@ -48,7 +48,7 @@ We will be using files from the [Portal Project Teaching Database](https://figsh
 This section will use the `surveys.csv` file that can be downloaded here:
 [https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
 
-We are studying the species and weight of animals caught in plots in our study
+We are studying the species and weight of animals caught in sites in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
 single animal, and the columns represent:
 
@@ -58,7 +58,7 @@ single animal, and the columns represent:
 | month            | month of observation               |
 | day              | day of observation                 |
 | year             | year of observation                |
-| plot_id          | ID of a particular plot            |
+| site_id          | ID of a particular site            |
 | species_id       | 2-letter code                      |
 | sex              | sex of animal ("M", "F")           |
 | hindfoot_length  | length of the hindfoot in mm       |
@@ -68,7 +68,7 @@ single animal, and the columns represent:
 The first few rows of our first file look like this:
 
 ```
-record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
+record_id,month,day,year,site_id,species_id,sex,hindfoot_length,weight
 1,7,16,1977,2,NL,M,32,
 2,7,16,1977,3,NL,M,33,
 3,7,16,1977,2,DM,F,37,
@@ -135,7 +135,7 @@ pd.read_csv("data/surveys.csv")
 The above command yields the **output** below:
 
 ```
-record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+record_id  month  day  year  site_id species_id sex  hindfoot_length  weight
 0          1      7   16  1977        2         NL   M               32   NaN
 1          2      7   16  1977        3         NL   M               33   NaN
 2          3      7   16  1977        2         DM   F               37   NaN
@@ -233,7 +233,7 @@ our screen:
 
 >>> surveys_df.head() # The head() function displays the first several lines of a file. It
 		      # is discussed below.
-   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+   record_id  month  day  year  site_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M             14.0   
 6          7      7   16  1977        2         PE   F              NaN   
 7          8      7   16  1977        1         DM   M             37.0   
@@ -269,7 +269,7 @@ record_id            int64
 month                int64
 day                  int64
 year                 int64
-plot_id              int64
+site_id              int64
 species_id          object
 sex                 object
 hindfoot_length    float64
@@ -321,7 +321,7 @@ Let's look at the data using these.
 
 We've read our data into Python. Next, let's perform some quick summary
 statistics to learn more about the data that we're working with. We might want
-to know how many animals were collected in each plot, or how many of each
+to know how many animals were collected in each site, or how many of each
 species were caught. We can perform summary stats quickly using groups. But
 first we need to figure out what we want to group by.
 
@@ -335,7 +335,7 @@ surveys_df.columns
 which **returns**:
 
 ```
-Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+Index(['record_id', 'month', 'day', 'year', 'site_id', 'species_id', 'sex',
        'hindfoot_length', 'weight'],
       dtype='object')
 ```
@@ -359,18 +359,18 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 > ## Challenge - Statistics
 >
-> 1. Create a list of unique plot ID's found in the surveys data. Call it
->   `plot_names`. How many unique plots are there in the data? How many unique
+> 1. Create a list of unique site ID's found in the surveys data. Call it
+>   `site_names`. How many unique sites are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
+> 2. What is the difference between `len(site_names)` and `surveys_df['site_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
 
 We often want to calculate summary statistics grouped by subsets or attributes
 within fields of our data. For example, we might want to calculate the average
-weight of all individuals per plot.
+weight of all individuals per site.
 
 We can calculate basic statistics for all records in a single column using the
 syntax below:
@@ -426,7 +426,7 @@ grouped_data.mean()
 `grouped_data.mean()` **OUTPUT:**
 
 ```python
-        record_id     month        day         year    plot_id  \
+        record_id     month        day         year    site_id  \
 sex                                                              
 F    18036.412046  6.583047  16.007138  1990.644997  11.440854   
 M    17754.835601  6.392668  16.184286  1990.480401  11.098282   
@@ -446,18 +446,18 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `grouped_data2 = surveys_df.groupby(['site_id','sex'])`
 >	- `grouped_data2.mean()`
-> 3. Summarize weight values for each plot in your data. HINT: you can use the
+> 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
->   `by_plot['weight'].describe()`
+>   `by_site['weight'].describe()`
 >
 >
 >> ## Did you get #3 right?
 >> **A Snippet of the Output from challenge 3 looks like:**
 >>
 >> ```
->>	plot
+>>	site
 >>	1     count    1903.000000
 >>	      mean       51.822911
 >>	      std        38.176670
@@ -515,27 +515,27 @@ We can plot our summary stats using Pandas, too.
 	# Create a quick bar chart
 	species_counts.plot(kind='bar');
 
-![Weight by Species Plot](../fig/countPerSpecies.png)
-Count per species plot
+![Weight by Species Site](../fig/countPerSpecies.png)
+Count per species site
 
-We can also look at how many animals were captured in each plot:
+We can also look at how many animals were captured in each site:
 
 ```python
-total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
+total_count = surveys_df.groupby('site_id')['record_id'].nunique()
 # Let's plot that too
 total_count.plot(kind='bar');
 ```
 
 > ## Challenge - Plots
 >
-> 1. Create a plot of average weight across all species per plot.
+> 1. Create a plot of average weight across all species per site.
 > 2. Create a plot of total males versus total females for the entire dataset.
 {: .challenge}
 
 > ## Summary Plotting Challenge
 >
 > Create a stacked bar plot, with weight on the Y axis, and the stacked variable
-> being sex. The plot should show total weight by sex for each plot. Some
+> being sex. The plot should show total weight by sex for each site. Some
 > tips are below to help you solve this challenge:
 >
 > * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
@@ -572,24 +572,24 @@ total_count.plot(kind='bar');
 > for each plotting.  Try running `.unstack()` on some DataFrames above and see
 > what it yields.
 >
-> Start by transforming the grouped data (by plot and sex) into an unstacked layout, then create
+> Start by transforming the grouped data (by site and sex) into an unstacked layout, then create
 > a stacked plot.
 >
 >
 >> ## Solution to Summary Challenge
 >>
->> First we group data by plot and by sex, and then calculate a total for each plot.
+>> First we group data by site and by sex, and then calculate a total for each site.
 >>
 >> ```python
->> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
->> plot_sex_count = by_plot_sex['weight'].sum()
+>> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> site_sex_count = by_site_sex['weight'].sum()
 >> ```
 >>
->> This calculates the sums of weights for each sex within each plot as a table
+>> This calculates the sums of weights for each sex within each site as a table
 >>
 >> ```
->> plot  sex
->> plot_id  sex
+>> site  sex
+>> site_id  sex
 >> 1        F      38253
 >>          M      59979
 >> 2        F      50144
@@ -598,38 +598,38 @@ total_count.plot(kind='bar');
 >>          M      28253
 >> 4        F      39796
 >>          M      49377
->> <other plots removed for brevity>
+>> <other sites removed for brevity>
 >> ```
 >>
->> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each plot.
+>> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
 >>
 >> ```python
->> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
->> plot_sex_count = by_plot_sex['weight'].sum()
->> plot_sex_count.unstack()
+>> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> site_sex_count = by_site_sex['weight'].sum()
+>> site_sex_count.unstack()
 >> ```
 >>
 >> The `unstack` method above will display the following output:
 >>
 >> ```
 >> sex          F      M
->> plot_id              
+>> site_id              
 >> 1        38253  59979
 >> 2        50144  57250
 >> 3        27251  28253
 >> 4        39796  49377
->> <other plots removed for brevity>
+>> <other sites removed for brevity>
 >> ```
 >>
->> Now, create a stacked bar plot with that data where the weights for each sex are stacked by plot.
+>> Now, create a stacked bar plot with that data where the weights for each sex are stacked by site.
 >>
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
 >> ```python
->> by_plot_sex = surveys_df.groupby(['plot_id','sex'])
->> plot_sex_count = by_plot_sex['weight'].sum()
->> spc = plot_sex_count.unstack()
->> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by plot and sex")
+>> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> site_sex_count = by_site_sex['weight'].sum()
+>> spc = site_sex_count.unstack()
+>> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by site and sex")
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
 >> ```

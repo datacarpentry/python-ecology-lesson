@@ -204,7 +204,7 @@ Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
 >>> survey_sub.columns
 
-Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
+Index([u'record_id', u'month', u'day', u'year', u'site_id', u'species_id',
        u'sex', u'hindfoot_length', u'weight'], dtype='object')
 ```
 
@@ -245,7 +245,7 @@ merged_inner
 **OUTPUT:**
 
 ```
-   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+   record_id  month  day  year  site_id species_id sex  hindfoot_length  \
 0          1      7   16  1977        2         NL   M               32   
 1          2      7   16  1977        3         NL   M               33   
 2          3      7   16  1977        2         DM   F               37   
@@ -320,7 +320,7 @@ merged_left
 
 **OUTPUT:**
 
-   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+   record_id  month  day  year  site_id species_id sex  hindfoot_length  \
 0          1      7   16  1977        2         NL   M               32   
 1          2      7   16  1977        3         NL   M               33   
 2          3      7   16  1977        2         DM   F               37   
@@ -356,7 +356,7 @@ missing (they contain NaN values):
 ```python
 merged_left[ pd.isnull(merged_left.genus) ]
 **OUTPUT:**
-   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+   record_id  month  day  year  site_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M               14   
 9         10      7   16  1977        6         PF   F               20   
 
