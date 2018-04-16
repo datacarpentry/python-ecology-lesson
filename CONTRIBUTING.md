@@ -82,7 +82,7 @@ guidelines:
   exporting high-quality plots.
 - [ ] Lesson 7 repeats some matplot content, but with a new dataset. Rework to
   use the previous lesson data.
-- [ ] The column name `plot_id` in surveys.csv confused a few participants who
+- [x] The column name `plot_id` in surveys.csv confused a few participants who
   didn't think of the word `plot_id` in terms of land, but in terms of a
   drawing. Consider a rename to `site_id`.
 - [ ]  The 'short introduction to python' lesson overlaps quite a bit with the
