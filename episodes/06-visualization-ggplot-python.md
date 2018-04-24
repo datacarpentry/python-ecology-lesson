@@ -34,10 +34,11 @@ Just as with the other packages, `plotnine` need to be imported. It is good
 practice to not just load an entire package such as `from plotnine import *`, 
 but to use an abbreviation as we used `pd` for Pandas:
 
-```python
+~~~
 %matplotlib inline
 import plotnine as p9
-```
+~~~
+{: .language-python }
 
 From now on, the functions of `plotnine` are available using `p9.`. For the 
 exercise, we will use the `surveys.csv` data set, with the `NA` values removed
