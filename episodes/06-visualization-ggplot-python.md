@@ -256,7 +256,7 @@ set the background to white using the function `theme_bw()`.
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_color_plot.png)
+> > ![png](../fig/06_challenge_color_bar.png)
 > {: .solution}
 {: .challenge}
 
