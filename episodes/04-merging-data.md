@@ -1,5 +1,5 @@
 ---
-title: Combining DataFrames with pandas
+title: Combining DataFrames with Pandas
 teaching: 20
 exercises: 25
 questions:
@@ -23,7 +23,7 @@ surveys files into pandas DataFrames. In iPython:
 
 ```python
 import pandas as pd
-surveys_df = pd.read_csv("surveys.csv",
+surveys_df = pd.read_csv("data/surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
 
@@ -42,7 +42,7 @@ surveys_df
 
 [35549 rows x 9 columns]
 
-species_df = pd.read_csv("species.csv",
+species_df = pd.read_csv("data/species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
   species_id             genus          species     taxa
@@ -63,28 +63,28 @@ species_df
 
 Take note that the `read_csv` method we used can take some additional options which
 we didn't use previously. Many functions in python have a set of options that
-can be set by the user if needed. In this case, we have told Pandas to assign
+can be set by the user if needed. In this case, we have told pandas to assign
 empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
 [More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
 
 # Concatenating DataFrames
 
-We can use the `concat` function in Pandas to append either columns or rows from
+We can use the `concat` function in pandas to append either columns or rows from
 one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
 ```python
-# read in first 10 lines of surveys table
+# Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
-# grab the last 10 rows 
+# Grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
-#reset the index values to the second dataframe appends properly
+# Reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
 ```
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
-Pandas to stack the second DataFrame under the first one. It will automatically
+pandas to stack the second DataFrame under the first one. It will automatically
 detect whether the column names are the same and will stack accordingly.
 `axis=1` will stack the columns in the second DataFrame to the RIGHT of the
 first DataFrame. To stack the data vertically, we need to make sure we have the
@@ -93,10 +93,10 @@ horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
 ```python
-# stack the DataFrames on top of each other
+# Stack the DataFrames on top of each other
 vertical_stack = pd.concat([survey_sub, survey_sub_last10], axis=0)
 
-# place the DataFrames side by side
+# Place the DataFrames side by side
 horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 ```
 
@@ -115,7 +115,7 @@ pandas doesn't include the index number for each line.
 
 ```python
 # Write DataFrame to CSV
-vertical_stack.to_csv('out.csv', index=False)
+vertical_stack.to_csv('data_output/out.csv', index=False)
 ```
 
 Check out your working directory to make sure the CSV wrote out properly, and
@@ -123,8 +123,8 @@ that you can open it! If you want, try to bring it back into python to make sure
 it imports properly.
 
 ```python
-# for kicks read our output back into python and make sure all looks good
-new_output = pd.read_csv('out.csv', keep_default_na=False, na_values=[""])
+# For kicks read our output back into python and make sure all looks good
+new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
 ```
 
 > ## Challenge - Combine Data
@@ -174,10 +174,10 @@ subset to work with. We'll use the `.head` method to do this. We'll also read
 in a subset of the species table.
 
 ```python
-# read in first 10 lines of surveys table
+# Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
 
-# import a small subset of the species data designed for this part of the lesson.
+# Import a small subset of the species data designed for this part of the lesson.
 # It is stored in the data folder.
 species_sub = pd.read_csv('data/speciesSubset.csv', keep_default_na=False, na_values=[""])
 ```
@@ -198,11 +198,11 @@ identify a (differently-named) column in each DataFrame that contains the same
 information.
 
 ```python
-species_sub.columns
+>>> species_sub.columns
 
 Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
-survey_sub.columns
+>>> survey_sub.columns
 
 Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
        u'sex', u'hindfoot_length', u'weight'], dtype='object')
@@ -234,10 +234,10 @@ the default option:
 
 ```python
 merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
-# in this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
-# and `right_on` arguments we would still get the same result
+# In this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
+# And `right_on` arguments we would still get the same result
 
-# what's the size of the output data?
+# What's the size of the output data?
 merged_inner.shape
 merged_inner
 ```

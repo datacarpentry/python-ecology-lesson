@@ -40,8 +40,8 @@ lesson. Let's reopen and read in the data again:
 # Make sure pandas is loaded
 import pandas as pd
 
-# read in the survey csv
-surveys_df = pd.read_csv("surveys.csv")
+# Read in the survey CSV
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 ## Indexing and Slicing in Python
@@ -58,6 +58,7 @@ we can select all data from a column named `species_id` from the `surveys_df`
 DataFrame by name. There are two ways to do this:
 
 ```python
+# TIP: use the .head() method we saw earlier to make output shorter
 # Method 1: select a 'subset' of the data using the column name
 surveys_df['species_id']
 
@@ -69,7 +70,7 @@ We can also create a new object that contains only the data within the
 `species_id` column as follows:
 
 ```python
-# creates an object, surveys_species, that only contains the `species_id` column
+# Creates an object, surveys_species, that only contains the `species_id` column
 surveys_species = surveys_df['species_id']
 ```
 
@@ -80,16 +81,17 @@ order. This is useful when we need to reorganize our data.
 (error) will be raised.
 
 ```python
-# select the species and plot columns from the DataFrame
+# Select the species and plot columns from the DataFrame
 surveys_df[['species_id', 'plot_id']]
 
-# what happens when you flip the order?
+# What happens when you flip the order?
 surveys_df[['plot_id', 'species_id']]
 
-#what happens if you ask for a column that doesn't exist?
+# What happens if you ask for a column that doesn't exist?
 surveys_df['speciess']
 ```
 
+Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related python data type dictionary).
 
 ## Extracting Range based Subsets: Slicing
 
@@ -105,8 +107,8 @@ within objects starting at 1.
 a = [1, 2, 3, 4, 5]
 ```
 
-![indexing diagram](../fig/slicing-indexing.svg)
-![slicing diagram](../fig/slicing-slicing.svg)
+![indexing diagram](../fig/slicing-indexing.png)
+![slicing diagram](../fig/slicing-slicing.png)
 
 
 > ## Challenge - Extracting data
@@ -142,7 +144,7 @@ output. The stop bound is one step BEYOND the row you want to select. So if you
 want to select rows 0, 1 and 2 your code would look like this:
 
 ```python
-# select rows 0, 1, 2 (row 3 is not selected)
+# Select rows 0, 1, 2 (row 3 is not selected)
 surveys_df[0:3]
 ```
 
@@ -150,16 +152,11 @@ The stop bound in Python is different from what you might be used to in
 languages like Matlab and R.
 
 ```python
-# select the first 5 rows (rows 0, 1, 2, 3, 4)
+# Select the first 5 rows (rows 0, 1, 2, 3, 4)
 surveys_df[:5]
 
-# select the last element in the list
-surveys_df[-1]
-```
-
-# also selects the last element in the list
-# the slice starts at the last element,
-# and ends at the end of the list.
+# Select the last element in the list
+# (the slice starts at the last element, and ends at the end of the list)
 surveys_df[-1:]
 ```
 
@@ -173,10 +170,10 @@ copying objects and the concept of referencing objects in Python.
 Let's start with an example:
 
 ```python
-# using the 'copy() method'
+# Using the 'copy() method'
 true_copy_surveys_df = surveys_df.copy()
 
-# using '=' operator
+# Using the '=' operator
 ref_surveys_df = surveys_df
 ```
 
@@ -193,19 +190,19 @@ DataFrame.
 Let's look at what happens when we reassign the values within a subset of the
 DataFrame that references another DataFrame object:
 
-   ```
-    # Assign the value `0` to the first three rows of data in the DataFrame
-    ref_surveys_df[0:3] = 0
-    ```
+```python
+# Assign the value `0` to the first three rows of data in the DataFrame
+ref_surveys_df[0:3] = 0
+```
 
 Let's try the following code:
 
-    ```
-   # ref_surveys_df was created using the '=' operator
-    ref_surveys_df.head()
+```python
+# ref_surveys_df was created using the '=' operator
+ref_surveys_df.head()
 
-    # surveys_df is the original dataframe
-    surveys_df.head()
+# surveys_df is the original dataframe
+surveys_df.head()
 ```
 
 What is the difference between these two dataframes?
@@ -221,20 +218,20 @@ the other will see the same changes to the reference object.
 
 - **Copy** uses the dataframe's `copy()` method
 
-    ```
-    true_copy_surveys_df = surveys_df.copy()
-    ```
+  ```python
+  true_copy_surveys_df = surveys_df.copy()
+  ```
 - A **Reference** is created using the `=` operator
 
-    ```python
-    ref_surveys_df = surveys_df
-    ```
+  ```python
+  ref_surveys_df = surveys_df
+  ```
 
 Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
 
 ```python
-surveys_df = pd.read_csv("https://ndownloader.figshare.com/files/2292172")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 ## Slicing Subsets of Rows and Columns in Python
@@ -271,10 +268,10 @@ ask for 0:3, you are actually telling Python to start at index 0 and select rows
 Let's explore some other ways to index and select subsets of data:
 
 ```python
-# select all columns for rows of index values 0 and 10
+# Select all columns for rows of index values 0 and 10
 surveys_df.loc[[0, 10], :]
 
-# what does this do?
+# What does this do?
 surveys_df.loc[0, ['species_id', 'plot_id', 'weight']]
 
 # What happens when you type the code below?
@@ -284,8 +281,8 @@ surveys_df.loc[[0, 10, 35549], :]
 **NOTE**: Labels must be found in the DataFrame or you will get a `KeyError`.
 
 Indexing by labels `loc` differs from indexing by integers `iloc`.
-With `iloc`, the start bound and the stop bound are **inclusive**. When using
-`loc` instead, integers *can* also be used, but the integers refer to the
+With `loc`, the both start bound and the stop bound are **inclusive**. When using
+`loc`, integers *can* be used, but the integers refer to the
 index label and not the position. For example, using `loc` and select 1:4
 will get a different result than using `iloc` to select rows 1:4.
 
@@ -328,7 +325,6 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 >    - `dat.loc[0:4, 1:4]`
 >
 > - How are the two commands different?
-
 {: .challenge}
 
 
@@ -388,7 +384,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
 >   the year 1999 and that contain weight values less than or equal to 8. How
->   many columns did you end up with? What did your neighbor get?
+>   many rows did you end up with? What did your neighbor get?
 >
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
@@ -405,7 +401,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >
 > 4. The `~` symbol in Python can be used to return the OPPOSITE of the
 >   selection that you specify in Python. It is equivalent to **is not in**.
->   Write a query that selects all rows that are NOT equal to 'M' or 'F' in
+>   Write a query that selects all rows with sex NOT equal to 'M' or 'F' in
 >   the "surveys" data.
 {: .challenge}
 
@@ -419,13 +415,13 @@ we also need to understand `BOOLEAN` objects in Python.
 Boolean values include `True` or `False`. For example,
 
 ```python
-# set x to 5
+# Set x to 5
 x = 5
 
-# what does the code below return?
+# What does the code below return?
 x > 5
 
-# how about this?
+# How about this?
 x == 5
 ```
 
@@ -477,14 +473,14 @@ values. We will explore ways of dealing with this in Lesson 03.
 We can run `isnull` on a particular column too. What does the code below do?
 
 ```python
-# what does this do?
+# What does this do?
 empty_weights = surveys_df[pd.isnull(surveys_df['weight'])]['weight']
 print(empty_weights)
 ```
 
 Let's take a minute to look at the statement above. We are using the Boolean
 object `pd.isnull(surveys_df['weight'])` as an index to `surveys_df`. We are
-asking Python to select rows that have a `NaN` value or weight.
+asking Python to select rows that have a `NaN` value of weight.
 
 
 > ## Challenge - Putting it all together

@@ -21,7 +21,7 @@ objectives:
 
 # Working With Pandas DataFrames in Python
 
-We can automate the process above using Python. It's efficient to spend time
+We can automate the process of performing data manipulations in Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
 over and over on different datasets that use a similar format. This makes our
 methods easily reproducible. We can also easily share our code with colleagues
@@ -115,7 +115,7 @@ time we call a Pandas function.
 
 # Reading CSV Data Using Pandas
 
-We will begin by locating and reading our survey data which are in CSV format.
+We will begin by locating and reading our survey data which are in CSV format. CSV stands for Comma-Separated Values and is a common way store formatted data. Other symbols my also be used, so you might see tab-separated, colon-separated or space separated files. It is quite easy to replace one separator with another, to match your application. The first line in the file often has headers to explain what is in each column. CSV (and other separators) make it easy to share data, and can be imported and exported from many applications, including Microsoft Excel. For more details on CSV files, see the [Data Organisation in Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data/) lesson.
 We can use Pandas' `read_csv` function to pull the file directly into a
 [DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
 
@@ -128,8 +128,8 @@ R. A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
 
 ```python
-# note that pd.read_csv is used because we imported pandas as pd
-pd.read_csv("surveys.csv")
+# Note that pd.read_csv is used because we imported pandas as pd
+pd.read_csv("data/surveys.csv")
 ```
 
 The above command yields the **output** below:
@@ -151,7 +151,7 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 [35549 rows x 9 columns]
 ```
 
-We can see that there were 33,549 rows parsed. Each row has 9
+We can see that there were 35,549 rows parsed. Each row has 9
 columns. The first column is the index of the DataFrame. The index is used to
 identify the position of the data, but it is not an actual column of the DataFrame.
 It looks like  the `read_csv` function in Pandas  read our file properly. However,
@@ -162,40 +162,109 @@ or  `data`. We can create a new  object with a variable name by assigning a valu
 Let's call the imported survey data `surveys_df`:
 
 ```python
-surveys_df = pd.read_csv("surveys.csv")
+surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
 Notice when you assign the imported DataFrame to a variable, Python does not
-produce any output on the screen. We can print the value of the `surveys_df`
+produce any output on the screen. We can view the value of the `surveys_df`
 object by typing its name into the Python command prompt.
 
 ```python
 surveys_df
 ```
 
-which prints contents like above
+which prints contents like above.
 
-## Manipulating Our Species Survey Data
+Note: if the output is too wide to print on your narrow terminal window, you may see something 
+slightly different as the large set of data scrolls past. You may see simply the last column
+of data:
+```python
+17        NaN  
+18        NaN  
+19        NaN  
+20        NaN  
+21        NaN  
+22        NaN  
+23        NaN  
+24        NaN  
+25        NaN  
+26        NaN  
+27        NaN  
+28        NaN  
+29        NaN  
+...       ...  
+35519    36.0  
+35520    48.0  
+35521    45.0  
+35522    44.0  
+35523    27.0  
+35524    26.0  
+35525    24.0  
+35526    43.0  
+35527     NaN  
+35528    25.0  
+35529     NaN  
+35530     NaN  
+35531    43.0  
+35532    48.0  
+35533    56.0  
+35534    53.0  
+35535    42.0  
+35536    46.0  
+35537    31.0  
+35538    68.0  
+35539    23.0  
+35540    31.0  
+35541    29.0  
+35542    34.0  
+35543     NaN  
+35544     NaN  
+35545     NaN  
+35546    14.0  
+35547    51.0  
+35548     NaN  
 
-Now we can start manipulating our data. First, let's check the data type of the
-data stored in `surveys_df` using the `type` method. **The `type` method and
-`__class__` attribute** tell us that `surveys_df` is `<class 'pandas.core.frame.DataFrame'>`.
+[35549 rows x 9 columns]
+```
+Never fear, all the data is there, if you scroll up. Selecting just a few rows, so it is
+easier to fit on one window, you can see that pandas has neatly formatted the data to fit
+our screen:
+```python
+
+>>> surveys_df.head() # The head() function displays the first several lines of a file. It
+		      # is discussed below.
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
+5          6      7   16  1977        1         PF   M             14.0   
+6          7      7   16  1977        2         PE   F              NaN   
+7          8      7   16  1977        1         DM   M             37.0   
+8          9      7   16  1977        1         DM   F             34.0   
+9         10      7   16  1977        6         PF   F             20.0   
+
+   weight  
+5     NaN  
+6     NaN  
+7     NaN  
+8     NaN  
+9     NaN  
+```
+
+## Exploring Our Species Survey Data
+
+Again, we can use the `type` function to see what kind of thing `surveys_df` is:
 
 ```python
-type(surveys_df)
-# this does the same thing as the above!
-surveys_df.__class__
+>>> type(surveys_df)
+<class 'pandas.core.frame.DataFrame'>
 ```
-We can also enter `surveys_df.dtypes` at our prompt to view the data type for each
-column in our DataFrame. `int64` represents numeric integer values - `int64` cells
-can not store decimals. `object` represents strings (letters and numbers). `float64`
-represents numbers with decimals.
 
-	surveys_df.dtypes
+As expected, it's a DataFrame (or, to use the full name that Python uses to refer
+to it internally, a `pandas.core.frame.DataFrame`).
 
-which returns:
+What kind of things does `surveys_df` contain? DataFrames have an attribute
+called `dtypes` that answers this:
 
-```
+```python
+>>> surveys_df.dtypes
 record_id            int64
 month                int64
 day                  int64
@@ -207,6 +276,12 @@ hindfoot_length    float64
 weight             float64
 dtype: object
 ```
+
+All the values in a column have the same type. For example, months have type
+`int64`, which is a kind of integer. Cells in the month column cannot have
+fractional values, but the weight and hindfoot_length columns can, because they
+have type `float64`. The `object` type doesn't have a very helpful name, but in
+this case it represents strings (such as 'M' and 'F' in the case of sex).
 
 We'll talk a bit more about what the different formats mean in a different lesson.
 
@@ -221,8 +296,8 @@ name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
 with `surveys_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
-As an example, `survey_df.head()` gets the first few rows in the DataFrame
-`survey_df` using **the `head()` method**. With a method, we can supply extra
+As an example, `surveys_df.head()` gets the first few rows in the DataFrame
+`surveys_df` using **the `head()` method**. With a method, we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
@@ -254,14 +329,15 @@ Let's begin by exploring our data:
 
 ```python
 # Look at the column names
-surveys_df.columns.values
+surveys_df.columns
 ```
 
 which **returns**:
 
 ```
-array(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
-       'hindfoot_length', 'weight'], dtype=object)
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+       'hindfoot_length', 'weight'],
+      dtype='object')
 ```
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
@@ -287,7 +363,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
@@ -332,7 +408,7 @@ can quickly calculate summary statistics by a group of our choice.
 
 ```python
 # Group data by sex
-sorted_data = surveys_df.groupby('sex')
+grouped_data = surveys_df.groupby('sex')
 ```
 
 The **pandas function `describe`** will return descriptive stats including: mean,
@@ -341,13 +417,13 @@ median, max, min, std and count for a particular column in the data. Pandas'
 numeric data.
 
 ```python
-# summary statistics for all numeric columns by sex
-sorted_data.describe()
-# provide the mean for each numeric column by sex
-sorted_data.mean()
+# Summary statistics for all numeric columns by sex
+grouped_data.describe()
+# Provide the mean for each numeric column by sex
+grouped_data.mean()
 ```
 
-`sorted_data.mean()` **OUTPUT:**
+`grouped_data.mean()` **OUTPUT:**
 
 ```python
         record_id     month        day         year    plot_id  \
@@ -370,8 +446,8 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `sorted_data2 = surveys_df.groupby(['plot_id','sex'])`
->	- `sorted_data2.mean()`
+>	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>	- `grouped_data2.mean()`
 > 3. Summarize weight values for each plot in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_plot['weight'].describe()`
@@ -402,7 +478,7 @@ ways, but we'll use `groupby` combined with **a `count()` method**.
 
 
 ```python
-# count the number of samples by species
+# Count the number of samples by species
 species_counts = surveys_df.groupby('species_id')['record_id'].count()
 print(species_counts)
 ```
@@ -413,17 +489,6 @@ Or, we can also count just the rows that have the species "DO":
 surveys_df.groupby('species_id')['record_id'].count()['DO']
 ```
 
-## Basic Math Functions
-
-If we wanted to, we could perform math on an entire column of our data. For
-example let's multiply all weight values by 2. A more practical use of this might
-be to normalize the data according to a mean, area, or some other value
-calculated from our data.
-
-	# multiply all weight values by 2
-	surveys_df['weight']*2
-
-
 > ## Challenge - Make a list
 >
 >  What's another way to create a list of species and associated `count` of the
@@ -431,23 +496,33 @@ calculated from our data.
 >  groupby DataFrames in the same way you can perform them on regular DataFrames.
 {: .challenge}
 
+## Basic Math Functions
+
+If we wanted to, we could perform math on an entire column of our data. For
+example let's multiply all weight values by 2. A more practical use of this might
+be to normalize the data according to a mean, area, or some other value
+calculated from our data.
+
+	# Multiply all weight values by 2
+	surveys_df['weight']*2
+
 # Quick & Easy Plotting Data Using Pandas
 
 We can plot our summary stats using Pandas, too.
 
-	# make sure figures appear inline in Ipython Notebook
+	# Make sure figures appear inline in Ipython Notebook
 	%matplotlib inline
-	# create a quick bar chart
+	# Create a quick bar chart
 	species_counts.plot(kind='bar');
 
-![Weight by Species Plot](../fig/weightBySpecies.png)
-Weight by species plot
+![Weight by Species Plot](../fig/countPerSpecies.png)
+Count per species plot
 
 We can also look at how many animals were captured in each plot:
 
 ```python
-total_count = surveys_df['record_id'].groupby(surveys_df['plot_id']).nunique()
-# let's plot that too
+total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
+# Let's plot that too
 total_count.plot(kind='bar');
 ```
 
@@ -463,7 +538,7 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each plot. Some
 > tips are below to help you solve this challenge:
 >
-> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.core.groupby.DataFrameGroupBy.plot.html)
+> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
@@ -486,7 +561,7 @@ total_count.plot(kind='bar');
 > We can plot the above with
 >
 > ```
-> # plot stacked data so columns 'one' and 'two' are stacked
+> # Plot stacked data so columns 'one' and 'two' are stacked
 > my_df = pd.DataFrame(d)
 > my_df.plot(kind='bar',stacked=True,title="The title of my graph")
 > ```

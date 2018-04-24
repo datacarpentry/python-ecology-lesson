@@ -6,6 +6,49 @@ permalink: /guide/
 
 # Challenge solutions
 
+## Install the required workshop packages on Mac OS with Homebrew
+
+
+Homebrew is one of the popular package managers used by many Mac users.
+
+To install Homebrew, you need have xcode command line tools installed, 
+
+from the terminal, type:
+```
+xcode-select --install
+```
+
+then
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Run the following command to ensure Homebrew is installed properly:
+
+```
+brew doctor
+```
+
+install python 3:
+
+```
+brew install python3
+```
+
+All the rest of workshop packages can be installed by pip3 which comes together with python 3:
+
+```
+pip3 install numpy pandas matplotlib jupyter
+pip3 install bokeh ggplot
+```
+
+pip3 can automatically figure out all the dependencies that required by the above packages.
+
+Launch a python command prompt, type:
+```
+python3
+```
+
 ## Checking installations. 
 
 In the include/scripts directory, you will find a script called check_env.py This checks the functionality of the Anaconda install.
@@ -79,15 +122,15 @@ Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runt
 
 	`plot_names = pd.unique(surveys_df["plot_id"])` Number of unique plot ID's: `plot_names.size` or `len(plot_names)`; Number of unique species in the data: `len(pd.unique(surveys_df["species"]))`
 
-* What is the difference between `len(plot_names)` and `plot_names.nunique()`?
+* What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 
-`len(plot_names)` includes duplicate names.
+Both do result in the same output, making it alternative ways of getting the unique values. `nunique` combines the count and unique value extraction.
 
 ### Grouping Challenges 
 
 * How many recorded individuals are female `F` and how many male `M`?
 
-	`sorted_data.count()`
+	`grouped_data.count()`
 
 * What happens when you group by two columns using the following syntax and then grab mean values?
 
@@ -127,6 +170,8 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 ![total males versus total females for the entire dataset](../fig/01_chall_bar_totalsex.png)
 
 ## 02-index-slice-subset
+
+Tip: use `.head()` method throughout this lesson to keep your display neater for students.  Encourage students to try with and without `.head()` to reinforce this useful tool and then to use it or not at their preference. For example, if a student worries about keeping up in pace with typing, let them know they can skip the `.head()`, but that you'll use it to keep more lines of previous steps visible. 
 
 ### Indexing Challenges 
 
@@ -230,6 +275,9 @@ Pandas cannot convert types from float to int if the column contains NaN values.
 
 ### Challenge - Counting
 surveys_df.isnull()
+
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should generate.
 
 ## 04-merging-data
 
@@ -546,6 +594,37 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
         filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))
     return filenames
 ```
+
+## 06-plotting-with-ggplot
+
+If the students have trouble generating the output, or anything happens with that, there is a file
+called "sample output" that contains the data file they should have generated in lesson 3.
+
+iPython notebooks for plotting can be viewed in the _extras folder
+
+## 07-putting-it-all-together
+
+Scientists often operate on mathematical equations. Being able to use them in their graphics has a lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation, surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot. Since backslash has a special meaning in the python strings, you should replace all the LaTeX-related backslashes with two backslashes. 
+ 
+ ```python
+    plt.plot(t, t, 'r--', label='$y=x$')
+    plt.plot(t, t**2 , 'bs-', label='$y=x^2$')
+    plt.plot(t, (t - 5)**2 + 5 * t - 0.5, 'g^:', label='$y=(x - 5)^2 + 5  x - \\frac{1}{2}$') # note the double backslash 
+    
+    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
+    
+    # Note the double backslashes in the line below. 
+    plt.xlabel('This is the x axis. It can also contain math such as $\\bar{x}=\\frac{\\sum_{i=1}^{n} {x}} {N}$')
+    plt.ylabel('This is the y axis')
+    plt.title('This is the figure title')
+    
+    plt.show()
+```
+
+[This page](https://matplotlib.org/users/mathtext.html) contains more information.
+
+
+
 
 
 

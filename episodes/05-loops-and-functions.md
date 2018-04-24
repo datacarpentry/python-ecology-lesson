@@ -1,5 +1,5 @@
 ---
-title: Data workflows and automation
+title: Data Workflows and Automation
 teaching: 40
 exercises: 50
 questions:
@@ -108,7 +108,7 @@ The command `os.listdir` is equivalent to `ls` in the shell.
 
 In previous lessons, we saw how to use the library pandas to load the species
 data into memory as a DataFrame, how to select a subset of the data using some
-criteria, and how to write the DataFrame into a csv file. Let's write a script
+criteria, and how to write the DataFrame into a CSV file. Let's write a script
 that performs those three steps in sequence for the year 2002:
 
 ```python
@@ -117,10 +117,10 @@ import pandas as pd
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-# Select only data for 2002
+# Select only data for the year 2002
 surveys2002 = surveys_df[surveys_df.year == 2002]
 
-# Write the new DataFrame to a csv file
+# Write the new DataFrame to a CSV file
 surveys2002.to_csv('data/yearly_files/surveys2002.csv')
 ```
 
@@ -208,7 +208,7 @@ for year in surveys_df['year'].unique():
     # Select data for the year
     surveys_year = surveys_df[surveys_df.year == year]
 
-    # Write the new DataFrame to a csv file
+    # Write the new DataFrame to a CSV file
     filename = 'data/yearly_files/surveys' + str(year) + '.csv'
     surveys_year.to_csv(filename)
 ```
@@ -244,12 +244,9 @@ AND the file name itself.
 > files). Modify the for loop so that the entries with null values are not
 > included in the yearly files.
 >
-> 2. What happens if there is no data for a year in the sequence (for example,
-> imagine we had used 1976 as the start year in `range`)?
+> 2. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 >
-> 3. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
->
-> 4. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique csv file for each species?
+> 3. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique CSV file for each species?
 {: .challenge}
 
 ## Building reusable and modular code with functions
@@ -346,10 +343,10 @@ one_year_csv_writer?
 ```
 
 ```python
-one_year_csv_writer(2002,surveys_df)
+one_year_csv_writer(2002, surveys_df)
 ```
 
-We changed the root of the name of the csv file so we can distinguish it from
+We changed the root of the name of the CSV file so we can distinguish it from
 the one we wrote before. Check the `yearly_files` directory for the file. Did it
 do what you expect?
 
@@ -362,7 +359,7 @@ calling the function we just wrote, `one_year_csv_writer`:
 ```python
 def yearly_data_csv_writer(start_year, end_year, all_data):
     """
-    Writes separate csv files for each year of data.
+    Writes separate CSV files for each year of data.
 
     start_year --- the first year of data we want
     end_year --- the last year of data we want
@@ -386,7 +383,7 @@ function:
 # Load the data into a DataFrame
 surveys_df = pd.read_csv('data/surveys.csv')
 
-# Create csv files
+# Create CSV files
 yearly_data_csv_writer(1977, 2002, surveys_df)
 ```
 
@@ -402,7 +399,7 @@ output to change.
 > 1. Add two arguments to the functions we wrote that take the path of the
 >    directory where the files will be written and the root of the file name.
 >    Create a new set of files with a different name in a different directory.
-> 2. How could you use the function `yearly_data_csv_writer` to create a csv file
+> 2. How could you use the function `yearly_data_csv_writer` to create a CSV file
 >    for only one year? (Hint: think about the syntax for `range`)
 > 3. Make the functions return a list of the files they have written. There are
 >    many ways you can do this (and you should try them all!): either of the
@@ -447,7 +444,7 @@ argument with default values (which are optional in the function call).
 
 ```
     Both optional arguments:	1988 1993
-    Default values:			1977 2002
+    Default values:		1977 2002
 ```
 
 The "\t" in the `print` statements are tabs, used to make the text align and be
@@ -467,9 +464,9 @@ dates are not provided:
         all_data --- DataFrame with multi-year data
         """
 
-        if not start_year:
+        if start_year is None:
             start_year = min(all_data.year)
-        if not end_year:
+        if end_year is None:
             end_year = max(all_data.year)
 
         return start_year, end_year
@@ -483,7 +480,7 @@ dates are not provided:
 ```
 ```
     Both optional arguments:	1988 1993
-    Default values:			1977 2002
+    Default values:		1977 2002
 ```
 
 The default values of the `start_year` and `end_year` arguments in the function
@@ -507,39 +504,45 @@ doesn't correspond to any existing object.
 > those with default values in the function definition!)
 {: .challenge}
 
-The body of the test function now has two conditional loops (if loops) that
-check the values of `start_year` and `end_year`. If loops execute the body of
-the loop when some condition is met. They commonly look something like this:
+## If Statements
+
+The body of the test function now has two conditionals (if statements) that
+check the values of `start_year` and `end_year`. If statements execute a segment
+of code when some condition is met. They commonly look something like this:
 
 ```python
     a = 5
 
-    if a<0: # meets first condition?
+    if a<0:  # Meets first condition?
 
         # if a IS less than zero
         print('a is a negative number')
 
-    elif a>0: # did not meet first condition. meets second condition?
+    elif a>0:  # Did not meet first condition. meets second condition?
 
         # if a ISN'T less than zero and IS more than zero
         print('a is a positive number')
 
-    else: # met neither condition
+    else:  # Met neither condition
 
         # if a ISN'T less than zero and ISN'T more than zero
         print('a must be zero!')
+```
 
+Which would return:
+
+```
     a is a positive number
 ```
 
 Change the value of `a` to see how this function works. The statement `elif`
 means "else if", and all of the conditional statements must end in a colon.
 
-The if loops in the function `yearly_data_arg_test` check whether there is an
+The if statements in the function `yearly_data_arg_test` check whether there is an
 object associated with the variable names `start_year` and `end_year`. If those
-variables are `None`, the if loops return the boolean `True` and execute whaever
+variables are `None`, the if statements return the boolean `True` and execute whatever
 is in their body. On the other hand, if the variable names are associated with
-some value (they got a number in the function call), the if loops return `False`
+some value (they got a number in the function call), the if statements return `False`
 and do not execute. The opposite conditional statements, which would return
 `True` if the variables were associated with objects (if they had received value
 in the function call), would be `if start_year` and `if end_year`.
@@ -554,23 +557,6 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ```python
-    def yearly_data_arg_test(all_data, start_year = None, end_year = None):
-        """
-        Modified from yearly_data_csv_writer to test default argument values!
-
-        start_year --- the first year of data we want --- default: None - check all_data
-        end_year --- the last year of data we want --- default: None - check all_data
-        all_data --- DataFrame with multi-year data
-        """
-
-        if not start_year:
-            start_year = min(all_data.year)
-        if not end_year:
-            end_year = max(all_data.year)
-
-        return start_year, end_year
-
-
     start,end = yearly_data_arg_test (surveys_df)
     print('Default values:\t\t\t', start, end)
 
@@ -590,10 +576,10 @@ values to the function using these keywords:
     print('One keyword, default start:\t', start, end)
 ```
 ```
-    Default values:			1977 2002
-    No keywords:			1988 1993
+    Default values:		1977 2002
+    No keywords:		1988 1993
     Both keywords, in order:	1988 1993
-    Both keywords, flipped:		1988 1993
+    Both keywords, flipped:	1988 1993
     One keyword, default end:	1988 2002
     One keyword, default start:	1977 1993
 ```
@@ -605,7 +591,7 @@ values to the function using these keywords:
 >
 > 2. Modify the functions so that they don't create yearly files if there is no
 > data for a given year and display an alert to the user (Hint: use conditional
-> statements and if loops to do this. For an extra challenge, use `try`
+> statements to do this. For an extra challenge, use `try`
 > statements!)
 >
 > 3. The code below checks to see whether a directory exists and creates one if it

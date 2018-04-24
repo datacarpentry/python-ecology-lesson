@@ -8,17 +8,19 @@ questions:
   - " Why is the data type important? "
 objectives:
     - Describe how information is stored in a Python DataFrame.
-    - "Define the two main types of data in Python: characters and numerics."
+    - "Define the two main types of data in Python: text and numerics."
     - Examine the structure of a DataFrame.
     - Modify the format of values in a DataFrame.
     - Describe how data types impact operations.
     - Define, manipulate, and interconvert integers and floats in Python.
     - Analyze datasets having missing/null values (NaN values).
+    - Write manipulated data to a file.
+
 ---
 
 The format of individual columns and rows will impact analysis performed on a
 dataset read into python. For example, you can't perform mathematical
-calculations on a string (character formatted data). This might seem obvious,
+calculations on a string (text formatted data). This might seem obvious,
 however sometimes numeric values are read into python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
 numeric data, you get an error.
@@ -31,13 +33,13 @@ structure and format of our data.
 How information is stored in a
 DataFrame or a python object affects what we can do with it and the outputs of
 calculations as well. There are two main types of data that we're explore in
-this lesson: numeric and character types.
+this lesson: numeric and text data types.
 
-# Numeric Data Types
+## Numeric Data Types
 
 Numeric data types include integers and floats. A **floating point** (known as a
 float) number has decimal points even if that decimal point value is 0. For
-example: 1.13, 2.0 1234.345. If we have a column that contains both integers and
+example: 1.13, 2.0, 1234.345. If we have a column that contains both integers and
 floating point numbers, Pandas will assign the entire column to the float data
 type so the decimal points are not lost.
 
@@ -48,14 +50,14 @@ simply refers to the memory allocated to store data in each cell which effective
 relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
 
-## Character Data Types
+## Text Data Type
 
-Strings, known as Objects in Pandas, are values that contain numbers and / or
-characters. For example, a string might be a word, a sentence, or several
-sentences. A Pandas object might also be a plot name like 'plot1'. A string can
-also contain or consist of numbers. For instance, '1234' could be stored as a
-string. As could '10.23'. However **strings that contain numbers can not be used
-for mathematical operations**!
+Text data type is known as Strings in Python, or Objects in Pandas. Strings can
+contain numbers and / or characters. For example, a string might be a word, a
+sentence, or several sentences. A Pandas object might also be a plot name like
+'plot1'. A string can also contain or consist of numbers. For instance, '1234'
+could be stored as a string. As could '10.23'. However **strings that contain
+numbers can not be used for mathematical operations**!
 
 Pandas and base Python use slightly different names for data types. More on this
 is in the table below:
@@ -64,7 +66,7 @@ is in the table below:
 |-------------|--------------------|-------------|
 | object | string | The most general dtype. Will be assigned to your column if column has mixed types (numbers and strings). |
 | int64  | int | Numeric characters. 64 refers to the memory allocated to hold this character. |
-| float64 | float | Numeric characters with decimals. If a column contains numbers and NaNs(see below), pandas will default to float64, in case your missing value has a decimal. |
+| float64 | float | Numeric characters with decimals. If a column contains numbers and NaNs (see below), pandas will default to float64, in case your missing value has a decimal. |
 | datetime64, timedelta[ns] | N/A (but see the [datetime] module in Python's standard library) | Values meant to hold time data. Look into these for time series experiments. |
 
 [datetime]: http://doc.python.org/2/library/datetime.html
@@ -72,12 +74,12 @@ is in the table below:
 
 ## Checking the format of our data
 
-Now that we're armed with a basic understanding of numeric and character data
+Now that we're armed with a basic understanding of numeric and text data
 types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ```python
-# note that pd.read_csv is used because we imported pandas as pd
+# Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ```
 
@@ -100,7 +102,7 @@ surveys_df['sex'].dtype
 **OUTPUT:** `dtype('O')`
 
 A type 'O' just stands for "object" which in Pandas' world is a string
-(characters).
+(text).
 
 ```python
 surveys_df['record_id'].dtype
@@ -169,12 +171,12 @@ floating point number. Notice that Python by default rounds down when it
 converts from floating point to integer.
 
 ```python
-# convert a to integer
+# Convert a to an integer
 a = 7.83
 int(a)
 7
 
-# convert to float
+# Convert b to a float
 b = 7
 float(b)
 7.0
@@ -187,7 +189,7 @@ we want. For instance, we could convert the `record_id` field to floating point
 values.
 
 ```python
-# convert the record_id field from an integer to a float
+# Convert the record_id field from an integer to a float
 surveys_df['record_id'] = surveys_df['record_id'].astype('float64')
 surveys_df['record_id'].dtype
 ```
@@ -200,7 +202,7 @@ surveys_df['record_id'].dtype
 > Try converting the column `plot_id` to floats using
 >
 > ```python
-> surveys_df.record_id.astype("float")
+> surveys_df.plot_id.astype("float")
 > ```
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
@@ -241,11 +243,11 @@ in the future when you (or someone else) explores your data.
 Let's explore the NaN values in our data a bit further. Using the tools we
 learned in lesson 02, we can figure out how many rows contain NaN values for
 weight. We can also create a new subset from our data that only contains rows
-with weight values > 0 (ie select meaningful weight values):
+with weight values > 0 (i.e., select meaningful weight values):
 
 ```python
 len(surveys_df[pd.isnull(surveys_df.weight)])
-# how many rows have weight values?
+# How many rows have weight values?
 len(surveys_df[surveys_df.weight> 0])
 ```
 
@@ -254,7 +256,7 @@ making a copy of the data so we don't lose our work):
 
 ```python
 df1 = surveys_df.copy()
-# fill all NaN values with 0
+# Fill all NaN values with 0
 df1['weight'] = df1['weight'].fillna(0)
 ```
 
@@ -290,6 +292,43 @@ results.
 > the number of non-NA observations per column. Try looking to the .isnull() method.
 {: .challenge}
 
+## Writing Out Data to CSV
+
+We've learned about using manipulating data to get desired outputs. But we've also discussed
+keeping data that has been manipulated separate from our raw data. Something we might be interested
+in doing is working with only the columns that have full data. First, let's reload the data so
+we're not mixing up all of our previous manipulations.
+
+```python
+surveys_df = pd.read_csv("data/surveys.csv")
+```
+Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
+By default, dropna removes columns that contain missing data for even just one row.
+
+```python
+df_na = surveys_df.dropna()
+
+```
+
+If you now type ```df_na```, you should observe that the resulting DataFrame has 30676 rows
+and 9 columns, much smaller than the 35549 row original.
+
+We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+below will by default save the data into the current working directory. We can
+save it to a different folder by adding the foldername and a slash before the filename:
+`df.to_csv('foldername/out.csv')`. We use 'index=False' so that
+pandas doesn't include the index number for each line.
+
+```python
+# Write DataFrame to CSV
+df_na.to_csv('data_output/surveys_complete.csv', index=False)
+```
+
+We will use this data file later in the workshop. Check out your working directory to make
+sure the CSV wrote out properly, and that you can open it! If you want, try to bring it
+back into python to make sure it imports properly.
+
+
 ## Recap
 
 What we've learned:
@@ -298,3 +337,4 @@ What we've learned:
 + How to change the data type
 + What NaN values are, how they might be represented, and what this means for your work
 + How to replace NaN values, if desired
++ How to use `to_csv` to write manipulated data to a file.
