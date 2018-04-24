@@ -111,6 +111,8 @@ surveys_plot = p9.ggplot(data=surveys_complete,
 surveys_plot + p9.geom_point()
 ```
 
+![png](../fig/06_first_plot)
+
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to 
 > create a `bar`-plot that counts the number of records for each plot. (Check 
@@ -118,11 +120,15 @@ surveys_plot + p9.geom_point()
 > 
 > > ## Answers
 > > 
+> > ~~~
 > > (p9.ggplot(data=surveys_complete,
 > >            mapping=p9.aes(x='plot_id'))
 > >     + p9.geom_bar()
 > > )
+> > ~~~
 > > {: .language-python}
+> >
+> > ![png](../fig/06_challenge_bar)
 > {: .solution}
 {: .challenge}
 
@@ -158,6 +164,8 @@ instance, we can add transparency (alpha) to avoid overplotting:
 )
 ```
 
+![png](../fig/06_alpha_plot)
+
 We can also add colors for all the points
 
 
@@ -168,10 +176,10 @@ We can also add colors for all the points
 )
 ```
 
+![png](../fig/06_blue_plot)
+
 Or to color each species in the plot differently, map the `species_id` column 
 to the color aesthetic:
-
-
 
 ```python
 (p9.ggplot(data=surveys_complete,
@@ -182,6 +190,8 @@ to the color aesthetic:
 )
 ```
 
+![png](../fig/06_color_plot)
+
 Apart from the adaptations of the arguments and settings of the `data`, `aes` 
 and `geom-*` elements, additional elements can be added as well, using the `+` 
 operator:
@@ -190,23 +200,27 @@ operator:
 
 ```python
 (p9.ggplot(data=surveys_complete,
-           mapping=p9.aes(x='weight', y='hindfoot_length'))
+           mapping=p9.aes(x='weight', y='hindfoot_length', color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.xlab("Weight (g)")
 )
 ```
+
+![png](../fig/06_color_label_plot)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis 
 could support the interpretation of the lower numbers:
 
 ```python
 (p9.ggplot(data=surveys_complete,
-           mapping=p9.aes(x='weight', y='hindfoot_length'))
+           mapping=p9.aes(x='weight', y='hindfoot_length', color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.xlab("Weight (g)")
     + p9.scale_x_log10()
 )
 ```
+
+![png](../fig/06_log_plot)
 
 - Changing the theme (`theme_*`) or some specific theming (`theme`) elements. 
 Usually plots with white background look more readable when printed.  We can 
@@ -214,7 +228,7 @@ set the background to white using the function `theme_bw()`.
 
 ```python
 (p9.ggplot(data=surveys_complete,
-           mapping=p9.aes(x='weight', y='hindfoot_length'))
+           mapping=p9.aes(x='weight', y='hindfoot_length', color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.xlab("Weight (g)")
     + p9.scale_x_log10()
@@ -222,6 +236,8 @@ set the background to white using the function `theme_bw()`.
     + p9.theme(text=p9.element_text(size=16))
 )
 ```
+
+![png](../fig/06_white_plot)
 
 > ## Challenge - Bar plot adaptations
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to 
@@ -231,14 +247,16 @@ set the background to white using the function `theme_bw()`.
 > 
 > > ## Answers
 > > 
+> > ~~~
 > > (p9.ggplot(data=surveys_complete,
 > >            mapping=p9.aes(x='plot_id', 
 > >                           fill='sex'))
 > >     + p9.geom_bar()
 > >     + p9.scale_fill_manual(["blue", "orange"])
 > > )
-> > 
+> > ~~~
 > > {: .language-python}
+> > ![png](../fig/06_challenge_color_plot)
 > {: .solution}
 {: .challenge}
 
@@ -257,6 +275,8 @@ group, a boxplot can be used:
 )
 ```
 
+![png](../fig/06_boxplot)
+
 By adding points of he individual observations to the boxplot, we can have a 
 better idea of the number of measurements and of their distribution:
 
@@ -268,6 +288,8 @@ better idea of the number of measurements and of their distribution:
     + p9.geom_boxplot(alpha=0.)
 )
 ```
+
+![png](../fig/06_point_boxplot)
 
 > ## Challenge - distributions
 > 
@@ -289,7 +311,8 @@ better idea of the number of measurements and of their distribution:
 > mapping of a variable, `plotnine` will handle the values as category values.
 > 
 > > ## Answers
-> > 
+> >
+> > ~~~
 > > (p9.ggplot(data=surveys_complete,
 > >            mapping=p9.aes(x='species_id', 
 > >                           y='weight',
@@ -298,7 +321,9 @@ better idea of the number of measurements and of their distribution:
 > >     + p9.geom_violin(alpha=0, color="0.7")
 > >     + p9.scale_y_log10()
 > > )
+> > ~~~
 > > {: .language-python}
+> > ![png](../fig/06_challenge_boxplot)
 > {: .solution}
 {: .challenge}
 
@@ -347,6 +372,8 @@ modifying the aesthetic function and map the species_id to the color:
 )
 ```
 
+![png](../fig/06_time_plot)
+
 # Faceting
 
 As any other library supporting the Grammar of Graphics, `plotnine` has a 
@@ -359,7 +386,8 @@ previous sections:
 ```python
 (p9.ggplot(data=surveys_complete,
            mapping=p9.aes(x='weight', 
-                          y='hindfoot_length'))
+                          y='hindfoot_length',
+                          color='species_id'))
     + p9.geom_point(alpha=0.1)
 )
 ```
@@ -371,22 +399,27 @@ variable. As an example, use `sex`:
 ```python
 (p9.ggplot(data=surveys_complete,
            mapping=p9.aes(x='weight', 
-                          y='hindfoot_length'))
+                          y='hindfoot_length',
+                          color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.facet_wrap("sex")
 )
 ```
+![png](../fig/06_facet_plot)
 
 We can apply the same concept on any of the available categorical variables:
 
 ```python
 (p9.ggplot(data=surveys_complete,
            mapping=p9.aes(x='weight', 
-                          y='hindfoot_length'))
+                          y='hindfoot_length',
+                          color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.facet_wrap("plot_id")
 )
 ```
+
+![png](../fig/06_facet_all_plot)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions 
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid` 
@@ -400,11 +433,13 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 (p9.ggplot(data=survey_2000,
            mapping=p9.aes(x='weight', 
-                          y='hindfoot_length'))
+                          y='hindfoot_length',
+                          color='species_id'))
     + p9.geom_point(alpha=0.1)
     + p9.facet_grid("year ~ sex")
 )
 ```
+![png](../fig/06_select_plot)
 
 > ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average 
@@ -413,12 +448,14 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > > ## Answers
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
 > > 
+> > ~~~
 > > (p9.ggplot(data=yearly_weight,
 > >            mapping=p9.aes(x='year', 
 > >                           y='weight'))
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("species_id")
 > > )
+> > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
@@ -461,6 +498,8 @@ following example of a bar plot with the counts per year.
 )
 ```
 
+![png](../fig/06_overlap_bars)
+
 Notice that we use the `year` here as a categorical variable by using the 
 `factor` functionality. However, by doing so, we have the individual year 
 labels overlapping with eachother. The `theme` functionality provides a way to 
@@ -474,6 +513,8 @@ rotate the text of the x-axis labels:
     + p9.theme(axis_text_x = p9.element_text(angle=90))
 )
 ```
+
+![png](../fig/06_good_bars)
 
 When you like a specific set of theme-customizations you created, you can save 
 them as an object to easily apply them to other plots you may create:
@@ -489,6 +530,8 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
     + my_custom_theme
 )
 ```
+
+![png](../fig/06_theme_plot)
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots 
