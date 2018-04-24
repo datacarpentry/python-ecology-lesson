@@ -3,13 +3,13 @@ title: Short Introduction to Programming in Python
 teaching: 0
 exercises: 0
 questions:
-  - "What is Python?"
-  - "Why should I learn Python?"
+    - "What is Python?"
+    - "Why should I learn Python?"
 objectives:
-  - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
-  - "Define the following data types in Python: strings, integers, and floats."
-  - "Perform mathematical operations in Python using basic operators."
-  - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+    - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
+    - "Define the following data types in Python: strings, integers, and floats."
+    - "Perform mathematical operations in Python using basic operators."
+    - "Define the following as it relates to Python: lists, tuples, and dictionaries."
 ---
 
 # The Basics of Python
@@ -56,34 +56,59 @@ Hello World
 
 ### Strings, integers and floats
 
-Python has built-in numeric types for integers, floats, and complex numbers.
-Strings are a built-in textual type.:
+One of the most basic things we can do in Python is assign values to variables:
 
 ```python
-text = "Data Carpentry"
-number = 42
-pi_value = 3.1415
+text = "Data Carpentry"  # An example of a string
+number = 42  # An example of an integer
+pi_value = 3.1415  # An example of a float
 ```
 
-Here we've assigned data to variables, namely `text`, `number` and `pi_value`,
-using the assignment operator `=`. The variable called `text` is a string which
-means it can contain letters and numbers. Notice that in order to define a
-string you need to have quotes around your text. To print out the value
-stored in a variable we can simply type the name of the variable into the
-interpreter:
+Here we've assigned data to the variables `text`, `number` and `pi_value`,
+using the assignment operator `=`. To review the value of a variable, we
+can type the name of the variable into the interpreter and press `Enter`:
 
 ```python
 >>> text
 "Data Carpentry"
 ```
 
-However, in a script, a `print` function is needed to output the `text`:
+Everything in Python has a type. To get the type of something, we can pass it
+to the built-in function `type`:
+
+```python
+>>> type(text)
+<class 'str'>
+>>> type(number)
+<class 'int'>
+>>> type(6.02)
+<class 'float'>
+```
+
+The variable `text` is of type `str`, short for "string". Strings hold
+sequences of characters, which can be letters, numbers, punctuation
+or more exotic forms of text (even emoji!).
+
+We can also see the value of something using another built-in function, `print`:
+
+```python
+>>> print(text)
+Data Carpentry
+>>> print(11)
+11
+```
+
+This may seem redundant, but in fact it's the only way to display output in a script:
 
 *example.py*
 ```python
 # A Python script file
 # Comments in Python start with #
-# The next line uses the print function to print out the text string
+# The next line assigns the string "Data Carpentry" to the variable "text".
+text = "Data Carpentry"
+# The next line does nothing!
+text
+# The next line uses the print function to print out the value we assigned to "text"
 print(text)
 ```
 *Running the script*
@@ -92,7 +117,9 @@ $ python example.py
 Data Carpentry
 ```
 
-**Tip**: The `print` function is a built-in function in Python. Later in this
+Notice that "Data Carpentry" is printed only once. 
+
+**Tip**: `print` and `type` are built-in functions in Python. Later in this
 lesson, we will introduce methods and user-defined functions. The Python
 documentation is excellent for reference on the differences between them.
 
@@ -102,13 +129,13 @@ We can perform mathematical calculations in Python using the basic operators
  `+, -, /, *, %`:
 
 ```python
->>> 2 + 2
+>>> 2 + 2  # Addition
 4
->>> 6 * 7
+>>> 6 * 7  # Multiplication
 42
->>> 2 ** 16  # power
+>>> 2 ** 16  # Power
 65536
->>> 13 % 5  # modulo
+>>> 13 % 5  # Modulo
 3
 ```
 
@@ -193,7 +220,7 @@ However, tuples can not be changed once created (they are "immutable"). Tuples
 are created by placing comma-separated values inside parentheses `()`.
 
 ```python
-# tuples use parentheses
+# Tuples use parentheses
 a_tuple= (1, 2, 3)
 another_tuple = ('blue', 'green', 'red')
 # Note: lists use square brackets
@@ -305,9 +332,3 @@ z = add_function(20, 22)
 print(z)
 42
 ```
-
-Key points about functions are:
-
-* definition starts with `def`
-* function body is indented
-* `return` keyword precedes returned value
