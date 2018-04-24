@@ -111,7 +111,7 @@ surveys_plot = p9.ggplot(data=surveys_complete,
 surveys_plot + p9.geom_point()
 ```
 
-![png](../fig/06_first_plot)
+![png](/fig/06_first_plot)
 
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to 
@@ -128,7 +128,7 @@ surveys_plot + p9.geom_point()
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/06_challenge_bar)
+> > ![png](/fig/06_challenge_bar)
 > {: .solution}
 {: .challenge}
 
@@ -164,7 +164,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 )
 ```
 
-![png](../fig/06_alpha_plot)
+![png](/fig/06_alpha_plot)
 
 We can also add colors for all the points
 
@@ -176,7 +176,7 @@ We can also add colors for all the points
 )
 ```
 
-![png](../fig/06_blue_plot)
+![png](/fig/06_blue_plot)
 
 Or to color each species in the plot differently, map the `species_id` column 
 to the color aesthetic:
@@ -190,7 +190,7 @@ to the color aesthetic:
 )
 ```
 
-![png](../fig/06_color_plot)
+![png](/fig/06_color_plot)
 
 Apart from the adaptations of the arguments and settings of the `data`, `aes` 
 and `geom-*` elements, additional elements can be added as well, using the `+` 
@@ -206,7 +206,7 @@ operator:
 )
 ```
 
-![png](../fig/06_color_label_plot)
+![png](/fig/06_color_label_plot)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis 
 could support the interpretation of the lower numbers:
@@ -220,7 +220,7 @@ could support the interpretation of the lower numbers:
 )
 ```
 
-![png](../fig/06_log_plot)
+![png](/fig/06_log_plot)
 
 - Changing the theme (`theme_*`) or some specific theming (`theme`) elements. 
 Usually plots with white background look more readable when printed.  We can 
@@ -237,7 +237,7 @@ set the background to white using the function `theme_bw()`.
 )
 ```
 
-![png](../fig/06_white_plot)
+![png](/fig/06_white_plot)
 
 > ## Challenge - Bar plot adaptations
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to 
@@ -256,7 +256,7 @@ set the background to white using the function `theme_bw()`.
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_color_plot)
+> > ![png](/fig/06_challenge_color_plot)
 > {: .solution}
 {: .challenge}
 
@@ -275,7 +275,7 @@ group, a boxplot can be used:
 )
 ```
 
-![png](../fig/06_boxplot)
+![png](/fig/06_boxplot)
 
 By adding points of he individual observations to the boxplot, we can have a 
 better idea of the number of measurements and of their distribution:
@@ -289,7 +289,7 @@ better idea of the number of measurements and of their distribution:
 )
 ```
 
-![png](../fig/06_point_boxplot)
+![png](/fig/06_point_boxplot)
 
 > ## Challenge - distributions
 > 
@@ -323,7 +323,7 @@ better idea of the number of measurements and of their distribution:
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_boxplot)
+> > ![png](/fig/06_challenge_boxplot)
 > {: .solution}
 {: .challenge}
 
@@ -372,7 +372,7 @@ modifying the aesthetic function and map the species_id to the color:
 )
 ```
 
-![png](../fig/06_time_plot)
+![png](/fig/06_time_plot)
 
 # Faceting
 
@@ -405,7 +405,7 @@ variable. As an example, use `sex`:
     + p9.facet_wrap("sex")
 )
 ```
-![png](../fig/06_facet_plot)
+![png](/fig/06_facet_plot)
 
 We can apply the same concept on any of the available categorical variables:
 
@@ -419,7 +419,7 @@ We can apply the same concept on any of the available categorical variables:
 )
 ```
 
-![png](../fig/06_facet_all_plot)
+![png](/fig/06_facet_all_plot)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions 
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid` 
@@ -439,7 +439,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
     + p9.facet_grid("year ~ sex")
 )
 ```
-![png](../fig/06_select_plot)
+![png](/fig/06_select_plot)
 
 > ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average 
@@ -498,7 +498,7 @@ following example of a bar plot with the counts per year.
 )
 ```
 
-![png](../fig/06_overlap_bars)
+![png](/fig/06_overlap_bars)
 
 Notice that we use the `year` here as a categorical variable by using the 
 `factor` functionality. However, by doing so, we have the individual year 
@@ -514,7 +514,7 @@ rotate the text of the x-axis labels:
 )
 ```
 
-![png](../fig/06_good_bars)
+![png](/fig/06_good_bars)
 
 When you like a specific set of theme-customizations you created, you can save 
 them as an object to easily apply them to other plots you may create:
@@ -531,7 +531,7 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
 )
 ```
 
-![png](../fig/06_theme_plot)
+![png](/fig/06_theme_plot)
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots 
