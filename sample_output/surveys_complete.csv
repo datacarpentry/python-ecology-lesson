@@ -1,4 +1,4 @@
-record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
+record_id,month,day,year,site_id,species_id,sex,hindfoot_length,weight
 845,5,6,1978,2,NL,M,32,204
 1164,8,5,1978,2,NL,M,34,199
 1261,9,4,1978,2,NL,M,32,197

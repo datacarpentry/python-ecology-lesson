@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 7135,7136,1,12,1983,12,DO,M,48.0
 7136,7137,1,12,1983,20,AB,,
 7137,7138,1,12,1983,20,AB,,

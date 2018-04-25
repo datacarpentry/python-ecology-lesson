@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
+,record_id,month,day,year,site_id,species_id,sex,hindfoot_length,weight
 11227,11228,3,8,1986,12,DS,M,45.0,119.0
 11228,11229,3,8,1986,23,DO,F,35.0,56.0
 11229,11230,3,8,1986,21,RM,F,15.0,11.0
