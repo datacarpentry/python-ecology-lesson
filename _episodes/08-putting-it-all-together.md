@@ -256,7 +256,7 @@ figure number inside the parentheses:
 {: .language-python}
 
 A single figure can also include multiple plots in a grid pattern. The
-`subplot()` command especifies the number of rows, the number of columns, and
+`subplot()` command specifies the number of rows, the number of columns, and
 the number of the space in the grid that particular plot is occupying:
 
 ~~~

@@ -122,23 +122,26 @@ a = [1, 2, 3, 4, 5]
 >
 > 1. What value does the code below return?
 >
->    ```python
+>    ~~~
 >    a[0]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 > 2. How about this:
 >
->    ```python
+>    ~~~
 >    a[5]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 > 3. In the example above, calling `a[5]` returns an error. Why is that?
 >
 > 4. What about?
 >
->    ```python
+>    ~~~
 >    a[len(a)]
->    ```
+>    ~~~
+>    {: .language-python }
 {: .challenge}
 
 
@@ -230,14 +233,16 @@ the other will see the same changes to the reference object.
 
 - **Copy** uses the dataframe's `copy()` method
 
-  ```python
+  ~~~
   true_copy_surveys_df = surveys_df.copy()
-  ```
+  ~~~
+  {: .language-python }
 - A **Reference** is created using the `=` operator
 
-  ```python
+  ~~~
   ref_surveys_df = surveys_df
-  ```
+  ~~~
+  {: .language-python }
 
 Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
@@ -410,9 +415,10 @@ Experiment with selecting various subsets of the "surveys" data.
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
 >
->    ```python
+>    ~~~
 >    surveys_df[surveys_df['species_id'].isin([listGoesHere])]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 >   Use the `isin` function to find all plots that contain particular species
 >   in the "surveys" DataFrame. How many records contain these values?

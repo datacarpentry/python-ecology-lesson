@@ -72,6 +72,8 @@ To build a `plotnine` graphic we need to:
 As we have not defined anything else, just an empty figure is available and
 presented.
 
+As we have not defined anything else, just an empty figure is available and
+presented.
 
 - Define aesthetics (`aes`), by **selecting variables** used in the plot and
 `mapping` them to a presentation such as plotting size, shape color, etc. You
