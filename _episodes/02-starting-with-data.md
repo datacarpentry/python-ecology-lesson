@@ -578,10 +578,11 @@ total_count.plot(kind='bar');
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
 >
-> ```
+> ~~~
 > d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']),'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
 > pd.DataFrame(d)
-> ```
+> ~~~
+> {: .language-python }
 >
 > shows the following data
 >
@@ -595,11 +596,12 @@ total_count.plot(kind='bar');
 >
 > We can plot the above with
 >
-> ```
+> ~~~
 > # Plot stacked data so columns 'one' and 'two' are stacked
 > my_df = pd.DataFrame(d)
 > my_df.plot(kind='bar',stacked=True,title="The title of my graph")
-> ```
+> ~~~
+> {: .language-python }
 >
 > ![Stacked Bar Plot](../fig/stackedBar1.png)
 >
@@ -618,7 +620,8 @@ total_count.plot(kind='bar');
 >> ```python
 >> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
->> ```
+>> ~~~
+>> {: .language-python }
 >>
 >> This calculates the sums of weights for each sex within each site as a table
 >>
@@ -642,7 +645,8 @@ total_count.plot(kind='bar');
 >> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> site_sex_count.unstack()
->> ```
+>> ~~~
+>> {: .language-python }
 >>
 >> The `unstack` method above will display the following output:
 >>
@@ -667,7 +671,8 @@ total_count.plot(kind='bar');
 >> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by site and sex")
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
->> ```
+>> ~~~
+>> {: .language-python }
 >>
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}

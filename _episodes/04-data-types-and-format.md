@@ -125,7 +125,7 @@ surveys_df.dtypes
 
 which **returns**:
 
-```
+~~~
 record_id            int64
 month                int64
 day                  int64
@@ -136,7 +136,8 @@ sex                 object
 hindfoot_length    float64
 weight             float64
 dtype: object
-```
+~~~
+{: .language-python }
 
 Note that most of the columns in our Survey data are of type `int64`. This means
 that they are 64 bit integers. But the weight column is a floating point value
@@ -222,7 +223,7 @@ surveys_df['record_id'].dtype
 
 What happened in the last challenge activity? Notice that this throws a value error:
 `ValueError: Cannot convert NA to integer`. If we look at the `weight` column in the surveys
-data we notice that there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
+data we notice that there are NaN (**N**ot **a** **N**umber) values. **NaN** values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
 an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we
 were to average the `weight` column without replacing our NaNs, Python would know to skip
