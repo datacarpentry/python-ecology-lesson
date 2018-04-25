@@ -308,9 +308,10 @@ or
 > 1. First check what `rev` is right now (remember `rev` is the name of our dictionary).
 >
 >    Type:
-> ```python
+> ~~~
 > >>> rev
-> ```
+> ~~~
+> {: .language-python }
 >
 > 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce".
 >
