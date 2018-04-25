@@ -221,14 +221,14 @@ are created by placing comma-separated values inside parentheses `()`.
 
 ```python
 # Tuples use parentheses
-a_tuple= (1, 2, 3)
+a_tuple = (1, 2, 3)
 another_tuple = ('blue', 'green', 'red')
 # Note: lists use square brackets
 a_list = [1, 2, 3]
 ```
 
 > ## Challenge - Tuples
-> 1. What happens when you type `a_tuple[2]=5` vs `a_list[1]=5` ?
+> 1. What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5` ?
 > 2. Type `type(a_tuple)` into python - what is the object type?
 >
 {: .challenge}

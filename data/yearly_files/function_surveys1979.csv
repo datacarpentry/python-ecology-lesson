@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 1551,1552,1,28,1979,22,DM,F,37.0
 1552,1553,1,28,1979,8,DS,F,128.0
 1553,1554,1,28,1979,9,DM,F,42.0

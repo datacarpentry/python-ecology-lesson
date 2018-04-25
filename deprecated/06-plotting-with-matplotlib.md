@@ -41,11 +41,11 @@ this example, we'll take the first 50 of the ~35000 entries that are in
 small_dataset = df[:50]
 ```
 
-There's a column in `surveys.csv` named "plot_id" which would make an excellent
+There's a column in `surveys.csv` named "site_id" which would make an excellent
 value to plot.
 
 ```python
-plot_data = small_dataset['plot_id']
+site_data = small_dataset['site_id']
 ```
 
 ## Simple Plotting
@@ -54,7 +54,7 @@ Now, we have an array of plot data indexed by the `record_id` value. Let's plot 
 and give it a label.
 
 ```python
-plt.plot(plot_data, label='My Data')
+plt.plot(site_data, label='My Data')
 ```
 
 The data has now been plotted, to see it we can do 2 things:
@@ -141,7 +141,7 @@ the bottom and 1% for top and right edges.
 To use a different color, like red, we would plot our data like so:
 
 ```python
-plt.plot(plot_data, color='r')
+plt.plot(site_data, color='r')
 ```
 
 Note that creating more than one plot on the same figure will make them use
@@ -162,14 +162,14 @@ w | white
 For more color flexibility, you can specify hexadecimal RGB values like so:
 
 ```python
-plt.plot(plot_data, color='#aa5599')
+plt.plot(site_data, color='#aa5599')
 ```
 
 or use RGB coefficients of range 0-1 (which makes it easy to create multiple
 color-encoded plots in a loop):
 
 ```
-plt.plot(plot_data, color=(0.1, 0.9, 0.6))
+plt.plot(site_data, color=(0.1, 0.9, 0.6))
 ```
 
 ### Line style
@@ -178,7 +178,7 @@ The default line style is a solid line. We can make it thinner or thicker by
 specifying `linewidth` or `lw`:
 
 ```python
-plt.plot(plot_data, linewidth=3)
+plt.plot(site_data, linewidth=3)
 ```
 
 The default linewidth is 1. A linewidth of 3 would be 3 times as thick as the
@@ -193,7 +193,7 @@ Matplotlib can do many types of plots. For example, a dot plot can be
 constructed like so:
 
 ```python
-plt.plot(plot_data, 'o')
+plt.plot(site_data, 'o')
 ```
 
 The `o` means a dot. There are a variety of markers you can use.
@@ -203,7 +203,7 @@ Refer to the official documentation
 A simple dashed line:
 
 ```
-plt.plot(plot_data, linestyle='--')
+plt.plot(site_data, linestyle='--')
 ```
 
 Value | Style
@@ -220,7 +220,7 @@ to specify also the data marker style which will create scatter plot or various
 connect-the-dots-like plot. For example, to use square data marker:
 
 ```
-plt.plot(plot_data, marker='s')
+plt.plot(site_data, marker='s')
 ```
 
 Marker | Meaning
@@ -263,7 +263,7 @@ Method | Result
 `plt.loglog`|logarithmic scaling on both axes (log-log plot)
 
 ```python
-plt.loglog(plot_data)
+plt.loglog(site_data)
 ```
 
 ### Two independent X or Y axes
@@ -273,9 +273,9 @@ ranges one can use `plt.twinx` and `plt.twiny`:
 
 
 ```python
-plt.bar(plot_data.index, plot_data.values)
+plt.bar(site_data.index, site_data.values)
 plt.twinx()
-plt.plot(1/ plot_data, color='k')
+plt.plot(1/ site_data, color='k')
 ```
 
 This will create a plot with two independent Y axes, one for barplot and one
@@ -338,7 +338,7 @@ Matplotlib supports a number of different plot variations, eg. bar plot
 To use a bar plot:
 
 ```python
-plt.bar(plot_data.index, plot_data.values)
+plt.bar(site_data.index, site_data.values)
 ```
 
 # Go exploring
@@ -352,7 +352,7 @@ especially:
 A box and whisker plot:
 
 ```python
-plt.boxplot(plot_data.values)
+plt.boxplot(site_data.values)
 ```
 
 # A Realistic Example
@@ -364,10 +364,10 @@ A dot plot would be ideal for this.
 Pandas has some built-in tools that make it easy to group your data.
 
 ```python
-grouped_plot_data = small_dataset.groupby('sex')
+grouped_site_data = small_dataset.groupby('sex')
 ```
 
-This returns our data in an iterable object. Each entry in `grouped_plot_data`
+This returns our data in an iterable object. Each entry in `grouped_site_data`
 is formatted like so:
 
 ```python
@@ -380,11 +380,11 @@ the data like so:
 ```python
 colors = ['r', 'g'] #we'll be cycling through these colors
 color_index = 0
-for group in grouped_plot_data:
+for group in grouped_site_data:
     color = colors[color_index]
     group_label = group[0]
     group_data = group[1]
-    plt.plot(group_data['plot_id'], color=color, label=group_label)
+    plt.plot(group_data['site_id'], color=color, label=group_label)
     color_index += 1
 plt.legend()
 ```

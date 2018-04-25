@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 15309,15310,1,10,1989,21,OT,M,24.0
 15310,15311,1,10,1989,18,PM,M,19.0
 15311,15312,1,10,1989,12,AB,,
