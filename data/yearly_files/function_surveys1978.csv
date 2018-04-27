@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 503,504,1,8,1978,3,OL,,
 504,505,1,8,1978,13,DM,M,43.0
 505,506,1,8,1978,2,,,

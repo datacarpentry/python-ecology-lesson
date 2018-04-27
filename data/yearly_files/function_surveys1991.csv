@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 18189,18190,1,11,1991,7,RM,F,11.0
 18190,18191,1,11,1991,12,OL,M,31.0
 18191,18192,1,11,1991,17,RM,F,9.0
