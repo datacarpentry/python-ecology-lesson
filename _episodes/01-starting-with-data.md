@@ -319,8 +319,19 @@ Let's look at the data using these.
 
 ## Calculating Statistics From Data In A Pandas DataFrame
 
-We've read our data into Python. Next, let's perform some quick summary
-statistics to learn more about the data that we're working with. We might want
+We've read our data into Python. Now, we want to understand better the data
+we are dealing with, and for that we can perform a basic summary of statistics
+for each column in our data set. The **pandas function `describe`** will return 
+descriptive stats including: mean, median, max, min, std and count for each column 
+in the data. 
+
+```python
+# Summary of statistics for each column of the data set
+surveys_df.describe()
+```
+Pandas' `describe` function will only return summary values for columns
+containing numeric data (note that for the columns `species_id` and `sex`
+nothing was returned). Further exploring our data set, we might want
 to know how many animals were collected in each plot, or how many of each
 species were caught. We can perform summary stats quickly using groups. But
 first we need to figure out what we want to group by.
@@ -359,11 +370,13 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 > ## Challenge - Statistics
 >
-> 1. Create a list of unique plot ID's found in the surveys data. Call it
+> 1. What type of summary statistics is given by `surveys_df['sex'].describe()`?
+>
+> 2. Create a list of unique plot ID's found in the surveys data. Call it
 >   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
+> 3. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
@@ -372,8 +385,8 @@ We often want to calculate summary statistics grouped by subsets or attributes
 within fields of our data. For example, we might want to calculate the average
 weight of all individuals per plot.
 
-We can calculate basic statistics for all records in a single column using the
-syntax below:
+We can calculate the summary of statistics for all records in a specific column 
+using the syntax below:
 
 ```python
 surveys_df['weight'].describe()
@@ -409,14 +422,6 @@ can quickly calculate summary statistics by a group of our choice.
 ```python
 # Group data by sex
 grouped_data = surveys_df.groupby('sex')
-```
-
-The **pandas function `describe`** will return descriptive stats including: mean,
-median, max, min, std and count for a particular column in the data. Pandas'
-`describe` function will only return summary values for columns containing
-numeric data.
-
-```python
 # Summary statistics for all numeric columns by sex
 grouped_data.describe()
 # Provide the mean for each numeric column by sex
