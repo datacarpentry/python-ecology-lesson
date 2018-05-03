@@ -175,11 +175,10 @@ object by typing its name into the Python command prompt.
 surveys_df
 ```
 
-which prints contents like above.
+which prints contents like below.
 
-Note: if the output is too wide to print on your narrow terminal window, you may see something 
-slightly different as the large set of data scrolls past. You may see simply the last column
-of data:
+Note: if the output is too wide to print on your narrow terminal window, you may see something slightly different as the large set of data scrolls past. You may see simply the last column of data:
+
 ```python
 17        NaN  
 18        NaN  
@@ -510,7 +509,7 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 
 We can plot our summary stats using Pandas, too.
 
-If you work in the Jpyter Notebook, make sure figures appear inline by running `%matplotlib inline`. If you are working in Spyder, the default setting for the Ipython console is `inline` plotting (it can be changed in preferences).
+If you work in the Jpyter Notebook, make sure figures appear inline by running `%matplotlib inline`. 
 
 ```
 # Create a quick bar chart
@@ -570,9 +569,11 @@ dt.time(hour = 9, minute=30, second=15)
 # a datetime
 dt.datetime(2018, 01, 11, 9, 30, 15)
 ```
+
 A defined format for date is important when calculating e.g. differences between dates etc.
 
 Let's try:
+
 ```python
 dt1 = dt.datetime(2018, 01, 11, 9, 30, 00)
 dt2 = dt.datetime(2018, 01, 11, 10, 00, 00)
