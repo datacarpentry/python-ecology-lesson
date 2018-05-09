@@ -58,7 +58,7 @@ single animal, and the columns represent:
 | month            | month of observation               |
 | day              | day of observation                 |
 | year             | year of observation                |
-| site_id          | ID of a particular site            |
+| plot_id          | ID of a particular site            |
 | species_id       | 2-letter code                      |
 | sex              | sex of animal ("M", "F")           |
 | hindfoot_length  | length of the hindfoot in mm       |
@@ -68,7 +68,7 @@ single animal, and the columns represent:
 The first few rows of our first file look like this:
 
 ```
-record_id,month,day,year,site_id,species_id,sex,hindfoot_length,weight
+record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 1,7,16,1977,2,NL,M,32,
 2,7,16,1977,3,NL,M,33,
 3,7,16,1977,2,DM,F,37,
@@ -135,7 +135,7 @@ pd.read_csv("data/surveys.csv")
 The above command yields the **output** below:
 
 ```
-record_id  month  day  year  site_id species_id sex  hindfoot_length  weight
+record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 0          1      7   16  1977        2         NL   M               32   NaN
 1          2      7   16  1977        3         NL   M               33   NaN
 2          3      7   16  1977        2         DM   F               37   NaN
@@ -233,7 +233,7 @@ our screen:
 
 >>> surveys_df.head() # The head() function displays the first several lines of a file. It
 		      # is discussed below.
-   record_id  month  day  year  site_id species_id sex  hindfoot_length  \
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M             14.0   
 6          7      7   16  1977        2         PE   F              NaN   
 7          8      7   16  1977        1         DM   M             37.0   
@@ -269,7 +269,7 @@ record_id            int64
 month                int64
 day                  int64
 year                 int64
-site_id              int64
+plot_id              int64
 species_id          object
 sex                 object
 hindfoot_length    float64
@@ -335,7 +335,7 @@ surveys_df.columns
 which **returns**:
 
 ```
-Index(['record_id', 'month', 'day', 'year', 'site_id', 'species_id', 'sex',
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
        'hindfoot_length', 'weight'],
       dtype='object')
 ```
@@ -363,7 +363,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `site_names`. How many unique sites are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(site_names)` and `surveys_df['site_id'].nunique()`?
+> 2. What is the difference between `len(site_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
@@ -426,7 +426,7 @@ grouped_data.mean()
 `grouped_data.mean()` **OUTPUT:**
 
 ```python
-        record_id     month        day         year    site_id  \
+        record_id     month        day         year    plot_id  \
 sex                                                              
 F    18036.412046  6.583047  16.007138  1990.644997  11.440854   
 M    17754.835601  6.392668  16.184286  1990.480401  11.098282   
@@ -446,7 +446,7 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `grouped_data2 = surveys_df.groupby(['site_id','sex'])`
+>	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
 >	- `grouped_data2.mean()`
 > 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
@@ -521,7 +521,7 @@ Count per species site
 We can also look at how many animals were captured in each site:
 
 ```python
-total_count = surveys_df.groupby('site_id')['record_id'].nunique()
+total_count = surveys_df.groupby('plot_id')['record_id'].nunique()
 # Let's plot that too
 total_count.plot(kind='bar');
 ```
@@ -581,7 +581,7 @@ total_count.plot(kind='bar');
 >> First we group data by site and by sex, and then calculate a total for each site.
 >>
 >> ```python
->> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> ```
 >>
@@ -589,7 +589,7 @@ total_count.plot(kind='bar');
 >>
 >> ```
 >> site  sex
->> site_id  sex
+>> plot_id  sex
 >> 1        F      38253
 >>          M      59979
 >> 2        F      50144
@@ -604,7 +604,7 @@ total_count.plot(kind='bar');
 >> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
 >>
 >> ```python
->> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> site_sex_count.unstack()
 >> ```
@@ -613,7 +613,7 @@ total_count.plot(kind='bar');
 >>
 >> ```
 >> sex          F      M
->> site_id              
+>> plot_id              
 >> 1        38253  59979
 >> 2        50144  57250
 >> 3        27251  28253
@@ -626,7 +626,7 @@ total_count.plot(kind='bar');
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
 >> ```python
->> by_site_sex = surveys_df.groupby(['site_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> spc = site_sex_count.unstack()
 >> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by site and sex")
