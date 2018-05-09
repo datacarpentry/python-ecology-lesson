@@ -56,6 +56,15 @@ Anaconda will install the workshop packages for you.
 Download and install [Anaconda](https://www.continuum.io/downloads).
 Remember to download and install the installer for Python 3.x.
 
+#### Download plotting package
+
+The plotting package plotnine is not installed by default.  From the terminal,
+type:
+
+```
+conda install -c conda-forge plotnine
+```
+
 ### Miniconda installation
 
 Miniconda is a "light" version of Anaconda. If you install and use Miniconda
@@ -81,7 +90,7 @@ From the terminal, type:
 
 ```
 conda install -y numpy pandas matplotlib jupyter
-conda install -c bokeh ggplot
+conda install -c conda-forge plotnine
 ```
 
 ## Launch a Jupyter notebook

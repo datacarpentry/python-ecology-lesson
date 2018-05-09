@@ -1,4 +1,4 @@
-,record_id,month,day,year,plot,species,sex,wgt
+,record_id,month,day,year,site,species,sex,wgt
 2270,2271,1,15,1980,8,DO,M,53.0
 2271,2272,1,15,1980,11,PF,F,10.0
 2272,2273,1,15,1980,18,DM,F,33.0
