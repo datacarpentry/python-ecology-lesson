@@ -9,6 +9,7 @@ DST=_site
 
 # Controls
 .PHONY : commands clean files
+.NOTPARALLEL:
 all : commands
 
 ## commands         : show all commands.
@@ -16,11 +17,11 @@ commands :
 	@grep -h -E '^##' ${MAKEFILES} | sed -e 's/## //g'
 
 ## serve            : run a local server.
-serve : lesson-rmd
+serve : lesson-md
 	${JEKYLL} serve
 
 ## site             : build files but do not run a server.
-site : lesson-rmd
+site : lesson-md
 	${JEKYLL} build
 
 # repo-check        : check repository settings.
@@ -53,7 +54,7 @@ workshop-check :
 ## ----------------------------------------
 ## Commands specific to lesson websites.
 
-.PHONY : lesson-check lesson-rmd lesson-files lesson-fixme
+.PHONY : lesson-check lesson-md lesson-files lesson-fixme
 
 # RMarkdown files
 RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
@@ -64,9 +65,9 @@ MARKDOWN_SRC = \
   index.md \
   CONDUCT.md \
   setup.md \
-  $(wildcard _episodes/*.md) \
+  $(sort $(wildcard _episodes/*.md)) \
   reference.md \
-  $(wildcard _extras/*.md) \
+  $(sort $(wildcard _extras/*.md)) \
   LICENSE.md
 
 # Generated lesson files in the order they appear in the navigation menu.
@@ -74,26 +75,25 @@ HTML_DST = \
   ${DST}/index.html \
   ${DST}/conduct/index.html \
   ${DST}/setup/index.html \
-  $(patsubst _episodes/%.md,${DST}/%/index.html,$(wildcard _episodes/*.md)) \
+  $(patsubst _episodes/%.md,${DST}/%/index.html,$(sort $(wildcard _episodes/*.md))) \
   ${DST}/reference/index.html \
-  $(patsubst _extras/%.md,${DST}/%/index.html,$(wildcard _extras/*.md)) \
+  $(patsubst _extras/%.md,${DST}/%/index.html,$(sort $(wildcard _extras/*.md))) \
   ${DST}/license/index.html
 
-## lesson-rmd       : convert Rmarkdown files to markdown
-lesson-rmd: $(RMD_SRC)
-	@bin/knit_lessons.sh $(RMD_SRC)
+## lesson-md        : convert Rmarkdown files to markdown
+lesson-md : ${RMD_DST}
+
+# Use of .NOTPARALLEL makes rule execute only once
+${RMD_DST} : ${RMD_SRC}
+	@bin/knit_lessons.sh ${RMD_SRC}
 
 ## lesson-check     : validate lesson Markdown.
 lesson-check :
-	@bin/lesson_check.py -s . -p ${PARSER}
+	@bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
 ## lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace.
 lesson-check-all :
 	@bin/lesson_check.py -s . -p ${PARSER} -l -w
-
-## lesson-figures   : re-generate inclusion displaying all figures.
-lesson-figures :
-	@bin/extract_figures.py -p ${PARSER} ${MARKDOWN_SRC} > _includes/all_figures.html
 
 ## unittest         : run unit tests on checking tools.
 unittest :
