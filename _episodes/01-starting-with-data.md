@@ -1,3 +1,4 @@
+
 ---
 title: Starting With Data
 teaching: 30
@@ -389,12 +390,9 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 # Groups in Pandas
 
-We often want to calculate summary statistics grouped by subsets or attributes
-within fields of our data. For example, we might want to calculate the average
-weight of all individuals per site.
-
-We can calculate the summary of statistics for all records in a specific column 
-using the syntax below:
+We often want to calculate the summary statistics grouped by subsets or 
+attributes within fields of our data. For example, we might want to calculate 
+summary statistics only for the `weight` column. We can do this by
 
 ```python
 surveys_df['weight'].describe()
@@ -413,7 +411,7 @@ max        280.000000
 Name: weight, dtype: float64
 ```
 
-We can also extract one specific metric if we wish:
+We can also extract specific metrics if we wish:
 
 ```python
 surveys_df['weight'].min()
