@@ -47,8 +47,8 @@ we'd rather have you doing the former.
 
 Every lesson has a repository of its own, while individual topics are files
 in that directory.  For example, the `python-ecology-lesson` repo containing our
-introduction to Python using ecology data contains the files
-`00-short-introduction-to-Python.md`,
+introduction to Python using ecology data contains an `_episodes` folder, which
+contains the files: `00-short-introduction-to-Python.md`,
 `01-starting-with-data.md` and so on.  (We use two digits followed by a short
 topic key to ensure files appear in the right order when listed.)
 
