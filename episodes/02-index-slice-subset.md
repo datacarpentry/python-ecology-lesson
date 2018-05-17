@@ -82,10 +82,10 @@ order. This is useful when we need to reorganize our data.
 
 ```python
 # Select the species and plot columns from the DataFrame
-surveys_df[['species_id', 'site_id']]
+surveys_df[['species_id', 'plot_id']]
 
 # What happens when you flip the order?
-surveys_df[['site_id', 'species_id']]
+surveys_df[['plot_id', 'species_id']]
 
 # What happens if you ask for a column that doesn't exist?
 surveys_df['speciess']
@@ -272,7 +272,7 @@ Let's explore some other ways to index and select subsets of data:
 surveys_df.loc[[0, 10], :]
 
 # What does this do?
-surveys_df.loc[0, ['species_id', 'site_id', 'weight']]
+surveys_df.loc[0, ['species_id', 'plot_id', 'weight']]
 
 # What happens when you type the code below?
 surveys_df.loc[[0, 10, 35549], :]
@@ -340,7 +340,7 @@ surveys_df[surveys_df.year == 2002]
 Which produces the following output:
 
 ```python
-record_id  month  day  year  site_id species_id  sex  hindfoot_length  weight
+record_id  month  day  year  plot_id species_id  sex  hindfoot_length  weight
 33320      33321      1   12  2002        1         DM    M     38      44
 33321      33322      1   12  2002        1         DO    M     37      58
 33322      33323      1   12  2002        1         PB    M     28      45
@@ -449,7 +449,7 @@ pd.isnull(surveys_df)
 A snippet of the output is below:
 
 ```python
-      record_id  month    day   year site_id species_id    sex  hindfoot_length weight
+      record_id  month    day   year plot_id species_id    sex  hindfoot_length weight
 0         False  False  False  False   False      False  False   False      True
 1         False  False  False  False   False      False  False   False      True
 2         False  False  False  False   False      False  False   False      True
