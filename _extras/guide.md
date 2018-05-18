@@ -14,40 +14,46 @@ Homebrew is one of the popular package managers used by many Mac users.
 To install Homebrew, you need have xcode command line tools installed,
 
 from the terminal, type:
-```
+~~~
 xcode-select --install
-```
+~~~
+{: .language-bash}
 
 then
-```
+~~~
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+~~~
+{: .language-bash}
 
 Run the following command to ensure Homebrew is installed properly:
 
-```
+~~~
 brew doctor
-```
+~~~
+{: .language-bash}
 
 install Python 3:
 
-```
+~~~
 brew install python3
-```
+~~~
+{: .language-bash}
 
-All the rest of workshop packages can be installed by pip3 which comes together with Python 3:
+All the rest of workshop packages can be installed by `pip3` which comes together with Python 3:
 
-```
+~~~
 pip3 install numpy pandas matplotlib jupyter
 pip3 install bokeh ggplot
-```
+~~~
+{: .language-bash}
 
 pip3 can automatically figure out all the dependencies that required by the above packages.
 
 Launch a Python command prompt, type:
-```
+~~~
 python3
-```
+~~~
+{: .language-bash}
 
 ## Checking installations.
 
@@ -57,9 +63,10 @@ By default, Data Carpentry does not have people pull the whole repository with a
 you, as the instructor, get to decide how you'd like to provide this script to learners, if at all.
 To use this, students can navigate into includes/scripts terminal, and execute the following:
 
-```
+~~~
 python check_env.py
-```
+~~~
+{: .language-bash}
 
 If learners receive an `AssertionError`, it will inform you how to help them correct this
 installation. Otherwise, it will tell you that the system is good to go and ready for Data Carpentry!
