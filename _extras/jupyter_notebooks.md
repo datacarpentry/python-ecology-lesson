@@ -49,7 +49,7 @@ After typing the command `jupyter notebook`, the following happens:
   *A Code cell*
 
 * This is a **Code** cell (see the cell type dropdown with the word **Code**).
-  To run the cell, type Shift-Enter.
+  To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>.
 
   ![Code cell and its output](../fig/00_6_jupyter_code_after.png)
   *A Code cell and its output*
@@ -62,7 +62,7 @@ After typing the command `jupyter notebook`, the following happens:
   ![markdown input cell](../fig/00_7_jupyter_markdown_before.png)
   *A markdown input cell*
 
-* To run the cell, type Shift-Enter.
+* To run the cell, type <kbd>Shift</kbd>+<kbd>Return</kbd>.
 
   ![rendered markdown cell](../fig/00_8_jupyter_markdown_after.png)
   *A rendered markdown cell*

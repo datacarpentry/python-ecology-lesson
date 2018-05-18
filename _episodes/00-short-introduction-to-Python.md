@@ -71,7 +71,7 @@ pi_value = 3.1415  # An example of a float
 
 Here we've assigned data to the variables `text`, `number` and `pi_value`,
 using the assignment operator `=`. To review the value of a variable, we
-can type the name of the variable into the interpreter and press `Enter`:
+can type the name of the variable into the interpreter and press <kbd>Return</kbd>:
 
 ~~~
 >>> text
