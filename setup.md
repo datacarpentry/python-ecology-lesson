@@ -25,20 +25,20 @@ Or download each file indvidually with the following links:
 
 
 > ## Software
+> [Python](http://python.org) is a popular language for
+> scientific computing, and great for general-purpose programming as
+> well.  Installing all of its scientific packages individually can be
+> a bit difficult, so we recommend an all-in-one installer.
+>
+> For this workshop we use Python version 3.x.
+>
+> ### Required Python Packages for this workshop
+>
+> * [Pandas](http://pandas.pydata.org/)
+> * [Jupyter notebook](http://jupyter.org/)
+> * [Numpy](http://www.numpy.org/)
+> * [Matplotlib](http://matplotlib.org/)
 {: .prereq}
-[Python](http://python.org) is a popular language for
-scientific computing, and great for general-purpose programming as
-well.  Installing all of its scientific packages individually can be
-a bit difficult, so we recommend an all-in-one installer.
-
-For this workshop we use Python version 3.x.
-
-## Required Python Packages for this workshop
-
-* [Pandas](http://pandas.pydata.org/)
-* [Jupyter notebook](http://jupyter.org/)
-* [Numpy](http://www.numpy.org/)
-* [Matplotlib](http://matplotlib.org/)
 
 ## Install the workshop packages
 
