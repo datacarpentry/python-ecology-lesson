@@ -160,3 +160,6 @@ If possible, try to reduce what doesn’t work to a simple reproducible example.
 [The Hitchhiker's Guide to Python](http://docs.python-guide.org/en/latest/)
 
 [Dive into Python 3](http://getpython3.com/diveintopython3/)
+
+{% include links.md %}
+
