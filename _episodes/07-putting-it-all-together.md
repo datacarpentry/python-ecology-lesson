@@ -3,17 +3,19 @@ title: Data Ingest and Visualization - Matplotlib and Pandas
 teaching: 20
 exercises: 25
 questions:
- - " What other tools can I use to create plots apart from ggplot? "
- - " Why should I use Python to create plots?"
+    - "What other tools can I use to create plots apart from ggplot?"
+    - "Why should I use Python to create plots?"
 objectives:
-    - Import the pyplot toolbox to create figures in Python.
+    - "Import the pyplot toolbox to create figures in Python."
+keypoints:
+    - "FIXME"
 ---
 
 
 ## Putting it all together
 
 Up to this point, we have walked through tasks that are often
-involved in handling and processing data using the workshop ready cleaned  
+involved in handling and processing data using the workshop ready cleaned
 files that we have provided. In this wrap-up exercise, we will perform
 many of the same tasks with real data sets. This lesson also covers data
 visualization.
@@ -44,10 +46,11 @@ If you are still having trouble importing the data as a table using Pandas,
 check the documentation. You can open the docstring in an ipython notebook using
 a question mark. For example:
 
-```python
+~~~
     import pandas as pd
     pd.read_csv?
-```
+~~~
+{: .language-python}
 
 Look through the function arguments to see if there is a default value that is
 different from what your file requires (Hint: the problem is most likely the
@@ -59,7 +62,7 @@ you. In the streamgage file, those values might be the date, time, and discharge
 measurements. Convert any measurements in imperial units into SI units. You can
 also change the name of the columns in the DataFrame like this:
 
-```python
+~~~
     df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
     print('With the old column names:\n') # the \n makes a new line, so it's easier to see
     print(df)
@@ -80,7 +83,8 @@ also change the name of the columns in the DataFrame like this:
        FirstColumn  SecondColumn
     0          100            10
     1          200            20
-```
+~~~
+{: .language-python}
 
 ## Make a line plot of your data
 
@@ -111,27 +115,30 @@ line plots using pyplots.
 
 First, import the pyplot toolbox:
 
-```python
+~~~
     import matplotlib.pyplot as plt
-```
+~~~
+{: .language-python}
 
 By default, matplotlib will create the figure in a separate window. When using
 ipython notebooks, we can make figures appear in-line within the notebook by
 writing:
 
-```python
+~~~
     %matplotlib inline
-```
+~~~
+{: .language-python}
 
 We can start by plotting the values of a list of numbers (matplotlib can handle
 many types of numeric data, including numpy arrays and pandas DataFrames - we
 are just using a list as an example!):
 
-```python
+~~~
     list_numbers = [1.5, 4, 2.2, 5.7]
     plt.plot(list_numbers)
     plt.show()
-```
+~~~
+{: .language-python}
 
 The command `plt.show()` prompts Python to display the figure. Without it, it
 creates an object in memory but doesn't produce a visible plot. The ipython
@@ -146,10 +153,11 @@ function `plot()` receives two lists, it assumes the first one is the x-values
 and the second the y-values. The line connecting the points will follow the list
 in order:
 
-```python
+~~~
     plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers)
     plt.show()
-```
+~~~
+{: .language-python}
 
 A third, optional argument in `plot()` is a string of characters that indicates
 the line type and color for the plot. The default value is a continuous blue
@@ -157,11 +165,12 @@ line. For example, we can make the line red (`'r'`), with circles at every data
 point (`'o'`), and a dot-dash pattern (`'-.'`). Look through the matplotlib
 gallery for more examples.
 
-```python
+~~~
     plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers, 'ro-.')
     plt.axis([0,10,0,6])
     plt.show()
-```
+~~~
+{: .language-python}
 
 The command `plt.axis()` sets the limits of the axes from a list of `[xmin,
 xmax, ymin, ymax]` values (the square brackets are needed because the argument
@@ -173,7 +182,7 @@ A single figure can include multiple lines, and they can be plotted using the
 same `plt.plot()` command by adding more pairs of x values and y values (and
 optionally line styles):
 
-```python
+~~~
     import numpy as np
 
     # Create a numpy array between 0 and 10, with values evenly spaced every 0.5
@@ -187,7 +196,8 @@ optionally line styles):
     plt.title('This is the figure title')
 
     plt.show()
-```
+~~~
+{: .language-python}
 
 We can include a legend by adding the optional keyword argument `label=''` in
 `plot()`. Caution: We cannot add labels to multiple lines that are plotted
@@ -196,7 +206,7 @@ won't know to which line to assign the value of the argument label. Multiple
 lines can also be plotted in the same figure by calling the `plot()` function
 several times:
 
-```python
+~~~
     # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
     plt.plot(t, t, 'r--', label='linear')
     plt.plot(t, t**2, 'bs-', label='square')
@@ -209,7 +219,8 @@ several times:
     plt.title('This is the figure title')
 
     plt.show()
-```
+~~~
+{: .language-python}
 
 The function `legend()` adds a legend to the figure, and the optional keyword
 arguments change its style. By default [typing just `plt.legend()`], the legend
@@ -223,7 +234,7 @@ plotting area, and any plotting functions are directed to those axes. To make
 more than one figure, we use the command `plt.figure()` with an increasing
 figure number inside the parentheses:
 
-```python
+~~~
     # This is the first figure
     plt.figure(1)
     plt.plot(t, t, 'r--', label='linear')
@@ -241,13 +252,14 @@ figure number inside the parentheses:
     plt.title('This is figure 2')
 
     plt.show()
-```
+~~~
+{: .language-python}
 
 A single figure can also include multiple plots in a grid pattern. The
 `subplot()` command especifies the number of rows, the number of columns, and
 the number of the space in the grid that particular plot is occupying:
 
-```python
+~~~
     plt.figure(1)
 
     plt.subplot(2,2,1)  # Two row, two columns, position 1
@@ -260,7 +272,8 @@ the number of the space in the grid that particular plot is occupying:
     plt.plot(t, t**3, 'g^:', label='cubic')
 
     plt.show()
-```
+~~~
+{: .language-python}
 
 ## Make other types of plots:
 
