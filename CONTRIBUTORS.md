@@ -34,15 +34,15 @@ Christie Bahlai, available at http://lter.kbs.msu.edu/datatables/122
 The current list of lessons.
 
 Note: these lessons were reorganized, cleaned up and developed further by Leah
-Wasser, Mariela Perignon, John Gosset and Francois Michonneau in April 2015. 
+Wasser, Mariela Perignon, John Gosset and François Michonneau in April 2015.
 
-    Short Introduction to Python
-    Starting With Data
-    Index Slice Subset
-    Data Types and Format
-    Merging Data
-    Data Analysis Automation: Loops and Functions (Developed by Mariela Perignon with minor edits both Leah Wasser)
-    Visualizing Data with ggplot (Developed by Jeremy Zucker November 2016)
-    Putting It All Together (Developed by Mariela Perignon with minor revisions by Leah Wasser April 2015)
-    Accessing SQL using Python (Added by John Gosset with minor revisions by Leah Wasser April 2015)
+ - Short Introduction to Python
+ - Starting With Data
+ - Index Slice Subset
+ - Data Types and Format
+ - Merging Data
+ - Data Analysis Automation: Loops and Functions (Developed by Mariela Perignon with minor edits both Leah Wasser)
+ - Visualizing Data with ggplot (Developed by Jeremy Zucker November 2016)
+ - Putting It All Together (Developed by Mariela Perignon with minor revisions by Leah Wasser April 2015)
+ - Accessing SQL using Python (Added by John Gosset with minor revisions by Leah Wasser April 2015)
 
