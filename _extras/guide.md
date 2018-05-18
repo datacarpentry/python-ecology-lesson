@@ -29,13 +29,13 @@ Run the following command to ensure Homebrew is installed properly:
 brew doctor
 ```
 
-install python 3:
+install Python 3:
 
 ```
 brew install python3
 ```
 
-All the rest of workshop packages can be installed by pip3 which comes together with python 3:
+All the rest of workshop packages can be installed by pip3 which comes together with Python 3:
 
 ```
 pip3 install numpy pandas matplotlib jupyter
@@ -44,7 +44,7 @@ pip3 install bokeh ggplot
 
 pip3 can automatically figure out all the dependencies that required by the above packages.
 
-Launch a python command prompt, type:
+Launch a Python command prompt, type:
 ```
 python3
 ```
@@ -292,7 +292,7 @@ called "sample output" that contains the data file they should generate.
 
 ## 04-merging-data
 
-* In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average site weight by year grouped by sex. Export your results as a CSV and make sure it reads back into python properly.
+* In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average site weight by year grouped by sex. Export your results as a CSV and make sure it reads back into Python properly.
 
 ~~~
 # read the files:
@@ -647,7 +647,7 @@ lot of added value. Luckily, Matplotlib provides powerful tools for text control
 ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX
 math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation,
 surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot.
-Since backslash has a special meaning in the python strings, you should replace all the
+Since backslash has a special meaning in the Python strings, you should replace all the
 LaTeX-related backslashes with two backslashes.
 
 ~~~
