@@ -5,22 +5,22 @@ permalink: /setup/
 ---
 
 > ## Data
+> Data for this lesson is from the Portal Project Teaching Database -
+> [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+>
+> We will use the eight files listed below for the data in this lesson.  Download these files to your computer either by clicking [this link ](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data), which will give you everything in a single compressed file.  You'll need to unzip this file after downloading it.
+>
+> Or download each file indvidually with the following links:
+>
+> - [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
+> - [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
+> - [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
+> - [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
+> - [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
+> - [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
+> - [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
+> - [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
 {: .prereq}
-Data for this lesson is from the Portal Project Teaching Database -
-[available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
-
-We will use the eight files listed below for the data in this lesson.  Download these files to your computer either by clicking [this link ](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data), which will give you everything in a single compressed file.  You'll need to unzip this file after downloading it.
-
-Or download each file indvidually with the following links:
-
-- [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
-- [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
-- [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
-- [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
-- [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
-- [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
-- [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
-- [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
 
 
 
