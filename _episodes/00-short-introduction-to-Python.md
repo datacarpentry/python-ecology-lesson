@@ -10,6 +10,8 @@ objectives:
     - "Define the following data types in Python: strings, integers, and floats."
     - "Perform mathematical operations in Python using basic operators."
     - "Define the following as it relates to Python: lists, tuples, and dictionaries."
+keypoints:
+    - "FIXME"
 ---
 
 # The Basics of Python
@@ -32,7 +34,7 @@ Python is an interpreted language which can be used in two ways:
 * "Interactive" Mode: It functions like an "advanced calculator" Executing
   one command at a time:
 
-```python
+~~~
 user:host:~$ python
 Python 3.5.1 (default, Oct 23 2015, 18:05:06)
 [GCC 4.8.3] on linux2
@@ -41,15 +43,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 4
 >>> print("Hello World")
 Hello World
-```
+~~~
+{: .language-python}
 
 * "Scripting" Mode: Executing a series of "commands" saved in text file,
   usually with a `.py` extension after the name of your file:
 
-```bash
+~~~
 user:host:~$ python my_script.py
 Hello World
-```
+~~~
+{: .language-bash}
 
 
 ## Introduction to Python built-in data types
@@ -58,32 +62,35 @@ Hello World
 
 One of the most basic things we can do in Python is assign values to variables:
 
-```python
+~~~
 text = "Data Carpentry"  # An example of a string
 number = 42  # An example of an integer
 pi_value = 3.1415  # An example of a float
-```
+~~~
+{: .language-python}
 
 Here we've assigned data to the variables `text`, `number` and `pi_value`,
 using the assignment operator `=`. To review the value of a variable, we
 can type the name of the variable into the interpreter and press `Enter`:
 
-```python
+~~~
 >>> text
 "Data Carpentry"
-```
+~~~
+{: .language-python}
 
 Everything in Python has a type. To get the type of something, we can pass it
 to the built-in function `type`:
 
-```python
+~~~
 >>> type(text)
 <class 'str'>
 >>> type(number)
 <class 'int'>
 >>> type(6.02)
 <class 'float'>
-```
+~~~
+{: .language-python}
 
 The variable `text` is of type `str`, short for "string". Strings hold
 sequences of characters, which can be letters, numbers, punctuation
@@ -91,17 +98,18 @@ or more exotic forms of text (even emoji!).
 
 We can also see the value of something using another built-in function, `print`:
 
-```python
+~~~
 >>> print(text)
 Data Carpentry
 >>> print(11)
 11
-```
+~~~
+{: .language-python}
 
 This may seem redundant, but in fact it's the only way to display output in a script:
 
 *example.py*
-```python
+~~~
 # A Python script file
 # Comments in Python start with #
 # The next line assigns the string "Data Carpentry" to the variable "text".
@@ -110,14 +118,16 @@ text = "Data Carpentry"
 text
 # The next line uses the print function to print out the value we assigned to "text"
 print(text)
-```
+~~~
+{: .language-python}
 *Running the script*
-```bash
+~~~
 $ python example.py
 Data Carpentry
-```
+~~~
+{: .language-bash}
 
-Notice that "Data Carpentry" is printed only once. 
+Notice that "Data Carpentry" is printed only once.
 
 **Tip**: `print` and `type` are built-in functions in Python. Later in this
 lesson, we will introduce methods and user-defined functions. The Python
@@ -128,7 +138,7 @@ documentation is excellent for reference on the differences between them.
 We can perform mathematical calculations in Python using the basic operators
  `+, -, /, *, %`:
 
-```python
+~~~
 >>> 2 + 2  # Addition
 4
 >>> 6 * 7  # Multiplication
@@ -137,7 +147,8 @@ We can perform mathematical calculations in Python using the basic operators
 65536
 >>> 13 % 5  # Modulo
 3
-```
+~~~
+{: .language-python}
 
 We can also use comparison and logic operators:
 `<, >, ==, !=, <=, >=` and statements of identity such as
@@ -145,14 +156,15 @@ We can also use comparison and logic operators:
 called a _boolean_.
 
 
-```python
+~~~
 >>> 3 > 4
 False
 >>> True and True
 True
 >>> True or False
 True
-```
+~~~
+{: .language-python}
 
 ## Sequential types: Lists and Tuples
 
@@ -162,16 +174,17 @@ True
 elements. Each element can be accessed by an index.  Note that Python
 indexes start with 0 instead of 1:
 
-```python
+~~~
 >>> numbers = [1, 2, 3]
 >>> numbers[0]
 1
-```
+~~~
+{: .language-python}
 
 A `for` loop can be used to access the elements in a list or other Python data
 structure one at a time:
 
-```python
+~~~
 >>> for num in numbers:
 ...     print(num)
 ...
@@ -179,7 +192,8 @@ structure one at a time:
 2
 3
 >>>
-```
+~~~
+{: .language-python}
 
 **Indentation** is very important in Python. Note that the second line in the
 example above is indented. Just like three chevrons `>>>` indicate an
@@ -192,17 +206,18 @@ are a way to interact with an object (a list, for example). We can invoke a
 method using the dot `.` followed by the method name and a list of arguments
 in parentheses. Let's look at an example using `append`:
 
-```python
+~~~
 >>> numbers.append(4)
 >>> print(numbers)
 [1, 2, 3, 4]
 >>>
-```
+~~~
+{: .language-python}
 
 To find out what methods are available for an
 object, we can use the built-in `help` command:
 
-```python
+~~~
 help(numbers)
 
 Help on list object:
@@ -211,7 +226,8 @@ class list(object)
  |  list() -> new empty list
  |  list(iterable) -> new list initialized from iterable's items
  ...
-```
+~~~
+{: .language-python}
 
 ### Tuples
 
@@ -219,13 +235,14 @@ A tuple is similar to a list in that it's an ordered sequence of elements.
 However, tuples can not be changed once created (they are "immutable"). Tuples
 are created by placing comma-separated values inside parentheses `()`.
 
-```python
+~~~
 # Tuples use parentheses
 a_tuple = (1, 2, 3)
 another_tuple = ('blue', 'green', 'red')
 # Note: lists use square brackets
 a_list = [1, 2, 3]
-```
+~~~
+{: .language-python}
 
 > ## Challenge - Tuples
 > 1. What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5` ?
@@ -238,17 +255,18 @@ a_list = [1, 2, 3]
 
 A **dictionary** is a container that holds pairs of objects - keys and values.
 
-```python
+~~~
 >>> translation = {'one': 1, 'two': 2}
 >>> translation['one']
 1
-```
+~~~
+{: .language-python}
 Dictionaries work a lot like lists - except that you index them with *keys*.
 You can think about a key as a name for or a unique identifier for a set of values
 in the dictionary. Keys can only have particular types - they have to be
 "hashable". Strings and numeric types are acceptable, but lists aren't.
 
-```python
+~~~
 >>> rev = {1: 'one', 2: 'two'}
 >>> rev[1]
 'one'
@@ -256,35 +274,38 @@ in the dictionary. Keys can only have particular types - they have to be
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
-```
+~~~
+{: .language-python}
 
 In Python, a "Traceback" is an multi-line error block printed out for the
 user.
 
 To add an item to the dictionary we assign a value to a new key:
 
-```python
+~~~
 >>> rev = {1: 'one', 2: 'two'}
 >>> rev[3] = 'three'
 >>> rev
 {1: 'one', 2: 'two', 3: 'three'}
-```
+~~~
+{: .language-python}
 
 Using `for` loops with dictionaries is a little more complicated. We can do
 this in two ways:
 
-```python
+~~~
 >>> for key, value in rev.items():
 ...     print(key, '->', value)
 ...
 1 -> one
 2 -> two
 3 -> three
-```
+~~~
+{: .language-python}
 
 or
 
-```python
+~~~
 >>> for key in rev.keys():
 ...     print(key, '->', rev[key])
 ...
@@ -292,20 +313,21 @@ or
 2 -> two
 3 -> three
 >>>
-```
+~~~
+{: .language-python}
 
 > ## Challenge - Can you do reassignment in a dictionary?
-> 
-> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary). 
->     
+>
+> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary).
+>
 >    Type:
 > ```python
 > >>> rev
 > ```
 >
-> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce". 
+> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce".
 >
-> 3. Now display `rev` again to see if it has changed. 
+> 3. Now display `rev` again to see if it has changed.
 >
 {: .challenge}
 
@@ -323,7 +345,7 @@ Defining a section of code as a function in Python is done using the `def`
 keyword. For example a function that takes two arguments and returns their sum
 can be defined as:
 
-```python
+~~~
 def add_function(a, b):
     result = a + b
     return result
@@ -331,6 +353,7 @@ def add_function(a, b):
 z = add_function(20, 22)
 print(z)
 42
-```
+~~~
+{: .language-python}
 {% include links.md %}
 
