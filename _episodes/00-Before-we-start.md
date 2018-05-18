@@ -19,7 +19,7 @@ keypoints:
 # Before we start
 ***Data Carpentry contributors***
 
-## What is python? 
+## What is Python?
 Python is a general purpose programming language that supports rapid development of scripts and applications. The term `python` is used to refer to both the programming language and the software that interprets the scripts written using it.
 
 Python's main advantages:
@@ -48,18 +48,18 @@ Python integrates with other tools to generate manuscripts from your code. If yo
 An increasing number of journals and funding agencies expect analyses to be reproducible, so knowing python will give you an edge with these requirements.
 
 ### Python is interdisciplinary and extensible
-With `numpy`, `pandas`, `sciPy`, `matplotlib` and many other modules that can be installed to extend its capabilities, python provides a framework that allows you to combine approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data. 
+With `numpy`, `pandas`, `sciPy`, `matplotlib` and many other modules that can be installed to extend its capabilities, python provides a framework that allows you to combine approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data.
 
 #### Scientific Computing Tools for Python - the SciPy ecosystem
 To do scientific computions in python, [SciPy](https://scipy.org) offers a collection of open source software for mathematics, science, and engineering:
 
-* [NumPy](http://www.numpy.org), the fundamental package for numerical computation, defines the numerical array and matrix types and basic operations on them. 
+* [NumPy](http://www.numpy.org), the fundamental package for numerical computation, defines the numerical array and matrix types and basic operations on them.
 * [SciPy library](https://scipy.org/scipylib/index.html) is a collection of numerical algorithms and domain-specific toolboxes, including signal processing, optimization, statistics and much more.
 * [Matplotlib](http://matplotlib.org) is a mature and popular plotting package, that provides publication-quality 2D plotting as well as rudimentary 3D plotting.
 * [Pandas](http://pandas.pydata.org) provides high-performance, easy to use data structures.
 * [SymPy](http://www.sympy.org/en/index.html) is for symbolic mathematics and computer algebra.
 
-These software can be installed as libraries in python and comes pre-installed with Anaconda. 
+These software can be installed as libraries in python and comes pre-installed with Anaconda.
 
 ### Python works on data of all shapes and sizes
 The skills you learn with python scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you.
@@ -68,7 +68,7 @@ Python can read text files, connect to databases, and many other data formats, o
 
 
 ### Python produces high-quality graphics
-The plotting functionalities in python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is a popular plotting library in python. [plotnine](http://plotnine.readthedocs.io/en/stable/) is an implementation of a _grammar of graphics_ in Python and builds upon matplotlib. _Grammar of graphics_ is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers 
+The plotting functionalities in python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is a popular plotting library in python. [plotnine](http://plotnine.readthedocs.io/en/stable/) is an implementation of a _grammar of graphics_ in Python and builds upon matplotlib. _Grammar of graphics_ is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers
 
 ### Python has a large and welcoming community
 Thousands of people use python daily. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com), or on the [Anaconda community](https://www.anaconda.com/community/).
@@ -83,7 +83,7 @@ Have a quick look around the Anaconda Navigator. You can launch programs from th
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
 [Spyder](https://spyder-ide.github.io
-) is a popular way to write python scripts and also to interact with the python software; it is an interactive development enviroment, a so called IDE.  
+) is a popular way to write python scripts and also to interact with the python software; it is an interactive development enviroment, a so called IDE.
 
 Anaconda also comes with a package manager, [Conda](https://conda.io/docs/), which makes it easy to install and update additional packages.
 
@@ -106,20 +106,20 @@ You may want additional directories or subdirectories depending on your project 
 ## Interacting with Python
 The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or code, instructions in python because it is a common language that both the computer and we can understand. We call the instructions commands and we tell the computer to follow the instructions by executing (also called running) those commands.
 
-##### If you are working with Jupyter notebook: 
+##### If you are working with Jupyter notebook:
 You can type python code into a code cell and then execute the code by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd>. Any output will be printed directly under the input cell. You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output is marked by `Out[ ]:`. Pressing the __+__ button in the menu bar will add a new cell. All your commands as well as any output will be saved with the notebook.
 
-##### If you are working with Spyder: 
+##### If you are working with Spyder:
 
 You can either use the console or use script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press Enter to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
 
 Because we want our code and workflow to be reproducible, it is better to type the commands we want in the script editor, and save the script. This way, there is a complete record of what we did, and anyone (including our future selves!) can easily replicate the results on their computer.
 
-Spyder allows you to execute commands directly from the script editor by using the run buttons on top or keyboard shortcuts. To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line click _Run selection or current line_ or press <kbd>F9</kbd>, other run buttons allow to run script cells or go into debug mode. When using <kbd>F9</kbd>, the command on the current line in the script (indicated by the cursor) or all of the commands in the currently selected text will be sent to the console and executed. 
+Spyder allows you to execute commands directly from the script editor by using the run buttons on top or keyboard shortcuts. To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line click _Run selection or current line_ or press <kbd>F9</kbd>, other run buttons allow to run script cells or go into debug mode. When using <kbd>F9</kbd>, the command on the current line in the script (indicated by the cursor) or all of the commands in the currently selected text will be sent to the console and executed.
 
 At some point in your analysis you may want to check the content of a variable or the structure of an object, without necessarily keeping a record of it in your script. You can type these commands and execute them directly in the console. Spyder provides the <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> shortcuts to allow you to jump between the script and the console panes.
 
-If python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor), python will try to execute it, and when ready, will show the results with an `Out [..]:` prompt and come back with a new `In [..]:` prompt to wait for new commands. 
+If python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor), python will try to execute it, and when ready, will show the results with an `Out [..]:` prompt and come back with a new `In [..]:` prompt to wait for new commands.
 
 If python is still waiting for you to enter more data because it isn’t complete yet, the console will show a `...:` prompt. It means that you haven’t finished entering a complete command. This can be because you have not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same number of left-parentheses as right-parentheses, or the same number of opening and closing quotation marks. When this happens, and you thought you finished typing your command, click inside the console window and press Esc; this will cancel the incomplete command and return you to the `In [..]:` prompt.
 
