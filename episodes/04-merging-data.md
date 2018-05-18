@@ -3,13 +3,15 @@ title: Combining DataFrames with Pandas
 teaching: 20
 exercises: 25
 questions:
-- " Can I work with data from multiple sources? "
-- " How can I combine data from different data sets? "
+  - "Can I work with data from multiple sources?"
+  - "How can I combine data from different data sets?"
 objectives:
-    - Combine data from multiple files into a single DataFrame using merge and concat.
-    - Combine two DataFrames using a unique ID found in both DataFrames.
-    - Employ `to_csv` to export a DataFrame in CSV format.
-    - Join DataFrames using common fields (join keys).
+    - "Combine data from multiple files into a single DataFrame using merge and concat."
+    - "Combine two DataFrames using a unique ID found in both DataFrames."
+    - "Employ `to_csv` to export a DataFrame in CSV format."
+    - "Join DataFrames using common fields (join keys)."
+keypoints:
+    - "FIXME"
 ---
 
 In many "real world" situations, the data that we want to use come in multiple
@@ -21,7 +23,7 @@ DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
 To work through the examples below, we first need to load the species and
 surveys files into pandas DataFrames. In iPython:
 
-```python
+~~~
 import pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv",
                          keep_default_na=False, na_values=[""])
@@ -59,7 +61,8 @@ species_df
 53         ZM           Zenaida         macroura     Bird
 
 [54 rows x 4 columns]
-```
+~~~
+{: .language-python}
 
 Take note that the `read_csv` method we used can take some additional options which
 we didn't use previously. Many functions in python have a set of options that
@@ -73,7 +76,7 @@ We can use the `concat` function in pandas to append either columns or rows from
 one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
-```python
+~~~
 # Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
 # Grab the last 10 rows
@@ -81,7 +84,8 @@ survey_sub_last10 = surveys_df.tail(10)
 # Reset the index values to the second dataframe appends properly
 survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
-```
+~~~
+{: .language-python}
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
 pandas to stack the second DataFrame under the first one. It will automatically
@@ -92,13 +96,14 @@ same columns and associated column format in both datasets. When we stack
 horizonally, we want to make sure what we are doing makes sense (ie the data are
 related in some way).
 
-```python
+~~~
 # Stack the DataFrames on top of each other
 vertical_stack = pd.concat([survey_sub, survey_sub_last10], axis=0)
 
 # Place the DataFrames side by side
 horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
-```
+~~~
+{: .language-python}
 
 ### Row Index Values and Concat
 Have a look at the `vertical_stack` dataframe? Notice anything unusual?
@@ -113,19 +118,21 @@ save it to a different folder by adding the foldername and a slash to the file
 `vertical_stack.to_csv('foldername/out.csv')`. We use the 'index=False' so that
 pandas doesn't include the index number for each line.
 
-```python
+~~~
 # Write DataFrame to CSV
 vertical_stack.to_csv('data_output/out.csv', index=False)
-```
+~~~
+{: .language-python}
 
 Check out your working directory to make sure the CSV wrote out properly, and
 that you can open it! If you want, try to bring it back into python to make sure
 it imports properly.
 
-```python
+~~~
 # For kicks read our output back into python and make sure all looks good
 new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
-```
+~~~
+{: .language-python}
 
 > ## Challenge - Combine Data
 >
@@ -173,14 +180,15 @@ To better understand joins, let's grab the first 10 lines of our data as a
 subset to work with. We'll use the `.head` method to do this. We'll also read
 in a subset of the species table.
 
-```python
+~~~
 # Read in first 10 lines of surveys table
 survey_sub = surveys_df.head(10)
 
 # Import a small subset of the species data designed for this part of the lesson.
 # It is stored in the data folder.
 species_sub = pd.read_csv('data/speciesSubset.csv', keep_default_na=False, na_values=[""])
-```
+~~~
+{: .language-python}
 
 In this example, `species_sub` is the lookup table containing genus, species, and
 taxa names that we want to join with the data in `survey_sub` to produce a new
@@ -197,7 +205,7 @@ the same name that also contain the same data. If we are less lucky, we need to
 identify a (differently-named) column in each DataFrame that contains the same
 information.
 
-```python
+~~~
 >>> species_sub.columns
 
 Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
@@ -206,7 +214,8 @@ Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
 
 Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
        u'sex', u'hindfoot_length', u'weight'], dtype='object')
-```
+~~~
+{: .language-python}
 
 In our example, the join key is the column containing the two-letter species
 identifier, which is called `species_id`.
@@ -230,9 +239,9 @@ page](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) is below:
 ![Inner join -- courtesy of codinghorror.com](../fig/inner-join.png)
 
 The pandas function for performing joins is called `merge` and an Inner join is
-the default option:  
+the default option:
 
-```python
+~~~
 merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
 # In this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
 # And `right_on` arguments we would still get the same result
@@ -240,30 +249,31 @@ merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id',
 # What's the size of the output data?
 merged_inner.shape
 merged_inner
-```
+~~~
+{: .language-python}
 
 **OUTPUT:**
 
 ```
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
-0          1      7   16  1977        2         NL   M               32   
-1          2      7   16  1977        3         NL   M               33   
-2          3      7   16  1977        2         DM   F               37   
-3          4      7   16  1977        7         DM   M               36   
-4          5      7   16  1977        3         DM   M               35   
-5          8      7   16  1977        1         DM   M               37   
-6          9      7   16  1977        1         DM   F               34   
-7          7      7   16  1977        2         PE   F              NaN   
+0          1      7   16  1977        2         NL   M               32
+1          2      7   16  1977        3         NL   M               33
+2          3      7   16  1977        2         DM   F               37
+3          4      7   16  1977        7         DM   M               36
+4          5      7   16  1977        3         DM   M               35
+5          8      7   16  1977        1         DM   M               37
+6          9      7   16  1977        1         DM   F               34
+7          7      7   16  1977        2         PE   F              NaN
 
-   weight       genus   species    taxa  
-0     NaN     Neotoma  albigula  Rodent  
-1     NaN     Neotoma  albigula  Rodent  
-2     NaN   Dipodomys  merriami  Rodent  
-3     NaN   Dipodomys  merriami  Rodent  
-4     NaN   Dipodomys  merriami  Rodent  
-5     NaN   Dipodomys  merriami  Rodent  
-6     NaN   Dipodomys  merriami  Rodent  
-7     NaN  Peromyscus  eremicus  Rodent  
+   weight       genus   species    taxa
+0     NaN     Neotoma  albigula  Rodent
+1     NaN     Neotoma  albigula  Rodent
+2     NaN   Dipodomys  merriami  Rodent
+3     NaN   Dipodomys  merriami  Rodent
+4     NaN   Dipodomys  merriami  Rodent
+5     NaN   Dipodomys  merriami  Rodent
+6     NaN   Dipodomys  merriami  Rodent
+7     NaN  Peromyscus  eremicus  Rodent
 ```
 
 The result of an inner join of `survey_sub` and `species_sub` is a new DataFrame
@@ -313,7 +323,7 @@ have values for the join key(s) in the `left` DataFrame.
 A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
-```python
+~~~
 merged_left = pd.merge(left=survey_sub,right=species_sub, how='left', left_on='species_id', right_on='species_id')
 
 merged_left
@@ -321,29 +331,30 @@ merged_left
 **OUTPUT:**
 
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
-0          1      7   16  1977        2         NL   M               32   
-1          2      7   16  1977        3         NL   M               33   
-2          3      7   16  1977        2         DM   F               37   
-3          4      7   16  1977        7         DM   M               36   
-4          5      7   16  1977        3         DM   M               35   
-5          6      7   16  1977        1         PF   M               14   
-6          7      7   16  1977        2         PE   F              NaN   
-7          8      7   16  1977        1         DM   M               37   
-8          9      7   16  1977        1         DM   F               34   
-9         10      7   16  1977        6         PF   F               20   
+0          1      7   16  1977        2         NL   M               32
+1          2      7   16  1977        3         NL   M               33
+2          3      7   16  1977        2         DM   F               37
+3          4      7   16  1977        7         DM   M               36
+4          5      7   16  1977        3         DM   M               35
+5          6      7   16  1977        1         PF   M               14
+6          7      7   16  1977        2         PE   F              NaN
+7          8      7   16  1977        1         DM   M               37
+8          9      7   16  1977        1         DM   F               34
+9         10      7   16  1977        6         PF   F               20
 
-   weight       genus   species    taxa  
-0     NaN     Neotoma  albigula  Rodent  
-1     NaN     Neotoma  albigula  Rodent  
-2     NaN   Dipodomys  merriami  Rodent  
-3     NaN   Dipodomys  merriami  Rodent  
-4     NaN   Dipodomys  merriami  Rodent  
-5     NaN         NaN       NaN     NaN  
-6     NaN  Peromyscus  eremicus  Rodent  
-7     NaN   Dipodomys  merriami  Rodent  
-8     NaN   Dipodomys  merriami  Rodent  
-9     NaN         NaN       NaN     NaN  
-```
+   weight       genus   species    taxa
+0     NaN     Neotoma  albigula  Rodent
+1     NaN     Neotoma  albigula  Rodent
+2     NaN   Dipodomys  merriami  Rodent
+3     NaN   Dipodomys  merriami  Rodent
+4     NaN   Dipodomys  merriami  Rodent
+5     NaN         NaN       NaN     NaN
+6     NaN  Peromyscus  eremicus  Rodent
+7     NaN   Dipodomys  merriami  Rodent
+8     NaN   Dipodomys  merriami  Rodent
+9     NaN         NaN       NaN     NaN
+~~~
+{: .language-python}
 
 The result DataFrame from a left join (`merged_left`) looks very much like the
 result DataFrame from an inner join (`merged_inner`) in terms of the columns it
@@ -353,17 +364,18 @@ number of rows** as the original `survey_sub` DataFrame. When we inspect
 come from `species_sub` (i.e., `species_id`, `genus`, and `taxa`) is
 missing (they contain NaN values):
 
-```python
+~~~
 merged_left[ pd.isnull(merged_left.genus) ]
 **OUTPUT:**
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
-5          6      7   16  1977        1         PF   M               14   
-9         10      7   16  1977        6         PF   F               20   
+5          6      7   16  1977        1         PF   M               14
+9         10      7   16  1977        6         PF   F               20
 
-   weight genus species taxa  
-5     NaN   NaN     NaN  NaN  
+   weight genus species taxa
+5     NaN   NaN     NaN  NaN
 9     NaN   NaN     NaN  NaN
-```
+~~~
+{: .language-python}
 
 These rows are the ones where the value of `species_id` from `survey_sub` (in this
 case, `PF`) does not occur in `species_sub`.
@@ -396,14 +408,14 @@ The pandas `merge` function supports two other join types:
 >
 > 1. In the data folder, there is a plot `CSV` that contains information about the
 >    type associated with each plot. Use that data to summarize the number of
->   plots by plot type.
+>    plots by plot type.
 > 2. Calculate a diversity index of your choice for control vs rodent exclosure
->   plots. The index should consider both species abundance and number of
->   species. You might choose to use the simple [biodiversity index described
->   here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
->   which calculates diversity as:
+>    plots. The index should consider both species abundance and number of
+>    species. You might choose to use the simple [biodiversity index described
+>    here](http://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
+>    which calculates diversity as:
 >
->        the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
+>    the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
 {: .challenge}
 
 {% include links.md %}
