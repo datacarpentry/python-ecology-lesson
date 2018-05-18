@@ -338,3 +338,6 @@ What we've learned:
 + What NaN values are, how they might be represented, and what this means for your work
 + How to replace NaN values, if desired
 + How to use `to_csv` to write manipulated data to a file.
+
+{% include links.md %}
+

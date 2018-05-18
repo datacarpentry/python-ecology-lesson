@@ -616,3 +616,6 @@ values to the function using these keywords:
 >
 > HINT: you can create a loop with a list as follows: `for years in year_list:`
 {: .challenge}
+
+{% include links.md %}
+

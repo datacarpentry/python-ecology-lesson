@@ -637,3 +637,6 @@ total_count.plot(kind='bar');
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}
+

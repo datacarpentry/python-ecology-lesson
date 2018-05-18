@@ -277,3 +277,6 @@ save as a text file with a `.py` extension and run in the command line).
 > a given mean discharge, use bar plots to display daily discharge statistics, or
 > explore the different ways matplotlib can handle dates and times for figures.
 {: .challenge}
+
+{% include links.md %}
+

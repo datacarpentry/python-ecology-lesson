@@ -494,3 +494,6 @@ asking Python to select rows that have a `NaN` value of weight.
 >   plot of average weight by plot with male vs female values stacked for each
 >   plot.
 {: .challenge}
+
+{% include links.md %}
+

@@ -405,3 +405,5 @@ The pandas `merge` function supports two other join types:
 >
 >        the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
 {: .challenge}
+
+{% include links.md %}
