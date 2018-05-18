@@ -359,7 +359,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 > ## Challenge - Statistics
 >
-> 1. Create a list of unique site ID's found in the surveys data. Call it
+> 1. Create a list of unique site ID's ("plot_id") found in the surveys data. Call it
 >   `site_names`. How many unique sites are there in the data? How many unique
 >   species are in the data?
 >
