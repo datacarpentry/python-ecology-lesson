@@ -6,15 +6,14 @@ questions:
   - "What is Python?"
   - "Why should I learn Python?"
 objectives:
-- Describe the purpose of the editor, console, help, variable explorer and file explorer panes in Spyder.
-- Organize files and directories for a set of analyses as a python project, and understand the purpose of the working directory.
-- Know where to find help
-- Demonstrate how to provide sufficient information for troubleshooting with the python user community.
-keypoints: 
-- python is an open source and platform independent programming language
-- the SciPy ecosystem for python provides the tools necessary for scientific computing 
-- Jupyter Notebook and the Spyder IDE are great tools to code in and interact with python
-- with its large community it is easy to find help in the internet
+  - "Describe the purpose of the editor, console, help, variable explorer and file explorer panes in Spyder."
+  - "Organize files and directories for a set of analyses as a python project, and understand the purpose of the working directory."
+  - "Know where to find help."
+  - "Demonstrate how to provide sufficient information for troubleshooting with the python user community."
+keypoints:
+  - "Python is an open source and platform independent programming language"
+  - "SciPy ecosystem for python provides the tools necessary for scientific computing"
+  - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with python with its large community it is easy to find help in the internet"
 ---
 
 # Before we start
