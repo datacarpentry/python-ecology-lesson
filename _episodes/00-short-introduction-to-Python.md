@@ -50,7 +50,7 @@ Hello World
   usually with a `.py` extension after the name of your file:
 
 ~~~
-user:host:~$ python my_script.py
+user:host:~$ Python my_script.py
 Hello World
 ~~~
 {: .language-bash}
@@ -122,7 +122,7 @@ print(text)
 {: .language-python}
 *Running the script*
 ~~~
-$ python example.py
+$ Python example.py
 Data Carpentry
 ~~~
 {: .language-bash}
@@ -246,7 +246,7 @@ a_list = [1, 2, 3]
 
 > ## Challenge - Tuples
 > 1. What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5` ?
-> 2. Type `type(a_tuple)` into python - what is the object type?
+> 2. Type `type(a_tuple)` into Python - what is the object type?
 >
 {: .challenge}
 

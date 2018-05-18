@@ -65,7 +65,7 @@ species_df
 {: .language-python}
 
 Take note that the `read_csv` method we used can take some additional options which
-we didn't use previously. Many functions in python have a set of options that
+we didn't use previously. Many functions in Python have a set of options that
 can be set by the user if needed. In this case, we have told pandas to assign
 empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
 [More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
@@ -125,11 +125,11 @@ vertical_stack.to_csv('data_output/out.csv', index=False)
 {: .language-python}
 
 Check out your working directory to make sure the CSV wrote out properly, and
-that you can open it! If you want, try to bring it back into python to make sure
+that you can open it! If you want, try to bring it back into Python to make sure
 it imports properly.
 
 ~~~
-# For kicks read our output back into python and make sure all looks good
+# For kicks read our output back into Python and make sure all looks good
 new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
 ~~~
 {: .language-python}
@@ -137,9 +137,9 @@ new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values
 > ## Challenge - Combine Data
 >
 > In the data folder, there are two survey data files: `survey2001.csv` and
-> `survey2002.csv`. Read the data into python and combine the files to make one
+> `survey2002.csv`. Read the data into Python and combine the files to make one
 > new data frame. Create a plot of average plot weight by year grouped by sex.
-> Export your results as a CSV and make sure it reads back into python properly.
+> Export your results as a CSV and make sure it reads back into Python properly.
 {: .challenge}
 
 # Joining DataFrames

@@ -97,7 +97,7 @@ surveys_df['speciess']
 ~~~
 {: .language-python}
 
-Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related python data type dictionary).
+Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related Python data type dictionary).
 
 ## Extracting Range based Subsets: Slicing
 
