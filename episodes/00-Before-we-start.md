@@ -7,13 +7,13 @@ questions:
   - "Why should I learn Python?"
 objectives:
   - "Describe the purpose of the editor, console, help, variable explorer and file explorer panes in Spyder."
-  - "Organize files and directories for a set of analyses as a python project, and understand the purpose of the working directory."
+  - "Organize files and directories for a set of analyses as a Python project, and understand the purpose of the working directory."
   - "Know where to find help."
-  - "Demonstrate how to provide sufficient information for troubleshooting with the python user community."
+  - "Demonstrate how to provide sufficient information for troubleshooting with the Python user community."
 keypoints:
   - "Python is an open source and platform independent programming language"
-  - "SciPy ecosystem for python provides the tools necessary for scientific computing"
-  - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with python with its large community it is easy to find help in the internet"
+  - "SciPy ecosystem for Python provides the tools necessary for scientific computing"
+  - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with Python with its large community it is easy to find help in the internet"
 ---
 
 # Before we start
@@ -32,7 +32,7 @@ Python's main advantages:
 * interpreted language, i.e. direct execution of commands, no compilation neccessary
 
 
-## Why learn python for data analysis?
+## Why learn Python for data analysis?
 ### Python does not involve lots of pointing and clicking, and that’s a good thing
 The learning curve might be steeper than with other software, but with python, the results of your analysis does not rely on remembering a succession of pointing and clicking, but instead on a series of written commands, and that’s a good thing! So, if you want to redo your analysis because you collected more data, you don’t have to remember which button you clicked in which order to obtain your results, you just have to run your script again.
 
@@ -45,10 +45,10 @@ Reproducibility is when someone else (including your future self) can obtain the
 
 Python integrates with other tools to generate manuscripts from your code. If you collect more data, or fix a mistake in your dataset, the figures and the statistical tests in your manuscript are updated automatically.
 
-An increasing number of journals and funding agencies expect analyses to be reproducible, so knowing python will give you an edge with these requirements.
+An increasing number of journals and funding agencies expect analyses to be reproducible, so knowing Python will give you an edge with these requirements.
 
 ### Python is interdisciplinary and extensible
-With `numpy`, `pandas`, `sciPy`, `matplotlib` and many other modules that can be installed to extend its capabilities, python provides a framework that allows you to combine approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data.
+With `numpy`, `pandas`, `sciPy`, `matplotlib` and many other modules that can be installed to extend its capabilities, Python provides a framework that allows you to combine approaches from many scientific disciplines to best suit the analytical framework you need to analyze your data.
 
 #### Scientific Computing Tools for Python - the SciPy ecosystem
 To do scientific computions in python, [SciPy](https://scipy.org) offers a collection of open source software for mathematics, science, and engineering:
@@ -59,22 +59,22 @@ To do scientific computions in python, [SciPy](https://scipy.org) offers a colle
 * [Pandas](http://pandas.pydata.org) provides high-performance, easy to use data structures.
 * [SymPy](http://www.sympy.org/en/index.html) is for symbolic mathematics and computer algebra.
 
-These software can be installed as libraries in python and comes pre-installed with Anaconda.
+These software can be installed as libraries in Python and comes pre-installed with Anaconda.
 
 ### Python works on data of all shapes and sizes
-The skills you learn with python scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you.
-[pandas](http://pandas.pydata.org), a python data analysis library, comes with special data structures and data types that make handling of missing data and categorial data convenient.
+The skills you learn with Python scale easily with the size of your dataset. Whether your dataset has hundreds or millions of lines, it won’t make much difference to you.
+[pandas](http://pandas.pydata.org), a Python data analysis library, comes with special data structures and data types that make handling of missing data and categorial data convenient.
 Python can read text files, connect to databases, and many other data formats, on your computer or on the web.
 
 
 ### Python produces high-quality graphics
-The plotting functionalities in python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is a popular plotting library in python. [plotnine](http://plotnine.readthedocs.io/en/stable/) is an implementation of a _grammar of graphics_ in Python and builds upon matplotlib. _Grammar of graphics_ is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers
+The plotting functionalities in Python are endless, and allow you to adjust any aspect of your graph to convey most effectively the message from your data. [matplotlib](http://matplotlib.org) is a popular plotting library in python. [plotnine](http://plotnine.readthedocs.io/en/stable/) is an implementation of a _grammar of graphics_ in Python and builds upon matplotlib. _Grammar of graphics_ is a general scheme for data visualization which breaks up graphs into semantic components such as scales and layers
 
 ### Python has a large and welcoming community
-Thousands of people use python daily. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com), or on the [Anaconda community](https://www.anaconda.com/community/).
+Thousands of people use Python daily. Many of them are willing to help you through mailing lists and websites such as [Stack Overflow](https://stackoverflow.com), or on the [Anaconda community](https://www.anaconda.com/community/).
 
-### Not only is python free, but it is also open-source and cross-platform
-Anyone can inspect the source code to see how python works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs.
+### Not only is Python free, but it is also open-source and cross-platform
+Anyone can inspect the source code to see how Python works. Because of this transparency, there is less chance for mistakes, and if you (or someone else) find some, you can report and fix bugs.
 
 ## Knowing your way around Anaconda
 
@@ -83,7 +83,7 @@ Have a quick look around the Anaconda Navigator. You can launch programs from th
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text.
 [Spyder](https://spyder-ide.github.io
-) is a popular way to write python scripts and also to interact with the python software; it is an interactive development enviroment, a so called IDE.
+) is a popular way to write Python scripts and also to interact with the Python software; it is an interactive development enviroment, a so called IDE.
 
 Anaconda also comes with a package manager, [Conda](https://conda.io/docs/), which makes it easy to install and update additional packages.
 
@@ -99,19 +99,19 @@ Using a consistent folder structure across your projects will help keep things o
 
 **`documents/`** This would be a place to keep outlines, drafts, and other text.
 
-**`scripts/`** This would be the location to keep your python scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).
+**`scripts/`** This would be the location to keep your Python scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).
 You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a `data/` folder to store our raw data, and we will create later a `data_output/` folder when we learn how to export data as CSV files.
 
 
 ## Interacting with Python
-The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or code, instructions in python because it is a common language that both the computer and we can understand. We call the instructions commands and we tell the computer to follow the instructions by executing (also called running) those commands.
+The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or code, instructions in Python because it is a common language that both the computer and we can understand. We call the instructions commands and we tell the computer to follow the instructions by executing (also called running) those commands.
 
 ##### If you are working with Jupyter notebook:
-You can type python code into a code cell and then execute the code by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd>. Any output will be printed directly under the input cell. You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output is marked by `Out[ ]:`. Pressing the __+__ button in the menu bar will add a new cell. All your commands as well as any output will be saved with the notebook.
+You can type Python code into a code cell and then execute the code by pressing <kbd>Shift</kbd> + <kbd>Enter</kbd>. Any output will be printed directly under the input cell. You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output is marked by `Out[ ]:`. Pressing the __+__ button in the menu bar will add a new cell. All your commands as well as any output will be saved with the notebook.
 
 ##### If you are working with Spyder:
 
-You can either use the console or use script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press Enter to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
+You can either use the console or use script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press Enter to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
 
 Because we want our code and workflow to be reproducible, it is better to type the commands we want in the script editor, and save the script. This way, there is a complete record of what we did, and anyone (including our future selves!) can easily replicate the results on their computer.
 
@@ -119,24 +119,24 @@ Spyder allows you to execute commands directly from the script editor by using t
 
 At some point in your analysis you may want to check the content of a variable or the structure of an object, without necessarily keeping a record of it in your script. You can type these commands and execute them directly in the console. Spyder provides the <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>E</kbd> and <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd> shortcuts to allow you to jump between the script and the console panes.
 
-If python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor), python will try to execute it, and when ready, will show the results with an `Out [..]:` prompt and come back with a new `In [..]:` prompt to wait for new commands.
+If Python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor), Python will try to execute it, and when ready, will show the results with an `Out [..]:` prompt and come back with a new `In [..]:` prompt to wait for new commands.
 
-If python is still waiting for you to enter more data because it isn’t complete yet, the console will show a `...:` prompt. It means that you haven’t finished entering a complete command. This can be because you have not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same number of left-parentheses as right-parentheses, or the same number of opening and closing quotation marks. When this happens, and you thought you finished typing your command, click inside the console window and press Esc; this will cancel the incomplete command and return you to the `In [..]:` prompt.
+If Python is still waiting for you to enter more data because it isn’t complete yet, the console will show a `...:` prompt. It means that you haven’t finished entering a complete command. This can be because you have not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same number of left-parentheses as right-parentheses, or the same number of opening and closing quotation marks. When this happens, and you thought you finished typing your command, click inside the console window and press Esc; this will cancel the incomplete command and return you to the `In [..]:` prompt.
 
 ## How to learn more after the workshop?
-The material we cover during this workshop will give you an initial taste of how you can use python to analyze data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at python, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.
+The material we cover during this workshop will give you an initial taste of how you can use Python to analyze data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at python, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.
 
 ## Seeking help
 
 * check under the _Help_ menu
 * type `help()`
 * type `?object` or `help(object)` to get information about an object
-* [python documentation](https://www.python.org/doc/)
+* [Python documentation](https://www.python.org/doc/)
 
-Finally, a generic Google or internet search “python task” will often either send you to the appropriate module documentation or a helpful forum where someone else has already asked your question.
+Finally, a generic Google or internet search "Python task" will often either send you to the appropriate module documentation or a helpful forum where someone else has already asked your question.
 
 I am stuck… I get an error message that I don’t understand
-Start by googling the error message. However, this doesn’t always work very well because often, package developers rely on the error catching provided by python. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. “subscript out of bounds”). If the message is very generic, you might also include the name of the function or package you’re using in your query.
+Start by googling the error message. However, this doesn’t always work very well because often, package developers rely on the error catching provided by python. You end up with general error messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds"). If the message is very generic, you might also include the name of the function or package you’re using in your query.
 
 However, you should check Stack Overflow. Search using the [python] tag. Most questions have already been answered, but the challenge is to use the right words in the search to find the answers: <http://stackoverflow.com/questions/tagged/python>
 
@@ -151,7 +151,7 @@ If possible, try to reduce what doesn’t work to a simple reproducible example.
 * The person sitting next to you during the workshop. Don’t hesitate to talk to your neighbor during the workshop, compare your answers, and ask for help. You might also be interested in organizing regular meetings following the workshop to keep learning from each other.
 * Your friendly colleagues: if you know someone with more experience than you, they might be able and willing to help you.
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/python): if your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on how to ask a good question.
-* [python mailing lists](https://www.python.org/community/lists/])
+* [Python mailing lists](https://www.python.org/community/lists/])
 
 ## More resources
 [PyPI - the Python Package Index](https://pypi.python.org/pypi)

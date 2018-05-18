@@ -21,7 +21,7 @@ keypoints:
 The format of individual columns and rows will impact analysis performed on a
 dataset read into python. For example, you can't perform mathematical
 calculations on a string (text formatted data). This might seem obvious,
-however sometimes numeric values are read into python as strings. In this
+however sometimes numeric values are read into Python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
 numeric data, you get an error.
 
@@ -31,7 +31,7 @@ structure and format of our data.
 # Types of Data
 
 How information is stored in a
-DataFrame or a python object affects what we can do with it and the outputs of
+DataFrame or a Python object affects what we can do with it and the outputs of
 calculations as well. There are two main types of data that we're explore in
 this lesson: numeric and text data types.
 
@@ -45,7 +45,7 @@ type so the decimal points are not lost.
 
 An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as
 an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You
-will often see the data type `Int64` in python which stands for 64 bit integer. The 64
+will often see the data type `Int64` in Python which stands for 64 bit integer. The 64
 simply refers to the memory allocated to store data in each cell which effectively
 relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
@@ -114,7 +114,7 @@ surveys_df['record_id'].dtype
 
 **OUTPUT:** `dtype('int64')`
 
-The type `int64` tells us that python is storing each value within this column
+The type `int64` tells us that Python is storing each value within this column
 as a 64 bit integer. We can use the `dat.dtypes` command to view the data type
 for each column in a DataFrame (all at once).
 
@@ -161,7 +161,7 @@ print(24-4)
 {: .language-python}
 
 If we divide one integer by another, we get a float.
-The result on python 3 is different than in python 2, where the result is an
+The result on Python 3 is different than in Python 2, where the result is an
 integer (integer division).
 
 ~~~
@@ -343,7 +343,7 @@ df_na.to_csv('data_output/surveys_complete.csv', index=False)
 
 We will use this data file later in the workshop. Check out your working directory to make
 sure the CSV wrote out properly, and that you can open it! If you want, try to bring it
-back into python to make sure it imports properly.
+back into Python to make sure it imports properly.
 
 
 ## Recap
