@@ -55,7 +55,7 @@ integer
 interactive mode
 :   is an online mode of operation in which the user writes the commands directly
     on the command line one-by-one and execute them immediately by pressing a button
-    on the keyword, usually Enter.
+    on the keyword, usually <kbd>Return</kbd>.
 
 join key
 :   is a variable or an array representing the column names over which pandas.DataFrame.join()
