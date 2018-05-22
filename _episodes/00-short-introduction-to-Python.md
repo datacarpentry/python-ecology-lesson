@@ -14,19 +14,6 @@ keypoints:
     - "FIXME"
 ---
 
-# The Basics of Python
-
-Python is a general purpose programming language that supports rapid development
-of scripts and applications.
-
-Python's main advantages:
-
-* Open Source software, supported by Python Software Foundation
-* Available on all platforms
-* It is a general-purpose programming language
-* Supports multiple programming paradigms
-* Very large community with a rich ecosystem of third-party packages
-
 ## Interpreter
 
 Python is an interpreted language which can be used in two ways:
