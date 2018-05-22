@@ -3,8 +3,8 @@ title: Short Introduction to Programming in Python
 teaching: 0
 exercises: 0
 questions:
-    - "What is Python?"
-    - "Why should I learn Python?"
+    - "What are the benefits of programming?"
+    - "What are the foundational elements of coding in Python?"
 objectives:
     - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
     - "Define the following data types in Python: strings, integers, and floats."
