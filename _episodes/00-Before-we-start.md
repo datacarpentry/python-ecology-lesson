@@ -3,8 +3,7 @@ title: Before we start
 teaching: 30
 exercises: 0
 questions:
-  - "What is Python?"
-  - "Why should I learn Python?"
+  - "What is Python and why should I learn it?"
 objectives:
   - "Describe the purpose of the editor, console, help, variable explorer and file explorer panes in Spyder."
   - "Organize files and directories for a set of analyses as a Python project, and understand the purpose of the working directory."
@@ -36,85 +35,133 @@ Its main advantages are:
 
 ### Easy to learn
 Python is easier to learn than other programming languages. This is important because lower barriers mean it is 
-easier for new members of the community get up to speed and begin contributing back.
+easier for new members of the community get up to speed.
 
 ### Reproducibility
 Reproducibility is the ability to obtain the same results using the same dataset(s) and analysis.
 
-Data analysis written as a Python script can be repeated on any platform. 
-Moreover, if you collect more data you can easily and quickly re-run your analysis on a larger dataset.
+Data analysis written as a Python script can be reproduced on any platform.
+Moreover, if you collect more or correct existing data, you can quickly and easily re-run your analysis!
 
 An increasing number of journals and funding agencies expect analyses to be reproducible,
 so knowing Python will give you an edge with these requirements.
 
 ### Versatility
 Python is a versatile language that integrates with many existing applications to enable something completely amazing.
-For example, one can use Pythong to generate manuscripts, so that if you need to update your data, analysis procedure,
+For example, one can use Python to generate manuscripts, so that if you need to update your data, analysis procedure,
 or change something else, you can quickly regenerate all the figures and your manuscript will be updated automatically.
 
 Python can read text files, connect to databases, and many other data formats, on your computer or on the web.
 
 ### Interdisciplinary and extensible
-Python provides a framework that allows one to combine approaches from different research disciplines
-to best suit your analytical needs for your data.
+Python provides a framework that allows anyone to combine approaches from different research 
+(but not only) disciplines to best suit your analysis needs.
 
 ### Python has a large and welcoming community
 Thousands of people use Python daily. Many of them are willing to help you through mailing lists and websites, 
 such as [Stack Overflow](https://stackoverflow.com) and
 [Anaconda community portal](https://www.anaconda.com/community/).
 
-### Free, open-source, and cross-platform
-We know we have already said that but it is worth repeating. 
+### Free and Open-Source Software (FOSS)... and Cross-Platform
+We know we have already said that but it is worth repeating.
 
 <br />
 ## Knowing your way around Anaconda
-The [Anaconda](https://www.anaconda.com) distribution includes Python as well as its popular packages,
+[Anaconda](https://www.anaconda.com) distribution of Python includes a lot of its popular packages,
 such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create 
-and share documents that contain live code, equations, visualizations and narrative text.
-[Spyder](https://spyder-ide.github.io) is a popular way to write Python scripts and also to interact with the Python software;
-it is an **Integrated Development Enviroment**, also called IDE.
+and share documents that allow one to easilty create documents that combine code, graphs, and narrative text.
+[Spyder](https://spyder-ide.github.io) is an **Integrated Development Enviroment** that
+allows one to write Python scripts and interact with the Python software from within a single interface.
 
 Anaconda also comes with a package manager called [conda](https://conda.io/docs/),
-It makes it easy to install and update additional packages.
+which makes it easy to install and update additional packages.
 
 <br />
-## Getting set up
-It is good practice to keep a set of related data, analyses, and text self-contained in a single folder, called the working directory. All of the scripts within this folder can then use relative paths to files that indicate where inside the project a file is located (as opposed to absolute paths, which point to where a file is on a specific computer). Working this way makes it a lot easier to move your project around on your computer and share it with others without worrying about whether or not the underlying scripts will still work.
+## Research Project: Best Practices
+It is a good idea to keep a set of related data, analyses, and text in a single folder.
+All scripts and text files within this folder can then use relative paths to the data files.
+Working this way makes it a lot easier to move around your project and share it with others.
 
 
 ### Organizing your working directory
-Using a consistent folder structure across your projects will help keep things organized, and will also make it easy to find/file things in the future. This can be especially helpful when you have multiple projects. In general, you may create directories (folders) for scripts, data, and documents.
+Using a consistent folder structure across your projects will help you keep things organized,
+and will also make it easy to find/file things in the future. This can be especially helpful 
+when you have multiple projects. In general, you may wish to create separate directories for
+your scripts, data, and documents.
 
-**`data/`** Use this folder to store your raw data and intermediate datasets you may create for the need of a particular analysis. For the sake of transparency and provenance, you should always keep a copy of your raw data accessible and do as much of your data cleanup and preprocessing as possible programmatically (i.e., with scripts, rather than manually). Separating raw data from processed data is also a good idea. For example, you could have files `data/raw/tree_survey.plot1.txt` and `...plot2.txt` kept separate from a `data/processed/tree.survey.csv` file generated by the `scripts/01.preprocess.tree_survey.py` script.
+- **`data/`**: Use this folder to store your raw data. For the sake of transparency and provenance,
+you should always keep a copy of your **raw data**. If you need to cleanup data, do it programmatically
+(_i.e._ with scripts) and make sure to separate cleaned up data from the raw one. 
+For example, you can store raw data in files `./data/raw/` and clean data in `./data/clean/`.
 
-**`documents/`** This would be a place to keep outlines, drafts, and other text.
+- **`documents/`**: Use this folder to store outlines, drafts, and other text.
 
-**`scripts/`** This would be the location to keep your Python scripts for different analyses or plotting, and potentially a separate folder for your functions (more on that later).
-You may want additional directories or subdirectories depending on your project needs, but these should form the backbone of your working directory. For this workshop, we will need a `data/` folder to store our raw data, and we will create later a `data_output/` folder when we learn how to export data as CSV files.
+- **`scripts/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and plotting 
+that you use in this particular project.
+
+You may need to create additional directories depending on your project needs, but these should form 
+the backbone of your project's directory. For this workshop, we will need a `data/` folder to store 
+our raw data, and we will create later a `data_output/` folder when we learn how to export data as CSV files.
 
 
-## Interacting with Python
-The basis of programming is that we write down instructions for the computer to follow, and then we tell the computer to follow those instructions. We write, or code, instructions in Python because it is a common language that both the computer and we can understand. We call the instructions commands and we tell the computer to follow the instructions by executing (also called running) those commands.
+## What is Programming and Coding?
+
+Programming is the process of writing _"programs"_ that a computer can execute and produce some (useful) output.
+Programming is a multi-step process that involves the following steps:
+
+1. Identifying the aspects of the real-world problem that can be solved computationally
+2. Identifying (the best) computational solution
+3. Implementing the solution in a specific computer language
+4. Testing, validating, and adjusting implemented solution.
+
+While _"Programming"_ refers to all of the above steps,
+_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_.
 
 ##### If you are working with Jupyter notebook:
-You can type Python code into a code cell and then execute the code by pressing <kbd>Shift</kbd>+<kbd>Return</kbd>. Any output will be printed directly under the input cell. You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output is marked by `Out[ ]:`. Pressing the __+__ button in the menu bar will add a new cell. All your commands as well as any output will be saved with the notebook.
+You can type Python code into a code cell and then execute the code by pressing <kbd>Shift</kbd>+<kbd>Return</kbd>.
+Output will be printed directly under the input cell.
+You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output by `Out[ ]:`.
+Pressing the __+__ button in the menu bar will add a new cell.
+All your commands as well as any output will be saved with the notebook.
 
 ##### If you are working with Spyder:
 
-You can either use the console or use script files (plain text files that contain your code). The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language can be typed and executed immediately by the computer. It is also where the results will be shown for commands that have been executed. You can type commands directly into the console and press <kbd>Return</kbd> to execute those commands, but they will be forgotten when you close the session. Spyder uses the [IPython](http://ipython.org) console by default.
+You can either use the console or use script files (plain text files that contain your code).
+The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language 
+can be typed and executed immediately by the computer. It is also where the results will be shown.
+You can execute commands directly in the console by pressing <kbd>Return</kbd>,
+but they will be "lost" when you close the session.
+Spyder uses the [IPython](http://ipython.org) console by default.
 
-Because we want our code and workflow to be reproducible, it is better to type the commands we want in the script editor, and save the script. This way, there is a complete record of what we did, and anyone (including our future selves!) can easily replicate the results on their computer.
+Because we want our code and workflow to be reproducible, it is better to type the commands in
+the script editor, and save them as a script. This way, there is a complete record of what we did,
+and anyone (including our future selves!) can easily reproduce the results on their computer.
 
-Spyder allows you to execute commands directly from the script editor by using the run buttons on top or keyboard shortcuts. To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line click _Run selection or current line_ or press <kbd>F9</kbd>, other run buttons allow to run script cells or go into debug mode. When using <kbd>F9</kbd>, the command on the current line in the script (indicated by the cursor) or all of the commands in the currently selected text will be sent to the console and executed.
+Spyder allows you to execute commands directly from the script editor by using the run buttons on top.
+To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line click
+_Run selection or current line_ or press <kbd>F9</kbd>, other run buttons allow to run script cells or
+go into debug mode. When using <kbd>F9</kbd>, the command on the current line in the script
+(indicated by the cursor) or all of the commands in the currently selected text will be sent to the
+console and executed.
 
-At some point in your analysis you may want to check the content of a variable or the structure of an object, without necessarily keeping a record of it in your script. You can type these commands and execute them directly in the console. Spyder provides the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd> and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> shortcuts to allow you to jump between the script and the console panes.
+At some point in your analysis you may want to check the content of a variable or the structure of 
+an object, without necessarily keeping a record of it in your script. You can type these commands
+and execute them directly in the console. Spyder provides the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>
+and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> shortcuts to allow you to jump between the script and the console panes.
 
-If Python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor), Python will try to execute it, and when ready, will show the results with an `Out [..]:` prompt and come back with a new `In [..]:` prompt to wait for new commands.
+If Python is ready to accept commands, the IPython console shows an `In [..]:` prompt with the current
+console line number in `[]`. If it receives a command (by typing, copy-pasting or sent from the script editor),
+Python will execute it, display the results in the `Out [..]:` cell, and come back with a new `In [..]:`
+prompt waiting for new commands.
 
-If Python is still waiting for you to enter more data because it isn’t complete yet, the console will show a `...:` prompt. It means that you haven’t finished entering a complete command. This can be because you have not ‘closed’ a parenthesis or quotation, i.e. you don’t have the same number of left-parentheses as right-parentheses, or the same number of opening and closing quotation marks. When this happens, and you thought you finished typing your command, click inside the console window and press Esc; this will cancel the incomplete command and return you to the `In [..]:` prompt.
+If Python is still waiting for you to enter more data because it isn’t complete yet,
+the console will show a `...:` prompt. It means that you haven’t finished entering a complete command.
+This can be because you have not typed a closing parenthesis (`)`, `]`, or `}`) or quotation mark.
+When this happens, and you thought you finished typing your command, click inside the console window
+and press <kbd>Esc</kbd>; this will cancel the incomplete command and return you to the `In [..]:` prompt.
 
 ## How to learn more after the workshop?
 The material we cover during this workshop will give you an initial taste of how you can use Python to analyze data for your own research. However, you will need to learn more to do advanced operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics. The best way to become proficient and efficient at python, as with any other tool, is to use it to address your actual research questions. As a beginner, it can feel daunting to have to write a script from scratch, and given that many people make their code available online, modifying existing code to suit your purpose might make it easier for you to get started.
