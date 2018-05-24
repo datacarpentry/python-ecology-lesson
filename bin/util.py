@@ -1,4 +1,3 @@
-
 import sys
 import os
 import json
@@ -30,13 +29,11 @@ UNWANTED_FILES = [
 REPORTER_NOT_SET = []
 
 
-class Reporter(object):
+class Reporter:
     """Collect and report errors."""
 
     def __init__(self):
         """Constructor."""
-
-        super(Reporter, self).__init__()
         self.messages = []
 
     def check_field(self, filename, name, values, key, expected=REPORTER_NOT_SET):
@@ -65,36 +62,40 @@ class Reporter(object):
 
         self.messages.append((location, fmt.format(*args)))
 
+    @staticmethod
+    def pretty(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return message
+        elif isinstance(location, str):
+            return location + ': ' + message
+        elif isinstance(location, tuple):
+            return '{0}:{1}: '.format(*location) + message
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
+
+    @staticmethod
+    def key(item):
+        location, message = item
+        if isinstance(location, type(None)):
+            return ('', -1, message)
+        elif isinstance(location, str):
+            return (location, -1, message)
+        elif isinstance(location, tuple):
+            return (location[0], location[1], message)
+
+        print('Unknown item "{0}"'.format(item), file=sys.stderr)
+        return NotImplemented
+
     def report(self, stream=sys.stdout):
         """Report all messages in order."""
 
         if not self.messages:
             return
 
-        def pretty(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return message
-            elif isinstance(location, str):
-                return location + ': ' + message
-            elif isinstance(location, tuple):
-                return '{0}:{1}: '.format(*location) + message
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        def key(item):
-            location, message = item
-            if isinstance(location, type(None)):
-                return ('', -1, message)
-            elif isinstance(location, str):
-                return (location, -1, message)
-            elif isinstance(location, tuple):
-                return (location[0], location[1], message)
-            else:
-                assert False, 'Unknown item "{0}"'.format(item)
-
-        for m in sorted(self.messages, key=key):
-            print(pretty(m), file=stream)
+        for m in sorted(self.messages, key=self.key):
+            print(self.pretty(m), file=stream)
 
 
 def read_markdown(parser, path):
