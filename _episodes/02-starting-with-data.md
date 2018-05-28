@@ -341,21 +341,21 @@ Let's look at the data using these.
 
 ## Calculating Statistics From Data In A Pandas DataFrame
 
-We've read our data into Python. Next, let's perform some quick summary
-statistics to learn more about the data that we're working with. We might want
-to know how many animals were collected in each site, or how many of each
-species were caught. We can perform summary stats quickly using groups. But
-first we need to figure out what we want to group by.
-
-Let's begin by exploring our data:
+We've read our data into Python. Now, we want to understand better the data
+we are dealing with, and for that we can perform a basic summary of statistics
+for each column in our data set. The **pandas' function `describe`** will return
+descriptive stats including: mean, median, max, min, std and count for each column
+in the data.
 
 ~~~
-# Look at the column names
-surveys_df.columns
+# Summary of statistics for each column of the data set
+surveys_df.describe()
 ~~~
 {: .language-python}
 
-which **returns**:
+Pandas' `describe` function will only return summary values for columns
+containing numeric data (note that for the columns `species_id` and `sex`
+nothing was returned).
 
 ~~~
 Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
@@ -364,8 +364,8 @@ Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
 ~~~
 >> {: .output}
 
-Let's get a list of all the species. The `pd.unique` function tells us all of
-the unique values in the `species_id` column.
+Further exploring our data set, we might want to get a list of all the species.
+The `pd.unique` function tells us all of the unique values in the `species_id` column.
 
 ~~~
 pd.unique(surveys_df['species_id'])
@@ -394,12 +394,9 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 # Groups in Pandas
 
-We often want to calculate summary statistics grouped by subsets or attributes
-within fields of our data. For example, we might want to calculate the average
-weight of all individuals per site.
-
-We can calculate basic statistics for all records in a single column using the
-syntax below:
+We calculate statistics and display its summary by subsets or attributes within fields of
+our data. For example, we might want to calculate summary statistics only for the `weight`
+column. We can do this by
 
 ~~~
 surveys_df['weight'].describe()
@@ -420,7 +417,7 @@ Name: weight, dtype: float64
 ~~~
 {: .language-python}
 
-We can also extract one specific metric if we wish:
+We can also extract specific metrics if we wish:
 
 ~~~
 surveys_df['weight'].min()
@@ -440,11 +437,6 @@ can quickly calculate summary statistics by a group of our choice.
 grouped_data = surveys_df.groupby('sex')
 ~~~
 {: .language-python}
-
-The **pandas function `describe`** will return descriptive stats including: mean,
-median, max, min, std and count for a particular column in the data. Pandas'
-`describe` function will only return summary values for columns containing
-numeric data.
 
 ~~~
 # Summary statistics for all numeric columns by sex
