@@ -309,7 +309,7 @@ or
 >
 >    Type:
 > ~~~
-> >>> rev
+> rev
 > ~~~
 > {: .language-python }
 >
