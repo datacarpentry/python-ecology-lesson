@@ -1,3 +1,8 @@
+---
+layout: page
+title: About Contributors
+permalink: /contributors/
+---
 The materials in this python-ecology-lesson repository were initially developed
 and adapted and continue to be revised by many contributors. Some of the lessons
 were adapted from Software Carpentry materials.
@@ -8,8 +13,6 @@ refined and they presented again at the UCAR Software Engineering Assembly (SEA)
 conference in Boulder, Colorado by Leah Wasser (NEON,Inc) and Mariela Perignon.
 
 ## Data
-
-### Biology
 
 Data is from the paper S. K. Morgan Ernest, Thomas J. Valone, and James H.
 Brown. 2009. Long-term monitoring and experimental manipulation of a Chihuahuan
