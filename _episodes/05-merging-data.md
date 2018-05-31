@@ -254,7 +254,7 @@ merged_inner
 
 **OUTPUT:**
 
-```
+~~~
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 0          1      7   16  1977        2         NL   M               32
 1          2      7   16  1977        3         NL   M               33
@@ -274,7 +274,8 @@ merged_inner
 5     NaN   Dipodomys  merriami  Rodent
 6     NaN   Dipodomys  merriami  Rodent
 7     NaN  Peromyscus  eremicus  Rodent
-```
+~~~
+>> {: .output}
 
 The result of an inner join of `survey_sub` and `species_sub` is a new DataFrame
 that contains the combined set of columns from `survey_sub` and `species_sub`. It
