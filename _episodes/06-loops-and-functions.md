@@ -96,9 +96,11 @@ these files using the module `os`:
 
 The command `os.mkdir` is equivalent to `mkdir` in the shell. Just so we are
 sure, we can check that the new directory was created within the `data` folder:
-
 ~~~
->>> os.listdir('data')
+os.listdir('data')
+~~~
+{: .language-python}
+~~~
 ['plots.csv',
  'portal_mammals.sqlite',
  'species.csv',
@@ -108,7 +110,7 @@ sure, we can check that the new directory was created within the `data` folder:
  'surveys2002_temp.csv',
  'yearly_files']
 ~~~
-{: .language-python}
+{: .output}
 
 The command `os.listdir` is equivalent to `ls` in the shell.
 
@@ -146,8 +148,10 @@ We have seen that we can loop over a list of items, so we need a list of years
 to loop over. We can get the years in our DataFrame with:
 
 ~~~
->>> surveys_df['year']
-
+surveys_df['year']
+~~~
+{: .language-python}
+~~~
 0        1977
 1        1977
 2        1977
@@ -158,7 +162,7 @@ to loop over. We can get the years in our DataFrame with:
 35547    2002
 35548    2002
 ~~~
-{: .language-python}
+{: .output}
 
 but we want only unique years, which we can get using the `unique` method
 which we have already seen.
@@ -464,10 +468,11 @@ argument with default values (which are optional in the function call).
 ~~~
 {: .language-python}
 
-```
+~~~
     Both optional arguments:	1988 1993
     Default values:		1977 2002
-```
+~~~
+>> {: .output}
 
 The "\t" in the `print` statements are tabs, used to make the text align and be
 easier to read.
@@ -501,10 +506,11 @@ dates are not provided:
     print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
-```
+~~~
     Both optional arguments:	1988 1993
     Default values:		1977 2002
-```
+~~~
+>> {: .output}
 
 The default values of the `start_year` and `end_year` arguments in the function
 `yearly_data_arg_test` are now `None`. This is a build-it constant in Python
@@ -555,9 +561,10 @@ of code when some condition is met. They commonly look something like this:
 
 Which would return:
 
-```
+~~~
     a is a positive number
-```
+~~~
+>> {: .output}
 
 Change the value of `a` to see how this function works. The statement `elif`
 means "else if", and all of the conditional statements must end in a colon.
@@ -600,14 +607,15 @@ values to the function using these keywords:
     print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}
-```
+~~~
     Default values:		1977 2002
     No keywords:		1988 1993
     Both keywords, in order:	1988 1993
     Both keywords, flipped:	1988 1993
     One keyword, default end:	1988 2002
     One keyword, default start:	1977 1993
-```
+~~~
+>> {: .output}
 
 > ## Challenge - Modifying functions
 >
