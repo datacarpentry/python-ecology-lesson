@@ -273,12 +273,13 @@ surveys_df.iloc[0:3, 1:4]
 
 which gives the **output**
 
-```
+~~~
    month  day  year
 0      7   16  1977
 1      7   16  1977
 2      7   16  1977
-```
+~~~
+>> {: .output}
 
 Notice that we asked for a slice from 0:3. This yielded 3 rows of data. When you
 ask for 0:3, you are actually telling Python to start at index 0 and select rows
@@ -324,9 +325,10 @@ surveys_df.iloc[2, 6]
 
 gives the **output**
 
-```
+~~~
 'F'
-```
+~~~
+>> {: .output}
 
 Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
