@@ -211,9 +211,10 @@ surveys_df['record_id'].dtype
 >
 > Try converting the column `plot_id` to floats using
 >
-> ```python
+> ~~~
 > surveys_df.plot_id.astype("float")
-> ```
+> ~~~
+>> {: .language-python}
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
 > We will talk about some solutions to this later.
@@ -327,7 +328,7 @@ df_na = surveys_df.dropna()
 ~~~
 {: .language-python}
 
-If you now type ```df_na```, you should observe that the resulting DataFrame has 30676 rows
+If you now type `df_na`, you should observe that the resulting DataFrame has 30676 rows
 and 9 columns, much smaller than the 35549 row original.
 
 We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
