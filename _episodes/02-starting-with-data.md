@@ -69,7 +69,7 @@ single animal, and the columns represent:
 
 The first few rows of our first file look like this:
 
-```
+~~~
 record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 1,7,16,1977,2,NL,M,32,
 2,7,16,1977,3,NL,M,33,
@@ -80,7 +80,8 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 7,7,16,1977,2,PE,F,,
 8,7,16,1977,1,DM,M,37,
 9,7,16,1977,1,DM,F,34,
-```
+~~~
+>> {: .output}
 
 ---
 
@@ -138,7 +139,7 @@ pd.read_csv("data/surveys.csv")
 
 The above command yields the **output** below:
 
-```
+~~~
 record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 0          1      7   16  1977        2         NL   M               32   NaN
 1          2      7   16  1977        3         NL   M               33   NaN
@@ -153,7 +154,8 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
 
 [35549 rows x 9 columns]
-```
+~~~
+>> {: .output}
 
 We can see that there were 35,549 rows parsed. Each row has 9
 columns. The first column is the index of the DataFrame. The index is used to
@@ -239,8 +241,8 @@ easier to fit on one window, you can see that pandas has neatly formatted the da
 our screen:
 
 ~~~
->>> surveys_df.head() # The head() function displays the first several lines of a file. It
-		      # is discussed below.
+surveys_df.head() # The head() method displays the first several lines of a file. It
+                  # is discussed below.
 ~~~
 {: .language-python}
 ~~~
@@ -265,10 +267,13 @@ our screen:
 Again, we can use the `type` function to see what kind of thing `surveys_df` is:
 
 ~~~
->>> type(surveys_df)
-<class 'pandas.core.frame.DataFrame'>
+type(surveys_df)
 ~~~
 {: .language-python}
+~~~
+<class 'pandas.core.frame.DataFrame'>
+~~~
+{: .output}
 
 As expected, it's a DataFrame (or, to use the full name that Python uses to refer
 to it internally, a `pandas.core.frame.DataFrame`).
@@ -277,7 +282,7 @@ What kind of things does `surveys_df` contain? DataFrames have an attribute
 called `dtypes` that answers this:
 
 ~~~
->>> surveys_df.dtypes
+surveys_df.dtypes
 ~~~
 {: .language-python}
 ~~~
@@ -352,11 +357,12 @@ surveys_df.columns
 
 which **returns**:
 
-```
+~~~
 Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
        'hindfoot_length', 'weight'],
       dtype='object')
-```
+~~~
+>> {: .output}
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
 the unique values in the `species_id` column.
@@ -472,8 +478,8 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->	- `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
->	- `grouped_data2.mean()`
+>   - `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>   - `grouped_data2.mean()`
 > 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_site['weight'].describe()`
@@ -482,18 +488,19 @@ summary stats.
 >> ## Did you get #3 right?
 >> **A Snippet of the Output from challenge 3 looks like:**
 >>
->> ```
->>	site
->>	1     count    1903.000000
->>	      mean       51.822911
->>	      std        38.176670
->>	      min         4.000000
->>	      25%        30.000000
->>	      50%        44.000000
->>	      75%        53.000000
->>	      max       231.000000
+>> ~~~
+>>  site
+>>  1     count    1903.000000
+>>        mean       51.822911
+>>        std        38.176670
+>>        min         4.000000
+>>        25%        30.000000
+>>        50%        44.000000
+>>        75%        53.000000
+>>        max       231.000000
 >>          ...
->> ```
+>> ~~~
+>> {: .output}
 > {: .solution}
 {: .challenge}
 
@@ -586,13 +593,14 @@ total_count.plot(kind='bar');
 >
 > shows the following data
 >
-> ```
+> ~~~
 >       one  two
 >   a    1    1
 >   b    2    2
 >   c    3    3
 >   d  NaN    4
-> ```
+> ~~~
+> {: .output}
 >
 > We can plot the above with
 >
@@ -617,15 +625,15 @@ total_count.plot(kind='bar');
 >>
 >> First we group data by site and by sex, and then calculate a total for each site.
 >>
->> ```python
+>> ~~~
 >> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> ~~~
->> {: .language-python }
+>> {: .language-python}
 >>
 >> This calculates the sums of weights for each sex within each site as a table
 >>
->> ```
+>> ~~~
 >> site  sex
 >> plot_id  sex
 >> 1        F      38253
@@ -637,11 +645,12 @@ total_count.plot(kind='bar');
 >> 4        F      39796
 >>          M      49377
 >> <other sites removed for brevity>
->> ```
+>> ~~~
+>> {: .output}
 >>
 >> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
 >>
->> ```python
+>> ~~~
 >> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> site_sex_count.unstack()
@@ -650,7 +659,7 @@ total_count.plot(kind='bar');
 >>
 >> The `unstack` method above will display the following output:
 >>
->> ```
+>> ~~~
 >> sex          F      M
 >> plot_id
 >> 1        38253  59979
@@ -658,13 +667,14 @@ total_count.plot(kind='bar');
 >> 3        27251  28253
 >> 4        39796  49377
 >> <other sites removed for brevity>
->> ```
+>> ~~~
+>> {: .output}
 >>
 >> Now, create a stacked bar plot with that data where the weights for each sex are stacked by site.
 >>
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
->> ```python
+>> ~~~
 >> by_site_sex = surveys_df.groupby(['plot_id','sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> spc = site_sex_count.unstack()
@@ -672,7 +682,7 @@ total_count.plot(kind='bar');
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
 >> ~~~
->> {: .language-python }
+>> {: .language-python}
 >>
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}
