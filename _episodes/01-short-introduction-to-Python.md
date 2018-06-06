@@ -13,7 +13,10 @@ objectives:
 keypoints:
     - "FIXME"
 ---
-
+## INTRODUCTION TO USING PROGRAMMING USUING PYTHON
+## Content Issue in Python Ecology-Short Introduction to Programming in Python
+## This section does not provide any content for the novices or any learners for that matter, why it is important to use programming ## ## than ##working repetitive tasks by hand. The content need to entertain learners why stick to programming for data analysis and
+## Visualization.
 ## Interpreter
 
 Python is an interpreted language which can be used in two ways:
