@@ -98,6 +98,7 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 	my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
 	type(my_plot)
 ~~~
+{: .language-python}
 
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
@@ -110,7 +111,7 @@ We will cover a few basic commands for creating and formatting plots with matplo
 (http://matplotlib.org/gallery.html), which includes plots in many different
 styles and the source code that creates them. 
 
-### Using pyplot:
+### Using the matplotlib library
 
 First, import the pyplot toolbox:
 
@@ -128,151 +129,79 @@ writing:
 ~~~
 {: .language-python}
 
-We can start by plotting the values of a list of numbers (matplotlib can handle
-many types of numeric data, including numpy arrays and pandas DataFrames - we
-are just using a list as an example!):
+### stateful pyplot versus Object based
+
+Consider the following example data:
 
 ~~~
-    list_numbers = [1.5, 4, 2.2, 5.7]
-    plt.plot(list_numbers)
-    plt.show()
-~~~
-{: .language-python}
-
-The command `plt.show()` prompts Python to display the figure. Without it, it
-creates an object in memory but doesn't produce a visible plot. The ipython
-notebooks (if using `%matplotlib inline`) will automatically show you the figure
-even if you don't write `plt.show()`, but get in the habit of including this
-command!
-
-If you provide the `plot()` function with only one list of numbers, it assumes
-that it is a sequence of y-values and plots them against their index (the first
-value in the list is plotted at `x=0`, the second at `x=1`, etc). If the
-function `plot()` receives two lists, it assumes the first one is the x-values
-and the second the y-values. The line connecting the points will follow the list
-in order:
-
-~~~
-    plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers)
-    plt.show()
+    x = np.linspace(0, 5, 10)
+    y = x ** 2
 ~~~
 {: .language-python}
 
-A third, optional argument in `plot()` is a string of characters that indicates
-the line type and color for the plot. The default value is a continuous blue
-line. For example, we can make the line red (`'r'`), with circles at every data
-point (`'o'`), and a dot-dash pattern (`'-.'`). Look through the matplotlib
-gallery for more examples.
+To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 
 ~~~
-    plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers, 'ro-.')
-    plt.axis([0,10,0,6])
-    plt.show()
+    plt.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-The command `plt.axis()` sets the limits of the axes from a list of `[xmin,
-xmax, ymin, ymax]` values (the square brackets are needed because the argument
-for the function `axis()` is one list of values, not four separate numbers!).
-The functions `xlabel()` and `ylabel()` will label the axes, and `title()` will
-write a title above the figure.
-
-A single figure can include multiple lines, and they can be plotted using the
-same `plt.plot()` command by adding more pairs of x values and y values (and
-optionally line styles):
+or create a figure and ax object first and add the plot to the created ax object:
 
 ~~~
-    import numpy as np
-
-    # Create a numpy array between 0 and 10, with values evenly spaced every 0.5
-    t = np.arange(0., 10., 0.5)
-
-    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
-    plt.plot(t, t, 'r--', t, t**2, 'bs-', t, t**3, 'g^:')
-
-    plt.xlabel('This is the x axis')
-    plt.ylabel('This is the y axis')
-    plt.title('This is the figure title')
-
-    plt.show()
+    fig, ax = plt.subplots()  # initiate an empty figure and ax matplotlib object
+	ax.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-We can include a legend by adding the optional keyword argument `label=''` in
-`plot()`. Caution: We cannot add labels to multiple lines that are plotted
-simultaneously by the `plt.plot()` command like we did above because Python
-won't know to which line to assign the value of the argument label. Multiple
-lines can also be plotted in the same figure by calling the `plot()` function
-several times:
+Although the latter requires a little bit more code, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
 
 ~~~
-    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
-    plt.plot(t, t, 'r--', label='linear')
-    plt.plot(t, t**2, 'bs-', label='square')
-    plt.plot(t, t**3, 'g^:', label='cubic')
-
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-
-    plt.xlabel('This is the x axis')
-    plt.ylabel('This is the y axis')
-    plt.title('This is the figure title')
-
-    plt.show()
+    fig, ax1 = plt.subplots() #prepare a matplotlib figure
+    ax1.plot(x, y, '-')
+    
+    # adapt the labels
+    ax1.set_ylabel('y')
+    ax1.set_xlabel('x')
+    
+    # add an additional ax to the figure
+    ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
+    ax2.plot(x, y*2, 'r-')
 ~~~
 {: .language-python}
 
-The function `legend()` adds a legend to the figure, and the optional keyword
-arguments change its style. By default [typing just `plt.legend()`], the legend
-is on the upper right corner and has no shadow.
-
- The functions `xlabel`, `ylabel`, `title`, `legend`, and many others create text labels. It is good to know that, in addition to the plain text, you may use mathematical notation using a subset of LaTeX language. See [this link](https://matplotlib.org/users/mathtext.html) for more information.
-
-
-Like MATLAB, pyplot is stateful; it keeps track of the current figure and
-plotting area, and any plotting functions are directed to those axes. To make
-more than one figure, we use the command `plt.figure()` with an increasing
-figure number inside the parentheses:
+Moreover, the Pandas and plotnine packages create these matplotlib objects as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
-    # This is the first figure
-    plt.figure(1)
-    plt.plot(t, t, 'r--', label='linear')
+    fig, ax1 = plt.subplots() #prepare a matplotlib figure
 
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    plt.title('This is figure 1')
+	surveys.plot("hindfoot_length", "weight", 
+	             kind="scatter", ax=ax1) # use Pandas for plotting
 
-    plt.show()
-
-    # This is a second figure
-    plt.figure(2)
-    plt.plot(t, t**2, 'bs-', label='square')
-
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    plt.title('This is figure 2')
-
-    plt.show()
+    # Provide further adaptations with matplotlib:
+    ax1.set_xlabel("Hindfoot length")
+    ax.tick_params(labelsize=15, pad=8)
+    fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
 ~~~
 {: .language-python}
 
-A single figure can also include multiple plots in a grid pattern. The
-`subplot()` command specifies the number of rows, the number of columns, and
-the number of the space in the grid that particular plot is occupying:
+To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
 
 ~~~
-    plt.figure(1)
-
-    plt.subplot(2,2,1)  # Two row, two columns, position 1
-    plt.plot(t, t, 'r--', label='linear')
-
-    plt.subplot(2,2,2)  # Two row, two columns, position 2
-    plt.plot(t, t**2, 'bs-', label='square')
-
-    plt.subplot(2,2,3)  # Two row, two columns, position 3
-    plt.plot(t, t**3, 'g^:', label='cubic')
-
-    plt.show()
+    import plotnine as p9
+    myplot = (p9.ggplot(data=surveys, 
+                        mapping=p9.aes(x='weight', 
+                                       y='hindfoot_length')))
+    # convert output plotnine to a matplotlib object
+    my_plt_version = myplot.draw()
+    
+    # Provide further adaptations with matplotlib:
+    ax2 = my_plt_version.add_axes([0.5, 0.5, 0.3, 0.3], label="ax2")
+    my_plt_version
+)
 ~~~
 {: .language-python}
+
 
 > ## Challenge - Lots of plots
 > Make a variety of line plots from your data. If you are using the streamgage
