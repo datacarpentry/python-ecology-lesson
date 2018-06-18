@@ -7,8 +7,10 @@ questions:
     - "Why should I use Python to create plots?"
 objectives:
     - "Import the pyplot toolbox to create figures in Python."
+    - "Adapt maptlotlib objects created by Pandas or plotnine."
 keypoints:
-    - "FIXME"
+	- "Matplotlib is the engine behind plotnine and Pandas plots."
+	- "The object-oriented way of matplotlib makes detailed customization possible."
 ---
 
 
@@ -201,7 +203,6 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 )
 ~~~
 {: .language-python}
-
 
 > ## Challenge - Lots of plots
 > Make a variety of line plots from your data. If you are using the streamgage
