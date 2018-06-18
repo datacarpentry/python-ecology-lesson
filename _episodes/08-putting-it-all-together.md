@@ -88,11 +88,9 @@ also change the name of the columns in the DataFrame like this:
 
 ## Matplotlib plot library
 
-[Matplotlib](http://matplotlib.org/) is a Python package used widely throughout the scientific Python community to produce high quality 2D publication graphics. It transparently supports a wide range of output formats including PNG (and other raster formats), PostScript/EPS, PDF and SVG. A great resource for help creating and styling your figures is the matplotlib gallery
-(http://matplotlib.org/gallery.html), which includes plots in many different
-styles and the source code that creates them. 
+[Matplotlib](http://matplotlib.org/) is a Python package used widely throughout the scientific Python community to produce high quality and publication-ready graphics. It supports a wide range of output formats including PNG (and other raster formats), PostScript/EPS, PDF and SVG. 
 
-At the same time, matplotlib is the actual engine behind the plotting capabilities of both the Pandas as well as the plotnine package. So, if you you call the `.plot` functionality of Pandas, as we did in the previous episodes, you actually use the matplotlib package:
+At the same time, matplotlib is the actual engine behind the plotting capabilities of both the Pandas as well as the plotnine package. So, if you you call the `.plot` functionality of Pandas, as we did in the previous episodes, you actually used the matplotlib package:
 
 ~~~
     import pandas as pd
@@ -101,18 +99,16 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 	type(my_plot)
 ~~~
 
-Hence, the returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object. 
+The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
-> ## Challenge - Lots of plots
-> Make a variety of line plots from your data. If you are using the streamgage
-> data, these could include (1) a hydrograph of the entire month of September
-> 2013, (2) the discharge record for the week of the 2013 Front Range flood
-> (September 9 through 15), (3) discharge vs. time of day, for every day in the
-> record in one figure (Hint: use loops to combine strings and give every line a
-> different style and color), and (4) minimum, maximum, and mean daily discharge
-> values. Add axis labels, titles, and legends to your figures. Make at least one
-> figure with multiple plots using the function `subplot()`.
-{: .challenge}
+> ~~~
+> Matplotlib itself can be overwhelming, so a useful strategy is to do as much as you easily can in a convenience layer, i.e. start creating the plot in Pandas or plotnine, and then use matplotlib for the rest.
+> ~~~
+> {: .callout}
+
+We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. A great resource for help creating and styling your figures is the matplotlib gallery
+(http://matplotlib.org/gallery.html), which includes plots in many different
+styles and the source code that creates them. 
 
 ### Using pyplot:
 
@@ -277,6 +273,17 @@ the number of the space in the grid that particular plot is occupying:
     plt.show()
 ~~~
 {: .language-python}
+
+> ## Challenge - Lots of plots
+> Make a variety of line plots from your data. If you are using the streamgage
+> data, these could include (1) a hydrograph of the entire month of September
+> 2013, (2) the discharge record for the week of the 2013 Front Range flood
+> (September 9 through 15), (3) discharge vs. time of day, for every day in the
+> record in one figure (Hint: use loops to combine strings and give every line a
+> different style and color), and (4) minimum, maximum, and mean daily discharge
+> values. Add axis labels, titles, and legends to your figures. Make at least one
+> figure with multiple plots using the function `subplot()`.
+{: .challenge}
 
 ## Make other types of plots:
 
