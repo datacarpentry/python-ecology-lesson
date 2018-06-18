@@ -102,6 +102,8 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 ~~~
 {: .language-python}
 
+![png](../fig/07_scatter_surveys.png)
+
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
 > ~~~
@@ -139,6 +141,7 @@ writing:
 Consider the following example data:
 
 ~~~
+    import numpy as np
     x = np.linspace(0, 5, 10)
     y = x ** 2
 ~~~
@@ -151,6 +154,8 @@ To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 ~~~
 {: .language-python}
 
+![png](../fig/07_line_plot.png)
+
 or create a figure and ax object first and add the plot to the created ax object:
 
 ~~~
@@ -159,7 +164,9 @@ or create a figure and ax object first and add the plot to the created ax object
 ~~~
 {: .language-python}
 
-Although the latter requires a little bit more code, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
+![png](../fig/07_line_plot.png)
+
+Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
 
 ~~~
     fig, ax1 = plt.subplots() #prepare a matplotlib figure
@@ -175,6 +182,8 @@ Although the latter requires a little bit more code, the advantage is that we no
 ~~~
 {: .language-python}
 
+![png](../fig/07_line_plot_inset.png)
+
 Moreover, the **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
@@ -185,27 +194,34 @@ Moreover, the **Pandas and plotnine packages create matplotlib objects** as well
 
     # Provide further adaptations with matplotlib:
     ax1.set_xlabel("Hindfoot length")
-    ax.tick_params(labelsize=15, pad=8)
+    ax1.tick_params(labelsize=16, pad=8)
     fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
 ~~~
 {: .language-python}
+
+![png](../fig/07_scatter_surveys_extended.png)
 
 To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
 
 ~~~
     import plotnine as p9
     myplot = (p9.ggplot(data=surveys, 
-                        mapping=p9.aes(x='weight', 
-                                       y='hindfoot_length')))
+                        mapping=p9.aes(x='hindfoot_length', 
+                                       y='weight')) +
+              p9.geom_point())
     # convert output plotnine to a matplotlib object
     my_plt_version = myplot.draw()
-    
+
     # Provide further adaptations with matplotlib:
-    ax2 = my_plt_version.add_axes([0.5, 0.5, 0.3, 0.3], label="ax2")
+    p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
+    p9_ax.set_xlabel("Hindfoot length")
+    p9_ax.tick_params(labelsize=16, pad=8)
+    p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
     my_plt_version
-)
 ~~~
 {: .language-python}
+
+![png](../fig/07_scatter_surveys_plotnine.png)
 
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
