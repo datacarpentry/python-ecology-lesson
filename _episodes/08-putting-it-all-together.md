@@ -98,13 +98,13 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
     import pandas as pd
     surveys = pd.read_csv("./data/surveys.csv")
 	my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
-	type(my_plot)
+	my_plot
 ~~~
 {: .language-python}
 
 ![png](../fig/07_scatter_surveys.png)
 
-The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
+The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
 > ~~~
 > Matplotlib itself can be overwhelming, so a useful strategy is to 
@@ -136,7 +136,7 @@ writing:
 ~~~
 {: .language-python}
 
-### stateful pyplot versus Object based
+### `plt` pyplot versus object based matplotlib
 
 Consider the following example data:
 
@@ -184,7 +184,9 @@ Although the latter requires a little bit more code to create the same plot, the
 
 ![png](../fig/07_line_plot_inset.png)
 
-Moreover, the **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
+### Link matplotlib, Pandas and plotnine
+
+The **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
     fig, ax1 = plt.subplots() #prepare a matplotlib figure
@@ -209,6 +211,7 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
                         mapping=p9.aes(x='hindfoot_length', 
                                        y='weight')) +
               p9.geom_point())
+
     # convert output plotnine to a matplotlib object
     my_plt_version = myplot.draw()
 
@@ -252,10 +255,10 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 > {: .solution}
 {: .challenge}
 
+
 ## Make other types of plots:
 
-Matplotlib can make many other types of plots in much the same way that it makes
-2 dimensional line plots. Look through the examples in
+Matplotlib can make many other types of plots in much the same way that it makes 2 dimensional line plots. Look through the examples in
 http://matplotlib.org/users/screenshots.html and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
