@@ -11,6 +11,7 @@ objectives:
 keypoints:
 	- "Matplotlib is the engine behind plotnine and Pandas plots."
 	- "The object-oriented way of matplotlib makes detailed customization possible."
+	- Use `savefig` method to save a figure as a file;
 ---
 
 
@@ -107,10 +108,10 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
 > ~~~
-> Matplotlib itself can be overwhelming, so a useful strategy is to 
-> do as much as you easily can in a convenience layer, i.e. start
-> creating the plot in Pandas or plotnine, and then use matplotlib for 
-> the rest.
+>     Matplotlib itself can be overwhelming, so a useful strategy is to 
+>     do as much as you easily can in a convenience layer, i.e. start
+>     creating the plot in Pandas or plotnine, and then use matplotlib
+>     for the rest.
 > ~~~
 > {: .callout}
 
@@ -252,6 +253,37 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 > > {: .language-python}
 > >
 > > ![png](../fig/07_flood_event.png)
+> {: .solution}
+{: .challenge}
+
+### Saving matplotlib figures
+
+Once satisfied about the resulting plot, you can save the plot with the `.savefig(*args)` command from matplotlib:
+
+~~~
+fig.savefig("my_plot_name.png")    
+~~~
+{: .language-python}
+
+Which will save the `fig` created using Pandas/matplotlib as a png file with the name `my_plot_name`
+
+> ~~~
+>     Matplotlib recognizes the extension used in the filename and
+>     supports (on most computers) png, pdf, ps, eps and svg formats.
+> ~~~
+{: .callout}
+
+> ## Challenge - Saving figure to file
+> Check the documentation of the `savefig` command and check how 
+> you can comply to journals requiring figures as `pdf` file with
+> dpi >= 300.
+>
+> > ## Answers
+> >
+> > ~~~
+> > fig.savefig("my_plot_name.pdf", dpi=300)
+> > ~~~
+> > {: .language-python}
 > {: .solution}
 {: .challenge}
 
