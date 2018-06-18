@@ -86,19 +86,22 @@ also change the name of the columns in the DataFrame like this:
 ~~~
 {: .language-python}
 
-## Make a line plot of your data
+## Matplotlib plot library
 
-Matplotlib is a Python library that can be used to visualize data. The
-toolbox `matplotlib.pyplot` is a collection of functions that make matplotlib
-work like MATLAB. In most cases, this is all that you will need to use, but
-there are many other useful tools in matplotlib that you should explore.
-
-We will cover a few basic commands for formatting plots in this lesson. A great
-resource for help styling your figures is the matplotlib gallery
+[Matplotlib](http://matplotlib.org/) is a Python package used widely throughout the scientific Python community to produce high quality 2D publication graphics. It transparently supports a wide range of output formats including PNG (and other raster formats), PostScript/EPS, PDF and SVG. A great resource for help creating and styling your figures is the matplotlib gallery
 (http://matplotlib.org/gallery.html), which includes plots in many different
-styles and the source code that creates them. The simplest of plots is the 2
-dimensional line plot. These examples walk through the basic commands for making
-line plots using pyplots.
+styles and the source code that creates them. 
+
+At the same time, matplotlib is the actual engine behind the plotting capabilities of both the Pandas as well as the plotnine package. So, if you you call the `.plot` functionality of Pandas, as we did in the previous episodes, you actually use the matplotlib package:
+
+~~~
+    import pandas as pd
+    surveys = pd.read_csv("./data/surveys.csv")
+	my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
+	type(my_plot)
+~~~
+
+Hence, the returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object. 
 
 > ## Challenge - Lots of plots
 > Make a variety of line plots from your data. If you are using the streamgage
