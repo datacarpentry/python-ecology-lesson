@@ -103,7 +103,7 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 ~~~
 {: .language-python}
 
-![png](../fig/07_scatter_surveys.png)
+![png](../fig/08_scatter_surveys.png)
 
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
@@ -155,7 +155,7 @@ To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 ~~~
 {: .language-python}
 
-![png](../fig/07_line_plot.png)
+![png](../fig/08_line_plot.png)
 
 or create a figure and ax object first and add the plot to the created ax object:
 
@@ -165,7 +165,7 @@ or create a figure and ax object first and add the plot to the created ax object
 ~~~
 {: .language-python}
 
-![png](../fig/07_line_plot.png)
+![png](../fig/08_line_plot.png)
 
 Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
 
@@ -183,7 +183,7 @@ Although the latter requires a little bit more code to create the same plot, the
 ~~~
 {: .language-python}
 
-![png](../fig/07_line_plot_inset.png)
+![png](../fig/08_line_plot_inset.png)
 
 ### Link matplotlib, Pandas and plotnine
 
@@ -202,7 +202,7 @@ The **Pandas and plotnine packages create matplotlib objects** as well. Hence, u
 ~~~
 {: .language-python}
 
-![png](../fig/07_scatter_surveys_extended.png)
+![png](../fig/08_scatter_surveys_extended.png)
 
 To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
 
@@ -225,7 +225,7 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 ~~~
 {: .language-python}
 
-![png](../fig/07_scatter_surveys_plotnine.png)
+![png](../fig/08_scatter_surveys_plotnine.png)
 
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
@@ -252,7 +252,7 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/07_flood_event.png)
+> > ![png](../fig/08_flood_event.png)
 > {: .solution}
 {: .challenge}
 
