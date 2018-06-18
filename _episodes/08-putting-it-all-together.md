@@ -105,7 +105,10 @@ At the same time, matplotlib is the actual engine behind the plotting capabiliti
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
 > ~~~
-> Matplotlib itself can be overwhelming, so a useful strategy is to do as much as you easily can in a convenience layer, i.e. start creating the plot in Pandas or plotnine, and then use matplotlib for the rest.
+> Matplotlib itself can be overwhelming, so a useful strategy is to 
+> do as much as you easily can in a convenience layer, i.e. start
+> creating the plot in Pandas or plotnine, and then use matplotlib for 
+> the rest.
 > ~~~
 > {: .callout}
 
@@ -172,7 +175,7 @@ Although the latter requires a little bit more code, the advantage is that we no
 ~~~
 {: .language-python}
 
-Moreover, the Pandas and plotnine packages create these matplotlib objects as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
+Moreover, the **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
     fig, ax1 = plt.subplots() #prepare a matplotlib figure
@@ -204,15 +207,33 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 ~~~
 {: .language-python}
 
-> ## Challenge - Lots of plots
-> Make a variety of line plots from your data. If you are using the streamgage
-> data, these could include (1) a hydrograph of the entire month of September
-> 2013, (2) the discharge record for the week of the 2013 Front Range flood
-> (September 9 through 15), (3) discharge vs. time of day, for every day in the
-> record in one figure (Hint: use loops to combine strings and give every line a
-> different style and color), and (4) minimum, maximum, and mean daily discharge
-> values. Add axis labels, titles, and legends to your figures. Make at least one
-> figure with multiple plots using the function `subplot()`.
+> ## Challenge - Pandas and matplotlib
+> Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
+> (September 9 through 15) and create a hydrograph (line plot) of the discharge data using
+> Pandas, linking it to an empty maptlotlib `ax` object. Adapt the title, x-axis and y-axis label 
+> using matplotlib.
+>
+> > ## Answers
+> >
+> > ~~~
+> > discharge = pd.read_csv("./data/bouldercreek_09_2013.txt", 
+> >                         skiprows=27, delimiter="\t", 
+> >                         names=["agency", "site_id", "datetime",
+> >                                "timezone", "discharge", "discharge_cd"])
+> > discharge["datetime"] = pd.to_datetime(discharge["datetime"])
+> > front_range = discharge[(discharge["datetime"] >= "2013-09-09") & 
+> >                         (discharge["datetime"] < "2013-09-15")]
+> > 
+> > fig, ax = plt.subplots()
+> > front_range.plot(x ="datetime", y="discharge", ax=ax)
+> > ax.set_xlabel("") # no label
+> > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.set_title(" Front Range flood event 2013")
+> > ~~~
+> > {: .language-python}
+> >
+> > ![png](../fig/07_flood_event.png)
+> {: .solution}
 {: .challenge}
 
 ## Make other types of plots:
@@ -226,9 +247,10 @@ save as a text file with a `.py` extension and run in the command line).
 > ## Challenge - Final Plot
 > Display your data using one or more plot types from the example gallery. Which
 > ones to choose will depend on the content of your own data file. If you are
-> using the streamgage file, you could make a histogram of the number of days with
-> a given mean discharge, use bar plots to display daily discharge statistics, or
-> explore the different ways matplotlib can handle dates and times for figures.
+> using the streamgage file `bouldercreek_09_2013.txt`, you could make a 
+> histogram of the number of days with a given mean discharge, use bar plots 
+> to display daily discharge statistics, or explore the different ways matplotlib 
+> can handle dates and times for figures.
 {: .challenge}
 
 {% include links.md %}
