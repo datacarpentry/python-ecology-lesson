@@ -2,16 +2,15 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc", "dc", or "lc")?
+# Which carpentry is this ("swc", "dc", "lc", or "cp")?
+# swc: Software Carpentry
+# dc: Data Carpentry
+# lc: Library Carpentry
+# cp: Carpentries (to use for instructor traning for instance)
 carpentry: "dc"
 
 # Overall title for pages.
 title: "Python for Ecologists"
-
-# Contact.  This *must* include the protocol: if it's an email
-# address, it must look like "mailto:lessons@software-carpentry.org",
-# or if it's a URL, "https://gitter.im/username/ProjectName".
-email: "mailto:lessons@software-carpentry.org"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -22,7 +21,11 @@ kind: "lesson"
 
 # Magic to make URLs resolve both locally and on GitHub.
 # See https://help.github.com/articles/repository-metadata-on-github-pages/.
+# Please don't change it: <USERNAME>/<PROJECT> is correct.
 repository: <USERNAME>/<PROJECT>
+
+# Email address, no mailto:
+email: "team@carpentries.org"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
