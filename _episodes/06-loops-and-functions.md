@@ -33,19 +33,30 @@ Let's write a simple for loop that simulates what a kid might see during a
 visit to the zoo:
 
 ~~~
->>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
->>> print(animals)
-['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+print(animals)
+~~~
+{: .language-python}
 
->>> for creature in animals:
-...    print(creature)
+~~~
+['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+~~~
+{: .output}
+
+~~~
+for creature in animals:
+    print(creature)
+~~~
+{: .language-python}
+
+~~~
 lion
 tiger
 crocodile
 vulture
 hippo
 ~~~
-{: .language-python}
+{: .output}
 
 The line defining the loop must start with `for` and end with a colon, and the
 body of the loop must be indented.
@@ -56,14 +67,25 @@ anything we like. After the loop finishes, the loop variable will still exist
 and will have the value of the last entry in the collection:
 
 ~~~
->>> animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
->>> for creature in animals:
-...    pass
-
->>> print('The loop variable is now: ' + creature)
-The loop variable is now: hippo
+animals = ['lion', 'tiger', 'crocodile', 'vulture', 'hippo']
+for creature in animals:
+    pass
 ~~~
 {: .language-python}
+
+~~~
+~~~
+{: .output}
+
+~~~
+print('The loop variable is now: ' + creature)
+~~~
+{: .language-python}
+
+~~~
+The loop variable is now: hippo
+~~~
+{: .output}
 
 We are not asking Python to print the value of the loop variable anymore, but
 the for loop still runs and the value of `creature` changes on each pass through
@@ -88,9 +110,9 @@ Let's start by making a new directory inside the folder `data` to store all of
 these files using the module `os`:
 
 ~~~
-    import os
+import os
 
-    os.mkdir('data/yearly_files')
+os.mkdir('data/yearly_files')
 ~~~
 {: .language-python}
 
@@ -168,20 +190,25 @@ but we want only unique years, which we can get using the `unique` method
 which we have already seen.
 
 ~~~
->>> surveys_df['year'].unique()
+surveys_df['year'].unique()
+~~~
+{: .language-python}
+~~~
 array([1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987,
        1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
        1999, 2000, 2001, 2002], dtype=int64)
 ~~~
-{: .language-python}
+{: .output}
 
 Putting this into our for loop we get
 
 ~~~
->>> for year in surveys_df['year'].unique():
-...    filename='data/yearly_files/surveys' + str(year) + '.csv'
-...    print(filename)
-...
+for year in surveys_df['year'].unique():
+   filename='data/yearly_files/surveys' + str(year) + '.csv'
+   print(filename)
+~~~
+{: .language-python}
+~~~
 data/yearly_files/surveys1977.csv
 data/yearly_files/surveys1978.csv
 data/yearly_files/surveys1979.csv
@@ -209,7 +236,7 @@ data/yearly_files/surveys2000.csv
 data/yearly_files/surveys2001.csv
 data/yearly_files/surveys2002.csv
 ~~~
-{: .language-python}
+{: .output}
 
 We can now add the rest of the steps we need to create separate text files:
 
@@ -236,7 +263,7 @@ just created to confirm that everything worked as expected.
 Notice that the code above created a unique filename for each year.
 
 ~~~
-	filename = 'data/yearly_files/surveys' + str(year) + '.csv'
+filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 ~~~
 {: .language-python}
 
@@ -310,13 +337,24 @@ it is called, it includes a return statement at the end.
 This is how we call the function:
 
 ~~~
->>> product_of_inputs = this_is_the_function_name(2,5)
-The function arguments are: 2 5 (this is done inside the function!)
-
->>> print('Their product is:', product_of_inputs, '(this is done outside the function!)')
-Their product is: 10 (this is done outside the function!)
+product_of_inputs = this_is_the_function_name(2,5)
 ~~~
 {: .language-python}
+
+~~~
+The function arguments are: 2 5 (this is done inside the function!)
+~~~
+{: .output}
+
+~~~
+print('Their product is:', product_of_inputs, '(this is done outside the function!)')
+~~~
+{: .language-python}
+
+~~~
+Their product is: 10 (this is done outside the function!)
+~~~
+{: .output}
 
 > ## Challenge - Functions
 >
@@ -448,31 +486,31 @@ values (here, `all_data`) is a required argument and MUST come before the
 argument with default values (which are optional in the function call).
 
 ~~~
-    def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
-        """
-        Modified from yearly_data_csv_writer to test default argument values!
+def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
+    """
+    Modified from yearly_data_csv_writer to test default argument values!
 
-        start_year --- the first year of data we want --- default: 1977
-        end_year --- the last year of data we want --- default: 2002
-        all_data --- DataFrame with multi-year data
-        """
+    start_year --- the first year of data we want --- default: 1977
+    end_year --- the last year of data we want --- default: 2002
+    all_data --- DataFrame with multi-year data
+    """
 
-        return start_year, end_year
+    return start_year, end_year
 
 
-    start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print('Both optional arguments:\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+print('Both optional arguments:\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df)
-    print('Default values:\t\t\t', start, end)
+start,end = yearly_data_arg_test (surveys_df)
+print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
 
 ~~~
-    Both optional arguments:	1988 1993
-    Default values:		1977 2002
+Both optional arguments:	1988 1993
+Default values:		1977 2002
 ~~~
->> {: .output}
+{: .output}
 
 The "\t" in the `print` statements are tabs, used to make the text align and be
 easier to read.
@@ -482,35 +520,35 @@ function so that it looks for the start and end years in the dataset if those
 dates are not provided:
 
 ~~~
-    def yearly_data_arg_test(all_data, start_year = None, end_year = None):
-        """
-        Modified from yearly_data_csv_writer to test default argument values!
+def yearly_data_arg_test(all_data, start_year = None, end_year = None):
+    """
+    Modified from yearly_data_csv_writer to test default argument values!
 
-        start_year --- the first year of data we want --- default: None - check all_data
-        end_year --- the last year of data we want --- default: None - check all_data
-        all_data --- DataFrame with multi-year data
-        """
+    start_year --- the first year of data we want --- default: None - check all_data
+    end_year --- the last year of data we want --- default: None - check all_data
+    all_data --- DataFrame with multi-year data
+    """
 
-        if start_year is None:
-            start_year = min(all_data.year)
-        if end_year is None:
-            end_year = max(all_data.year)
+    if start_year is None:
+        start_year = min(all_data.year)
+    if end_year is None:
+        end_year = max(all_data.year)
 
-        return start_year, end_year
+    return start_year, end_year
 
 
-    start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print('Both optional arguments:\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+print('Both optional arguments:\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df)
-    print('Default values:\t\t\t', start, end)
+start,end = yearly_data_arg_test (surveys_df)
+print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
 ~~~
-    Both optional arguments:	1988 1993
-    Default values:		1977 2002
+Both optional arguments:	1988 1993
+Default values:		1977 2002
 ~~~
->> {: .output}
+{: .output}
 
 The default values of the `start_year` and `end_year` arguments in the function
 `yearly_data_arg_test` are now `None`. This is a build-it constant in Python
@@ -540,31 +578,31 @@ check the values of `start_year` and `end_year`. If statements execute a segment
 of code when some condition is met. They commonly look something like this:
 
 ~~~
-    a = 5
+a = 5
 
-    if a<0:  # Meets first condition?
+if a<0:  # Meets first condition?
 
-        # if a IS less than zero
-        print('a is a negative number')
+    # if a IS less than zero
+    print('a is a negative number')
 
-    elif a>0:  # Did not meet first condition. meets second condition?
+elif a>0:  # Did not meet first condition. meets second condition?
 
-        # if a ISN'T less than zero and IS more than zero
-        print('a is a positive number')
+    # if a ISN'T less than zero and IS more than zero
+    print('a is a positive number')
 
-    else:  # Met neither condition
+else:  # Met neither condition
 
-        # if a ISN'T less than zero and ISN'T more than zero
-        print('a must be zero!')
+    # if a ISN'T less than zero and ISN'T more than zero
+    print('a must be zero!')
 ~~~
 {: .language-python}
 
 Which would return:
 
 ~~~
-    a is a positive number
+a is a positive number
 ~~~
->> {: .output}
+{: .output}
 
 Change the value of `a` to see how this function works. The statement `elif`
 means "else if", and all of the conditional statements must end in a colon.
@@ -588,34 +626,34 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ~~~
-    start,end = yearly_data_arg_test (surveys_df)
-    print('Default values:\t\t\t', start, end)
+start,end = yearly_data_arg_test (surveys_df)
+print('Default values:\t\t\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
-    print('No keywords:\t\t\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+print('No keywords:\t\t\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
-    print('Both keywords, in order:\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
+print('Both keywords, in order:\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
-    print('Both keywords, flipped:\t\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
+print('Both keywords, flipped:\t\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
-    print('One keyword, default end:\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
+print('One keyword, default end:\t', start, end)
 
-    start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
-    print('One keyword, default start:\t', start, end)
+start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
+print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}
 ~~~
-    Default values:		1977 2002
-    No keywords:		1988 1993
-    Both keywords, in order:	1988 1993
-    Both keywords, flipped:	1988 1993
-    One keyword, default end:	1988 2002
-    One keyword, default start:	1977 1993
+Default values:		1977 2002
+No keywords:		1988 1993
+Both keywords, in order:	1988 1993
+Both keywords, flipped:	1988 1993
+One keyword, default end:	1988 2002
+One keyword, default start:	1977 1993
 ~~~
->> {: .output}
+{: .output}
 
 > ## Challenge - Modifying functions
 >
@@ -632,11 +670,11 @@ values to the function using these keywords:
 > for a directory to write to.
 >
 > ~~~
->	if 'dir_name_here' in os.listdir('.'):
->	    print('Processed directory exists')
->	else:
->	    os.mkdir('dir_name_here')
->	    print('Processed directory created')
+>if 'dir_name_here' in os.listdir('.'):
+>    print('Processed directory exists')
+>else:
+>    os.mkdir('dir_name_here')
+>    print('Processed directory created')
 > ~~~
 > {: .language-python }
 >
