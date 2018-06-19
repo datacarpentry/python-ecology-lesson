@@ -120,14 +120,14 @@ Programming is a multi-step process that involves the following steps:
 While _"Programming"_ refers to all of the above steps,
 _"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_.
 
-##### If you are working with Jupyter notebook:
+#### If you are working with Jupyter notebook:
 You can type Python code into a code cell and then execute the code by pressing <kbd>Shift</kbd>+<kbd>Return</kbd>.
 Output will be printed directly under the input cell.
 You can recognise a code cell by the `In[ ]:` at the beginning of the cell and output by `Out[ ]:`.
 Pressing the __+__ button in the menu bar will add a new cell.
 All your commands as well as any output will be saved with the notebook.
 
-##### If you are working with Spyder:
+#### If you are working with Spyder:
 
 You can either use the console or use script files (plain text files that contain your code).
 The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language 
