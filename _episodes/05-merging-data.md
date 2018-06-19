@@ -275,7 +275,7 @@ merged_inner
 6     NaN   Dipodomys  merriami  Rodent
 7     NaN  Peromyscus  eremicus  Rodent
 ~~~
->> {: .output}
+{: .output}
 
 The result of an inner join of `survey_sub` and `species_sub` is a new DataFrame
 that contains the combined set of columns from `survey_sub` and `species_sub`. It
