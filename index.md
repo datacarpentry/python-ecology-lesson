@@ -31,5 +31,5 @@ This is an introduction to Python designed for participants with no programming 
 
 > ## For Instructors
 > If you are teaching this lesson in a workshop, please see the
-> [Instructor notes](guide/).
+> [Instructor notes](guide).
 {: .prereq}
