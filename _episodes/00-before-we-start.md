@@ -191,7 +191,7 @@ If possible, try to reduce what doesn’t work to a simple reproducible example.
 * The person sitting next to you during the workshop. Don’t hesitate to talk to your neighbor during the workshop, compare your answers, and ask for help. You might also be interested in organizing regular meetings following the workshop to keep learning from each other.
 * Your friendly colleagues: if you know someone with more experience than you, they might be able and willing to help you.
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/python): if your question hasn’t been answered before and is well crafted, chances are you will get an answer in less than 5 min. Remember to follow their guidelines on how to ask a good question.
-* [Python mailing lists](https://www.python.org/community/lists/])
+* [Python mailing lists](https://www.python.org/community/lists/)
 
 ## More resources
 [PyPI - the Python Package Index](https://pypi.python.org/pypi)
