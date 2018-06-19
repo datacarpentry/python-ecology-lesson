@@ -81,7 +81,7 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 8,7,16,1977,1,DM,M,37,
 9,7,16,1977,1,DM,F,34,
 ~~~
->> {: .output}
+{: .output}
 
 ---
 
@@ -155,7 +155,7 @@ record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
 
 [35549 rows x 9 columns]
 ~~~
->> {: .output}
+{: .output}
 
 We can see that there were 35,549 rows parsed. Each row has 9
 columns. The first column is the index of the DataFrame. The index is used to
@@ -362,7 +362,7 @@ Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
        'hindfoot_length', 'weight'],
       dtype='object')
 ~~~
->> {: .output}
+{: .output}
 
 Let's get a list of all the species. The `pd.unique` function tells us all of
 the unique values in the `species_id` column.
