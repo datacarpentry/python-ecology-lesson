@@ -11,14 +11,14 @@ title: Setup
 >
 > Or download each file indvidually with the following links:
 >
-> - [surveys.csv](../data/surveys.csv)
-> - [species.csv](../data/species.csv)
-> - [speciesSubset.csv](../data/speciesSubset.csv)
-> - [surveys2001.csv](../data/survey2001.csv)
-> - [surveys2002.csv](../data/survey2002.csv)
-> - [plots.csv](../data/plots.csv)
-> - [bouldercreek_09_2013.txt](../data/bouldercreek_09_2013.txt)
-> - [SQL Database](../data/portal_mammals.sqlite)
+> - [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
+> - [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
+> - [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
+> - [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
+> - [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
+> - [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
+> - [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
+> - [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
 {: .prereq}
 
 
