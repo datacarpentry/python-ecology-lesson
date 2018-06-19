@@ -11,14 +11,14 @@ title: Setup
 >
 > Or download each file indvidually with the following links:
 >
-> - [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
-> - [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
-> - [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
-> - [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
-> - [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
-> - [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
-> - [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
-> - [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
+> - [surveys.csv]({{ page.root }}/data/surveys.csv)
+> - [species.csv]({{ page.root }}/data/species.csv)
+> - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
+> - [surveys2001.csv]({{ page.root }}/data/survey2001.csv)
+> - [surveys2002.csv]({{ page.root }}/data/survey2002.csv)
+> - [plots.csv]({{ page.root }}/data/plots.csv)
+> - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
+> - [SQL Database]({{ page.root }}/data/portal_mammals.sqlite)
 {: .prereq}
 
 
