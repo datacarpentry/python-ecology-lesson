@@ -214,7 +214,7 @@ surveys_df['record_id'].dtype
 > ~~~
 > surveys_df.plot_id.astype("float")
 > ~~~
->> {: .language-python}
+> {: .language-python}
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
 > We will talk about some solutions to this later.
