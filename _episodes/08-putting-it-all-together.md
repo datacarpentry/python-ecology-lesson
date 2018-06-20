@@ -11,7 +11,7 @@ objectives:
 keypoints:
 	- "Matplotlib is the engine behind plotnine and Pandas plots."
 	- "The object-oriented way of matplotlib makes detailed customization possible."
-	- Use `savefig` method to save a figure as a file;
+	- "Use `savefig` method to save a figure as a file."
 ---
 
 
