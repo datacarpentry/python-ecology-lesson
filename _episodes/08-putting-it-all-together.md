@@ -89,7 +89,7 @@ also change the name of the columns in the DataFrame like this:
 ~~~
 {: .language-python}
 
-## Matplotlib plot library
+## Matplotlib plot package
 
 [Matplotlib](http://matplotlib.org/) is a Python package used widely throughout the scientific Python community to produce high quality and publication-ready graphics. It supports a wide range of output formats including PNG (and other raster formats), PostScript/EPS, PDF and SVG. 
 
@@ -119,7 +119,7 @@ We will cover a few basic commands for creating and formatting plots with matplo
 (http://matplotlib.org/gallery.html), which includes plots in many different
 styles and the source code that creates them. 
 
-### Using the matplotlib library
+### Using the matplotlib package
 
 First, import the pyplot toolbox:
 
