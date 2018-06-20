@@ -89,7 +89,7 @@ also change the name of the columns in the DataFrame like this:
 ~~~
 {: .language-python}
 
-## Matplotlib plot package
+## Matplotlib package
 
 [Matplotlib](http://matplotlib.org/) is a Python package used widely throughout the scientific Python community to produce high-quality and publication-ready graphics. It supports a wide range of output formats including PNG (and other raster formats), PostScript/EPS, PDF and SVG. 
 
