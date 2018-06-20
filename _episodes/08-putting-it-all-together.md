@@ -115,7 +115,7 @@ The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib obje
 {: .callout}
 
 We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. A great resource for help creating and styling your figures is the matplotlib gallery
-(http://matplotlib.org/gallery.html), which includes plots in many different
+(<http://matplotlib.org/gallery.html>), which includes plots in many different
 styles and the source code that creates them. 
 
 ### Using the matplotlib package
@@ -290,7 +290,7 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 ## Make other types of plots:
 
 Matplotlib can make many other types of plots in much the same way that it makes 2 dimensional line plots. Look through the examples in
-http://matplotlib.org/users/screenshots.html and try a few of them (click on the
+<http://matplotlib.org/users/screenshots.html and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
 
