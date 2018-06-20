@@ -107,13 +107,12 @@ my_plot
 
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
-> ~~~
->     Matplotlib itself can be overwhelming, so a useful strategy is to 
->     do as much as you easily can in a convenience layer, i.e. start
->     creating the plot in Pandas or plotnine, and then use matplotlib
->     for the rest.
-> ~~~
-> {: .callout}
+> ## Tip
+> Matplotlib itself can be overwhelming, so a useful strategy is to 
+> do as much as you easily can in a convenience layer, i.e. start
+> creating the plot in Pandas or plotnine, and then use matplotlib
+> for the rest.
+{: .callout}
 
 We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. A great resource for help creating and styling your figures is the matplotlib gallery
 (http://matplotlib.org/gallery.html), which includes plots in many different
