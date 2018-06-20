@@ -156,10 +156,10 @@ plt.plot(x, y, '-')
 
 ![Line plot of x versus y](../fig/08_line_plot.png)
 
-or create a figure and ax object first and add the plot to the created ax object:
+or create a matplotlib `figure` and `axis` object first and add the plot to the created objects:
 
 ~~~
-fig, ax = plt.subplots()  # initiate an empty figure and ax matplotlib object
+fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
 ax.plot(x, y, '-')
 ~~~
 {: .language-python}
