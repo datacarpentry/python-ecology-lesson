@@ -141,8 +141,8 @@ writing:
 Consider the following example data:
 
 ~~~
-import numpy as np
-x = np.linspace(0, 5, 10)
+import numpy
+x = numpy.linspace(0, 5, 10)
 y = x ** 2
 ~~~
 {: .language-python}
