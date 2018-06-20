@@ -96,10 +96,10 @@ also change the name of the columns in the DataFrame like this:
 At the same time, matplotlib is the actual engine behind the plotting capabilities of both the Pandas and the plotnine package. When you called the `.plot` functionality of Pandas, as we did in the previous episodes, you actually used the matplotlib package:
 
 ~~~
-    import pandas as pd
-    surveys = pd.read_csv("./data/surveys.csv")
-	my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
-	my_plot
+import pandas as pd
+surveys = pd.read_csv("./data/surveys.csv")
+my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
+my_plot
 ~~~
 {: .language-python}
 
@@ -124,7 +124,7 @@ styles and the source code that creates them.
 First, import the pyplot toolbox:
 
 ~~~
-    import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 ~~~
 {: .language-python}
 
@@ -133,7 +133,7 @@ ipython notebooks, we can make figures appear in-line within the notebook by
 writing:
 
 ~~~
-    %matplotlib inline
+%matplotlib inline
 ~~~
 {: .language-python}
 
@@ -142,16 +142,16 @@ writing:
 Consider the following example data:
 
 ~~~
-    import numpy as np
-    x = np.linspace(0, 5, 10)
-    y = x ** 2
+import numpy as np
+x = np.linspace(0, 5, 10)
+y = x ** 2
 ~~~
 {: .language-python}
 
 To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 
 ~~~
-    plt.plot(x, y, '-')
+plt.plot(x, y, '-')
 ~~~
 {: .language-python}
 
@@ -160,8 +160,8 @@ To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 or create a figure and ax object first and add the plot to the created ax object:
 
 ~~~
-    fig, ax = plt.subplots()  # initiate an empty figure and ax matplotlib object
-	ax.plot(x, y, '-')
+fig, ax = plt.subplots()  # initiate an empty figure and ax matplotlib object
+ax.plot(x, y, '-')
 ~~~
 {: .language-python}
 
@@ -170,16 +170,16 @@ or create a figure and ax object first and add the plot to the created ax object
 Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
 
 ~~~
-    fig, ax1 = plt.subplots() #prepare a matplotlib figure
-    ax1.plot(x, y, '-')
-    
-    # adapt the labels
-    ax1.set_ylabel('y')
-    ax1.set_xlabel('x')
-    
-    # add an additional ax to the figure
-    ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
-    ax2.plot(x, y*2, 'r-')
+fig, ax1 = plt.subplots() #prepare a matplotlib figure
+ax1.plot(x, y, '-')
+
+# adapt the labels
+ax1.set_ylabel('y')
+ax1.set_xlabel('x')
+
+# add an additional ax to the figure
+ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
+ax2.plot(x, y*2, 'r-')
 ~~~
 {: .language-python}
 
@@ -190,15 +190,15 @@ Although the latter requires a little bit more code to create the same plot, the
 The **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
-    fig, ax1 = plt.subplots() #prepare a matplotlib figure
+fig, ax1 = plt.subplots() #prepare a matplotlib figure
 
-	surveys.plot("hindfoot_length", "weight", 
-	             kind="scatter", ax=ax1) # use Pandas for plotting
+surveys.plot("hindfoot_length", "weight", 
+kind="scatter", ax=ax1) # use Pandas for plotting
 
-    # Provide further adaptations with matplotlib:
-    ax1.set_xlabel("Hindfoot length")
-    ax1.tick_params(labelsize=16, pad=8)
-    fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
+# Provide further adaptations with matplotlib:
+ax1.set_xlabel("Hindfoot length")
+ax1.tick_params(labelsize=16, pad=8)
+fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
 ~~~
 {: .language-python}
 
@@ -207,21 +207,21 @@ The **Pandas and plotnine packages create matplotlib objects** as well. Hence, u
 To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
 
 ~~~
-    import plotnine as p9
-    myplot = (p9.ggplot(data=surveys, 
-                        mapping=p9.aes(x='hindfoot_length', 
-                                       y='weight')) +
-              p9.geom_point())
+import plotnine as p9
+myplot = (p9.ggplot(data=surveys, 
+mapping=p9.aes(x='hindfoot_length', 
+y='weight')) +
+p9.geom_point())
 
-    # convert output plotnine to a matplotlib object
-    my_plt_version = myplot.draw()
+# convert output plotnine to a matplotlib object
+my_plt_version = myplot.draw()
 
-    # Provide further adaptations with matplotlib:
-    p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
-    p9_ax.set_xlabel("Hindfoot length")
-    p9_ax.tick_params(labelsize=16, pad=8)
-    p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
-    my_plt_version
+# Provide further adaptations with matplotlib:
+p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
+p9_ax.set_xlabel("Hindfoot length")
+p9_ax.tick_params(labelsize=16, pad=8)
+p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
+my_plt_version
 ~~~
 {: .language-python}
 
