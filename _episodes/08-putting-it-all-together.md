@@ -166,7 +166,7 @@ ax.plot(x, y, '-')
 
 ![png](../fig/08_line_plot.png)
 
-Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axes are placed, and we can easily add new items or, for example more than one axis to the figure and adapting the labels::
+Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
 
 ~~~
 fig, ax1 = plt.subplots() #prepare a matplotlib figure
