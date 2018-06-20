@@ -103,7 +103,7 @@ my_plot
 ~~~
 {: .language-python}
 
-![png](../fig/08_scatter_surveys.png)
+![Scatter plot of survey data set](../fig/08_scatter_surveys.png)
 
 The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
@@ -155,7 +155,7 @@ plt.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-![png](../fig/08_line_plot.png)
+![Line plot of x versus y](../fig/08_line_plot.png)
 
 or create a figure and ax object first and add the plot to the created ax object:
 
@@ -183,7 +183,7 @@ ax2.plot(x, y*2, 'r-')
 ~~~
 {: .language-python}
 
-![png](../fig/08_line_plot_inset.png)
+![Additional axis to line plot](../fig/08_line_plot_inset.png)
 
 ### Link matplotlib, Pandas and plotnine
 
@@ -202,7 +202,7 @@ fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
 ~~~
 {: .language-python}
 
-![png](../fig/08_scatter_surveys_extended.png)
+![Extended version of scatter plot surveys](../fig/08_scatter_surveys_extended.png)
 
 To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
 
@@ -225,7 +225,7 @@ my_plt_version
 ~~~
 {: .language-python}
 
-![png](../fig/08_scatter_surveys_plotnine.png)
+![Extended version of plotnine scatter plot](../fig/08_scatter_surveys_plotnine.png)
 
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
@@ -252,7 +252,7 @@ my_plt_version
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/08_flood_event.png)
+> > ![Flood event plot](../fig/08_flood_event.png)
 > {: .solution}
 {: .challenge}
 
