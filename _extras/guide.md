@@ -101,7 +101,7 @@ rev[2] = "apple-sauce"
 ~~~
 {: .language-python}
 
-## 01-starting-with-data
+## 02-starting-with-data
 
 ###Bug Note:
 
@@ -111,15 +111,15 @@ Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runt
 
 * `surveys_df.columns`
 
-	column names (optional: show `surveys_df.columns[4] = "siteid"` The index is not mutable; recap of previous lesson. Adapting the name is done by `rename` function `surveys_df.rename(columns={"site_id": "siteid"})`)
+	column names (optional: show `surveys_df.columns[4] = "plotid"` The index is not mutable; recap of previous lesson. Adapting the name is done by `rename` function `surveys_df.rename(columns={"plot_id": "plotid"})`)
 
 * `surveys_df.head()`. Also, what does `surveys_df.head(15)` do?
 
-	Show first `N` lines
+	Show first 5 lines. Show first 15 lines.
 
 * `surveys_df.tail()`
 
-	Show last `N` lines
+	Show last 5 lines
 
 * `surveys_df.shape`. Take note of the output of the shape method. What format does it return the shape of the DataFrame in?
 
@@ -127,11 +127,11 @@ Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runt
 
 ### Calculating Statistics Challenges
 
-* Create a list of unique site ID's found in the surveys data. Call it `site_names`. How many unique sites are in the data? How many unique species are in the data?
+* Create a list of unique plot ID's found in the surveys data. Call it `plot_names`. How many unique plots are in the data? How many unique species are in the data?
 
-	`site_names = pd.unique(surveys_df["site_id"])` Number of unique site ID's: `site_names.size` or `len(site_names)`; Number of unique species in the data: `len(pd.unique(surveys_df["species"]))`
+	`plot_names = pd.unique(surveys_df["plot_id"])` Number of unique plot ID's: `plot_names.size` or `len(plot_names)`; Number of unique species in the data: `len(pd.unique(surveys_df["species"]))`
 
-* What is the difference between `len(site_names)` and `surveys_df['site_id'].nunique()`?
+* What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 
 Both do result in the same output, making it alternative ways of getting the unique values. `nunique` combines the count and unique value extraction.
 
@@ -143,19 +143,19 @@ Both do result in the same output, making it alternative ways of getting the uni
 
 * What happens when you group by two columns using the following syntax and then grab mean values?
 
-	The mean value for each combination of site and sex is calculated. Remark that the mean does not make sense for each variable, so you can specify this column-wise: e.g. I want to know the last survey year, median foot-length and mean weight for each site/sex combination:
+	The mean value for each combination of plot and sex is calculated. Remark that the mean does not make sense for each variable, so you can specify this column-wise: e.g. I want to know the last survey year, median foot-length and mean weight for each plot/sex combination:
 
 ~~~
-surveys_df.groupby(['site_id','sex']).agg({"year": 'min',
+surveys_df.groupby(['plot_id','sex']).agg({"year": 'min',
                                            "hindfoot_length": 'median',
                                            "weight": 'mean'})`
 ~~~
 {: .language-python}
 
-*  Summarize the weight values for each site in your data.
+*  Summarize the weight values for each plot in your data.
 
 ~~~
-surveys_df.groupby(['site_id'])['weight'].describe()
+surveys_df.groupby(['plot_id'])['weight'].describe()
 ~~~
 {: .language-python}
 
@@ -165,14 +165,14 @@ surveys_df.groupby(['site_id'])['weight'].describe()
 
 ### Plotting Challenges
 
-* Create a plot of the average weight across all species per site.
+* Create a plot of the average weight across all species per plot.
 
 ~~~
-surveys_df.groupby('site_id').mean()["weight"].plot(kind='bar')
+surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')
 ~~~
 {: .language-python}
 
-![average weight across all species for each site](../fig/01_chall_bar_meanweight.png)
+![average weight across all species for each plot](../fig/01_chall_bar_meanweight.png)
 
 * Create a plot of total males versus total females for the entire datase.
 
@@ -182,7 +182,7 @@ surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
 {: .language-python}
 ![total males versus total females for the entire dataset](../fig/01_chall_bar_totalsex.png)
 
-## 02-index-slice-subset
+## 03-index-slice-subset
 
 Tip: use `.head()` method throughout this lesson to keep your display neater for students.  Encourage students to try with and without `.head()` to reinforce this useful tool and then to use it or not at their preference. For example, if a student worries about keeping up in pace with typing, let them know they can skip the `.head()`, but that you'll use it to keep more lines of previous steps visible.
 
@@ -225,9 +225,9 @@ Tip: use `.head()` method throughout this lesson to keep your display neater for
 	`surveys_df[(surveys_df["year"] == 1999) & (surveys_df["weight"] <= 8)]`; when only interested in how many,
 	the sum of `True` values could be used as well: `sum((surveys_df["year"] == 1999) & (surveys_df["weight"] <= 8))`
 
-* You can use the `isin` command in Python to query a DataFrame based upon a list of values as follows: `surveys_df[surveys_df['species_id'].isin([listGoesHere])]`. Use the `isin` function to find all sites that contain particular species in the surveys DataFrame. How many records contain these values?
+* You can use the `isin` command in Python to query a DataFrame based upon a list of values as follows: `surveys_df[surveys_df['species_id'].isin([listGoesHere])]`. Use the `isin` function to find all plots that contain particular species in the surveys DataFrame. How many records contain these values?
 
-	For example, using `PB` and `PL`:  `surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])]['site_id'].unique()` provides a list of the sites with these species involved. With `surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])].shape` the number of records can be derived.
+	For example, using `PB` and `PL`:  `surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])]['plot_id'].unique()` provides a list of the plots with these species involved. With `surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])].shape` the number of records can be derived.
 
 * Create a query that finds all rows with a weight value > or equal to 0.
 
@@ -235,7 +235,7 @@ Tip: use `.head()` method throughout this lesson to keep your display neater for
 
 	*Suggestion*: Introduce already that all these slice operations are actually based on a *Boolean indexing* operation (next section in the lesson). The filter provides for each record if it satisfies (True) or not (False). The slicing itself interprets the True/False of each record.
 
-* The `~` symbol in Python can be used to return the OPPOSITE of the selection that you specify in Python. It is equivalent to is not in. Write a query that selects all rows that are NOT equal to 'M' or 'F' in the surveys data.
+* The `~` symbol in Python can be used to return the OPPOplot of the selection that you specify in Python. It is equivalent to is not in. Write a query that selects all rows that are NOT equal to 'M' or 'F' in the surveys data.
 
 ~~~
 surveys_df[~surveys_df["sex"].isin(['M', 'F'])]
@@ -255,14 +255,14 @@ print(len(new))
 
 Can verify the number of Nan values with `sum(surveys_df['sex'].isnull())`, which is equal to the number of none female/male records.
 
-* Create a new DataFrame that contains only observations that are of sex male or female and where weight values are greater than 0. Create a stacked bar plot of average weight by site with male vs female values stacked for each site.
+* Create a new DataFrame that contains only observations that are of sex male or female and where weight values are greater than 0. Create a stacked bar plot of average weight by plot with male vs female values stacked for each plot.
 
 ~~~
 # selection of the data with isin
 stack_selection = surveys_df[(surveys_df['sex'].isin(['M', 'F'])) &
-							surveys_df["weight"] > 0.][["sex", "weight", "site_id"]]
-# calculate the mean weight for each site id and sex combination:
-stack_selection = stack_selection.groupby(["site_id", "sex"]).mean().unstack()
+							surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
+# calculate the mean weight for each plot id and sex combination:
+stack_selection = stack_selection.groupby(["plot_id", "sex"]).mean().unstack()
 # and we can make a stacked bar plot from this:
 stack_selection.plot(kind='bar', stacked=True)
 ~~~
@@ -271,11 +271,11 @@ stack_selection.plot(kind='bar', stacked=True)
 *Suggestion*: As we now the other values are all Nan values, we could also select all not null values (just preview, more on this in next lesson):
 ~~~
 stack_selection = surveys_df[(surveys_df['sex'].notnull()) &
-					surveys_df["weight"] > 0.][["sex", "weight", "site_id"]]
+					surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
 ~~~
 {: .language-python}
 
-![average weight for each site per sex](../fig/02_chall_stack_levelissue.png)
+![average weight for each plot per sex](../fig/02_chall_stack_levelissue.png)
 
 However, due to the `unstack` command, the legend header contains two levels. In order to remove this, the column naming needs to be simplified :
 ~~~
@@ -283,9 +283,9 @@ stack_selection.columns = stack_selection.columns.droplevel()
 ~~~
 {: .language-python}
 
-![average weight for each site per sex](../fig/02_chall_stack_level.png)
+![average weight for each plot per sex](../fig/02_chall_stack_level.png)
 
-## 03-data-types-and-format
+## 04-data-types-and-format
 
 ### Challenge - Changing Types
 
@@ -297,9 +297,9 @@ surveys_df.isnull()
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should generate.
 
-## 04-merging-data
+## 05-merging-data
 
-* In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average site weight by year grouped by sex. Export your results as a CSV and make sure it reads back into Python properly.
+* In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the data into Python and combine the files to make one new data frame. Create a plot of average plot weight by year grouped by sex. Export your results as a CSV and make sure it reads back into Python properly.
 
 ~~~
 # read the files:
@@ -332,65 +332,65 @@ merged_left = pd.merge(left=surveys_df,right=species_df, how='left', on="species
 
 Then calculate and plot the distribution of:
 
-**1. taxa per site** (number of species of each taxa per site):
+**1. taxa per plot** (number of species of each taxa per plot):
 
-Species distribution (number of taxa for each site) can be derived as follows:
+Species distribution (number of taxa for each plot) can be derived as follows:
 ~~~
-merged_left.groupby(["site_id"])["taxa"].nunique().plot(kind='bar')
+merged_left.groupby(["plot_id"])["taxa"].nunique().plot(kind='bar')
 ~~~
 {: .language-python}
 
-![taxa per site](../fig/04_chall_ntaxa_per_site.png)
+![taxa per plot](../fig/04_chall_ntaxa_per_plot.png)
 
-*Suggestion*: It is also possible to plot the number of individuals for each taxa in each site (stacked bar chart):
+*Suggestion*: It is also possible to plot the number of individuals for each taxa in each plot (stacked bar chart):
 ~~~
-merged_left.groupby(["site_id", "taxa"]).count()["record_id"].unstack().plot(kind='bar', stacked=True)
+merged_left.groupby(["plot_id", "taxa"]).count()["record_id"].unstack().plot(kind='bar', stacked=True)
 plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.05))
 ~~~
 {: .language-python}
 (the legend otherwise overlaps the bar plot)
 
-![taxa per site](../fig/04_chall_taxa_per_site.png)
+![taxa per plot](../fig/04_chall_taxa_per_plot.png)
 
-**2. taxa by sex by site**:
+**2. taxa by sex by plot**:
 Providing the Nan values with the M|F values (can also already be changed to 'x'):
 ~~~
 merged_left.loc[merged_left["sex"].isnull(), "sex"] = 'M|F'
 ~~~
 {: .language-python}
 
-Number of taxa for each site/sex combination:
+Number of taxa for each plot/sex combination:
 ~~~
-ntaxa_sex_site= merged_left.groupby(["site_id", "sex"])["taxa"].nunique().reset_index(level=1)
-ntaxa_sex_site = ntaxa_sex_plot.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_plot.index)
-ntaxa_sex_site.plot(kind="bar", legend=False)
+ntaxa_sex_plot= merged_left.groupby(["plot_id", "sex"])["taxa"].nunique().reset_index(level=1)
+ntaxa_sex_plot = ntaxa_sex_plot.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_plot.index)
+ntaxa_sex_plot.plot(kind="bar", legend=False)
 plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.08),
            fontsize='small', frameon=False)
 ~~~
 {: .language-python}
 
-![taxa per site per sex](../fig/04_chall_ntaxa_per_site_sex.png)
+![taxa per plot per sex](../fig/04_chall_ntaxa_per_plot_sex.png)
 
 *Suggestion (for discussion only)*:
 
-The number of individuals for each taxa in each site per sex can be derived as well.
+The number of individuals for each taxa in each plot per sex can be derived as well.
 
 ~~~
-sex_taxa_site  = merged_left.groupby(["site_id", "taxa", "sex"]).count()['record_id']
-sex_taxa_site.unstack(level=[1, 2]).plot(kind='bar', logy=True)
+sex_taxa_plot  = merged_left.groupby(["plot_id", "taxa", "sex"]).count()['record_id']
+sex_taxa_plot.unstack(level=[1, 2]).plot(kind='bar', logy=True)
 plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.15),
            fontsize='small', frameon=False)
 ~~~
 {: .language-python}
 
-![taxa per site per sex](../fig/04_chall_sex_taxa_site_intro.png)
+![taxa per plot per sex](../fig/04_chall_sex_taxa_plot_intro.png)
 
 This is not really the best plot choice: not readable,... A first option to make this better, is to make facets. However, pandas/matplotlib do not provide this by default. Just as a pure matplotlib example (`M|F` if for not-defined sex records):
 
 ~~~
 fig, axs = plt.subplots(3, 1)
 for sex, ax in zip(["M", "F", "M|F"], axs):
-    sex_taxa_site[sex_taxa_plot["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
+    sex_taxa_plot[sex_taxa_plot["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
     ax.set_ylabel(sex)
     if not ax.is_last_row():
         ax.set_xticks([])
@@ -400,28 +400,28 @@ axs[0].legend(loc='upper center', ncol=5, bbox_to_anchor=(0.5, 1.3),
 ~~~
 {: .language-python}
 
-![taxa per site per sex](../fig/04_chall_sex_taxa_site.png)
+![taxa per plot per sex](../fig/04_chall_sex_taxa_plot.png)
 
 However, it would be better to link to [Seaborn](https://stanford.edu/~mwaskom/software/seaborn/) and [Altair](https://github.com/ellisonbg/altair) for its kind of multivariate visualisations.
 
-* In the data folder, there is a site CSV that contains information about the type associated with each site. Use that data to summarize the number of sites by site type.
+* In the data folder, there is a plot CSV that contains information about the type associated with each plot. Use that data to summarize the number of plots by plot type.
 
 ~~~
-site_info = pd.read_csv("data/sites.csv")
-site_info.groupby("site_type").count()
+plot_info = pd.read_csv("data/plots.csv")
+plot_info.groupby("plot_type").count()
 ~~~
 {: .language-python}
 
-* Calculate a diversity index of your choice for control vs rodent exclosure sites. The index should consider both species abundance and number of species. You might choose the simple biodiversity index described here which calculates diversity as `the number of species in the site / the total number of individuals in the site = Biodiversity index.`
+* Calculate a diversity index of your choice for control vs rodent exclosure plots. The index should consider both species abundance and number of species. You might choose the simple biodiversity index described here which calculates diversity as `the number of species in the plot / the total number of individuals in the plot = Biodiversity index.`
 
 ~~~
-merged_site_type = pd.merge(merged_left, site_info, on='site_id')
-# For each site, get the number of species for each site
-nspecies_site = merged_site_type.groupby(["site_id"])["species"].nunique().rename("nspecies")
-# For each site, get the number of individuals
-nindividuals_site = merged_site_type.groupby(["site_id"]).count()['record_id'].rename("nindiv")
+merged_plot_type = pd.merge(merged_left, plot_info, on='plot_id')
+# For each plot, get the number of species for each plot
+nspecies_plot = merged_plot_type.groupby(["plot_id"])["species"].nunique().rename("nspecies")
+# For each plot, get the number of individuals
+nindividuals_plot = merged_plot_type.groupby(["plot_id"]).count()['record_id'].rename("nindiv")
 # combine the two series
-diversity_index = pd.concat([nspecies_site, nindividuals_site], axis=1)
+diversity_index = pd.concat([nspecies_plot, nindividuals_plot], axis=1)
 # calculate the diversity index
 diversity_index['diversity'] = diversity_index['nspecies']/diversity_index['nindiv']
 ~~~
@@ -435,10 +435,10 @@ plt.xlabel("Diversity index")
 ~~~
 {: .language-python}
 
-![taxa per site per sex](../fig/04_chall_diversity_index.png)
+![taxa per plot per sex](../fig/04_chall_diversity_index.png)
 
 
-## 05-loops-and-functions
+## 06-loops-and-functions
 
 ### Basic Loop Challenges
 
@@ -640,20 +640,20 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 ~~~
 {: .language-python}
 
-## 06-plotting-with-ggplot
+## 07-plotting-with-ggplot
 
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
 
 iPython notebooks for plotting can be viewed in the `_extras` folder
 
-## 07-putting-it-all-together
+## 08-putting-it-all-together
 
 Scientists often operate on mathematical equations. Being able to use them in their graphics has a
 lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the
 ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX
 math notation here: https://en.wikibooks.org/wiki/LaTeX/Mathematics). To use mathematical notation,
-surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\") a lot.
+surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\\") a lot.
 Since backslash has a special meaning in the Python strings, you should replace all the
 LaTeX-related backslashes with two backslashes.
 
@@ -673,8 +673,13 @@ plt.show()
 ~~~
 {: .language-python}
 
+## 09-working-with-sql
+
+FIXME
+
 
 [This page](https://matplotlib.org/users/mathtext.html) contains more information.
+
 
 
 
