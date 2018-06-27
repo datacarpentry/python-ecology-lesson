@@ -128,7 +128,7 @@ import matplotlib.pyplot as plt
 {: .language-python}
 
 By default, matplotlib creates a figure in a separate window. When using
-ipython notebooks, we can make figures appear in-line within the notebook by
+Jupyter notebooks, we can make figures appear in-line within the notebook by
 writing:
 
 ~~~
