@@ -191,8 +191,7 @@ The **Pandas and plotnine packages create matplotlib objects** as well. Hence, u
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
 
-surveys.plot("hindfoot_length", "weight", 
-kind="scatter", ax=ax1) # use Pandas for plotting
+surveys.plot("hindfoot_length", "weight", kind="scatter", ax=ax1)
 
 # Provide further adaptations with matplotlib:
 ax1.set_xlabel("Hindfoot length")
@@ -290,7 +289,7 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 ## Make other types of plots:
 
 Matplotlib can make many other types of plots in much the same way that it makes 2 dimensional line plots. Look through the examples in
-<http://matplotlib.org/users/screenshots.html and try a few of them (click on the
+<http://matplotlib.org/users/screenshots.html> and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
 
