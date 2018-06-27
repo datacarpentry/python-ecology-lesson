@@ -207,9 +207,8 @@ To retrieve the matplotlib figure object from plotnine for customization, use th
 ~~~
 import plotnine as p9
 myplot = (p9.ggplot(data=surveys, 
-mapping=p9.aes(x='hindfoot_length', 
-y='weight')) +
-p9.geom_point())
+                    mapping=p9.aes(x='hindfoot_length', y='weight')) +
+              p9.geom_point())
 
 # convert output plotnine to a matplotlib object
 my_plt_version = myplot.draw()
