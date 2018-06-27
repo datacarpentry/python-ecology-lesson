@@ -93,7 +93,7 @@ also change the name of the columns in the DataFrame like this:
 
 [Matplotlib](https://matplotlib.org/) is a Python package that is widely used throughout the scientific Python community to create high-quality and publication-ready graphics. It supports a wide range of raster and vector graphics formats including PNG, PostScript, EPS, PDF and SVG.
 
-At the same time, matplotlib is the actual engine behind the plotting capabilities of both the Pandas and the plotnine package. When you called the `.plot` functionality of Pandas, as we did in the previous episodes, you actually used the matplotlib package:
+Moreover, matplotlib is the actual engine behind the plotting capabilities of both the Pandas and the plotnine package. For example, when we call the `.plot` method on Pandas data objects, we actually use the matplotlib package:
 
 ~~~
 import pandas as pd
