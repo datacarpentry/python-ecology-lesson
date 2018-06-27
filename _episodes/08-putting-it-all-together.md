@@ -169,7 +169,7 @@ ax.plot(x, y, '-')
 Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
 
 ~~~
-fig, ax1 = plt.subplots() #prepare a matplotlib figure
+fig, ax1 = plt.subplots() # prepare a matplotlib figure
 ax1.plot(x, y, '-')
 
 # adapt the labels
@@ -189,7 +189,7 @@ ax2.plot(x, y*2, 'r-')
 The **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
 
 ~~~
-fig, ax1 = plt.subplots() #prepare a matplotlib figure
+fig, ax1 = plt.subplots() # prepare a matplotlib figure
 
 surveys.plot("hindfoot_length", "weight", 
 kind="scatter", ax=ax1) # use Pandas for plotting
