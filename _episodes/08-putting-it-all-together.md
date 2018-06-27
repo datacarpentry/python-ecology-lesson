@@ -138,7 +138,7 @@ writing:
 
 ### `plt` pyplot versus object based matplotlib
 
-Consider the following example data:
+Matplotlib integrates nicely with the `numpy` package and can use numpy arrays as input of the available plot functions. Consider the following example data, created with `numpy`:
 
 ~~~
 import numpy
