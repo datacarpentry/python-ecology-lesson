@@ -105,7 +105,7 @@ my_plot
 
 ![Scatter plot of survey data set](../fig/08_scatter_surveys.png)
 
-The returned object is a `matplotlib.axes._subplots.AxesSubplot` matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
+The returned object is a matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
 
 > ## Tip
 > Matplotlib itself can be overwhelming, so a useful strategy is to 
