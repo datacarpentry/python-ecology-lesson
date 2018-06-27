@@ -97,7 +97,7 @@ Moreover, matplotlib is the actual engine behind the plotting capabilities of bo
 
 ~~~
 import pandas as pd
-surveys = pd.read_csv("./data/surveys.csv")
+surveys = pd.read_csv("data/surveys.csv")
 my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
 my_plot
 ~~~
@@ -235,7 +235,7 @@ my_plt_version
 > > ## Answers
 > >
 > > ~~~
-> > discharge = pd.read_csv("./data/bouldercreek_09_2013.txt", 
+> > discharge = pd.read_csv("data/bouldercreek_09_2013.txt", 
 > >                         skiprows=27, delimiter="\t", 
 > >                         names=["agency", "site_id", "datetime",
 > >                                "timezone", "discharge", "discharge_cd"])
