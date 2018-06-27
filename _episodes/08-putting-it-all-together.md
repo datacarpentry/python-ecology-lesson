@@ -9,9 +9,9 @@ objectives:
     - "Import the pyplot toolbox to create figures in Python."
     - "Adapt maptlotlib objects created by Pandas or plotnine."
 keypoints:
-	- "Matplotlib is the engine behind plotnine and Pandas plots."
-	- "The object-oriented way of matplotlib makes detailed customization possible."
-	- "Use `savefig` method to save a figure as a file."
+    - "Matplotlib is the engine behind plotnine and Pandas plots."
+    - "The object-oriented way of matplotlib makes detailed customization possible."
+    - "Use `savefig` method to save a figure as a file."
 ---
 
 
