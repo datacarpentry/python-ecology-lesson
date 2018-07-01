@@ -235,7 +235,7 @@ Tip: use `.head()` method throughout this lesson to keep your display neater for
 
 	*Suggestion*: Introduce already that all these slice operations are actually based on a *Boolean indexing* operation (next section in the lesson). The filter provides for each record if it satisfies (True) or not (False). The slicing itself interprets the True/False of each record.
 
-* The `~` symbol in Python can be used to return the OPPOplot of the selection that you specify in Python. It is equivalent to is not in. Write a query that selects all rows that are NOT equal to 'M' or 'F' in the surveys data.
+* The `~` symbol in Python can be used to return the OPPOSITE of the selection that you specify in Python. It is equivalent to is not in. Write a query that selects all rows that are NOT equal to 'M' or 'F' in the surveys data.
 
 ~~~
 surveys_df[~surveys_df["sex"].isin(['M', 'F'])]
@@ -340,7 +340,7 @@ merged_left.groupby(["plot_id"])["taxa"].nunique().plot(kind='bar')
 ~~~
 {: .language-python}
 
-![taxa per plot](../fig/04_chall_ntaxa_per_plot.png)
+![taxa per plot](../fig/04_chall_ntaxa_per_site.png)
 
 *Suggestion*: It is also possible to plot the number of individuals for each taxa in each plot (stacked bar chart):
 ~~~
@@ -350,7 +350,7 @@ plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.05))
 {: .language-python}
 (the legend otherwise overlaps the bar plot)
 
-![taxa per plot](../fig/04_chall_taxa_per_plot.png)
+![taxa per plot](../fig/04_chall_taxa_per_site.png)
 
 **2. taxa by sex by plot**:
 Providing the Nan values with the M|F values (can also already be changed to 'x'):
@@ -361,36 +361,36 @@ merged_left.loc[merged_left["sex"].isnull(), "sex"] = 'M|F'
 
 Number of taxa for each plot/sex combination:
 ~~~
-ntaxa_sex_plot= merged_left.groupby(["plot_id", "sex"])["taxa"].nunique().reset_index(level=1)
-ntaxa_sex_plot = ntaxa_sex_plot.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_plot.index)
-ntaxa_sex_plot.plot(kind="bar", legend=False)
+ntaxa_sex_site= merged_left.groupby(["plot_id", "sex"])["taxa"].nunique().reset_index(level=1)
+ntaxa_sex_site = ntaxa_sex_site.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_site.index)
+ntaxa_sex_site.plot(kind="bar", legend=False)
 plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.08),
            fontsize='small', frameon=False)
 ~~~
 {: .language-python}
 
-![taxa per plot per sex](../fig/04_chall_ntaxa_per_plot_sex.png)
+![taxa per plot per sex](../fig/04_chall_ntaxa_per_site_sex.png)
 
 *Suggestion (for discussion only)*:
 
 The number of individuals for each taxa in each plot per sex can be derived as well.
 
 ~~~
-sex_taxa_plot  = merged_left.groupby(["plot_id", "taxa", "sex"]).count()['record_id']
-sex_taxa_plot.unstack(level=[1, 2]).plot(kind='bar', logy=True)
+sex_taxa_site  = merged_left.groupby(["plot_id", "taxa", "sex"]).count()['record_id']
+sex_taxa_site.unstack(level=[1, 2]).plot(kind='bar', logy=True)
 plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.15),
            fontsize='small', frameon=False)
 ~~~
 {: .language-python}
 
-![taxa per plot per sex](../fig/04_chall_sex_taxa_plot_intro.png)
+![taxa per plot per sex](../fig/04_chall_sex_taxa_site_intro.png)
 
 This is not really the best plot choice: not readable,... A first option to make this better, is to make facets. However, pandas/matplotlib do not provide this by default. Just as a pure matplotlib example (`M|F` if for not-defined sex records):
 
 ~~~
 fig, axs = plt.subplots(3, 1)
 for sex, ax in zip(["M", "F", "M|F"], axs):
-    sex_taxa_plot[sex_taxa_plot["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
+    sex_taxa_site[sex_taxa_site["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
     ax.set_ylabel(sex)
     if not ax.is_last_row():
         ax.set_xticks([])
@@ -400,7 +400,7 @@ axs[0].legend(loc='upper center', ncol=5, bbox_to_anchor=(0.5, 1.3),
 ~~~
 {: .language-python}
 
-![taxa per plot per sex](../fig/04_chall_sex_taxa_plot.png)
+![taxa per plot per sex](../fig/04_chall_sex_taxa_site.png)
 
 However, it would be better to link to [Seaborn](https://stanford.edu/~mwaskom/software/seaborn/) and [Altair](https://github.com/ellisonbg/altair) for its kind of multivariate visualisations.
 
@@ -415,13 +415,13 @@ plot_info.groupby("plot_type").count()
 * Calculate a diversity index of your choice for control vs rodent exclosure plots. The index should consider both species abundance and number of species. You might choose the simple biodiversity index described here which calculates diversity as `the number of species in the plot / the total number of individuals in the plot = Biodiversity index.`
 
 ~~~
-merged_plot_type = pd.merge(merged_left, plot_info, on='plot_id')
+merged_site_type = pd.merge(merged_left, plot_info, on='plot_id')
 # For each plot, get the number of species for each plot
-nspecies_plot = merged_plot_type.groupby(["plot_id"])["species"].nunique().rename("nspecies")
+nspecies_site = merged_site_type.groupby(["plot_id"])["species"].nunique().rename("nspecies")
 # For each plot, get the number of individuals
-nindividuals_plot = merged_plot_type.groupby(["plot_id"]).count()['record_id'].rename("nindiv")
+nindividuals_site = merged_site_type.groupby(["plot_id"]).count()['record_id'].rename("nindiv")
 # combine the two series
-diversity_index = pd.concat([nspecies_plot, nindividuals_plot], axis=1)
+diversity_index = pd.concat([nspecies_site, nindividuals_site], axis=1)
 # calculate the diversity index
 diversity_index['diversity'] = diversity_index['nspecies']/diversity_index['nindiv']
 ~~~
