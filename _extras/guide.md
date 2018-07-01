@@ -680,29 +680,3 @@ FIXME
 
 [This page](https://matplotlib.org/users/mathtext.html) contains more information.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
