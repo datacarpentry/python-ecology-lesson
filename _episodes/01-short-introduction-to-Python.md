@@ -18,34 +18,61 @@ keypoints:
 
 Python is an interpreted language which can be used in two ways:
 
-* "Interactive" Mode: It functions like an "advanced calculator" Executing
-  one command at a time:
+* "Interactively": when you use it as an "advanced calculator" executing
+  one command at a time. To start Python in this mode, simply execute `python`
+  on the command line:
 
 ~~~
-user:host:~$ python
-Python 3.5.1 (default, Oct 23 2015, 18:05:06)
-[GCC 4.8.3] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> 2 + 2
-4
->>> print("Hello World")
-Hello World
-~~~
-{: .language-python}
-
-* "Scripting" Mode: Executing a series of "commands" saved in text file,
-  usually with a `.py` extension after the name of your file:
-
-~~~
-user:host:~$ Python my_script.py
-Hello World
+$ python
 ~~~
 {: .language-bash}
 
+~~~
+Python 3.5.1 (default, Oct 23 2015, 18:05:06)
+[GCC 4.8.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+~~~
+{: .output}
+
+Chevrons `>>>` indicate an interactive prompt in Python, meaning that it is waiting for your
+input.
+
+~~~
+2 + 2
+~~~
+{: .language-python}
+
+~~~
+4
+~~~
+{: .output}
+
+~~~
+print("Hello World")
+~~~
+{: .language-python}
+~~~
+Hello World
+~~~
+{: .output}
+
+* "Scripting" Mode: executing a series of "commands" saved in text file,
+  usually with a `.py` extension after the name of your file:
+
+~~~
+$ python my_script.py
+~~~
+{: .language-bash}
+
+~~~
+Hello World
+~~~
+{: .output}
 
 ## Introduction to Python built-in data types
 
-### Strings, integers and floats
+### Strings, integers, and floats
 
 One of the most basic things we can do in Python is assign values to variables:
 
@@ -61,23 +88,43 @@ using the assignment operator `=`. To review the value of a variable, we
 can type the name of the variable into the interpreter and press <kbd>Return</kbd>:
 
 ~~~
->>> text
-"Data Carpentry"
+text
 ~~~
 {: .language-python}
+~~~
+"Data Carpentry"
+~~~
+{: .output}
 
 Everything in Python has a type. To get the type of something, we can pass it
 to the built-in function `type`:
 
 ~~~
->>> type(text)
-<class 'str'>
->>> type(number)
-<class 'int'>
->>> type(6.02)
-<class 'float'>
+type(text)
 ~~~
 {: .language-python}
+~~~
+<class 'str'>
+~~~
+{: .output}
+
+~~~
+type(number)
+~~~
+{: .language-python}
+~~~
+<class 'int'>
+~~~
+{: .output}
+
+~~~
+type(6.02)
+~~~
+{: .language-python}
+~~~
+<class 'float'>
+~~~
+{: .output}
 
 The variable `text` is of type `str`, short for "string". Strings hold
 sequences of characters, which can be letters, numbers, punctuation
@@ -86,12 +133,21 @@ or more exotic forms of text (even emoji!).
 We can also see the value of something using another built-in function, `print`:
 
 ~~~
->>> print(text)
-Data Carpentry
->>> print(11)
-11
+print(text)
 ~~~
 {: .language-python}
+~~~
+Data Carpentry
+~~~
+{: .output}
+~~~
+print(11)
+~~~
+{: .language-python}
+~~~
+11
+~~~
+{: .output}
 
 This may seem redundant, but in fact it's the only way to display output in a script:
 
@@ -101,18 +157,25 @@ This may seem redundant, but in fact it's the only way to display output in a sc
 # Comments in Python start with #
 # The next line assigns the string "Data Carpentry" to the variable "text".
 text = "Data Carpentry"
+
 # The next line does nothing!
 text
+
 # The next line uses the print function to print out the value we assigned to "text"
 print(text)
 ~~~
 {: .language-python}
+
 *Running the script*
 ~~~
-$ Python example.py
-Data Carpentry
+$ python example.py
 ~~~
 {: .language-bash}
+
+~~~
+Data Carpentry
+~~~
+{: .output}
 
 Notice that "Data Carpentry" is printed only once.
 
@@ -126,16 +189,39 @@ We can perform mathematical calculations in Python using the basic operators
  `+, -, /, *, %`:
 
 ~~~
->>> 2 + 2  # Addition
-4
->>> 6 * 7  # Multiplication
-42
->>> 2 ** 16  # Power
-65536
->>> 13 % 5  # Modulo
-3
+2 + 2  # Addition
 ~~~
 {: .language-python}
+
+~~~
+4
+~~~
+{: .output}
+
+~~~
+6 * 7  # Multiplication
+~~~
+{: .language-python}
+~~~
+42
+~~~
+{: .output}
+~~~
+2 ** 16  # Power
+~~~
+{: .language-python}
+~~~
+65536
+~~~
+{: .output}
+~~~
+13 % 5  # Modulo
+~~~
+{: .language-python}
+~~~
+3
+~~~
+{: .output}
 
 We can also use comparison and logic operators:
 `<, >, ==, !=, <=, >=` and statements of identity such as
@@ -144,16 +230,42 @@ called a _boolean_.
 
 
 ~~~
->>> 3 > 4
-False
->>> True and True
-True
->>> True or False
-True
+3 > 4
 ~~~
 {: .language-python}
+~~~
+False
+~~~
+{: .output}
 
-## Sequential types: Lists and Tuples
+~~~
+True and True
+~~~
+{: .language-python}
+~~~
+True
+~~~
+{: .output}
+
+~~~
+True or False
+~~~
+{: .language-python}
+~~~
+True
+~~~
+{: .output}
+
+~~~
+True and False
+~~~
+{: .language-python}
+~~~
+False
+~~~
+{: .output}
+
+## Sequences: Lists and Tuples
 
 ### Lists
 
@@ -162,11 +274,14 @@ elements. Each element can be accessed by an index.  Note that Python
 indexes start with 0 instead of 1:
 
 ~~~
->>> numbers = [1, 2, 3]
->>> numbers[0]
-1
+numbers = [1, 2, 3]
+numbers[0]
 ~~~
 {: .language-python}
+~~~
+1
+~~~
+{: .output}
 
 A `for` loop can be used to access the elements in a list or other Python data
 structure one at a time:
@@ -175,12 +290,15 @@ structure one at a time:
 >>> for num in numbers:
 ...     print(num)
 ...
+~~~
+{: .language-python}
+
+~~~
 1
 2
 3
->>>
 ~~~
-{: .language-python}
+{: .output}
 
 **Indentation** is very important in Python. Note that the second line in the
 example above is indented. Just like three chevrons `>>>` indicate an
@@ -194,12 +312,15 @@ method using the dot `.` followed by the method name and a list of arguments
 in parentheses. Let's look at an example using `append`:
 
 ~~~
->>> numbers.append(4)
->>> print(numbers)
-[1, 2, 3, 4]
->>>
+numbers.append(4)
+print(numbers)
 ~~~
 {: .language-python}
+
+~~~
+[1, 2, 3, 4]
+~~~
+{: .output}
 
 To find out what methods are available for an
 object, we can use the built-in `help` command:
@@ -214,7 +335,7 @@ class list(object)
  |  list(iterable) -> new list initialized from iterable's items
  ...
 ~~~
-{: .language-python}
+{: .output}
 
 ### Tuples
 
@@ -226,14 +347,16 @@ are created by placing comma-separated values inside parentheses `()`.
 # Tuples use parentheses
 a_tuple = (1, 2, 3)
 another_tuple = ('blue', 'green', 'red')
+
 # Note: lists use square brackets
 a_list = [1, 2, 3]
 ~~~
 {: .language-python}
 
-> ## Challenge - Tuples
-> 1. What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5` ?
-> 2. Type `type(a_tuple)` into Python - what is the object type?
+> ## Tuples _vs._ Lists
+> 1. What happens when you execute `a_list[1] = 5` ?
+> 2. What happens when you execute `a_tuple[2] = 5`?
+> 3. What does `type(a_tuple)` tell you about `a_tuple`?
 >
 {: .challenge}
 
@@ -243,26 +366,40 @@ a_list = [1, 2, 3]
 A **dictionary** is a container that holds pairs of objects - keys and values.
 
 ~~~
->>> translation = {'one': 1, 'two': 2}
->>> translation['one']
-1
+translation = {'one': 1, 'two': 2}
+translation['one']
 ~~~
 {: .language-python}
+~~~
+1
+~~~
+{: .output}
+
 Dictionaries work a lot like lists - except that you index them with *keys*.
 You can think about a key as a name for or a unique identifier for a set of values
 in the dictionary. Keys can only have particular types - they have to be
 "hashable". Strings and numeric types are acceptable, but lists aren't.
 
 ~~~
->>> rev = {1: 'one', 2: 'two'}
->>> rev[1]
+rev = {1: 'one', 2: 'two'}
+rev[1]
+~~~
+{: .language-python}
+~~~
 'one'
->>> bad = {[1, 2, 3]: 3}
+~~~
+{: .output}
+
+~~~
+bad = {[1, 2, 3]: 3}
+~~~
+{: .language-python}
+~~~
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unhashable type: 'list'
 ~~~
-{: .language-python}
+{: .output}
 
 In Python, a "Traceback" is an multi-line error block printed out for the
 user.
@@ -270,52 +407,52 @@ user.
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
->>> rev = {1: 'one', 2: 'two'}
->>> rev[3] = 'three'
->>> rev
-{1: 'one', 2: 'two', 3: 'three'}
+rev = {1: 'one', 2: 'two'}
+rev[3] = 'three'
+rev
 ~~~
 {: .language-python}
+~~~
+{1: 'one', 2: 'two', 3: 'three'}
+~~~
+{: .output}
 
 Using `for` loops with dictionaries is a little more complicated. We can do
 this in two ways:
 
 ~~~
->>> for key, value in rev.items():
-...     print(key, '->', value)
-...
+for key, value in rev.items():
+    print(key, '->', value)
+~~~
+{: .language-python}
+
+~~~
 1 -> one
 2 -> two
 3 -> three
 ~~~
-{: .language-python}
+{: .output}
 
 or
 
 ~~~
->>> for key in rev.keys():
-...     print(key, '->', rev[key])
-...
+for key in rev.keys():
+    print(key, '->', rev[key])
+~~~
+{: .language-python}
+~~~
 1 -> one
 2 -> two
 3 -> three
->>>
 ~~~
-{: .language-python}
+{: .output}
 
-> ## Challenge - Can you do reassignment in a dictionary?
+> ## Changing dictionaries
 >
-> 1. First check what `rev` is right now (remember `rev` is the name of our dictionary).
->
->    Type:
-> ~~~
-> rev
-> ~~~
-> {: .language-python }
->
-> 2. Try to reassign the second value (in the *key value pair*) so that it no longer reads "two" but instead reads "apple-sauce".
->
-> 3. Now display `rev` again to see if it has changed.
+> 1. First, print the value of the `rev` dictionary to the screen.
+> 2. Reassign the second value (in the *key value pair*) so that it no longer
+>    reads "two" but instead "apple-sauce".
+> 3. Print the value of `rev` to the screen again to see if the value has changed.
 >
 {: .challenge}
 
@@ -340,8 +477,12 @@ def add_function(a, b):
 
 z = add_function(20, 22)
 print(z)
-42
 ~~~
 {: .language-python}
+~~~
+42
+~~~
+{: .output}
+
 {% include links.md %}
 
