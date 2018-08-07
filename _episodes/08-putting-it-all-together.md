@@ -174,7 +174,7 @@ ax.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-![png](../fig/08_line_plot.png)
+![line plot](../fig/08_line_plot.png)
 
 Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
 
