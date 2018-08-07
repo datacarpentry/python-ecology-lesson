@@ -66,7 +66,7 @@ con = sqlite3.connect("data/portal_mammals.sqlite")
 cur = con.cursor()
 
 # Return all results of query
-cur.execute('SELECT plot_id FROM sites WHERE site_type="Control"')
+SELECT plot_id FROM plots WHERE plot_type="Control"')
 cur.fetchall()
 
 # Return first result of query
