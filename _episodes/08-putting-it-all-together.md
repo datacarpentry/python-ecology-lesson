@@ -147,6 +147,7 @@ y = x ** 2
 ~~~
 {: .language-python}
 
+
 To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
 
 ~~~
@@ -157,6 +158,15 @@ plt.plot(x, y, '-')
 ![Line plot of x versus y](../fig/08_line_plot.png)
 
 or create a matplotlib `figure` and `axis` object first and add the plot to the created objects:
+
+> ## Tip: Cross-Platform Visualization of Figures
+> Jupyter Notebooks make many aspects of data analysis and visualization very easy. This includes
+> doing some of the labor of visualizing plots for you. But, not every one of your collaborators
+> will be using a Jupyter Notebook. The .show() command allows you to visualize plots
+> when working at the command line, with a script, or at the iPython interpreter. In the 
+> previous example, adding  ```plt.show()``` after the creation of the plot will enable your 
+> colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
+{: .callout}
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
