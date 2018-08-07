@@ -9,51 +9,7 @@ permalink: /guide/
 ## Install the required workshop packages on Mac OS with Homebrew
 
 
-Homebrew is one of the popular package managers used by many Mac users.
-
-To install Homebrew, you need have xcode command line tools installed,
-
-from the terminal, type:
-~~~
-xcode-select --install
-~~~
-{: .language-bash}
-
-then
-~~~
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-~~~
-{: .language-bash}
-
-Run the following command to ensure Homebrew is installed properly:
-
-~~~
-brew doctor
-~~~
-{: .language-bash}
-
-install Python 3:
-
-~~~
-brew install python3
-~~~
-{: .language-bash}
-
-All the rest of workshop packages can be installed by `pip3` which comes together with Python 3:
-
-~~~
-pip3 install numpy pandas matplotlib jupyter
-pip3 install bokeh ggplot
-~~~
-{: .language-bash}
-
-pip3 can automatically figure out all the dependencies that required by the above packages.
-
-Launch a Python command prompt, type:
-~~~
-python3
-~~~
-{: .language-bash}
+Please use the instructions in the [Setup](https://datacarpentry.org/python-ecology-lesson/setup.html) document to perform installs. If you encounter setup issues, please file an issue with the tags 'High-priority'.
 
 ## Checking installations.
 
