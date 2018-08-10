@@ -7,7 +7,7 @@ questions:
     - "Why should I use Python to create plots?"
 objectives:
     - "Import the pyplot toolbox to create figures in Python."
-    - "Use matplotlib to make further adjustments to Pandas or plotnine objects."
+    - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
     - "The object-oriented way of matplotlib makes detailed customization possible."
