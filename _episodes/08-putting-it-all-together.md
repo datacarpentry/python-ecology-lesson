@@ -10,8 +10,8 @@ objectives:
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
-    - "The object-oriented way of matplotlib makes detailed customization possible."
-    - "Use `savefig` method to save a figure as a file."
+    - "The object-oriented framework of matplotlib makes detailed customization possible."
+    - "Export plots to a file using the `savefig` method."
 ---
 
 
@@ -104,19 +104,30 @@ my_plot
 {: .language-python}
 
 ![Scatter plot of survey data set](../fig/08_scatter_surveys.png)
+> ## Tip
+> By default, matplotlib creates a figure in a separate window. When using
+> Jupyter notebooks, we can make figures appear in-line within the notebook by
+> writing:
+>
+> ~~~
+> %matplotlib inline
+> ~~~
+> {: .language-python}
 
-The returned object is a matplotlib object (check it yourself with `type(my_plot)`) and the power of matplotlib is available to further adjust these plots as it is created with matplotlib itself.
+The returned object is a matplotlib object (check it yourself with `type(my_plot)`), 
+to which we may make further adjustments and refinements using other matplotlib methods.
 
 > ## Tip
 > Matplotlib itself can be overwhelming, so a useful strategy is to 
-> do as much as you easily can in a convenience layer, i.e. start
+> do as much as you easily can in a convenience layer, _i.e._ start
 > creating the plot in Pandas or plotnine, and then use matplotlib
 > for the rest.
 {: .callout}
 
-We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. A great resource for help creating and styling your figures is the matplotlib gallery
+We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. 
+A great resource for help creating and styling your figures is the matplotlib gallery
 (<http://matplotlib.org/gallery.html>), which includes plots in many different
-styles and the source code that creates them. 
+styles and the source codes that create them. 
 
 ### Using the matplotlib package
 
@@ -127,18 +138,10 @@ import matplotlib.pyplot as plt
 ~~~
 {: .language-python}
 
-By default, matplotlib creates a figure in a separate window. When using
-Jupyter notebooks, we can make figures appear in-line within the notebook by
-writing:
-
-~~~
-%matplotlib inline
-~~~
-{: .language-python}
 
 ### `plt` pyplot versus object based matplotlib
 
-Matplotlib integrates nicely with the `numpy` package and can use numpy arrays as input of the available plot functions. Consider the following example data, created with `numpy`:
+Matplotlib integrates nicely with the numpy package and can use numpy arrays as input of the available plot functions. Consider the following example data, created with numpy:
 
 ~~~
 import numpy
@@ -157,7 +160,7 @@ plt.plot(x, y, '-')
 
 ![Line plot of x versus y](../fig/08_line_plot.png)
 
-or create a matplotlib `figure` and `axis` object first and add the plot to the created objects:
+or create a matplotlib `figure` and `axis` object first and add the plot later on:
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
@@ -176,7 +179,7 @@ ax.plot(x, y, '-')
 
 ![line plot](../fig/08_line_plot.png)
 
-Although the latter requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
+Although the latter approach requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
@@ -186,7 +189,7 @@ ax1.plot(x, y, '-')
 ax1.set_ylabel('y')
 ax1.set_xlabel('x')
 
-# add an additional ax to the figure
+# add an additional axis to the figure
 ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
 ax2.plot(x, y*2, 'r-')
 ~~~
@@ -196,7 +199,12 @@ ax2.plot(x, y*2, 'r-')
 
 ### Link matplotlib, Pandas and plotnine
 
-The **Pandas and plotnine packages create matplotlib objects** as well. Hence, using the object based approach provides a consistent workflow and interaction between these packages:
+When we create a plot using pandas or plotnine, both libraries use matplotlib 
+to create those plots. The plots created in pandas or plotnine are matplotlib 
+objects, which enables us to use some of the advanced plotting options available 
+in the matplotlib library. Because the objects output by pandas and plotnine
+can be read by matplotlib, we have many more options than any one library can 
+provide, offering a consistent environment to make publication-quality visualizations. 
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
@@ -265,7 +273,7 @@ my_plt_version
 
 ### Saving matplotlib figures
 
-Once satisfied about the resulting plot, you can save the plot with the `.savefig(*args)` command from matplotlib:
+Once satisfied with the resulting plot, you can save the plot with the `.savefig(*args)` command from matplotlib:
 
 ~~~
 fig.savefig("my_plot_name.png")    
