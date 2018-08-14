@@ -70,6 +70,22 @@ Hello World
 ~~~
 {: .output}
 
+Python is versioned meaning there are different versions of Python that can be used. 
+For this lesson, we will focus on using Python 3. If your outputs look different 
+from what is shown in this lesson, make sure you have the right version. 
+
+You can check which version you have by executing `python -v` from the command line:
+
+~~~
+$ python --version
+~~~
+{: .language-bash}
+
+~~~
+Python 3.5.1
+~~~
+{: .output}
+
 ## Introduction to Python built-in data types
 
 ### Strings, integers, and floats
