@@ -11,7 +11,10 @@ objectives:
     - "Perform mathematical operations in Python using basic operators."
     - "Define the following as it relates to Python: lists, tuples, and dictionaries."
 keypoints:
-    - "FIXME"
+    - "Python is an interpreted language which can be used interactively (executing one command at a time) or in scripting mode (executing a series of commands saved in file)."
+    - "One can assign a value to a variable in python. Those variables can be of several types (e.g. `str` for strings, `int` for integers, `float`s, `list`s, `tuple`s, and `dict` for dictionaries)."
+    - "Lists and tuples have in common that they are ordered lists of elements; they differ in that a tuple is immutable (cannot be changed)."
+    - "A dictionary (also called hash map) is a data structure of the form `translation = {'one': 1, 'two': 2}`."
 ---
 
 ## Interpreter
