@@ -160,8 +160,6 @@ plt.plot(x, y, '-')
 
 ![Line plot of x versus y](../fig/08_line_plot.png)
 
-or create a matplotlib `figure` and `axis` object first and add the plot later on:
-
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
 > doing some of the labor of visualizing plots for you. But, not every one of your collaborators
@@ -170,6 +168,9 @@ or create a matplotlib `figure` and `axis` object first and add the plot later o
 > previous example, adding  `plt.show()` after the creation of the plot will enable your 
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
+
+or create a matplotlib `figure` and `axis` object first and add the plot later on:
+
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
