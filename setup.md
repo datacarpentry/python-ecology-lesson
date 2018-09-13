@@ -7,15 +7,17 @@ title: Setup
 > Data for this lesson is from the Portal Project Teaching Database -
 > [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 >
-> We will use the eight files listed below for the data in this lesson.  Download these files to your computer either by clicking [this link ](https://minhaskamal.github.io/DownGit/#/home?url=https:%2F%2Fgithub.com%2Fweecology%2Fportal-teachingdb), which will give you everything in a single compressed file.  You'll need to unzip this file after downloading it.
+> We will use the six files listed below for the data in this lesson.
+> Download these files to your computer either by clicking
+> [this link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/weecology/portal-teachingdb),
+> which will give you everything in a single compressed file.
+> You'll need to unzip this file after downloading it.
 >
 > Or download each file indvidually with the following links:
 >
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
 > - [species.csv](https://ndownloader.figshare.com/files/3299483)
 > - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
-> - [surveys2001.csv]({{ page.root }}/data/survey2001.csv)
-> - [surveys2002.csv]({{ page.root }}/data/survey2002.csv)
 > - [plots.csv](https://ndownloader.figshare.com/files/3299474)
 > - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
 > - [SQL Database](https://ndownloader.figshare.com/files/11188550)
