@@ -180,7 +180,7 @@ ax.plot(x, y, '-')
 
 ![line plot](../fig/08_line_plot.png)
 
-Although the latter approach requires a little bit more code to create the same plot, the advantage is that we now have **full control** of where the plot axis are placed, and we can easily add new items or, for example, more than one axis to the figure and adapt the labels:
+Although the latter approach requires a little bit more code to create the same plot, the advantage is that we now have **full control** of the axis and we can add new items (e.g. labels, title, grid lines,...). For example, add an additional axis to the figure and adapt the labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
