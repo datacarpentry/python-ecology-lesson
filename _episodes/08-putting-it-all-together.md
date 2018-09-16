@@ -10,7 +10,7 @@ objectives:
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
-    - "The object based usage of matplotlib makes detailed customization possible."
+    - "Object-based nature of matplotlib plots enables their detailed customization after they have been created."
     - "Export plots to a file using the `savefig` method."
 ---
 
@@ -32,7 +32,8 @@ through as well as the Python documentation to help you along.
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
-`bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15
+[`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt) 
+contains stream discharge data, summarized at 15
 15 minute intervals (in cubic feet per second) for a streamgage on Boulder
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
