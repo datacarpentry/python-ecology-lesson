@@ -306,7 +306,7 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 
 ## Make other types of plots:
 
-Matplotlib can make many other types of plots in much the same way that it makes 2 dimensional line plots. Look through the examples in
+Matplotlib can make many other types of plots in much the same way that it makes two-dimensional line plots. Look through the examples in
 <http://matplotlib.org/users/screenshots.html> and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
