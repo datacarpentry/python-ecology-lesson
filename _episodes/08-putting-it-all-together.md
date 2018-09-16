@@ -109,7 +109,6 @@ import matplotlib.pyplot as plt
 Now, let's read data and plot it!
 
 ~~~
-import pandas as pd
 surveys = pd.read_csv("data/surveys.csv")
 my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
 plt.show() # not necessary in Jupyter Notebooks
@@ -146,7 +145,9 @@ styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
-Matplotlib integrates nicely with the numpy package and can use numpy arrays as input of the available plot functions. Consider the following example data, created with numpy:
+Matplotlib integrates nicely with the numpy package and can use numpy arrays 
+as input of the available plot functions. Consider the following example data,
+created with numpy:
 
 ~~~
 import numpy
@@ -155,8 +156,7 @@ y = x ** 2
 ~~~
 {: .language-python}
 
-
-To make a scatter plot of `x` and `y`, we can directly use the `plot` command:
+To make a scatter plot of `x` and `y`, we can use the `plot` command directly:
 
 ~~~
 plt.plot(x, y, '-')
@@ -176,16 +176,18 @@ plt.plot(x, y, '-')
 
 or create a matplotlib `figure` and `axis` object first and add the plot later on:
 
-
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
 ax.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-![line plot](../fig/08_line_plot.png)
+![Simple line plot](../fig/08_line_plot.png)
 
-Although the latter approach requires a little bit more code to create the same plot, the advantage is that it gives us **full control** over the plot and we can add new items such as labels, grid lines, title, etc.. For example, we can add additional axes to the figure and customize their labels:
+Although the latter approach requires a little bit more code to create the same plot,
+the advantage is that it gives us **full control** over the plot and we can add new items
+such as labels, grid lines, title, etc.. For example, we can add additional axes to 
+the figure and customize their labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
