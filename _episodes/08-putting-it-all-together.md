@@ -51,8 +51,8 @@ check the documentation. You can open the docstring in an ipython notebook using
 a question mark. For example:
 
 ~~~
-    import pandas as pd
-    pd.read_csv?
+import pandas as pd
+pd.read_csv?
 ~~~
 {: .language-python}
 
@@ -67,48 +67,61 @@ measurements. Convert any measurements in imperial units into SI units. You can
 also change the name of the columns in the DataFrame like this:
 
 ~~~
-    df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
-    print('With the old column names:\n') # the \n makes a new line, so it's easier to see
-    print(df)
+df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
+print('With the old column names:\n') # the \n makes a new line, so it's easier to see
+print(df)
 
-    df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
-    print('\n\nWith the new column names:\n')
-    print(df)
-
-    With the old column names:
-
-       1stcolumn  2ndcolumn
-    0        100         10
-    1        200         20
-
-
-    With the new column names:
-
-       FirstColumn  SecondColumn
-    0          100            10
-    1          200            20
+df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
+print('\n\nWith the new column names:\n')
+print(df)
 ~~~
 {: .language-python}
+
+~~~
+With the old column names:
+
+   1stcolumn  2ndcolumn
+0        100         10
+1        200         20
+
+
+With the new column names:
+
+   FirstColumn  SecondColumn
+0          100            10
+1          200            20
+~~~
+{: .output}
 
 ## Matplotlib package
 
 [Matplotlib](https://matplotlib.org/) is a Python package that is widely used throughout the scientific Python community to create high-quality and publication-ready graphics. It supports a wide range of raster and vector graphics formats including PNG, PostScript, EPS, PDF and SVG.
 
-Moreover, matplotlib is the actual engine behind the plotting capabilities of both the Pandas and the plotnine package. For example, when we call the `.plot` method on Pandas data objects, we actually use the matplotlib package:
+Moreover, matplotlib is the actual engine behind the plotting capabilities of both Pandas and plotnine packages. For example, when we call the `.plot` method on Pandas data objects, we actually use the matplotlib package.
+
+First, import the pyplot toolbox:
+
+~~~
+import matplotlib.pyplot as plt
+~~~
+{: .language-python}
+
+Now, let's read data and plot it!
 
 ~~~
 import pandas as pd
 surveys = pd.read_csv("data/surveys.csv")
 my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
-my_plot
+plt.show() # not necessary in Jupyter Notebooks
 ~~~
 {: .language-python}
 
 ![Scatter plot of survey data set](../fig/08_scatter_surveys.png)
+
 > ## Tip
 > By default, matplotlib creates a figure in a separate window. When using
 > Jupyter notebooks, we can make figures appear in-line within the notebook by
-> writing:
+> executing:
 >
 > ~~~
 > %matplotlib inline
@@ -130,17 +143,8 @@ A great resource for help creating and styling your figures is the matplotlib ga
 (<http://matplotlib.org/gallery.html>), which includes plots in many different
 styles and the source codes that create them. 
 
-### Using the matplotlib package
 
-First, import the pyplot toolbox:
-
-~~~
-import matplotlib.pyplot as plt
-~~~
-{: .language-python}
-
-
-### `plt` pyplot versus object based matplotlib
+### `plt` pyplot versus object-based matplotlib
 
 Matplotlib integrates nicely with the numpy package and can use numpy arrays as input of the available plot functions. Consider the following example data, created with numpy:
 
@@ -238,7 +242,7 @@ p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
 p9_ax.set_xlabel("Hindfoot length")
 p9_ax.tick_params(labelsize=16, pad=8)
 p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
-my_plt_version.show() # not necessary in Jupyter Notebooks
+plt.show() # not necessary in Jupyter Notebooks
 ~~~
 {: .language-python}
 
