@@ -237,7 +237,7 @@ p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
 p9_ax.set_xlabel("Hindfoot length")
 p9_ax.tick_params(labelsize=16, pad=8)
 p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
-my_plt_version
+my_plt_version.show() # not necessary in Jupyter Notebooks
 ~~~
 {: .language-python}
 
