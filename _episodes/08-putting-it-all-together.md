@@ -274,7 +274,7 @@ my_plt_version.show() # not necessary in Jupyter Notebooks
 
 ### Saving matplotlib figures
 
-Once satisfied with the resulting plot, you can save the plot with the `.savefig(*args)` command from matplotlib:
+Once satisfied with the resulting plot, you can save the plot with the `.savefig(*args)` method from matplotlib:
 
 ~~~
 fig.savefig("my_plot_name.png")    
@@ -290,7 +290,7 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 {: .callout}
 
 > ## Challenge - Saving figure to file
-> Check the documentation of the `savefig` command and check how 
+> Check the documentation of the `savefig` method and check how 
 > you can comply to journals requiring figures as `pdf` file with
 > dpi >= 300.
 >
