@@ -158,7 +158,7 @@ plt.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-![Line plot of x versus y](../fig/08_line_plot.png)
+![Line plot of y versus x](../fig/08_line_plot.png)
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
