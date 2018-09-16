@@ -314,7 +314,7 @@ save as a text file with a `.py` extension and run in the command line).
 > ## Challenge - Final Plot
 > Display your data using one or more plot types from the example gallery. Which
 > ones to choose will depend on the content of your own data file. If you are
-> using the streamgage file `bouldercreek_09_2013.txt`, you could make a 
+> using the streamgage file [`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt), you could make a 
 > histogram of the number of days with a given mean discharge, use bar plots 
 > to display daily discharge statistics, or explore the different ways matplotlib 
 > can handle dates and times for figures.
