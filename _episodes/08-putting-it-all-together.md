@@ -180,7 +180,7 @@ ax.plot(x, y, '-')
 
 ![line plot](../fig/08_line_plot.png)
 
-Although the latter approach requires a little bit more code to create the same plot, the advantage is that we now have **full control** of the axis and we can add new items (e.g. labels, title, grid lines,...). For example, add an additional axis to the figure and adapt the labels:
+Although the latter approach requires a little bit more code to create the same plot, the advantage is that it gives us **full control** over the plot and we can add new items such as labels, grid lines, title, etc.. For example, we can add additional axes to the figure and customize their labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
@@ -190,13 +190,13 @@ ax1.plot(x, y, '-')
 ax1.set_ylabel('y')
 ax1.set_xlabel('x')
 
-# add an additional axis to the figure
-ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3]) # inset axes
+# add additional axes to the figure
+ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
 ax2.plot(x, y*2, 'r-')
 ~~~
 {: .language-python}
 
-![Additional axis to line plot](../fig/08_line_plot_inset.png)
+![Plot with additional axes](../fig/08_line_plot_inset.png)
 
 ### Link matplotlib, Pandas and plotnine
 
