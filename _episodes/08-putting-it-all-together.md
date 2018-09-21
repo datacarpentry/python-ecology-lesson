@@ -152,15 +152,17 @@ created with Numpy:
 
 ~~~
 import numpy
-x = numpy.linspace(0, 5, 10)
-y = x ** 2
+mu, sigma = 0, 0.1
+s = np.random.normal(mu, sigma, 1000)
+
 ~~~
 {: .language-python}
 
-To make a scatter plot of `x` and `y`, we can use the `plot` command directly:
+To make a histogram plot of our draws from the normal distribution, we can use the `plot`
+command directly:
 
 ~~~
-plt.plot(x, y, '-')
+plt.hist(s)
 ~~~
 {: .language-python}
 
@@ -179,7 +181,7 @@ or create matplotlib `figure` and `axis` objects first and add the plot later on
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
-ax.plot(x, y, '-')
+ax.hist(s, 30)
 ~~~
 {: .language-python}
 
@@ -192,19 +194,34 @@ the figure and customize their labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
-ax1.plot(x, y, '-')
+ax1.hist(s, 30)
 
+# Add a plot of a Beta distribution
+a = 5
+b = 10
+beta_draws = np.random.beta(a, b)
 # adapt the labels
-ax1.set_ylabel('y')
-ax1.set_xlabel('x')
+ax1.set_ylabel('density')
+ax1.set_xlabel('value')
 
 # add additional axes to the figure
-ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
-ax2.plot(x, y*2, 'r-')
+ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
+#ax2 = fig.add_axes([left, bottom, right, top])
+ax2.hist(beta_draws)
 ~~~
 {: .language-python}
 
-![Plot with additional axes](../fig/08_line_plot_inset.png)
+![Plot with additional axes](../fig/dualdistribution.png)
+
+> ## Challenge - Drawing from distributions
+> Have a look at the Numpy
+> random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
+> Choose a distribution you have no familiarity with, and try to sample from and visualize it.
+{: .challenge}
+
+
+
+
 
 ### Link matplotlib, Pandas and plotnine
 
@@ -276,7 +293,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ~~~
 > > {: .language-python}
 > >
-> > ![Flood event plot](../fig/08_flood_event.png)
+> > ![Flood event plot](../fig/floodevent.png)
 > {: .solution}
 {: .challenge}
 
