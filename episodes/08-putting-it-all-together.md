@@ -7,8 +7,11 @@ questions:
     - "Why should I use Python to create plots?"
 objectives:
     - "Import the pyplot toolbox to create figures in Python."
+    - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
-    - "FIXME"
+    - "Matplotlib is the engine behind plotnine and Pandas plots."
+    - "Object-based nature of matplotlib plots enables their detailed customization after they have been created."
+    - "Export plots to a file using the `savefig` method."
 ---
 
 
@@ -29,7 +32,8 @@ through as well as the Python documentation to help you along.
 There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
-`bouldercreek_09_2013.txt` contains stream discharge data, summarized at 15
+[`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt) 
+contains stream discharge data, summarized at 15
 15 minute intervals (in cubic feet per second) for a streamgage on Boulder
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
@@ -47,8 +51,8 @@ check the documentation. You can open the docstring in an ipython notebook using
 a question mark. For example:
 
 ~~~
-    import pandas as pd
-    pd.read_csv?
+import pandas as pd
+pd.read_csv?
 ~~~
 {: .language-python}
 
@@ -63,232 +67,264 @@ measurements. Convert any measurements in imperial units into SI units. You can
 also change the name of the columns in the DataFrame like this:
 
 ~~~
-    df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
-    print('With the old column names:\n') # the \n makes a new line, so it's easier to see
-    print(df)
+df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just creates a DataFrame for the example!
+print('With the old column names:\n') # the \n makes a new line, so it's easier to see
+print(df)
 
-    df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
-    print('\n\nWith the new column names:\n')
-    print(df)
-
-    With the old column names:
-
-       1stcolumn  2ndcolumn
-    0        100         10
-    1        200         20
-
-
-    With the new column names:
-
-       FirstColumn  SecondColumn
-    0          100            10
-    1          200            20
+df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
+print('\n\nWith the new column names:\n')
+print(df)
 ~~~
 {: .language-python}
 
-## Make a line plot of your data
+~~~
+With the old column names:
 
-Matplotlib is a Python library that can be used to visualize data. The
-toolbox `matplotlib.pyplot` is a collection of functions that make matplotlib
-work like MATLAB. In most cases, this is all that you will need to use, but
-there are many other useful tools in matplotlib that you should explore.
+   1stcolumn  2ndcolumn
+0        100         10
+1        200         20
 
-We will cover a few basic commands for formatting plots in this lesson. A great
-resource for help styling your figures is the matplotlib gallery
-(http://matplotlib.org/gallery.html), which includes plots in many different
-styles and the source code that creates them. The simplest of plots is the 2
-dimensional line plot. These examples walk through the basic commands for making
-line plots using pyplots.
 
-> ## Challenge - Lots of plots
-> Make a variety of line plots from your data. If you are using the streamgage
-> data, these could include (1) a hydrograph of the entire month of September
-> 2013, (2) the discharge record for the week of the 2013 Front Range flood
-> (September 9 through 15), (3) discharge vs. time of day, for every day in the
-> record in one figure (Hint: use loops to combine strings and give every line a
-> different style and color), and (4) minimum, maximum, and mean daily discharge
-> values. Add axis labels, titles, and legends to your figures. Make at least one
-> figure with multiple plots using the function `subplot()`.
-{: .challenge}
+With the new column names:
 
-### Using pyplot:
+   FirstColumn  SecondColumn
+0          100            10
+1          200            20
+~~~
+{: .output}
+
+## Matplotlib package
+
+[Matplotlib](https://matplotlib.org/) is a Python package that is widely used throughout the scientific Python community to create high-quality and publication-ready graphics. It supports a wide range of raster and vector graphics formats including PNG, PostScript, EPS, PDF and SVG.
+
+Moreover, matplotlib is the actual engine behind the plotting capabilities of both Pandas and plotnine packages. For example, when we call the `.plot` method on Pandas data objects, we actually use the matplotlib package.
 
 First, import the pyplot toolbox:
 
 ~~~
-    import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 ~~~
 {: .language-python}
 
-By default, matplotlib will create the figure in a separate window. When using
-ipython notebooks, we can make figures appear in-line within the notebook by
-writing:
+Now, let's read data and plot it!
 
 ~~~
-    %matplotlib inline
-~~~
-{: .language-python}
-
-We can start by plotting the values of a list of numbers (matplotlib can handle
-many types of numeric data, including numpy arrays and pandas DataFrames - we
-are just using a list as an example!):
-
-~~~
-    list_numbers = [1.5, 4, 2.2, 5.7]
-    plt.plot(list_numbers)
-    plt.show()
+surveys = pd.read_csv("data/surveys.csv")
+my_plot = surveys.plot("hindfoot_length", "weight", kind="scatter")
+plt.show() # not necessary in Jupyter Notebooks
 ~~~
 {: .language-python}
 
-The command `plt.show()` prompts Python to display the figure. Without it, it
-creates an object in memory but doesn't produce a visible plot. The ipython
-notebooks (if using `%matplotlib inline`) will automatically show you the figure
-even if you don't write `plt.show()`, but get in the habit of including this
-command!
+![Scatter plot of survey data set](../fig/08_scatter_surveys.png)
 
-If you provide the `plot()` function with only one list of numbers, it assumes
-that it is a sequence of y-values and plots them against their index (the first
-value in the list is plotted at `x=0`, the second at `x=1`, etc). If the
-function `plot()` receives two lists, it assumes the first one is the x-values
-and the second the y-values. The line connecting the points will follow the list
-in order:
+> ## Tip
+> By default, matplotlib creates a figure in a separate window. When using
+> Jupyter notebooks, we can make figures appear in-line within the notebook by
+> executing:
+>
+> ~~~
+> %matplotlib inline
+> ~~~
+> {: .language-python}
 
-~~~
-    plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers)
-    plt.show()
-~~~
-{: .language-python}
+The returned object is a matplotlib object (check it yourself with `type(my_plot)`), 
+to which we may make further adjustments and refinements using other matplotlib methods.
 
-A third, optional argument in `plot()` is a string of characters that indicates
-the line type and color for the plot. The default value is a continuous blue
-line. For example, we can make the line red (`'r'`), with circles at every data
-point (`'o'`), and a dot-dash pattern (`'-.'`). Look through the matplotlib
-gallery for more examples.
+> ## Tip
+> Matplotlib itself can be overwhelming, so a useful strategy is to 
+> do as much as you easily can in a convenience layer, _i.e._ start
+> creating the plot in Pandas or plotnine, and then use matplotlib
+> for the rest.
+{: .callout}
 
-~~~
-    plt.plot([6.8, 4.3, 3.2, 8.1], list_numbers, 'ro-.')
-    plt.axis([0,10,0,6])
-    plt.show()
-~~~
-{: .language-python}
+We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson. 
+A great resource for help creating and styling your figures is the matplotlib gallery
+(<http://matplotlib.org/gallery.html>), which includes plots in many different
+styles and the source codes that create them. 
 
-The command `plt.axis()` sets the limits of the axes from a list of `[xmin,
-xmax, ymin, ymax]` values (the square brackets are needed because the argument
-for the function `axis()` is one list of values, not four separate numbers!).
-The functions `xlabel()` and `ylabel()` will label the axes, and `title()` will
-write a title above the figure.
 
-A single figure can include multiple lines, and they can be plotted using the
-same `plt.plot()` command by adding more pairs of x values and y values (and
-optionally line styles):
+### `plt` pyplot versus object-based matplotlib
+
+Matplotlib integrates nicely with the numpy package and can use numpy arrays 
+as input of the available plot functions. Consider the following example data,
+created with numpy:
 
 ~~~
-    import numpy as np
-
-    # Create a numpy array between 0 and 10, with values evenly spaced every 0.5
-    t = np.arange(0., 10., 0.5)
-
-    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
-    plt.plot(t, t, 'r--', t, t**2, 'bs-', t, t**3, 'g^:')
-
-    plt.xlabel('This is the x axis')
-    plt.ylabel('This is the y axis')
-    plt.title('This is the figure title')
-
-    plt.show()
+import numpy
+x = numpy.linspace(0, 5, 10)
+y = x ** 2
 ~~~
 {: .language-python}
 
-We can include a legend by adding the optional keyword argument `label=''` in
-`plot()`. Caution: We cannot add labels to multiple lines that are plotted
-simultaneously by the `plt.plot()` command like we did above because Python
-won't know to which line to assign the value of the argument label. Multiple
-lines can also be plotted in the same figure by calling the `plot()` function
-several times:
+To make a scatter plot of `x` and `y`, we can use the `plot` command directly:
 
 ~~~
-    # Red dashes with no symbols, blue squares with a solid line, and green triangles with a dotted line
-    plt.plot(t, t, 'r--', label='linear')
-    plt.plot(t, t**2, 'bs-', label='square')
-    plt.plot(t, t**3, 'g^:', label='cubic')
-
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-
-    plt.xlabel('This is the x axis')
-    plt.ylabel('This is the y axis')
-    plt.title('This is the figure title')
-
-    plt.show()
+plt.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-The function `legend()` adds a legend to the figure, and the optional keyword
-arguments change its style. By default [typing just `plt.legend()`], the legend
-is on the upper right corner and has no shadow.
+![Line plot of y versus x](../fig/08_line_plot.png)
 
- The functions `xlabel`, `ylabel`, `title`, `legend`, and many others create text labels. It is good to know that, in addition to the plain text, you may use mathematical notation using a subset of LaTeX language. See [this link](https://matplotlib.org/users/mathtext.html) for more information.
+> ## Tip: Cross-Platform Visualization of Figures
+> Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
+> doing some of the labor of visualizing plots for you. But, not every one of your collaborators
+> will be using a Jupyter Notebook. The .show() command allows you to visualize plots
+> when working at the command line, with a script, or at the iPython interpreter. In the 
+> previous example, adding  `plt.show()` after the creation of the plot will enable your 
+> colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
+{: .callout}
 
-
-Like MATLAB, pyplot is stateful; it keeps track of the current figure and
-plotting area, and any plotting functions are directed to those axes. To make
-more than one figure, we use the command `plt.figure()` with an increasing
-figure number inside the parentheses:
+or create a matplotlib `figure` and `axis` object first and add the plot later on:
 
 ~~~
-    # This is the first figure
-    plt.figure(1)
-    plt.plot(t, t, 'r--', label='linear')
-
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    plt.title('This is figure 1')
-
-    plt.show()
-
-    # This is a second figure
-    plt.figure(2)
-    plt.plot(t, t**2, 'bs-', label='square')
-
-    plt.legend(loc='upper left', shadow=True, fontsize='x-large')
-    plt.title('This is figure 2')
-
-    plt.show()
+fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
+ax.plot(x, y, '-')
 ~~~
 {: .language-python}
 
-A single figure can also include multiple plots in a grid pattern. The
-`subplot()` command specifies the number of rows, the number of columns, and
-the number of the space in the grid that particular plot is occupying:
+![Simple line plot](../fig/08_line_plot.png)
+
+Although the latter approach requires a little bit more code to create the same plot,
+the advantage is that it gives us **full control** over the plot and we can add new items
+such as labels, grid lines, title, etc.. For example, we can add additional axes to 
+the figure and customize their labels:
 
 ~~~
-    plt.figure(1)
+fig, ax1 = plt.subplots() # prepare a matplotlib figure
+ax1.plot(x, y, '-')
 
-    plt.subplot(2,2,1)  # Two row, two columns, position 1
-    plt.plot(t, t, 'r--', label='linear')
+# adapt the labels
+ax1.set_ylabel('y')
+ax1.set_xlabel('x')
 
-    plt.subplot(2,2,2)  # Two row, two columns, position 2
-    plt.plot(t, t**2, 'bs-', label='square')
-
-    plt.subplot(2,2,3)  # Two row, two columns, position 3
-    plt.plot(t, t**3, 'g^:', label='cubic')
-
-    plt.show()
+# add additional axes to the figure
+ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
+ax2.plot(x, y*2, 'r-')
 ~~~
 {: .language-python}
+
+![Plot with additional axes](../fig/08_line_plot_inset.png)
+
+### Link matplotlib, Pandas and plotnine
+
+When we create a plot using pandas or plotnine, both libraries use matplotlib 
+to create those plots. The plots created in pandas or plotnine are matplotlib 
+objects, which enables us to use some of the advanced plotting options available 
+in the matplotlib library. Because the objects output by pandas and plotnine
+can be read by matplotlib, we have many more options than any one library can 
+provide, offering a consistent environment to make publication-quality visualizations. 
+
+~~~
+fig, ax1 = plt.subplots() # prepare a matplotlib figure
+
+surveys.plot("hindfoot_length", "weight", kind="scatter", ax=ax1)
+
+# Provide further adaptations with matplotlib:
+ax1.set_xlabel("Hindfoot length")
+ax1.tick_params(labelsize=16, pad=8)
+fig.suptitle('Scatter plot of weight versus hindfoot length', fontsize=15)
+~~~
+{: .language-python}
+
+![Extended version of scatter plot surveys](../fig/08_scatter_surveys_extended.png)
+
+To retrieve the matplotlib figure object from plotnine for customization, use the `draw()` function in plotnine:
+
+~~~
+import plotnine as p9
+myplot = (p9.ggplot(data=surveys, 
+                    mapping=p9.aes(x='hindfoot_length', y='weight')) +
+              p9.geom_point())
+
+# convert output plotnine to a matplotlib object
+my_plt_version = myplot.draw()
+
+# Provide further adaptations with matplotlib:
+p9_ax = my_plt_version.axes[0] # each subplot is an item in a list
+p9_ax.set_xlabel("Hindfoot length")
+p9_ax.tick_params(labelsize=16, pad=8)
+p9_ax.set_title('Scatter plot of weight versus hindfoot length', fontsize=15)
+plt.show() # not necessary in Jupyter Notebooks
+~~~
+{: .language-python}
+
+![Extended version of plotnine scatter plot](../fig/08_scatter_surveys_plotnine.png)
+
+> ## Challenge - Pandas and matplotlib
+> Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
+> (September 9 through 15) and create a hydrograph (line plot) of the discharge data using
+> Pandas, linking it to an empty maptlotlib `ax` object. Adapt the title, x-axis and y-axis label 
+> using matplotlib.
+>
+> > ## Answers
+> >
+> > ~~~
+> > discharge = pd.read_csv("data/bouldercreek_09_2013.txt", 
+> >                         skiprows=27, delimiter="\t", 
+> >                         names=["agency", "site_id", "datetime",
+> >                                "timezone", "discharge", "discharge_cd"])
+> > discharge["datetime"] = pd.to_datetime(discharge["datetime"])
+> > front_range = discharge[(discharge["datetime"] >= "2013-09-09") & 
+> >                         (discharge["datetime"] < "2013-09-15")]
+> > 
+> > fig, ax = plt.subplots()
+> > front_range.plot(x ="datetime", y="discharge", ax=ax)
+> > ax.set_xlabel("") # no label
+> > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.set_title(" Front Range flood event 2013")
+> > ~~~
+> > {: .language-python}
+> >
+> > ![Flood event plot](../fig/08_flood_event.png)
+> {: .solution}
+{: .challenge}
+
+### Saving matplotlib figures
+
+Once satisfied with the resulting plot, you can save the plot with the `.savefig(*args)` method from matplotlib:
+
+~~~
+fig.savefig("my_plot_name.png")    
+~~~
+{: .language-python}
+
+Which will save the `fig` created using Pandas/matplotlib as a png file with the name `my_plot_name`
+
+> ~~~
+>     Matplotlib recognizes the extension used in the filename and
+>     supports (on most computers) png, pdf, ps, eps and svg formats.
+> ~~~
+{: .callout}
+
+> ## Challenge - Saving figure to file
+> Check the documentation of the `savefig` method and check how 
+> you can comply to journals requiring figures as `pdf` file with
+> dpi >= 300.
+>
+> > ## Answers
+> >
+> > ~~~
+> > fig.savefig("my_plot_name.pdf", dpi=300)
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+{: .challenge}
+
 
 ## Make other types of plots:
 
-Matplotlib can make many other types of plots in much the same way that it makes
-2 dimensional line plots. Look through the examples in
-http://matplotlib.org/users/screenshots.html and try a few of them (click on the
+Matplotlib can make many other types of plots in much the same way that it makes two-dimensional line plots. Look through the examples in
+<http://matplotlib.org/users/screenshots.html> and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in ipython notebook or
 save as a text file with a `.py` extension and run in the command line).
 
 > ## Challenge - Final Plot
 > Display your data using one or more plot types from the example gallery. Which
 > ones to choose will depend on the content of your own data file. If you are
-> using the streamgage file, you could make a histogram of the number of days with
-> a given mean discharge, use bar plots to display daily discharge statistics, or
-> explore the different ways matplotlib can handle dates and times for figures.
+> using the streamgage file [`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt), you could make a 
+> histogram of the number of days with a given mean discharge, use bar plots 
+> to display daily discharge statistics, or explore the different ways matplotlib 
+> can handle dates and times for figures.
 {: .challenge}
 
 {% include links.md %}
