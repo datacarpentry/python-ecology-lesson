@@ -126,6 +126,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > %matplotlib inline
 > ~~~
 > {: .language-python}
+{: .callout}
 
 The returned object is a matplotlib object (check it yourself with `type(my_plot)`),
 to which we may make further adjustments and refinements using other matplotlib methods.
@@ -145,9 +146,9 @@ styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
-Matplotlib integrates nicely with the numpy package and can use numpy arrays
+Matplotlib integrates nicely with the Numpy package and can use Numpy arrays
 as input of the available plot functions. Consider the following example data,
-created with numpy:
+created with Numpy:
 
 ~~~
 import numpy
@@ -168,13 +169,13 @@ plt.plot(x, y, '-')
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
 > doing some of the labor of visualizing plots for you. But, not every one of your collaborators
-> will be using a Jupyter Notebook. The .show() command allows you to visualize plots
-> when working at the command line, with a script, or at the iPython interpreter. In the
+> will be using a Jupyter Notebook. The `.show()` command allows you to visualize plots
+> when working at the command line, with a script, or at the IPython interpreter. In the
 > previous example, adding  `plt.show()` after the creation of the plot will enable your
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
 
-or create a matplotlib `figure` and `axis` object first and add the plot later on:
+or create matplotlib `figure` and `axis` objects first and add the plot later on:
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
