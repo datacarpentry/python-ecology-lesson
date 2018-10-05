@@ -166,7 +166,7 @@ plt.hist(s)
 ~~~
 {: .language-python}
 
-![Line plot of y versus x](../fig/08_line_plot.png)
+![Line plot of y versus x](../fig/08-normal-distribution.png)
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
@@ -184,8 +184,6 @@ fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
 ax.hist(s, 30)
 ~~~
 {: .language-python}
-
-![Simple line plot](../fig/08_line_plot.png)
 
 Although the latter approach requires a little bit more code to create the same plot,
 the advantage is that it gives us **full control** over the plot and we can add new items
@@ -211,7 +209,7 @@ ax2.hist(beta_draws)
 ~~~
 {: .language-python}
 
-![Plot with additional axes](../fig/dualdistribution.png)
+![Plot with additional axes](../fig/08-dualdistribution.png)
 
 > ## Challenge - Drawing from distributions
 > Have a look at the Numpy
@@ -293,7 +291,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ~~~
 > > {: .language-python}
 > >
-> > ![Flood event plot](../fig/floodevent.png)
+> > ![Flood event plot](../fig/08-floodevent.png)
 > {: .solution}
 {: .challenge}
 
