@@ -148,7 +148,7 @@ styles and the source codes that create them.
 
 Matplotlib integrates nicely with the numpy package and can use numpy arrays
 as input of the available plot functions. Consider the following example data,
-created with Numpy:
+created with numpy by drawing samples from a normal distribution:
 
 ~~~
 import numpy
@@ -295,12 +295,12 @@ plt.show() # not necessary in Jupyter Notebooks
 > > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
                         (discharge["datetime"] < "2013-09-15")]
-> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
->
-> > ax2.legend().set_visible(False)
-> > ax2 = fig.add_axes([0.58, 0.575, 0.25, 0.3])
->
+>>
+> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
+>> flood.plot(x ="datetime", y="flow_rate", ax=ax)
 > > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
+> > ax2.legend().set_visible(False)
+
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
