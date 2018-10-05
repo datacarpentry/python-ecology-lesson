@@ -146,11 +146,7 @@ styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
-<<<<<<< HEAD
-Matplotlib integrates nicely with the Numpy package and can use Numpy arrays
-=======
 Matplotlib integrates nicely with the numpy package and can use numpy arrays
->>>>>>> editing plots made in 08
 as input of the available plot functions. Consider the following example data,
 created with Numpy:
 
@@ -175,13 +171,8 @@ plt.hist(s)
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
 > doing some of the labor of visualizing plots for you. But, not every one of your collaborators
-<<<<<<< HEAD
 > will be using a Jupyter Notebook. The `.show()` command allows you to visualize plots
 > when working at the command line, with a script, or at the IPython interpreter. In the
-=======
-> will be using a Jupyter Notebook. The .show() command allows you to visualize plots
-> when working at the command line, with a script, or at the iPython interpreter. In the
->>>>>>> editing plots made in 08
 > previous example, adding  `plt.show()` after the creation of the plot will enable your
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
@@ -277,20 +268,13 @@ plt.show() # not necessary in Jupyter Notebooks
 
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
-<<<<<<< HEAD
-> (September 9 through 15) and create a hydrograph (line plot) of the discharge data using
-> Pandas, linking it to an empty maptlotlib `ax` object. Adapt the title, x-axis and y-axis label
-> using matplotlib.
-=======
 > (September 11 through 15) and create a hydrograph (line plot) of the discharge data using
 > Pandas, linking it to an empty maptlotlib `ax` object. Create a second axis that is the
 > whole dataset. Adapt the title, x-axis and y-axis label using matplotlib.
->>>>>>> editing plots made in 08
 >
 > > ## Answers
 > >
 > > ~~~
-<<<<<<< HEAD
 > > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
 > >                         skiprows=27, delimiter="\t",
 > >                         names=["agency", "site_id", "datetime",
@@ -304,25 +288,23 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.set_title(" Front Range flood event 2013")
-=======
-> discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
->                        skiprows=27, delimiter="\t",
->                        names=["agency", "site_id", "datetime",
->                               "timezone", "flow_rate", "height"])
-> fig, ax = plt.subplots()
-> flood = discharge[(discharge["datetime"] >= "2013-09-11") &
+> > discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
+> >                       skiprows=27, delimiter="\t",
+> >                       names=["agency", "site_id", "datetime",
+> >                              "timezone", "flow_rate", "height"])
+> > fig, ax = plt.subplots()
+> > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
                         (discharge["datetime"] < "2013-09-15")]
-> flood.plot(x ="datetime", y="flow_rate", ax=ax)
+> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
 >
-> ax2.legend().set_visible(False)
-> ax2 = fig.add_axes([0.58, 0.575, 0.25, 0.3])
+> > ax2.legend().set_visible(False)
+> > ax2 = fig.add_axes([0.58, 0.575, 0.25, 0.3])
 >
-> discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
-> ax.set_xlabel("") # no label
-> ax.set_ylabel("Discharge, cubic feet per second")
-> ax.legend().set_visible(False)
-> ax.set_title(" Front Range flood event 2013")
->>>>>>> editing plots made in 08
+> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
+> > ax.set_xlabel("") # no label
+> > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.legend().set_visible(False)
+> > ax.set_title(" Front Range flood event 2013")
 > > ~~~
 > > {: .language-python}
 > >
