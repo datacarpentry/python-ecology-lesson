@@ -308,7 +308,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ~~~
 > > {: .language-python}
 > >
-> > ![Flood event plot](../fig/08-floodevent.png)
+> > ![Flood event plot](../fig/08_flood_event.png)
 > {: .solution}
 {: .challenge}
 
