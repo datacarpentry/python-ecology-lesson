@@ -5,6 +5,7 @@ root: .
 maintainers:
   - April Wright
   - Tania Allard
+  - Maxim Belkin
 ---
 
 **Lesson Maintainers:** {{ page.maintainers | join: ', ' }}
