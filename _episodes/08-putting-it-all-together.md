@@ -146,9 +146,9 @@ styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
-Matplotlib integrates nicely with the numpy package and can use numpy arrays
+Matplotlib integrates nicely with the NumPy package and can use NumPy arrays
 as input of the available plot functions. Consider the following example data,
-created with numpy by drawing samples from a normal distribution:
+created with NumPy by drawing samples from a normal distribution:
 
 ~~~
 import numpy
@@ -212,7 +212,7 @@ ax2.hist(beta_draws)
 ![Plot with additional axes](../fig/08-dualdistribution.png)
 
 > ## Challenge - Drawing from distributions
-> Have a look at the Numpy
+> Have a look at the NumPy 
 > random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
 > Choose a distribution you have no familiarity with, and try to sample from and visualize it.
 {: .challenge}
