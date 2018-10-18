@@ -267,7 +267,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
 > (September 11 through 15) and create a hydrograph (line plot) of the discharge data using
 > Pandas, linking it to an empty maptlotlib `ax` object. Create a second axis that is the
-> whole dataset. Adapt the title, x-axis and y-axis label using matplotlib.
+> whole dataset. Adapt the title and axes' labels using matplotlib.
 >
 > > ## Answers
 > >
