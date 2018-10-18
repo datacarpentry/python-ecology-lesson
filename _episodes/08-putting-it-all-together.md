@@ -218,9 +218,6 @@ ax2.hist(beta_draws)
 {: .challenge}
 
 
-
-
-
 ### Link matplotlib, Pandas and plotnine
 
 When we create a plot using pandas or plotnine, both libraries use matplotlib
@@ -342,7 +339,6 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
-
 
 ## Make other types of plots:
 
