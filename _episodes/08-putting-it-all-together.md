@@ -152,7 +152,7 @@ created with NumPy by drawing samples from a normal distribution:
 
 ~~~
 import numpy
-s = np.random.normal(mu, sigma, 1000)
+s = np.random.normal(0, 0.1, 1000)
 
 ~~~
 {: .language-python}
