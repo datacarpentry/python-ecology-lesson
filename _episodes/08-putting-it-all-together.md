@@ -158,7 +158,7 @@ s = numpy.random.normal(0, 0.1, 1000)
 ~~~
 {: .language-python}
 
-To make a histogram plot of our draws from the normal distribution, we can use the `hist` function.
+To make a histogram plot of our draws from the normal distribution, we can use the `hist` function directly:
 
 ~~~
 plt.hist(s)
