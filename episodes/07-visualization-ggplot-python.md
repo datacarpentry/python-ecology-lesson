@@ -293,7 +293,7 @@ group, a boxplot can be used:
 
 ![png](../fig/06_boxplot.png)
 
-By adding points of he individual observations to the boxplot, we can have a
+By adding points of the individual observations to the boxplot, we can have a
 better idea of the number of measurements and of their distribution:
 
 ~~~
@@ -452,7 +452,7 @@ arranged via formula notation (`rows ~ columns`; a `.` can be used as a
 placeholder that indicates only one row or column).
 
 ~~~
-# only selecte the years of interest
+# only select the years of interest
 survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 
 (p9.ggplot(data=survey_2000,
