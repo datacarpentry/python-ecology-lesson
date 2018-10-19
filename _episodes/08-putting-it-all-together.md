@@ -165,7 +165,7 @@ plt.hist(sample_data)
 ~~~
 {: .language-python}
 
-![Plot of samples from normal distribution](../fig/08-normal-distribution.png)
+![Histogram of 1000 samples from normal distribution](../fig/08-normal-distribution.png)
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
@@ -176,7 +176,7 @@ plt.hist(sample_data)
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
 
-or create matplotlib `figure` and `axis` objects first and subsequently add a histogram with 30 
+or create matplotlib `figure` and `axis` objects first and subsequently add a histogram with 30
 data bins:
 
 ~~~
@@ -187,7 +187,7 @@ ax.hist(sample_data, 30)
 
 Although the latter approach requires a little bit more code to create the same plot,
 the advantage is that it gives us **full control** over the plot and we can add new items
-such as labels, grid lines, title, and other visual elements. For example, we can add 
+such as labels, grid lines, title, and other visual elements. For example, we can add
 additional axes to the figure and customize their labels:
 
 ~~~
@@ -212,7 +212,7 @@ ax2.hist(beta_draws)
 ![Plot with additional axes](../fig/08-dualdistribution.png)
 
 > ## Challenge - Drawing from distributions
-> Have a look at the NumPy 
+> Have a look at the NumPy
 > random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
 > Choose a distribution you have no familiarity with, and try to sample from and visualize it.
 {: .challenge}
