@@ -147,7 +147,7 @@ styles and the source codes that create them.
 ### `plt` pyplot versus object-based matplotlib
 
 Matplotlib integrates nicely with the NumPy package and can use NumPy arrays
-as input of the available plot functions. Consider the following example data,
+as input to the available plot functions. Consider the following example data,
 created with NumPy by drawing 1000 samples from a normal distribution with a mean value of 0 and
 a standard deviation of 0.1:
 
