@@ -153,7 +153,7 @@ a standard deviation of 0.1:
 
 ~~~
 import numpy
-s = numpy.random.normal(0, 0.1, 1000)
+sample_data = numpy.random.normal(0, 0.1, 1000)
 
 ~~~
 {: .language-python}
@@ -161,7 +161,7 @@ s = numpy.random.normal(0, 0.1, 1000)
 To make a histogram plot of our draws from the normal distribution, we can use the `hist` function directly:
 
 ~~~
-plt.hist(s)
+plt.hist(ssample_data)
 ~~~
 {: .language-python}
 
@@ -181,18 +181,18 @@ data bins:
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
-ax.hist(s, 30)
+ax.hist(sample_data, 30)
 ~~~
 {: .language-python}
 
 Although the latter approach requires a little bit more code to create the same plot,
 the advantage is that it gives us **full control** over the plot and we can add new items
-such as labels, grid lines, title, etc.. For example, we can add additional axes to
-the figure and customize their labels:
+such as labels, grid lines, title, and other visual elements. For example, we can add 
+additional axes to the figure and customize their labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
-ax1.hist(s, 30)
+ax1.hist(sample_data, 30)
 
 # Add a plot of a Beta distribution
 a = 5
