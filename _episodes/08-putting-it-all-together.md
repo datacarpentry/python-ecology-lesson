@@ -165,7 +165,7 @@ plt.hist(sample_data)
 ~~~
 {: .language-python}
 
-![Line plot of y versus x](../fig/08-normal-distribution.png)
+![Plot of samples from normal distribution](../fig/08-normal-distribution.png)
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
