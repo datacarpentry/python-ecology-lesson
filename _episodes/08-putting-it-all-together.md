@@ -148,11 +148,12 @@ styles and the source codes that create them.
 
 Matplotlib integrates nicely with the NumPy package and can use NumPy arrays
 as input of the available plot functions. Consider the following example data,
-created with NumPy by drawing samples from a normal distribution:
+created with NumPy by drawing 1000 samples from a normal distribution with mean 0 and
+standard deviation 0.1:
 
 ~~~
 import numpy
-s = np.random.normal(0, 0.1, 1000)
+s = numpy.random.normal(0, 0.1, 1000)
 
 ~~~
 {: .language-python}
@@ -176,7 +177,8 @@ plt.hist(s)
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
 
-or create matplotlib `figure` and `axis` objects first and add the plot later on:
+or create matplotlib `figure` and `axis` objects first and subsequently add a histogram with 30 
+data bins:
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
@@ -265,7 +267,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
 > (September 11 through 15) and create a hydrograph (line plot) of the discharge data using
-> Pandas, linking it to an empty maptlotlib `ax` object. Create a second axis that is the
+> Pandas, linking it to an empty maptlotlib `ax` object. Create a second axis that displays the
 > whole dataset. Adapt the title and axes' labels using matplotlib.
 >
 > > ## Answers
