@@ -146,25 +146,26 @@ styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
-Matplotlib integrates nicely with the Numpy package and can use Numpy arrays
-as input of the available plot functions. Consider the following example data,
-created with Numpy:
+Matplotlib integrates nicely with the NumPy package and can use NumPy arrays
+as input to the available plot functions. Consider the following example data,
+created with NumPy by drawing 1000 samples from a normal distribution with a mean value of 0 and
+a standard deviation of 0.1:
 
 ~~~
 import numpy
-x = numpy.linspace(0, 5, 10)
-y = x ** 2
+sample_data = numpy.random.normal(0, 0.1, 1000)
+
 ~~~
 {: .language-python}
 
-To make a scatter plot of `x` and `y`, we can use the `plot` command directly:
+To plot a histogram of our draws from the normal distribution, we can use the `hist` function directly:
 
 ~~~
-plt.plot(x, y, '-')
+plt.hist(sample_data)
 ~~~
 {: .language-python}
 
-![Line plot of y versus x](../fig/08_line_plot.png)
+![Histogram of 1000 samples from normal distribution](../fig/08-normal-distribution.png)
 
 > ## Tip: Cross-Platform Visualization of Figures
 > Jupyter Notebooks make many aspects of data analysis and visualization much simpler. This includes
@@ -175,36 +176,47 @@ plt.plot(x, y, '-')
 > colleagues who aren't using a Jupyter notebook to reproduce your work on their platform.
 {: .callout}
 
-or create matplotlib `figure` and `axis` objects first and add the plot later on:
+or create matplotlib `figure` and `axis` objects first and subsequently add a histogram with 30
+data bins:
 
 ~~~
 fig, ax = plt.subplots()  # initiate an empty figure and axis matplotlib object
-ax.plot(x, y, '-')
+ax.hist(sample_data, 30)
 ~~~
 {: .language-python}
-
-![Simple line plot](../fig/08_line_plot.png)
 
 Although the latter approach requires a little bit more code to create the same plot,
 the advantage is that it gives us **full control** over the plot and we can add new items
-such as labels, grid lines, title, etc.. For example, we can add additional axes to
-the figure and customize their labels:
+such as labels, grid lines, title, and other visual elements. For example, we can add
+additional axes to the figure and customize their labels:
 
 ~~~
 fig, ax1 = plt.subplots() # prepare a matplotlib figure
-ax1.plot(x, y, '-')
+ax1.hist(sample_data, 30)
 
+# Add a plot of a Beta distribution
+a = 5
+b = 10
+beta_draws = np.random.beta(a, b)
 # adapt the labels
-ax1.set_ylabel('y')
-ax1.set_xlabel('x')
+ax1.set_ylabel('density')
+ax1.set_xlabel('value')
 
 # add additional axes to the figure
-ax2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
-ax2.plot(x, y*2, 'r-')
+ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
+#ax2 = fig.add_axes([left, bottom, right, top])
+ax2.hist(beta_draws)
 ~~~
 {: .language-python}
 
-![Plot with additional axes](../fig/08_line_plot_inset.png)
+![Plot with additional axes](../fig/08-dualdistribution.png)
+
+> ## Challenge - Drawing from distributions
+> Have a look at the NumPy
+> random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
+> Choose a distribution you have no familiarity with, and try to sample from and visualize it.
+{: .challenge}
+
 
 ### Link matplotlib, Pandas and plotnine
 
@@ -253,9 +265,9 @@ plt.show() # not necessary in Jupyter Notebooks
 
 > ## Challenge - Pandas and matplotlib
 > Load the streamgage data set with Pandas, subset the week of the 2013 Front Range flood
-> (September 9 through 15) and create a hydrograph (line plot) of the discharge data using
-> Pandas, linking it to an empty maptlotlib `ax` object. Adapt the title, x-axis and y-axis label
-> using matplotlib.
+> (September 11 through 15) and create a hydrograph (line plot) of the discharge data using
+> Pandas, linking it to an empty maptlotlib `ax` object. Create a second axis that displays the
+> whole dataset. Adapt the title and axes' labels using matplotlib.
 >
 > > ## Answers
 > >
@@ -272,6 +284,23 @@ plt.show() # not necessary in Jupyter Notebooks
 > > front_range.plot(x ="datetime", y="discharge", ax=ax)
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.set_title(" Front Range flood event 2013")
+> > discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
+> >                       skiprows=27, delimiter="\t",
+> >                       names=["agency", "site_id", "datetime",
+> >                              "timezone", "flow_rate", "height"])
+> > fig, ax = plt.subplots()
+> > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
+                        (discharge["datetime"] < "2013-09-15")]
+>>
+> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
+>> flood.plot(x ="datetime", y="flow_rate", ax=ax)
+> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
+> > ax2.legend().set_visible(False)
+
+> > ax.set_xlabel("") # no label
+> > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.legend().set_visible(False)
 > > ax.set_title(" Front Range flood event 2013")
 > > ~~~
 > > {: .language-python}
@@ -310,7 +339,6 @@ Which will save the `fig` created using Pandas/matplotlib as a png file with the
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
-
 
 ## Make other types of plots:
 
