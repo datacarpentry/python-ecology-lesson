@@ -1,12 +1,12 @@
 ---
-title: Making Plots With ggplot
+title: Making Plots With plotnine
 teaching: 40
 exercises: 50
 questions:
     - "How can I visualize data in Python?"
     - "What is 'grammar of graphics'?"
 objectives:
-    - "Create a plotnine object."
+    - "Create a `plotnine` object."
     - "Set universal plot settings."
     - "Modify an existing plotnine object."
     - "Change the aesthetics of a plot such as color."
