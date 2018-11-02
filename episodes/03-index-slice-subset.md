@@ -16,8 +16,8 @@ objectives:
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
-    - "Data can be subset using column headings, numeric ranges , operators, or specific index locations."
-    - "Python uses 0-based indexing."
+    - "Data can be subset using column headings, numeric ranges, operators, or specific index locations."
+    - "Python uses 0-based indexing, in which the first element in a list, tuple or any other data structure has an index of 0."
     - "Data indexing, slicing and subsetting are common steps in data wrangling and exploration."
     
 ---
