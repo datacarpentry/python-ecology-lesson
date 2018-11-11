@@ -11,7 +11,7 @@ objectives:
   - "Demonstrate how to provide sufficient information for troubleshooting with the Python user community."
 keypoints:
   - "Python is an open source and platform independent programming language"
-  - "SciPy ecosystem for Python provides the tools necessary for scientific computing"
+  - "SciPy is an ecosystem for Python provides the tools necessary for scientific computing"
   - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with Python with its large community it is easy to find help in the internet"
 ---
 
