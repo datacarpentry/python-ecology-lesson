@@ -4,11 +4,11 @@ title: Setup
 ---
 
 > ## Data
-> Data for this lesson is from the Portal Project Teaching Database -
+> Data for this lesson are from the Portal Project Teaching Database -
 > [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 >
 > We will use the six files listed below for the data in this lesson.
-> Download these files to your computer either by clicking
+> Download these files to your computer by clicking
 > [this link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/weecology/portal-teachingdb),
 > which will give you everything in a single compressed file.
 > You'll need to unzip this file after downloading it.
@@ -27,26 +27,27 @@ title: Setup
 
 > ## Software
 > [Python](http://python.org) is a popular language for
-> scientific computing, and great for general-purpose programming as
+> scientific computing and is great for general-purpose programming as
 > well.  Installing all of its scientific packages individually can be
 > a bit difficult, so we recommend an all-in-one installer.
 >
 > For this workshop we use Python version 3.x.
 >
-> ### Required Python Packages for this workshop
+> ### Required Python packages for this workshop
 >
 > * [Pandas](http://pandas.pydata.org/)
-> * [Jupyter notebook](http://jupyter.org/)
+> * [Jupyter Notebook](http://jupyter.org/)
 > * [Numpy](http://www.numpy.org/)
 > * [Matplotlib](http://matplotlib.org/)
+> * [plotnine](https://github.com/has2k1/plotnine)
 {: .prereq}
 
-## Install the workshop packages
+## Software installation
 
-For installing these packages we will use Anaconda or Miniconda.
-They both use [Conda](http://conda.pydata.org/docs/), the main difference is
-that Anaconda comes with a lot of packages pre-installed.
-With Miniconda you will need to install the required packages.
+We will use either Anaconda or Miniconda to install Python and the required packages.
+They both use [Conda](http://conda.pydata.org/docs/), but
+Anaconda comes with Pandas, Jupyter, Numpy and Matplotlib pre-installed while
+Miniconda does not.
 
 ### Anaconda installation
 
@@ -57,10 +58,10 @@ Anaconda will install the workshop packages for you.
 Download and install [Anaconda](https://www.continuum.io/downloads).
 Remember to download and install the installer for Python 3.x.
 
-#### Download plotting package
+#### Download the plotting package
 
-The plotting package plotnine is not installed by default.  From the terminal,
-type:
+The plotting package `plotnine` is not installed by default.  
+To install it from the terminal, type:
 
 ~~~
 conda install -c conda-forge plotnine
@@ -69,7 +70,8 @@ conda install -c conda-forge plotnine
 
 ### Miniconda installation
 
-Miniconda is a "light" version of Anaconda. If you install and use Miniconda
+Miniconda is a "light" version of Anaconda. 
+If you install and use Miniconda,
 you will also need to install the workshop packages.
 
 #### Download and install Miniconda
@@ -80,16 +82,16 @@ Python 3.x.
 
 #### Check the installation of Miniconda
 
-From the terminal, type:
+In the terminal, type:
 
 ~~~
 conda list
 ~~~
 {: .language-bash}
 
-### Install the required workshop packages with conda
+### Install the required workshop packages with Conda
 
-From the terminal, type:
+In the terminal, type:
 
 ~~~
 conda install -y numpy pandas matplotlib jupyter
@@ -97,18 +99,18 @@ conda install -c conda-forge plotnine
 ~~~
 {: .language-bash}
 
-## Launch a Jupyter notebook
+## Launch a Jupyter Notebook
 
-After installing either Anaconda or Miniconda and the workshop packages,
-launch a Jupyter notebook by typing this command from the terminal:
+After installing Python and the required packages,
+launch a Jupyter Notebook by typing this command in the terminal:
 
 ~~~
 jupyter notebook
 ~~~
 {: .language-bash}
 
-The notebook should open automatically in your browser. If it does not or you
+A Jupyter Notebook notebook should open automatically in your browser. If it does not, or you
 wish to use a different browser, open this link: <http://localhost:8888>.
 
-For a bried introduction to Jupyter Notebooks, please consult with our
+For a brief introduction to Jupyter Notebooks, please consult with our
 [Introduction to Jupyter Notebooks](jupyter_notebooks) page.
