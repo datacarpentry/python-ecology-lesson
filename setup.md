@@ -70,7 +70,7 @@ conda install -c conda-forge plotnine
 
 ### Miniconda installation
 
-Miniconda is a "light" version of Anaconda. 
+Miniconda is a "lightweight" version of Anaconda. 
 If you install and use Miniconda,
 you will also need to install the workshop packages.
 
