@@ -19,7 +19,7 @@ keypoints:
     - Each column in a DataFrame has a shared data type for all rows
     - Any data type can be converted to another type
     - Null values can be discarded or changed 
-    - A DataFrame can be saved to a CSV file
+    - "A DataFrame can be saved to a CSV file using `pd.read_csv`"
 ---
 
 The format of individual columns and rows will impact analysis performed on a
