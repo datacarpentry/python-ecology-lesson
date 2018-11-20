@@ -20,7 +20,6 @@ keypoints:
     - Any data type can be converted to another type
     - Null values can be discarded or changed 
     - A DataFrame can be saved to a CSV file
-    
 ---
 
 The format of individual columns and rows will impact analysis performed on a
