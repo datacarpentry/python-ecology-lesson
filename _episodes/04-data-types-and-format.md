@@ -18,7 +18,7 @@ keypoints:
     - Python uses two main data types text and numeric, these have a different names in basic Python and Pandas
     - Each column in a DataFrame has a shared data type for all rows
     - Any data type can be converted to another type
-    - Null values can be discarded or changed 
+    - "Make conscious decisions about how to manage missing data"
     - "A DataFrame can be saved to a CSV file using `pd.read_csv`"
 ---
 
