@@ -15,7 +15,7 @@ objectives:
     - "Analyze datasets having missing/null values (NaN values)."
     - "Write manipulated data to a file."
 keypoints:
-    - Python uses two main data types text and numeric, these have a different name in basic Python and Pandas
+    - Python uses two main data types text and numeric, these have a different names in basic Python and Pandas
     - Each column in a DataFrame has a shared data type for all rows
     - You can convert any data type to another type
     - You can discard or change null values
