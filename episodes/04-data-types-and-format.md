@@ -19,7 +19,7 @@ keypoints:
     - Each column in a DataFrame has a shared data type for all rows
     - Any data type can be converted to another type
     - Null values can be discarded or changed 
-    - After manipulating a DataFrame you can save it in a CSV file
+    - A DataFrame can be saved as a CSV file
     
 ---
 
