@@ -18,7 +18,7 @@ keypoints:
     - "Pandas uses other names for data types than Python, for example: “object" for textual data."
     - "A column in a DataFrame can only have one data type."
     - "The data type in a DataFrame’s single column can be checked using `dtype`."
-    - "Make conscious decisions about how to manage missing data"
+    - "Make conscious decisions about how to manage missing data."
     - "A DataFrame can be saved to a CSV file using `pd.read_csv`"
 ---
 
