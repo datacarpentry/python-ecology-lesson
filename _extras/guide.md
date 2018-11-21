@@ -27,7 +27,7 @@ python check_env.py
 If learners receive an `AssertionError`, it will inform you how to help them correct this
 installation. Otherwise, it will tell you that the system is good to go and ready for Data Carpentry!
 
-## 00-short-introduction-to-Python
+## 01-short-introduction-to-Python
 
 ### Tuples Challenges
 
@@ -596,7 +596,7 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 ~~~
 {: .language-python}
 
-## 07-plotting-with-ggplot
+## 07-visualization-ggplot-python
 
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
