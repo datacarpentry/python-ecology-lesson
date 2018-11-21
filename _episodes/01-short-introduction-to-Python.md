@@ -450,7 +450,7 @@ for key in rev.keys():
 > ## Changing dictionaries
 >
 > 1. First, print the value of the `rev` dictionary to the screen.
-> 2. Reassign the second value (in the *key value pair*) so that it no longer
+> 2. Reassign the value that corresponds to the key "2" so that it no longer
 >    reads "two" but instead "apple-sauce".
 > 3. Print the value of `rev` to the screen again to see if the value has changed.
 >
