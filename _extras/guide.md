@@ -31,11 +31,12 @@ installation. Otherwise, it will tell you that the system is good to go and read
 
 ### Tuples Challenges
 
-* What happens when you type `a_tuple[2] = 5` vs `a_list[1] = 5`?
+* What happens when you execute `a_list[1] = 5`?
+* What happens when you execute `a_tuple[2] = 5`?
 
 	As a tuple is immutable, it does not support item assignment. Elements in a list can be altered individually.
 
-* Type `type(a_tuple)` into the Python interpreter - what is the object type?
+* What does `type(a_tuple)` tell you about `a_tuple`?
 
 	`tuple`
 
