@@ -401,7 +401,7 @@ surveys_df[(surveys_df.year >= 1980) & (surveys_df.year <= 1985)]
 
 ### Python Syntax Cheat Sheet
 
-Use can use the syntax below when querying data by criteria from a DataFrame.
+We can use the syntax below when querying data by criteria from a DataFrame.
 Experiment with selecting various subsets of the "surveys" data.
 
 * Equals: `==`
