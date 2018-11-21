@@ -6,8 +6,7 @@ permalink: /guide/
 
 # Challenge solutions
 
-## Install the required workshop packages on Mac OS with Homebrew
-
+## Install the required workshop packages
 
 Please use the instructions in the [Setup](https://datacarpentry.org/python-ecology-lesson/setup.html) document to perform installs. If you encounter setup issues, please file an issue with the tags 'High-priority'.
 
