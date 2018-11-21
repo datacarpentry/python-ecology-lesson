@@ -16,7 +16,7 @@ objectives:
     - "Write manipulated data to a file."
 keypoints:
     - "Pandas uses other names for data types than Python, for example: “object" for textual data."
-    - "Each column in a DataFrame has a shared data type for all rows"
+    - "A column in a DataFrame can only have one data type."
     - "The type of one column in a DataFrame can be checked using `dataFrameName[column_name].dtype`"
     - "Make conscious decisions about how to manage missing data"
     - "A DataFrame can be saved to a CSV file using `pd.read_csv`"
