@@ -459,7 +459,7 @@ x == 5
 {: .language-python}
 
 When we ask Python what the value of `x > 5` is, we get `False`. This is
-because the condition, `x` is not greater than 5, is not met since `x` is equal
+because the condition, `x` is greater than 5, is not met since `x` is equal
 to 5.
 
 To create a boolean mask:
