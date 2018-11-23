@@ -407,7 +407,7 @@ The pandas `merge` function supports two other join types:
 
 > ## Challenge - Diversity Index
 >
-> 1. In the data folder, there is a plot `CSV` that contains information about the
+> 1. In the data folder, there is a `plots.csv` file that contains information about the
 >    type associated with each plot. Use that data to summarize the number of
 >    plots by plot type.
 > 2. Calculate a diversity index of your choice for control vs rodent exclosure
