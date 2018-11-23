@@ -489,9 +489,6 @@ def one_year_csv_writer(this_year, all_data, folder_to_save, root_name):
 {: .language-python}
 Also adapt function `yearly_data_csv_writer` with the additional inputs.
 
-### Additional Functions Challenges
-
-
 * How could you use the function `yearly_data_csv_writer` to create a csv file for only one year? (Hint: think about the syntax for `range`)
 
 Adapt the input arguments, e.g. 1978, 1979.
