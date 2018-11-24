@@ -164,9 +164,9 @@ Tip: use `.head()` method throughout this lesson to keep your display neater for
 
 * What happens when you type:
 
-	`surveys_df[0:3]`
-	`surveys_df[:5]` slicing from first element makes 0 redundant
-	`surveys_df[-1:]` you can count backwards
+	`surveys_df[0:3]`  
+	`surveys_df[:5]` slicing from first element makes 0 redundant  
+	`surveys_df[-1:]` you can count backwards  
 
 	*Suggestion*: You can also select every Nth row: `surveys_df[1:10:2]`. So, how to interpret `surveys_df[::-1]`?
 
