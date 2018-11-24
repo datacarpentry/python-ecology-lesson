@@ -533,6 +533,8 @@ yearly_data_arg_test(surveys_df, end_year=2001)
 ~~~
 {: .language-python}
 
+### Functions Modifications Challenges
+
 * Rewrite the `one_year_csv_writer` and `yearly_data_csv_writer` functions to have keyword arguments with default values.
 
 ~~~
