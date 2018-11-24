@@ -251,7 +251,7 @@ Pandas cannot convert types from float to int if the column contains NaN values.
 
 ### Challenge - Counting
 
-* Count the number of missing values per column. Hint: The method .count() gives you the number of non-NA observations per column. Try looking to the .isnull() method.
+* Count the number of missing values per column. Hint: The method `.count()` gives you the number of non-NA observations per column. Try looking to the `.isnull()` method.
 
 ~~~
 surveys_df.isnull()
