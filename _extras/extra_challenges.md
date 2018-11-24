@@ -1,7 +1,7 @@
 ---   
 layout: page                                                                                            
-title: "Additional Exercises"                                                                           
-permalink: /extra_exercises/                                                                            
+title: "Extra Challenges"                                                                           
+permalink: /extra_challenges/                                                                            
 ---                                                                                                     
 
 # Extra Challenges
