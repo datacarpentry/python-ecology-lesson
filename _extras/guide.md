@@ -224,7 +224,7 @@ stack_selection.plot(kind='bar', stacked=True)
 ~~~
 {: .language-python}
 
-*Suggestion*: As we now the other values are all Nan values, we could also select all not null values (just preview, more on this in next lesson):
+*Suggestion*: As we know the other values are all Nan values, we could also select all not null values (just preview, more on this in next lesson):
 ~~~
 stack_selection = surveys_df[(surveys_df['sex'].notnull()) &
 					surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
