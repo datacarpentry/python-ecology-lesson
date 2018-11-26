@@ -458,9 +458,9 @@ x == 5
 ~~~
 {: .language-python}
 
-When we ask Python what the value of `x > 5` is, we get `False`. This is
-because the condition, `x` is greater than 5, is not met since `x` is equal
-to 5.
+When we ask Python whether `x` is greater than 5, it returns `False`. 
+This is Python's way to say "No". Indeed, the value of `x` is 5, 
+and 5 is not greater than 5.
 
 To create a boolean mask:
 
