@@ -12,11 +12,11 @@ Please use the instructions in the [Setup](https://datacarpentry.org/python-ecol
 
 ## Checking installations.
 
-In the include/scripts directory, you will find a script called check_env.py This checks the functionality of the Anaconda install.
+In the `_include/scripts` directory, you will find a script called check_env.py This checks the functionality of the Anaconda install.
 
 By default, Data Carpentry does not have people pull the whole repository with all the scripts and addenda. Therefore,
 you, as the instructor, get to decide how you'd like to provide this script to learners, if at all.
-To use this, students can navigate into includes/scripts terminal, and execute the following:
+To use this, students can navigate into `_includes/scripts` terminal, and execute the following:
 
 ~~~
 python check_env.py
