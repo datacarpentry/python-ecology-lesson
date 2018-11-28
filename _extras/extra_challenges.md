@@ -25,7 +25,7 @@ A collection of challenges that have been either removed from or not (yet) added
 > start_year = 1977
 > end_year = 2002
 > for year in range(start_year, end_year+1):
->     print(str(year))
+>     print(year)
 > ~~~
 > {: .language-python}
 >
