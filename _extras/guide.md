@@ -41,9 +41,9 @@ installation. Otherwise, it will tell you that the system is good to go and read
 
 ### Dictionaries Challenges
 
-* Changing dictionaries: 2. Reassign the second value.
+* Changing dictionaries: 2. Reassign the value that corresponds to the key `2`.
 
-Make sure it is also clear that access to 'the second value' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
+Make sure it is also clear that access to 'the value that corresponds to the key `2`' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
 
 ~~~
 rev
