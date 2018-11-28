@@ -258,7 +258,7 @@ surveys_df.isnull()
 ~~~
 {: .language-python}
 
-If the students have trouble generating the output, or anything happens with that, there is a file called "sample output" that contains the data file they should generate.
+If the students have trouble generating the output, or anything happens with that, the folder `sample_output` in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
 
