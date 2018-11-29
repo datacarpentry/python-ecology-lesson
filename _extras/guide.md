@@ -40,12 +40,19 @@ installation. Otherwise, it will tell you that the system is good to go and read
 	`tuple`
 
 ### Dictionaries Challenges
-* Can you do reassignment in a dictionary? Give it a try.
 
-Make sure it is also clear that access to 'the second value' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
+* Changing dictionaries: 2. Reassign the value that corresponds to the key `2`.
 
-* You should see the following output:
-`{1: 'one', 2: 'two', 3: 'three'}`
+Make sure it is also clear that access to 'the value that corresponds to the key `2`' is actually just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
+
+~~~
+rev
+~~~
+{: .language-python}
+~~~
+{1: 'one', 2: 'two', 3: 'three'}
+~~~
+{: .output}
 
 ~~~
 rev[2] = "apple-sauce"
@@ -55,7 +62,7 @@ rev[2] = "apple-sauce"
 ~~~
 {1: 'one', 2: 'apple-sauce', 3: 'three'}
 ~~~
-{: .language-python}
+{: .output}
 
 ## 02-starting-with-data
 
