@@ -59,9 +59,11 @@ rev[2] = "apple-sauce"
 
 ## 02-starting-with-data
 
-###Bug Note:
-
-Pandas < .18.1 has a bug where surveys_df['weight'].describe() may return a runtime error.
+> ## Important Bug Note
+>
+> In Pandas prior to 0.18.1 there is a bug causing `surveys_df['weight'].describe()` to return
+> a runtime error.
+{: .callout}
 
 ### Dataframe Challenges
 
