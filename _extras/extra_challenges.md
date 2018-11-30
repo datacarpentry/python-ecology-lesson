@@ -30,7 +30,7 @@ A collection of challenges that have been either removed from or not (yet) added
 > {: .language-python}
 >
 > What happens if there is no data for a year in a sequence? For example,
-> imagine we used `1976` as the start year in `range`
+> imagine we used `1976` as the year in `surveys_df[surveys_df.year == year]`
 >
 > > ## Solution
 > > An empty file with only the headers  
