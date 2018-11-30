@@ -245,7 +245,9 @@ stack_selection.columns = stack_selection.columns.droplevel()
 
 ### Challenge - Changing Types
 
-* Try converting the column `plot_id` to floats using `surveys_df.plot_id.astype("float")`. Then, try converting the contents of the `weight` column to an integer type. What error message does Pandas give you? What does this error mean?
+* Try converting the column `plot_id` to floats using `surveys_df.plot_id.astype("float")`. 
+Then, try converting the contents of the `weight` column to an integer type. 
+What error messages does Pandas give you? What do these errors mean?
 
 Pandas cannot convert types from float to int if the column contains NaN values.
 
