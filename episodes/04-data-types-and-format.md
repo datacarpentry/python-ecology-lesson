@@ -15,7 +15,7 @@ objectives:
     - "Analyze datasets having missing/null values (NaN values)."
     - "Write manipulated data to a file."
 keypoints:
-    - "Pandas uses other names for data types than Python, for example: “object" for textual data."
+    - "Pandas uses other names for data types than Python, for example: `object` for textual data."
     - "A column in a DataFrame can only have one data type."
     - "The data type in a DataFrame’s single column can be checked using `dtype`."
     - "Make conscious decisions about how to manage missing data."
