@@ -19,7 +19,7 @@ keypoints:
     - "A column in a DataFrame can only have one data type."
     - "The data type in a DataFrame’s single column can be checked using `dtype`."
     - "Make conscious decisions about how to manage missing data."
-    - "A DataFrame can be saved to a CSV file using `pandas.to_csv`."
+    - "A DataFrame can be saved to a CSV file using the `to_csv` function."
 ---
 
 The format of individual columns and rows will impact analysis performed on a
