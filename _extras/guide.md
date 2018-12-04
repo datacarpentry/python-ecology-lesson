@@ -255,13 +255,22 @@ stack_selection.columns = stack_selection.columns.droplevel()
 
 ### Challenge - Changing Types
 
+* Try converting the column `plot_id` to floats using `surveys_df.plot_id.astype("float")`. 
+Then, try converting the contents of the `weight` column to an integer type. 
+What error messages does Pandas give you? What do these errors mean?
+
 Pandas cannot convert types from float to int if the column contains NaN values.
 
 ### Challenge - Counting
-surveys_df.isnull()
 
-If the students have trouble generating the output, or anything happens with that, there is a file
-called "sample output" that contains the data file they should generate.
+* Count the number of missing values per column. Hint: The method `.count()` gives you the number of non-NA observations per column. Try looking to the `.isnull()` method.
+
+~~~
+surveys_df.isnull()
+~~~
+{: .language-python}
+
+If the students have trouble generating the output, or anything happens with that, the folder `sample_output` in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
 
