@@ -440,13 +440,6 @@ surveys_year = surveys_df[surveys_df.year == year].dropna()
 ~~~
 {: .language-python}
 
-* What happens if there is no data for a year in the sequence (for example, imagine we had used 1976 as the start year in `range`)
-
-~~~
-An empty file with only the headers
-~~~
-{: .output}
-
 * Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 
 You could just make a list manually, however, why not check the first and last year making use of the code itself?
