@@ -12,25 +12,27 @@ objectives:
     - "Employ label and integer-based indexing to select ranges of data in a dataframe."
     - "Reassign values within subsets of a DataFrame."
     - "Create a copy of a DataFrame."
-    - "Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=."
+    - "Query / select a subset of data using a set of criteria using the following operators:
+       `=`, `!=`, `>`, `<`, `>=`, `<=`."
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
-    - "In Python, portions of data can be accessed using indices, slices, column headings, and condition-based subsetting."
-    - "Python uses 0-based indexing, in which the first element in a list, tuple or any other data structure has an index of 0."
-    - "Pandas enables common data exploration steps such as data indexing, slicing and conditional subsetting."
-    
+    - "In Python, portions of data can be accessed using indices, slices, column headings, and
+       condition-based subsetting."
+    - "Python uses 0-based indexing, in which the first element in a list, tuple or any other data
+       structure has an index of 0."
+    - "Pandas enables common data exploration steps such as data indexing, slicing and conditional
+       subsetting."
 ---
 
-In lesson 01, we read a CSV into a Python pandas DataFrame.  We learned:
+In the first episode of this lesson, we read a CSV file into a pandas' DataFrame. We learned how to:
 
-- how to save the DataFrame to a named object,
-- how to perform basic math on the data,
-- how to calculate summary statistics, and
-- how to create plots of the data.
+- save a DataFrame to a named object,
+- perform basic math on data,
+- calculate summary statistics, and
+- create plots based on the data we loaded into pandas.
 
-In this lesson, we will explore **ways to access different parts of the data**
-using:
+In this lesson, we will explore ways to access different parts of the data using:
 
 - indexing,
 - slicing, and
@@ -39,7 +41,7 @@ using:
 ## Loading our data
 
 We will continue to use the surveys dataset that we worked with in the last
-lesson. Let's reopen and read in the data again:
+episode. Let's reopen and read in the data again:
 
 ~~~
 # Make sure pandas is loaded
@@ -100,11 +102,15 @@ surveys_df['speciess']
 ~~~
 {: .language-python}
 
-Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related Python data type dictionary).
+Python tells us what type of error it is in the traceback, at the bottom it says
+`KeyError: 'speciess'` which means that `speciess` is not a valid column name (nor a valid key in
+the related Python data type dictionary).
 
 ## Extracting Range based Subsets: Slicing
 
-**REMINDER**: Python Uses 0-based Indexing
+> ## Reminder
+> Python uses 0-based indexing.
+{: .callout}
 
 Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
@@ -458,8 +464,8 @@ x == 5
 ~~~
 {: .language-python}
 
-When we ask Python whether `x` is greater than 5, it returns `False`. 
-This is Python's way to say "No". Indeed, the value of `x` is 5, 
+When we ask Python whether `x` is greater than 5, it returns `False`.
+This is Python's way to say "No". Indeed, the value of `x` is 5,
 and 5 is not greater than 5.
 
 To create a boolean mask:
