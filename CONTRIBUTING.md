@@ -46,8 +46,8 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/swcarpentry/FIXME>,
-    which can be viewed at <https://swcarpentry.github.io/FIXME>.
+    please work in <https://github.com/datacarpentry/python-ecology-lesson>,
+    which can be viewed at <https://datacarpentry.github.io/python-ecology-lesson>.
 
 2.  If you wish to change the example lesson,
     please work in <https://github.com/carpentries/lesson-example>,
@@ -73,7 +73,7 @@ and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
 If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues], 
+or you may also look at the issues for [Data Carpentry][dc-issues],
 [Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:
