@@ -292,9 +292,9 @@ plt.show() # not necessary in Jupyter Notebooks
 > > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
                         (discharge["datetime"] < "2013-09-15")]
->>
+> >
 > > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
->> flood.plot(x ="datetime", y="flow_rate", ax=ax)
+> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
 > > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
 > > ax2.legend().set_visible(False)
 
@@ -357,4 +357,3 @@ save as a text file with a `.py` extension and run in the command line).
 {: .challenge}
 
 {% include links.md %}
-
