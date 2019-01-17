@@ -321,8 +321,8 @@ which will save the `fig` created using Pandas/matplotlib as a png file with the
 
 > ## Tip: Saving figures in different formats
 > ~~~
->     Matplotlib recognizes the extension used in the filename and
->     supports (on most computers) png, pdf, ps, eps and svg formats.
+> Matplotlib recognizes the extension used in the filename and
+> supports (on most computers) png, pdf, ps, eps and svg formats.
 > ~~~
 {: .callout}
 
