@@ -320,10 +320,8 @@ fig.savefig("my_plot_name.png")
 which will save the `fig` created using Pandas/matplotlib as a png file with the name `my_plot_name`
 
 > ## Tip: Saving figures in different formats
-> ~~~
 > Matplotlib recognizes the extension used in the filename and
 > supports (on most computers) png, pdf, ps, eps and svg formats.
-> ~~~
 {: .callout}
 
 > ## Challenge - Saving figure to file
