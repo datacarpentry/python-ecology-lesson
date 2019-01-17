@@ -297,7 +297,6 @@ plt.show() # not necessary in Jupyter Notebooks
 > > flood.plot(x ="datetime", y="flow_rate", ax=ax)
 > > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
 > > ax2.legend().set_visible(False)
-
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
