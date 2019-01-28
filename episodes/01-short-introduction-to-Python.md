@@ -11,7 +11,10 @@ objectives:
     - "Perform mathematical operations in Python using basic operators."
     - "Define the following as it relates to Python: lists, tuples, and dictionaries."
 keypoints:
-    - "FIXME"
+    - "Python is an interpreted language which can be used interactively (executing one command at a time) or in scripting mode (executing a series of commands saved in file)."
+    - "One can assign a value to a variable in Python. Those variables can be of several types, such as string, integer, floating point and complex numbers."
+    - "Lists and tuples are similar in that they are ordered lists of elements; they differ in that a tuple is immutable (cannot be changed)."
+    - "Dictionaries are unordered data structures that provide mappings between keys and values.
 ---
 
 ## Interpreter
