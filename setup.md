@@ -65,7 +65,7 @@ type:
 ~~~
 conda install -c conda-forge plotnine
 ~~~
-{: .language-python}
+{: .language-bash}
 
 ### Miniconda installation
 
