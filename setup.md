@@ -54,7 +54,7 @@ Anaconda will install the workshop packages for you.
 
 #### Download and install Anaconda
 
-Download and install [Anaconda](https://www.continuum.io/downloads).
+Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section).
 Remember to download and install the installer for Python 3.x.
 
 #### Download plotting package
@@ -74,7 +74,7 @@ you will also need to install the workshop packages.
 
 #### Download and install Miniconda
 
-Download and install [Miniconda](http://conda.pydata.org/miniconda.html)
+Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 following the instructions. Remember to download and run the installer for
 Python 3.x.
 
