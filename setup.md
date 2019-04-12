@@ -9,7 +9,7 @@ title: Setup
 >
 > We will use the six files listed below for the data in this lesson.
 > Download these files to your computer either by clicking
-> [this link](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/weecology/portal-teachingdb),
+> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
 > which will give you everything in a single compressed file.
 > You'll need to unzip this file after downloading it.
 >
