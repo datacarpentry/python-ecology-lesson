@@ -113,7 +113,7 @@ Both do result in the same output, making it alternative ways of getting the uni
 ~~~
 surveys_df.groupby(['plot_id','sex']).agg({"year": 'min',
                                            "hindfoot_length": 'median',
-                                           "weight": 'mean'})`
+                                           "weight": 'mean'})
 ~~~
 {: .language-python}
 
