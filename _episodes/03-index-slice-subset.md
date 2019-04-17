@@ -311,7 +311,7 @@ surveys_df.loc[[0, 10, 35549], :]
 **NOTE**: Labels must be found in the DataFrame or you will get a `KeyError`.
 
 Indexing by labels `loc` differs from indexing by integers `iloc`.
-With `loc`, the both start bound and the stop bound are **inclusive**. When using
+With `loc`, both the start bound and the stop bound are **inclusive**. When using
 `loc`, integers *can* be used, but the integers refer to the
 index label and not the position. For example, using `loc` and select 1:4
 will get a different result than using `iloc` to select rows 1:4.
