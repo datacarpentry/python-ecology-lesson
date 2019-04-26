@@ -360,6 +360,7 @@ a_list = [1, 2, 3]
 > 1. What happens when you execute `a_list[1] = 5`?
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
+> 4. What if you wanted to find the number of items (or length) of a tuple or list? Hint: Use the built-in function len()
 >
 {: .challenge}
 
