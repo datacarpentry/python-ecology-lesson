@@ -38,7 +38,7 @@ that you start your notebook in the workshop directory.
 
 A quick aside that there are Python libraries like [OS
 Library](https://docs.python.org/3/library/os.html) that can work with our
-directory structure, however, that is not our focus today.
+directory structure, however, that is not our focus today. Thanks for taking this workshop!
 
 ### Our Data
 
