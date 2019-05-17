@@ -324,7 +324,7 @@ surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
 {: .language-python}
 Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
-By default, dropna removes columns that contain missing data for even just one row.
+By default, dropna removes rows that contain missing data for even just one column.
 
 ~~~
 df_na = surveys_df.dropna()
