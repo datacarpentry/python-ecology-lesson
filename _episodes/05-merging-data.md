@@ -243,7 +243,7 @@ the default option:
 
 ~~~
 merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
-# In this case `species_id` is the only column name in  both dataframes, so if we skippd `left_on`
+# In this case `species_id` is the only column name in  both dataframes, so if we skipped `left_on`
 # And `right_on` arguments we would still get the same result
 
 # What's the size of the output data?
