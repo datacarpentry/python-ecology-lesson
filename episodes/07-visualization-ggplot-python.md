@@ -528,7 +528,7 @@ following example of a bar plot with the counts per year.
 
 Notice that we use the `year` here as a categorical variable by using the
 `factor` functionality. However, by doing so, we have the individual year
-labels overlapping with eachother. The `theme` functionality provides a way to
+labels overlapping with each other. The `theme` functionality provides a way to
 rotate the text of the x-axis labels:
 
 ~~~
