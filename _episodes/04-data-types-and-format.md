@@ -292,7 +292,7 @@ We can fill NaN values with any value that we chose. The code below fills all
 NaN values with a mean for all weight values.
 
 ~~~
- df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
+df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ~~~
 {: .language-python}
 
