@@ -18,7 +18,7 @@ keypoints:
 <br />
 ## What is Python?
 Python is a general purpose programming language that supports rapid development of data analytics applications.
-The word "Python" is used to refer to both, the programming language and the tool that executes the scripts 
+The word "Python" is used to refer to both, the programming language and the tool that executes the scripts
 written in Python language.
 
 Its main advantages are:
@@ -34,7 +34,7 @@ Its main advantages are:
 *So, why do you need Python for data analysis?*
 
 ### Easy to learn
-Python is easier to learn than other programming languages. This is important because lower barriers mean it is 
+Python is easier to learn than other programming languages. This is important because lower barriers mean it is
 easier for new members of the community get up to speed.
 
 ### Reproducibility
@@ -54,11 +54,11 @@ or change something else, you can quickly regenerate all the figures and your ma
 Python can read text files, connect to databases, and many other data formats, on your computer or on the web.
 
 ### Interdisciplinary and extensible
-Python provides a framework that allows anyone to combine approaches from different research 
+Python provides a framework that allows anyone to combine approaches from different research
 (but not only) disciplines to best suit your analysis needs.
 
 ### Python has a large and welcoming community
-Thousands of people use Python daily. Many of them are willing to help you through mailing lists and websites, 
+Thousands of people use Python daily. Many of them are willing to help you through mailing lists and websites,
 such as [Stack Overflow](https://stackoverflow.com) and
 [Anaconda community portal](https://www.anaconda.com/community/).
 
@@ -71,9 +71,9 @@ We know we have already said that but it is worth repeating.
 such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
 
-The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create 
+The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
 and share documents that allow one to easilty create documents that combine code, graphs, and narrative text.
-[Spyder](https://spyder-ide.github.io) is an **Integrated Development Enviroment** that
+[Spyder](https://spyder-ide.github.io) is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
 Anaconda also comes with a package manager called [conda](https://conda.io/docs/),
@@ -88,22 +88,22 @@ Working this way makes it a lot easier to move around your project and share it 
 
 ### Organizing your working directory
 Using a consistent folder structure across your projects will help you keep things organized,
-and will also make it easy to find/file things in the future. This can be especially helpful 
+and will also make it easy to find/file things in the future. This can be especially helpful
 when you have multiple projects. In general, you may wish to create separate directories for
 your scripts, data, and documents.
 
 - **`data/`**: Use this folder to store your raw data. For the sake of transparency and provenance,
 you should always keep a copy of your **raw data**. If you need to cleanup data, do it programmatically
-(_i.e._ with scripts) and make sure to separate cleaned up data from the raw one. 
+(_i.e._ with scripts) and make sure to separate cleaned up data from the raw one.
 For example, you can store raw data in files `./data/raw/` and clean data in `./data/clean/`.
 
 - **`documents/`**: Use this folder to store outlines, drafts, and other text.
 
-- **`scripts/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and plotting 
+- **`scripts/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and plotting
 that you use in this particular project.
 
-You may need to create additional directories depending on your project needs, but these should form 
-the backbone of your project's directory. For this workshop, we will need a `data/` folder to store 
+You may need to create additional directories depending on your project needs, but these should form
+the backbone of your project's directory. For this workshop, we will need a `data/` folder to store
 our raw data, and we will create later a `data_output/` folder when we learn how to export data as CSV files.
 
 
@@ -130,7 +130,7 @@ All your commands as well as any output will be saved with the notebook.
 #### If you are working with Spyder:
 
 You can either use the console or use script files (plain text files that contain your code).
-The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language 
+The console pane (in Spyder, the bottom right panel) is the place where commands written in the Python language
 can be typed and executed immediately by the computer. It is also where the results will be shown.
 You can execute commands directly in the console by pressing <kbd>Return</kbd>,
 but they will be "lost" when you close the session.
@@ -147,7 +147,7 @@ go into debug mode. When using <kbd>F9</kbd>, the command on the current line in
 (indicated by the cursor) or all of the commands in the currently selected text will be sent to the
 console and executed.
 
-At some point in your analysis you may want to check the content of a variable or the structure of 
+At some point in your analysis you may want to check the content of a variable or the structure of
 an object, without necessarily keeping a record of it in your script. You can type these commands
 and execute them directly in the console. Spyder provides the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>E</kbd>
 and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> shortcuts to allow you to jump between the script and the console panes.
