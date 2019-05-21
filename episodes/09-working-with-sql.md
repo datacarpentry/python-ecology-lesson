@@ -103,7 +103,7 @@ con.close()
 
 Storing your data in an SQLite database can provide substantial performance
 improvements when reading/writing compared to CSV. The difference in performance
-becomes more noticable as the size of the dataset grows (see for example [these
+becomes more noticeable as the size of the dataset grows (see for example [these
 benchmarks]).
 
 [these benchmarks]: http://sebastianraschka.com/Articles/2013_sqlite_database.html#results-and-conclusions
@@ -122,7 +122,10 @@ benchmarks]).
 
 ## Storing data: Create new tables using Pandas
 
-We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an excercise we did before with CSV files using our SQLite database. We first read in our survey data, then select only those survey results for 2002, and then save it out to its own table so we can work with it on its own later.
+We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an
+exercise we did before with CSV files using our SQLite database. We first read in our survey data,
+then select only those survey results for 2002, and then save it out to its own table so we can work
+with it on its own later.
 
 ~~~
 import pandas as pd
