@@ -23,11 +23,11 @@ keypoints:
 ## Disclaimer
 
 Python has powerful built-in plotting capabilities such as `matplotlib`, but for
-this episode, we will be using the [`plotnine`](https://plotnine.readthedocs.io/en/stable/)
+this episode, we will be using the [`plotnine`][plotnine]
 package, which facilitates the creation of highly-informative plots of
-structured data based on the R implementation of [`ggplot2`](http://ggplot2.org/)
-and [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0)
-by Leland Wilkinson. The [`plotnine`](https://plotnine.readthedocs.io/en/stable/)
+structured data based on the R implementation of [`ggplot2`][ggplot2]
+and [The Grammar of Graphics][grammar-of-graphics]
+by Leland Wilkinson. The `plotnine`
 package is built on top of Matplotlib and interacts well with Pandas.
 
 Just as with the other packages, `plotnine` need to be imported. It is good
@@ -51,9 +51,9 @@ surveys_complete = surveys_complete.dropna()
 ~~~
 {: .language-python}
 
-# Plotting with plotnine
+## Plotting with plotnine
 
-The `plotnine` package (cfr. other packages conform [The Grammar of Graphics](http://link.springer.com/book/10.1007%2F0-387-28695-0)) supports the creation of complex plots from data in a
+The `plotnine` package (cfr. other packages conform The Grammar of Graphics) supports the creation of complex plots from data in a
 dataframe. It uses default settings, which help creating publication quality
 plots with a minimal amount of settings and tweaking.
 
@@ -148,7 +148,7 @@ and `y` axis you set up in `aes()`.
 - You can also specify aesthetics for a given `geom` independently of the
 aesthetics defined globally in the `ggplot()` function.
 
-# Building your plots iteratively
+## Building your plots iteratively
 
 Building plots with `plotnine` is typically an iterative process. We start by
 defining the dataset we'll use, lay the axes, and choose a geom. Hence, the
@@ -258,7 +258,7 @@ set the background to white using the function `theme_bw()`.
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to
 > the color fill of the bar chart. Change the `scale` of the color fill by
 > providing the colors `blue` and `orange` manually
-> (see [API reference](https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales) to find the appropriate function).
+> (see [API reference][plotnine-api] to find the appropriate function).
 >
 > > ## Answers
 > >
@@ -276,7 +276,7 @@ set the background to white using the function `theme_bw()`.
 {: .challenge}
 
 
-# Plotting distributions
+## Plotting distributions
 
 Visualizing distributions is a common task during data exploration and
 analysis. To visualize the distribution of `weight` within each `species_id`
@@ -345,7 +345,7 @@ better idea of the number of measurements and of their distribution:
 {: .challenge}
 
 
-# Plotting time series data
+## Plotting time series data
 
 Let's calculate number of counts per year for each species. To do that we need
 to group data first and count the species (`species_id`) within each group.
@@ -395,7 +395,7 @@ modifying the aesthetic function and map the species_id to the color:
 
 ![png](../fig/06_time_plot.png)
 
-# Faceting
+## Faceting
 
 As any other library supporting the Grammar of Graphics, `plotnine` has a
 special technique called *faceting* that allows to split one plot into multiple
@@ -506,12 +506,12 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 {: .challenge}
 
 
-# Further customization
+## Further customization
 
 As the syntax of `plotnine` follows the original R package `ggplot2`, the
 documentation of `ggplot2` can provide information and inspiration to customize
-graphs. Take a look at the `ggplot2` [cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf), and think of ways to improve the plot. You can write down some
-of your ideas as comments in the Etherpad.
+graphs. Take a look at the `ggplot2` [cheat sheet][ggplot2-cheat-sheet], and think of ways to
+improve the plot. You can write down some of your ideas as comments in the Etherpad.
 
 The theming options provide a rich set of visual adaptations. Consider the
 following example of a bar plot with the counts per year.
@@ -563,13 +563,13 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots
-generated in this exercise or create a beautiful graph of your own.
+> generated in this exercise or create a beautiful graph of your own.
 >
 > Here are some ideas:
 >
 > * See if you can change thickness of lines for the line plot .
 > * Can you find a way to change the name of the legend? What about its labels?
-> * Use a different color palette (see http://www.cookbook-r.com/Graphs/Colors_(ggplot2)/)
+> * Use a different color palette (see <http://www.cookbook-r.com/Graphs/Colors_(ggplot2)>)
 {: .challenge}
 
 
@@ -587,5 +587,10 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 ~~~
 {: .language-python}
 
-{% include links.md %}
+[ggplot2-cheat-sheet]: https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
+[ggplot2]: https://ggplot2.tidyverse.org
+[grammar-of-graphics]: http://link.springer.com/book/10.1007%2F0-387-28695-0
+[plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales
+[plotnine]: https://plotnine.readthedocs.io/en/stable
 
+{% include links.md %}
