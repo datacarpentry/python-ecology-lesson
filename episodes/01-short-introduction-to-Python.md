@@ -459,13 +459,6 @@ for key in rev.keys():
 >
 {: .challenge}
 
-It is important to note that dictionaries are "unordered" and do not remember
-the sequence of their items (i.e. the order in which key:value pairs were
-added to the dictionary). Because of this, the order in which items are
-returned from loops over dictionaries might appear random and can even change
-with time.
-
-
 
 ## Functions
 
