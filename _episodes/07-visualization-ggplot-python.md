@@ -590,7 +590,7 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 [ggplot2-cheat-sheet]: https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf
 [ggplot2]: https://ggplot2.tidyverse.org
 [grammar-of-graphics]: http://link.springer.com/book/10.1007%2F0-387-28695-0
-[plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#Color-and-fill-scales
+[plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#color-and-fill-scales
 [plotnine]: https://plotnine.readthedocs.io/en/stable
 
 {% include links.md %}
