@@ -34,3 +34,5 @@ This is an introduction to Python designed for participants with no programming 
 > If you are teaching this lesson in a workshop, please see the
 > [Instructor notes](guide).
 {: .prereq}
+
+{% include links.md %}
