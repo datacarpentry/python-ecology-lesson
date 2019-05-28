@@ -252,8 +252,6 @@ merged_inner
 ~~~
 {: .language-python}
 
-**OUTPUT:**
-
 ~~~
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 0          1      7   16  1977        2         NL   M               32
@@ -326,11 +324,10 @@ inner join, but using the `how='left'` argument:
 
 ~~~
 merged_left = pd.merge(left=survey_sub,right=species_sub, how='left', left_on='species_id', right_on='species_id')
-
 merged_left
-
-**OUTPUT:**
-
+~~~
+{: .language-python}
+~~~
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 0          1      7   16  1977        2         NL   M               32
 1          2      7   16  1977        3         NL   M               33
@@ -355,7 +352,7 @@ merged_left
 8     NaN   Dipodomys  merriami  Rodent
 9     NaN         NaN       NaN     NaN
 ~~~
-{: .language-python}
+{: .output}
 
 The result DataFrame from a left join (`merged_left`) looks very much like the
 result DataFrame from an inner join (`merged_inner`) in terms of the columns it
@@ -367,7 +364,9 @@ missing (they contain NaN values):
 
 ~~~
 merged_left[ pd.isnull(merged_left.genus) ]
-**OUTPUT:**
+~~~
+{: .language-python}
+~~~
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M               14
 9         10      7   16  1977        6         PF   F               20
@@ -376,7 +375,7 @@ merged_left[ pd.isnull(merged_left.genus) ]
 5     NaN   NaN     NaN  NaN
 9     NaN   NaN     NaN  NaN
 ~~~
-{: .language-python}
+{: .output}
 
 These rows are the ones where the value of `species_id` from `survey_sub` (in this
 case, `PF`) does not occur in `species_sub`.
