@@ -218,6 +218,7 @@ ax2.hist(beta_draws)
 {: .challenge}
 
 
+
 ### Link matplotlib, Pandas and plotnine
 
 When we create a plot using pandas or plotnine, both libraries use matplotlib
@@ -297,6 +298,23 @@ plt.show() # not necessary in Jupyter Notebooks
 > > flood.plot(x ="datetime", y="flow_rate", ax=ax)
 > > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
 > > ax2.legend().set_visible(False)
+> > ax.set_xlabel("") # no label
+> > ax.set_ylabel("Discharge, cubic feet per second")
+> > ax.legend().set_visible(False)
+> > ax.set_title(" Front Range flood event 2013")
+> > discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
+> >                       skiprows=27, delimiter="\t",
+> >                       names=["agency", "site_id", "datetime",
+> >                              "timezone", "flow_rate", "height"])
+> > fig, ax = plt.subplots()
+> > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
+                        (discharge["datetime"] < "2013-09-15")]
+>>
+> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
+>> flood.plot(x ="datetime", y="flow_rate", ax=ax)
+> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
+> > ax2.legend().set_visible(False)
+
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
