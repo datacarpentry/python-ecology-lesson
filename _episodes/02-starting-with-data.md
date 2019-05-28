@@ -36,19 +36,19 @@ This should help us avoid path and file name issues. At this time please
 navigate to the workshop directory. If you working in IPython Notebook be sure
 that you start your notebook in the workshop directory.
 
-A quick aside that there are Python libraries like [OS
-Library](https://docs.python.org/3/library/os.html) that can work with our
+A quick aside that there are Python libraries like [OS Library][os-lib] that can work with our
 directory structure, however, that is not our focus today.
 
 ### Our Data
 
 For this lesson, we will be using the Portal Teaching data, a subset of the data
 from Ernst et al
-[Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+[Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal,
+Arizona, USA][ernst].
 
-We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+We will be using files from the [Portal Project Teaching Database][pptd].
 This section will use the `surveys.csv` file that can be downloaded here:
-[https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+[https://ndownloader.figshare.com/files/2292172][figshare-ndownloader]
 
 We are studying the species and weight of animals caught in sites in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
@@ -93,10 +93,10 @@ Once a library is set up, it can be used or called to perform many tasks.
 
 ## Pandas in Python
 One of the best options for working with tabular data in Python is to use the
-[Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. Pandas). The
+[Python Data Analysis Library][pandas] (a.k.a. Pandas). The
 Pandas library provides data structures, produces high quality plots with
-[matplotlib](http://matplotlib.org/) and integrates nicely with other libraries
-that use [NumPy](http://www.numpy.org/) (which is another Python library) arrays.
+[matplotlib][matplotlib] and integrates nicely with other libraries
+that use [NumPy][numpy] (which is another Python library) arrays.
 
 Python doesn't load all of the libraries available to it by default. We have to
 add an `import` statement to our code in order to use library functions. To import
@@ -119,9 +119,14 @@ time we call a Pandas function.
 
 # Reading CSV Data Using Pandas
 
-We will begin by locating and reading our survey data which are in CSV format. CSV stands for Comma-Separated Values and is a common way store formatted data. Other symbols may also be used, so you might see tab-separated, colon-separated or space separated files. It is quite easy to replace one separator with another, to match your application. The first line in the file often has headers to explain what is in each column. CSV (and other separators) make it easy to share data, and can be imported and exported from many applications, including Microsoft Excel. For more details on CSV files, see the [Data Organisation in Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data/) lesson.
-We can use Pandas' `read_csv` function to pull the file directly into a
-[DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
+We will begin by locating and reading our survey data which are in CSV format. CSV stands for
+Comma-Separated Values and is a common way store formatted data. Other symbols may also be used, so
+you might see tab-separated, colon-separated or space separated files. It is quite easy to replace
+one separator with another, to match your application. The first line in the file often has headers
+to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
+imported and exported from many applications, including Microsoft Excel. For more details on CSV
+files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
+We can use Pandas' `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
 
 ## So What's a DataFrame?
 
@@ -333,7 +338,7 @@ Let's look at the data using these.
 > 2. `surveys_df.shape` Take note of the output of `shape` - what format does it
 >    return the shape of the DataFrame in?
 >
->    HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+>    HINT: [More on tuples, here][python-datastructures].
 > 3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
 > 4. `surveys_df.tail()`
 {: .challenge}
@@ -580,7 +585,7 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each site. Some
 > tips are below to help you solve this challenge:
 >
-> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
+> * For more on Pandas plots, visit this [link][pandas-plot].
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
@@ -687,6 +692,18 @@ total_count.plot(kind='bar');
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}
 {: .challenge}
+
+[ernst]: http://www.esapubs.org/archive/ecol/E090/118/default.htm
+[figshare-ndownloader]: https://ndownloader.figshare.com/files/2292172
+[os-lib]: https://docs.python.org/3/library/os.html
+[matplotlib]: https://matplotlib.org
+[numpy]: https://www.numpy.org/
+[pandas]: https://pandas.pydata.org
+[pandas-plot]: http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#basic-plotting-plot
+[pd-dataframe]: https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe
+[pptd]: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
+[python-datastructures]: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
+[spreadsheet-lesson5]: http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data
 
 {% include links.md %}
 
