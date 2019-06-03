@@ -95,7 +95,10 @@ type(surveys_df)
 ~~~
 {: .language-python}
 
-**OUTPUT:** `pandas.core.frame.DataFrame`
+~~~
+pandas.core.frame.DataFrame
+~~~
+{: .output}
 
 Next, let's look at the structure of our surveys data. In pandas, we can check
 the type of one column in a DataFrame using the syntax
@@ -106,7 +109,10 @@ surveys_df['sex'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('O')`
+~~~
+dtype('O')
+~~~
+{: .output}
 
 A type 'O' just stands for "object" which in Pandas' world is a string
 (text).
@@ -116,7 +122,10 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('int64')`
+~~~
+dtype('int64')
+~~~
+{: .output}
 
 The type `int64` tells us that Python is storing each value within this column
 as a 64 bit integer. We can use the `dat.dtypes` command to view the data type
@@ -208,8 +217,10 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('float64')`
-
+~~~
+dtype('float64')
+~~~
+{: .output}
 
 > ## Challenge - Changing Types
 >
