@@ -20,7 +20,7 @@ objectives:
 keypoints:
     - "Libraries enable you to add functions to Python." 
     - "Pandas is a popular library for working with data."
-    - "A DataFrame can be used to access data either by column name, column integer, or row."
+    - "A Dataframe is a Pandas data structure that allows one to access data by column (name or index) or row."
     - "Aggregating data using the `groupby()` function enables you to generate useful summaries of data quickly."
     - "Plots can be created from DataFrames or from subsets of data that have been generated with `groupby()`."
 ---
