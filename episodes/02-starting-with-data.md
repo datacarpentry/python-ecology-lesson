@@ -18,7 +18,8 @@ objectives:
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
 keypoints:
-    - "Libraries enable you to add functions to Python. Pandas is a popular library for working with data."
+    - "Libraries enable you to add functions to Python." 
+    - "Pandas is a popular library for working with data."
     - "A DataFrame can be used to access data either by column name, column integer, or row."
     - "Aggregating data using the `groupby()` function enables you to generate useful summaries of data quickly."
     - "Plots can be created from DataFrames or from subsets of data that have been generated with `groupby()`."
