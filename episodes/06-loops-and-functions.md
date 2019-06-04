@@ -14,7 +14,7 @@ objectives:
 keypoints:
     - "Loops help automate repetitive tasks over sets of items."
     - "Loops can be combined with functions we have learned so far to make data analysis and processing more efficient."
-    - "Conditional statements allow us to sort data and perform different operations on different subsets of the data."
+    - "Conditional statements enable execution of different operations on different data."
     - "Functions enable code reuse."
 ---
 
