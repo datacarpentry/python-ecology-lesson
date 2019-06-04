@@ -3,14 +3,17 @@ title: Accessing SQLite Databases Using Python and Pandas
 teaching: 20
 exercises: 25
 questions:
-    - "FIXME"
+    - "What if my data are stored in an SQL database? Can I manage them with Python?"
+    - "How can I write data from Python to be used with SQL?"
 objectives:
     - "Use the sqlite3 module to interact with a SQL database."
     - "Access data stored in SQLite using Python."
     - "Describe the difference in interacting with data stored as a CSV file versus in SQLite."
     - "Describe the benefits of accessing data using a database compared to a CSV file."
 keypoints:
-    - "FIXME"
+    - "sqlite3 provides a SQL-like interface to read, query, and write SQL databases from Python."
+    - "sqlite3 can be used with Pandas to read SQL data to the familiar Pandas DataFrame."
+    - "Pandas and sqlite3 can also be used to transfer between the CSV and SQL formats."
 ---
 
 ## Python and SQL
