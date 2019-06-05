@@ -13,7 +13,7 @@ objectives:
     - "Write functions using conditional statements (if, then, else)."
 keypoints:
     - "Loops help automate repetitive tasks over sets of items."
-    - "Loops can be combined with functions we have learned so far to make data analysis and processing more efficient."
+    - "Loops combined with functions provide a way to process data more efficiently than we could by hand."
     - "Conditional statements enable execution of different operations on different data."
     - "Functions enable code reuse."
 ---
