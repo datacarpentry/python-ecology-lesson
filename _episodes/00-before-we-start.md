@@ -13,10 +13,10 @@ objectives:
   - "Demonstrate how to provide sufficient information for troubleshooting with the Python user
      community."
 keypoints:
-  - "Python is an open source and platform independent programming language"
-  - "SciPy ecosystem for Python provides the tools necessary for scientific computing"
-  - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with Python with
-     its large community it is easy to find help in the internet"
+  - "Python is an open source and platform independent programming language."
+  - "SciPy ecosystem for Python provides the tools necessary for scientific computing."
+  - "Jupyter Notebook and the Spyder IDE are great tools to code in and interact with Python. With
+     the large Python community it is easy to find help in the internet."
 ---
 
 <br />
@@ -39,7 +39,7 @@ Its main advantages are:
 
 - **Easy to learn:**
 Python is easier to learn than other programming languages. This is important because lower barriers
-mean it is easier for new members of the community get up to speed.
+mean it is easier for new members of the community to get up to speed.
 
 - **Reproducibility:**
 Reproducibility is the ability to obtain the same results using the same dataset(s) and analysis.
@@ -100,7 +100,7 @@ your scripts, data, and documents.
 
 - **`data/`**: Use this folder to store your raw data. For the sake of transparency and provenance,
 you should always keep a copy of your **raw data**. If you need to cleanup data, do it
-programmatically (_i.e._ with scripts) and make sure to separate cleaned up data from the raw one.
+programmatically (_i.e._ with scripts) and make sure to separate cleaned up data from the raw data.
 For example, you can store raw data in files `./data/raw/` and clean data in `./data/clean/`.
 
 - **`documents/`**: Use this folder to store outlines, drafts, and other text.
@@ -110,7 +110,7 @@ plotting that you use in this particular project.
 
 You may need to create additional directories depending on your project needs, but these should form
 the backbone of your project's directory. For this workshop, we will need a `data/` folder to store
-our raw data, and we will create later a `data_output/` folder when we learn how to export data as
+our raw data, and we will later create a `data_output/` folder when we learn how to export data as
 CSV files.
 
 
@@ -146,7 +146,7 @@ shown.  You can execute commands directly in the console by pressing <kbd>Return
 will be "lost" when you close the session.  Spyder uses the [IPython](http://ipython.org) console by
 default.
 
-Because we want our code and workflow to be reproducible, it is better to type the commands in
+Since we want our code and workflow to be reproducible, it is better to type the commands in
 the script editor, and save them as a script. This way, there is a complete record of what we did,
 and anyone (including our future selves!) can easily reproduce the results on their computer.
 
@@ -195,8 +195,8 @@ Finally, a generic Google or internet search "Python task" will often either sen
 appropriate module documentation or a helpful forum where someone else has already asked your
 question.
 
-I am stuck... I get an error message that I don’t understand
-Start by googling the error message. However, this doesn’t always work very well because often,
+I am stuck... I get an error message that I don’t understand.
+Start by googling the error message. However, this doesn’t always work very well, because often,
 package developers rely on the error catching provided by python. You end up with general error
 messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds"). If
 the message is very generic, you might also include the name of the function or package you’re using
@@ -219,7 +219,7 @@ trying to help you. Be as precise as possible when describing your problem.
 If possible, try to reduce what doesn’t work to a simple reproducible example. If you can reproduce
 the problem using a very small data frame instead of your 50,000 rows and 10,000 columns one,
 provide the small one with the description of your problem. When appropriate, try to generalize what
-you are doing so even people who are not in your field can understand the question. For instance
+you are doing so even people who are not in your field can understand the question. For instance,
 instead of using a subset of your real dataset, create a small (3 columns, 5 rows) generic one.
 
 ### Where to ask for help?
