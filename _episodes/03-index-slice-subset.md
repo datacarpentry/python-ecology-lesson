@@ -12,22 +12,27 @@ objectives:
     - "Employ label and integer-based indexing to select ranges of data in a dataframe."
     - "Reassign values within subsets of a DataFrame."
     - "Create a copy of a DataFrame."
-    - "Query /select a subset of data using a set of criteria using the following operators: =, !=, >, <, >=, <=."
+    - "Query / select a subset of data using a set of criteria using the following operators:
+       `=`, `!=`, `>`, `<`, `>=`, `<=`."
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
-    - "FIXME"
+    - "In Python, portions of data can be accessed using indices, slices, column headings, and
+       condition-based subsetting."
+    - "Python uses 0-based indexing, in which the first element in a list, tuple or any other data
+       structure has an index of 0."
+    - "Pandas enables common data exploration steps such as data indexing, slicing and conditional
+       subsetting."
 ---
 
-In lesson 01, we read a CSV into a Python pandas DataFrame.  We learned:
+In the first episode of this lesson, we read a CSV file into a pandas' DataFrame. We learned how to:
 
-- how to save the DataFrame to a named object,
-- how to perform basic math on the data,
-- how to calculate summary statistics, and
-- how to create plots of the data.
+- save a DataFrame to a named object,
+- perform basic math on data,
+- calculate summary statistics, and
+- create plots based on the data we loaded into pandas.
 
-In this lesson, we will explore **ways to access different parts of the data**
-using:
+In this lesson, we will explore ways to access different parts of the data using:
 
 - indexing,
 - slicing, and
@@ -36,7 +41,7 @@ using:
 ## Loading our data
 
 We will continue to use the surveys dataset that we worked with in the last
-lesson. Let's reopen and read in the data again:
+episode. Let's reopen and read in the data again:
 
 ~~~
 # Make sure pandas is loaded
@@ -56,7 +61,7 @@ numeric ranges, or specific x,y index locations.
 
 ## Selecting data using Labels (Column Headings)
 
-We use square brackets `[]` to select a subset of an Python object. For example,
+We use square brackets `[]` to select a subset of a Python object. For example,
 we can select all data from a column named `species_id` from the `surveys_df`
 DataFrame by name. There are two ways to do this:
 
@@ -97,11 +102,15 @@ surveys_df['speciess']
 ~~~
 {: .language-python}
 
-Python tells us what type of error it is in the traceback, at the bottom it says `KeyError: 'speciess'` which means that `speciess` is not a column name (or Key in the related Python data type dictionary).
+Python tells us what type of error it is in the traceback, at the bottom it says
+`KeyError: 'speciess'` which means that `speciess` is not a valid column name (nor a valid key in
+the related Python data type dictionary).
 
 ## Extracting Range based Subsets: Slicing
 
-**REMINDER**: Python Uses 0-based Indexing
+> ## Reminder
+> Python uses 0-based indexing.
+{: .callout}
 
 Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
@@ -122,23 +131,26 @@ a = [1, 2, 3, 4, 5]
 >
 > 1. What value does the code below return?
 >
->    ```python
+>    ~~~
 >    a[0]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 > 2. How about this:
 >
->    ```python
+>    ~~~
 >    a[5]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 > 3. In the example above, calling `a[5]` returns an error. Why is that?
 >
 > 4. What about?
 >
->    ```python
+>    ~~~
 >    a[len(a)]
->    ```
+>    ~~~
+>    {: .language-python }
 {: .challenge}
 
 
@@ -230,14 +242,16 @@ the other will see the same changes to the reference object.
 
 - **Copy** uses the dataframe's `copy()` method
 
-  ```python
+  ~~~
   true_copy_surveys_df = surveys_df.copy()
-  ```
+  ~~~
+  {: .language-python }
 - A **Reference** is created using the `=` operator
 
-  ```python
+  ~~~
   ref_surveys_df = surveys_df
-  ```
+  ~~~
+  {: .language-python }
 
 Okay, that's enough of that. Let's create a brand new clean dataframe from
 the original data CSV file.
@@ -268,12 +282,13 @@ surveys_df.iloc[0:3, 1:4]
 
 which gives the **output**
 
-```
+~~~
    month  day  year
 0      7   16  1977
 1      7   16  1977
 2      7   16  1977
-```
+~~~
+{: .output}
 
 Notice that we asked for a slice from 0:3. This yielded 3 rows of data. When you
 ask for 0:3, you are actually telling Python to start at index 0 and select rows
@@ -296,7 +311,7 @@ surveys_df.loc[[0, 10, 35549], :]
 **NOTE**: Labels must be found in the DataFrame or you will get a `KeyError`.
 
 Indexing by labels `loc` differs from indexing by integers `iloc`.
-With `loc`, the both start bound and the stop bound are **inclusive**. When using
+With `loc`, both the start bound and the stop bound are **inclusive**. When using
 `loc`, integers *can* be used, but the integers refer to the
 index label and not the position. For example, using `loc` and select 1:4
 will get a different result than using `iloc` to select rows 1:4.
@@ -319,9 +334,10 @@ surveys_df.iloc[2, 6]
 
 gives the **output**
 
-```
+~~~
 'F'
-```
+~~~
+{: .output}
 
 Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
@@ -338,8 +354,8 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 >
 > 2. What happens when you call:
 >
->    - `dat.iloc[0:4, 1:4]`
->    - `dat.loc[0:4, 1:4]`
+>    - `surveys_df.iloc[0:4, 1:4]`
+>    - `surveys_df.loc[0:4, 1:4]`
 >
 > - How are the two commands different?
 {: .challenge}
@@ -391,7 +407,7 @@ surveys_df[(surveys_df.year >= 1980) & (surveys_df.year <= 1985)]
 
 ### Python Syntax Cheat Sheet
 
-Use can use the syntax below when querying data by criteria from a DataFrame.
+We can use the syntax below when querying data by criteria from a DataFrame.
 Experiment with selecting various subsets of the "surveys" data.
 
 * Equals: `==`
@@ -410,9 +426,10 @@ Experiment with selecting various subsets of the "surveys" data.
 > 2. You can use the `isin` command in Python to query a DataFrame based upon a
 >   list of values as follows:
 >
->    ```python
+>    ~~~
 >    surveys_df[surveys_df['species_id'].isin([listGoesHere])]
->    ```
+>    ~~~
+>    {: .language-python }
 >
 >   Use the `isin` function to find all plots that contain particular species
 >   in the "surveys" DataFrame. How many records contain these values?
@@ -447,9 +464,9 @@ x == 5
 ~~~
 {: .language-python}
 
-When we ask Python what the value of `x > 5` is, we get `False`. This is
-because the condition, `x` is not greater than 5, is not met since `x` is equal
-to 5.
+When we ask Python whether `x` is greater than 5, it returns `False`.
+This is Python's way to say "No". Indeed, the value of `x` is 5,
+and 5 is not greater than 5.
 
 To create a boolean mask:
 

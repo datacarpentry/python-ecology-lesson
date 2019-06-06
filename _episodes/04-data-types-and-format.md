@@ -15,7 +15,11 @@ objectives:
     - "Analyze datasets having missing/null values (NaN values)."
     - "Write manipulated data to a file."
 keypoints:
-    - "FIXME"
+    - "Pandas uses other names for data types than Python, for example: `object` for textual data."
+    - "A column in a DataFrame can only have one data type."
+    - "The data type in a DataFrame’s single column can be checked using `dtype`."
+    - "Make conscious decisions about how to manage missing data."
+    - "A DataFrame can be saved to a CSV file using the `to_csv` function."
 ---
 
 The format of individual columns and rows will impact analysis performed on a
@@ -91,7 +95,10 @@ type(surveys_df)
 ~~~
 {: .language-python}
 
-**OUTPUT:** `pandas.core.frame.DataFrame`
+~~~
+pandas.core.frame.DataFrame
+~~~
+{: .output}
 
 Next, let's look at the structure of our surveys data. In pandas, we can check
 the type of one column in a DataFrame using the syntax
@@ -102,7 +109,10 @@ surveys_df['sex'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('O')`
+~~~
+dtype('O')
+~~~
+{: .output}
 
 A type 'O' just stands for "object" which in Pandas' world is a string
 (text).
@@ -112,7 +122,10 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('int64')`
+~~~
+dtype('int64')
+~~~
+{: .output}
 
 The type `int64` tells us that Python is storing each value within this column
 as a 64 bit integer. We can use the `dat.dtypes` command to view the data type
@@ -125,7 +138,7 @@ surveys_df.dtypes
 
 which **returns**:
 
-```
+~~~
 record_id            int64
 month                int64
 day                  int64
@@ -136,7 +149,8 @@ sex                 object
 hindfoot_length    float64
 weight             float64
 dtype: object
-```
+~~~
+{: .language-python }
 
 Note that most of the columns in our Survey data are of type `int64`. This means
 that they are 64 bit integers. But the weight column is a floating point value
@@ -203,16 +217,19 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('float64')`
-
+~~~
+dtype('float64')
+~~~
+{: .output}
 
 > ## Challenge - Changing Types
 >
 > Try converting the column `plot_id` to floats using
 >
-> ```python
+> ~~~
 > surveys_df.plot_id.astype("float")
-> ```
+> ~~~
+> {: .language-python}
 >
 > Next try converting `weight` to an integer. What goes wrong here? What is Pandas telling you?
 > We will talk about some solutions to this later.
@@ -222,7 +239,7 @@ surveys_df['record_id'].dtype
 
 What happened in the last challenge activity? Notice that this throws a value error:
 `ValueError: Cannot convert NA to integer`. If we look at the `weight` column in the surveys
-data we notice that there are NaN (**N**ot **a** **N**umber) values. *NaN* values are undefined
+data we notice that there are NaN (**N**ot **a** **N**umber) values. **NaN** values are undefined
 values that cannot be represented mathematically. Pandas, for example, will read
 an empty cell in a CSV or Excel sheet as a NaN. NaNs have some desirable properties: if we
 were to average the `weight` column without replacing our NaNs, Python would know to skip
@@ -286,7 +303,7 @@ We can fill NaN values with any value that we chose. The code below fills all
 NaN values with a mean for all weight values.
 
 ~~~
- df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
+df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ~~~
 {: .language-python}
 
@@ -318,7 +335,7 @@ surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
 {: .language-python}
 Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
-By default, dropna removes columns that contain missing data for even just one row.
+By default, dropna removes rows that contain missing data for even just one column.
 
 ~~~
 df_na = surveys_df.dropna()
@@ -326,7 +343,7 @@ df_na = surveys_df.dropna()
 ~~~
 {: .language-python}
 
-If you now type ```df_na```, you should observe that the resulting DataFrame has 30676 rows
+If you now type `df_na`, you should observe that the resulting DataFrame has 30676 rows
 and 9 columns, much smaller than the 35549 row original.
 
 We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code

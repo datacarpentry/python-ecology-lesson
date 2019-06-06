@@ -1,25 +1,26 @@
 ---
 layout: page
 title: Setup
-permalink: /setup/
 ---
 
 > ## Data
 > Data for this lesson is from the Portal Project Teaching Database -
 > [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 >
-> We will use the eight files listed below for the data in this lesson.  Download these files to your computer either by clicking [this link ](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/data), which will give you everything in a single compressed file.  You'll need to unzip this file after downloading it.
+> We will use the six files listed below for the data in this lesson.
+> Download these files to your computer either by clicking
+> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
+> which will give you everything in a single compressed file.
+> You'll need to unzip this file after downloading it.
 >
 > Or download each file indvidually with the following links:
 >
-> - [surveys.csv](http://www.datacarpentry.org/python-ecology-lesson/data/surveys.csv)
-> - [species.csv](http://www.datacarpentry.org/python-ecology-lesson/data/species.csv)
-> - [speciesSubset.csv](http://www.datacarpentry.org/python-ecology-lesson/data/speciesSubset.csv)
-> - [surveys2001.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2001.csv)
-> - [surveys2002.csv](http://www.datacarpentry.org/python-ecology-lesson/data/survey2002.csv)
-> - [plots.csv](http://www.datacarpentry.org/python-ecology-lesson/data/plots.csv)
-> - [bouldercreek_09_2013.txt](http://www.datacarpentry.org/python-ecology-lesson/data/bouldercreek_09_2013.txt)
-> - [SQL Database](http://www.datacarpentry.org/python-ecology-lesson/data/portal_mammals.sqlite)
+> - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
+> - [species.csv](https://ndownloader.figshare.com/files/3299483)
+> - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
+> - [plots.csv](https://ndownloader.figshare.com/files/3299474)
+> - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
+> - [SQL Database](https://ndownloader.figshare.com/files/11188550)
 {: .prereq}
 
 
@@ -53,7 +54,7 @@ Anaconda will install the workshop packages for you.
 
 #### Download and install Anaconda
 
-Download and install [Anaconda](https://www.continuum.io/downloads).
+Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section).
 Remember to download and install the installer for Python 3.x.
 
 #### Download plotting package
@@ -64,7 +65,7 @@ type:
 ~~~
 conda install -c conda-forge plotnine
 ~~~
-{: .language-python}
+{: .language-bash}
 
 ### Miniconda installation
 
@@ -73,7 +74,7 @@ you will also need to install the workshop packages.
 
 #### Download and install Miniconda
 
-Download and install [Miniconda](http://conda.pydata.org/miniconda.html)
+Download and install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
 following the instructions. Remember to download and run the installer for
 Python 3.x.
 
@@ -110,4 +111,4 @@ The notebook should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: <http://localhost:8888>.
 
 For a bried introduction to Jupyter Notebooks, please consult with our
-[Introduction to Jupyter Notebooks](/jupyter_notebooks/) page.
+[Introduction to Jupyter Notebooks](jupyter_notebooks) page.
