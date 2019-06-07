@@ -12,7 +12,7 @@ objectives:
     - "Join DataFrames using common fields (join keys)."
 keypoints:
     - "Pandas' `merge` and `concat` can be used to combine subsets of a DataFrame, or even data from different files."
-    - "DataFrames can be combined using join keys with the `join` function."
+    - "`join` function combines DataFrames based on index or column."
     - "Joining two DataFrames can be done in multiple ways (left, right, and inner) depending on what data must be in the final DataFrame."
     - "`to_csv` can be used to write out DataFrames in CSV format."
 ---
