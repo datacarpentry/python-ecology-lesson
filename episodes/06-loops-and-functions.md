@@ -12,7 +12,10 @@ objectives:
     - "Build reusable code in Python."
     - "Write functions using conditional statements (if, then, else)."
 keypoints:
-    - "FIXME"
+    - "Loops help automate repetitive tasks over sets of items."
+    - "Loops combined with functions provide a way to process data more efficiently than we could by hand."
+    - "Conditional statements enable execution of different operations on different data."
+    - "Functions enable code reuse."
 ---
 
 So far, we've used Python and the pandas library to explore and manipulate
