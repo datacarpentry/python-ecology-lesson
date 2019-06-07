@@ -11,7 +11,7 @@ objectives:
     - "Employ `to_csv` to export a DataFrame in CSV format."
     - "Join DataFrames using common fields (join keys)."
 keypoints:
-    - "`Merge` and `concat` can be used to recombine subsets from a DataFrame, or even data from different files."
+    - "Pandas' `merge` and `concat` can be used to (re)-combine subsets from a DataFrame, or even data from different files."
     - "DataFrames can be combined using join keys with the `join` function."
     - "Joining two DataFrames can be done in multiple ways (left, right, and inner) according to what data must be in the final DataFrame."
     - "`to_csv` can be used to write out DataFrames in CSV format."
