@@ -1,1 +1,240 @@
-{"contributors":[{"type":"Editor","name":"John Gosset"},{"type":"Editor","name":"April Wright"},{"type":"Editor","name":"Mateusz Kuzak"}],"creators":[{"name":"Greg Wilson"},{"name":"April M. Wright"},{"name":"John Gosset"},{"name":"Leah Wasser"},{"name":"Francois Michonneau"},{"name":"Raniere Silva"},{"name":"Tom Morrell"},{"name":"Abigail Cabunoc"},{"name":"Tracy Teal"},{"name":"Mateusz Kuzak"},{"name":"Ethan White"},{"name":"Thomas Morrell"},{"name":"Carol Willing"},{"name":"Hilmar Lapp"},{"name":"Kari L. Jordan"},{"name":"Mariela Perignon"},{"name":"C. Titus Brown"},{"name":"Thomas Ballinger"},{"name":"stijnvanhoey"},{"name":"Cheng H. Lee"},{"name":"Rémi Emonet"},{"name":"Stefano Menegon"},{"name":"Bennet Fauber"},{"name":"Carlos M Ortiz-Marrero"},{"name":"Erin Becker"},{"name":"Piotr Banaszkiewicz"},{"name":"Aaron Reba"},{"name":"Christian Barra"},{"name":"Karen Cranston"},{"name":"Klemens Noga"},{"name":"Leszek Tarkowski"},{"name":"Nicky Nicolson"},{"name":"Oliver Stueker"},{"name":"Tania Allard"},{"name":"Łukasz Zosiak"},{"name":"Andreas Mueller"},{"name":"Cam Macdonell"},{"name":"Chris Holden"},{"name":"Christie Bahlai"},{"name":"Hugo Bowne-Anderson"},{"name":"Iain Emsley"},{"name":"James Allen"},{"name":"Jeremy D Zucker"},{"name":"Jon Pipitone"},{"name":"Michael Connell"},{"name":"Michael Hansen"},{"name":"Shawn Taylor"},{"name":"dcwalk"},{"name":"evanwill"},{"name":"ladykiyenz"},{"name":"snamburi3"},{"name":"tomhohenstein"},{"name":"Asher Baltzell"},{"name":"Bill Mills"},{"name":"Chris Geroux"},{"name":"Deborah Digges"},{"name":"Gabriel A. Devenyi"},{"name":"Jarmo Kivekas"},{"name":"Jason Sigal"},{"name":"Jonah Duckles"},{"name":"Ming Tang"},{"name":"Muratahan Aykol"},{"name":"Nichole Bennett"},{"name":"Sean RG Barberie"},{"name":"Timothée Poisot"},{"name":"Xu Fei"},{"name":"jnandez"},{"name":"katabat"},{"name":"rsynnest"},{"name":"tvoigt"}]}
+{
+  "contributors": [
+    {
+      "type": "Editor",
+      "name": "April Wright",
+      "orcid": "0000-0003-4692-3225"
+    },
+    {
+      "type": "Editor",
+      "name": "Maxim Belkin"
+    },
+    {
+      "type": "Editor",
+      "name": "Tania Rebeca Allard"
+    }
+  ],
+  "creators": [
+    {
+      "name": "April Wright",
+      "orcid": "0000-0003-4692-3225"
+    },
+    {
+      "name": "Maxim Belkin"
+    },
+    {
+      "name": "Thomas Morrell",
+      "orcid": "0000-0001-9266-5146"
+    },
+    {
+      "name": "Stijn Van Hoey",
+      "orcid": "0000-0001-6413-3185"
+    },
+    {
+      "name": "Tracy Teal",
+      "orcid": "0000-0002-9180-9598"
+    },
+    {
+      "name": "Nicolás Palopoli",
+      "orcid": "0000-0001-7925-6436"
+    },
+    {
+      "name": "Paula Andrea Martinez",
+      "orcid": "0000-0002-8990-1985"
+    },
+    {
+      "name": "Ethan P White",
+      "orcid": "0000-0001-6728-7745"
+    },
+    {
+      "name": "Kari L Jordan",
+      "orcid": "0000-0003-4121-2432"
+    },
+    {
+      "name": "Mariela Perignon"
+    },
+    {
+      "name": "Erin Alison Becker",
+      "orcid": "0000-0002-6832-0233"
+    },
+    {
+      "name": "Thomas Ballinger"
+    },
+    {
+      "name": "Cheng H. Lee"
+    },
+    {
+      "name": "Katrin Tirok",
+      "orcid": "0000-0002-5040-9838"
+    },
+    {
+      "name": "Tania Allard"
+    },
+    {
+      "name": "Bennet Fauber"
+    },
+    {
+      "name": "Carlos M Ortiz Marrero",
+      "orcid": "0000-0001-8302-1322"
+    },
+    {
+      "name": "Rayna Michelle Harris",
+      "orcid": "0000-0002-7943-5650"
+    },
+    {
+      "name": "Karen Cranston",
+      "orcid": "0000-0002-4798-9499"
+    },
+    {
+      "name": "Klemens Noga",
+      "orcid": "0000-0002-1135-167X"
+    },
+    {
+      "name": "Leszek Tarkowski"
+    },
+    {
+      "name": "Łukasz Zosiak"
+    },
+    {
+      "name": "Nicky Nicolson"
+    },
+    {
+      "name": "Oliver Stueker"
+    },
+    {
+      "name": "Aaron Reba"
+    },
+    {
+      "name": "Alejandra Noemi Gonzalez-Beltran",
+      "orcid": "0000-0003-3499-8262"
+    },
+    {
+      "name": "Alex Thompson"
+    },
+    {
+      "name": "Andreas Mueller"
+    },
+    {
+      "name": "Ashwin Srinath"
+    },
+    {
+      "name": "Bianca Peterson",
+      "orcid": "0000-0001-6927-9159"
+    },
+    {
+      "name": "Christie Bahlai",
+      "orcid": "0000-0002-8937-8709"
+    },
+    {
+      "name": "Joachim Krois"
+    },
+    {
+      "name": "Iain Emsley"
+    },
+    {
+      "name": "maxvillev"
+    },
+    {
+      "name": "Michael Connell"
+    },
+    {
+      "name": "Patrick Lestrange"
+    },
+    {
+      "name": "Sarah M Brown",
+      "orcid": "0000-0001-5728-0822"
+    },
+    {
+      "name": "Sandeep Namburi",
+      "orcid": "0000-0003-3281-356X"
+    },
+    {
+      "name": "Wilson Lozano"
+    },
+    {
+      "name": "Jeremy Daniel Zucker",
+      "orcid": "0000-0002-7276-9009"
+    },
+    {
+      "name": "Bill Chau"
+    },
+    {
+      "name": "Chris Geroux"
+    },
+    {
+      "name": "Christina Maimone",
+      "orcid": "0000-0002-0402-6297"
+    },
+    {
+      "name": "Chun Ly"
+    },
+    {
+      "name": "Colin Morris"
+    },
+    {
+      "name": "Deborah Digges"
+    },
+    {
+      "name": "Erika Mias"
+    },
+    {
+      "name": "Gary Leeming"
+    },
+    {
+      "name": "Jarmo Kivekas"
+    },
+    {
+      "name": "Jason Sigal"
+    },
+    {
+      "name": "Javier de la Rosa"
+    },
+    {
+      "name": "Jazmin Berlanga Medina"
+    },
+    {
+      "name": "Daniel W Kerchner",
+      "orcid": "0000-0002-5921-2193"
+    },
+    {
+      "name": "Elizabeth Naluminsa"
+    },
+    {
+      "name": "Luca Di Stasio",
+      "orcid": "0000-0002-9261-301X"
+    },
+    {
+      "name": "Ming Tang",
+      "orcid": "0000-0002-7739-8913"
+    },
+    {
+      "name": "Muratahan Aykol"
+    },
+    {
+      "name": "Nichole Bennett"
+    },
+    {
+      "name": "Phillip Doehle",
+      "orcid": "0000-0002-3006-0683"
+    },
+    {
+      "name": "Rebecca Hartman-Baker"
+    },
+    {
+      "name": "Rémi Rampin",
+      "orcid": "0000-0002-0524-2282"
+    },
+    {
+      "name": "rsynnest"
+    },
+    {
+      "name": "Xu Fei"
+    },
+    {
+      "name": "Yee Mey"
+    }
+  ],
+  "license": {
+    "id": "CC-BY-4.0"
+  }
+}
