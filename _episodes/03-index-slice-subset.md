@@ -73,6 +73,10 @@ surveys_df['species_id']
 # Method 2: use the column name as an 'attribute'; gives the same output
 surveys_df.species_id
 ~~~
+Explain the difference between the two methods
+1. If you want to create a new column in the df, you have to use the first
+2. If there is a space in the column name, you have to use the first as well.
+
 {: .language-python}
 
 We can also create a new object that contains only the data within the
