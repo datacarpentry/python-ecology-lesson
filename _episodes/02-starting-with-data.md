@@ -18,7 +18,7 @@ objectives:
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
 keypoints:
-    - "Libraries enable us to extend the functionality of Python." 
+    - "Libraries enable us to extend the functionality of Python."
     - "Pandas is a popular library for working with data."
     - "A Dataframe is a Pandas data structure that allows one to access data by column (name or index) or row."
     - "Aggregating data using the `groupby()` function enables you to generate useful summaries of data quickly."
@@ -345,6 +345,59 @@ Let's look at the data using these.
 >    HINT: [More on tuples, here][python-datastructures].
 > 3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
 > 4. `surveys_df.tail()`
+>
+> > ## Solution
+> >
+> >
+> > ~~~
+> > surveys_df.columns
+> > ~~~
+> > {: .language-python}
+> > ~~~
+> > Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id', 'sex',
+> >       'hindfoot_length', 'weight'],
+> >       dtype='object')
+> > ~~~
+> > {: .output}
+> >
+> > ~~~
+> > surveys_df.shape
+> > ~~~
+> > {: .language-python}
+> > ~~~
+> > (35549, 9)
+> > ~~~
+> > {: .output}
+> >
+> > ~~~
+> > surveys_df.head()
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+record_id 	month 	day 	year 	plot_id 	species_id 	sex 	hindfoot_length 	weight
+0 	1 	7 	16 	1977 	2 	NL 	M 	32.0 	NaN
+1 	2 	7 	16 	1977 	3 	NL 	M 	33.0 	NaN
+2 	3 	7 	16 	1977 	2 	DM 	F 	37.0 	NaN
+3 	4 	7 	16 	1977 	7 	DM 	M 	36.0 	NaN
+4 	5 	7 	16 	1977 	3 	DM 	M 	35.0 	NaN
+> > ~~~
+> > {: .output}
+> > ~~~
+> > surveys_df.tail()
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+record_id 	month 	day 	year 	plot_id 	species_id 	sex 	hindfoot_length 	weight
+35544 	35545 	12 	31 	2002 	15 	AH 	NaN 	NaN 	NaN
+35545 	35546 	12 	31 	2002 	15 	AH 	NaN 	NaN 	NaN
+35546 	35547 	12 	31 	2002 	10 	RM 	F 	15.0 	14.0
+35547 	35548 	12 	31 	2002 	7 	DO 	M 	36.0 	51.0
+35548 	35549 	12 	31 	2002 	5 	NaN 	NaN 	NaN 	NaN
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 
@@ -398,7 +451,36 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 >   `site_names`. How many unique sites are there in the data? How many unique
 >   species are in the data?
 >
+> > ## Solution
+> >
+> >
+> > ~~~
+> > site_names = pd.unique(surveys_df["plot_id"])
+> > len(plot_names) # for number of unique plot ID’s
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+24
+> > ~~~
+> > {: .output}
+> > ~~~
+len(pd.unique(surveys_df["species_id"]))
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+39
+> > ~~~
+> > {: .output}
+> {: .solution}
+>
 > 2. What is the difference between `len(site_names)` and `surveys_df['plot_id'].nunique()`?
+>
+> > ## Solution
+> >
+> > Both do result in the same output, making it alternative ways of getting the unique values. `nunique` combines the count and unique value extraction.
+> {: .solution}
 {: .challenge}
 
 # Groups in Pandas
@@ -485,15 +567,34 @@ summary stats.
 > ## Challenge - Summary Data
 >
 > 1. How many recorded individuals are female `F` and how many male `M`
+>
+> > ## Solution
+> > ~~~
+> > grouped_data.count()
+> > ~~~
+> > {: .language-python}
+> {: .solution}
+>
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
 >   - `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
 >   - `grouped_data2.mean()`
+>
+> > ## Solution
+> >  The mean value for each combination of plot and sex is calculated. This is not
+> > really informative.
+> {: .solution}
 > 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
 >   `by_site['weight'].describe()`
 >
 >
+> > ## Solution
+> > ~~~
+> > surveys_df.groupby(['plot_id'])['weight'].describe()
+> > ~~~
+> > {: .language-python}
+> {: .solution}
 >> ## Did you get #3 right?
 >> **A Snippet of the Output from challenge 3 looks like:**
 >>
@@ -580,7 +681,24 @@ total_count.plot(kind='bar');
 > ## Challenge - Plots
 >
 > 1. Create a plot of average weight across all species per site.
+>
+> > ## Solution
+> > ~~~
+surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')
+> > ~~~
+> > {: .language-python}
+> > ![average weight across all species for each plot](../fig/01_chall_bar_meanweight.png)
+> {: .solution}
+>
 > 2. Create a plot of total males versus total females for the entire dataset.
+>
+> > ## Solution
+> > ~~~
+surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')
+> > ~~~
+> > {: .language-python}
+> > ![total males versus total females for the entire dataset](../fig/01_chall_bar_totalsex.png)
+> {: .solution}
 {: .challenge}
 
 > ## Summary Plotting Challenge
@@ -710,4 +828,3 @@ total_count.plot(kind='bar');
 [spreadsheet-lesson5]: http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data
 
 {% include links.md %}
-

@@ -361,6 +361,16 @@ a_list = [1, 2, 3]
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
 >
+> > ## Solution
+> >
+> >As a tuple is immutable, it does not support item assignment. Elements in a list can be altered individually.
+> >
+> >
+> > ~~~
+> > tuple
+> > ~~~
+> > {: .output}
+> {: .solution}
 {: .challenge}
 
 
@@ -451,12 +461,36 @@ for key in rev.keys():
 {: .output}
 
 > ## Changing dictionaries
->
 > 1. First, print the value of the `rev` dictionary to the screen.
 > 2. Reassign the value that corresponds to the key `2` so that it no longer
 >    reads "two" but instead "apple-sauce".
 > 3. Print the value of `rev` to the screen again to see if the value has changed.
 >
+> > ## Solution
+> >
+> >
+> > ~~~
+> > rev
+> > ~~~
+> > {: .language-python}
+> >
+> >
+> > ~~~
+> > {1: 'one', 2: 'two', 3: 'three'}
+> > ~~~
+> > {: .output}
+> >
+> > ~~~
+> > rev[2] = "apple-sauce"
+> > ~~~
+> > {: .language-python}
+> >
+> > ~~~
+> > {1: 'one', 2: 'apple-sauce', 3: 'three'}
+> > ~~~
+> > {: .output}
+> >
+>  {: .solution}
 {: .challenge}
 
 
@@ -481,4 +515,3 @@ print(z)
 {: .output}
 
 {% include links.md %}
-
