@@ -124,7 +124,7 @@ time we call a Pandas function.
 # Reading CSV Data Using Pandas
 
 We will begin by locating and reading our survey data which are in CSV format. CSV stands for
-Comma-Separated Values and is a common way store formatted data. Other symbols may also be used, so
+Comma-Separated Values and is a common way to store formatted data. Other symbols may also be used, so
 you might see tab-separated, colon-separated or space separated files. It is quite easy to replace
 one separator with another, to match your application. The first line in the file often has headers
 to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
