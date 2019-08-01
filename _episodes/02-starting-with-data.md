@@ -93,7 +93,8 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 A library in Python contains a set of tools (called functions) that perform
 tasks on our data. Importing a library is like getting a piece of lab equipment
 out of a storage locker and setting it up on the bench for use in a project.
-Once a library is set up, it can be used or called to perform many tasks.
+Once a library is set up, it can be used or called to perform the task(s)
+it was built to do.
 
 ## Pandas in Python
 One of the best options for working with tabular data in Python is to use the
