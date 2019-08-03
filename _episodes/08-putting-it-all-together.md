@@ -292,7 +292,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > >                              "timezone", "flow_rate", "height"])
 > > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-                        (discharge["datetime"] < "2013-09-15")]
+> >                   (discharge["datetime"] < "2013-09-15")]
 > >
 > > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
 > > flood.plot(x ="datetime", y="flow_rate", ax=ax)
@@ -308,13 +308,13 @@ plt.show() # not necessary in Jupyter Notebooks
 > >                              "timezone", "flow_rate", "height"])
 > > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-                        (discharge["datetime"] < "2013-09-15")]
->>
+> >                   (discharge["datetime"] < "2013-09-15")]
+> >
 > > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
->> flood.plot(x ="datetime", y="flow_rate", ax=ax)
+> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
 > > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
 > > ax2.legend().set_visible(False)
-
+> >
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
