@@ -5,7 +5,7 @@ exercises: 0
 questions:
   - "What is Python and why should I learn it?"
 objectives:
-  - "Motivations for using Python."
+  - "Present motivations for using Python."
   - "Organize files and directories for a set of analyses as a Python project, and understand the
      purpose of the working directory."
   - "How to work with Jupyter Notebook and Spyder."
