@@ -152,8 +152,8 @@ created with NumPy by drawing 1000 samples from a normal distribution with a mea
 a standard deviation of 0.1:
 
 ~~~
-import numpy
-sample_data = numpy.random.normal(0, 0.1, 1000)
+import numpy as np
+sample_data = np.random.normal(0, 0.1, 1000)
 
 ~~~
 {: .language-python}
