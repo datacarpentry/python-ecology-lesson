@@ -121,7 +121,7 @@ type(number)
 {: .output}
 
 ~~~
-type(6.02)
+type(pi_value)
 ~~~
 {: .language-python}
 ~~~
@@ -144,7 +144,7 @@ Data Carpentry
 ~~~
 {: .output}
 ~~~
-print(11)
+print(number)
 ~~~
 {: .language-python}
 ~~~
