@@ -186,6 +186,39 @@ Notice that "Data Carpentry" is printed only once.
 lesson, we will introduce methods and user-defined functions. The Python
 documentation is excellent for reference on the differences between them.
 
+*Making the script executable*
+
+To specify that example.py is a python script, we can add something called the shebang to our script. It looks like this:
+
+*example.py*
+~~~
+#!/usr/bin/env python3
+# The previous line is the shebang!
+# A Python script file
+# Comments in Python start with #
+# The next line assigns the string "Data Carpentry" to the variable "text".
+text = "Data Carpentry"
+
+# The next line does nothing!
+text
+
+# The next line uses the print function to print out the value we assigned to "text"
+print(text)
+~~~
+{: .language-python}
+
+Once we've added the shebang, we can now run script like this:
+
+~~~
+$ ./example.py
+~~~
+{: .language-bash}
+
+~~~
+Data Carpentry
+~~~
+{: .output}
+
 ### Operators
 
 We can perform mathematical calculations in Python using the basic operators
