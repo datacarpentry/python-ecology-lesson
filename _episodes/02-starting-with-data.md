@@ -126,19 +126,10 @@ time we call a Pandas function.
 We will begin by locating and reading our survey data which are in CSV format. CSV stands for
 Comma-Separated Values and is a common way store formatted data. Other symbols may also be used, so
 you might see tab-separated, colon-separated or space separated files. It is quite easy to replace
-one separator with another, to match your application. The first line in the file often has headers
-to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
+one separator with another, to match your application. CSV files make it easy to share data, and can be
 imported and exported from many applications, including Microsoft Excel. For more details on CSV
 files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
-We can use Pandas' `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
-
-## So What's a DataFrame?
-
-A DataFrame is a 2-dimensional data structure that can store data of different
-types (including characters, integers, floating point values, factors and more)
-in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
-R. A DataFrame always has an index (0-based). An index refers to the position of
-an element in the data structure.
+We can use rhe Pandas `read_csv` function to read the data file:
 
 ~~~
 # Note that pd.read_csv is used because we imported pandas as pd
@@ -149,27 +140,31 @@ pd.read_csv("data/surveys.csv")
 The above command yields the **output** below:
 
 ~~~
-record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
-0          1      7   16  1977        2         NL   M               32   NaN
-1          2      7   16  1977        3         NL   M               33   NaN
-2          3      7   16  1977        2         DM   F               37   NaN
-3          4      7   16  1977        7         DM   M               36   NaN
-4          5      7   16  1977        3         DM   M               35   NaN
+       record_id  month  day  ...    sex  hindfoot_length weight
+0              1      7   16  ...      M             32.0    NaN
+1              2      7   16  ...      M             33.0    NaN
+2              3      7   16  ...      F             37.0    NaN
+3              4      7   16  ...      M             36.0    NaN
+4              5      7   16  ...      M             35.0    NaN
 ...
-35544      35545     12   31  2002       15     AH  NaN              NaN  NaN
-35545      35546     12   31  2002       15     AH  NaN              NaN  NaN
-35546      35547     12   31  2002       10     RM    F               15   14
-35547      35548     12   31  2002        7     DO    M               36   51
-35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
+35544      35545     12   31  ...    NaN              NaN    NaN
+35545      35546     12   31  ...    NaN              NaN    NaN
+35546      35547     12   31  ...      F             15.0   14.0
+35547      35548     12   31  ...      M             36.0   51.0
+35548      35549     12   31  ...    NaN              NaN    NaN
 
 [35549 rows x 9 columns]
 ~~~
 {: .output}
 
-We can see that there were 35,549 rows parsed. Each row has 9
-columns. The first column is the index of the DataFrame. The index is used to
-identify the position of the data, but it is not an actual column of the DataFrame.
-It looks like  the `read_csv` function in Pandas  read our file properly. However,
+The result is a [DataFrame][pd-dataframe], which is a 2-dimensional data structure similar to a spreadsheet or an SQL table or the `data.frame` in R.  
+It often contains one column for each variable, and one row for each observation.  In the case of survey data, an "observation" is usually one survey respondent.
+In this example, the DataFrame contains 35549 rows; each row has 9 columns. 
+
+In the output, the first column of numbers is the **index** of the DataFrame. The index is used to
+identify rows in the DataFrame, but it is not an actual column of the DataFrame.
+
+It looks like  the `read_csv` function in Pandas read our file properly. However,
 we haven't saved any data to memory so we can work with it. We need to assign the
 DataFrame to a variable. Remember that a variable is a name for a value, such as `x`,
 or  `data`. We can create a new  object with a variable name by assigning a value to it using `=`.
