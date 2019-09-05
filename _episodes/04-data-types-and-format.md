@@ -300,10 +300,11 @@ df1['weight'].mean()
 {: .language-python}
 
 We can fill NaN values with any value that we chose. The code below fills all
-NaN values with a mean for all weight values.
+NaN values with a mean for all weight values. We use `.copy()` to make sure we do
+not change the original dataframe `surveys_df`.
 
 ~~~
-df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
+df1['weight'] = surveys_df['weight'].copy().fillna(surveys_df['weight'].mean())
 ~~~
 {: .language-python}
 
