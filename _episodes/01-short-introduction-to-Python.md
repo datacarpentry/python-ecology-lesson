@@ -148,7 +148,7 @@ print(number)
 ~~~
 {: .language-python}
 ~~~
-11
+42
 ~~~
 {: .output}
 
