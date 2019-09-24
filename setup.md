@@ -4,23 +4,28 @@ title: Setup
 ---
 
 > ## Data
-> Data for this lesson is from the Portal Project Teaching Database -
+> Data for this lesson is based on the Portal Project Teaching Database -
 > [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 >
-> We will use the six files listed below for the data in this lesson.
-> Download these files to your computer either by clicking
-> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
-> which will give you everything in a single compressed file.
-> You'll need to unzip this file after downloading it.
->
-> Or download each file individually with the following links:
+> For this lesson we will use the eight files listed below for data.
+> These can be download by following the below links
 >
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
 > - [species.csv](https://ndownloader.figshare.com/files/3299483)
 > - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
+> - [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv)
+> - [surveys2002.csv]({{ page.root }}/data/yearly_files/surveys2002.csv)
 > - [plots.csv](https://ndownloader.figshare.com/files/3299474)
 > - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
 > - [SQL Database](https://ndownloader.figshare.com/files/11188550)
+
+> Five of the above eight files can also be obtained via
+> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
+> returning a single compressed file.
+> You'll need to unzip this file after downloading it, but also manually download the remaining three files
+> [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv),
+> [surveys2002.csv]({{ page.root }}/data/yearly_files/surveys2002.csv) and
+> [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt).
 {: .prereq}
 
 
