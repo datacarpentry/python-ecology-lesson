@@ -204,7 +204,7 @@ in your query.
 
 However, you should check Stack Overflow. Search using the `python` tag. Most questions have already
 been answered, but the challenge is to use the right words in the search to find the answers:
-<http://stackoverflow.com/questions/tagged/python>
+<https://stackoverflow.com/questions/tagged/python?tab=Votes>
 
 ### Asking for help
 
@@ -251,7 +251,7 @@ ask a good question.
 [python-guide]: https://docs.python-guide.org
 [python-mailing-lists]: https://www.python.org/community/lists
 [stack-overflow]: https://stackoverflow.com
-[so-python]: https://stackoverflow.com/questions/tagged/python
+[so-python]: https://stackoverflow.com/questions/tagged/python?tab=Votes
 [spyder-ide]: https://www.spyder-ide.org
 
 {% include links.md %}
