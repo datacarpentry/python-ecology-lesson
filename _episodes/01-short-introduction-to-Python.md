@@ -360,7 +360,6 @@ a_list = [1, 2, 3]
 > 1. What happens when you execute `a_list[1] = 5`?
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
->
 {: .challenge}
 
 
@@ -456,7 +455,6 @@ for key in rev.keys():
 > 2. Reassign the value that corresponds to the key `2` so that it no longer
 >    reads "two" but instead "apple-sauce".
 > 3. Print the value of `rev` to the screen again to see if the value has changed.
->
 {: .challenge}
 
 
