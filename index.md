@@ -3,7 +3,6 @@ layout: lesson
 root: .
 
 maintainers:
-  - April Wright
   - Tania Allard
   - Maxim Belkin
 ---
