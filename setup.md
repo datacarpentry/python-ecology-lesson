@@ -110,5 +110,5 @@ jupyter notebook
 The notebook should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: <http://localhost:8888>.
 
-For a bried introduction to Jupyter Notebooks, please consult with our
+For a brief introduction to Jupyter Notebooks, please consult with our
 [Introduction to Jupyter Notebooks](jupyter_notebooks) page.
