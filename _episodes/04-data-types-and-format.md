@@ -23,7 +23,7 @@ keypoints:
 ---
 
 The format of individual columns and rows will impact analysis performed on a
-dataset read into python. For example, you can't perform mathematical
+dataset read into Python. For example, you can't perform mathematical
 calculations on a string (text formatted data). This might seem obvious,
 however sometimes numeric values are read into Python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
@@ -36,7 +36,7 @@ structure and format of our data.
 
 How information is stored in a
 DataFrame or a Python object affects what we can do with it and the outputs of
-calculations as well. There are two main types of data that we're explore in
+calculations as well. There are two main types of data that we will explore in
 this lesson: numeric and text data types.
 
 ## Numeric Data Types
@@ -60,7 +60,7 @@ Text data type is known as Strings in Python, or Objects in Pandas. Strings can
 contain numbers and / or characters. For example, a string might be a word, a
 sentence, or several sentences. A Pandas object might also be a plot name like
 'plot1'. A string can also contain or consist of numbers. For instance, '1234'
-could be stored as a string. As could '10.23'. However **strings that contain
+could be stored as a string, as could '10.23'. However **strings that contain
 numbers can not be used for mathematical operations**!
 
 Pandas and base Python use slightly different names for data types. More on this
@@ -346,7 +346,7 @@ df_na = surveys_df.dropna()
 If you now type `df_na`, you should observe that the resulting DataFrame has 30676 rows
 and 9 columns, much smaller than the 35549 row original.
 
-We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+We can now use the `to_csv` command to export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash before the filename:
 `df.to_csv('foldername/out.csv')`. We use 'index=False' so that
