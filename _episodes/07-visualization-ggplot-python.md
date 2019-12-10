@@ -30,7 +30,7 @@ and [The Grammar of Graphics][grammar-of-graphics]
 by Leland Wilkinson. The `plotnine`
 package is built on top of Matplotlib and interacts well with Pandas.
 
-Just as with the other packages, `plotnine` need to be imported. It is good
+Just as with the other packages, `plotnine` needs to be imported. It is good
 practice to not just load an entire package such as `from plotnine import *`,
 but to use an abbreviation as we used `pd` for Pandas:
 
