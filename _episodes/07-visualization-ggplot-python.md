@@ -30,7 +30,7 @@ and [The Grammar of Graphics][grammar-of-graphics]
 by Leland Wilkinson. The `plotnine`
 package is built on top of Matplotlib and interacts well with Pandas.
 
-Just as with the other packages, `plotnine` need to be imported. It is good
+Just as with the other packages, `plotnine` needs to be imported. It is good
 practice to not just load an entire package such as `from plotnine import *`,
 but to use an abbreviation as we used `pd` for Pandas:
 
@@ -57,7 +57,7 @@ The `plotnine` package (cfr. other packages conform The Grammar of Graphics) sup
 dataframe. It uses default settings, which help creating publication quality
 plots with a minimal amount of settings and tweaking.
 
-`plotnine` graphics are built step by step by adding new elementsadding
+`plotnine` graphics are built step by step by adding new elements adding
 different elements on top of each other using the `+` operator. Putting the
 individual steps together in brackets `()` provides Python-compatible syntax.
 
@@ -76,8 +76,8 @@ As we have not defined anything else, just an empty figure is available and
 presented.
 
 - Define aesthetics (`aes`), by **selecting variables** used in the plot and
-`mapping` them to a presentation such as plotting size, shape color, etc. You
-can interpret this as: *which** of the variables will influence the plotted
+`mapping` them to a presentation such as plotting size, shape, color, etc. You
+can interpret this as: **which** of the variables will influence the plotted
 objects/geometries:
 
 ~~~
