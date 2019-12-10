@@ -113,8 +113,9 @@ the related Python data type dictionary).
 {: .callout}
 
 Let's remind ourselves that Python uses 0-based
-indexing. This means that the first element in an object is located at position
-0. This is different from other tools like R and Matlab that index elements
+indexing. This means that the first element in an object is located at position 0. 
+
+This is different from other tools like R and Matlab that index elements
 within objects starting at 1.
 
 ~~~
