@@ -44,7 +44,7 @@ title: Setup
 ## Install the workshop packages
 
 For installing these packages we will use Anaconda or Miniconda.
-They both use [Conda](http://conda.pydata.org/docs/), the main difference is
+They both use [Conda](https://conda.io/en/latest/), the main difference is
 that Anaconda comes with a lot of packages pre-installed.
 With Miniconda you will need to install the required packages.
 
