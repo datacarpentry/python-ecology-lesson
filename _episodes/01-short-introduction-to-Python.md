@@ -379,7 +379,7 @@ translation['one']
 
 Dictionaries work a lot like lists - except that you index them with *keys*.
 You can think about a key as a name for or a unique identifier for a set of values
-in the dictionary. Keys can only have particular types - they have to be
+in the dictionary. Keys can only have particular types that are not mutable or likely to change - they have to be
 "hashable". Strings and numeric types are acceptable, but lists aren't.
 
 ~~~
