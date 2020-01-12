@@ -379,9 +379,7 @@ translation['one']
 
 Dictionaries work a lot like lists - except that you index them with *keys*.
 You can think about a key as a name for or a unique identifier for a set of values
-in the dictionary. Keys can only have particular types - they have to be
-"hashable". Strings and numeric types are acceptable, but lists aren't.
-
+in the dictionary. 
 ~~~
 rev = {1: 'one', 2: 'two'}
 rev[1]
@@ -391,20 +389,6 @@ rev[1]
 'one'
 ~~~
 {: .output}
-
-~~~
-bad = {[1, 2, 3]: 3}
-~~~
-{: .language-python}
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: unhashable type: 'list'
-~~~
-{: .output}
-
-In Python, a "Traceback" is an multi-line error block printed out for the
-user.
 
 To add an item to the dictionary we assign a value to a new key:
 
