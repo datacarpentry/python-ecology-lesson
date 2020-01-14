@@ -14,7 +14,7 @@ keypoints:
     - "Python is an interpreted language which can be used interactively (executing one command at a time) or in scripting mode (executing a series of commands saved in file)."
     - "One can assign a value to a variable in Python. Those variables can be of several types, such as string, integer, floating point and complex numbers."
     - "Lists and tuples are similar in that they are ordered lists of elements; they differ in that a tuple is immutable (cannot be changed)."
-    - "Dictionaries are unordered data structures that provide mappings between keys and values."
+    - "Dictionaries are data structures that provide mappings between keys and values."
 ---
 
 ## Interpreter
@@ -378,10 +378,7 @@ translation['one']
 {: .output}
 
 Dictionaries work a lot like lists - except that you index them with *keys*.
-You can think about a key as a name for or a unique identifier for a set of values
-in the dictionary. Keys can only have particular types - they have to be
-"hashable". Strings and numeric types are acceptable, but lists aren't.
-
+You can think about a key as a name or unique identifier for the value it corresponds to. 
 ~~~
 rev = {1: 'one', 2: 'two'}
 rev[1]
@@ -391,20 +388,6 @@ rev[1]
 'one'
 ~~~
 {: .output}
-
-~~~
-bad = {[1, 2, 3]: 3}
-~~~
-{: .language-python}
-~~~
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: unhashable type: 'list'
-~~~
-{: .output}
-
-In Python, a "Traceback" is an multi-line error block printed out for the
-user.
 
 To add an item to the dictionary we assign a value to a new key:
 
