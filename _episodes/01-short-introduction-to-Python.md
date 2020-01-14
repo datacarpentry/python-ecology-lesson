@@ -378,8 +378,7 @@ translation['one']
 {: .output}
 
 Dictionaries work a lot like lists - except that you index them with *keys*.
-You can think about a key as a name for or a unique identifier for a set of values
-in the dictionary. 
+You can think about a key as a name or unique identifier for the value it corresponds to. 
 ~~~
 rev = {1: 'one', 2: 'two'}
 rev[1]
