@@ -731,10 +731,6 @@ plt.show()
 ~~~
 {: .language-python}
 
-## 09-working-with-sql
-
-FIXME
-
 
 [This page][matplotlib-mathtext] contains more information.
 
