@@ -10,6 +10,4 @@ on how to contribute updates, bug fixes, or other corrections.
 
 ### Maintainers
 
-- April Wright ([@wrightaprilm](https://github.com/wrightaprilm))
-- Tania Allard ([@trallard](https://github.com/trallard))
 - Maxim Belkin ([@maxim-belkin](https://github.com/maxim-belkin))

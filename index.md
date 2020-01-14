@@ -1,13 +1,7 @@
 ---
 layout: lesson
 root: .
-
-maintainers:
-  - Tania Allard
-  - Maxim Belkin
 ---
-
-**Lesson Maintainers:** {{ page.maintainers | join: ', ' }}
 
 Python is a general purpose programming language that is useful for writing scripts to work effectively and reproducibly with data.
 
