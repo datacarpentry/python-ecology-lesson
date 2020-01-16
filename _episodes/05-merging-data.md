@@ -91,7 +91,7 @@ survey_sub_last10=survey_sub_last10.reset_index(drop=True)
 {: .language-python}
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
-pandas to stack the second DataFrame under the first one. It will automatically
+pandas to stack the second DataFrame UNDER the first one. It will automatically
 detect whether the column names are the same and will stack accordingly.
 `axis=1` will stack the columns in the second DataFrame to the RIGHT of the
 first DataFrame. To stack the data vertically, we need to make sure we have the
