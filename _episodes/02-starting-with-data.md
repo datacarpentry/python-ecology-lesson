@@ -18,7 +18,7 @@ objectives:
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
 keypoints:
-    - "Libraries enable us to extend the functionality of Python." 
+    - "Libraries enable us to extend the functionality of Python."
     - "Pandas is a popular library for working with data."
     - "A Dataframe is a Pandas data structure that allows one to access data by column (name or index) or row."
     - "Aggregating data using the `groupby()` function enables you to generate useful summaries of data quickly."
@@ -488,7 +488,7 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`
 > 2. What happens when you group by two columns using the following syntax and
 >    then grab mean values:
->   - `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>   - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
 >   - `grouped_data2.mean()`
 > 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data
@@ -596,7 +596,7 @@ total_count.plot(kind='bar');
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
 >
 > ~~~
-> d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']),'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
+> d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']), 'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
 > pd.DataFrame(d)
 > ~~~
 > {: .language-python }
@@ -617,7 +617,7 @@ total_count.plot(kind='bar');
 > ~~~
 > # Plot stacked data so columns 'one' and 'two' are stacked
 > my_df = pd.DataFrame(d)
-> my_df.plot(kind='bar',stacked=True,title="The title of my graph")
+> my_df.plot(kind='bar', stacked=True, title="The title of my graph")
 > ~~~
 > {: .language-python }
 >
@@ -636,7 +636,7 @@ total_count.plot(kind='bar');
 >> First we group data by site and by sex, and then calculate a total for each site.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> ~~~
 >> {: .language-python}
@@ -661,7 +661,7 @@ total_count.plot(kind='bar');
 >> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> site_sex_count.unstack()
 >> ~~~
@@ -685,10 +685,10 @@ total_count.plot(kind='bar');
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> spc = site_sex_count.unstack()
->> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by site and sex")
+>> s_plot = spc.plot(kind='bar', stacked=True, title="Total weight by site and sex")
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
 >> ~~~

@@ -245,7 +245,7 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:
 
 ~~~
-merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
+merged_inner = pd.merge(left=survey_sub, right=species_sub, left_on='species_id', right_on='species_id')
 # In this case `species_id` is the only column name in  both dataframes, so if we skipped `left_on`
 # And `right_on` arguments we would still get the same result
 
@@ -326,7 +326,7 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ~~~
-merged_left = pd.merge(left=survey_sub,right=species_sub, how='left', left_on='species_id', right_on='species_id')
+merged_left = pd.merge(left=survey_sub, right=species_sub, how='left', left_on='species_id', right_on='species_id')
 merged_left
 ~~~
 {: .language-python}

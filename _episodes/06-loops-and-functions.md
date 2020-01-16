@@ -340,7 +340,7 @@ it is called, it includes a return statement at the end.
 This is how we call the function:
 
 ~~~
-product_of_inputs = this_is_the_function_name(2,5)
+product_of_inputs = this_is_the_function_name(2, 5)
 ~~~
 {: .language-python}
 
