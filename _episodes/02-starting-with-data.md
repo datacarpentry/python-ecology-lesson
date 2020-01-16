@@ -537,7 +537,7 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 > ## Challenge - Make a list
 >
 >  What's another way to create a list of species and associated `count` of the
->  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  records in the data? Hint: you can perform `count`, `min`, etc. functions on
 >  groupby DataFrames in the same way you can perform them on regular DataFrames.
 {: .challenge}
 

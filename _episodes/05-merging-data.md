@@ -96,7 +96,7 @@ detect whether the column names are the same and will stack accordingly.
 `axis=1` will stack the columns in the second DataFrame to the RIGHT of the
 first DataFrame. To stack the data vertically, we need to make sure we have the
 same columns and associated column format in both datasets. When we stack
-horizonally, we want to make sure what we are doing makes sense (ie the data are
+horizontally, we want to make sure what we are doing makes sense (i.e. the data are
 related in some way).
 
 ~~~
@@ -236,7 +236,7 @@ two DataFrames based on a join key and returns a new DataFrame that contains
 DataFrames.
 
 Inner joins yield a DataFrame that contains only rows where the value being
-joins exists in BOTH tables. An example of an inner join, adapted from [this
+joined exists in BOTH tables. An example of an inner join, adapted from [this
 page](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) is below:
 
 ![Inner join -- courtesy of codinghorror.com](../fig/inner-join.png)

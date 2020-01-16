@@ -10,7 +10,7 @@ objectives:
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
-    - "Object-based nature of matplotlib plots enables their detailed customization after they have been created."
+    - "The object-based nature of matplotlib plots enables their detailed customization after they have been created."
     - "Export plots to a file using the `savefig` method."
 ---
 

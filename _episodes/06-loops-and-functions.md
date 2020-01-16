@@ -460,7 +460,7 @@ simply defining a function without *calling* it doesn't produce an output. Any
 cells that use the now-changed functions will also have to be re-run for their
 output to change.
 
-> ## Challenge- More functions
+> ## Challenge: More functions
 >
 > 1. Add two arguments to the functions we wrote that take the path of the
 >    directory where the files will be written and the root of the file name.
