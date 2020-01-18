@@ -261,7 +261,7 @@ for year in surveys_df['year'].unique():
 Look inside the `yearly_files` directory and check a couple of the files you
 just created to confirm that everything worked as expected.
 
-## Writing Unique FileNames
+## Writing Unique File Names
 
 Notice that the code above created a unique filename for each year.
 
