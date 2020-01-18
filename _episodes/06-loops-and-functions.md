@@ -554,7 +554,7 @@ Default values:		1977 2002
 {: .output}
 
 The default values of the `start_year` and `end_year` arguments in the function
-`yearly_data_arg_test` are now `None`. This is a build-it constant in Python
+`yearly_data_arg_test` are now `None`. This is a built-in constant in Python
 that indicates the absence of a value - essentially, that the variable exists in
 the namespace of the function (the directory of variable names) but that it
 doesn't correspond to any existing object.
