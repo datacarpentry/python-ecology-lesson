@@ -398,7 +398,8 @@ The text between the two sets of triple double quotes is called a docstring and
 contains the documentation for the function. It does nothing when the function
 is running and is therefore not necessary, but it is good practice to include
 docstrings as a reminder of what the code does. Docstrings in functions also
-become part of their 'official' documentation:
+become part of their 'official' documentation, and we can see them by typing
+a `?` (question mark) after the function name:
 
 ~~~
 one_year_csv_writer?
