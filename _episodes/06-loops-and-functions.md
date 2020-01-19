@@ -164,7 +164,7 @@ practical, and is very likely to introduce errors into your code. We want to
 turn what we've just written into a loop that repeats the last two commands for
 every year in the dataset.
 
-Let's start by writing a loop that simply prints the names of the files we want
+Let's start by writing a loop that prints the names of the files we want
 to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
