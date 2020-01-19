@@ -272,7 +272,7 @@ filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 
 Let's break down the parts of this name:
 
-* The first part is simply some text that specifies the directory to store our
+* The first part is some text that specifies the directory to store our
   data file in (data/yearly_files/) and the first part of the file name
   (surveys): `'data/yearly_files/surveys'`
 * We can concatenate this with the value of a variable, in this case `year` by
