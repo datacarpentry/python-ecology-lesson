@@ -92,7 +92,7 @@ The loop variable is now: hippo
 
 We are not asking Python to print the value of the loop variable anymore, but
 the for loop still runs and the value of `creature` changes on each pass through
-the loop. The statement `pass` in the body of the loop just means "do nothing".
+the loop. The statement `pass` in the body of the loop means "do nothing".
 
 > ## Challenge - Loops
 >
