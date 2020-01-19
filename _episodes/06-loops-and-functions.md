@@ -316,7 +316,7 @@ the local variable hides but doesn't overwrite the other.
 Every method used in Python (for example, `print`) is a function, and the
 libraries we import (say, `pandas`) are a collection of functions. We will only
 use functions that are housed within the same code that uses them, but it's also
-easy to write functions that can be used by different programs.
+we can also write functions that can be used by different programs.
 
 Functions are declared following this general structure:
 
