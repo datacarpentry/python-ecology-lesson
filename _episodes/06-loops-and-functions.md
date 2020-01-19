@@ -455,8 +455,8 @@ yearly_data_csv_writer(1977, 2002, surveys_df)
 
 BEWARE! If you are using IPython Notebooks and you modify a function, you MUST
 re-run that cell in order for the changed function to be available to the rest
-of the code. Nothing will visibly happen when you do this, though, because
-simply defining a function without *calling* it doesn't produce an output. Any
+of the code. Nothing will visibly happen when you do this, though, because 
+defining a function without *calling* it doesn't produce an output. Any
 cells that use the now-changed functions will also have to be re-run for their
 output to change.
 
