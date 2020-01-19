@@ -416,7 +416,7 @@ do what you expect?
 
 What we really want to do, though, is create files for multiple years without
 having to request them one by one. Let's write another function that replaces
-the entire For loop by simply looping through a sequence of years and repeatedly
+the entire `for` loop by simply looping through a sequence of years and repeatedly
 calling the function we just wrote, `one_year_csv_writer`:
 
 
