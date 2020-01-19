@@ -22,7 +22,7 @@ keypoints:
 Python is an interpreted language which can be used in two ways:
 
 * "Interactively": when you use it as an "advanced calculator" executing
-  one command at a time. To start Python in this mode, simply execute `python`
+  one command at a time. To start Python in this mode, execute `python`
   on the command line:
 
 ~~~
