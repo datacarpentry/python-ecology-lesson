@@ -78,7 +78,7 @@ such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
-and share documents that allow one to easilty create documents that combine code, graphs, and narrative text.
+and share documents that allow one to easily create documents that combine code, graphs, and narrative text.
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
