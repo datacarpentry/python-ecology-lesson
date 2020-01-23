@@ -202,7 +202,7 @@ messages that might not be very helpful to diagnose a problem (e.g. "subscript o
 the message is very generic, you might also include the name of the function or package you’re using
 in your query.
 
-However, you should check Stack Overflow. Search using the `python` tag. Most questions have already
+However, you should check Stack Overflow. Search using the `[python]` tag. Most questions have already
 been answered, but the challenge is to use the right words in the search to find the answers:
 <https://stackoverflow.com/questions/tagged/python?tab=Votes>
 
