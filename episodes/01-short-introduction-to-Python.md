@@ -368,20 +368,20 @@ a_list = [1, 2, 3]
 A **dictionary** is a container that holds pairs of objects - keys and values.
 
 ~~~
-translation = {'one': 1, 'two': 2}
+translation = {'one': 'first', 'two': 'second'}
 translation['one']
 ~~~
 {: .language-python}
 ~~~
-1
+'first'
 ~~~
 {: .output}
 
 Dictionaries work a lot like lists - except that you index them with *keys*.
-You can think about a key as a name or unique identifier for the value it corresponds to. 
+You can think about a key as a name or unique identifier for the value it corresponds to.
 ~~~
-rev = {1: 'one', 2: 'two'}
-rev[1]
+rev = {'first': 'one', 'second': 'two'}
+rev['first']
 ~~~
 {: .language-python}
 ~~~
@@ -392,13 +392,13 @@ rev[1]
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
-rev = {1: 'one', 2: 'two'}
-rev[3] = 'three'
+rev = {'first': 'one', 'second': 'two'}
+rev['third'] = 'three'
 rev
 ~~~
 {: .language-python}
 ~~~
-{1: 'one', 2: 'two', 3: 'three'}
+{'first': 'one', 'second': 'two', 'third': 'three'}
 ~~~
 {: .output}
 
@@ -412,9 +412,9 @@ for key, value in rev.items():
 {: .language-python}
 
 ~~~
-1 -> one
-2 -> two
-3 -> three
+'first' -> one
+'second' -> two
+'third' -> three
 ~~~
 {: .output}
 
@@ -426,17 +426,17 @@ for key in rev.keys():
 ~~~
 {: .language-python}
 ~~~
-1 -> one
-2 -> two
-3 -> three
+'first' -> one
+'second' -> two
+'third' -> three
 ~~~
 {: .output}
 
 > ## Changing dictionaries
 >
 > 1. First, print the value of the `rev` dictionary to the screen.
-> 2. Reassign the value that corresponds to the key `2` so that it no longer
->    reads "two" but instead "apple-sauce".
+> 2. Reassign the value that corresponds to the key `second` so that it no longer
+>    reads "two" but instead `2`.
 > 3. Print the value of `rev` to the screen again to see if the value has changed.
 {: .challenge}
 
