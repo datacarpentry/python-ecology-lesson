@@ -261,7 +261,7 @@ for year in surveys_df['year'].unique():
 Look inside the `yearly_files` directory and check a couple of the files you
 just created to confirm that everything worked as expected.
 
-## Writing Unique FileNames
+## Writing Unique File Names
 
 Notice that the code above created a unique filename for each year.
 
@@ -416,7 +416,7 @@ do what you expect?
 
 What we really want to do, though, is create files for multiple years without
 having to request them one by one. Let's write another function that replaces
-the entire For loop by looping through a sequence of years and repeatedly
+the entire `for` loop by looping through a sequence of years and repeatedly
 calling the function we just wrote, `one_year_csv_writer`:
 
 
@@ -554,7 +554,7 @@ Default values:		1977 2002
 {: .output}
 
 The default values of the `start_year` and `end_year` arguments in the function
-`yearly_data_arg_test` are now `None`. This is a build-it constant in Python
+`yearly_data_arg_test` are now `None`. This is a built-in constant in Python
 that indicates the absence of a value - essentially, that the variable exists in
 the namespace of the function (the directory of variable names) but that it
 doesn't correspond to any existing object.
