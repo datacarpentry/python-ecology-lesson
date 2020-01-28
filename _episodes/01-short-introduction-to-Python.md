@@ -436,7 +436,7 @@ for key in rev.keys():
 >
 > 1. First, print the value of the `rev` dictionary to the screen.
 > 2. Reassign the value that corresponds to the key `second` so that it no longer
->    reads "two" but instead "apple-sauce".
+>    reads "two" but instead `2`.
 > 3. Print the value of `rev` to the screen again to see if the value has changed.
 {: .challenge}
 
