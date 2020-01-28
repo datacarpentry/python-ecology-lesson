@@ -114,7 +114,7 @@ the related Python data type dictionary).
 
 Let's remind ourselves that Python uses 0-based
 indexing. This means that the first element in an object is located at position
-0. This is different from other tools like R and Matlab that index elements
+`0`. This is different from other tools like R and Matlab that index elements
 within objects starting at 1.
 
 ~~~
@@ -539,4 +539,3 @@ asking Python to select rows that have a `NaN` value of weight.
 {: .challenge}
 
 {% include links.md %}
-
