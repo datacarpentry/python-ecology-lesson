@@ -92,7 +92,7 @@ The loop variable is now: hippo
 
 We are not asking Python to print the value of the loop variable anymore, but
 the for loop still runs and the value of `creature` changes on each pass through
-the loop. The statement `pass` in the body of the loop just means "do nothing".
+the loop. The statement `pass` in the body of the loop means "do nothing".
 
 > ## Challenge - Loops
 >
@@ -164,7 +164,7 @@ practical, and is very likely to introduce errors into your code. We want to
 turn what we've just written into a loop that repeats the last two commands for
 every year in the dataset.
 
-Let's start by writing a loop that simply prints the names of the files we want
+Let's start by writing a loop that prints the names of the files we want
 to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
@@ -272,7 +272,7 @@ filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 
 Let's break down the parts of this name:
 
-* The first part is simply some text that specifies the directory to store our
+* The first part is some text that specifies the directory to store our
   data file in (data/yearly_files/) and the first part of the file name
   (surveys): `'data/yearly_files/surveys'`
 * We can concatenate this with the value of a variable, in this case `year` by
@@ -315,8 +315,8 @@ the local variable hides but doesn't overwrite the other.
 
 Every method used in Python (for example, `print`) is a function, and the
 libraries we import (say, `pandas`) are a collection of functions. We will only
-use functions that are housed within the same code that uses them, but it's also
-easy to write functions that can be used by different programs.
+use functions that are housed within the same code that uses them, but
+we can also write functions that can be used by different programs.
 
 Functions are declared following this general structure:
 
@@ -416,7 +416,7 @@ do what you expect?
 
 What we really want to do, though, is create files for multiple years without
 having to request them one by one. Let's write another function that replaces
-the entire `for` loop by simply looping through a sequence of years and repeatedly
+the entire `for` loop by looping through a sequence of years and repeatedly
 calling the function we just wrote, `one_year_csv_writer`:
 
 
@@ -456,7 +456,7 @@ yearly_data_csv_writer(1977, 2002, surveys_df)
 BEWARE! If you are using IPython Notebooks and you modify a function, you MUST
 re-run that cell in order for the changed function to be available to the rest
 of the code. Nothing will visibly happen when you do this, though, because
-simply defining a function without *calling* it doesn't produce an output. Any
+defining a function without *calling* it doesn't produce an output. Any
 cells that use the now-changed functions will also have to be re-run for their
 output to change.
 
