@@ -1,6 +1,6 @@
 ---
 title: Short Introduction to Programming in Python
-teaching: 0
+teaching: 30
 exercises: 0
 questions:
     - "What is Python?"
