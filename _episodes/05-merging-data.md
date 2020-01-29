@@ -20,7 +20,7 @@ keypoints:
 In many "real world" situations, the data that we want to use come in multiple
 files. We often need to combine these files into a single DataFrame to analyze
 the data. The pandas package provides [various methods for combining
-DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
+DataFrames](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html) including
 `merge` and `concat`.
 
 To work through the examples below, we first need to load the species and
@@ -71,7 +71,7 @@ Take note that the `read_csv` method we used can take some additional options wh
 we didn't use previously. Many functions in Python have a set of options that
 can be set by the user if needed. In this case, we have told pandas to assign
 empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
-[More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
+[More about all of the read_csv options here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv)
 
 # Concatenating DataFrames
 
