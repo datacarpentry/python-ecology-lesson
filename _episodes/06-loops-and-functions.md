@@ -501,10 +501,10 @@ def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -540,10 +540,10 @@ def yearly_data_arg_test(all_data, start_year = None, end_year = None):
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -629,22 +629,22 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ~~~
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('No keywords:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, start_year = 1988, end_year = 1993)
 print('Both keywords, in order:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, end_year = 1993, start_year = 1988)
 print('Both keywords, flipped:\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, start_year = 1988)
 print('One keyword, default end:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, end_year = 1993)
 print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}

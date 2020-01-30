@@ -71,7 +71,7 @@ df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just crea
 print('With the old column names:\n') # the \n makes a new line, so it's easier to see
 print(df)
 
-df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
+df.columns = ['FirstColumn', 'SecondColumn'] # rename the columns!
 print('\n\nWith the new column names:\n')
 print(df)
 ~~~
