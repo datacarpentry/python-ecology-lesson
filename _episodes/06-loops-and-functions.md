@@ -621,7 +621,7 @@ in the function call), would be `if start_year` and `if end_year`.
 
 As we've written it so far, the function `yearly_data_arg_test` associates
 values in the function call with arguments in the function definition just based
-in their order. If the function gets only two values in the function call, the
+on their order. If the function gets only two values in the function call, the
 first one will be associated with `all_data` and the second with `start_year`,
 regardless of what we intended them to be. We can get around this problem by
 calling the function using keyword arguments, where each of the arguments in the
