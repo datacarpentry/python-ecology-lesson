@@ -381,8 +381,9 @@ def one_year_csv_writer(this_year, all_data):
     """
     Writes a csv file for data from a given year.
 
-    this_year --- year for which data is extracted
-    all_data --- DataFrame with multi-year data
+    Keyword arguments:
+    this_year -- year for which data is extracted
+    all_data -- DataFrame with multi-year data
     """
 
     # Select data for the year
@@ -425,9 +426,10 @@ def yearly_data_csv_writer(start_year, end_year, all_data):
     """
     Writes separate CSV files for each year of data.
 
-    start_year --- the first year of data we want
-    end_year --- the last year of data we want
-    all_data --- DataFrame with multi-year data
+    Keyword arguments:
+    start_year -- the first year of data we want
+    end_year -- the last year of data we want
+    all_data -- DataFrame with multi-year data
     """
 
     # "end_year" is the last year of data we want to pull, so we loop to end_year+1
@@ -493,9 +495,10 @@ def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: 1977
-    end_year --- the last year of data we want --- default: 2002
-    all_data --- DataFrame with multi-year data
+    Keyword arguments:
+    start_year -- the first year of data we want (default 1977)
+    end_year -- the last year of data we want (default 2002)
+    all_data -- DataFrame with multi-year data
     """
 
     return start_year, end_year
@@ -527,9 +530,10 @@ def yearly_data_arg_test(all_data, start_year = None, end_year = None):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: None - check all_data
-    end_year --- the last year of data we want --- default: None - check all_data
-    all_data --- DataFrame with multi-year data
+    Keyword arguments:
+    start_year -- the first year of data we want, Check all_data! (default None)
+    end_year -- the last year of data we want; Check all_data! (default None)
+    all_data -- DataFrame with multi-year data
     """
 
     if start_year is None:
