@@ -35,9 +35,9 @@ title: Setup
 >
 > ### Required Python Packages for this workshop
 >
-> * [Pandas][pandas]
+> * [Pandas](http://pandas.pydata.org/)
 > * [Jupyter notebook](http://jupyter.org/)
-> * [Numpy][numpy]
+> * [Numpy](http://www.numpy.org/)
 > * [Matplotlib](http://matplotlib.org/)
 {: .prereq}
 
@@ -112,5 +112,3 @@ wish to use a different browser, open this link: <http://localhost:8888>.
 
 For a brief introduction to Jupyter Notebooks, please consult our
 [Introduction to Jupyter Notebooks](jupyter_notebooks) page.
-
-{% include links.md %}

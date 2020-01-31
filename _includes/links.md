@@ -31,11 +31,8 @@
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
 [numfocus]: https://numfocus.org/
-[numpy]: https://www.numpy.org/
 [osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
-[pandas]: https://pandas.pydata.org
-[pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
 [paper-now]: https://github.com/PeerJ/paper-now
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.python.org/pypi/PyYAML

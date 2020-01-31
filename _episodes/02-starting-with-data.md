@@ -702,6 +702,8 @@ total_count.plot(kind='bar');
 [figshare-ndownloader]: https://ndownloader.figshare.com/files/2292172
 [os-lib]: https://docs.python.org/3/library/os.html
 [matplotlib]: https://matplotlib.org
+[numpy]: https://www.numpy.org/
+[pandas]: https://pandas.pydata.org
 [pandas-plot]: http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#basic-plotting-plot
 [pd-dataframe]: https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe
 [pptd]: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
