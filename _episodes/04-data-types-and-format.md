@@ -50,7 +50,7 @@ type so the decimal points are not lost.
 An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as
 an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You
 will often see the data type `Int64` in Python which stands for 64 bit integer. The 64
-simply refers to the memory allocated to store data in each cell which effectively
+refers to the memory allocated to store data in each cell which effectively
 relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
 
