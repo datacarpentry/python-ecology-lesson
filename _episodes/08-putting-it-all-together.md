@@ -18,7 +18,7 @@ keypoints:
 ## Putting it all together
 
 Up to this point, we have walked through tasks that are often
-involved in handling and processing data using the workshop ready cleaned
+involved in handling and processing data using the workshop-ready cleaned
 files that we have provided. In this wrap-up exercise, we will perform
 many of the same tasks with real data sets. This lesson also covers data
 visualization.
