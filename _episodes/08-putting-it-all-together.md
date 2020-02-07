@@ -285,7 +285,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > front_range.plot(x ="datetime", y="discharge", ax=ax)
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
-> > ax.set_title(" Front Range flood event 2013")
+> > ax.set_title("Front Range flood event 2013")
 > > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
 > >                       skiprows=27, delimiter="\t",
 > >                       names=["agency", "site_id", "datetime",
@@ -301,7 +301,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
-> > ax.set_title(" Front Range flood event 2013")
+> > ax.set_title("Front Range flood event 2013")
 > > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
 > >                       skiprows=27, delimiter="\t",
 > >                       names=["agency", "site_id", "datetime",
@@ -318,7 +318,7 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ax.set_xlabel("") # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
-> > ax.set_title(" Front Range flood event 2013")
+> > ax.set_title("Front Range flood event 2013")
 > > ~~~
 > > {: .language-python}
 > >
