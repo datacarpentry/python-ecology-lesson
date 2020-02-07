@@ -488,7 +488,7 @@ summary stats.
 > 1. How many recorded individuals are female `F` and how many male `M`?
 > 2. What happens when you group by two columns using the following syntax and
 >    then calculate mean values?
->   - `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>   - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
 >   - `grouped_data2.mean()`
 > 3. Summarize weight values for each site in your data. HINT: you can use the
 >   following syntax to only create summary statistics for one column in your data.
