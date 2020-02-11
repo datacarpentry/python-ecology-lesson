@@ -196,7 +196,7 @@ question.
 
 I am stuck... I get an error message that I don’t understand.
 Start by googling the error message. However, this doesn’t always work very well, because often,
-package developers rely on the error catching provided by python. You end up with general error
+package developers rely on the error catching provided by Python. You end up with general error
 messages that might not be very helpful to diagnose a problem (e.g. "subscript out of bounds"). If
 the message is very generic, you might also include the name of the function or package you’re using
 in your query.
