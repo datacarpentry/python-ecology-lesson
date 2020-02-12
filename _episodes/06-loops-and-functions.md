@@ -527,9 +527,9 @@ def yearly_data_arg_test(all_data, start_year = None, end_year = None):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
+    all_data -- DataFrame with multi-year data
     start_year -- the first year of data we want, Check all_data! (default None)
     end_year -- the last year of data we want; Check all_data! (default None)
-    all_data -- DataFrame with multi-year data
     """
 
     if start_year is None:
