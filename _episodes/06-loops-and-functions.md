@@ -489,7 +489,7 @@ values (here, `all_data`) is a required argument and MUST come before the
 argument with default values (which are optional in the function call).
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
+def yearly_data_arg_test(all_data, start_year=1977, end_year=2002):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
@@ -523,7 +523,7 @@ function so that it looks for the start and end years in the dataset if those
 dates are not provided:
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = None, end_year = None):
+def yearly_data_arg_test(all_data, start_year=None, end_year=None):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
@@ -635,16 +635,16 @@ print('Default values:\t\t\t', start, end)
 start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('No keywords:\t\t\t', start, end)
 
-start, end = yearly_data_arg_test(surveys_df, start_year = 1988, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988, end_year=1993)
 print('Both keywords, in order:\t', start, end)
 
-start, end = yearly_data_arg_test(surveys_df, end_year = 1993, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993, start_year=1988)
 print('Both keywords, flipped:\t\t', start, end)
 
-start, end = yearly_data_arg_test(surveys_df, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988)
 print('One keyword, default end:\t', start, end)
 
-start, end = yearly_data_arg_test(surveys_df, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993)
 print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}
