@@ -247,7 +247,7 @@ ask a good question.
 [anaconda-community]: https://www.anaconda.com/community
 [dive-into-python3]: https://finderiko.com/python-book
 [pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
-[pypi]: https://pypi.python.org/pypi
+[pypi]: https://pypi.org/
 [python-docs]: https://www.python.org/doc
 [python-guide]: https://docs.python-guide.org
 [python-mailing-lists]: https://www.python.org/community/lists
