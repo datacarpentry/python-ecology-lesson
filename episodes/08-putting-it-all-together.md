@@ -273,49 +273,25 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ## Answers
 > >
 > > ~~~
+> > import pandas as pd
+> > import matplotlib.pyplot as plt
+> > 
 > > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
 > >                         skiprows=27, delimiter="\t",
 > >                         names=["agency", "site_id", "datetime",
-> >                                "timezone", "discharge", "discharge_cd"])
+> >                                "timezone", "flow_rate", "discharge_cd"])
 > > discharge["datetime"] = pd.to_datetime(discharge["datetime"])
-> > front_range = discharge[(discharge["datetime"] >= "2013-09-11") &
-> >                         (discharge["datetime"] <= "2013-09-15")]
-> >
-> > fig, ax = plt.subplots()
-> > front_range.plot(x ="datetime", y="discharge", ax=ax)
-> > ax.set_xlabel("") # no label
-> > ax.set_ylabel("Discharge, cubic feet per second")
-> > ax.set_title("Front Range flood event 2013")
-> > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
-> >                       skiprows=27, delimiter="\t",
-> >                       names=["agency", "site_id", "datetime",
-> >                              "timezone", "flow_rate", "height"])
-> > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
 > >                   (discharge["datetime"] <= "2013-09-15")]
 > >
-> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
-> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
-> > ax2.legend().set_visible(False)
-> > ax.set_xlabel("") # no label
-> > ax.set_ylabel("Discharge, cubic feet per second")
-> > ax.legend().set_visible(False)
-> > ax.set_title("Front Range flood event 2013")
-> > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
-> >                       skiprows=27, delimiter="\t",
-> >                       names=["agency", "site_id", "datetime",
-> >                              "timezone", "flow_rate", "height"])
 > > fig, ax = plt.subplots()
-> > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-> >                   (discharge["datetime"] <= "2013-09-15")]
-> >
 > > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
-> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
+> >
+> > flood.plot(x="datetime", y="flow_rate", ax=ax)
+> > discharge.plot(x="datetime", y="flow_rate", ax=ax2)
 > > ax2.legend().set_visible(False)
 > >
-> > ax.set_xlabel("") # no label
+> > ax.set_xlabel("")  # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
 > > ax.set_title("Front Range flood event 2013")
