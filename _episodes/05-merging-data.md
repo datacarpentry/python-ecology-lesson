@@ -85,7 +85,7 @@ survey_sub = surveys_df.head(10)
 # Grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
 # Reset the index values to the second dataframe appends properly
-survey_sub_last10=survey_sub_last10.reset_index(drop=True)
+survey_sub_last10 = survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
 ~~~
 {: .language-python}
