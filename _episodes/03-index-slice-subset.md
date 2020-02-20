@@ -106,6 +106,22 @@ Python tells us what type of error it is in the traceback, at the bottom it says
 `KeyError: 'speciess'` which means that `speciess` is not a valid column name (nor a valid key in
 the related Python data type dictionary).
 
+> ## Reminder
+> The Python language and its modules (such as Pandas) define reserved
+> words that should not be used as identifiers when assigning objects
+> and variable names. Examples of reserved words in Python include Boolean values
+> `True` and `False`, operators `and`, `or`, and `not`, among others. The full list
+> of reserved words for Python version 3 is provided at
+> <https://docs.python.org/3/reference/lexical_analysis.html#identifiers>.
+>
+> When naming objects and variables, it's also important to avoid using
+> the names of built-in data structures and methods. For example, a _list_ is a built-in
+> data type. It is possible to use the word 'list' as an identifier for a new object,
+> for example `list = ['apples', 'oranges', 'bananas']`. However, you would then
+> be unable to create an empty list using `list()` or convert a tuple to a 
+> list using `list(sometuple)`.
+{: .callout}
+
 ## Extracting Range based Subsets: Slicing
 
 > ## Reminder
