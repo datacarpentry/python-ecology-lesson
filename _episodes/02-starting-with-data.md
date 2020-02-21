@@ -590,7 +590,7 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each site. Some
 > tips are below to help you solve this challenge:
 >
-> * For [more on Pandas plots, visit this link][pandas-plot].
+> * For more information on pandas plots, see [pandas' documentation page on visualization][pandas-plot].
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
