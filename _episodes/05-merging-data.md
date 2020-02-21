@@ -225,7 +225,7 @@ identifier, which is called `species_id`.
 
 Now that we know the fields with the common species ID attributes in each
 DataFrame, we are almost ready to join our data. However, since there are
-[different types of joins](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), we
+[different types of joins][join-types], we
 also need to decide which type of join makes sense for our analysis.
 
 ## Inner joins
@@ -236,8 +236,7 @@ two DataFrames based on a join key and returns a new DataFrame that contains
 DataFrames.
 
 Inner joins yield a DataFrame that contains only rows where the value being
-joined exists in BOTH tables. An example of an inner join, adapted from [this
-page](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) is below:
+joined exists in BOTH tables. An example of an inner join, adapted from [Jeff Atwood's blogpost about SQL joins][join-types] is below:
 
 ![Inner join -- courtesy of codinghorror.com](../fig/inner-join.png)
 
@@ -420,5 +419,7 @@ The pandas `merge` function supports two other join types:
 >
 >    the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
 {: .challenge}
+
+[join-types]: http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 
 {% include links.md %}
