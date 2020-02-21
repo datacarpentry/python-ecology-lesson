@@ -44,7 +44,7 @@ mean it is easier for new members of the community to get up to speed.
 Reproducibility is the ability to obtain the same results using the same dataset(s) and analysis.
 
 Data analysis written as a Python script can be reproduced on any platform.  Moreover, if you
-collect more or correct existing data, you can quickly and easily re-run your analysis!
+collect more or correct existing data, you can quickly re-run your analysis!
 
 An increasing number of journals and funding agencies expect analyses to be reproducible,
 so knowing Python will give you an edge with these requirements.
@@ -77,7 +77,7 @@ such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
-and share documents that allow one to easily create documents that combine code, graphs, and narrative text.
+and share documents that allow one to create documents that combine code, graphs, and narrative text.
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
@@ -147,7 +147,7 @@ default.
 
 Since we want our code and workflow to be reproducible, it is better to type the commands in
 the script editor, and save them as a script. This way, there is a complete record of what we did,
-and anyone (including our future selves!) can easily reproduce the results on their computer.
+and anyone (including our future selves!) has an easier time reproducing the results on their computer.
 
 Spyder allows you to execute commands directly from the script editor by using the run buttons on
 top.  To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line
