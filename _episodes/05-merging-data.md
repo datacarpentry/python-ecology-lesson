@@ -20,7 +20,7 @@ keypoints:
 In many "real world" situations, the data that we want to use come in multiple
 files. We often need to combine these files into a single DataFrame to analyze
 the data. The pandas package provides [various methods for combining
-DataFrames](http://pandas.pydata.org/pandas-docs/stable/merging.html) including
+DataFrames](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html) including
 `merge` and `concat`.
 
 To work through the examples below, we first need to load the species and
@@ -71,7 +71,7 @@ Take note that the `read_csv` method we used can take some additional options wh
 we didn't use previously. Many functions in Python have a set of options that
 can be set by the user if needed. In this case, we have told pandas to assign
 empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
-[More about all of the read_csv options here.](http://pandas.pydata.org/pandas-docs/dev/generated/pandas.io.parsers.read_csv.html)
+[More about all of the read_csv options here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv)
 
 # Concatenating DataFrames
 
@@ -85,18 +85,18 @@ survey_sub = surveys_df.head(10)
 # Grab the last 10 rows
 survey_sub_last10 = surveys_df.tail(10)
 # Reset the index values to the second dataframe appends properly
-survey_sub_last10=survey_sub_last10.reset_index(drop=True)
+survey_sub_last10 = survey_sub_last10.reset_index(drop=True)
 # drop=True option avoids adding new index column with old index values
 ~~~
 {: .language-python}
 
 When we concatenate DataFrames, we need to specify the axis. `axis=0` tells
-pandas to stack the second DataFrame under the first one. It will automatically
+pandas to stack the second DataFrame UNDER the first one. It will automatically
 detect whether the column names are the same and will stack accordingly.
 `axis=1` will stack the columns in the second DataFrame to the RIGHT of the
 first DataFrame. To stack the data vertically, we need to make sure we have the
 same columns and associated column format in both datasets. When we stack
-horizonally, we want to make sure what we are doing makes sense (ie the data are
+horizontally, we want to make sure what we are doing makes sense (i.e. the data are
 related in some way).
 
 ~~~
@@ -225,7 +225,7 @@ identifier, which is called `species_id`.
 
 Now that we know the fields with the common species ID attributes in each
 DataFrame, we are almost ready to join our data. However, since there are
-[different types of joins](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/), we
+[different types of joins][join-types], we
 also need to decide which type of join makes sense for our analysis.
 
 ## Inner joins
@@ -236,8 +236,7 @@ two DataFrames based on a join key and returns a new DataFrame that contains
 DataFrames.
 
 Inner joins yield a DataFrame that contains only rows where the value being
-joins exists in BOTH tables. An example of an inner join, adapted from [this
-page](http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/) is below:
+joined exists in BOTH tables. An example of an inner join, adapted from [Jeff Atwood's blogpost about SQL joins][join-types] is below:
 
 ![Inner join -- courtesy of codinghorror.com](../fig/inner-join.png)
 
@@ -245,7 +244,7 @@ The pandas function for performing joins is called `merge` and an Inner join is
 the default option:
 
 ~~~
-merged_inner = pd.merge(left=survey_sub,right=species_sub, left_on='species_id', right_on='species_id')
+merged_inner = pd.merge(left=survey_sub, right=species_sub, left_on='species_id', right_on='species_id')
 # In this case `species_id` is the only column name in  both dataframes, so if we skipped `left_on`
 # And `right_on` arguments we would still get the same result
 
@@ -326,7 +325,7 @@ A left join is performed in pandas by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ~~~
-merged_left = pd.merge(left=survey_sub,right=species_sub, how='left', left_on='species_id', right_on='species_id')
+merged_left = pd.merge(left=survey_sub, right=species_sub, how='left', left_on='species_id', right_on='species_id')
 merged_left
 ~~~
 {: .language-python}
@@ -420,5 +419,7 @@ The pandas `merge` function supports two other join types:
 >
 >    the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
 {: .challenge}
+
+[join-types]: http://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 
 {% include links.md %}

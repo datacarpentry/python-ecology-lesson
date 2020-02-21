@@ -10,7 +10,7 @@ objectives:
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
-    - "Object-based nature of matplotlib plots enables their detailed customization after they have been created."
+    - "The object-based nature of matplotlib plots enables their detailed customization after they have been created."
     - "Export plots to a file using the `savefig` method."
 ---
 
@@ -18,7 +18,7 @@ keypoints:
 ## Putting it all together
 
 Up to this point, we have walked through tasks that are often
-involved in handling and processing data using the workshop ready cleaned
+involved in handling and processing data using the workshop-ready cleaned
 files that we have provided. In this wrap-up exercise, we will perform
 many of the same tasks with real data sets. This lesson also covers data
 visualization.
@@ -33,7 +33,7 @@ There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
 [`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt)
-contains stream discharge data, summarized at 15
+contains stream discharge data, summarized at
 15 minute intervals (in cubic feet per second) for a streamgage on Boulder
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
@@ -71,7 +71,7 @@ df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just crea
 print('With the old column names:\n') # the \n makes a new line, so it's easier to see
 print(df)
 
-df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
+df.columns = ['FirstColumn', 'SecondColumn'] # rename the columns!
 print('\n\nWith the new column names:\n')
 print(df)
 ~~~
@@ -212,8 +212,7 @@ ax2.hist(beta_draws)
 ![Plot with additional axes](../fig/08-dualdistribution.png)
 
 > ## Challenge - Drawing from distributions
-> Have a look at the NumPy
-> random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
+> Have a look at [`numpy.random` documentation](https://docs.scipy.org/doc/numpy/reference/random/index.html).
 > Choose a distribution you have no familiarity with, and try to sample from and visualize it.
 {: .challenge}
 

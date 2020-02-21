@@ -275,7 +275,7 @@ with weight values > 0 (i.e., select meaningful weight values):
 ~~~
 len(surveys_df[pd.isnull(surveys_df.weight)])
 # How many rows have weight values?
-len(surveys_df[surveys_df.weight> 0])
+len(surveys_df[surveys_df.weight > 0])
 ~~~
 {: .language-python}
 

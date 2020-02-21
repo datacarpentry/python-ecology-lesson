@@ -1,6 +1,6 @@
 ---
 title: Short Introduction to Programming in Python
-teaching: 0
+teaching: 30
 exercises: 0
 questions:
     - "What is Python?"
@@ -290,9 +290,8 @@ A `for` loop can be used to access the elements in a list or other Python data
 structure one at a time:
 
 ~~~
->>> for num in numbers:
-...     print(num)
-...
+for num in numbers:
+    print(num)
 ~~~
 {: .language-python}
 
