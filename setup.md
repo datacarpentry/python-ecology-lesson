@@ -13,7 +13,7 @@ title: Setup
 > which will give you everything in a single compressed file.
 > You'll need to unzip this file after downloading it.
 >
-> Or download each file indvidually with the following links:
+> Or download each file individually with the following links:
 >
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
 > - [species.csv](https://ndownloader.figshare.com/files/3299483)
@@ -110,5 +110,5 @@ jupyter notebook
 The notebook should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: <http://localhost:8888>.
 
-For a brief introduction to Jupyter Notebooks, please consult with our
+For a brief introduction to Jupyter Notebooks, please consult our
 [Introduction to Jupyter Notebooks](jupyter_notebooks) page.
