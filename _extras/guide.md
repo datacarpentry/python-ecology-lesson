@@ -486,7 +486,7 @@ concatenate strings using a plus sign. For example, `print(string1 + string2)` o
 
 ~~~
 for creature in animals:
-    print(creature+', ', end='')
+    print(creature + ',', end='')
 ~~~
 {: .language-python}
 
