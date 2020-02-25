@@ -20,7 +20,8 @@ Please see the current list of [issues][issues] for ideas for contributing to th
 repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro Git
 by Scott Chacon.
-Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg). This indicates that the maintainers will welcome a pull request fixing this issue.
+Look for the tag [![Image replicating 'Good first issue' label][gfi-label]][gfi].
+This indicates that the maintainers will welcome a pull request fixing this issue.
 
 
 ## Maintainer(s)
@@ -40,3 +41,5 @@ To cite this lesson, please consult with [CITATION](CITATION)
 [lesson-example]: https://carpentries.github.io/lesson-example
 [maxim-belkin]: https://github.com/maxim-belkin
 [issues]: https://github.com/datacarpentry/python-ecology-lesson/issues
+[gfi-label]: https://img.shields.io/badge/-good%20first%20issue-gold.svg
+[gfi]: https://github.com/datacarpentry/python-ecology-lesson/labels/good%20first%20issue
