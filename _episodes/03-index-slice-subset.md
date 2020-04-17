@@ -13,7 +13,7 @@ objectives:
     - "Reassign values within subsets of a DataFrame."
     - "Create a copy of a DataFrame."
     - "Query / select a subset of data using a set of criteria using the following operators:
-       `=`, `!=`, `>`, `<`, `>=`, `<=`."
+       `==`, `!=`, `>`, `<`, `>=`, `<=`."
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
