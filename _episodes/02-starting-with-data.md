@@ -30,8 +30,8 @@ keypoints:
 We can automate the process of performing data manipulations in Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
 over and over on different datasets that use a similar format. This makes our
-methods easily reproducible. We can also easily share our code with colleagues
-and they can replicate the same analysis.
+data manipulation processes easily reproducible. We can also easily share our code with
+colleagues and they can replicate the same analysis starting with the same original data.
 
 ### Starting in the same spot
 
@@ -40,13 +40,13 @@ This should help us avoid path and file name issues. At this time please
 navigate to the workshop directory. If you are working in IPython Notebook be sure
 that you start your notebook in the workshop directory.
 
-A quick aside that there are Python libraries like [OS Library][os-lib] that can work with our
-directory structure, however, that is not our focus today.
+Note: while there are Python libraries like [OS Library][os-lib] that can work with our
+directory structure, that is not our focus today.
 
 ### Our Data
 
 For this lesson, we will be using the Portal Teaching data, a subset of the data
-from Ernst et al
+from Ernst et al.
 [Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal,
 Arizona, USA][ernst].
 
@@ -126,10 +126,11 @@ time we call a Pandas function.
 
 We will begin by locating and reading our survey data which are in CSV format. CSV stands for
 Comma-Separated Values and is a common way to store formatted data. Other symbols may also be used, so
-you might see tab-separated, colon-separated or space separated files. It is quite easy to replace
-one separator with another, to match your application. The first line in the file often has headers
-to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
-imported and exported from many applications, including Microsoft Excel. For more details on CSV
+you might see tab-separated, colon-separated or space separated files. pandas can work with each of these
+types of separators, as it allows you to specify the appropriate separator for your data.
+The first line in the file often has headers to explain what is in each column.
+CSV files (and other -separated value file types) make it easy to share data, and can be imported and exported
+from many applications, including Microsoft Excel. For more details on CSV
 files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
 We can use Pandas' `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
 
@@ -182,7 +183,7 @@ surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
 {: .language-python}
 
-Notice when you assign the imported DataFrame to a variable, Python does not
+Note: when you assign the imported DataFrame to a variable, Python does not
 produce any output on the screen. We can view the value of the `surveys_df`
 object by typing its name into the Python command prompt.
 
@@ -246,9 +247,12 @@ of data:
 ~~~
 {: .output}
 
-Never fear, all the data is there, if you scroll up. Selecting just a few rows, so it is
-easier to fit on one window, you can see that pandas has neatly formatted the data to fit
-our screen:
+Don't worry: all the data is there! You can confirm this by scrolling upwards, or by
+looking at the `[# of rows x # of columns]` block at the end of the output.
+
+If you use `.head()` to view only a subset of rows, you will observe an output
+that is easier to fit in one window. After doing this, you can see that pandas has neatly formatted 
+the data to fit our screen:
 
 ~~~
 surveys_df.head() # The head() method displays the first several lines of a file. It
@@ -309,9 +313,9 @@ dtype: object
 ~~~
 {: .output}
 
-All the values in a column have the same type. For example, months have type
-`int64`, which is a kind of integer. Cells in the month column cannot have
-fractional values, but the weight and hindfoot_length columns can, because they
+All the values in a single column have the same type. For example, values in the month
+column have type `int64`, which is a kind of integer. Cells in the month column cannot have
+fractional values, but values in weight and hindfoot_length columns can, because they
 have type `float64`. The `object` type doesn't have a very helpful name, but in
 this case it represents strings (such as 'M' and 'F' in the case of sex).
 
@@ -543,9 +547,9 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 
 ## Basic Math Functions
 
-If we wanted to, we could perform math on an entire column of our data. For
-example let's multiply all weight values by 2. A more practical use of this might
-be to normalize the data according to a mean, area, or some other value
+If we wanted to, we could apply a mathmatical operation like addition or division
+on an entire column of our data. For example let's multiply all weight values by 2.
+A more practical use of this might be to normalize the data according to a mean, area, or some other value
 calculated from our data.
 
 ~~~
