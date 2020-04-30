@@ -320,7 +320,7 @@ If the students have trouble generating the output, or anything happens with tha
 `sample_output` in this repository contains the file `surveys_complete.csv` with the data they
 should generate.
 
-## 05-merging-data
+## 05-merging-data-with-pandas
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the
   data into Python and combine the files to make one new data frame. Create a plot of average plot
@@ -472,7 +472,7 @@ plt.xlabel("Diversity index")
 ![taxa per plot per sex](../fig/04_chall_diversity_index.png)
 
 
-## 06-loops-and-functions
+## 06-workflows-and-automation
 
 ### Basic Loop Challenges
 
@@ -698,14 +698,24 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 ~~~
 {: .language-python}
 
-## 07-visualization-ggplot-python
+## 07-visualization-plotnine-python
 
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
+Answers are embedded with challenges in this lesson.
+
+Note `plotnine` contains a *lot* of deprecation warnings in some versions of python/matplotlib, warnings may need to be supressed with
+~~~
+import warnings
+warnings.filterwarnings(action='once')
+~~~
+{: .language-python}
 
 iPython notebooks for plotting can be viewed in the `_extras` folder
 
-## 08-putting-it-all-together
+## 08-ingest-and-visualization
+
+Answers are embedded with challenges in this lesson, other than random distribtuion which is left to the learner to choose, and final plot, for which the learner should investigate the matplotlib gallery.
 
 Scientists often operate on mathematical equations. Being able to use them in their graphics has a
 lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the
@@ -739,4 +749,27 @@ plt.show()
 [matplotlib-mathtext]: https://matplotlib.org/users/mathtext.html
 
 {% include links.md %}
+
+## 09-accessing-sqlite-databases
+
+* Create a query that contains survey data collected between 1998 - 2001 for observations of sex “male” or “female” that includes observation’s genus and species and site type for the sample. How many records are returned?
+
+~~~
+#Connect to the database
+con = sqlite3.connect("data/portal_mammals.sqlite")
+
+cur = con.cursor()
+
+# Return all results of query: year, plot type (site type), genus, species and sex from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.
+cur.execute('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON surveys.species_id = species.species_id WHERE surveys.year>=1998 AND surveys.year<=2001 AND ( surveys.sex = "M" OR surveys.sex = "F")')
+
+print(len(cur.fetchall()))
+
+# Close the connection
+con.close()
+~~~
+
+{: .language-python}
+
+* Create a dataframe that contains the total number of observations (count) made for all years, and sum of observation weights for each site, ordered by site ID.
 
