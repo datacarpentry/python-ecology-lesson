@@ -752,6 +752,8 @@ plt.show()
 
 ## 09-accessing-sqlite-databases
 
+### Challenge - SQL
+
 * Create a query that contains survey data collected between 1998 - 2001 for observations of sex “male” or “female” that includes observation’s genus and species and site type for the sample. How many records are returned?
 
 ~~~
@@ -803,3 +805,19 @@ con.close()
 ~~~
 
 {: .language-python}
+
+### Challenge - Saving your work
+
+* For each of the challenges in the previous challenge block, modify your code to save the results to their own tables in the portal database.
+
+Per the example in the lesson, create a variable for the results of the SQL query, then add something like
+~~~
+<new_table>.to_sql("New Table", con, if_exists="replace")
+~~~
+
+{: .language-python}
+
+* What are some of the reasons you might want to save the results of your queries back into the database? What are some of the reasons you might avoid doing this?
+
+If the database is shared with others and common queries (and potentially data corrections) are likely to be required by many it may be efficient for one person to perform the work and save it back to the database as a new table so others can access the results directly instead of performing the query themselves, particularly if it is complex.
+However, we might avoid doing this if the database is an authoritative source (potentially version controlled) which should not be modified by users. Instead, we might save the qeury results to a new database that is more appropriate for downstream work.
