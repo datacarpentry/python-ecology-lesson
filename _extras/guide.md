@@ -760,8 +760,14 @@ con = sqlite3.connect("data/portal_mammals.sqlite")
 
 cur = con.cursor()
 
-# Return all results of query: year, plot type (site type), genus, species and sex from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.
-cur.execute('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON surveys.species_id = species.species_id WHERE surveys.year>=1998 AND surveys.year<=2001 AND ( surveys.sex = "M" OR surveys.sex = "F")')
+# Return all results of query: 
+# year, plot type (site type), genus, species and sex
+# from the join of the tables surveys, plots and species, 
+# for the years 1998-2001 where sex is 'M' or 'F'.
+cur.execute('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex\
+  FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON\
+  surveys.species_id = species.species_id WHERE surveys.year>=1998 AND surveys.year<=2001\
+  AND ( surveys.sex = "M" OR surveys.sex = "F")')
 
 print(len(cur.fetchall()))
 
@@ -773,3 +779,27 @@ con.close()
 
 * Create a dataframe that contains the total number of observations (count) made for all years, and sum of observation weights for each site, ordered by site ID.
 
+This question is a little ambiguous but I think we can do two SQL queries into dataframes, then pivot the second and merge them to create a table of observation count and plot total weight per year.
+
+~~~
+import pandas as pd
+import sqlite3
+
+# Create two sqlite queries results, read as pandas DataFrame
+# Include 'year' in both queries so we have something to merge (join) on.
+con = sqlite3.connect("data/portal_mammals.sqlite")
+df1 = pd.read_sql_query("SELECT year,COUNT(*) FROM surveys GROUP BY year", con)
+df2 = pd.read_sql_query("SELECT year,plot_id,SUM(weight) FROM surveys GROUP BY\
+        year,plot_id ORDER BY plot_id ASC",con)
+
+# Turn the plot_id column values into column names by pivoting
+df2 = df2.pivot(index='year',columns='plot_id')['SUM(weight)']
+df = pd.merge(df1, df2, on='year')
+
+# Verify that result of the SQL queries is stored in the combined dataframe
+print(df.head())
+
+con.close()
+~~~
+
+{: .language-python}
