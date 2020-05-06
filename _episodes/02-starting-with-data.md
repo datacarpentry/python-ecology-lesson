@@ -395,11 +395,11 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 > ## Challenge - Statistics
 >
-> 1. Create a list of unique site ID's ("plot_id") found in the surveys data. Call it
->   `site_names`. How many unique sites are there in the data? How many unique
+> 1. Create a list of unique plot ID's ("plot_id") found in the surveys data. Call it
+>   `plot_names`. How many unique plots are there in the data? How many unique
 >   species are in the data?
 >
-> 2. What is the difference between `len(site_names)` and `surveys_df['plot_id'].nunique()`?
+> 2. What is the difference between `len(plot_names)` and `surveys_df['plot_id'].nunique()`?
 {: .challenge}
 
 # Groups in Pandas
