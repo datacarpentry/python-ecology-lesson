@@ -4,45 +4,22 @@ title: Setup
 ---
 
 > ## Data
-<<<<<<< Updated upstream
-> Data for this lesson is based on the Portal Project Teaching Database -
-> [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
->
-> For this lesson we will use the eight files listed below for data.
-> These can be download by following the below links
-=======
 > Data for this lesson is from the Portal Project Teaching Database
 > [which can be found on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 > Specifically, we use the following eight data files:
->>>>>>> Stashed changes
->
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
-> - [surveys2001.csv]({{ page.root }}/data/surveys2001.csv)
-> - [surveys2002.csv]({{ page.root }}/data/surveys2002.csv)
-> - [species.csv](https://ndownloader.figshare.com/files/3299483)
-> - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
 > - [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv)
 > - [surveys2002.csv]({{ page.root }}/data/yearly_files/surveys2002.csv)
+> - [species.csv](https://ndownloader.figshare.com/files/3299483)
+> - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
 > - [plots.csv](https://ndownloader.figshare.com/files/3299474)
 > - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
-<<<<<<< Updated upstream
-> - [SQL Database](https://ndownloader.figshare.com/files/11188550)
-
-> Five of the above eight files can also be obtained via
-> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
-> returning a single compressed file.
-> You'll need to unzip this file after downloading it, but also manually download the remaining three files
-> [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv),
-> [surveys2002.csv]({{ page.root }}/data/yearly_files/surveys2002.csv) and
-> [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt).
-=======
 > - [portal_mammals.sqlite](https://ndownloader.figshare.com/files/11188550)
 >
 > Please download them (by clicking on the corresponding links) and move them to the same directory, or
 > [download all the files as a zip]({{ page.root }}/data/portal-teachingdb-master.zip)
 > which will give you everything in a single compressed file. You'll need to unzip
 > this file after downloading it.
->>>>>>> Stashed changes
 {: .prereq}
 
 
