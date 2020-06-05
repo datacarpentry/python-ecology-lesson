@@ -4,23 +4,22 @@ title: Setup
 ---
 
 > ## Data
-> Data for this lesson is from the Portal Project Teaching Database -
-> [available on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
->
-> We will use the six files listed below for the data in this lesson.
-> Download these files to your computer either by clicking
-> [this link](https://github.com/weecology/portal-teachingdb/archive/master.zip),
-> which will give you everything in a single compressed file.
-> You'll need to unzip this file after downloading it.
->
-> Or download each file individually with the following links:
->
+> Data for this lesson is from the
+> [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+> Specifically, we use the following eight data files:
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
+> - [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv)
+> - [surveys2002.csv]({{ page.root }}/data/yearly_files/surveys2002.csv)
 > - [species.csv](https://ndownloader.figshare.com/files/3299483)
 > - [speciesSubset.csv]({{ page.root }}/data/speciesSubset.csv)
 > - [plots.csv](https://ndownloader.figshare.com/files/3299474)
 > - [bouldercreek_09_2013.txt]({{ page.root }}/data/bouldercreek_09_2013.txt)
-> - [SQL Database](https://ndownloader.figshare.com/files/11188550)
+> - [portal_mammals.sqlite](https://ndownloader.figshare.com/files/11188550)
+>
+> Please download them (by clicking on the corresponding links) and move them to the same directory, or
+> [download all the files as a zip]({{ page.root }}/data/portal-teachingdb-master.zip)
+> which will give you everything in a single compressed file. You'll need to unzip
+> this file after downloading it.
 {: .prereq}
 
 
