@@ -33,7 +33,7 @@ package is built on top of Matplotlib and interacts well with Pandas.
 > ## Reminder
 > `plotnine` is not included in the standard Anaconda installation and needs
 > to be installed separately. If you haven't done so already, you can find installation
-> instructions on the Setup page: <https://datacarpentry.org/python-ecology-lesson/setup.html#download-plotting-package>.
+> instructions on the [Setup page][setup-plotnine].
 {: .callout}
 
 Just as with the other packages, `plotnine` needs to be imported. It is good
