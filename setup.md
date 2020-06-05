@@ -4,8 +4,8 @@ title: Setup
 ---
 
 > ## Data
-> Data for this lesson is from the Portal Project Teaching Database
-> [which can be found on FigShare](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+> Data for this lesson is from the
+> [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 > Specifically, we use the following eight data files:
 > - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
 > - [surveys2001.csv]({{ page.root }}/data/yearly_files/surveys2001.csv)
