@@ -30,6 +30,12 @@ and [The Grammar of Graphics][grammar-of-graphics]
 by Leland Wilkinson. The `plotnine`
 package is built on top of Matplotlib and interacts well with Pandas.
 
+> ## Reminder
+> `plotnine` is not included in the standard Anaconda installation and needs
+> to be installed separately. If you haven't done so already, you can find installation
+> instructions on the [Setup page][setup-plotnine].
+{: .callout}
+
 Just as with the other packages, `plotnine` needs to be imported. It is good
 practice to not just load an entire package such as `from plotnine import *`,
 but to use an abbreviation as we used `pd` for Pandas:
@@ -592,5 +598,6 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 [grammar-of-graphics]: http://link.springer.com/book/10.1007%2F0-387-28695-0
 [plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#color-and-fill-scales
 [plotnine]: https://plotnine.readthedocs.io/en/stable
+[setup-plotnine]: https://datacarpentry.org/python-ecology-lesson/setup.html#download-plotting-package
 
 {% include links.md %}
