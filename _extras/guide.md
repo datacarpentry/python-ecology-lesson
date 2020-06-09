@@ -472,7 +472,7 @@ plt.xlabel("Diversity index")
 ![taxa per plot per sex](../fig/04_chall_diversity_index.png)
 
 
-## 06-workflows-and-automation
+## 06-loops-and-functions
 
 ### Basic Loop Challenges
 
@@ -698,7 +698,7 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 ~~~
 {: .language-python}
 
-## 07-visualization-plotnine-python
+## 07-visualization-ggplot-python
 
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
@@ -713,7 +713,7 @@ warnings.filterwarnings(action='once')
 
 iPython notebooks for plotting can be viewed in the `_extras` folder
 
-## 08-ingest-and-visualization
+## 08-putting-it-all-together
 
 Answers are embedded with challenges in this lesson, other than random distribtuion which is left to the learner to choose, and final plot, for which the learner should investigate the matplotlib gallery.
 
@@ -750,7 +750,7 @@ plt.show()
 
 {% include links.md %}
 
-## 09-accessing-sqlite-databases
+## 09-working-with-sql
 
 ### Challenge - SQL
 
