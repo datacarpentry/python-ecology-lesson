@@ -320,7 +320,7 @@ If the students have trouble generating the output, or anything happens with tha
 `sample_output` in this repository contains the file `surveys_complete.csv` with the data they
 should generate.
 
-## 05-merging-data-with-pandas
+## 05-merging-data
 
 * In the data folder, there are two survey data files: survey2001.csv and survey2002.csv. Read the
   data into Python and combine the files to make one new data frame. Create a plot of average plot
@@ -774,8 +774,11 @@ print(len(cur.fetchall()))
 # Close the connection
 con.close()
 ~~~
-
 {: .language-python}
+~~~
+5546
+~~~
+{: .output}
 
 Answer: 5546 records are found.
 
@@ -803,7 +806,6 @@ print(df.head())
 
 con.close()
 ~~~
-
 {: .language-python}
 
 Output looks something like 
@@ -830,6 +832,7 @@ Output looks something like
 3  742.0  4392.0  
 4   57.0  3987.0  
 ~~~
+{: .output}
 
 ### Challenge - Saving your work
 
@@ -839,7 +842,6 @@ Per the example in the lesson, create a variable for the results of the SQL quer
 ~~~
 <new_table>.to_sql("New Table", con, if_exists="replace")
 ~~~
-
 {: .language-python}
 
 * What are some of the reasons you might want to save the results of your queries back into the database? What are some of the reasons you might avoid doing this?
