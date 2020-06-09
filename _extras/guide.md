@@ -702,10 +702,20 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 
 If the students have trouble generating the output, or anything happens with that, there is a file
 called "sample output" that contains the data file they should have generated in lesson 3.
+Answers are embedded with challenges in this lesson.
+
+Note `plotnine` contains a *lot* of deprecation warnings in some versions of python/matplotlib, warnings may need to be supressed with
+~~~
+import warnings
+warnings.filterwarnings(action='once')
+~~~
+{: .language-python}
 
 iPython notebooks for plotting can be viewed in the `_extras` folder
 
 ## 08-putting-it-all-together
+
+Answers are embedded with challenges in this lesson, other than random distribtuion which is left to the learner to choose, and final plot, for which the learner should investigate the matplotlib gallery.
 
 Scientists often operate on mathematical equations. Being able to use them in their graphics has a
 lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the
@@ -740,3 +750,101 @@ plt.show()
 
 {% include links.md %}
 
+## 09-working-with-sql
+
+### Challenge - SQL
+
+* Create a query that contains survey data collected between 1998 - 2001 for observations of sex “male” or “female” that includes observation’s genus and species and site type for the sample. How many records are returned?
+
+~~~
+#Connect to the database
+con = sqlite3.connect("data/portal_mammals.sqlite")
+
+cur = con.cursor()
+
+# Return all results of query: year, plot type (site type), genus, species and sex
+# from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.
+cur.execute('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex \
+  FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON \
+  surveys.species_id = species.species_id WHERE surveys.year>=1998 AND surveys.year<=2001 \
+  AND ( surveys.sex = "M" OR surveys.sex = "F")')
+
+print(len(cur.fetchall()))
+
+# Close the connection
+con.close()
+~~~
+{: .language-python}
+~~~
+5546
+~~~
+{: .output}
+
+Answer: 5546 records are found.
+
+* Create a dataframe that contains the total number of observations (count) made for all years, and sum of observation weights for each site, ordered by site ID.
+
+This question is a little ambiguous but we could e.g. do two SQL queries into dataframes, then pivot the second and merge them to create a table of observation count and plot total weight per year. The PIVOT operation could alternatively be performed in SQL.
+
+~~~
+import pandas as pd
+import sqlite3
+
+# Create two sqlite queries results, read as pandas DataFrame
+# Include 'year' in both queries so we have something to merge (join) on.
+con = sqlite3.connect("data/portal_mammals.sqlite")
+df1 = pd.read_sql_query("SELECT year,COUNT(*) FROM surveys GROUP BY year", con)
+df2 = pd.read_sql_query("SELECT year,plot_id,SUM(weight) FROM surveys GROUP BY \
+        year,plot_id ORDER BY plot_id ASC",con)
+
+# Turn the plot_id column values into column names by pivoting
+df2 = df2.pivot(index='year',columns='plot_id')['SUM(weight)']
+df = pd.merge(df1, df2, on='year')
+
+# Verify that result of the SQL queries is stored in the combined dataframe
+print(df.head())
+
+con.close()
+~~~
+{: .language-python}
+
+Output looks something like 
+
+~~~
+   year  COUNT(*)       1       2       3       4       5       6      7  \
+0  1977       503   567.0   784.0   237.0   849.0   943.0   578.0  202.0   
+1  1978      1048  4628.0  4789.0  1131.0  4291.0  4051.0  2371.0   43.0   
+2  1979       719  1909.0  2501.0   430.0  2438.0  1798.0   988.0  141.0   
+3  1980      1415  5374.0  4643.0  1817.0  7466.0  2743.0  3219.0  362.0   
+4  1981      1472  6229.0  6282.0  1343.0  4553.0  3596.0  5430.0   24.0   
+
+        8  ...      15     16      17      18     19      20     21      22  \
+0   595.0  ...    48.0  132.0  1102.0   646.0  336.0   640.0   40.0   316.0   
+1  3669.0  ...   734.0  548.0  4971.0  4393.0  124.0  2623.0  239.0  2833.0   
+2  1954.0  ...   472.0  308.0  3736.0  3099.0  379.0  2617.0  157.0  2250.0   
+3  3596.0  ...  1071.0  529.0  5877.0  5075.0  691.0  5523.0  321.0  3763.0   
+4  4946.0  ...  1083.0  176.0  5050.0  4773.0  410.0  5379.0  600.0  5268.0   
+
+      23      24  
+0  169.0     NaN  
+1    NaN     NaN  
+2  137.0   901.0  
+3  742.0  4392.0  
+4   57.0  3987.0  
+~~~
+{: .output}
+
+### Challenge - Saving your work
+
+* For each of the challenges in the previous challenge block, modify your code to save the results to their own tables in the portal database.
+
+Per the example in the lesson, create a variable for the results of the SQL query, then add something like
+~~~
+<new_table>.to_sql("New Table", con, if_exists="replace")
+~~~
+{: .language-python}
+
+* What are some of the reasons you might want to save the results of your queries back into the database? What are some of the reasons you might avoid doing this?
+
+If the database is shared with others and common queries (and potentially data corrections) are likely to be required by many it may be efficient for one person to perform the work and save it back to the database as a new table so others can access the results directly instead of performing the query themselves, particularly if it is complex.
+However, we might avoid doing this if the database is an authoritative source (potentially version controlled) which should not be modified by users. Instead, we might save the qeury results to a new database that is more appropriate for downstream work.
