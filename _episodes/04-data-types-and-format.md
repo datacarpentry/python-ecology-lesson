@@ -83,6 +83,9 @@ types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ~~~
+# Make sure pandas is loaded
+import pandas as pd
+
 # Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
