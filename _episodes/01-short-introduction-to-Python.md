@@ -341,7 +341,7 @@ class list(object)
 
 ### Tuples
 
-A tuple is similar to a list in that it's an ordered sequence of elements.
+A **tuple** is similar to a list in that it's an ordered sequence of elements.
 However, tuples can not be changed once created (they are "immutable"). Tuples
 are created by placing comma-separated values inside parentheses `()`.
 
@@ -442,7 +442,7 @@ for key in rev.keys():
 
 ## Functions
 
-Defining a section of code as a function in Python is done using the `def`
+Defining a section of code as a **function** in Python is done using the `def`
 keyword. For example a function that takes two arguments and returns their sum
 can be defined as:
 
