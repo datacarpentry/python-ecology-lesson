@@ -19,19 +19,22 @@ keypoints:
 
 In many "real world" situations, the data that we want to use come in multiple
 files. We often need to combine these files into a single DataFrame to analyze
-the data. The pandas package provides [various methods for combining
+the data. The `pandas` package provides [various methods for combining
 DataFrames](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html) including
 `merge` and `concat`.
 
-To work through the examples below, we first need to load the species and
-surveys files into pandas DataFrames. In iPython:
+To work through the examples below, we first need to load the `species` and
+`survey` files into `pandas` DataFrames. In a Jupyter Notebook or iPython:
 
 ~~~
 import pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv",
                          keep_default_na=False, na_values=[""])
 surveys_df
+~~~
+{: .language-python}
 
+~~~
        record_id  month  day  year  plot species  sex  hindfoot_length weight
 0              1      7   16  1977     2      NA    M               32  NaN
 1              2      7   16  1977     3      NA    M               33  NaN
@@ -46,10 +49,17 @@ surveys_df
 35548      35549     12   31  2002     5     NaN  NaN              NaN  NaN
 
 [35549 rows x 9 columns]
+~~~
+{: .output}
 
+~~~
 species_df = pd.read_csv("data/species.csv",
                          keep_default_na=False, na_values=[""])
 species_df
+~~~
+{: .language-python}
+
+~~~
   species_id             genus          species     taxa
 0          AB        Amphispiza        bilineata     Bird
 1          AH  Ammospermophilus          harrisi   Rodent
@@ -65,17 +75,17 @@ species_df
 
 [54 rows x 4 columns]
 ~~~
-{: .language-python}
+{: .output}
 
 Take note that the `read_csv` method we used can take some additional options which
 we didn't use previously. Many functions in Python have a set of options that
-can be set by the user if needed. In this case, we have told pandas to assign
-empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
+can be set by the user if needed. In this case, we have told `pandas` to assign
+empty values in our CSV to `NaN` with the parameters `keep_default_na=False` and `na_values=[""]`.
 [More about all of the read_csv options here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv)
 
 # Concatenating DataFrames
 
-We can use the `concat` function in pandas to append either columns or rows from
+We can use the `concat` function in `pandas` to append either columns or rows from
 one DataFrame to another.  Let's grab two subsets of our data to see how this
 works.
 
@@ -109,8 +119,8 @@ horizontal_stack = pd.concat([survey_sub, survey_sub_last10], axis=1)
 {: .language-python}
 
 ### Row Index Values and Concat
-Have a look at the `vertical_stack` dataframe? Notice anything unusual?
-The row indexes for the two data frames `survey_sub` and `survey_sub_last10`
+Have a look at the `vertical_stack` DataFrame? Notice anything unusual?
+The row indexes for the two DataFrames `survey_sub` and `survey_sub_last10`
 have been repeated. We can reindex the new dataframe using the `reset_index()` method.
 
 ## Writing Out Data to CSV
@@ -118,8 +128,8 @@ have been repeated. We can reindex the new dataframe using the `reset_index()` m
 We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
-`vertical_stack.to_csv('foldername/out.csv')`. We use the 'index=False' so that
-pandas doesn't include the index number for each line.
+`vertical_stack.to_csv('foldername/out.csv')`. We use the `'index=False'` so that
+`pandas` doesn't include the index number for each line.
 
 ~~~
 # Write DataFrame to CSV
@@ -128,11 +138,11 @@ vertical_stack.to_csv('data_output/out.csv', index=False)
 {: .language-python}
 
 Check out your working directory to make sure the CSV wrote out properly, and
-that you can open it! If you want, try to bring it back into Python to make sure
+that you can open it! If you want, try to bring it back into `pandas` to make sure
 it imports properly.
 
 ~~~
-# For kicks read our output back into Python and make sure all looks good
+# For kicks read our output back into `pandas` and make sure all looks good
 new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
 ~~~
 {: .language-python}
@@ -140,17 +150,17 @@ new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values
 > ## Challenge - Combine Data
 >
 > In the data folder, there are two survey data files: `surveys2001.csv` and
-> `surveys2002.csv`. Read the data into Python and combine the files to make one
-> new data frame. Create a plot of average plot weight by year grouped by sex.
-> Export your results as a CSV and make sure it reads back into Python properly.
+> `surveys2002.csv`. Read the data into `pandas` and combine the files to make one
+> new DataFrame. Create a plot of average plot weight by year grouped by sex.
+> Export your results as a CSV and make sure it reads back into `pandas` properly.
 {: .challenge}
 
 # Joining DataFrames
 
-When we concatenated our DataFrames we simply added them to each other -
+When we concatenated our DataFrames, we simply added them to each other -
 stacking them either vertically or side by side. Another way to combine
 DataFrames is to use columns in each dataset that contain common values (a
-common unique id). Combining DataFrames using a common field is called
+common unique identifier). Combining DataFrames using a common field is called
 "joining". The columns containing the common values are called "join key(s)".
 Joining DataFrames in this way is often useful when one DataFrame is a "lookup
 table" containing additional data that we want to include in the other.
@@ -161,13 +171,13 @@ SQL database.
 For example, the `species.csv` file that we've been working with is a lookup
 table. This table contains the genus, species and taxa code for 55 species. The
 species code is unique for each line. These species are identified in our survey
-data as well using the unique species code. Rather than adding 3 more columns
-for the genus, species and taxa to each of the 35,549 line Survey data table, we
+data as well using the unique species code. Rather than adding three more columns
+for the genus, species and taxa to each of the 35,549 line `survey` DataFrame, we
 can maintain the shorter table with the species information. When we want to
 access that information, we can create a query that joins the additional columns
-of information to the Survey data.
+of information to the `survey` DataFrame.
 
-Storing data in this way has many benefits including:
+Storing data in this way has many benefits.
 
 1. It ensures consistency in the spelling of species attributes (genus, species
    and taxa) given each species is only entered once. Imagine the possibilities
@@ -180,7 +190,7 @@ Storing data in this way has many benefits including:
 ## Joining Two DataFrames
 
 To better understand joins, let's grab the first 10 lines of our data as a
-subset to work with. We'll use the `.head` method to do this. We'll also read
+subset to work with. We'll use the `.head()` method to do this. We'll also read
 in a subset of the species table.
 
 ~~~
@@ -209,16 +219,25 @@ identify a (differently-named) column in each DataFrame that contains the same
 information.
 
 ~~~
->>> species_sub.columns
-
-Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')
-
->>> survey_sub.columns
-
-Index([u'record_id', u'month', u'day', u'year', u'plot_id', u'species_id',
-       u'sex', u'hindfoot_length', u'weight'], dtype='object')
+species_sub.columns
 ~~~
 {: .language-python}
+
+~~~
+Index(['species_id', 'genus', 'species', 'taxa'], dtype='object')
+~~~
+{: .output}
+
+~~~
+survey_sub.columns
+~~~
+{: .language-python}
+
+~~~
+Index(['record_id', 'month', 'day', 'year', 'plot_id', 'species_id',
+       'sex', 'hindfoot_length', 'weight'], dtype='object')
+~~~
+{: .output}
 
 In our example, the join key is the column containing the two-letter species
 identifier, which is called `species_id`.
@@ -230,26 +249,37 @@ also need to decide which type of join makes sense for our analysis.
 
 ## Inner joins
 
-The most common type of join is called an _inner join_. An inner join combines
+The most common type of join is called an **inner join**. An inner join combines
 two DataFrames based on a join key and returns a new DataFrame that contains
-**only** those rows that have matching values in *both* of the original
-DataFrames.
-
-Inner joins yield a DataFrame that contains only rows where the value being
-joined exists in BOTH tables. An example of an inner join, adapted from [Jeff Atwood's blogpost about SQL joins][join-types] is below:
+*only* those rows that have matching values in *both* of the original
+DataFrames. An example of an inner join, adapted from [Jeff Atwood's blogpost about SQL joins][join-types] is below:
 
 ![Inner join -- courtesy of codinghorror.com](../fig/inner-join.png)
 
-The pandas function for performing joins is called `merge` and an Inner join is
+The `pandas` function for performing joins is called `merge` and an inner join is
 the default option:
 
 ~~~
 merged_inner = pd.merge(left=survey_sub, right=species_sub, left_on='species_id', right_on='species_id')
-# In this case `species_id` is the only column name in  both dataframes, so if we skipped `left_on`
-# And `right_on` arguments we would still get the same result
+~~~
+{: .language-python}
 
-# What's the size of the output data?
+In this case, `species_id` is the only column name in  both DataFrames, so if we skipped the `left_on`
+and `right_on` arguments, `pandas` would guess that we wanted to use that column to join. However, it is
+usually better to be explicit.
+
+So what is the size of the output data?
+~~~
 merged_inner.shape
+~~~
+{: .language-python}
+
+~~~
+(8, 12)
+~~~
+{: .output}
+
+~~~
 merged_inner
 ~~~
 {: .language-python}
@@ -296,8 +326,8 @@ DataFrame). For inner joins, the order of the `left` and `right` arguments does
 not matter.
 
 The result `merged_inner` DataFrame contains all of the columns from `survey_sub`
-(record id, month, day, etc.) as well as all the columns from `species_sub`
-(species_id, genus, species, and taxa).
+(`record_id`, `month`, `day`, etc.) as well as all the columns from `species_sub`
+(`species_id`, `genus`, `species`, and `taxa`).
 
 Notice that `merged_inner` has fewer rows than `survey_sub`. This is an
 indication that there were rows in `surveys_df` with value(s) for `species_id` that
@@ -313,7 +343,7 @@ Like an inner join, a left join uses join keys to combine two DataFrames. Unlike
 an inner join, a left join will return *all* of the rows from the `left`
 DataFrame, even those rows whose join key(s) do not have values in the `right`
 DataFrame.  Rows in the `left` DataFrame that are missing values for the join
-key(s) in the `right` DataFrame will simply have null (i.e., NaN or None) values
+key(s) in the `right` DataFrame will simply have null (i.e., `NaN`) values
 for those columns in the resulting joined DataFrame.
 
 Note: a left join will still discard rows from the `right` DataFrame that do not
@@ -321,7 +351,7 @@ have values for the join key(s) in the `left` DataFrame.
 
 ![Left Join](../fig/left-join.png)
 
-A left join is performed in pandas by calling the same `merge` function used for
+A left join is performed in `pandas` by calling the same `merge` function used for
 inner join, but using the `how='left'` argument:
 
 ~~~
@@ -358,16 +388,17 @@ merged_left
 
 The result DataFrame from a left join (`merged_left`) looks very much like the
 result DataFrame from an inner join (`merged_inner`) in terms of the columns it
-contains. However, unlike `merged_inner`, `merged_left` contains the **same
-number of rows** as the original `survey_sub` DataFrame. When we inspect
+contains. However, unlike `merged_inner`, `merged_left` contains the *same
+number of rows* as the original `survey_sub` DataFrame. When we inspect
 `merged_left`, we find there are rows where the information that should have
 come from `species_sub` (i.e., `species_id`, `genus`, and `taxa`) is
-missing (they contain NaN values):
+missing (they contain `NaN` values):
 
 ~~~
-merged_left[ pd.isnull(merged_left.genus) ]
+merged_left[merged_left['genus'].isna()]
 ~~~
 {: .language-python}
+
 ~~~
    record_id  month  day  year  plot_id species_id sex  hindfoot_length  \
 5          6      7   16  1977        1         PF   M               14
@@ -385,7 +416,7 @@ case, `PF`) does not occur in `species_sub`.
 
 ## Other join types
 
-The pandas `merge` function supports two other join types:
+The `pandas` `merge` function supports two other join types:
 
 * Right (outer) join: Invoked by passing `how='right'` as an argument. Similar
   to a left join, except *all* rows from the `right` DataFrame are kept, while
