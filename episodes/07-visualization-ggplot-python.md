@@ -477,12 +477,10 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > weight of the species changes through the years.
 >
 > > ## Answers
-> > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
 > >
 > > ~~~
-> > (p9.ggplot(data=yearly_weight,
-> >            mapping=p9.aes(x='year',
-> >                           y='weight'))
+> > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
+> > (p9.ggplot(data=yearly_weight, mapping=p9.aes(x='year', y='weight'))
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("species_id")
 > > )
@@ -498,6 +496,8 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > an individual color assigned to each `species_id`.
 >
 > > ## Answers
+> >
+> > ~~~
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id', 'sex'])['weight'].mean().reset_index()
 > >
 > > (p9.ggplot(data=yearly_weight,
@@ -507,6 +507,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("sex")
 > > )
+> > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
