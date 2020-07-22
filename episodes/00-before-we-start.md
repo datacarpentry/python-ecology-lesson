@@ -125,7 +125,10 @@ Programming is a multi-step process that involves the following steps:
 4. Testing, validating, and adjusting implemented solution.
 
 While _"Programming"_ refers to all of the above steps,
-_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_.
+_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_. It's 
+important to note that _"the best"_ computational solution must consider factors beyond the computer. 
+Who is using the program, what resources/funds does your team have for this project, and the available
+timeline all shape and mold what "best" may be.
 
 #### If you are working with Jupyter notebook:
 
