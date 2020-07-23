@@ -48,7 +48,7 @@ title: Setup
 
 ### Mac OS X - [Video tutorial][video-mac]
 
-1. Visit [https://www.anaconda.com/distribution/][anaconda-mac] with your web browser.
+1. Visit <https://www.anaconda.com/products/individual> in your web browser.
 
 2. Download the Python 3 installer for OS X. These instructions assume that you use the graphical installer `.pkg` file.
 
