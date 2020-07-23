@@ -90,11 +90,8 @@ If you run into any difficulties, please request help before the workshop begins
 
 
 [anaconda]: https://www.anaconda.com/
-[anaconda-mac]: https://www.anaconda.com/download/#macos
-[anaconda-linux]: https://www.anaconda.com/download/#linux
-[anaconda-windows]: https://www.anaconda.com/download/#windows
-[jupyter]: http://jupyter.org/
-[python]: https://python.org
+[jupyter]: https://jupyter.org/
+[python]: https://www.python.org/
 [video-mac]: https://www.youtube.com/watch?v=TcSAln46u9U
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
 
