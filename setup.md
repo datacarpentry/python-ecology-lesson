@@ -79,7 +79,7 @@ If you run into any difficulties, please request help before the workshop begins
 
     and press tab.  The name of the file you just downloaded should appear.
 
-    d.  Press enter.
+    d.  Press <kbd>Return</kbd>.
 
     e.  Follow the text-only prompts.  When the license agreement appears (a colon
         will be present at the bottom of the screen) press the space bar until you see the 
