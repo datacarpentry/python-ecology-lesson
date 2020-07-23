@@ -60,7 +60,7 @@ title: Setup
 Note that the following installation steps require you to work from the terminal (shell). 
 If you run into any difficulties, please request help before the workshop begins.
 
-1.  Open [https://www.anaconda.com/distribution/][anaconda-linux] with your web browser.
+1.  Open <https://www.anaconda.com/products/individual> in your web browser.
 
 2.  Download the Python 3 installer for Linux.
 
@@ -73,11 +73,11 @@ If you run into any difficulties, please request help before the workshop begins
     c.  Type
 
     ~~~
-    $ bash Anaconda3-
+    bash Anaconda3-
     ~~~
     {: .language-bash}
 
-    and press tab.  The name of the file you just downloaded should appear.
+    and press <kbd>Tab</kbd>.  The name of the file you just downloaded should appear.
 
     d.  Press <kbd>Return</kbd>.
 
