@@ -22,8 +22,6 @@ title: Setup
 > this file after downloading it.
 {: .prereq}
 
-
-
 > ## Installing Python using Anaconda
 > [Python][python] is a popular language for scientific computing, and great for
 > general-purpose programming as well. Installing all of its scientific packages
