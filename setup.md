@@ -39,7 +39,7 @@ title: Setup
 
 ### Windows - [Video tutorial][video-windows]
 
-1. Open [https://www.anaconda.com/distribution/][anaconda-windows] with your web browser.
+1. Open <https://www.anaconda.com/products/individual> in your web browser.
 
 2. Download the Python 3 installer for Windows.
 
