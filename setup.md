@@ -150,7 +150,9 @@ conda install -y package_name
 ~~~
 {: .language-bash}
 
-You may need to install the required packages in this way, if you opted for installing Miniconda, instead of Anaconda. Miniconda is a "light" version of Anaconda. If you install and use Miniconda
+You may need to install the required packages in this way,
+if you opted for installing Miniconda, instead of Anaconda.
+Miniconda is a lightweight version of Anaconda. If you install and use Miniconda
 you will also need to install the workshop packages manually in the following way:
 ~~~
 conda install -y numpy pandas matplotlib jupyter
