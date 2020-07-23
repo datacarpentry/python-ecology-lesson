@@ -75,7 +75,7 @@ If you run into any difficulties, please request help before the workshop begins
     ~~~
     $ bash Anaconda3-
     ~~~
-    {: .bash}
+    {: .language-bash}
 
     and press tab.  The name of the file you just downloaded should appear.
 
