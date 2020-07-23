@@ -127,10 +127,10 @@ conda --help
 ## Required Python Packages for this Workshop
 The following are packages needed for this workshop:
 
-* [Pandas](http://pandas.pydata.org/)
-* [Jupyter notebook](http://jupyter.org/)
-* [Numpy](http://www.numpy.org/)
-* [Matplotlib](http://matplotlib.org/)
+* [Pandas](https://pandas.pydata.org/)
+* [Jupyter notebook](https://jupyter.org/)
+* [Numpy](https://numpy.org/)
+* [Matplotlib](https://matplotlib.org/)
 * [Plotnine](https://plotnine.readthedocs.io/en/stable/)
 
 All packages apart from plotnine will have automatically been installed with Anaconda and we can use anaconda as a package manager to install the missing `plotnine` package:
