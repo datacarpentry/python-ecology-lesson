@@ -75,8 +75,6 @@ To build a `plotnine` graphic we need to:
 (p9.ggplot(data=surveys_complete))
 ~~~
 {: .language-python}
-As we have not defined anything else, just an empty figure is available and
-presented.
 
 As we have not defined anything else, just an empty figure is available and
 presented.
