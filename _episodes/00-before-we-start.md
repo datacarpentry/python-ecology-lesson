@@ -43,11 +43,11 @@ mean it is easier for new members of the community to get up to speed.
 - **Reproducibility:**
 Reproducibility is the ability to obtain the same results using the same dataset(s) and analysis.
 
-Data analysis written as a Python script can be reproduced on any platform.  Moreover, if you
-collect more or correct existing data, you can quickly re-run your analysis!
+  Data analysis written as a Python script can be reproduced on any platform.  Moreover, if you
+  collect more or correct existing data, you can quickly re-run your analysis!
 
-An increasing number of journals and funding agencies expect analyses to be reproducible,
-so knowing Python will give you an edge with these requirements.
+  An increasing number of journals and funding agencies expect analyses to be reproducible,
+  so knowing Python will give you an edge with these requirements.
 
 - **Versatility:**
 Python is a versatile language that integrates with many existing applications to enable something
@@ -55,8 +55,8 @@ completely amazing.  For example, one can use Python to generate manuscripts, so
 update your data, analysis procedure, or change something else, you can quickly regenerate all the
 figures and your manuscript will be updated automatically.
 
-Python can read text files, connect to databases, and many other data formats, on your computer or
-on the web.
+  Python can read text files, connect to databases, and many other data formats, on your computer or
+  on the web.
 
 - **Interdisciplinary and extensible:**
 Python provides a framework that allows anyone to combine approaches from different research
@@ -125,8 +125,8 @@ Programming is a multi-step process that involves the following steps:
 4. Testing, validating, and adjusting implemented solution.
 
 While _"Programming"_ refers to all of the above steps,
-_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_. It's 
-important to note that _"the best"_ computational solution must consider factors beyond the computer. 
+_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_. It's
+important to note that _"the best"_ computational solution must consider factors beyond the computer.
 Who is using the program, what resources/funds does your team have for this project, and the available
 timeline all shape and mold what "best" may be.
 
