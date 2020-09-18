@@ -1,6 +1,3 @@
-# Use /bin/bash instead of /bin/sh
-export SHELL = /bin/bash
-
 ## ========================================
 ## Commands for both workshop and lesson websites.
 
@@ -96,7 +93,7 @@ workshop-check :
 ## III. Commands specific to lesson websites
 ## =================================================
 
-.PHONY : lesson-check lesson-md lesson-files lesson-fixme
+.PHONY : lesson-check lesson-md lesson-files lesson-fixme install-rmd-deps
 
 # RMarkdown files
 RMD_SRC = $(wildcard _episodes_rmd/??-*.Rmd)
@@ -122,13 +119,18 @@ HTML_DST = \
   $(patsubst _extras/%.md,${DST}/%/index.html,$(sort $(wildcard _extras/*.md))) \
   ${DST}/license/index.html
 
+## * install-rmd-deps : Install R packages dependencies to build the RMarkdown lesson
+install-rmd-deps:
+	@${SHELL} bin/install_r_deps.sh
+
 ## * lesson-md        : convert Rmarkdown files to markdown
 lesson-md : ${RMD_DST}
 
-_episodes/%.md: _episodes_rmd/%.Rmd
+_episodes/%.md: _episodes_rmd/%.Rmd install-rmd-deps
+	@mkdir -p _episodes
 	@bin/knit_lessons.sh $< $@
 
-# * lesson-check     : validate lesson Markdown
+## * lesson-check     : validate lesson Markdown
 lesson-check : lesson-fixme
 	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md
 
@@ -149,7 +151,7 @@ lesson-files :
 
 ## * lesson-fixme     : show FIXME markers embedded in source files
 lesson-fixme :
-	@fgrep -i -n FIXME ${MARKDOWN_SRC} || true
+	@grep --fixed-strings --word-regexp --line-number --no-messages FIXME ${MARKDOWN_SRC} || true
 
 ##
 ## IV. Auxililary (plumbing) commands
