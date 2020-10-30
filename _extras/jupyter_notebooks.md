@@ -1,7 +1,5 @@
 ---
-layout: page
-title: "Overview of Jupyter Notebooks"
-permalink: /jupyter_notebooks/
+title: Overview of Jupyter Notebooks
 ---
 
 ![Example Jupyter Notebook](../fig/00_0_jupyter_notebook_example.jpg)
