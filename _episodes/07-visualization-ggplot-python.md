@@ -597,6 +597,6 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 [grammar-of-graphics]: http://link.springer.com/book/10.1007%2F0-387-28695-0
 [plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#color-and-fill-scales
 [plotnine]: https://plotnine.readthedocs.io/en/stable
-[setup-plotnine]: https://datacarpentry.org/python-ecology-lesson/setup.html#download-plotting-package
+[setup-plotnine]: https://datacarpentry.org/python-ecology-lesson/setup.html#required-python-packages
 
 {% include links.md %}
