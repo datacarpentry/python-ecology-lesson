@@ -1,6 +1,7 @@
 ---
 layout: lesson
 root: .
+permalink: index.html
 ---
 
 Python is a general purpose programming language that is useful for writing scripts to work effectively and reproducibly with data.
