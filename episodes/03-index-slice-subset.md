@@ -247,7 +247,7 @@ surveys_df.head()
 
 What is the difference between these two dataframes?
 
-When we assigned the first 3 columns the value of `0` using the
+When we assigned the first 3 rows the value of `0` using the
 `ref_surveys_df` DataFrame, the `surveys_df` DataFrame is modified too.
 Remember we created the reference `ref_survey_df` object above when we did
 `ref_survey_df = surveys_df`. Remember `surveys_df` and `ref_surveys_df`
