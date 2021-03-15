@@ -178,7 +178,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 ~~~
 {: .language-python}
 
-![scatter-plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau](../fig/06_alpha_plot.png)
+![scatter plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau](../fig/06_alpha_plot.png)
 
 We can also add colors for all the points
 
@@ -191,7 +191,7 @@ We can also add colors for all the points
 ~~~
 {: .language-python}
 
-![png](../fig/06_blue_plot.png)
+![scatter plot of hindfoot-length vs weight  of rodents, demonstrating overplotting](../fig/06_blue_plot.png)
 
 Or to color each species in the plot differently, map the `species_id` column
 to the color aesthetic:
