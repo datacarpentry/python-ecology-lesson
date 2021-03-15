@@ -140,7 +140,7 @@ surveys_plot + p9.geom_point()
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/06_challenge_bar.png)
+> > ![bar chart of count of rodents caught at each plot site](../fig/06_challenge_bar.png)
 > {: .solution}
 {: .challenge}
 
