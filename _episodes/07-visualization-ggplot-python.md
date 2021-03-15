@@ -178,7 +178,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 ~~~
 {: .language-python}
 
-![png](../fig/06_alpha_plot.png)
+![scatter-plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau](../fig/06_alpha_plot.png)
 
 We can also add colors for all the points
 
