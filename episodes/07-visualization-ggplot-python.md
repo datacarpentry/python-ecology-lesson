@@ -295,7 +295,7 @@ group, a boxplot can be used:
 ~~~
 {: .language-python}
 
-![png](../fig/06_boxplot.png)
+![boxplot showing distribution of rodent weight for each species group ](../fig/06_boxplot.png)
 
 By adding points of the individual observations to the boxplot, we can have a
 better idea of the number of measurements and of their distribution:
