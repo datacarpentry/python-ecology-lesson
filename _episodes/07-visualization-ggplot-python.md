@@ -238,7 +238,7 @@ could support the interpretation of the lower numbers:
 ~~~
 {: .language-python}
 
-![png](../fig/06_log_plot.png)
+![Scatterplot of hindfoot length versus weight where logarithmic x-axis is used to distribute lower numbers](../fig/06_log_plot.png)
 
 - Changing the theme (`theme_*`) or some specific theming (`theme`) elements.
 Usually plots with white background look more readable when printed.  We can
