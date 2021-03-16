@@ -546,7 +546,7 @@ rotate the text of the x-axis labels:
 ~~~
 {: .language-python}
 
-![png](../fig/06_good_bars.png)
+![Bar graph of count per year demonstrating how the theme function rotates the x-axis labels](../fig/06_good_bars.png)
 
 When you like a specific set of theme-customizations you created, you can save
 them as an object to easily apply them to other plots you may create:
