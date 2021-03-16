@@ -529,7 +529,7 @@ following example of a bar plot with the counts per year.
 ~~~
 {: .language-python}
 
-![png](../fig/06_overlap_bars.png)
+![Bar graph of count per year showing ovelapping x-axis labels](../fig/06_overlap_bars.png)
 
 Notice that we use the `year` here as a categorical variable by using the
 `factor` functionality. However, by doing so, we have the individual year
