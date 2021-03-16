@@ -397,7 +397,7 @@ modifying the aesthetic function and map the species_id to the color:
 ~~~
 {: .language-python}
 
-![png](../fig/06_time_plot.png)
+![Line graph of count per year where data for each species is indicated by a different color](../fig/06_time_plot.png)
 
 ## Faceting
 
