@@ -256,7 +256,7 @@ set the background to white using the function `theme_bw()`.
 ~~~
 {: .language-python}
 
-![png](../fig/06_white_plot.png)
+![Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background](../fig/06_white_plot.png)
 
 > ## Challenge - Bar plot adaptations
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to
