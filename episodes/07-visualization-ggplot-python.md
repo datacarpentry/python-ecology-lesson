@@ -310,7 +310,7 @@ better idea of the number of measurements and of their distribution:
 ~~~
 {: .language-python}
 
-![png](../fig/06_point_boxplot.png)
+![Boxplot of weight by species overlaying observation points to visualize the distribution](../fig/06_point_boxplot.png)
 
 > ## Challenge - distributions
 >
