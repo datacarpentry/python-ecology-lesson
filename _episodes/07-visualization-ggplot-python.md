@@ -564,7 +564,7 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
 ~~~
 {: .language-python}
 
-![png](../fig/06_theme_plot.png)
+![Bar graph of count per year demonstrating the use of a customized theme](../fig/06_theme_plot.png)
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots
