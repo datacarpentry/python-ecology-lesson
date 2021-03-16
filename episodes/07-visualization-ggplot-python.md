@@ -344,7 +344,7 @@ better idea of the number of measurements and of their distribution:
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_boxplot.png)
+> > ![Violin plot of weight of species shown with weight scaled down and datapoints with color.](../fig/06_challenge_boxplot.png)
 > {: .solution}
 {: .challenge}
 
