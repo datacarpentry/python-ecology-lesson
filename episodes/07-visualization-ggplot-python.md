@@ -140,7 +140,7 @@ surveys_plot + p9.geom_point()
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/06_challenge_bar.png)
+> > ![bar chart of count of rodents caught at each plot site](../fig/06_challenge_bar.png)
 > {: .solution}
 {: .challenge}
 
@@ -178,7 +178,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 ~~~
 {: .language-python}
 
-![png](../fig/06_alpha_plot.png)
+![scatter plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau](../fig/06_alpha_plot.png)
 
 We can also add colors for all the points
 
@@ -191,7 +191,7 @@ We can also add colors for all the points
 ~~~
 {: .language-python}
 
-![png](../fig/06_blue_plot.png)
+![scatter plot of hindfoot-length vs weight  of rodents, demonstrating overplotting](../fig/06_blue_plot.png)
 
 Or to color each species in the plot differently, map the `species_id` column
 to the color aesthetic:
@@ -238,7 +238,7 @@ could support the interpretation of the lower numbers:
 ~~~
 {: .language-python}
 
-![png](../fig/06_log_plot.png)
+![Scatterplot of hindfoot length versus weight where logarithmic x-axis is used to distribute lower numbers](../fig/06_log_plot.png)
 
 - Changing the theme (`theme_*`) or some specific theming (`theme`) elements.
 Usually plots with white background look more readable when printed.  We can
@@ -256,7 +256,7 @@ set the background to white using the function `theme_bw()`.
 ~~~
 {: .language-python}
 
-![png](../fig/06_white_plot.png)
+![Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background](../fig/06_white_plot.png)
 
 > ## Challenge - Bar plot adaptations
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to
@@ -295,7 +295,7 @@ group, a boxplot can be used:
 ~~~
 {: .language-python}
 
-![png](../fig/06_boxplot.png)
+![boxplot showing distribution of rodent weight for each species group ](../fig/06_boxplot.png)
 
 By adding points of the individual observations to the boxplot, we can have a
 better idea of the number of measurements and of their distribution:
@@ -310,7 +310,7 @@ better idea of the number of measurements and of their distribution:
 ~~~
 {: .language-python}
 
-![png](../fig/06_point_boxplot.png)
+![Boxplot of weight by species overlaying observation points to visualize the distribution](../fig/06_point_boxplot.png)
 
 > ## Challenge - distributions
 >
@@ -344,7 +344,7 @@ better idea of the number of measurements and of their distribution:
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_boxplot.png)
+> > ![Violin plot of weight of species shown with weight scaled down and datapoints with color.](../fig/06_challenge_boxplot.png)
 > {: .solution}
 {: .challenge}
 
@@ -397,7 +397,7 @@ modifying the aesthetic function and map the species_id to the color:
 ~~~
 {: .language-python}
 
-![png](../fig/06_time_plot.png)
+![Line graph of count per year where data for each species is indicated by a different color](../fig/06_time_plot.png)
 
 ## Faceting
 
@@ -529,7 +529,7 @@ following example of a bar plot with the counts per year.
 ~~~
 {: .language-python}
 
-![png](../fig/06_overlap_bars.png)
+![Bar graph of count per year showing ovelapping x-axis labels](../fig/06_overlap_bars.png)
 
 Notice that we use the `year` here as a categorical variable by using the
 `factor` functionality. However, by doing so, we have the individual year
@@ -546,7 +546,7 @@ rotate the text of the x-axis labels:
 ~~~
 {: .language-python}
 
-![png](../fig/06_good_bars.png)
+![Bar graph of count per year demonstrating how the theme function rotates the x-axis labels](../fig/06_good_bars.png)
 
 When you like a specific set of theme-customizations you created, you can save
 them as an object to easily apply them to other plots you may create:
@@ -564,7 +564,7 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
 ~~~
 {: .language-python}
 
-![png](../fig/06_theme_plot.png)
+![Bar graph of count per year demonstrating the use of a customized theme](../fig/06_theme_plot.png)
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots
