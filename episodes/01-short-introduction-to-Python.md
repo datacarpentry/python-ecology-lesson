@@ -3,8 +3,8 @@ title: Short Introduction to Programming in Python
 teaching: 30
 exercises: 5
 questions:
-    - "How do I program in Python?
-    - "How can I represent my data in Python?
+    - "How do I program in Python?"
+    - "How can I represent my data in Python?"
 objectives:
     - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
     - "Define the following data types in Python: strings, integers, and floats."
