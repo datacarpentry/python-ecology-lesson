@@ -169,7 +169,7 @@ conda install -c conda-forge plotnine
 ~~~
 {: .language-bash}
 
-## Required packages: Installing with environment file
+### _(Optional)_ Installing with environment file
 Download the 
 [environment.yml](https://raw.githubusercontent.com/datacarpentry/python-ecology-lesson/gh-pages/environment.yml) 
 file by right-clicking the link and selecting save as.
