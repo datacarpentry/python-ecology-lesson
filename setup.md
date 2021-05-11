@@ -169,7 +169,7 @@ conda install -c conda-forge plotnine
 ~~~
 {: .language-bash}
 
-### _(Optional)_ Installing with environment file
+### _(Alternative)_ Installing required packages with environment file
 Download the 
 [environment.yml](https://raw.githubusercontent.com/datacarpentry/python-ecology-lesson/gh-pages/environment.yml) 
 file by right-clicking the link and selecting save as.
@@ -186,8 +186,10 @@ conda activate python-ecology-lesson
 ~~~
 {: .language-bash}
 
-For more information on environment files, see the conda documentation for 
-[creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file).
+You can deactivate the environment with:
+~~~
+conda deactivate
+~~~
 
 ## Launch a Jupyter notebook
 
