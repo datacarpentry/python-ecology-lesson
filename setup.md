@@ -190,6 +190,7 @@ You can deactivate the environment with:
 ~~~
 conda deactivate
 ~~~
+{: .language-bash}
 
 ## Launch a Jupyter notebook
 
