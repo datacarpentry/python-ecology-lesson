@@ -47,7 +47,7 @@ either a shell script or Python to do this - you wouldn't want to do it by hand
 if you had many files to process.
 
 If you are still having trouble importing the data as a table using Pandas,
-check the documentation. You can open the docstring in an ipython notebook using
+check the documentation. You can open the docstring in a Jupyter Notebook using
 a question mark. For example:
 
 ~~~
@@ -359,7 +359,7 @@ which will save the `fig` created using Pandas/matplotlib as a png file with the
 
 Matplotlib can make many other types of plots in much the same way that it makes two-dimensional line plots. Look through the examples in
 <http://matplotlib.org/users/screenshots.html> and try a few of them (click on the
-"Source code" link and copy and paste into a new cell in ipython notebook or
+"Source code" link and copy and paste into a new cell in Jupyter Notebook or
 save as a text file with a `.py` extension and run in the command line).
 
 > ## Challenge - Final Plot
