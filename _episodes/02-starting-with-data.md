@@ -37,7 +37,7 @@ and they can replicate the same analysis.
 
 To help the lesson run smoothly, let's ensure everyone is in the same directory.
 This should help us avoid path and file name issues. At this time please
-navigate to the workshop directory. If you are working in IPython Notebook be sure
+navigate to the workshop directory. If you are working in Jupyter Notebook be sure
 that you start your notebook in the workshop directory.
 
 A quick aside that there are Python libraries like [OS Library][os-lib] that can work with our
