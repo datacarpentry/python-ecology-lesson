@@ -391,7 +391,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
        'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
        'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
 ~~~
-{: .language-python}
+{: .output}
 
 > ## Challenge - Statistics
 >
@@ -478,7 +478,7 @@ F          28.836780  42.170555
 M          29.709578  42.995379
 
 ~~~
-{: .language-python}
+{: .output}
 
 The `groupby` command is powerful in that it allows us to quickly generate
 summary stats.
