@@ -391,7 +391,6 @@ rev['first']
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
-rev = {'first': 'one', 'second': 'two'}
 rev['third'] = 'three'
 rev
 ~~~
