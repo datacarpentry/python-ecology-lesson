@@ -123,7 +123,7 @@ pandas doesn't include the index number for each line.
 
 ~~~
 # Write DataFrame to CSV
-vertical_stack.to_csv('data_output/out.csv', index=False)
+vertical_stack.to_csv('data/out.csv', index=False)
 ~~~
 {: .language-python}
 
@@ -133,7 +133,7 @@ it imports properly.
 
 ~~~
 # For kicks read our output back into Python and make sure all looks good
-new_output = pd.read_csv('data_output/out.csv', keep_default_na=False, na_values=[""])
+new_output = pd.read_csv('data/out.csv', keep_default_na=False, na_values=[""])
 ~~~
 {: .language-python}
 
