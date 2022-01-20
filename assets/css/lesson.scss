@@ -258,6 +258,11 @@ article img {
     max-width: 100%;
 }
 
+article img.inline {
+    display: inline-block;
+    margin: auto;
+}
+
 article h2 {
   margin: 48px 0 16px;
   border-bottom: solid 1px #eaecef;
@@ -352,6 +357,11 @@ div.life-cycle {
     background: #d9edf7;
 }
 
+.published {
+    color: #354711;
+    background: #effbd7;
+}
+
 // Remove border around spans of text within code blocks
 // that the highlighter (rouge) failed to recognize.
 pre.highlight span.err {
@@ -378,4 +388,14 @@ kbd {
     box-shadow: 0 1px 0 rgba(12,13,14,0.2), 0 0 0 2px #FFF inset;
     white-space: nowrap;
     font-style: normal;
+}
+
+//------------------------------------------
+// Show solution while printing (Ctrl + P)
+// -----------------------------------------
+
+@media print {
+  blockquote.solution > * {
+    display: unset !important;
+  }
 }
