@@ -133,6 +133,36 @@ imported and exported from many applications, including Microsoft Excel. For mor
 files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
 We can use Pandas' `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
 
+# Manual DataFrame Creation
+
+In last section we imported data from a csv file. However, you can also create your DataFrame manually as follow:
+~~~
+# initialize data of lists.
+data = {'Name':['Robert', 'Amanda', 'Billie', 'Tom'],
+        'Age':[40, 21, 20, 22],
+        'Sex':['Male', 'Female', 'Female', 'Male']}
+# Create DataFrame
+df = pd.DataFrame(data) 
+# Print the DataFrame.
+df
+~~~
+The above commands will create a DataFrame named `df` and yields the **output** below:
+
+~~~
+     Name  Age     Sex
+0  Robert   40    Male
+1  Amanda   21  Female
+2  Billie   20  Female
+3     Tom   22    Male
+~~~
+
+Creating a DataFrame manually might not be a good idea when dealing with large data. However, it can be very handy
+during live teaching a live time DataFrame can be created without any prerequisite of data download. 
+
+For the rest of this lesson, we will be using the csv imported dataset as we will explore many functionalities which 
+would require a large dataset.
+
+
 ## So What's a DataFrame?
 
 A DataFrame is a 2-dimensional data structure that can store data of different
