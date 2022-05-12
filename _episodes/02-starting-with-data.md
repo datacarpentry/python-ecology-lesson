@@ -317,6 +317,30 @@ fractional values, but the weight and hindfoot_length columns can, because they
 have type `float64`. The `object` type doesn't have a very helpful name, but in
 this case it represents strings (such as 'M' and 'F' in the case of sex).
 
+The datatypes can be adjusted in order to save memory for large data frames. The datatype `category` is useful for string variables consisting of only a few different values such as 'M' and 'F' in the case of sex. New datatypes can be assigned by:
+
+~~~
+new_types = {'record_id': 'int32', 'month': 'int16', 'day': 'int16', 'year': 'int16', 'plot_id': 'int16',
+             'species_id' : 'object','sex': 'category', 'hindfoot_length': 'float32', 'weight': 'float32'}
+surveys_df = surveys_df.astype(new_types)
+display(surveys_df.dtypes)
+~~~
+{: .language-python}
+~~~
+record_id             int32
+month                 int16
+day                   int16
+year                  int16
+plot_id               int16
+species_id           object
+sex                category
+hindfoot_length     float32
+weight              float32
+dtype: object
+~~~
+{: .output}
+
+
 We'll talk a bit more about what the different formats mean in a different lesson.
 
 ### Useful Ways to View DataFrame objects in Python
