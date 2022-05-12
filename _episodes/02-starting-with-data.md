@@ -460,15 +460,24 @@ numeric data.
 
 ~~~
 # Summary statistics for all numeric columns by sex
-grouped_data.describe()
+display(grouped_data.describe())
 # Provide the mean for each numeric column by sex
 grouped_data.mean()
 ~~~
 {: .language-python}
 
-`grouped_data.mean()` **OUTPUT:**
+gives **output**
 
 ~~~
+
+ 	record_id 	month 	... 	hindfoot_length 	weight
+	count 	mean 	std 	min 	25% 	50% 	75% 	max 	count 	mean 	... 	75% 	max 	count 	mean 	std 	min 	25% 	50% 	75% 	max
+sex 																					
+F 	15690.0 	18036.412046 	10423.089000 	3.0 	8917.50 	18075.5 	27250.00 	35547.0 	15690.0 	6.583047 	... 	36.0 	64.0 	15303.0 	42.170555 	36.847958 	4.0 	20.0 	34.0 	46.0 	274.0
+M 	17348.0 	17754.835601 	10132.203323 	1.0 	8969.75 	17727.5 	26454.25 	35548.0 	17348.0 	6.392668 	... 	36.0 	58.0 	16879.0 	42.995379 	36.184981 	4.0 	20.0 	39.0 	49.0 	280.0
+
+2 rows × 56 columns
+
         record_id     month        day         year    plot_id  \
 sex
 F    18036.412046  6.583047  16.007138  1990.644997  11.440854
