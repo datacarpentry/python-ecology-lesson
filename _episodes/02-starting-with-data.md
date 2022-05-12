@@ -183,11 +183,13 @@ surveys_df = pd.read_csv("data/surveys.csv")
 {: .language-python}
 
 Notice when you assign the imported DataFrame to a variable, Python does not
-produce any output on the screen. We can view the value of the `surveys_df`
-object by typing its name into the Python command prompt.
+produce any output on the screen.  The IPython package includes the display() function, which is preferable to pandas over print(). We can view the value of the `surveys_df`
+object by typing:
 
 ~~~
-surveys_df
+from IPython.display import display
+
+display(surveys_df)
 ~~~
 {: .language-python}
 
@@ -251,7 +253,7 @@ easier to fit on one window, you can see that pandas has neatly formatted the da
 our screen:
 
 ~~~
-surveys_df.head() # The head() method displays the first several lines of a file. It
+display(surveys_df.head()) # The head() method displays the first several lines of a file. It
                   # is discussed below.
 ~~~
 {: .language-python}
