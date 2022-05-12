@@ -534,7 +534,7 @@ ways, but we'll use `groupby` combined with **a `count()` method**.
 ~~~
 # Count the number of samples by species
 species_counts = surveys_df.groupby('species_id')['record_id'].count()
-print(species_counts)
+display(species_counts)
 ~~~
 {: .language-python}
 
