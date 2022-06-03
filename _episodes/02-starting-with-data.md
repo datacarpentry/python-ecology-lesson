@@ -54,7 +54,7 @@ We will be using files from the [Portal Project Teaching Database][pptd].
 This section will use the `surveys.csv` file that can be downloaded here:
 [https://ndownloader.figshare.com/files/2292172][figshare-ndownloader]
 
-We are studying the species and weight of animals caught in sites in our study
+We are studying the **species** and **weight** of animals caught in sites in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
 single animal, and the columns represent:
 
@@ -317,10 +317,10 @@ this case it represents strings (such as 'M' and 'F' in the case of sex).
 
 We'll talk a bit more about what the different formats mean in a different lesson.
 
-### Useful Ways to View DataFrame objects in Python
+### Useful Ways to View DataFrame Objects in Python
 
 There are many ways to summarize and access the data stored in DataFrames,
-using attributes and methods provided by the DataFrame object.
+using **attributes** and **methods** provided by the DataFrame object.
 
 To access an attribute, use the DataFrame object name followed by the attribute
 name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
@@ -329,14 +329,14 @@ with `surveys_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
 As an example, `surveys_df.head()` gets the first few rows in the DataFrame
-`surveys_df` using **the `head()` method**. With a method, we can supply extra
+`surveys_df` using the `head()` **method**. With a method we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
 
 > ## Challenge - DataFrames
 >
-> Using our DataFrame `surveys_df`, try out the attributes & methods below to see
+> Using our DataFrame `surveys_df`, try out the **attributes** & **methods** below to see
 > what they return.
 >
 > 1. `surveys_df.columns`
