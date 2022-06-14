@@ -448,7 +448,7 @@ Experiment with selecting various subsets of the "surveys" data.
 >    {: .language-python }
 >
 >   Use the `isin` function to find all plots that contain particular species
->   in the "surveys" DataFrame. How many records contain these values?
+>   in the "surveys" DataFrame. How many plots contain these values?
 >
 > 3. Experiment with other queries. Create a query that finds all rows with a
 >   weight value > or equal to 0.
