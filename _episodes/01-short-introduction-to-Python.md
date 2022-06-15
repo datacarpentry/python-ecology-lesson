@@ -63,6 +63,21 @@ Hello World
 * "Scripting" Mode: executing a series of "commands" saved in text file,
   usually with a `.py` extension after the name of your file:
 
+Use a text editor to create a file called `my_script.py`:
+
+Common text editors you can use: `vi`, `emacs`, `nano`, TextEdit, Spyder, PyCharm
+
+Open your favourite text editor, and type the following into the document:
+
+~~~
+print("Hello World")
+~~~
+{: .language-python}
+
+Save the file as `my_script.py`.
+
+Now that you have the file `my_script.py`, you can run it by executing the following command:
+
 ~~~
 $ python my_script.py
 ~~~
@@ -72,6 +87,8 @@ $ python my_script.py
 Hello World
 ~~~
 {: .output}
+
+For the remainder of this episode, use your chosen text editor when you create a script.
 
 ## Introduction to Python built-in data types
 
