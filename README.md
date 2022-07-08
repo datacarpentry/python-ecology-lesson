@@ -28,7 +28,7 @@ This indicates that the maintainers will welcome a pull request fixing this issu
 
 Current maintainers of this lesson are
 
-* [Alex Pakalniskis[alex-pakalniskis]
+* [Alex Pakalniskis][alex-pakalniskis]
 * [Sarah Pohl][LilithElina]
 
 ## Authors
