@@ -28,7 +28,8 @@ This indicates that the maintainers will welcome a pull request fixing this issu
 
 Current maintainers of this lesson are
 
-* [Maxim Belkin][maxim-belkin]
+* [Alex Pakalniskis[alex-pakalniskis]
+* [Sarah Pohl][LilithElina]
 
 ## Authors
 
