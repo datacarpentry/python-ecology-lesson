@@ -275,7 +275,7 @@ set the background to white using the function `theme_bw()`.
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_color_bar.png)
+> > ![Bar chart of counts of males (yellow) and females (blue) vs plot id, showing the number of females to be higher in all plots](../fig/06_challenge_color_bar.png)
 > {: .solution}
 {: .challenge}
 
