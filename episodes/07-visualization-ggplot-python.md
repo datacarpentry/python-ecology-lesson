@@ -123,7 +123,7 @@ surveys_plot + p9.geom_point()
 ~~~
 {: .language-python}
 
-![png](../fig/06_first_plot.png)
+![scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides](../fig/06_first_plot.png)
 
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to
@@ -223,7 +223,7 @@ operator:
 ~~~
 {: .language-python}
 
-![scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_label_plot.png)
+![png](../fig/06_color_label_plot.png)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis
 could support the interpretation of the lower numbers:
@@ -447,7 +447,7 @@ We can apply the same concept on any of the available categorical variables:
 ~~~
 {: .language-python}
 
-![24 individual scatter plots of Hindfoot length vs weight of species with colors denoting species and numbers above plot representing 1 of the 24 plots, showing trends for each unique plot id studied](../fig/06_facet_all_plot.png)
+![png](../fig/06_facet_all_plot.png)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
