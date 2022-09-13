@@ -206,7 +206,7 @@ to the color aesthetic:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_plot.png)
+![scatter plot of Hindfoot length vs weight with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_plot.png)
 
 Apart from the adaptations of the arguments and settings of the `data`, `aes`
 and `geom-*` elements, additional elements can be added as well, using the `+`
