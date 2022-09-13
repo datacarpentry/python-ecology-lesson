@@ -447,7 +447,7 @@ We can apply the same concept on any of the available categorical variables:
 ~~~
 {: .language-python}
 
-![png](../fig/06_facet_all_plot.png)
+![24 individual scatter plots of Hindfoot length vs weight of species with colors denoting species and numbers above plot representing 1 of the 24 plots, showing trends for each unique plot id studied](../fig/06_facet_all_plot.png)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
