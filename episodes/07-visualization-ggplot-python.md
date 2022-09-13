@@ -223,7 +223,7 @@ operator:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_label_plot.png)
+![scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_label_plot.png)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis
 could support the interpretation of the lower numbers:
