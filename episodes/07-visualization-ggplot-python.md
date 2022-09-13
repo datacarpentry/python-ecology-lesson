@@ -432,7 +432,7 @@ variable. As an example, use `sex`:
 )
 ~~~
 {: .language-python}
-![png](../fig/06_facet_plot.png)
+![2 scatter plots, one for males and the other for females, of hindfoot length vs weight with colored dots denoting specific species, showing the trend is the same between both male and females of multiple species](../fig/06_facet_plot.png)
 
 We can apply the same concept on any of the available categorical variables:
 
