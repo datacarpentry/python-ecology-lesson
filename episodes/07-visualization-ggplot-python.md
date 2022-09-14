@@ -123,7 +123,7 @@ surveys_plot + p9.geom_point()
 ~~~
 {: .language-python}
 
-![png](../fig/06_first_plot.png)
+![scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides](../fig/06_first_plot.png)
 
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to
