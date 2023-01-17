@@ -272,6 +272,12 @@ surveys_df.head() # The head() method displays the first several lines of a file
 ~~~
 {: .output}
 
+We can also load the csv file in to the Pandas dataframe directly from the URL without downloading using the below syntax. 
+~~~
+surveys_df=pd.read_csv('https://ndownloader.figshare.com/files/2292172')
+~~~
+{: .language-python}
+
 ## Exploring Our Species Survey Data
 
 Again, we can use the `type` function to see what kind of thing `surveys_df` is:
@@ -314,6 +320,31 @@ All the values in a column have the same type. For example, months have type
 fractional values, but the weight and hindfoot_length columns can, because they
 have type `float64`. The `object` type doesn't have a very helpful name, but in
 this case it represents strings (such as 'M' and 'F' in the case of sex).
+
+The `info()` function will display the same infoemation in summarized manner. 
+~~~
+surveys_df.info()
+~~~
+{: .language-python}
+~~~
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 35549 entries, 0 to 35548
+Data columns (total 9 columns):
+ #   Column           Non-Null Count  Dtype  
+---  ------           --------------  -----  
+ 0   record_id        35549 non-null  int64  
+ 1   month            35549 non-null  int64  
+ 2   day              35549 non-null  int64  
+ 3   year             35549 non-null  int64  
+ 4   plot_id          35549 non-null  int64  
+ 5   species_id       34786 non-null  object 
+ 6   sex              33038 non-null  object 
+ 7   hindfoot_length  31438 non-null  float64
+ 8   weight           32283 non-null  float64
+dtypes: float64(2), int64(5), object(2)
+memory usage: 2.4+ MB
+~~~
+{: .output}
 
 We'll talk a bit more about what the different formats mean in a different lesson.
 
