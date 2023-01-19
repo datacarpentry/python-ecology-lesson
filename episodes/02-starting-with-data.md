@@ -705,7 +705,7 @@ total_count.plot(kind='bar');
 [numpy]: https://www.numpy.org/
 [pandas]: https://pandas.pydata.org
 [pandas-plot]: http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#basic-plotting-plot
-[pd-dataframe]: https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe
+[pd-dataframe]: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
 [pptd]: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
 [python-datastructures]: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
 [spreadsheet-lesson5]: http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data
