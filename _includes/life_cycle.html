@@ -1,0 +1,46 @@
+
+{% if site.life_cycle == "pre-alpha" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body pre-alpha">
+    This lesson is still being designed and assembled (Pre-Alpha version)
+  </div>
+</div>
+
+
+{% elsif site.life_cycle == "alpha" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body alpha">
+    This lesson is in the early stages of development (Alpha version)
+  </div>
+</div>
+
+
+{% elsif site.life_cycle == "beta" %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body beta">
+    This lesson is being piloted (Beta version)
+  </div>
+</div>
+
+{% elsif site.life_cycle == "stable" %}
+
+{% comment %}
+We do not do anything special unless this is a Carpentries Lab lesson
+{% endcomment %}
+
+{% if site.carpentry == "lab" %}
+{% if site.doi contains "zenodo" %}{% assign listing=" on Zenodo" %}
+{% elsif site.doi contains "jose" %}{% assign listing=" in JOSE" %}
+{% else %}{% assign listing="none" %}
+{% endif %}
+
+<div class="panel panel-default life-cycle">
+  <div id="life-cycle" class="panel-body published">
+    This lesson has passed peer-review! {% if site.doi != "" %}<a href="{{ site.doi }}">See the publication{{ listing }}.</a>{% endif %}
+  </div>
+</div>
+{% endif %}
+{% endif %}

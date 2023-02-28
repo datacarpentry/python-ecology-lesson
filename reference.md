@@ -26,7 +26,7 @@ data structure
 
 data type
 :   is a particular kind of item that can be assigned to a variable, defined by
-    by the values it can take, the programming language in use and the operations
+    the values it can take, the programming language in use and the operations
     that can be performed on it.
 
 dictionary

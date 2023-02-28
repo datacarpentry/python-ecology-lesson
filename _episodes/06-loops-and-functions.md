@@ -12,7 +12,10 @@ objectives:
     - "Build reusable code in Python."
     - "Write functions using conditional statements (if, then, else)."
 keypoints:
-    - "FIXME"
+    - "Loops help automate repetitive tasks over sets of items."
+    - "Loops combined with functions provide a way to process data more efficiently than we could by hand."
+    - "Conditional statements enable execution of different operations on different data."
+    - "Functions enable code reuse."
 ---
 
 So far, we've used Python and the pandas library to explore and manipulate
@@ -89,7 +92,7 @@ The loop variable is now: hippo
 
 We are not asking Python to print the value of the loop variable anymore, but
 the for loop still runs and the value of `creature` changes on each pass through
-the loop. The statement `pass` in the body of the loop just means "do nothing".
+the loop. The statement `pass` in the body of the loop means "do nothing".
 
 > ## Challenge - Loops
 >
@@ -161,7 +164,7 @@ practical, and is very likely to introduce errors into your code. We want to
 turn what we've just written into a loop that repeats the last two commands for
 every year in the dataset.
 
-Let's start by writing a loop that simply prints the names of the files we want
+Let's start by writing a loop that prints the names of the files we want
 to create - the dataset we are using covers 1977 through 2002, and we'll create
 a separate file for each of those years. Listing the filenames is a good way to
 confirm that the loop is behaving as we expect.
@@ -258,7 +261,7 @@ for year in surveys_df['year'].unique():
 Look inside the `yearly_files` directory and check a couple of the files you
 just created to confirm that everything worked as expected.
 
-## Writing Unique FileNames
+## Writing Unique File Names
 
 Notice that the code above created a unique filename for each year.
 
@@ -269,7 +272,7 @@ filename = 'data/yearly_files/surveys' + str(year) + '.csv'
 
 Let's break down the parts of this name:
 
-* The first part is simply some text that specifies the directory to store our
+* The first part is some text that specifies the directory to store our
   data file in (data/yearly_files/) and the first part of the file name
   (surveys): `'data/yearly_files/surveys'`
 * We can concatenate this with the value of a variable, in this case `year` by
@@ -312,8 +315,8 @@ the local variable hides but doesn't overwrite the other.
 
 Every method used in Python (for example, `print`) is a function, and the
 libraries we import (say, `pandas`) are a collection of functions. We will only
-use functions that are housed within the same code that uses them, but it's also
-easy to write functions that can be used by different programs.
+use functions that are housed within the same code that uses them, but
+we can also write functions that can be used by different programs.
 
 Functions are declared following this general structure:
 
@@ -337,7 +340,7 @@ it is called, it includes a return statement at the end.
 This is how we call the function:
 
 ~~~
-product_of_inputs = this_is_the_function_name(2,5)
+product_of_inputs = this_is_the_function_name(2, 5)
 ~~~
 {: .language-python}
 
@@ -378,8 +381,8 @@ def one_year_csv_writer(this_year, all_data):
     """
     Writes a csv file for data from a given year.
 
-    this_year --- year for which data is extracted
-    all_data --- DataFrame with multi-year data
+    this_year -- year for which data is extracted
+    all_data -- DataFrame with multi-year data
     """
 
     # Select data for the year
@@ -413,7 +416,7 @@ do what you expect?
 
 What we really want to do, though, is create files for multiple years without
 having to request them one by one. Let's write another function that replaces
-the entire For loop by simply looping through a sequence of years and repeatedly
+the entire `for` loop by looping through a sequence of years and repeatedly
 calling the function we just wrote, `one_year_csv_writer`:
 
 
@@ -422,9 +425,9 @@ def yearly_data_csv_writer(start_year, end_year, all_data):
     """
     Writes separate CSV files for each year of data.
 
-    start_year --- the first year of data we want
-    end_year --- the last year of data we want
-    all_data --- DataFrame with multi-year data
+    start_year -- the first year of data we want
+    end_year -- the last year of data we want
+    all_data -- DataFrame with multi-year data
     """
 
     # "end_year" is the last year of data we want to pull, so we loop to end_year+1
@@ -450,14 +453,14 @@ yearly_data_csv_writer(1977, 2002, surveys_df)
 ~~~
 {: .language-python}
 
-BEWARE! If you are using IPython Notebooks and you modify a function, you MUST
+BEWARE! If you are using Jupyter Notebooks and you modify a function, you MUST
 re-run that cell in order for the changed function to be available to the rest
 of the code. Nothing will visibly happen when you do this, though, because
-simply defining a function without *calling* it doesn't produce an output. Any
+defining a function without *calling* it doesn't produce an output. Any
 cells that use the now-changed functions will also have to be re-run for their
 output to change.
 
-> ## Challenge- More functions
+> ## Challenge: More functions
 >
 > 1. Add two arguments to the functions we wrote that take the path of the
 >    directory where the files will be written and the root of the file name.
@@ -486,22 +489,22 @@ values (here, `all_data`) is a required argument and MUST come before the
 argument with default values (which are optional in the function call).
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
+def yearly_data_arg_test(all_data, start_year=1977, end_year=2002):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: 1977
-    end_year --- the last year of data we want --- default: 2002
-    all_data --- DataFrame with multi-year data
+    start_year -- the first year of data we want (default 1977)
+    end_year -- the last year of data we want (default 2002)
+    all_data -- DataFrame with multi-year data
     """
 
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -520,13 +523,13 @@ function so that it looks for the start and end years in the dataset if those
 dates are not provided:
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = None, end_year = None):
+def yearly_data_arg_test(all_data, start_year=None, end_year=None):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: None - check all_data
-    end_year --- the last year of data we want --- default: None - check all_data
-    all_data --- DataFrame with multi-year data
+    all_data -- DataFrame with multi-year data
+    start_year -- the first year of data we want, Check all_data! (default None)
+    end_year -- the last year of data we want; Check all_data! (default None)
     """
 
     if start_year is None:
@@ -537,10 +540,10 @@ def yearly_data_arg_test(all_data, start_year = None, end_year = None):
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -551,7 +554,7 @@ Default values:		1977 2002
 {: .output}
 
 The default values of the `start_year` and `end_year` arguments in the function
-`yearly_data_arg_test` are now `None`. This is a build-it constant in Python
+`yearly_data_arg_test` are now `None`. This is a built-in constant in Python
 that indicates the absence of a value - essentially, that the variable exists in
 the namespace of the function (the directory of variable names) but that it
 doesn't correspond to any existing object.
@@ -618,7 +621,7 @@ in the function call), would be `if start_year` and `if end_year`.
 
 As we've written it so far, the function `yearly_data_arg_test` associates
 values in the function call with arguments in the function definition just based
-in their order. If the function gets only two values in the function call, the
+on their order. If the function gets only two values in the function call, the
 first one will be associated with `all_data` and the second with `start_year`,
 regardless of what we intended them to be. We can get around this problem by
 calling the function using keyword arguments, where each of the arguments in the
@@ -626,22 +629,22 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ~~~
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('No keywords:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988, end_year=1993)
 print('Both keywords, in order:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993, start_year=1988)
 print('Both keywords, flipped:\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988)
 print('One keyword, default end:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993)
 print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}

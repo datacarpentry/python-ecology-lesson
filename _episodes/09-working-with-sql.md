@@ -3,14 +3,17 @@ title: Accessing SQLite Databases Using Python and Pandas
 teaching: 20
 exercises: 25
 questions:
-    - "FIXME"
+    - "What if my data are stored in an SQL database? Can I manage them with Python?"
+    - "How can I write data from Python to be used with SQL?"
 objectives:
     - "Use the sqlite3 module to interact with a SQL database."
     - "Access data stored in SQLite using Python."
     - "Describe the difference in interacting with data stored as a CSV file versus in SQLite."
     - "Describe the benefits of accessing data using a database compared to a CSV file."
 keypoints:
-    - "FIXME"
+    - "sqlite3 provides a SQL-like interface to read, query, and write SQL databases from Python."
+    - "sqlite3 can be used with Pandas to read SQL data to the familiar Pandas DataFrame."
+    - "Pandas and sqlite3 can also be used to transfer between the CSV and SQL formats."
 ---
 
 ## Python and SQL
@@ -66,7 +69,7 @@ con = sqlite3.connect("data/portal_mammals.sqlite")
 cur = con.cursor()
 
 # Return all results of query
-cur.execute('SELECT plot_id FROM sites WHERE site_type="Control"')
+cur.execute('SELECT plot_id FROM plots WHERE plot_type="Control"')
 cur.fetchall()
 
 # Return first result of query
@@ -103,7 +106,7 @@ con.close()
 
 Storing your data in an SQLite database can provide substantial performance
 improvements when reading/writing compared to CSV. The difference in performance
-becomes more noticable as the size of the dataset grows (see for example [these
+becomes more noticeable as the size of the dataset grows (see for example [these
 benchmarks]).
 
 [these benchmarks]: http://sebastianraschka.com/Articles/2013_sqlite_database.html#results-and-conclusions
@@ -122,7 +125,10 @@ benchmarks]).
 
 ## Storing data: Create new tables using Pandas
 
-We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an excercise we did before with CSV files using our SQLite database. We first read in our survey data, then select only those survey results for 2002, and then save it out to its own table so we can work with it on its own later.
+We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an
+exercise we did before with CSV files using our SQLite database. We first read in our survey data,
+then select only those survey results for 2002, and then save it out to its own table so we can work
+with it on its own later.
 
 ~~~
 import pandas as pd

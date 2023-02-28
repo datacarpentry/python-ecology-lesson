@@ -15,7 +15,7 @@ def check_import(packagename):
 all_checks_passed = True
 
 # Throw error if Anaconda is not default Python
-assert 'anaconda' in sys.prefix, ("Anaconda is NOT installed as your "
+assert 'anaconda' in sys.prefix.lower(), ("Anaconda is NOT installed as your "
                                   "default version of Python. Please "
                                   "make sure that is in accordance "
                                   "with the instructions provided.")
@@ -24,7 +24,7 @@ assert 'anaconda' in sys.prefix, ("Anaconda is NOT installed as your "
 assert sys.version_info.major >= 3, 'Please install Python 3!'
 
 # Packages necessary for workshop
-packages = ['numpy', 'matplotlib', 'pandas', 'jupyter', 'ggplot']
+packages = ['numpy', 'matplotlib', 'pandas', 'jupyter', 'plotnine']
 
 # Throw error if any of the necessary packages is not installed
 for p in packages:
