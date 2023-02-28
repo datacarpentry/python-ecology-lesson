@@ -545,8 +545,9 @@ asking Python to select rows that have a `NaN` value of weight.
 > ## Challenge - Putting it all together
 >
 > 1. Create a new DataFrame that only contains observations with sex values that
->   are **not** female or male. Assign each sex value in the new DataFrame to a
->   new value of 'x'. Determine the number of null values in the subset.
+>   are **not** female or male. Print the number of rows in this new DataFrame.
+>   Verify the result by comparing the number of rows in the new DataFrame with
+>   the number of rows in the surveys DataFrame where sex is null.
 >
 > 2. Create a new DataFrame that contains only observations that are of sex male
 >   or female and where weight values are greater than 0. Create a stacked bar
