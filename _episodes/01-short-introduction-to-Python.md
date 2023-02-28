@@ -73,16 +73,17 @@ Hello World
 ~~~
 {: .output}
 
-## Introduction to Python built-in data types
+## Introduction to variables in Python
 
-### Strings, integers, and floats
+### Assigning values to variables
 
 One of the most basic things we can do in Python is assign values to variables:
 
 ~~~
-text = "Data Carpentry"  # An example of a string
-number = 42  # An example of an integer
-pi_value = 3.1415  # An example of a float
+text = "Data Carpentry"  # An example of assigning a value to a new text variable,
+                         # also known as a string data type in Python
+number = 42              # An example of assigning a numeric value, or an integer data type
+pi_value = 3.1415        # An example of assigning a floating point value (the float data type)
 ~~~
 {: .language-python}
 
