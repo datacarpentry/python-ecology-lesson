@@ -3,8 +3,8 @@ title: Data Types and Formats
 teaching: 20
 exercises: 25
 questions:
-  - "What types of data can be contained in a DataFrame?"
-  - "Why is the data type important?"
+    - "What types of data can be contained in a DataFrame?"
+    - "Why is the data type important?"
 objectives:
     - "Describe how information is stored in a Python DataFrame."
     - "Define the two main types of data in Python: text and numerics."
@@ -15,11 +15,15 @@ objectives:
     - "Analyze datasets having missing/null values (NaN values)."
     - "Write manipulated data to a file."
 keypoints:
-    - "FIXME"
+    - "Pandas uses other names for data types than Python, for example: `object` for textual data."
+    - "A column in a DataFrame can only have one data type."
+    - "The data type in a DataFrame’s single column can be checked using `dtype`."
+    - "Make conscious decisions about how to manage missing data."
+    - "A DataFrame can be saved to a CSV file using the `to_csv` function."
 ---
 
 The format of individual columns and rows will impact analysis performed on a
-dataset read into python. For example, you can't perform mathematical
+dataset read into Python. For example, you can't perform mathematical
 calculations on a string (text formatted data). This might seem obvious,
 however sometimes numeric values are read into Python as strings. In this
 situation, when you then try to perform calculations on the string-formatted
@@ -28,11 +32,11 @@ numeric data, you get an error.
 In this lesson we will review ways to explore and better understand the
 structure and format of our data.
 
-# Types of Data
+## Types of Data
 
 How information is stored in a
 DataFrame or a Python object affects what we can do with it and the outputs of
-calculations as well. There are two main types of data that we're explore in
+calculations as well. There are two main types of data that we will explore in
 this lesson: numeric and text data types.
 
 ## Numeric Data Types
@@ -46,7 +50,7 @@ type so the decimal points are not lost.
 An **integer** will never have a decimal point. Thus if we wanted to store 1.13 as
 an integer it would be stored as 1. Similarly, 1234.345 would be stored as 1234. You
 will often see the data type `Int64` in Python which stands for 64 bit integer. The 64
-simply refers to the memory allocated to store data in each cell which effectively
+refers to the memory allocated to store data in each cell which effectively
 relates to how many digits it can store in each "cell". Allocating space ahead of time
 allows computers to optimize storage and processing efficiency.
 
@@ -56,7 +60,7 @@ Text data type is known as Strings in Python, or Objects in Pandas. Strings can
 contain numbers and / or characters. For example, a string might be a word, a
 sentence, or several sentences. A Pandas object might also be a plot name like
 'plot1'. A string can also contain or consist of numbers. For instance, '1234'
-could be stored as a string. As could '10.23'. However **strings that contain
+could be stored as a string, as could '10.23'. However **strings that contain
 numbers can not be used for mathematical operations**!
 
 Pandas and base Python use slightly different names for data types. More on this
@@ -79,6 +83,9 @@ types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ~~~
+# Make sure pandas is loaded
+import pandas as pd
+
 # Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
@@ -91,7 +98,10 @@ type(surveys_df)
 ~~~
 {: .language-python}
 
-**OUTPUT:** `pandas.core.frame.DataFrame`
+~~~
+pandas.core.frame.DataFrame
+~~~
+{: .output}
 
 Next, let's look at the structure of our surveys data. In pandas, we can check
 the type of one column in a DataFrame using the syntax
@@ -102,7 +112,10 @@ surveys_df['sex'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('O')`
+~~~
+dtype('O')
+~~~
+{: .output}
 
 A type 'O' just stands for "object" which in Pandas' world is a string
 (text).
@@ -112,7 +125,10 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('int64')`
+~~~
+dtype('int64')
+~~~
+{: .output}
 
 The type `int64` tells us that Python is storing each value within this column
 as a 64 bit integer. We can use the `dat.dtypes` command to view the data type
@@ -154,12 +170,23 @@ subtraction, division and multiplication work on floats and integers as we'd exp
 
 ~~~
 print(5+5)
-10
-
-print(24-4)
-20
 ~~~
 {: .language-python}
+
+~~~
+10
+~~~
+{: .output}
+
+~~~
+print(24-4)
+~~~
+{: .language-python}
+
+~~~
+20
+~~~
+{: .output}
 
 If we divide one integer by another, we get a float.
 The result on Python 3 is different than in Python 2, where the result is an
@@ -167,12 +194,23 @@ integer (integer division).
 
 ~~~
 print(5/9)
-0.5555555555555556
-
-print(10/3)
-3.3333333333333335
 ~~~
 {: .language-python}
+
+~~~
+0.5555555555555556
+~~~
+{: .output}
+
+~~~
+print(10/3)
+~~~
+{: .language-python}
+
+~~~
+3.3333333333333335
+~~~
+{: .output}
 
 We can also convert a floating point number to an integer or an integer to
 floating point number. Notice that Python by default rounds down when it
@@ -182,16 +220,28 @@ converts from floating point to integer.
 # Convert a to an integer
 a = 7.83
 int(a)
-7
-
-# Convert b to a float
-b = 7
-float(b)
-7.0
 ~~~
 {: .language-python}
 
-# Working With Our Survey Data
+~~~
+7
+~~~
+{: .output}
+
+~~~
+# Convert b to a float
+b = 7
+float(b)
+~~~
+{: .language-python}
+
+~~~
+7.0
+~~~
+{: .output}
+
+
+## Working With Our Survey Data
 
 Getting back to our data, we can modify the format of values within our data, if
 we want. For instance, we could convert the `record_id` field to floating point
@@ -204,10 +254,12 @@ surveys_df['record_id'].dtype
 ~~~
 {: .language-python}
 
-**OUTPUT:** `dtype('float64')`
+~~~
+dtype('float64')
+~~~
+{: .output}
 
-
-> ## Challenge - Changing Types
+> ## Changing Types
 >
 > Try converting the column `plot_id` to floats using
 >
@@ -232,9 +284,14 @@ over those cells.
 
 ~~~
 surveys_df['weight'].mean()
-42.672428212991356
 ~~~
 {: .language-python}
+
+~~~
+42.672428212991356
+~~~
+{: .output}
+
 Dealing with missing data values is always a challenge. It's sometimes hard to
 know why values are missing - was it because of a data entry error? Or data that
 someone was unable to collect? Should the value be 0? We need to know how
@@ -260,7 +317,7 @@ with weight values > 0 (i.e., select meaningful weight values):
 ~~~
 len(surveys_df[pd.isnull(surveys_df.weight)])
 # How many rows have weight values?
-len(surveys_df[surveys_df.weight> 0])
+len(surveys_df[surveys_df.weight > 0])
 ~~~
 {: .language-python}
 
@@ -280,15 +337,19 @@ out or ignored.
 
 ~~~
 df1['weight'].mean()
-38.751976145601844
 ~~~
 {: .language-python}
+
+~~~
+38.751976145601844
+~~~
+{: .output}
 
 We can fill NaN values with any value that we chose. The code below fills all
 NaN values with a mean for all weight values.
 
 ~~~
- df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
+df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ~~~
 {: .language-python}
 
@@ -303,9 +364,13 @@ Python gives us all of the tools that we need to account for these issues. We
 just need to be cautious about how the decisions that we make impact scientific
 results.
 
-> ## Challenge - Counting
-> Count the number of missing values per column. Hint: The method .count() gives you
-> the number of non-NA observations per column. Try looking to the .isnull() method.
+> ## Counting
+> Count the number of missing values per column.
+>
+> > ## Hint
+> > The method `.count()` gives you the number of non-NA observations per column.
+> > Try looking to the `.isnull()` method.
+> {: .solution}
 {: .challenge}
 
 ## Writing Out Data to CSV
@@ -320,18 +385,17 @@ surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
 {: .language-python}
 Next, let's drop all the rows that contain missing values. We will use the command `dropna`.
-By default, dropna removes columns that contain missing data for even just one row.
+By default, dropna removes rows that contain missing data for even just one column.
 
 ~~~
 df_na = surveys_df.dropna()
-
 ~~~
 {: .language-python}
 
 If you now type `df_na`, you should observe that the resulting DataFrame has 30676 rows
 and 9 columns, much smaller than the 35549 row original.
 
-We can now use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+We can now use the `to_csv` command to export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash before the filename:
 `df.to_csv('foldername/out.csv')`. We use 'index=False' so that

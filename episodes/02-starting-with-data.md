@@ -18,7 +18,11 @@ objectives:
     - "Perform basic mathematical operations and summary statistics on data in a Pandas DataFrame."
     - "Create simple plots."
 keypoints:
-    - "FIXME"
+    - "Libraries enable us to extend the functionality of Python."
+    - "Pandas is a popular library for working with data."
+    - "A Dataframe is a Pandas data structure that allows one to access data by column (name or index) or row."
+    - "Aggregating data using the `groupby()` function enables you to generate useful summaries of data quickly."
+    - "Plots can be created from DataFrames or subsets of data that have been generated with `groupby()`."
 ---
 
 # Working With Pandas DataFrames in Python
@@ -33,22 +37,22 @@ and they can replicate the same analysis.
 
 To help the lesson run smoothly, let's ensure everyone is in the same directory.
 This should help us avoid path and file name issues. At this time please
-navigate to the workshop directory. If you working in IPython Notebook be sure
+navigate to the workshop directory. If you are working in Jupyter Notebook be sure
 that you start your notebook in the workshop directory.
 
-A quick aside that there are Python libraries like [OS
-Library](https://docs.python.org/3/library/os.html) that can work with our
+A quick aside that there are Python libraries like [OS Library][os-lib] that can work with our
 directory structure, however, that is not our focus today.
 
 ### Our Data
 
 For this lesson, we will be using the Portal Teaching data, a subset of the data
 from Ernst et al
-[Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal, Arizona, USA](http://www.esapubs.org/archive/ecol/E090/118/default.htm)
+[Long-term monitoring and experimental manipulation of a Chihuahuan Desert ecosystem near Portal,
+Arizona, USA][ernst].
 
-We will be using files from the [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
+We will be using files from the [Portal Project Teaching Database][pptd].
 This section will use the `surveys.csv` file that can be downloaded here:
-[https://ndownloader.figshare.com/files/2292172](https://ndownloader.figshare.com/files/2292172)
+[https://ndownloader.figshare.com/files/2292172][figshare-ndownloader]
 
 We are studying the species and weight of animals caught in sites in our study
 area. The dataset is stored as a `.csv` file: each row holds information for a
@@ -89,14 +93,15 @@ record_id,month,day,year,plot_id,species_id,sex,hindfoot_length,weight
 A library in Python contains a set of tools (called functions) that perform
 tasks on our data. Importing a library is like getting a piece of lab equipment
 out of a storage locker and setting it up on the bench for use in a project.
-Once a library is set up, it can be used or called to perform many tasks.
+Once a library is set up, it can be used or called to perform the task(s)
+it was built to do.
 
 ## Pandas in Python
 One of the best options for working with tabular data in Python is to use the
-[Python Data Analysis Library](http://pandas.pydata.org/) (a.k.a. Pandas). The
+[Python Data Analysis Library][pandas] (a.k.a. Pandas). The
 Pandas library provides data structures, produces high quality plots with
-[matplotlib](http://matplotlib.org/) and integrates nicely with other libraries
-that use [NumPy](http://www.numpy.org/) (which is another Python library) arrays.
+[matplotlib][matplotlib] and integrates nicely with other libraries
+that use [NumPy][numpy] (which is another Python library) arrays.
 
 Python doesn't load all of the libraries available to it by default. We have to
 add an `import` statement to our code in order to use library functions. To import
@@ -119,9 +124,14 @@ time we call a Pandas function.
 
 # Reading CSV Data Using Pandas
 
-We will begin by locating and reading our survey data which are in CSV format. CSV stands for Comma-Separated Values and is a common way store formatted data. Other symbols may also be used, so you might see tab-separated, colon-separated or space separated files. It is quite easy to replace one separator with another, to match your application. The first line in the file often has headers to explain what is in each column. CSV (and other separators) make it easy to share data, and can be imported and exported from many applications, including Microsoft Excel. For more details on CSV files, see the [Data Organisation in Spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data/) lesson.
-We can use Pandas' `read_csv` function to pull the file directly into a
-[DataFrame](http://pandas.pydata.org/pandas-docs/stable/dsintro.html#dataframe).
+We will begin by locating and reading our survey data which are in CSV format. CSV stands for
+Comma-Separated Values and is a common way to store formatted data. Other symbols may also be used, so
+you might see tab-separated, colon-separated or space separated files. It is quite easy to replace
+one separator with another, to match your application. The first line in the file often has headers
+to explain what is in each column. CSV (and other separators) make it easy to share data, and can be
+imported and exported from many applications, including Microsoft Excel. For more details on CSV
+files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
+We can use Pandas' `read_csv` function to pull the file directly into a [DataFrame][pd-dataframe].
 
 ## So What's a DataFrame?
 
@@ -333,7 +343,7 @@ Let's look at the data using these.
 > 2. `surveys_df.shape` Take note of the output of `shape` - what format does it
 >    return the shape of the DataFrame in?
 >
->    HINT: [More on tuples, here](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences).
+>    HINT: [More on tuples, here][python-datastructures].
 > 3. `surveys_df.head()` Also, what does `surveys_df.head(15)` do?
 > 4. `surveys_df.tail()`
 {: .challenge}
@@ -381,7 +391,7 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
        'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
        'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)
 ~~~
-{: .language-python}
+{: .output}
 
 > ## Challenge - Statistics
 >
@@ -468,20 +478,20 @@ F          28.836780  42.170555
 M          29.709578  42.995379
 
 ~~~
-{: .language-python}
+{: .output}
 
 The `groupby` command is powerful in that it allows us to quickly generate
 summary stats.
 
 > ## Challenge - Summary Data
 >
-> 1. How many recorded individuals are female `F` and how many male `M`
+> 1. How many recorded individuals are female `F` and how many male `M`?
 > 2. What happens when you group by two columns using the following syntax and
->    then grab mean values:
->   - `grouped_data2 = surveys_df.groupby(['plot_id','sex'])`
+>    then calculate mean values?
+>   - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
 >   - `grouped_data2.mean()`
 > 3. Summarize weight values for each site in your data. HINT: you can use the
->   following syntax to only create summary statistics for one column in your data
+>   following syntax to only create summary statistics for one column in your data.
 >   `by_site['weight'].describe()`
 >
 >
@@ -527,7 +537,7 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 > ## Challenge - Make a list
 >
 >  What's another way to create a list of species and associated `count` of the
->  records in the data? Hint: you can perform `count`, `min`, etc functions on
+>  records in the data? Hint: you can perform `count`, `min`, etc. functions on
 >  groupby DataFrames in the same way you can perform them on regular DataFrames.
 {: .challenge}
 
@@ -580,13 +590,13 @@ total_count.plot(kind='bar');
 > being sex. The plot should show total weight by sex for each site. Some
 > tips are below to help you solve this challenge:
 >
-> * [For more on Pandas plots, visit this link.](http://pandas.pydata.org/pandas-docs/stable/visualization.html#basic-plotting-plot)
+> * For more information on pandas plots, see [pandas' documentation page on visualization][pandas-plot].
 > * You can use the code that follows to create a stacked bar plot but the data to stack
 >  need to be in individual columns.  Here's a simple example with some data where
 >  'a', 'b', and 'c' are the groups, and 'one' and 'two' are the subgroups.
 >
 > ~~~
-> d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']),'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
+> d = {'one' : pd.Series([1., 2., 3.], index=['a', 'b', 'c']), 'two' : pd.Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
 > pd.DataFrame(d)
 > ~~~
 > {: .language-python }
@@ -607,7 +617,7 @@ total_count.plot(kind='bar');
 > ~~~
 > # Plot stacked data so columns 'one' and 'two' are stacked
 > my_df = pd.DataFrame(d)
-> my_df.plot(kind='bar',stacked=True,title="The title of my graph")
+> my_df.plot(kind='bar', stacked=True, title="The title of my graph")
 > ~~~
 > {: .language-python }
 >
@@ -626,7 +636,7 @@ total_count.plot(kind='bar');
 >> First we group data by site and by sex, and then calculate a total for each site.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> ~~~
 >> {: .language-python}
@@ -651,7 +661,7 @@ total_count.plot(kind='bar');
 >> Below we'll use `.unstack()` on our grouped data to figure out the total weight that each sex contributed to each site.
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> site_sex_count.unstack()
 >> ~~~
@@ -675,10 +685,10 @@ total_count.plot(kind='bar');
 >> Rather than display it as a table, we can plot the above data by stacking the values of each sex as follows:
 >>
 >> ~~~
->> by_site_sex = surveys_df.groupby(['plot_id','sex'])
+>> by_site_sex = surveys_df.groupby(['plot_id', 'sex'])
 >> site_sex_count = by_site_sex['weight'].sum()
 >> spc = site_sex_count.unstack()
->> s_plot = spc.plot(kind='bar',stacked=True,title="Total weight by site and sex")
+>> s_plot = spc.plot(kind='bar', stacked=True, title="Total weight by site and sex")
 >> s_plot.set_ylabel("Weight")
 >> s_plot.set_xlabel("Plot")
 >> ~~~
@@ -687,6 +697,18 @@ total_count.plot(kind='bar');
 >> ![Stacked Bar Plot](../fig/stackedBar.png)
 > {: .solution}
 {: .challenge}
+
+[ernst]: http://www.esapubs.org/archive/ecol/E090/118/default.htm
+[figshare-ndownloader]: https://ndownloader.figshare.com/files/2292172
+[os-lib]: https://docs.python.org/3/library/os.html
+[matplotlib]: https://matplotlib.org
+[numpy]: https://www.numpy.org/
+[pandas]: https://pandas.pydata.org
+[pandas-plot]: http://pandas.pydata.org/pandas-docs/stable/user_guide/visualization.html#basic-plotting-plot
+[pd-dataframe]: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html
+[pptd]: https://figshare.com/articles/Portal_Project_Teaching_Database/1314459
+[python-datastructures]: https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences
+[spreadsheet-lesson5]: http://www.datacarpentry.org/spreadsheet-ecology-lesson/05-exporting-data
 
 {% include links.md %}
 
