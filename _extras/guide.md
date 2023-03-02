@@ -123,7 +123,7 @@ rev[2] = "apple-sauce"
   survey year, median foot-length and mean weight for each plot/sex combination:
 
 ~~~
-surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'min',
+surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'max',
                                            "hindfoot_length": 'median',
                                            "weight": 'mean'})
 ~~~
