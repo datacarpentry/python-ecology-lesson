@@ -339,8 +339,8 @@ weight 3266
 ### Writing Out Data to CSV
 
 If the students have trouble generating the output, or anything happens with that, the folder
-`sample_output` in this repository contains the file `surveys_complete.csv` with the data they
-should generate.
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
 
