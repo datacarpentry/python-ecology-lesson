@@ -11,12 +11,12 @@ encounter setup issues, please file an issue with the tags 'High-priority'.
 
 ## Checking installations.
 
-In the `_include/scripts` directory, you will find a script called check_env.py This checks the
+In the [`_includes/scripts`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/_includes/scripts) directory, you will find a script called check_env.py This checks the
 functionality of the Anaconda install.
 
 By default, Data Carpentry does not have people pull the whole repository with all the scripts and
 addenda. Therefore, you, as the instructor, get to decide how you'd like to provide this script to
-learners, if at all.  To use this, students can navigate into `_includes/scripts` terminal, and
+learners, if at all.  To use this, students can navigate into `_includes/scripts` in the terminal, and
 execute the following:
 
 ~~~
