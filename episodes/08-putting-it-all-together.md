@@ -204,7 +204,7 @@ ax1.set_xlabel('value')
 
 # add additional axes to the figure
 ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
-#ax2 = fig.add_axes([left, bottom, right, top])
+#ax2 = fig.add_axes([left, bottom, width, height])
 ax2.hist(beta_draws)
 ~~~
 {: .language-python}
