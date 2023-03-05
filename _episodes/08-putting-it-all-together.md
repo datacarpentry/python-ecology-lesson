@@ -191,18 +191,20 @@ such as labels, grid lines, title, and other visual elements. For example, we ca
 additional axes to the figure and customize their labels:
 
 ~~~
-fig, ax1 = plt.subplots() # prepare a matplotlib figure
+# prepare a matplotlib figure
+fig, ax1 = plt.subplots()
 ax1.hist(sample_data, 30)
-
-# Add a plot of a Beta distribution
-a = 5
-b = 10
-beta_draws = np.random.beta(a, b)
-# adapt the labels
+# add labels
 ax1.set_ylabel('density')
 ax1.set_xlabel('value')
 
-# add additional axes to the figure
+# define and sample beta distribution
+a = 5
+b = 10
+beta_draws = np.random.beta(a, b)
+
+# plot beta distribution
+# by adding additional axes to the figure
 ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
 #ax2 = fig.add_axes([left, bottom, right, top])
 ax2.hist(beta_draws)
