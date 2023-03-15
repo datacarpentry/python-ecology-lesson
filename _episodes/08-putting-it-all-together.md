@@ -284,16 +284,18 @@ plt.show() # not necessary in Jupyter Notebooks
 > >                   (discharge["datetime"] <= "2013-09-15")]
 > >
 > > fig, ax = plt.subplots()
-> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
 > >
 > > flood.plot(x="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x="datetime", y="flow_rate", ax=ax2)
-> > ax2.legend().set_visible(False)
-> >
 > > ax.set_xlabel("")  # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
 > > ax.set_title("Front Range flood event 2013")
+> > 
+> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
+> > # DataFrame.plot raises an error with an inset axis object,
+> > # so we use matplotlib's plot method instead
+> > ax2.plot("datetime", "flow_rate", data=discharge)
+> > plt.xticks(rotation=90)
 > > ~~~
 > > {: .language-python}
 > >
