@@ -257,7 +257,8 @@ Remember we created the reference `ref_survey_df` object above when we did
 refer to the same exact DataFrame object. If either one changes the object,
 the other will see the same changes to the reference object.
 
-However - `true_copy_surveys_df` was created via the `copy()` function. It retains the original values for the first three rows.
+However - `true_copy_surveys_df` was created via the `copy()` function.
+It retains the original values for the first three rows.
 
 **To review and recap**:
 
