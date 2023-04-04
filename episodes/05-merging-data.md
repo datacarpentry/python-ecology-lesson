@@ -288,7 +288,7 @@ that does *not* appear in the `species_id` column of `survey_sub`, that row will
 be included in the DataFrame returned by an inner join.
 
 The two DataFrames that we want to join are passed to the `merge` function using
-the `left` and `right` argument. The `left_on='species'` argument tells `merge`
+the `left` and `right` argument. The `left_on='species_id'` argument tells `merge`
 to use the `species_id` column as the join key from `survey_sub` (the `left`
 DataFrame). Similarly , the `right_on='species_id'` argument tells `merge` to
 use the `species_id` column as the join key from `species_sub` (the `right`
