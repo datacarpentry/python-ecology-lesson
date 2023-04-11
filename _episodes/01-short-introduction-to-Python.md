@@ -88,7 +88,7 @@ Hello World
 ~~~
 {: .output}
 
-For the remainder of this episode, use your chosen text editor when you create a script.
+For the remainder of this lesson, you could use your chosen text editor to write example commands and your solutions to exercises as scripts.
 
 ## Introduction to Python built-in data types
 
