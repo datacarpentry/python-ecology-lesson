@@ -11,7 +11,7 @@ objectives:
     - "Explain what a library is and what libraries are used for."
     - "Describe what the Python Data Analysis Library (Pandas) is."
     - "Load the Python Data Analysis Library (Pandas)."
-    - "Use `read_csv` to read tabular data into Python."
+    - "Read tabular data into Python using Pandas."
     - "Describe what a DataFrame is in Python."
     - "Access and summarize data stored in a DataFrame."
     - "Define indexing as it relates to data structures."
