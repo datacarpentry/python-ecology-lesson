@@ -203,10 +203,8 @@ a = 5
 b = 10
 beta_draws = np.random.beta(a, b)
 
-# plot beta distribution
-# by adding additional axes to the figure
-ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
-#ax2 = fig.add_axes([left, bottom, right, top])
+# add additional axes to the figure to plot beta distribution
+ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])  # number coordinates correspond to left, bottom, width, height, respectively
 ax2.hist(beta_draws)
 ~~~
 {: .language-python}
