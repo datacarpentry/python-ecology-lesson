@@ -104,7 +104,7 @@ For example, you can store raw data in files `./data/raw/` and clean data in `./
 
 - **`documents/`**: Use this folder to store outlines, drafts, and other text.
 
-- **`scripts/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and
+- **`code/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and
 plotting that you use in this particular project.
 
 You may need to create additional directories depending on your project needs, but these should form
@@ -248,7 +248,7 @@ ask a good question.
 
 [anaconda]: https://www.anaconda.com
 [anaconda-community]: https://www.anaconda.com/community
-[dive-into-python3]: https://finderiko.com/python-book
+[dive-into-python3]: https://diveintopython3.net/
 [pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
 [pypi]: https://pypi.org/
 [python-docs]: https://www.python.org/doc

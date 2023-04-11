@@ -191,18 +191,19 @@ such as labels, grid lines, title, and other visual elements. For example, we ca
 additional axes to the figure and customize their labels:
 
 ~~~
-fig, ax1 = plt.subplots() # prepare a matplotlib figure
+# prepare a matplotlib figure
+fig, ax1 = plt.subplots()
 ax1.hist(sample_data, 30)
-
-# Add a plot of a Beta distribution
-a = 5
-b = 10
-beta_draws = np.random.beta(a, b)
-# adapt the labels
+# add labels
 ax1.set_ylabel('density')
 ax1.set_xlabel('value')
 
-# add additional axes to the figure
+# define and sample beta distribution
+a = 5
+b = 10
+beta_draws = np.random.beta(a, b)
+
+# add additional axes to the figure to plot beta distribution
 ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])  # number coordinates correspond to left, bottom, width, height, respectively
 ax2.hist(beta_draws)
 ~~~
@@ -283,16 +284,18 @@ plt.show() # not necessary in Jupyter Notebooks
 > >                   (discharge["datetime"] <= "2013-09-15")]
 > >
 > > fig, ax = plt.subplots()
-> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
 > >
 > > flood.plot(x="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x="datetime", y="flow_rate", ax=ax2)
-> > ax2.legend().set_visible(False)
-> >
 > > ax.set_xlabel("")  # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
 > > ax.set_title("Front Range flood event 2013")
+> > 
+> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
+> > # DataFrame.plot raises an error with an inset axis object,
+> > # so we use matplotlib's plot method instead
+> > ax2.plot("datetime", "flow_rate", data=discharge)
+> > plt.xticks(rotation=90)
 > > ~~~
 > > {: .language-python}
 > >
