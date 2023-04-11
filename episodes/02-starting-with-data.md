@@ -150,18 +150,18 @@ pd.read_csv("data/surveys.csv")
 The above command yields the **output** below:
 
 ~~~
-record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
-0          1      7   16  1977        2         NL   M               32   NaN
-1          2      7   16  1977        3         NL   M               33   NaN
-2          3      7   16  1977        2         DM   F               37   NaN
-3          4      7   16  1977        7         DM   M               36   NaN
-4          5      7   16  1977        3         DM   M               35   NaN
-...
-35544      35545     12   31  2002       15     AH  NaN              NaN  NaN
-35545      35546     12   31  2002       15     AH  NaN              NaN  NaN
-35546      35547     12   31  2002       10     RM    F               15   14
-35547      35548     12   31  2002        7     DO    M               36   51
-35548      35549     12   31  2002        5     NaN  NaN             NaN  NaN
+      record_id month day year  plot_id species_id  sex hindfoot_length weight
+0             1     7  16 1977        2         NL    M            32.0    NaN
+1             2     7  16 1977        3         NL    M            33.0    NaN
+2             3     7  16 1977        2         DM    F            37.0    NaN
+3             4     7  16 1977        7         DM    M            36.0    NaN
+4             5     7  16 1977        3         DM    M            35.0    NaN
+...         ...   ... ...  ...      ...        ...  ...             ...    ...
+35544     35545    12  31 2002       15         AH  NaN             NaN    NaN
+35545     35546    12  31 2002       15         AH  NaN             NaN    NaN
+35546     35547    12  31 2002       10         RM    F            15.0   14.0
+35547     35548    12  31 2002        7         DO    M            36.0   51.0
+35548     35549    12  31 2002        5        NaN  NaN             NaN    NaN
 
 [35549 rows x 9 columns]
 ~~~
