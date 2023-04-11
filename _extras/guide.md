@@ -192,19 +192,28 @@ previous steps visible.
 
 * What happens when you execute:
 
-	`surveys_df[0:3]`
-	`surveys_df[0:1]` slicing only the first element
-	`surveys_df[:5]` slicing from first element makes 0 redundant
-	`surveys_df[-1:]` you can count backwards
+	- `surveys_df[0:3]`
+  - `surveys_df[0]` results in a 'KeyError', since direct indexing of a row is redundant with `iloc`
+	- `surveys_df[0:1]` slicing only the first element
+	- `surveys_df[:5]` slicing from first element makes 0 redundant
+	- `surveys_df[-1:]` you can count backwards
 
   *Suggestion*: You can also select every Nth row: `surveys_df[1:10:2]`. So, how to interpret
   `surveys_df[::-1]`?
 
+* What happens when you call:
+
+  - `surveys_df.iloc[0:1]` returns the first row
+  - `surveys_df.iloc[0]` returns the first row as a named list
+  - `surveys_df.iloc[:4, :]` returns all columns of the first four rows
+  - `surveys_df.iloc[0:4, 1:4]` selects specified columns of the first four rows
+  - `surveys_df.loc[0:4, 1:4]` results in a 'TypeError'
+
 * What is the difference between `surveys_df.iloc[0:4, 1:4]` and `surveys_df.loc[0:4, 1:4]`?
 
-  Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for
-  the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference
-  between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`
+  While `iloc` uses integers as indices and slices accordingly, `loc` works with labels. It is
+  like accessing values from a dictionary, asking for the key names. Column names 1:4 do not exist,
+  resulting in an error. Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`.
 
 ### Advanced Selection Challenges
 
