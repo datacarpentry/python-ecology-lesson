@@ -92,14 +92,15 @@ For the remainder of this lesson, you could use your chosen text editor to write
 
 ## Introduction to Python built-in data types
 
-### Strings, integers, and floats
+### Assigning values to variables
 
 One of the most basic things we can do in Python is assign values to variables:
 
 ~~~
-text = "Data Carpentry"  # An example of a string
-number = 42  # An example of an integer
-pi_value = 3.1415  # An example of a float
+text = "Data Carpentry"  # An example of assigning a value to a new text variable,
+                         # also known as a string data type in Python
+number = 42              # An example of assigning a numeric value, or an integer data type
+pi_value = 3.1415        # An example of assigning a floating point value (the float data type)
 ~~~
 {: .language-python}
 
@@ -376,6 +377,9 @@ a_list = [1, 2, 3]
 > 1. What happens when you execute `a_list[1] = 5`?
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
+> 4. What information does the built-in function `len()` provide?
+     Does it provide the same information on both tuples and lists?
+     Does the `help()` function confirm this?
 {: .challenge}
 
 
@@ -408,7 +412,6 @@ rev['first']
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
-rev = {'first': 'one', 'second': 'two'}
 rev['third'] = 'three'
 rev
 ~~~

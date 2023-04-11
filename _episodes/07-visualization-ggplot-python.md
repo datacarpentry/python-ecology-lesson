@@ -123,7 +123,7 @@ surveys_plot + p9.geom_point()
 ~~~
 {: .language-python}
 
-![png](../fig/06_first_plot.png)
+![scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides](../fig/06_first_plot.png)
 
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to
@@ -206,7 +206,7 @@ to the color aesthetic:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_plot.png)
+![scatter plot of Hindfoot length vs weight with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_plot.png)
 
 Apart from the adaptations of the arguments and settings of the `data`, `aes`
 and `geom-*` elements, additional elements can be added as well, using the `+`
@@ -223,7 +223,7 @@ operator:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_label_plot.png)
+![scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_label_plot.png)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis
 could support the interpretation of the lower numbers:
@@ -275,7 +275,7 @@ set the background to white using the function `theme_bw()`.
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_color_bar.png)
+> > ![Bar chart of counts of males (yellow) and females (blue) vs plot id, showing the number of females to be higher in all plots](../fig/06_challenge_color_bar.png)
 > {: .solution}
 {: .challenge}
 
@@ -432,7 +432,7 @@ variable. As an example, use `sex`:
 )
 ~~~
 {: .language-python}
-![png](../fig/06_facet_plot.png)
+![2 scatter plots, one for males and the other for females, of hindfoot length vs weight with colored dots denoting specific species, showing the trend is the same between both male and females of multiple species](../fig/06_facet_plot.png)
 
 We can apply the same concept on any of the available categorical variables:
 
@@ -447,7 +447,7 @@ We can apply the same concept on any of the available categorical variables:
 ~~~
 {: .language-python}
 
-![png](../fig/06_facet_all_plot.png)
+![24 individual scatter plots of Hindfoot length vs weight of species with colors denoting species and numbers above plot representing 1 of the 24 plots, showing trends for each unique plot id studied](../fig/06_facet_all_plot.png)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
@@ -468,7 +468,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 )
 ~~~
 {: .language-python}
-![png](../fig/06_select_plot.png)
+![Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year](../fig/06_select_plot.png)
 
 > ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average

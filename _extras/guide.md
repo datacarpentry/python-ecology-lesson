@@ -11,12 +11,12 @@ encounter setup issues, please file an issue with the tags 'High-priority'.
 
 ## Checking installations.
 
-In the `_include/scripts` directory, you will find a script called check_env.py This checks the
+In the [`_includes/scripts`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/_includes/scripts) directory, you will find a script called check_env.py This checks the
 functionality of the Anaconda install.
 
 By default, Data Carpentry does not have people pull the whole repository with all the scripts and
 addenda. Therefore, you, as the instructor, get to decide how you'd like to provide this script to
-learners, if at all.  To use this, students can navigate into `_includes/scripts` terminal, and
+learners, if at all.  To use this, students can navigate into `_includes/scripts` in the terminal, and
 execute the following:
 
 ~~~
@@ -123,7 +123,7 @@ rev[2] = "apple-sauce"
   survey year, median foot-length and mean weight for each plot/sex combination:
 
 ~~~
-surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'min',
+surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'max',
                                            "hindfoot_length": 'median',
                                            "weight": 'mean'})
 ~~~
@@ -192,19 +192,28 @@ previous steps visible.
 
 * What happens when you execute:
 
-	`surveys_df[0:3]`
-	`surveys_df[0:1]` slicing only the first element
-	`surveys_df[:5]` slicing from first element makes 0 redundant
-	`surveys_df[-1:]` you can count backwards
+	- `surveys_df[0:3]`
+  - `surveys_df[0]` results in a 'KeyError', since direct indexing of a row is redundant with `iloc`
+	- `surveys_df[0:1]` slicing only the first element
+	- `surveys_df[:5]` slicing from first element makes 0 redundant
+	- `surveys_df[-1:]` you can count backwards
 
   *Suggestion*: You can also select every Nth row: `surveys_df[1:10:2]`. So, how to interpret
   `surveys_df[::-1]`?
 
+* What happens when you call:
+
+  - `surveys_df.iloc[0:1]` returns the first row
+  - `surveys_df.iloc[0]` returns the first row as a named list
+  - `surveys_df.iloc[:4, :]` returns all columns of the first four rows
+  - `surveys_df.iloc[0:4, 1:4]` selects specified columns of the first four rows
+  - `surveys_df.loc[0:4, 1:4]` results in a 'TypeError'
+
 * What is the difference between `surveys_df.iloc[0:4, 1:4]` and `surveys_df.loc[0:4, 1:4]`?
 
-  Check the position, or the name. Cfr. the second is like it would be in a dictionary, asking for
-  the key-names. Column names 1:4 do not exist, resulting in an error. Check also the difference
-  between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`
+  While `iloc` uses integers as indices and slices accordingly, `loc` works with labels. It is
+  like accessing values from a dictionary, asking for the key names. Column names 1:4 do not exist,
+  resulting in an error. Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`.
 
 ### Advanced Selection Challenges
 
@@ -310,13 +319,37 @@ Pandas cannot convert types from float to int if the column contains NaN values.
   non-NA observations per column. Try looking to the `.isnull()` method.
 
 ~~~
-surveys_df.isnull()
+for c in surveys_df.columns:
+    print(c, len(surveys_df[surveys_df[c].isnull()]))
 ~~~
 {: .language-python}
 
+Or, since we've been using the `pd.isnull` function so far:
+
+~~~
+for c in surveys_df.columns:
+    print(c, len(surveys_df[pd.isnull(surveys_df[c])]))
+~~~
+{: .language-python}
+
+~~~
+record_id 0
+month 0
+day 0
+year 0
+plot_id 0
+species_id 763
+sex 2511
+hindfoot_length 4111
+weight 3266
+~~~
+{: .output}
+
+### Writing Out Data to CSV
+
 If the students have trouble generating the output, or anything happens with that, the folder
-`sample_output` in this repository contains the file `surveys_complete.csv` with the data they
-should generate.
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
 
