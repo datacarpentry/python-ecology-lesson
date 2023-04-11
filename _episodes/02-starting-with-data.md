@@ -329,7 +329,7 @@ with `surveys_df.columns`.
 
 Methods are called in a similar fashion using the syntax `df_object.method()`.
 As an example, `surveys_df.head()` gets the first few rows in the DataFrame
-`surveys_df` using the `head()` **method**. With a method we can supply extra
+`surveys_df` using the `head()` method. With a method we can supply extra
 information in the parens to control behaviour.
 
 Let's look at the data using these.
