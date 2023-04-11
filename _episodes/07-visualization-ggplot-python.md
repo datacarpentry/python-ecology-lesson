@@ -468,7 +468,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 )
 ~~~
 {: .language-python}
-![png](../fig/06_select_plot.png)
+![Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year](../fig/06_select_plot.png)
 
 > ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average
