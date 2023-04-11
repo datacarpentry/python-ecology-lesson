@@ -123,7 +123,7 @@ rev[2] = "apple-sauce"
   survey year, median foot-length and mean weight for each plot/sex combination:
 
 ~~~
-surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'min',
+surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'max',
                                            "hindfoot_length": 'median',
                                            "weight": 'mean'})
 ~~~
@@ -310,13 +310,37 @@ Pandas cannot convert types from float to int if the column contains NaN values.
   non-NA observations per column. Try looking to the `.isnull()` method.
 
 ~~~
-surveys_df.isnull()
+for c in surveys_df.columns:
+    print(c, len(surveys_df[surveys_df[c].isnull()]))
 ~~~
 {: .language-python}
 
+Or, since we've been using the `pd.isnull` function so far:
+
+~~~
+for c in surveys_df.columns:
+    print(c, len(surveys_df[pd.isnull(surveys_df[c])]))
+~~~
+{: .language-python}
+
+~~~
+record_id 0
+month 0
+day 0
+year 0
+plot_id 0
+species_id 763
+sex 2511
+hindfoot_length 4111
+weight 3266
+~~~
+{: .output}
+
+### Writing Out Data to CSV
+
 If the students have trouble generating the output, or anything happens with that, the folder
-`sample_output` in this repository contains the file `surveys_complete.csv` with the data they
-should generate.
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
 

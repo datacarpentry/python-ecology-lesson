@@ -70,8 +70,10 @@ species_df
 Take note that the `read_csv` method we used can take some additional options which
 we didn't use previously. Many functions in Python have a set of options that
 can be set by the user if needed. In this case, we have told pandas to assign
-empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`.
-[More about all of the read_csv options here.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv)
+empty values in our CSV to NaN `keep_default_na=False, na_values=[""]`. 
+We have explicitly requested to change empty values in the CSV to NaN,
+this is however also the default behaviour of `read_csv`. 
+[More about all of the `read_csv` options here and their defaults.](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html#pandas.read_csv)
 
 # Concatenating DataFrames
 
@@ -288,7 +290,7 @@ that does *not* appear in the `species_id` column of `survey_sub`, that row will
 be included in the DataFrame returned by an inner join.
 
 The two DataFrames that we want to join are passed to the `merge` function using
-the `left` and `right` argument. The `left_on='species'` argument tells `merge`
+the `left` and `right` argument. The `left_on='species_id'` argument tells `merge`
 to use the `species_id` column as the join key from `survey_sub` (the `left`
 DataFrame). Similarly , the `right_on='species_id'` argument tells `merge` to
 use the `species_id` column as the join key from `species_sub` (the `right`

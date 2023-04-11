@@ -360,6 +360,9 @@ a_list = [1, 2, 3]
 > 1. What happens when you execute `a_list[1] = 5`?
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
+> 4. What information does the built-in function `len()` provide?
+     Does it provide the same information on both tuples and lists?
+     Does the `help()` function confirm this?
 {: .challenge}
 
 
@@ -392,7 +395,6 @@ rev['first']
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
-rev = {'first': 'one', 'second': 'two'}
 rev['third'] = 'three'
 rev
 ~~~
