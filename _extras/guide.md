@@ -212,7 +212,7 @@ previous steps visible.
 * What is the difference between `surveys_df.iloc[0:4, 1:4]` and `surveys_df.loc[0:4, 1:4]`?
 
   While `iloc` uses integers as indices and slices accordingly, `loc` works with labels. It is
-  like would be in a dictionary, asking for the key names. Column names 1:4 do not exist,
+  like accessing values from a dictionary, asking for the key names. Column names 1:4 do not exist,
   resulting in an error. Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`.
 
 ### Advanced Selection Challenges
