@@ -358,8 +358,18 @@ gives the **output**
 Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
-It is worth noting that rows are selected when using `loc` with a single list of labels (or `iloc` with a single list of integers). However, unlike `loc` or `iloc`, indexing a data frame directly with labels will select columns, while ranges of integers will select rows. Direct indexing of rows is redundant with using `iloc`, and will raise a `KeyError` if a single integer or list is used; the error will also occur if index labels are used without `loc` (or column labels used with it).
-A useful rule of thumb is the following: integer-based slicing is best done with `iloc` and will avoid errors (and is generally consistent with indexing of Numpy arrays), label-based slicing of rows is done with `loc`, and slicing of columns by directly indexing column names.
+It is worth noting that rows are selected when using `loc` with a single list of
+labels (or `iloc` with a single list of integers). However, unlike `loc` or `iloc`,
+indexing a data frame directly with labels will select columns (e.g. 
+`surveys_df['species_id', 'plot_id', 'weight']`), while ranges of integers will
+select rows (e.g. surveys_df[0:13]). Direct indexing of rows is redundant with
+using `iloc`, and will raise a `KeyError` if a single integer or list is used; the
+error will also occur if index labels are used without `loc` (or column labels used
+with it).
+A useful rule of thumb is the following: integer-based slicing is best done with
+`iloc` and will avoid errors (and is generally consistent with indexing of Numpy
+arrays), label-based slicing of rows is done with `loc`, and slicing of columns by
+directly indexing column names.
 
 
 > ## Challenge - Range
