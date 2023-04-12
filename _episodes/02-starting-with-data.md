@@ -549,14 +549,15 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 
 If we wanted to, we could apply a mathmatical operation like addition or division
 on an entire column of our data. For example let's multiply all weight values by 2.
-A more practical use of this might be to normalize the data according to a mean, area, or some other value
-calculated from our data.
 
 ~~~
 # Multiply all weight values by 2
 surveys_df['weight']*2
 ~~~
 {: .language-python}
+
+A more practical use of this might be to normalize the data according to a mean, area,
+or some other value calculated from our data.
 
 # Quick & Easy Plotting Data Using Pandas
 
