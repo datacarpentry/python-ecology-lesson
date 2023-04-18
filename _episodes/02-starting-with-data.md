@@ -30,7 +30,7 @@ keypoints:
 We can automate the process of performing data manipulations in Python. It's efficient to spend time
 building the code to perform these tasks because once it's built, we can use it
 over and over on different datasets that use a similar format. This makes our
-data manipulation processes easily reproducible. We can also easily share our code with
+data manipulation processes reproducible. We can also share our code with
 colleagues and they can replicate the same analysis starting with the same original data.
 
 ### Starting in the same spot
@@ -40,8 +40,6 @@ This should help us avoid path and file name issues. At this time please
 navigate to the workshop directory. If you are working in IPython Notebook be sure
 that you start your notebook in the workshop directory.
 
-Note: while there are Python libraries like [OS Library][os-lib] that can work with our
-directory structure, that is not our focus today.
 
 ### Our Data
 
@@ -128,7 +126,6 @@ We will begin by locating and reading our survey data which are in CSV format. C
 Comma-Separated Values and is a common way to store formatted data. Other symbols may also be used, so
 you might see tab-separated, colon-separated or space separated files. pandas can work with each of these
 types of separators, as it allows you to specify the appropriate separator for your data.
-The first line in the file often has headers to explain what is in each column.
 CSV files (and other -separated value file types) make it easy to share data, and can be imported and exported
 from many applications, including Microsoft Excel. For more details on CSV
 files, see the [Data Organisation in Spreadsheets][spreadsheet-lesson5] lesson.
@@ -183,8 +180,8 @@ surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
 {: .language-python}
 
-Note: when you assign the imported DataFrame to a variable, Python does not
-produce any output on the screen. We can view the value of the `surveys_df`
+Note that Python does not produce any output on the screen  when you assign the imported DataFrame to a variable.
+We can view the value of the `surveys_df`
 object by typing its name into the Python command prompt.
 
 ~~~
@@ -250,7 +247,7 @@ of data:
 Don't worry: all the data is there! You can confirm this by scrolling upwards, or by
 looking at the `[# of rows x # of columns]` block at the end of the output.
 
-If you use `.head()` to view only a subset of rows, you will observe an output
+You can also use `surveys_df.head()` to view only the first few rows of the dataset in an output
 that is easier to fit in one window. After doing this, you can see that pandas has neatly formatted 
 the data to fit our screen:
 
@@ -548,7 +545,7 @@ surveys_df.groupby('species_id')['record_id'].count()['DO']
 ## Basic Math Functions
 
 If we wanted to, we could apply a mathmatical operation like addition or division
-on an entire column of our data. For example let's multiply all weight values by 2.
+on an entire column of our data. For example, let's multiply all weight values by 2.
 
 ~~~
 # Multiply all weight values by 2
