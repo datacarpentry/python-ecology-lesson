@@ -323,15 +323,18 @@ We'll talk a bit more about what the different formats mean in a different lesso
 There are many ways to summarize and access the data stored in DataFrames,
 using **attributes** and **methods** provided by the DataFrame object.
 
-To access an attribute, use the DataFrame object name followed by the attribute
-name `df_object.attribute`. Using the DataFrame `surveys_df` and attribute
-`columns`, an index of all the column names in the DataFrame can be accessed
-with `surveys_df.columns`.
+Attributes are features of an object. For example, the `shape` attribute will output
+the size (the number of rows and columns) of an object. To access an attribute,
+use the DataFrame object name followed by the attribute name `df_object.attribute`.
+For example, using the DataFrame `surveys_df` and attribute `columns`, an index
+of all the column names in the DataFrame can be accessed with `surveys_df.columns`.
 
-Methods are called in a similar fashion using the syntax `df_object.method()`.
-As an example, `surveys_df.head()` gets the first few rows in the DataFrame
-`surveys_df` using the `head()` method. With a method we can supply extra
-information in the parens to control behaviour.
+Methods are like functions, but they only work on particular kinds of objects. As
+an example, **the `head()` method** works on DataFrames. Methods are called in a
+similar fashion to attributes, using the syntax `df_object.method()`. Using
+`surveys_df.head()` gets the first few rows in the DataFrame `surveys_df`
+using the `head()` method. With a method, we can supply extra information
+in the parentheses to control behaviour.
 
 Let's look at the data using these.
 
