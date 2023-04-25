@@ -1,10 +1,10 @@
 ---
 title: Short Introduction to Programming in Python
-teaching: 0
-exercises: 0
+teaching: 30
+exercises: 5
 questions:
-    - "What is Python?"
-    - "Why should I learn Python?"
+    - "How do I program in Python?"
+    - "How can I represent my data in Python?"
 objectives:
     - "Describe the advantages of using programming vs. completing repetitive tasks by hand."
     - "Define the following data types in Python: strings, integers, and floats."
@@ -73,16 +73,17 @@ Hello World
 ~~~
 {: .output}
 
-## Introduction to Python built-in data types
+## Introduction to variables in Python
 
-### Strings, integers, and floats
+### Assigning values to variables
 
 One of the most basic things we can do in Python is assign values to variables:
 
 ~~~
-text = "Data Carpentry"  # An example of a string
-number = 42  # An example of an integer
-pi_value = 3.1415  # An example of a float
+text = "Data Carpentry"  # An example of assigning a value to a new text variable,
+                         # also known as a string data type in Python
+number = 42              # An example of assigning a numeric value, or an integer data type
+pi_value = 3.1415        # An example of assigning a floating point value (the float data type)
 ~~~
 {: .language-python}
 
@@ -290,9 +291,8 @@ A `for` loop can be used to access the elements in a list or other Python data
 structure one at a time:
 
 ~~~
->>> for num in numbers:
-...     print(num)
-...
+for num in numbers:
+    print(num)
 ~~~
 {: .language-python}
 
@@ -342,7 +342,7 @@ class list(object)
 
 ### Tuples
 
-A tuple is similar to a list in that it's an ordered sequence of elements.
+A **tuple** is similar to a list in that it's an ordered sequence of elements.
 However, tuples can not be changed once created (they are "immutable"). Tuples
 are created by placing comma-separated values inside parentheses `()`.
 
@@ -360,6 +360,9 @@ a_list = [1, 2, 3]
 > 1. What happens when you execute `a_list[1] = 5`?
 > 2. What happens when you execute `a_tuple[2] = 5`?
 > 3. What does `type(a_tuple)` tell you about `a_tuple`?
+> 4. What information does the built-in function `len()` provide?
+     Does it provide the same information on both tuples and lists?
+     Does the `help()` function confirm this?
 {: .challenge}
 
 
@@ -392,7 +395,6 @@ rev['first']
 To add an item to the dictionary we assign a value to a new key:
 
 ~~~
-rev = {'first': 'one', 'second': 'two'}
 rev['third'] = 'three'
 rev
 ~~~
@@ -443,7 +445,7 @@ for key in rev.keys():
 
 ## Functions
 
-Defining a section of code as a function in Python is done using the `def`
+Defining a section of code as a **function** in Python is done using the `def`
 keyword. For example a function that takes two arguments and returns their sum
 can be defined as:
 

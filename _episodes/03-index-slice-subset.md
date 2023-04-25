@@ -13,7 +13,7 @@ objectives:
     - "Reassign values within subsets of a DataFrame."
     - "Create a copy of a DataFrame."
     - "Query / select a subset of data using a set of criteria using the following operators:
-       `=`, `!=`, `>`, `<`, `>=`, `<=`."
+       `==`, `!=`, `>`, `<`, `>=`, `<=`."
     - "Locate subsets of data using masks."
     - "Describe BOOLEAN objects in Python and manipulate data using BOOLEANs."
 keypoints:
@@ -118,7 +118,7 @@ the related Python data type dictionary).
 > the names of built-in data structures and methods. For example, a _list_ is a built-in
 > data type. It is possible to use the word 'list' as an identifier for a new object,
 > for example `list = ['apples', 'oranges', 'bananas']`. However, you would then
-> be unable to create an empty list using `list()` or convert a tuple to a 
+> be unable to create an empty list using `list()` or convert a tuple to a
 > list using `list(sometuple)`.
 {: .callout}
 
@@ -240,19 +240,25 @@ Let's try the following code:
 # ref_surveys_df was created using the '=' operator
 ref_surveys_df.head()
 
+# true_copy_surveys_df was created using the copy() function
+true_copy_surveys_df.head()
+
 # surveys_df is the original dataframe
 surveys_df.head()
 ~~~
 {: .language-python}
 
-What is the difference between these two dataframes?
+What is the difference between these three dataframes?
 
-When we assigned the first 3 columns the value of `0` using the
+When we assigned the first 3 rows the value of `0` using the
 `ref_surveys_df` DataFrame, the `surveys_df` DataFrame is modified too.
-Remember we created the reference `ref_survey_df` object above when we did
-`ref_survey_df = surveys_df`. Remember `surveys_df` and `ref_surveys_df`
+Remember we created the reference `ref_surveys_df` object above when we did
+`ref_surveys_df = surveys_df`. Remember `surveys_df` and `ref_surveys_df`
 refer to the same exact DataFrame object. If either one changes the object,
 the other will see the same changes to the reference object.
+
+However - `true_copy_surveys_df` was created via the `copy()` function.
+It retains the original values for the first three rows.
 
 **To review and recap**:
 
@@ -358,6 +364,18 @@ gives the **output**
 Remember that Python indexing begins at 0. So, the index location [2, 6]
 selects the element that is 3 rows down and 7 columns over in the DataFrame.
 
+It is worth noting that rows are selected when using `loc` with a single list of
+labels (or `iloc` with a single list of integers). However, unlike `loc` or `iloc`,
+indexing a data frame directly with labels will select columns (e.g. 
+`surveys_df['species_id', 'plot_id', 'weight']`), while ranges of integers will
+select rows (e.g. surveys_df[0:13]). Direct indexing of rows is redundant with
+using `iloc`, and will raise a `KeyError` if a single integer or list is used; the
+error will also occur if index labels are used without `loc` (or column labels used
+with it).
+A useful rule of thumb is the following: integer-based slicing is best done with
+`iloc` and will avoid errors (and is generally consistent with indexing of Numpy
+arrays), label-based slicing of rows is done with `loc`, and slicing of columns by
+directly indexing column names.
 
 
 > ## Challenge - Range
@@ -365,15 +383,19 @@ selects the element that is 3 rows down and 7 columns over in the DataFrame.
 > 1. What happens when you execute:
 >
 >    - `surveys_df[0:1]`
+>    - `surveys_df[0]`
 >    - `surveys_df[:4]`
 >    - `surveys_df[:-1]`
 >
 > 2. What happens when you call:
 >
+>    - `surveys_df.iloc[0:1]`
+>    - `surveys_df.iloc[0]`
+>    - `surveys_df.iloc[:4, :]`
 >    - `surveys_df.iloc[0:4, 1:4]`
 >    - `surveys_df.loc[0:4, 1:4]`
 >
-> - How are the two commands different?
+> - How are the last two commands different?
 {: .challenge}
 
 
@@ -526,7 +548,7 @@ surveys_df[pd.isnull(surveys_df).any(axis=1)]
 {: .language-python}
 
 Note that the `weight` column of our DataFrame contains many `null` or `NaN`
-values. We will explore ways of dealing with this in Lesson 03.
+values. We will explore ways of dealing with this in the next episode on [Data Types and Formats]({{ page.root }}{% link _episodes/04-data-types-and-format.md %}).
 
 We can run `isnull` on a particular column too. What does the code below do?
 
@@ -545,8 +567,9 @@ asking Python to select rows that have a `NaN` value of weight.
 > ## Challenge - Putting it all together
 >
 > 1. Create a new DataFrame that only contains observations with sex values that
->   are **not** female or male. Assign each sex value in the new DataFrame to a
->   new value of 'x'. Determine the number of null values in the subset.
+>   are **not** female or male. Print the number of rows in this new DataFrame.
+>   Verify the result by comparing the number of rows in the new DataFrame with
+>   the number of rows in the surveys DataFrame where sex is null.
 >
 > 2. Create a new DataFrame that contains only observations that are of sex male
 >   or female and where weight values are greater than 0. Create a stacked bar

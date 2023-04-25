@@ -3,8 +3,8 @@ title: Data Types and Formats
 teaching: 20
 exercises: 25
 questions:
-  - "What types of data can be contained in a DataFrame?"
-  - "Why is the data type important?"
+    - "What types of data can be contained in a DataFrame?"
+    - "Why is the data type important?"
 objectives:
     - "Describe how information is stored in a Python DataFrame."
     - "Define the two main types of data in Python: text and numerics."
@@ -32,7 +32,7 @@ numeric data, you get an error.
 In this lesson we will review ways to explore and better understand the
 structure and format of our data.
 
-# Types of Data
+## Types of Data
 
 How information is stored in a
 DataFrame or a Python object affects what we can do with it and the outputs of
@@ -83,6 +83,9 @@ types, let's explore the format of our survey data. We'll be working with the
 same `surveys.csv` dataset that we've used in previous lessons.
 
 ~~~
+# Make sure pandas is loaded
+import pandas as pd
+
 # Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
@@ -167,12 +170,23 @@ subtraction, division and multiplication work on floats and integers as we'd exp
 
 ~~~
 print(5+5)
-10
-
-print(24-4)
-20
 ~~~
 {: .language-python}
+
+~~~
+10
+~~~
+{: .output}
+
+~~~
+print(24-4)
+~~~
+{: .language-python}
+
+~~~
+20
+~~~
+{: .output}
 
 If we divide one integer by another, we get a float.
 The result on Python 3 is different than in Python 2, where the result is an
@@ -180,12 +194,23 @@ integer (integer division).
 
 ~~~
 print(5/9)
-0.5555555555555556
-
-print(10/3)
-3.3333333333333335
 ~~~
 {: .language-python}
+
+~~~
+0.5555555555555556
+~~~
+{: .output}
+
+~~~
+print(10/3)
+~~~
+{: .language-python}
+
+~~~
+3.3333333333333335
+~~~
+{: .output}
 
 We can also convert a floating point number to an integer or an integer to
 floating point number. Notice that Python by default rounds down when it
@@ -195,16 +220,28 @@ converts from floating point to integer.
 # Convert a to an integer
 a = 7.83
 int(a)
-7
-
-# Convert b to a float
-b = 7
-float(b)
-7.0
 ~~~
 {: .language-python}
 
-# Working With Our Survey Data
+~~~
+7
+~~~
+{: .output}
+
+~~~
+# Convert b to a float
+b = 7
+float(b)
+~~~
+{: .language-python}
+
+~~~
+7.0
+~~~
+{: .output}
+
+
+## Working With Our Survey Data
 
 Getting back to our data, we can modify the format of values within our data, if
 we want. For instance, we could convert the `record_id` field to floating point
@@ -222,7 +259,7 @@ dtype('float64')
 ~~~
 {: .output}
 
-> ## Challenge - Changing Types
+> ## Changing Types
 >
 > Try converting the column `plot_id` to floats using
 >
@@ -247,9 +284,14 @@ over those cells.
 
 ~~~
 surveys_df['weight'].mean()
-42.672428212991356
 ~~~
 {: .language-python}
+
+~~~
+42.672428212991356
+~~~
+{: .output}
+
 Dealing with missing data values is always a challenge. It's sometimes hard to
 know why values are missing - was it because of a data entry error? Or data that
 someone was unable to collect? Should the value be 0? We need to know how
@@ -275,7 +317,7 @@ with weight values > 0 (i.e., select meaningful weight values):
 ~~~
 len(surveys_df[pd.isnull(surveys_df.weight)])
 # How many rows have weight values?
-len(surveys_df[surveys_df.weight> 0])
+len(surveys_df[surveys_df.weight > 0])
 ~~~
 {: .language-python}
 
@@ -295,9 +337,13 @@ out or ignored.
 
 ~~~
 df1['weight'].mean()
-38.751976145601844
 ~~~
 {: .language-python}
+
+~~~
+38.751976145601844
+~~~
+{: .output}
 
 We can fill NaN values with any value that we chose. The code below fills all
 NaN values with a mean for all weight values.
@@ -318,9 +364,13 @@ Python gives us all of the tools that we need to account for these issues. We
 just need to be cautious about how the decisions that we make impact scientific
 results.
 
-> ## Challenge - Counting
-> Count the number of missing values per column. Hint: The method .count() gives you
-> the number of non-NA observations per column. Try looking to the .isnull() method.
+> ## Counting
+> Count the number of missing values per column.
+>
+> > ## Hint
+> > The method `.count()` gives you the number of non-NA observations per column.
+> > Try looking to the `.isnull()` method.
+> {: .solution}
 {: .challenge}
 
 ## Writing Out Data to CSV
@@ -339,7 +389,6 @@ By default, dropna removes rows that contain missing data for even just one colu
 
 ~~~
 df_na = surveys_df.dropna()
-
 ~~~
 {: .language-python}
 

@@ -340,7 +340,7 @@ it is called, it includes a return statement at the end.
 This is how we call the function:
 
 ~~~
-product_of_inputs = this_is_the_function_name(2,5)
+product_of_inputs = this_is_the_function_name(2, 5)
 ~~~
 {: .language-python}
 
@@ -381,8 +381,8 @@ def one_year_csv_writer(this_year, all_data):
     """
     Writes a csv file for data from a given year.
 
-    this_year --- year for which data is extracted
-    all_data --- DataFrame with multi-year data
+    this_year -- year for which data is extracted
+    all_data -- DataFrame with multi-year data
     """
 
     # Select data for the year
@@ -425,9 +425,9 @@ def yearly_data_csv_writer(start_year, end_year, all_data):
     """
     Writes separate CSV files for each year of data.
 
-    start_year --- the first year of data we want
-    end_year --- the last year of data we want
-    all_data --- DataFrame with multi-year data
+    start_year -- the first year of data we want
+    end_year -- the last year of data we want
+    all_data -- DataFrame with multi-year data
     """
 
     # "end_year" is the last year of data we want to pull, so we loop to end_year+1
@@ -453,14 +453,14 @@ yearly_data_csv_writer(1977, 2002, surveys_df)
 ~~~
 {: .language-python}
 
-BEWARE! If you are using IPython Notebooks and you modify a function, you MUST
+BEWARE! If you are using Jupyter Notebooks and you modify a function, you MUST
 re-run that cell in order for the changed function to be available to the rest
 of the code. Nothing will visibly happen when you do this, though, because
 defining a function without *calling* it doesn't produce an output. Any
 cells that use the now-changed functions will also have to be re-run for their
 output to change.
 
-> ## Challenge- More functions
+> ## Challenge: More functions
 >
 > 1. Add two arguments to the functions we wrote that take the path of the
 >    directory where the files will be written and the root of the file name.
@@ -489,22 +489,22 @@ values (here, `all_data`) is a required argument and MUST come before the
 argument with default values (which are optional in the function call).
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = 1977, end_year = 2002):
+def yearly_data_arg_test(all_data, start_year=1977, end_year=2002):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: 1977
-    end_year --- the last year of data we want --- default: 2002
-    all_data --- DataFrame with multi-year data
+    start_year -- the first year of data we want (default 1977)
+    end_year -- the last year of data we want (default 2002)
+    all_data -- DataFrame with multi-year data
     """
 
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -523,13 +523,13 @@ function so that it looks for the start and end years in the dataset if those
 dates are not provided:
 
 ~~~
-def yearly_data_arg_test(all_data, start_year = None, end_year = None):
+def yearly_data_arg_test(all_data, start_year=None, end_year=None):
     """
     Modified from yearly_data_csv_writer to test default argument values!
 
-    start_year --- the first year of data we want --- default: None - check all_data
-    end_year --- the last year of data we want --- default: None - check all_data
-    all_data --- DataFrame with multi-year data
+    all_data -- DataFrame with multi-year data
+    start_year -- the first year of data we want, Check all_data! (default None)
+    end_year -- the last year of data we want; Check all_data! (default None)
     """
 
     if start_year is None:
@@ -540,10 +540,10 @@ def yearly_data_arg_test(all_data, start_year = None, end_year = None):
     return start_year, end_year
 
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('Both optional arguments:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 ~~~
 {: .language-python}
@@ -621,7 +621,7 @@ in the function call), would be `if start_year` and `if end_year`.
 
 As we've written it so far, the function `yearly_data_arg_test` associates
 values in the function call with arguments in the function definition just based
-in their order. If the function gets only two values in the function call, the
+on their order. If the function gets only two values in the function call, the
 first one will be associated with `all_data` and the second with `start_year`,
 regardless of what we intended them to be. We can get around this problem by
 calling the function using keyword arguments, where each of the arguments in the
@@ -629,22 +629,22 @@ function definition is associated with a keyword and the function call passes
 values to the function using these keywords:
 
 ~~~
-start,end = yearly_data_arg_test (surveys_df)
+start, end = yearly_data_arg_test(surveys_df)
 print('Default values:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, 1988, 1993)
+start, end = yearly_data_arg_test(surveys_df, 1988, 1993)
 print('No keywords:\t\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988, end_year=1993)
 print('Both keywords, in order:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993, start_year=1988)
 print('Both keywords, flipped:\t\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, start_year = 1988)
+start, end = yearly_data_arg_test(surveys_df, start_year=1988)
 print('One keyword, default end:\t', start, end)
 
-start,end = yearly_data_arg_test (surveys_df, end_year = 1993)
+start, end = yearly_data_arg_test(surveys_df, end_year=1993)
 print('One keyword, default start:\t', start, end)
 ~~~
 {: .language-python}

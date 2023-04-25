@@ -43,11 +43,11 @@ mean it is easier for new members of the community to get up to speed.
 - **Reproducibility:**
 Reproducibility is the ability to obtain the same results using the same dataset(s) and analysis.
 
-Data analysis written as a Python script can be reproduced on any platform.  Moreover, if you
-collect more or correct existing data, you can quickly and easily re-run your analysis!
+  Data analysis written as a Python script can be reproduced on any platform.  Moreover, if you
+  collect more or correct existing data, you can quickly re-run your analysis!
 
-An increasing number of journals and funding agencies expect analyses to be reproducible,
-so knowing Python will give you an edge with these requirements.
+  An increasing number of journals and funding agencies expect analyses to be reproducible,
+  so knowing Python will give you an edge with these requirements.
 
 - **Versatility:**
 Python is a versatile language that integrates with many existing applications to enable something
@@ -55,8 +55,8 @@ completely amazing.  For example, one can use Python to generate manuscripts, so
 update your data, analysis procedure, or change something else, you can quickly regenerate all the
 figures and your manuscript will be updated automatically.
 
-Python can read text files, connect to databases, and many other data formats, on your computer or
-on the web.
+  Python can read text files, connect to databases, and many other data formats, on your computer or
+  on the web.
 
 - **Interdisciplinary and extensible:**
 Python provides a framework that allows anyone to combine approaches from different research
@@ -77,7 +77,7 @@ such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
-and share documents that allow one to easilty create documents that combine code, graphs, and narrative text.
+and share documents that allow one to create documents that combine code, graphs, and narrative text.
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
@@ -104,7 +104,7 @@ For example, you can store raw data in files `./data/raw/` and clean data in `./
 
 - **`documents/`**: Use this folder to store outlines, drafts, and other text.
 
-- **`scripts/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and
+- **`code/`**: Use this folder to store your (Python) scripts for data cleaning, analysis, and
 plotting that you use in this particular project.
 
 You may need to create additional directories depending on your project needs, but these should form
@@ -125,7 +125,10 @@ Programming is a multi-step process that involves the following steps:
 4. Testing, validating, and adjusting implemented solution.
 
 While _"Programming"_ refers to all of the above steps,
-_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_.
+_"Coding"_ refers to step 3 only: _"Implementing the solution in a specific computer language"_. It's
+important to note that _"the best"_ computational solution must consider factors beyond the computer.
+Who is using the program, what resources/funds does your team have for this project, and the available
+timeline all shape and mold what "best" may be.
 
 #### If you are working with Jupyter notebook:
 
@@ -147,7 +150,7 @@ default.
 
 Since we want our code and workflow to be reproducible, it is better to type the commands in
 the script editor, and save them as a script. This way, there is a complete record of what we did,
-and anyone (including our future selves!) can easily reproduce the results on their computer.
+and anyone (including our future selves!) has an easier time reproducing the results on their computer.
 
 Spyder allows you to execute commands directly from the script editor by using the run buttons on
 top.  To run the entire script click _Run file_ or press <kbd>F5</kbd>, to run the current line
@@ -189,6 +192,7 @@ code to suit your purpose might make it easier for you to get started.
 * type `help()`
 * type `?object` or `help(object)` to get information about an object
 * [Python documentation][python-docs]
+* [Pandas documentation][pandas-docs]
 
 Finally, a generic Google or internet search "Python task" will often either send you to the
 appropriate module documentation or a helpful forum where someone else has already asked your
@@ -201,7 +205,7 @@ messages that might not be very helpful to diagnose a problem (e.g. "subscript o
 the message is very generic, you might also include the name of the function or package you’re using
 in your query.
 
-However, you should check Stack Overflow. Search using the `python` tag. Most questions have already
+However, you should check Stack Overflow. Search using the `[python]` tag. Most questions have already
 been answered, but the challenge is to use the right words in the search to find the answers:
 <https://stackoverflow.com/questions/tagged/python?tab=Votes>
 
@@ -244,8 +248,9 @@ ask a good question.
 
 [anaconda]: https://www.anaconda.com
 [anaconda-community]: https://www.anaconda.com/community
-[dive-into-python3]: https://finderiko.com/python-book
-[pypi]: https://pypi.python.org/pypi
+[dive-into-python3]: https://diveintopython3.net/
+[pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
+[pypi]: https://pypi.org/
 [python-docs]: https://www.python.org/doc
 [python-guide]: https://docs.python-guide.org
 [python-mailing-lists]: https://www.python.org/community/lists
