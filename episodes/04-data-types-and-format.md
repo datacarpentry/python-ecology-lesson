@@ -85,6 +85,7 @@ same `surveys.csv` dataset that we've used in previous lessons.
 ~~~
 # Make sure pandas is loaded
 import pandas as pd
+
 # Note that pd.read_csv is used because we imported pandas as pd
 surveys_df = pd.read_csv("data/surveys.csv")
 ~~~
@@ -370,6 +371,7 @@ results.
 > > Try looking to the `.isna()` method.
 > {: .solution}
 {: .challenge}
+
 ## Writing Out Data to CSV
 
 We've learned about manipulating data to get desired outputs. But we've also discussed
