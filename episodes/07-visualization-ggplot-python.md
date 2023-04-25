@@ -30,6 +30,12 @@ and [The Grammar of Graphics][grammar-of-graphics]
 by Leland Wilkinson. The `plotnine`
 package is built on top of Matplotlib and interacts well with Pandas.
 
+> ## Reminder
+> `plotnine` is not included in the standard Anaconda installation and needs
+> to be installed separately. If you haven't done so already, you can find installation
+> instructions on the [Setup page][setup-plotnine].
+{: .callout}
+
 Just as with the other packages, `plotnine` needs to be imported. It is good
 practice to not just load an entire package such as `from plotnine import *`,
 but to use an abbreviation as we used `pd` for Pandas:
@@ -69,8 +75,6 @@ To build a `plotnine` graphic we need to:
 (p9.ggplot(data=surveys_complete))
 ~~~
 {: .language-python}
-As we have not defined anything else, just an empty figure is available and
-presented.
 
 As we have not defined anything else, just an empty figure is available and
 presented.
@@ -119,7 +123,7 @@ surveys_plot + p9.geom_point()
 ~~~
 {: .language-python}
 
-![png](../fig/06_first_plot.png)
+![scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides](../fig/06_first_plot.png)
 
 > ## Challenge - bar chart
 > Working on the `surveys_complete` data set, use the `plot-id` column to
@@ -136,7 +140,7 @@ surveys_plot + p9.geom_point()
 > > ~~~
 > > {: .language-python}
 > >
-> > ![png](../fig/06_challenge_bar.png)
+> > ![bar chart of count of rodents caught at each plot site](../fig/06_challenge_bar.png)
 > {: .solution}
 {: .challenge}
 
@@ -174,7 +178,7 @@ instance, we can add transparency (alpha) to avoid overplotting:
 ~~~
 {: .language-python}
 
-![png](../fig/06_alpha_plot.png)
+![scatter plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau](../fig/06_alpha_plot.png)
 
 We can also add colors for all the points
 
@@ -187,7 +191,7 @@ We can also add colors for all the points
 ~~~
 {: .language-python}
 
-![png](../fig/06_blue_plot.png)
+![scatter plot of hindfoot-length vs weight  of rodents, demonstrating overplotting](../fig/06_blue_plot.png)
 
 Or to color each species in the plot differently, map the `species_id` column
 to the color aesthetic:
@@ -202,7 +206,7 @@ to the color aesthetic:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_plot.png)
+![scatter plot of Hindfoot length vs weight with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_plot.png)
 
 Apart from the adaptations of the arguments and settings of the `data`, `aes`
 and `geom-*` elements, additional elements can be added as well, using the `+`
@@ -219,7 +223,7 @@ operator:
 ~~~
 {: .language-python}
 
-![png](../fig/06_color_label_plot.png)
+![scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot](../fig/06_color_label_plot.png)
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis
 could support the interpretation of the lower numbers:
@@ -234,7 +238,7 @@ could support the interpretation of the lower numbers:
 ~~~
 {: .language-python}
 
-![png](../fig/06_log_plot.png)
+![Scatterplot of hindfoot length versus weight where logarithmic x-axis is used to distribute lower numbers](../fig/06_log_plot.png)
 
 - Changing the theme (`theme_*`) or some specific theming (`theme`) elements.
 Usually plots with white background look more readable when printed.  We can
@@ -252,7 +256,7 @@ set the background to white using the function `theme_bw()`.
 ~~~
 {: .language-python}
 
-![png](../fig/06_white_plot.png)
+![Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background](../fig/06_white_plot.png)
 
 > ## Challenge - Bar plot adaptations
 > Adapt the bar plot of the previous exercise by mapping the `sex` variable to
@@ -271,7 +275,7 @@ set the background to white using the function `theme_bw()`.
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_color_bar.png)
+> > ![Bar chart of counts of males (yellow) and females (blue) vs plot id, showing the number of females to be higher in all plots](../fig/06_challenge_color_bar.png)
 > {: .solution}
 {: .challenge}
 
@@ -291,7 +295,7 @@ group, a boxplot can be used:
 ~~~
 {: .language-python}
 
-![png](../fig/06_boxplot.png)
+![boxplot showing distribution of rodent weight for each species group ](../fig/06_boxplot.png)
 
 By adding points of the individual observations to the boxplot, we can have a
 better idea of the number of measurements and of their distribution:
@@ -306,7 +310,7 @@ better idea of the number of measurements and of their distribution:
 ~~~
 {: .language-python}
 
-![png](../fig/06_point_boxplot.png)
+![Boxplot of weight by species overlaying observation points to visualize the distribution](../fig/06_point_boxplot.png)
 
 > ## Challenge - distributions
 >
@@ -340,7 +344,7 @@ better idea of the number of measurements and of their distribution:
 > > )
 > > ~~~
 > > {: .language-python}
-> > ![png](../fig/06_challenge_boxplot.png)
+> > ![Violin plot of weight of species shown with weight scaled down and datapoints with color.](../fig/06_challenge_boxplot.png)
 > {: .solution}
 {: .challenge}
 
@@ -393,7 +397,7 @@ modifying the aesthetic function and map the species_id to the color:
 ~~~
 {: .language-python}
 
-![png](../fig/06_time_plot.png)
+![Line graph of count per year where data for each species is indicated by a different color](../fig/06_time_plot.png)
 
 ## Faceting
 
@@ -428,7 +432,7 @@ variable. As an example, use `sex`:
 )
 ~~~
 {: .language-python}
-![png](../fig/06_facet_plot.png)
+![2 scatter plots, one for males and the other for females, of hindfoot length vs weight with colored dots denoting specific species, showing the trend is the same between both male and females of multiple species](../fig/06_facet_plot.png)
 
 We can apply the same concept on any of the available categorical variables:
 
@@ -443,7 +447,7 @@ We can apply the same concept on any of the available categorical variables:
 ~~~
 {: .language-python}
 
-![png](../fig/06_facet_all_plot.png)
+![24 individual scatter plots of Hindfoot length vs weight of species with colors denoting species and numbers above plot representing 1 of the 24 plots, showing trends for each unique plot id studied](../fig/06_facet_all_plot.png)
 
 The `facet_wrap` geometry extracts plots into an arbitrary number of dimensions
 to allow them to cleanly fit on one page. On the other hand, the `facet_grid`
@@ -464,19 +468,17 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 )
 ~~~
 {: .language-python}
-![png](../fig/06_select_plot.png)
+![Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year](../fig/06_select_plot.png)
 
 > ## Challenge - facetting
 > Create a separate plot for each of the species that depicts how the average
 > weight of the species changes through the years.
 >
 > > ## Answers
-> > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
 > >
 > > ~~~
-> > (p9.ggplot(data=yearly_weight,
-> >            mapping=p9.aes(x='year',
-> >                           y='weight'))
+> > yearly_weight = surveys_complete.groupby(['year', 'species_id'])['weight'].mean().reset_index()
+> > (p9.ggplot(data=yearly_weight, mapping=p9.aes(x='year', y='weight'))
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("species_id")
 > > )
@@ -492,6 +494,8 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > an individual color assigned to each `species_id`.
 >
 > > ## Answers
+> >
+> > ~~~
 > > yearly_weight = surveys_complete.groupby(['year', 'species_id', 'sex'])['weight'].mean().reset_index()
 > >
 > > (p9.ggplot(data=yearly_weight,
@@ -501,6 +505,7 @@ survey_2000 = surveys_complete[surveys_complete["year"].isin([2000, 2001])]
 > >     + p9.geom_line()
 > >     + p9.facet_wrap("sex")
 > > )
+> > ~~~
 > > {: .language-python}
 > {: .solution}
 {: .challenge}
@@ -524,7 +529,7 @@ following example of a bar plot with the counts per year.
 ~~~
 {: .language-python}
 
-![png](../fig/06_overlap_bars.png)
+![Bar graph of count per year showing ovelapping x-axis labels](../fig/06_overlap_bars.png)
 
 Notice that we use the `year` here as a categorical variable by using the
 `factor` functionality. However, by doing so, we have the individual year
@@ -541,7 +546,7 @@ rotate the text of the x-axis labels:
 ~~~
 {: .language-python}
 
-![png](../fig/06_good_bars.png)
+![Bar graph of count per year demonstrating how the theme function rotates the x-axis labels](../fig/06_good_bars.png)
 
 When you like a specific set of theme-customizations you created, you can save
 them as an object to easily apply them to other plots you may create:
@@ -559,7 +564,7 @@ my_custom_theme = p9.theme(axis_text_x = p9.element_text(color="grey", size=10,
 ~~~
 {: .language-python}
 
-![png](../fig/06_theme_plot.png)
+![Bar graph of count per year demonstrating the use of a customized theme](../fig/06_theme_plot.png)
 
 > ## Challenge - customization
 > Please take another five minutes to either improve one of the plots
@@ -592,5 +597,6 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 [grammar-of-graphics]: http://link.springer.com/book/10.1007%2F0-387-28695-0
 [plotnine-api]: https://plotnine.readthedocs.io/en/stable/api.html#color-and-fill-scales
 [plotnine]: https://plotnine.readthedocs.io/en/stable
+[setup-plotnine]: https://datacarpentry.org/python-ecology-lesson/setup.html#required-python-packages
 
 {% include links.md %}

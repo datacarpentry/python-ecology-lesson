@@ -10,7 +10,7 @@ objectives:
     - "Use matplotlib to make adjustments to Pandas or plotnine objects."
 keypoints:
     - "Matplotlib is the engine behind plotnine and Pandas plots."
-    - "Object-based nature of matplotlib plots enables their detailed customization after they have been created."
+    - "The object-based nature of matplotlib plots enables their detailed customization after they have been created."
     - "Export plots to a file using the `savefig` method."
 ---
 
@@ -18,7 +18,7 @@ keypoints:
 ## Putting it all together
 
 Up to this point, we have walked through tasks that are often
-involved in handling and processing data using the workshop ready cleaned
+involved in handling and processing data using the workshop-ready cleaned
 files that we have provided. In this wrap-up exercise, we will perform
 many of the same tasks with real data sets. This lesson also covers data
 visualization.
@@ -33,7 +33,7 @@ There are many repositories online from which you can obtain data. We are
 providing you with one data file to use with these exercises, but feel free to
 use any data that is relevant to your research. The file
 [`bouldercreek_09_2013.txt`]({{ page.root }}/data/bouldercreek_09_2013.txt)
-contains stream discharge data, summarized at 15
+contains stream discharge data, summarized at
 15 minute intervals (in cubic feet per second) for a streamgage on Boulder
 Creek at North 75th Street (USGS gage06730200) for 1-30 September 2013. If you'd
 like to use this dataset, please find it in the data folder.
@@ -47,7 +47,7 @@ either a shell script or Python to do this - you wouldn't want to do it by hand
 if you had many files to process.
 
 If you are still having trouble importing the data as a table using Pandas,
-check the documentation. You can open the docstring in an ipython notebook using
+check the documentation. You can open the docstring in a Jupyter Notebook using
 a question mark. For example:
 
 ~~~
@@ -71,7 +71,7 @@ df = pd.DataFrame({'1stcolumn':[100,200], '2ndcolumn':[10,20]}) # this just crea
 print('With the old column names:\n') # the \n makes a new line, so it's easier to see
 print(df)
 
-df.columns = ['FirstColumn','SecondColumn'] # rename the columns!
+df.columns = ['FirstColumn', 'SecondColumn'] # rename the columns!
 print('\n\nWith the new column names:\n')
 print(df)
 ~~~
@@ -191,20 +191,20 @@ such as labels, grid lines, title, and other visual elements. For example, we ca
 additional axes to the figure and customize their labels:
 
 ~~~
-fig, ax1 = plt.subplots() # prepare a matplotlib figure
+# prepare a matplotlib figure
+fig, ax1 = plt.subplots()
 ax1.hist(sample_data, 30)
-
-# Add a plot of a Beta distribution
-a = 5
-b = 10
-beta_draws = np.random.beta(a, b)
-# adapt the labels
+# add labels
 ax1.set_ylabel('density')
 ax1.set_xlabel('value')
 
-# add additional axes to the figure
-ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])
-#ax2 = fig.add_axes([left, bottom, right, top])
+# define and sample beta distribution
+a = 5
+b = 10
+beta_draws = np.random.beta(a, b)
+
+# add additional axes to the figure to plot beta distribution
+ax2 = fig.add_axes([0.125, 0.575, 0.3, 0.3])  # number coordinates correspond to left, bottom, width, height, respectively
 ax2.hist(beta_draws)
 ~~~
 {: .language-python}
@@ -212,8 +212,7 @@ ax2.hist(beta_draws)
 ![Plot with additional axes](../fig/08-dualdistribution.png)
 
 > ## Challenge - Drawing from distributions
-> Have a look at the NumPy
-> random documentation <https://docs.scipy.org/doc/numpy-1.14.0/reference/routines.random.html>.
+> Have a look at [`numpy.random` documentation](https://docs.scipy.org/doc/numpy/reference/random/index.html).
 > Choose a distribution you have no familiarity with, and try to sample from and visualize it.
 {: .challenge}
 
@@ -273,52 +272,30 @@ plt.show() # not necessary in Jupyter Notebooks
 > > ## Answers
 > >
 > > ~~~
+> > import pandas as pd
+> > import matplotlib.pyplot as plt
+> > 
 > > discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
 > >                         skiprows=27, delimiter="\t",
 > >                         names=["agency", "site_id", "datetime",
-> >                                "timezone", "discharge", "discharge_cd"])
+> >                                "timezone", "flow_rate", "discharge_cd"])
 > > discharge["datetime"] = pd.to_datetime(discharge["datetime"])
-> > front_range = discharge[(discharge["datetime"] >= "2013-09-09") &
-> >                         (discharge["datetime"] < "2013-09-15")]
-> >
-> > fig, ax = plt.subplots()
-> > front_range.plot(x ="datetime", y="discharge", ax=ax)
-> > ax.set_xlabel("") # no label
-> > ax.set_ylabel("Discharge, cubic feet per second")
-> > ax.set_title(" Front Range flood event 2013")
-> > discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
-> >                       skiprows=27, delimiter="\t",
-> >                       names=["agency", "site_id", "datetime",
-> >                              "timezone", "flow_rate", "height"])
-> > fig, ax = plt.subplots()
 > > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-> >                   (discharge["datetime"] < "2013-09-15")]
+> >                   (discharge["datetime"] <= "2013-09-15")]
 > >
-> > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
-> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
-> > ax2.legend().set_visible(False)
-> > ax.set_xlabel("") # no label
+> > fig, ax = plt.subplots()
+> >
+> > flood.plot(x="datetime", y="flow_rate", ax=ax)
+> > ax.set_xlabel("")  # no label
 > > ax.set_ylabel("Discharge, cubic feet per second")
 > > ax.legend().set_visible(False)
-> > ax.set_title(" Front Range flood event 2013")
-> > discharge = pd.read_csv("../data/bouldercreek_09_2013.txt",
-> >                       skiprows=27, delimiter="\t",
-> >                       names=["agency", "site_id", "datetime",
-> >                              "timezone", "flow_rate", "height"])
-> > fig, ax = plt.subplots()
-> > flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-> >                   (discharge["datetime"] < "2013-09-15")]
-> >
+> > ax.set_title("Front Range flood event 2013")
+> > 
 > > ax2 = fig.add_axes([0.65, 0.575, 0.25, 0.3])
-> > flood.plot(x ="datetime", y="flow_rate", ax=ax)
-> > discharge.plot(x ="datetime", y="flow_rate", ax=ax2)
-> > ax2.legend().set_visible(False)
-> >
-> > ax.set_xlabel("") # no label
-> > ax.set_ylabel("Discharge, cubic feet per second")
-> > ax.legend().set_visible(False)
-> > ax.set_title(" Front Range flood event 2013")
+> > # DataFrame.plot raises an error with an inset axis object,
+> > # so we use matplotlib's plot method instead
+> > ax2.plot("datetime", "flow_rate", data=discharge)
+> > plt.xticks(rotation=90)
 > > ~~~
 > > {: .language-python}
 > >
@@ -360,7 +337,7 @@ which will save the `fig` created using Pandas/matplotlib as a png file with the
 
 Matplotlib can make many other types of plots in much the same way that it makes two-dimensional line plots. Look through the examples in
 <http://matplotlib.org/users/screenshots.html> and try a few of them (click on the
-"Source code" link and copy and paste into a new cell in ipython notebook or
+"Source code" link and copy and paste into a new cell in Jupyter Notebook or
 save as a text file with a `.py` extension and run in the command line).
 
 > ## Challenge - Final Plot

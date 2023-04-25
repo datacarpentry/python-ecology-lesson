@@ -1,7 +1,5 @@
 ---
-layout: page
 title: About Contributors
-permalink: /contributors/
 ---
 The materials in this python-ecology-lesson repository were initially developed
 and adapted and continue to be revised by many contributors. Some of the lessons
@@ -48,4 +46,3 @@ Wasser, Mariela Perignon, John Gosset and François Michonneau in April 2015.
  - Visualizing Data with ggplot (Developed by Jeremy Zucker November 2016)
  - Putting It All Together (Developed by Mariela Perignon with minor revisions by Leah Wasser April 2015)
  - Accessing SQL using Python (Added by John Gosset with minor revisions by Leah Wasser April 2015)
-

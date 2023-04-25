@@ -125,7 +125,7 @@ benchmarks]).
 
 ## Storing data: Create new tables using Pandas
 
-We can also us pandas to create new tables within an SQLite database. Here, we run we re-do an
+We can also use pandas to create new tables within an SQLite database. Here, we re-do an
 exercise we did before with CSV files using our SQLite database. We first read in our survey data,
 then select only those survey results for 2002, and then save it out to its own table so we can work
 with it on its own later.
