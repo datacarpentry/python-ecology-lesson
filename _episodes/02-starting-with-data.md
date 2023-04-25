@@ -331,8 +331,8 @@ Methods are like functions, but they only work on particular kinds of objects. A
 an example, **the `head()` method** works on DataFrames. Methods are called in a
 similar fashion to attributes, using the syntax `df_object.method()`. Using
 `surveys_df.head()` gets the first few rows in the DataFrame `surveys_df`
-using **the `head()` method**. With a method, we can supply extra information
-in the parens to control behaviour.
+using the `head()` method. With a method, we can supply extra information
+in the parentheses to control behaviour.
 
 Let's look at the data using these.
 
