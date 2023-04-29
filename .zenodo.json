@@ -2,236 +2,149 @@
   "contributors": [
     {
       "type": "Editor",
-      "name": "April Wright",
-      "orcid": "0000-0003-4692-3225"
-    },
-    {
-      "type": "Editor",
-      "name": "Maxim Belkin"
-    },
-    {
-      "type": "Editor",
-      "name": "Tania Rebeca Allard"
+      "name": "LilithElina",
+      "orcid": "0000-0003-2655-7037"
     }
   ],
   "creators": [
     {
-      "name": "April Wright",
-      "orcid": "0000-0003-4692-3225"
-    },
-    {
       "name": "Maxim Belkin"
     },
     {
-      "name": "Thomas Morrell",
-      "orcid": "0000-0001-9266-5146"
+      "name": "Serah Njambi",
+      "orcid": "0000-0002-7834-1038"
     },
     {
-      "name": "Stijn Van Hoey",
-      "orcid": "0000-0001-6413-3185"
+      "name": "Maneesha Sane"
     },
     {
-      "name": "Tracy Teal",
-      "orcid": "0000-0002-9180-9598"
+      "name": "LilithElina",
+      "orcid": "0000-0003-2655-7037"
     },
     {
-      "name": "Nicolás Palopoli",
-      "orcid": "0000-0001-7925-6436"
+      "name": "Michael K. Wilkinson",
+      "orcid": "0000-0001-6561-2145"
     },
     {
-      "name": "Paula Andrea Martinez",
-      "orcid": "0000-0002-8990-1985"
+      "name": "ppxasjsm",
+      "orcid": "0000-0001-7512-5252"
     },
     {
-      "name": "Ethan P White",
-      "orcid": "0000-0001-6728-7745"
+      "name": "Hunter Powell"
     },
     {
-      "name": "Kari L Jordan",
-      "orcid": "0000-0003-4121-2432"
+      "name": "Mathew Biddle",
+      "orcid": "0000-0003-4897-1669"
     },
     {
-      "name": "Mariela Perignon"
+      "name": "Katrin Leinweber"
     },
     {
-      "name": "Erin Alison Becker",
-      "orcid": "0000-0002-6832-0233"
+      "name": "Katrin Leinweber",
+      "orcid": "0000-0001-5135-5758"
     },
     {
-      "name": "Thomas Ballinger"
+      "name": "silvidc"
     },
     {
-      "name": "Cheng H. Lee"
+      "name": "Imraan Alas"
     },
     {
-      "name": "Katrin Tirok",
-      "orcid": "0000-0002-5040-9838"
+      "name": "Vini Salazar",
+      "orcid": "0000-0002-8362-3195"
     },
     {
-      "name": "Tania Allard"
+      "name": "Madison Langseth",
+      "orcid": "0000-0002-4472-9106"
     },
     {
-      "name": "Bennet Fauber"
+      "name": "Jarrod"
     },
     {
-      "name": "Carlos M Ortiz Marrero",
-      "orcid": "0000-0001-8302-1322"
+      "name": "Nadia Muhe"
     },
     {
-      "name": "Rayna Michelle Harris",
-      "orcid": "0000-0002-7943-5650"
+      "name": "nels"
     },
     {
-      "name": "Karen Cranston",
-      "orcid": "0000-0002-4798-9499"
+      "name": "Richard Dean"
     },
     {
-      "name": "Klemens Noga",
-      "orcid": "0000-0002-1135-167X"
+      "name": "Roger Reka"
     },
     {
-      "name": "Leszek Tarkowski"
+      "name": "Sven van der Burg"
     },
     {
-      "name": "Łukasz Zosiak"
+      "name": "Tobias Lindstrøm Jensen"
     },
     {
-      "name": "Nicky Nicolson"
+      "name": "Akshay Paropkari",
+      "orcid": "0000-0003-2284-7061"
     },
     {
-      "name": "Oliver Stueker"
+      "name": "Alex Pakalniskis"
     },
     {
-      "name": "Aaron Reba"
+      "name": "Brian Seok",
+      "orcid": "0000-0002-4513-3224"
     },
     {
-      "name": "Alejandra Noemi Gonzalez-Beltran",
-      "orcid": "0000-0003-3499-8262"
+      "name": "Caetano Souto Maior"
     },
     {
-      "name": "Alex Thompson"
+      "name": "Claire Trenham"
     },
     {
-      "name": "Andreas Mueller"
+      "name": "Daniel Danis"
     },
     {
-      "name": "Ashwin Srinath"
+      "name": "David Perez-Suarez"
     },
     {
-      "name": "Bianca Peterson",
-      "orcid": "0000-0001-6927-9159"
+      "name": "Duncan Loxton"
     },
     {
-      "name": "Christie Bahlai",
-      "orcid": "0000-0002-8937-8709"
+      "name": "Isaac Jones"
     },
     {
-      "name": "Joachim Krois"
+      "name": "Jonathan Briganti"
     },
     {
-      "name": "Iain Emsley"
+      "name": "Jonathan Wheeler"
     },
     {
-      "name": "maxvillev"
+      "name": "Kambiz Tavabi"
     },
     {
-      "name": "Michael Connell"
+      "name": "Kevin Worthington"
     },
     {
-      "name": "Patrick Lestrange"
+      "name": "Noelle Held"
     },
     {
-      "name": "Sarah M Brown",
-      "orcid": "0000-0001-5728-0822"
+      "name": "Pradeep Rajasekhar",
+      "orcid": "0000-0002-1983-7244"
     },
     {
-      "name": "Sandeep Namburi",
-      "orcid": "0000-0003-3281-356X"
+      "name": "Richard Dean"
     },
     {
-      "name": "Wilson Lozano"
+      "name": "Roger Reka"
     },
     {
-      "name": "Jeremy Daniel Zucker",
-      "orcid": "0000-0002-7276-9009"
+      "name": "Shaohe Wang",
+      "orcid": "0000-0001-9522-2359"
     },
     {
-      "name": "Bill Chau"
+      "name": "Felix Egger",
+      "orcid": "0000-0003-1898-4389"
     },
     {
-      "name": "Chris Geroux"
+      "name": "pcoombs55"
     },
     {
-      "name": "Christina Maimone",
-      "orcid": "0000-0002-0402-6297"
-    },
-    {
-      "name": "Chun Ly"
-    },
-    {
-      "name": "Colin Morris"
-    },
-    {
-      "name": "Deborah Digges"
-    },
-    {
-      "name": "Erika Mias"
-    },
-    {
-      "name": "Gary Leeming"
-    },
-    {
-      "name": "Jarmo Kivekas"
-    },
-    {
-      "name": "Jason Sigal"
-    },
-    {
-      "name": "Javier de la Rosa"
-    },
-    {
-      "name": "Jazmin Berlanga Medina"
-    },
-    {
-      "name": "Daniel W Kerchner",
-      "orcid": "0000-0002-5921-2193"
-    },
-    {
-      "name": "Elizabeth Naluminsa"
-    },
-    {
-      "name": "Luca Di Stasio",
-      "orcid": "0000-0002-9261-301X"
-    },
-    {
-      "name": "Ming Tang",
-      "orcid": "0000-0002-7739-8913"
-    },
-    {
-      "name": "Muratahan Aykol"
-    },
-    {
-      "name": "Nichole Bennett"
-    },
-    {
-      "name": "Phillip Doehle",
-      "orcid": "0000-0002-3006-0683"
-    },
-    {
-      "name": "Rebecca Hartman-Baker"
-    },
-    {
-      "name": "Rémi Rampin",
-      "orcid": "0000-0002-0524-2282"
-    },
-    {
-      "name": "rsynnest"
-    },
-    {
-      "name": "Xu Fei"
-    },
-    {
-      "name": "Yee Mey"
+      "name": "wilkinsonz"
     }
   ],
   "license": {
