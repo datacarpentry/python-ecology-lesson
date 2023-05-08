@@ -42,25 +42,17 @@ version 3.x (e.g., 3.6 is fine).
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::::::::::: discussion
+
 ## Installing Anaconda
 
-{::options parse\_block\_html="true" /}
+Select your operating system from the options below.
 
-<div>
+:::::::::::::::::::::::::::::::::
 
-<ul class="nav nav-tabs" role="tablist">
+:::::::::::: solution
 
-  <li role="presentation" class="active"><a data-os="windows" href="#anaconda-windows" aria-controls="Windows" role="tab" data-toggle="tab">Windows</a></li>
-
-  <li role="presentation"><a data-os="macos" href="#anaconda-macos" aria-controls="MacOS" role="tab" data-toggle="tab">MacOS</a></li>
-
-  <li role="presentation"><a data-os="linux" href="#anaconda-linux" aria-controls="Linux" role="tab" data-toggle="tab">Linux</a></li>
-
-</ul>
-
-<div class="tab-content">
-
-<article role="tabpanel" class="tab-pane active" id="anaconda-windows">
+### Windows {#anaconda-windows}
 
 1. Open [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual) in your web browser.
 
@@ -91,9 +83,11 @@ version 3.x (e.g., 3.6 is fine).
 
 </div>
 
-</article>
+::::::::::::
 
-<article role="tabpanel" class="tab-pane" id="anaconda-macos">
+:::::::::::: solution
+
+### MacOS {#anaconda-macos}
 
 1. Visit [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual) in your web browser.
 
@@ -127,9 +121,12 @@ version 3.x (e.g., 3.6 is fine).
 
 </div>
 
-</article>
+::::::::::::
 
-<article role="tabpanel" class="tab-pane" id="anaconda-linux">
+:::::::::::: solution
+
+### Linux {#anaconda-linux}
+
 Note that the following installation steps require you to work from the terminal (shell).
 If you run into any difficulties, please request help before the workshop begins.
 
@@ -160,11 +157,7 @@ If you run into any difficulties, please request help before the workshop begins
   conda --help
   ```
 
-</article>
-
-</div>
-
-</div>
+::::::::::::
 
 ## Required Python Packages
 
@@ -200,7 +193,7 @@ conda install -c conda-forge plotnine
 ### *(Alternative)* Installing required packages with environment file
 
 Download the
-[environment.yml](https://raw.githubusercontent.com/datacarpentry/python-ecology-lesson/gh-pages/environment.yml)
+[environment.yml](https://episodes/files/environment.yml/environment.yml)
 file by right-clicking the link and selecting save as.
 In the directory where you downloaded the environment.yml file run:
 
@@ -233,7 +226,7 @@ The notebook should open automatically in your browser. If it does not or you
 wish to use a different browser, open this link: [http://localhost:8888](https://localhost:8888).
 
 For a brief introduction to Jupyter Notebooks, please consult our
-[Introduction to Jupyter Notebooks](.{% link \_extras/jupyter\_notebooks.md %}) page.
+[Introduction to Jupyter Notebooks](jupyter_notebooks.md) page.
 
 [python]: https://www.python.org/
 [anaconda]: https://www.anaconda.com/

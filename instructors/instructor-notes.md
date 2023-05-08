@@ -11,7 +11,7 @@ encounter setup issues, please file an issue with the tags 'High-priority'.
 
 ## Checking installations.
 
-In the [`_includes/scripts`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/_includes/scripts) directory, you will find a script called check\_env.py This checks the
+In the [`episodes/files/scripts/check_env.py`](../episodes/files/scripts/check_env.py) directory, you will find a script called check\_env.py This checks the
 functionality of the Anaconda install.
 
 By default, Data Carpentry does not have people pull the whole repository with all the scripts and
@@ -73,7 +73,6 @@ rev[2] = "apple-sauce"
 
 In Pandas prior to 0.18.1 there is a bug causing `surveys_df['weight'].describe()` to return
 a runtime error.
-
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -340,7 +339,7 @@ weight 3266
 ### Writing Out Data to CSV
 
 If the students have trouble generating the output, or anything happens with that, the folder
-[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/gh-pages/sample_output)
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output)
 in this repository contains the file `surveys_complete.csv` with the data they should generate.
 
 ## 05-merging-data
@@ -749,8 +748,6 @@ plt.show()
 ```
 
 [This page][matplotlib-mathtext] contains more information.
-
-
 
 ## 09-working-with-sql
 
