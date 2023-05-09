@@ -43,10 +43,16 @@
     <loc>https://datacarpentry.github.io/python-ecology-lesson/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/aio.html</loc>
+  </url>
+  <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/discuss.html</loc>
   </url>
   <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/extra_challenges.html</loc>
+  </url>
+  <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/images.html</loc>
   </url>
   <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/index.html</loc>
@@ -94,16 +100,28 @@
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/discuss.html</loc>
   </url>
   <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/extra_challenges.html</loc>
   </url>
   <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/index.html</loc>
   </url>
   <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/jupyter_notebooks.html</loc>
+  </url>
+  <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/profiles.html</loc>
@@ -112,7 +130,13 @@
     <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor/reference.html</loc>
   </url>
   <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/instructor-notes.html</loc>
+  </url>
+  <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/jupyter_notebooks.html</loc>
+  </url>
+  <url>
+    <loc>https://datacarpentry.github.io/python-ecology-lesson/key-points.html</loc>
   </url>
   <url>
     <loc>https://datacarpentry.github.io/python-ecology-lesson/profiles.html</loc>
