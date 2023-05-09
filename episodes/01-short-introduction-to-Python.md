@@ -340,7 +340,72 @@ a_list = [1, 2, 3]
 4. What information does the built-in function `len()` provide?
   Does it provide the same information on both tuples and lists?
   Does the `help()` function confirm this?
-  
+
+::::::::::::::::::::::::::: solution
+
+1. What happens when you execute `a_list[1] = 5`?
+
+The second value in `a_list` is replaced with `5`.
+
+2. What happens when you execute `a_tuple[2] = 5`?
+
+```error
+TypeError: 'tuple' object does not support item assignment
+```
+
+As a tuple is immutable, it does not support item assignment. 
+Elements in a list can be altered individually.
+
+3. What does `type(a_tuple)` tell you about `a_tuple`?
+
+```output
+<class 'tuple'>
+```
+
+The function tells you that the variable `a_tuple` is an object of the class `tuple`.
+
+4. What information does the built-in function `len()` provide?
+  Does it provide the same information on both tuples and lists?
+  Does the `help()` function confirm this?
+
+```python
+len(a_list)
+```
+
+```output
+3
+```
+
+```python
+len(a_tuple)
+```
+
+```output
+3
+```
+
+`len()` tells us the length of an object.
+It works the same for both lists and tuples, 
+providing us with the number of entries in each case.
+
+```python
+help(len)
+```
+
+```output
+Help on built-in function len in module builtins:
+
+len(obj, /)
+    Return the number of items in a container.
+```
+
+Lists and tuples are both types of container 
+i.e. objects that can contain multiple items,
+the key difference being that lists are mutable i.e.
+they can be modified after they have been created,
+while tuples are not: their value cannot be modified, only overwritten.
+
+::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -416,8 +481,51 @@ for key in rev.keys():
   reads "two" but instead `2`.
 3. Print the value of `rev` to the screen again to see if the value has changed.
   
+::::::::::::::::::::::::::: solution
+
+1.
+
+```python
+print(rev)
+```
+
+```output
+{'first': 'one', 'second': 'two', 'third': 'three'}
+```
+
+2. and 3.
+
+```python
+rev['second'] = 2
+print(rev)
+```
+
+```output
+{'first': 'one', 'second': 2, 'third': 'three'}
+```
+
+::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::: instructor
+
+## Assigning to Dictionaries
+
+It can help to further demonstrate the freedom the user has to define
+values to keys in a dictionary, by showing another example with a value
+completely unrelated to the current contents of the dictionary, e.g.
+
+```python
+rev[2] = "apple-sauce"
+print(rev)
+```
+
+```output
+{1: 'one', 2: 'apple-sauce', 3: 'three'}
+```
+
+:::::::::::::::::::::::::::::::::::
 
 ## Functions
 
