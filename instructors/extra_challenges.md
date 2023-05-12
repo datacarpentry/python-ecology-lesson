@@ -6,6 +6,37 @@ title: ' Extra Challenges'
 
 A collection of challenges that have been either removed from or not (yet) added to the main lesson.
 
+## 03-index-slice-subset
+
+::::::::::::::::::::::::::::::::::::::: challenge
+
+## Additional slicing challenge
+
+You can also select every Nth row by providing a third number inside the `[]`, 
+e.g. `surveys_df[1:10:2]` returns every other row in the DataFrame, 
+from the second to the tenth:
+
+```output
+   record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+1          2      7   16  1977        3         NL   M             33.0     NaN
+3          4      7   16  1977        7         DM   M             36.0     NaN
+5          6      7   16  1977        1         PF   M             14.0     NaN
+7          8      7   16  1977        1         DM   M             37.0     NaN
+9         10      7   16  1977        6         PF   F             20.0     NaN
+```
+
+
+Given this, what do you think will happen when you run `surveys_df[::-1]`?
+After you have predicted the result, run the code to see if you were correct.
+
+::::::::::::::::::::::: solution
+
+`surveys_df[::-1]` provides every row of the DataFrame, in reverse order.
+
+::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Looping Over DataFrame
