@@ -29,6 +29,7 @@ Current maintainers of this lesson are
 
 - [Alex Pakalniskis](https://github.com/alex-pakalniskis)
 - [Sarah Pohl](https://github.com/LilithElina)
+- [Ben Tovar](https://github.com/btovar)
 
 ## Authors
 
