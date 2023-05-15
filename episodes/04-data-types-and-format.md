@@ -390,6 +390,16 @@ We will use this data file later in the workshop. Check out your working directo
 sure the CSV wrote out properly, and that you can open it! If you want, try to bring it
 back into Python to make sure it imports properly.
 
+::::::::::::::::::::::: instructor
+
+## Processed Data Checkpoint
+
+If learners have trouble generating the output, or anything happens with that, the folder
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
+
+::::::::::::::::::::::::::::::::::
+
 ## Recap
 
 What we've learned:
