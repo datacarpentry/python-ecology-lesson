@@ -132,7 +132,7 @@ We can use Pandas' `read_csv` function to pull the file directly into a [DataFra
 ### So What's a DataFrame?
 
 A DataFrame is a 2-dimensional data structure that can store data of different
-types (including characters, integers, floating point values, factors and more)
+types (including strings, numbers, categories and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
 R. A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
