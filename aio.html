@@ -2098,7 +2098,7 @@ been generated with <code>groupby()</code>.</li>
 </div>
 </section></section><section id="aio-03-index-slice-subset"><p>Content from <a href="03-index-slice-subset.html">Indexing, Slicing and Subsetting DataFrames in Python</a></p>
 <hr>
-<p> Last updated on 2023-05-08 | 
+<p> Last updated on 2023-05-16 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/03-index-slice-subset.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2433,12 +2433,14 @@ from the original data CSV file.</p>
 <p>We can select specific ranges of our data in both the row and column
 directions using either label or integer-based indexing.</p>
 <ul>
-<li>
-<code>loc</code> is primarily <em>label</em> based indexing.
-<em>Integers</em> may be used but they are interpreted as a
-<em>label</em>.</li>
-<li>
-<code>iloc</code> is primarily <em>integer</em> based indexing</li>
+<li><p><code>iloc</code> is primarily an <em>integer</em> based indexing
+counting from 0. That is, your specify rows and columns giving a number.
+Thus, the first row is row 0, the second column is column 1,
+etc.</p></li>
+<li><p><code>loc</code> is primarily a <em>label</em> based indexing
+where you can refer to rows and columns by their name. E.g., column
+‘month’. Note that <em>integers</em> may be used, but they are
+interpreted as a <em>label</em>.</p></li>
 </ul>
 <p>To select a subset of rows <strong>and</strong> columns from our
 DataFrame, we can use the <code>iloc</code> method. For example, we can
@@ -3210,7 +3212,7 @@ impact scientific results.</p>
   Hints
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>The method <code>.count()</code> gives you the number of non-NaN
 observations per column. Try looking to the <code>.isna()</code>
@@ -5723,7 +5725,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5805,7 +5807,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
