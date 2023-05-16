@@ -283,9 +283,13 @@ surveys_df = pd.read_csv("data/surveys.csv")
 We can select specific ranges of our data in both the row and column directions
 using either label or integer-based indexing.
 
-- `loc` is primarily *label* based indexing. *Integers* may be used but
-  they are interpreted as a *label*.
-- `iloc` is primarily *integer* based indexing
+- `iloc` is primarily an *integer* based indexing counting from 0. That is, your
+  specify rows and columns giving a number. Thus, the first row is row 0,
+  the second column is column 1, etc.
+
+- `loc` is primarily a *label* based indexing where you can refer to rows and
+  columns by their name. E.g., column 'month'. Note that *integers* may be
+  used, but they are interpreted as a *label*.
 
 To select a subset of rows **and** columns from our DataFrame, we can use the
 `iloc` method. For example, we can select month, day and year (columns 2, 3
