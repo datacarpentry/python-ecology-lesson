@@ -707,10 +707,6 @@ def yearly_data_csv_writer(all_data, yearcolumn="year",
 
 ## 07-visualization-ggplot-python
 
-If the students have trouble generating the output, or anything happens with that, there is a file
-called "sample output" that contains the data file they should have generated in lesson 3.
-Answers are embedded with challenges in this lesson.
-
 Note `plotnine` contains a *lot* of deprecation warnings in some versions of python/matplotlib, warnings may need to be supressed with
 
 ```python
