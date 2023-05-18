@@ -151,24 +151,42 @@ a = [1, 2, 3, 4, 5]
 ## Challenge - Extracting data
 
 1. What value does the code below return?
-  
-  ```python 
-  a[0]
-  ```
-
+   
+   ```python 
+   a[0]
+   ```
 2. How about this:
-  
-  ```python 
-  a[5]
-  ```
-
+   
+   ```python 
+   a[5]
+   ```
 3. In the example above, calling `a[5]` returns an error. Why is that?
-
 4. What about?
-  
-  ```python 
-  a[len(a)]
-  ```
+   
+   ```python 
+   a[len(a)]
+   ```
+
+::::::::::::::::::::::: solution
+
+1. `a[0]` returns `1`, as  Python starts with element 0 
+   (this may be different from what you have previously experience with other languages e.g. MATLAB and R)
+2. `a[5]` raises an `IndexError`
+3. The error is raised because the list `a` has no element with index 5:
+   it has only five entries, indexed from 0 to 4.
+4. `a[len(a)]` also raises an `IndexError`.
+   `len(a)` returns `5`, making `a[len(a)]` equivalent to `a[5]`.
+   To retreive the final element of a list, us the index `-1`, e.g.
+   
+   ```python
+   a[-1]
+   ```
+   
+   ```output
+   5
+   ```
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -375,22 +393,59 @@ directly indexing column names.
 ## Challenge - Range
 
 1. What happens when you execute:
-  
-  - `surveys_df[0:1]`
-  - `surveys_df[0]`
-  - `surveys_df[:4]`
-  - `surveys_df[:-1]`
-
+   - `surveys_df[0:1]`
+   - `surveys_df[0]`
+   - `surveys_df[:4]`
+   - `surveys_df[:-1]`
 2. What happens when you call:
+   - `surveys_df.iloc[0:1]`
+   - `surveys_df.iloc[0]`
+   - `surveys_df.iloc[:4, :]`
+   - `surveys_df.iloc[0:4, 1:4]`
+   - `surveys_df.loc[0:4, 1:4]`
+3. How are the last two commands different?
   
-  - `surveys_df.iloc[0:1]`
-  - `surveys_df.iloc[0]`
-  - `surveys_df.iloc[:4, :]`
-  - `surveys_df.iloc[0:4, 1:4]`
-  - `surveys_df.loc[0:4, 1:4]`
+::::::::::::::::::::::: solution
 
-- How are the last two commands different?
+### Selection Challenges
+
+1. 
+   - `surveys_df[0:3]` returns the first three rows of the DataFrame:
+   
+   ```output
+         record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+   0          1      7   16  1977        2         NL   M             32.0     NaN
+   1          2      7   16  1977        3         NL   M             33.0     NaN
+   2          3      7   16  1977        2         DM   F             37.0     NaN
+   ```
+
+   - `surveys_df[0]` results in a 'KeyError', since direct indexing of a row is redundant with `iloc`.
+   - `surveys_df[0:1]` can be used to obtain only the first row.
+   - `surveys_df[:5]` slices from the first row to the fifth:
   
+   ```output
+      record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+   0          1      7   16  1977        2         NL   M             32.0     NaN
+   1          2      7   16  1977        3         NL   M             33.0     NaN
+   2          3      7   16  1977        2         DM   F             37.0     NaN
+   3          4      7   16  1977        7         DM   M             36.0     NaN
+   4          5      7   16  1977        3         DM   M             35.0     NaN
+   ```
+   - `surveys_df[:-1]` provides everything except the final row of the DataFrame.
+    You can use negative index numbers to count backwards from the last entry.
+2. 
+   - `surveys_df.iloc[0:1]` returns the first row
+   - `surveys_df.iloc[0]` returns the first row as a named list
+   - `surveys_df.iloc[:4, :]` returns all columns of the first four rows
+   - `surveys_df.iloc[0:4, 1:4]` selects specified columns of the first four rows
+   - `surveys_df.loc[0:4, 1:4]` results in a 'TypeError' - see below.
+3. While `iloc` uses integers as indices and slices accordingly, `loc` works with labels.
+   It is like accessing values from a dictionary, asking for the key names. 
+   Column names 1:4 do not exist, so the call to `loc` above results in an error. 
+   Check also the difference between `surveys_df.loc[0:4]` and `surveys_df.iloc[0:4]`.
+
+::::::::::::::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -449,30 +504,106 @@ Experiment with selecting various subsets of the "surveys" data.
 
 ## Challenge - Queries
 
-1. Select a subset of rows in the `surveys_df` DataFrame that contain data from
-  the year 1999 and that contain weight values less than or equal to 8. How
-  many rows did you end up with? What did your neighbor get?
-
-2. You can use the `isin` command in Python to query a DataFrame based upon a
-  list of values as follows:
-  
-  ```python 
-  surveys_df[surveys_df['species_id'].isin([listGoesHere])]
-  ```
-
-Use the `isin` function to find all plots that contain particular species
-in the "surveys" DataFrame. How many records contain these values?
-
-3. Experiment with other queries. Create a query that finds all rows with a
-  weight value > or equal to 0.
-
+1. Select a subset of rows in the `surveys_df` DataFrame that contain 
+   data from the year 1999 and that contain weight values less than or equal to 8.
+   How many rows did you end up with? What did your neighbor get?
+2. You can use the `isin` command in Python to query a DataFrame based upon 
+   a list of values as follows:
+   
+   ```python 
+   surveys_df[surveys_df['species_id'].isin([listGoesHere])]
+   ```
+   
+   Use the `isin` function to find all plots that contain particular species
+   in the "surveys" DataFrame. How many records contain these values?
+3. Experiment with other queries. 
+   Create a query that finds all rows with 
+   a weight value greater than or equal to 0.
 4. The `~` symbol in Python can be used to return the OPPOSITE of the
-  selection that you specify in Python. It is equivalent to **is not in**.
-  Write a query that selects all rows with sex NOT equal to 'M' or 'F' in
-  the "surveys" data.
-  
+   selection that you specify.
+   It is equivalent to **is not in**.
+   Write a query that selects all rows with sex NOT equal to 'M' or 'F' in the "surveys" data.
+
+::::::::::::::::::::::: solution
+
+1. 
+   ```python
+   surveys_df[(surveys_df["year"] == 1999) & (surveys_df["weight"] <= 8)]
+   ```
+   
+   ```output
+          record_id  month  day  year  plot_id species_id sex  hindfoot_length  weight
+   29082      29083      1   16  1999       21         RM   M             16.0     8.0
+   29196      29197      2   20  1999       18         RM   M             18.0     8.0
+   29421      29422      3   15  1999       16         RM   M             15.0     8.0
+   29903      29904     10   10  1999        4         PP   M             20.0     7.0
+   29905      29906     10   10  1999        4         PP   M             21.0     4.0
+   ```
+   
+   If you are only interested in how many rows meet the criteria, 
+   the sum of `True` values could be used instead:
+   
+   ```python
+   sum((surveys_df["year"] == 1999) & (surveys_df["weight"] <= 8))
+   ```
+   
+   ```output
+   5
+   ```
+2. For example, using `PB` and `PL`:
+   
+   ```python
+   surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])]['plot_id'].unique()
+   ``` 
+   
+   ```output
+   array([ 1, 10,  6, 24,  2, 23, 19, 12, 20, 22,  3,  9, 14, 13, 21,  7, 11,
+      15,  4, 16, 17,  8, 18,  5])
+   ```
+   
+   ```python
+   surveys_df[surveys_df['species_id'].isin(['PB', 'PL'])]['plot_id'].unique().shape
+   ```
+   
+   ```output
+   (24,)
+   ```
+3. `surveys_df[surveys_df["weight"] >= 0]`
+4. 
+   ```python
+   surveys_df[~surveys_df["sex"].isin(['M', 'F'])]
+   ```
+   
+   ```output
+          record_id  month  day  year  plot_id species_id  sex  hindfoot_length  weight
+   13            14      7   16  1977        8         DM  NaN              NaN     NaN
+   18            19      7   16  1977        4         PF  NaN              NaN     NaN
+   33            34      7   17  1977       17         DM  NaN              NaN     NaN
+   56            57      7   18  1977       22         DM  NaN              NaN     NaN
+   76            77      8   19  1977        4         SS  NaN              NaN     NaN
+   ...          ...    ...  ...   ...      ...        ...  ...              ...     ...
+   35527      35528     12   31  2002       13         US  NaN              NaN     NaN
+   35543      35544     12   31  2002       15         US  NaN              NaN     NaN
+   35544      35545     12   31  2002       15         AH  NaN              NaN     NaN
+   35545      35546     12   31  2002       15         AH  NaN              NaN     NaN
+   35548      35549     12   31  2002        5        NaN  NaN              NaN     NaN
+   
+   [2511 rows x 9 columns]
+   ```
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::: instructor
+
+When working through the solutions to the challenges above,
+you could introduce already that all these slice operations are actually based on a
+*Boolean indexing* operation (next section in the lesson).
+The filter provides for each record if it satisfies (True) or not (False).
+The slicing itself interprets the True/False of each record.
+
+::::::::::::::::::::::::::::::::::
 
 ## Using masks to identify a specific condition
 
@@ -555,18 +686,74 @@ asking Python to select rows that have a `NaN` value of weight.
 ## Challenge - Putting it all together
 
 1. Create a new DataFrame that only contains observations with sex values that
-  are **not** female or male. Print the number of rows in this new DataFrame.
-  Verify the result by comparing the number of rows in the new DataFrame with
-  the number of rows in the surveys DataFrame where sex is null.
-
+   are **not** female or male.
+   Print the number of rows in this new DataFrame.
+   Verify the result by comparing the number of rows in the new DataFrame with
+   the number of rows in the surveys DataFrame where sex is null.
 2. Create a new DataFrame that contains only observations that are of sex male
-  or female and where weight values are greater than 0. Create a stacked bar
-  plot of average weight by plot with male vs female values stacked for each
-  plot.
-  
+   or female and where weight values are greater than 0.
+   Create a stacked bar plot of average weight by plot 
+   with male vs female values stacked for each plot.
+
+::::::::::::::::::::::: solution
+
+1. 
+   ```python
+   new = surveys_df[~surveys_df['sex'].isin(['M', 'F'])].copy()
+   print(len(new))
+   ```
+   
+   ```output
+   2511
+   ```
+   
+   ```python
+   sum(surveys_df['sex'].isnull()) == len(new)
+   ```
+   
+   ```output
+   True
+   ```
+2. 
+   ```python
+   # selection of the data with isin
+   stack_selection = surveys_df[(surveys_df['sex'].isin(['M', 'F'])) &
+                 surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
+   # calculate the mean weight for each plot id and sex combination:
+   stack_selection = stack_selection.groupby(["plot_id", "sex"]).mean().unstack()
+   # and we can make a stacked bar plot from this:
+   stack_selection.plot(kind='bar', stacked=True)
+   ```
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::: instructor
+
+Referring to the challenge solution above,
+as we know the other values are all Nan values, we could also select all not null
+values:
+  
+```python
+stack_selection = surveys_df[(surveys_df['sex'].notnull()) &
+          surveys_df["weight"] > 0.][["sex", "weight", "plot_id"]]
+```
+  
+![](fig/02_chall_stack_levelissue.png){alt='average weight for each plot per sex'}
+
+However, due to the `unstack` command, the legend header contains two levels.
+In order to remove this, the column naming needs to be simplified:
+
+```python
+stack_selection.columns = stack_selection.columns.droplevel()
+```
+
+![](fig/02_chall_stack_level.png){alt='average weight for each plot per sex'}
+
+This is just a preview, more in next episode.
+
+::::::::::::::::::::::::::::::::::
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
