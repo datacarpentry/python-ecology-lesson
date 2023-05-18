@@ -27,43 +27,6 @@ If learners receive an `AssertionError`, it will inform you how to help them cor
 installation. Otherwise, it will tell you that the system is good to go and ready for Data
 Carpentry!
 
-## 01-short-introduction-to-Python
-
-### Tuples Challenges
-
-- What happens when you execute `a_list[1] = 5`?
-
-- What happens when you execute `a_tuple[2] = 5`?
-  
-  As a tuple is immutable, it does not support item assignment. Elements in a list can be altered
-  individually.
-
-- What does `type(a_tuple)` tell you about `a_tuple`?
-  
-  `tuple`
-
-### Dictionaries Challenges
-
-- Changing dictionaries: 2. Reassign the value that corresponds to the key `2`.
-
-Make sure it is also clear that access to 'the value that corresponds to the key `2`' is actually
-just about the key name. Add for example `rev[10] = "ten"` to clarify it is not about the position.
-
-```python
-rev
-```
-
-```output
-{1: 'one', 2: 'two', 3: 'three'}
-```
-
-```python
-rev[2] = "apple-sauce"
-```
-
-```output
-{1: 'one', 2: 'apple-sauce', 3: 'three'}
-```
 
 ## 02-starting-with-data
 
