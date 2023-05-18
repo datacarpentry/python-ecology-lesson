@@ -65,6 +65,15 @@ surveys_complete = pd.read_csv('data/surveys.csv')
 surveys_complete = surveys_complete.dropna()
 ```
 
+::::::::::::::::::::::: instructor
+
+If learners have trouble generating the output, or anything happens with that, the folder
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
+
+::::::::::::::::::::::::::::::::::
+
+
 ## Plotting with plotnine
 
 The `plotnine` package (cfr. other packages conform The Grammar of Graphics) supports the creation of complex plots from data in a
