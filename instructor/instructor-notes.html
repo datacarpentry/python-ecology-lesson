@@ -566,291 +566,16 @@ described here which calculates diversity as
 <figure><img src="../fig/04_chall_diversity_index.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure>
 </div>
 <div class="section level2">
-<h2 id="loops-and-functions">06-loops-and-functions<a class="anchor" aria-label="anchor" href="#loops-and-functions"></a>
-</h2>
-<div class="section level3">
-<h3 id="basic-loop-challenges">Basic Loop Challenges<a class="anchor" aria-label="anchor" href="#basic-loop-challenges"></a>
-</h3>
-<ul>
-<li>
-<p>What happens if we do not include the <code>pass</code>
-statement?</p>
-<p><code>SyntaxError:</code></p>
-</li>
-<li><p>Rewrite the loop so that the animals are separated by commas, not
-new lines (Hint: You can concatenate strings using a plus sign. For
-example, <code>print(string1 + string2)</code> outputs
-‘string1string2’).</p></li>
-</ul>
-<div class="codewrapper sourceCode" id="cb14">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> creature <span class="kw">in</span> animals:</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(creature <span class="op">+</span> <span class="st">','</span>, end<span class="op">=</span><span class="st">''</span>)</span></code></pre>
-</div>
-<p>This loop also adds a comma after the last animal. A better,
-loop-free solution would be: <code>','.join(animals)</code></p>
-</div>
-<div class="section level3">
-<h3 id="looping-over-dataframe-challenges">Looping Over Dataframe Challenges<a class="anchor" aria-label="anchor" href="#looping-over-dataframe-challenges"></a>
-</h3>
-<ul>
-<li>Some of the surveys you saved are missing data (they have null
-values that show up as NaN - Not A Number - in the DataFrames and do not
-show up in the text files). Modify the for loop so that the entries with
-null values are not included in the yearly files.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb15">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year].dropna()</span></code></pre>
-</div>
-<ul>
-<li>Let’s say you only want to look at data from a given multiple of
-years. How would you modify your loop in order to generate a data file
-for only every 5th year, starting from 1977?</li>
-</ul>
-<p>You could just make a list manually, however, why not check the first
-and last year making use of the code itself?</p>
-<div class="codewrapper sourceCode" id="cb16">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>n_year <span class="op">=</span> <span class="dv">5</span>  <span class="co"># better overview by making variable from it</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>first_year <span class="op">=</span> surveys_df[<span class="st">'year'</span>].<span class="bu">min</span>()</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>last_year <span class="op">=</span> surveys_df[<span class="st">'year'</span>].<span class="bu">max</span>()</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(first_year, last_year, n_year):</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(year)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year].dropna()</span></code></pre>
-</div>
-<ul>
-<li>Instead of splitting out the data by years, a colleague wants to do
-analyses each species separately. How would you write a unique csv file
-for each species?</li>
-</ul>
-<p>Similar to previous example, but use the <code>species_id</code>
-column. <code>surveys_df['species_id'].unique()</code>. However, the
-species names would improve interpretation of the file naming. A join
-with the species:
-<code>merged_left = pd.merge(left=surveys,right=species, how='left', on="species_id")</code>
-and using the <code>species</code> column.</p>
-</div>
-<div class="section level3">
-<h3 id="functions-challenges">Functions Challenges<a class="anchor" aria-label="anchor" href="#functions-challenges"></a>
-</h3>
-<ul>
-<li>Change the values of the arguments in the function and check its
-output.</li>
-<li>Try calling the function by giving it the wrong number of arguments
-(not 2), or not assigning the function call to a variable (no
-<code>product_of_inputs =</code>).</li>
-<li>Declare a variable inside the function and test to see where it
-exists (Hint: can you print it from outside the function?).</li>
-<li>Explore what happens when a variable both inside and outside the
-function have the same name. What happens to the global variable when
-you change the value of the local variable?</li>
-</ul>
-<p>Show these in a debugging environment to make this more clear!</p>
-</div>
-<div class="section level3">
-<h3 id="additional-functions-challenges">Additional Functions Challenges<a class="anchor" aria-label="anchor" href="#additional-functions-challenges"></a>
-</h3>
-<ul>
-<li>Add two arguments to the functions we wrote that take the path of
-the directory where the files will be written and the root of the file
-name. Create a new set of files with a different name in a different
-directory.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb17">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save, root_name):</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
-</div>
-<p>Also adapt function <code>yearly_data_csv_writer</code> with the
-additional inputs.</p>
-<ul>
-<li>How could you use the function <code>yearly_data_csv_writer</code>
-to create a csv file for only one year? (Hint: think about the syntax
-for <code>range</code>)</li>
-</ul>
-<p>Adapt the input arguments, e.g. 1978, 1979.</p>
-</div>
-<div class="section level3">
-<h3 id="output-management-challenges">Output Management Challenges<a class="anchor" aria-label="anchor" href="#output-management-challenges"></a>
-</h3>
-<ul>
-<li>Make the functions return a list of the files they have written.
-There are many ways you can do this (and you should try them all!):
-<ul>
-<li>either of the functions can print to screen, just add
-<code>print("year " + str(this_year)+ " written to disk")</code>
-statement</li>
-<li>either can use a return statement to give back numbers or strings to
-their function call,</li>
-<li>or you can use some combination of the two.</li>
-<li>You could also try using the os library to list the contents of
-directories. <code>os.listdir</code>
-</li>
-</ul>
-</li>
-</ul>
-<p>Implementation inside the function:</p>
-<div class="codewrapper sourceCode" id="cb18">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>filenames <span class="op">=</span> []</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> filenames</span></code></pre>
-</div>
-<ul>
-<li><p>Explore what happens when variables are declared inside each of
-the functions versus in the main (non-indented) body of your code. What
-is the scope of the variables (where are they visible)? What happens
-when they have the same name but are given different values?</p></li>
-<li><p>What type of object corresponds to a variable declared as
-<code>None</code>? (Hint: create a variable set to <code>None</code> and
-use the function <code>type()</code>)</p></li>
-</ul>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code><span><span class="va">NoneType</span></span></code></pre>
-</div>
-<ul>
-<li><p>Compare the behavior of the function
-<code>yearly_data_arg_test</code> when the arguments have
-<code>None</code> as a default and when they do not have default
-values.</p></li>
-<li><p>What happens if you only include a value for
-<code>start_year</code> in the function call? Can you write the function
-call with only a value for <code>end_year</code>? (Hint: think about how
-the function must be assigning values to each of the arguments - this is
-related to the need to put the arguments without default values before
-those with default values in the function definition!)</p></li>
-</ul>
-<div class="codewrapper sourceCode" id="cb20">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">2001</span>)</span></code></pre>
-</div>
-</div>
-<div class="section level3">
-<h3 id="functions-modifications-challenges">Functions Modifications Challenges<a class="anchor" aria-label="anchor" href="#functions-modifications-challenges"></a>
-</h3>
-<ul>
-<li>Rewrite the <code>one_year_csv_writer</code> and
-<code>yearly_data_csv_writer</code> functions to have keyword arguments
-with default values.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
-</div>
-<ul>
-<li>Modify the functions so that they do not create yearly files if
-there is no data for a given year and display an alert to the user
-(Hint: use <code>for</code> loops and conditional statements to do this.
-For an extra challenge, use <code>try</code> statements!)</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(surveys_year) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>        surveys_year.to_csv(filename)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"No data for year "</span> <span class="op">+</span> <span class="bu">str</span>(this_year))</span></code></pre>
-</div>
-<ul>
-<li>The code that you have written so far to loop through the years is
-good, however, it is not necessarily reproducible with different
-datasets. For instance, what happens to the code if we have additional
-years of data in our CSV files? Using the tools that you learned in the
-previous activities, make a list of all years represented in the data.
-Then create a loop to process your data, that begins at the earliest
-year and ends at the latest year using that list.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(all_data, yearcolumn<span class="op">=</span><span class="st">"year"</span>,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                           folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate csv files for each year of data.</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data --- DataFrame with multi-year data</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co">    yearcolumn --- column name containing the year of the data</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save --- folder name to store files</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name --- start of the file names stored</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    years <span class="op">=</span> all_data[<span class="st">"year"</span>].unique()</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "end_year" is the last year of data we want to pull, so we loop to end_year+1</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>    filenames <span class="op">=</span> []</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> years:</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>        filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filenames</span></code></pre>
-</div>
-</div>
-</div>
-<div class="section level2">
 <h2 id="visualization-ggplot-python">07-visualization-ggplot-python<a class="anchor" aria-label="anchor" href="#visualization-ggplot-python"></a>
 </h2>
 <p>Note <code>plotnine</code> contains a <em>lot</em> of deprecation
 warnings in some versions of python/matplotlib, warnings may need to be
 supressed with</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
 </div>
 <p>iPython notebooks for plotting can be viewed in the
 <code>_extras</code> folder</p>
@@ -871,21 +596,21 @@ To use mathematical notation, surround your text using the dollar sign
 (“$”). LaTeX uses the backslash character (“\”) a lot. Since backslash
 has a special meaning in the Python strings, you should replace all the
 LaTeX-related backslashes with two backslashes.</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <p><a href="https://matplotlib.org/users/mathtext.html" class="external-link">This page</a>
 contains more information.</p>
@@ -902,25 +627,25 @@ contains more information.</p>
 observation’s genus and species and site type for the sample. How many
 records are returned?</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="st">  surveys.species_id = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="st">  AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(cur.fetchall()))</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the connection</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="st">  FROM surveys INNER JOIN plots ON surveys.plot_id = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="st">  surveys.species_id = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="st">  AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(cur.fetchall()))</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the connection</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -937,27 +662,27 @@ site, ordered by site ID.</li>
 queries into dataframes, then pivot the second and merge them to create
 a table of observation count and plot total weight per year. The PIVOT
 operation could alternatively be performed in SQL.</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create two sqlite queries results, read as pandas DataFrame</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot_id,SUM(weight) FROM surveys GROUP BY </span><span class="ch">\</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="st">        year,plot_id ORDER BY plot_id ASC"</span>,con)</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2.pivot(index<span class="op">=</span><span class="st">'year'</span>,columns<span class="op">=</span><span class="st">'plot_id'</span>)[<span class="st">'SUM(weight)'</span>]</span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.merge(df1, df2, on<span class="op">=</span><span class="st">'year'</span>)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that result of the SQL queries is stored in the combined dataframe</span></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create two sqlite queries results, read as pandas DataFrame</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot_id,SUM(weight) FROM surveys GROUP BY </span><span class="ch">\</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="st">        year,plot_id ORDER BY plot_id ASC"</span>,con)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2.pivot(index<span class="op">=</span><span class="st">'year'</span>,columns<span class="op">=</span><span class="st">'plot_id'</span>)[<span class="st">'SUM(weight)'</span>]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.merge(df1, df2, on<span class="op">=</span><span class="st">'year'</span>)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that result of the SQL queries is stored in the combined dataframe</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 <p>Output looks something like</p>
 <div class="codewrapper">
@@ -995,10 +720,10 @@ database.</li>
 </ul>
 <p>Per the example in the lesson, create a variable for the results of
 the SQL query, then add something like</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>new_table<span class="op">&gt;</span>.to_sql(<span class="st">"New Table"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>new_table<span class="op">&gt;</span>.to_sql(<span class="st">"New Table"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span></code></pre>
 </div>
 <ul>
 <li>What are some of the reasons you might want to save the results of
@@ -1082,7 +807,10 @@ in this repository contains the file <code>surveys_complete.csv</code>
 with the data they should generate.</p>
 <hr></section><section id="05-merging-data"><h2 class="section-heading"><a href="05-merging-data.html">Combining DataFrames with Pandas</a></h2>
 <hr class="half-width"></section><section id="06-loops-and-functions"><h2 class="section-heading"><a href="06-loops-and-functions.html">Data Workflows and Automation</a></h2>
-<hr class="half-width"></section><section id="07-visualization-ggplot-python"><h2 class="section-heading"><a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></h2>
+<hr class="half-width">
+<p>When teaching the challenge below, demonstrating the results in a
+debugging environment can make function scope more clear.</p>
+<hr></section><section id="07-visualization-ggplot-python"><h2 class="section-heading"><a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></h2>
 <hr class="half-width">
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>

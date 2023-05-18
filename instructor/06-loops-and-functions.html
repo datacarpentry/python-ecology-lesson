@@ -290,7 +290,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data Workflows and Automation</h1>
-        <p> Last updated on 2023-05-08 | 
+        <p> Last updated on 2023-05-18 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/06-loops-and-functions.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -406,12 +406,12 @@ anymore, but the for loop still runs and the value of
 <code>creature</code> changes on each pass through the loop. The
 statement <code>pass</code> in the body of the loop means “do
 nothing”.</p>
-<div id="discussion1" class="callout discussion">
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---loops" class="callout-inner">
-<h3 class="callout-title">Challenge - Loops<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Challenge - Loops<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>What happens if we don’t include the <code>pass</code>
@@ -423,6 +423,60 @@ example, <code>print(string1 + string2)</code> outputs
 </ol></div>
 </div>
 </div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>animals <span class="op">=</span> [<span class="st">'lion'</span>, <span class="st">'tiger'</span>, <span class="st">'crocodile'</span>, <span class="st">'vulture'</span>, <span class="st">'hippo'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> creature <span class="kw">in</span> animals:</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>IndentationError: expected an indented block</code></pre>
+</div>
+</li>
+<li>
+<p>Using the <code>end</code> argument to <code>print</code>:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> creature <span class="kw">in</span> animals:</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(creature <span class="op">+</span> <span class="st">','</span>, end<span class="op">=</span><span class="st">''</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>lion,tiger,crocodile,vulture,hippo,</code></pre>
+</div>
+<p>This puts a comma on the end of the list, which is not ideal. To
+avoid this, we need to use an altogether different approach: string
+objects in Python have a <code>join</code> method, which can be used to
+concatenate items in a list with the string in between, e.g.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">', '</span>.join(animals)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="st">'lion, tiger, crocodile, vulture, hippo'</span></span></code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
 </section><section id="automating-data-processing-using-for-loops"><h2 class="section-heading">Automating data processing using For Loops<a class="anchor" aria-label="anchor" href="#automating-data-processing-using-for-loops"></a>
 </h2>
 <hr class="half-width"><p>The file we’ve been using so far, <code>surveys.csv</code>, contains
@@ -431,20 +485,20 @@ for each year into a separate file.</p>
 <p>Let’s start by making a new directory inside the folder
 <code>data</code> to store all of these files using the module
 <code>os</code>:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>os.mkdir(<span class="st">'data/yearly_files'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>os.mkdir(<span class="st">'data/yearly_files'</span>)</span></code></pre>
 </div>
 <p>The command <code>os.mkdir</code> is equivalent to <code>mkdir</code>
 in the shell. Just so we are sure, we can check that the new directory
 was created within the <code>data</code> folder:</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>os.listdir(<span class="st">'data'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>os.listdir(<span class="st">'data'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -465,19 +519,19 @@ species data into memory as a DataFrame, how to select a subset of the
 data using some criteria, and how to write the DataFrame into a CSV
 file. Let’s write a script that performs those three steps in sequence
 for the year 2002:</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only data for the year 2002</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>surveys2002 <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> <span class="dv">2002</span>]</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the new DataFrame to a CSV file</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>surveys2002.to_csv(<span class="st">'data/yearly_files/surveys2002.csv'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only data for the year 2002</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>surveys2002 <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> <span class="dv">2002</span>]</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the new DataFrame to a CSV file</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>surveys2002.to_csv(<span class="st">'data/yearly_files/surveys2002.csv'</span>)</span></code></pre>
 </div>
 <p>To create yearly data files, we could repeat the last two commands
 over and over, once for each year of data. Repeating code is neither
@@ -491,10 +545,10 @@ filenames is a good way to confirm that the loop is behaving as we
 expect.</p>
 <p>We have seen that we can loop over a list of items, so we need a list
 of years to loop over. We can get the years in our DataFrame with:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'year'</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'year'</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -511,10 +565,10 @@ of years to loop over. We can get the years in our DataFrame with:</p>
 </div>
 <p>but we want only unique years, which we can get using the
 <code>unique</code> method which we have already seen.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'year'</span>].unique()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'year'</span>].unique()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -524,12 +578,12 @@ of years to loop over. We can get the years in our DataFrame with:</p>
        1999, 2000, 2001, 2002], dtype=int64)</code></pre>
 </div>
 <p>Putting this into our for loop we get</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> surveys_df[<span class="st">'year'</span>].unique():</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>   filename<span class="op">=</span><span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(filename)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> surveys_df[<span class="st">'year'</span>].unique():</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>   filename<span class="op">=</span><span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(filename)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -563,20 +617,20 @@ of years to loop over. We can get the years in our DataFrame with:</p>
 </div>
 <p>We can now add the rest of the steps we need to create separate text
 files:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> surveys_df[<span class="st">'year'</span>].unique():</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year]</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a CSV file</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> surveys_df[<span class="st">'year'</span>].unique():</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year]</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a CSV file</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
 </div>
 <p>Look inside the <code>yearly_files</code> directory and check a
 couple of the files you just created to confirm that everything worked
@@ -585,10 +639,10 @@ as expected.</p>
 </h2>
 <hr class="half-width"><p>Notice that the code above created a unique filename for each
 year.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>filename <span class="op">=</span> <span class="st">'data/yearly_files/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span></code></pre>
 </div>
 <p>Let’s break down the parts of this name:</p>
 <ul><li>The first part is some text that specifies the directory to store
@@ -606,12 +660,12 @@ we want to add to the file name: <code>+ str(year)</code>
 not surrounded by quotes. This code produces the string
 <code>data/yearly_files/surveys2002.csv</code> which contains the path
 to the new filename AND the file name itself.</p>
-<div id="discussion2" class="callout discussion">
+<div id="challenge2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---modifying-loops" class="callout-inner">
-<h3 class="callout-title">Challenge - Modifying loops<a class="anchor" aria-label="anchor" href="#discussion2"></a>
+<h3 class="callout-title">Challenge - Modifying loops<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Some of the surveys you saved are missing data (they have null
@@ -625,6 +679,49 @@ for only every 5th year, starting from 1977?</p></li>
 do analyses each species separately. How would you write a unique CSV
 file for each species?</p></li>
 </ol></div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year].dropna()</span></code></pre>
+</div></li>
+<li>
+<p>You could just make a list manually, however, why not check the
+first and last year making use of the code itself?</p>
+<div class="codewrapper sourceCode" id="cb28">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>n_year <span class="op">=</span> <span class="dv">5</span>  <span class="co"># better overview by making variable from it</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>first_year <span class="op">=</span> surveys_df[<span class="st">'year'</span>].<span class="bu">min</span>()</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>last_year <span class="op">=</span> surveys_df[<span class="st">'year'</span>].<span class="bu">max</span>()</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(first_year, last_year, n_year):</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(year)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year].dropna()</span></code></pre>
+</div>
+</li>
+<li><div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> species <span class="kw">in</span> surveys_df[<span class="st">'species_id'</span>].dropna().unique():</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    surveys_species <span class="op">=</span> surveys_df[surveys_df.species_id <span class="op">==</span> species]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'episodes/data/species_files/surveys'</span> <span class="op">+</span> species <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    surveys_species.to_csv(filename)</span></code></pre>
+</div></li>
+</ol></div>
+</div>
 </div>
 </div>
 </section><section id="building-reusable-and-modular-code-with-functions"><h2 class="section-heading">Building reusable and modular code with functions<a class="anchor" aria-label="anchor" href="#building-reusable-and-modular-code-with-functions"></a>
@@ -649,17 +746,16 @@ collection of functions. We will only use functions that are housed
 within the same code that uses them, but we can also write functions
 that can be used by different programs.</p>
 <p>Functions are declared following this general structure:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> this_is_the_function_name(input_argument1, input_argument2):</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The body of the function is indented</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This function prints the two arguments to screen</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The function arguments are:'</span>, input_argument1, input_argument2, <span class="st">'(this is done inside the function!)'</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And returns their product</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> input_argument1 <span class="op">*</span> input_argument2</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> this_is_the_function_name(input_argument1, input_argument2):</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The body of the function is indented</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This function prints the two arguments to screen</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The function arguments are:'</span>, input_argument1, input_argument2, <span class="st">'(this is done inside the function!)'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And returns their product</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> input_argument1 <span class="op">*</span> input_argument2</span></code></pre>
 </div>
 <p>The function declaration starts with the word <code>def</code>,
 followed by the function name and any arguments in parenthesis, and ends
@@ -667,36 +763,52 @@ in a colon. The body of the function is indented just like loops are. If
 the function returns something when it is called, it includes a return
 statement at the end.</p>
 <p>This is how we call the function:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>product_of_inputs <span class="op">=</span> this_is_the_function_name(<span class="dv">2</span>, <span class="dv">5</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>product_of_inputs <span class="op">=</span> this_is_the_function_name(<span class="dv">2</span>, <span class="dv">5</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>The function arguments are: 2 5 (this is done inside the function!)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Their product is:'</span>, product_of_inputs, <span class="st">'(this is done outside the function!)'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Their product is:'</span>, product_of_inputs, <span class="st">'(this is done outside the function!)'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Their product is: 10 (this is done outside the function!)</code></pre>
 </div>
-<div id="discussion3" class="callout discussion">
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Instructor Note
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>When teaching the challenge below, demonstrating the results in a
+debugging environment can make function scope more clear.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge3" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---functions" class="callout-inner">
-<h3 class="callout-title">Challenge - Functions<a class="anchor" aria-label="anchor" href="#discussion3"></a>
+<h3 class="callout-title">Challenge - Functions<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li>Change the values of the arguments in the function and check its
-output</li>
+<ol style="list-style-type: decimal"><li>Change the values of the arguments provided to the function and
+check its output</li>
 <li>Try calling the function by giving it the wrong number of arguments
 (not 2) or not assigning the function call to a variable (no
 <code>product_of_inputs =</code>)</li>
@@ -708,28 +820,163 @@ you change the value of the local variable?</li>
 </ol></div>
 </div>
 </div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li>
+<p>For example, using an integer and a string:</p>
+<div class="codewrapper sourceCode" id="cb35">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>product_of_inputs <span class="op">=</span> this_is_the_function_name(<span class="dv">3</span>, <span class="st">'clap'</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(product_of_inputs)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The function arguments are: 3 clap (this is done inside the function!)
+clapclapclap</code></pre>
+</div>
+</li>
+<li>
+<p>For example, providing a third integer argument:</p>
+<div class="codewrapper sourceCode" id="cb37">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>product_of_inputs <span class="op">=</span> this_is_the_function_name(<span class="dv">3</span>, <span class="dv">18</span>, <span class="dv">33</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>TypeError: this_is_the_function_name() takes 2 positional arguments but 3 were given</code></pre>
+</div>
+<p>and proving the correct number of arguments but not capturing the
+return value in a variable:</p>
+<div class="codewrapper sourceCode" id="cb39">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>this_is_the_function_name(<span class="dv">23</span>, <span class="dv">108</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The function arguments are: 23 108 (this is done inside the function!)
+2484</code></pre>
+</div>
+</li>
+<li>
+<p>An example looking at variables defined outside and inside the
+function. Note that the explanatory comments have been removed from the
+function definition.</p>
+<div class="codewrapper sourceCode" id="cb41">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>var_defined_outside <span class="op">=</span> <span class="st">'outside'</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> this_is_the_function_name(input_argument1, input_argument2):</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    var_defined_inside <span class="op">=</span> <span class="st">'inside'</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The function arguments are:'</span>, input_argument1, input_argument2, <span class="st">'(this is done inside the function!)'</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'This variable was created '</span> <span class="op">+</span> var_defined_outside <span class="op">+</span> <span class="st">' the function'</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> input_argument1 <span class="op">*</span> input_argument2</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>this_is_the_function_name(<span class="fl">3.3</span>, <span class="fl">7.9</span>)</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'This variable was created'</span> <span class="op">+</span> var_defined_inside <span class="op">+</span> <span class="st">' the function'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The function arguments are: 3.3 7.9 (this is done inside the function!)
+This variable was created outside the function
+26.07</code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>NameError: name 'var_defined_inside' is not defined</code></pre>
+</div>
+<p>We can see from these results that variables defined outside the
+function are available for use inside them, while variables defined
+inside a function are not available outside them.</p>
+</li>
+<li>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>shared_variable_name <span class="op">=</span> <span class="st">'who would I be'</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> this_is_the_function_name(input_argument1, input_argument2):</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    shared_variable_name <span class="op">=</span> <span class="st">'without you'</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The function arguments are:'</span>, input_argument1, input_argument2, <span class="st">'(this is done inside the function!)'</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> input_argument1 <span class="op">*</span> input_argument2</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shared_variable_name)</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>this_is_the_function_name(<span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># does calling the function change the variable's value?</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shared_variable_name)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>who would I be
+The function arguments are: 2 3 (this is done inside the function!)
+6
+who would I be</code></pre>
+</div>
+<p>And what about if we modify the variable inside the function?</p>
+<div class="codewrapper sourceCode" id="cb46">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> this_is_the_function_name(input_argument1, input_argument2):</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    shared_variable_name <span class="op">=</span> <span class="st">'without you'</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    shared_variable_name <span class="op">=</span> shared_variable_name <span class="op">+</span> <span class="st">', without them?'</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(shared_variable_name)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'The function arguments are:'</span>, input_argument1, input_argument2, <span class="st">'(this is done inside the function!)'</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> input_argument1 <span class="op">*</span> input_argument2</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>this_is_the_function_name(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shared_variable_name)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>without you, without them?
+The function arguments are: 2 3 (this is done inside the function!)
+6
+who would I be</code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
 <p>We can now turn our code for saving yearly data files into a
 function. There are many different “chunks” of this code that we can
 turn into functions, and we can even create functions that call other
 functions inside them. Let’s first write a function that separates data
 for just one year and saves that data to a file:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data):</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year -- year for which data is extracted</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/yearly_files/function_surveys'</span> <span class="op">+</span> <span class="bu">str</span>(this_year) <span class="op">+</span> <span class="st">'.csv'</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data):</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year -- year for which data is extracted</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/yearly_files/function_surveys'</span> <span class="op">+</span> <span class="bu">str</span>(this_year) <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
 </div>
 <p>The text between the two sets of triple double quotes is called a
 docstring and contains the documentation for the function. It does
@@ -738,10 +985,10 @@ it is good practice to include docstrings as a reminder of what the code
 does. Docstrings in functions also become part of their ‘official’
 documentation, and we can see them by typing
 <code>help(function_name)</code>:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(one_year_csv_writer)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="bu">help</span>(one_year_csv_writer)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -755,15 +1002,15 @@ one_year_csv_writer(this_year, all_data)
 </div>
 <p>Or, when working in the Jupyter environment, adding a <code>?</code>
 (question mark) after the function name:</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>one_year_csv_writer?</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>one_year_csv_writer?</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>one_year_csv_writer(<span class="dv">2002</span>, surveys_df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>one_year_csv_writer(<span class="dv">2002</span>, surveys_df)</span></code></pre>
 </div>
 <p>We changed the root of the name of the CSV file so we can distinguish
 it from the one we wrote before. Check the <code>yearly_files</code>
@@ -773,21 +1020,21 @@ without having to request them one by one. Let’s write another function
 that replaces the entire <code>for</code> loop by looping through a
 sequence of years and repeatedly calling the function we just wrote,
 <code>one_year_csv_writer</code>:</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb53">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(start_year, end_year, all_data):</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate CSV files for each year of data.</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want</span></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want</span></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "end_year" is the last year of data we want to pull, so we loop to end_year+1</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>        one_year_csv_writer(year, all_data)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(start_year, end_year, all_data):</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate CSV files for each year of data.</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "end_year" is the last year of data we want to pull, so we loop to end_year+1</span></span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a>        one_year_csv_writer(year, all_data)</span></code></pre>
 </div>
 <p>Because people will naturally expect that the end year for the files
 is the last year with data, the for loop inside the function ends at
@@ -797,14 +1044,14 @@ file into yearly files. Because we can specify the first and last year
 for which we want files, we can even use this function to create files
 for a subset of the years available. This is how we call this
 function:</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb54">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create CSV files</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>yearly_data_csv_writer(<span class="dv">1977</span>, <span class="dv">2002</span>, surveys_df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create CSV files</span></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>yearly_data_csv_writer(<span class="dv">1977</span>, <span class="dv">2002</span>, surveys_df)</span></code></pre>
 </div>
 <p>BEWARE! If you are using Jupyter Notebooks and you modify a function,
 you MUST re-run that cell in order for the changed function to be
@@ -812,12 +1059,12 @@ available to the rest of the code. Nothing will visibly happen when you
 do this, though, because defining a function without <em>calling</em> it
 doesn’t produce an output. Any cells that use the now-changed functions
 will also have to be re-run for their output to change.</p>
-<div id="discussion4" class="callout discussion">
+<div id="challenge4" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-more-functions" class="callout-inner">
-<h3 class="callout-title">Challenge: More functions<a class="anchor" aria-label="anchor" href="#discussion4"></a>
+<h3 class="callout-title">Challenge: More functions<a class="anchor" aria-label="anchor" href="#challenge4"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Add two arguments to the functions we wrote that take the path of
@@ -840,6 +1087,97 @@ they have the same name but are given different values?</li>
 </ol></div>
 </div>
 </div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb55">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save, root_name):</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
+<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
+<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span>
+<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a>start_year <span class="op">=</span> <span class="dv">1978</span></span>
+<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>end_year <span class="op">=</span> <span class="dv">2000</span></span>
+<span id="cb55-26"><a href="#cb55-26" aria-hidden="true" tabindex="-1"></a>directory_name <span class="op">=</span> <span class="st">'different_directory'</span></span>
+<span id="cb55-27"><a href="#cb55-27" aria-hidden="true" tabindex="-1"></a>root_file_name <span class="op">=</span> <span class="st">'different_file_name'</span></span>
+<span id="cb55-28"><a href="#cb55-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb55-29"><a href="#cb55-29" aria-hidden="true" tabindex="-1"></a>     one_year_csv_writer(year, surveys_df, directory_name, root_file_name)</span></code></pre>
+</div></li>
+<li><p><code>yearly_data_csv_writer(2000, 2000, surveys_df)</code></p></li>
+<li>
+<p>Building a list and returning it:</p>
+<div class="codewrapper sourceCode" id="cb56">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data):</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year -- year for which data is extracted</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-9"><a href="#cb56-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb56-10"><a href="#cb56-10" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb56-11"><a href="#cb56-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-12"><a href="#cb56-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb56-13"><a href="#cb56-13" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/yearly_files/function_surveys'</span> <span class="op">+</span> <span class="bu">str</span>(this_year) <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb56-14"><a href="#cb56-14" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span>
+<span id="cb56-15"><a href="#cb56-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filename</span>
+<span id="cb56-16"><a href="#cb56-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-17"><a href="#cb56-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(start_year, end_year, all_data):</span>
+<span id="cb56-18"><a href="#cb56-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb56-19"><a href="#cb56-19" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate CSV files for each year of data.</span></span>
+<span id="cb56-20"><a href="#cb56-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-21"><a href="#cb56-21" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want</span></span>
+<span id="cb56-22"><a href="#cb56-22" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want</span></span>
+<span id="cb56-23"><a href="#cb56-23" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb56-24"><a href="#cb56-24" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb56-25"><a href="#cb56-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-26"><a href="#cb56-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "end_year" is the last year of data we want to pull, so we loop to end_year+1</span></span>
+<span id="cb56-27"><a href="#cb56-27" aria-hidden="true" tabindex="-1"></a>    output_files <span class="op">=</span> []</span>
+<span id="cb56-28"><a href="#cb56-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb56-29"><a href="#cb56-29" aria-hidden="true" tabindex="-1"></a>        output_files.append(one_year_csv_writer(year, all_data))</span>
+<span id="cb56-30"><a href="#cb56-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> output_files</span>
+<span id="cb56-31"><a href="#cb56-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-32"><a href="#cb56-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(yearly_data_csv_writer(<span class="dv">2000</span>, <span class="dv">2001</span>, surveys_df))</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>['data/yearly_files/function_surveys2000.csv', 'data/yearly_files/function_surveys2001.csv']</code></pre>
+</div>
+</li>
+</ol></div>
+</div>
+</div>
+</div>
 <p>The functions we wrote demand that we give them a value for every
 argument. Ideally, we would like these functions to be as flexible and
 independent as possible. Let’s modify the function
@@ -850,26 +1188,26 @@ an equal sign in the function declaration. Any arguments in the function
 without default values (here, <code>all_data</code>) is a required
 argument and MUST come before the argument with default values (which
 are optional in the function call).</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_arg_test(all_data, start_year<span class="op">=</span><span class="dv">1977</span>, end_year<span class="op">=</span><span class="dv">2002</span>):</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified from yearly_data_csv_writer to test default argument values!</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want (default 1977)</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want (default 2002)</span></span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_year, end_year</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both optional arguments:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_arg_test(all_data, start_year<span class="op">=</span><span class="dv">1977</span>, end_year<span class="op">=</span><span class="dv">2002</span>):</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified from yearly_data_csv_writer to test default argument values!</span></span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want (default 1977)</span></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want (default 2002)</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_year, end_year</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both optional arguments:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
+<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -882,31 +1220,31 @@ the text align and be easier to read.</p>
 <p>But what if our dataset doesn’t start in 1977 and end in 2002? We can
 modify the function so that it looks for the start and end years in the
 dataset if those dates are not provided:</p>
-<div class="codewrapper sourceCode" id="cb35">
+<div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_arg_test(all_data, start_year<span class="op">=</span><span class="va">None</span>, end_year<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified from yearly_data_csv_writer to test default argument values!</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want, Check all_data! (default None)</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want; Check all_data! (default None)</span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> start_year <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>        start_year <span class="op">=</span> <span class="bu">min</span>(all_data.year)</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> end_year <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>        end_year <span class="op">=</span> <span class="bu">max</span>(all_data.year)</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_year, end_year</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both optional arguments:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_arg_test(all_data, start_year<span class="op">=</span><span class="va">None</span>, end_year<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified from yearly_data_csv_writer to test default argument values!</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want, Check all_data! (default None)</span></span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want; Check all_data! (default None)</span></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> start_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>        start_year <span class="op">=</span> <span class="bu">min</span>(all_data.year)</span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> end_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>        end_year <span class="op">=</span> <span class="bu">max</span>(all_data.year)</span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_year, end_year</span>
+<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
+<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both optional arguments:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
+<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -921,28 +1259,112 @@ built-in constant in Python that indicates the absence of a value -
 essentially, that the variable exists in the namespace of the function
 (the directory of variable names) but that it doesn’t correspond to any
 existing object.</p>
-<div id="discussion5" class="callout discussion">
+<div id="challenge5" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---variables" class="callout-inner">
-<h3 class="callout-title">Challenge - Variables<a class="anchor" aria-label="anchor" href="#discussion5"></a>
+<h3 class="callout-title">Challenge - Variables<a class="anchor" aria-label="anchor" href="#challenge5"></a>
 </h3>
 <div class="callout-content">
-<ol style="list-style-type: decimal"><li><p>What type of object corresponds to a variable declared as
+<ol style="list-style-type: decimal"><li>What type of object corresponds to a variable declared as
 <code>None</code>? (Hint: create a variable set to <code>None</code> and
-use the function <code>type()</code>)</p></li>
-<li><p>Compare the behavior of the function
+use the function <code>type()</code>)</li>
+<li>Compare the behavior of the function
 <code>yearly_data_arg_test</code> when the arguments have
 <code>None</code> as a default and when they do not have default
-values.</p></li>
-<li><p>What happens if you only include a value for
-<code>start_year</code> in the function call? Can you write the function
-call with only a value for <code>end_year</code>? (Hint: think about how
-the function must be assigning values to each of the arguments - this is
-related to the need to put the arguments without default values before
-those with default values in the function definition!)</p></li>
+values.</li>
+<li>What happens if you only include a value for <code>start_year</code>
+in the function call? Can you write the function call with only a value
+for <code>end_year</code>? (Hint: think about how the function must be
+assigning values to each of the arguments - this is related to the need
+to put the arguments without default values before those with default
+values in the function definition!)</li>
 </ol></div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li>
+<div class="codewrapper sourceCode" id="cb62">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>nothing <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(nothing)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code><span><span class="va">NoneType</span></span></code></pre>
+</div>
+</li>
+<li>
+<p>Removing <code>None</code> as the default value for the
+<code>start_year</code> and <code>end_year</code> parameters results in
+a <code>TypeError</code> because the function now expects three
+arguments to be provided:</p>
+<div class="codewrapper sourceCode" id="cb64">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_arg_test(all_data, start_year, end_year):</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Modified from yearly_data_csv_writer to test default argument values!</span></span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want, Check all_data! (default None)</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want; Check all_data! (default None)</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> start_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>        start_year <span class="op">=</span> <span class="bu">min</span>(all_data.year)</span>
+<span id="cb64-12"><a href="#cb64-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> end_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb64-13"><a href="#cb64-13" aria-hidden="true" tabindex="-1"></a>        end_year <span class="op">=</span> <span class="bu">max</span>(all_data.year)</span>
+<span id="cb64-14"><a href="#cb64-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-15"><a href="#cb64-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> start_year, end_year</span>
+<span id="cb64-16"><a href="#cb64-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-17"><a href="#cb64-17" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>TypeError: yearly_data_arg_test() missing 2 required positional arguments: 'start_year' and 'end_year'</code></pre>
+</div>
+</li>
+<li>
+<p>Returning to the original definition of the function (i.e. with
+the default <code>None</code> values):</p>
+<div class="codewrapper sourceCode" id="cb66">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>yearly_data_arg_test(surveys_df, <span class="dv">1985</span>) <span class="co"># providing only the start year</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>(1985, 2002)</code></pre>
+</div>
+<p>If we want to provide only the end year, we have to name the
+arguments:</p>
+<div class="codewrapper sourceCode" id="cb68">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">1985</span>) <span class="co"># providing only the start year</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>(1977, 1985)</code></pre>
+</div>
+</li>
+</ol></div>
+</div>
 </div>
 </div>
 </section><section id="if-statements"><h2 class="section-heading">If Statements<a class="anchor" aria-label="anchor" href="#if-statements"></a>
@@ -951,25 +1373,25 @@ those with default values in the function definition!)</p></li>
 statements) that check the values of <code>start_year</code> and
 <code>end_year</code>. If statements execute a segment of code when some
 condition is met. They commonly look something like this:</p>
-<div class="codewrapper sourceCode" id="cb37">
+<div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a<span class="op">&lt;</span><span class="dv">0</span>:  <span class="co"># Meets first condition?</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a IS less than zero</span></span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a is a negative number'</span>)</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a<span class="op">&gt;</span><span class="dv">0</span>:  <span class="co"># Did not meet first condition. meets second condition?</span></span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a ISN'T less than zero and IS more than zero</span></span>
-<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a is a positive number'</span>)</span>
-<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:  <span class="co"># Met neither condition</span></span>
-<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a ISN'T less than zero and ISN'T more than zero</span></span>
-<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a must be zero!'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> a<span class="op">&lt;</span><span class="dv">0</span>:  <span class="co"># Meets first condition?</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a IS less than zero</span></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a is a negative number'</span>)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> a<span class="op">&gt;</span><span class="dv">0</span>:  <span class="co"># Did not meet first condition. meets second condition?</span></span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a ISN'T less than zero and IS more than zero</span></span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a is a positive number'</span>)</span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:  <span class="co"># Met neither condition</span></span>
+<span id="cb70-14"><a href="#cb70-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-15"><a href="#cb70-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if a ISN'T less than zero and ISN'T more than zero</span></span>
+<span id="cb70-16"><a href="#cb70-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'a must be zero!'</span>)</span></code></pre>
 </div>
 <p>Which would return:</p>
 <div class="codewrapper">
@@ -1002,26 +1424,26 @@ can get around this problem by calling the function using keyword
 arguments, where each of the arguments in the function definition is
 associated with a keyword and the function call passes values to the
 function using these keywords:</p>
-<div class="codewrapper sourceCode" id="cb39">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'No keywords:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, start_year<span class="op">=</span><span class="dv">1988</span>, end_year<span class="op">=</span><span class="dv">1993</span>)</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both keywords, in order:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">1993</span>, start_year<span class="op">=</span><span class="dv">1988</span>)</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both keywords, flipped:</span><span class="ch">\t\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, start_year<span class="op">=</span><span class="dv">1988</span>)</span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'One keyword, default end:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">1993</span>)</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'One keyword, default start:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Default values:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, <span class="dv">1988</span>, <span class="dv">1993</span>)</span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'No keywords:</span><span class="ch">\t\t\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, start_year<span class="op">=</span><span class="dv">1988</span>, end_year<span class="op">=</span><span class="dv">1993</span>)</span>
+<span id="cb72-8"><a href="#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both keywords, in order:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb72-9"><a href="#cb72-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-10"><a href="#cb72-10" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">1993</span>, start_year<span class="op">=</span><span class="dv">1988</span>)</span>
+<span id="cb72-11"><a href="#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Both keywords, flipped:</span><span class="ch">\t\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb72-12"><a href="#cb72-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-13"><a href="#cb72-13" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, start_year<span class="op">=</span><span class="dv">1988</span>)</span>
+<span id="cb72-14"><a href="#cb72-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'One keyword, default end:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span>
+<span id="cb72-15"><a href="#cb72-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-16"><a href="#cb72-16" aria-hidden="true" tabindex="-1"></a>start, end <span class="op">=</span> yearly_data_arg_test(surveys_df, end_year<span class="op">=</span><span class="dv">1993</span>)</span>
+<span id="cb72-17"><a href="#cb72-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'One keyword, default start:</span><span class="ch">\t</span><span class="st">'</span>, start, end)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1033,12 +1455,12 @@ Both keywords, flipped:	1988 1993
 One keyword, default end:	1988 2002
 One keyword, default start:	1977 1993</code></pre>
 </div>
-<div id="discussion6" class="callout discussion">
+<div id="challenge6" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---modifying-functions" class="callout-inner">
-<h3 class="callout-title">Challenge - Modifying functions<a class="anchor" aria-label="anchor" href="#discussion6"></a>
+<h3 class="callout-title">Challenge - Modifying functions<a class="anchor" aria-label="anchor" href="#challenge6"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Rewrite the <code>one_year_csv_writer</code> and
@@ -1048,27 +1470,178 @@ with default values</p></li>
 there is no data for a given year and display an alert to the user
 (Hint: use conditional statements to do this. For an extra challenge,
 use <code>try</code> statements!)</p></li>
-<li><p>The code below checks to see whether a directory exists and
+<li>
+<p>The code below checks to see whether a directory exists and
 creates one if it doesn’t. Add some code to your function that writes
-out the CSV files, to check for a directory to write to.</p></li>
-</ol><div class="codewrapper sourceCode" id="cb41">
+out the CSV files, to check for a directory to write to.</p>
+<div class="codewrapper sourceCode" id="cb74">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'dir_name_here'</span> <span class="kw">in</span> os.listdir(<span class="st">'.'</span>):</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">'Processed directory exists'</span>)</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>   os.mkdir(<span class="st">'dir_name_here'</span>)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>   <span class="bu">print</span>(<span class="st">'Processed directory created'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'dir_name_here'</span> <span class="kw">in</span> os.listdir(<span class="st">'.'</span>):</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Processed directory exists'</span>)</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>    os.mkdir(<span class="st">'dir_name_here'</span>)</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Processed directory created'</span>)</span></code></pre>
 </div>
-<ol start="4" style="list-style-type: decimal"><li>The code that you have written so far to loop through the years is
-good, however it is not necessarily reproducible with different
+</li>
+<li><p>The code that you have written so far to loop through the years
+is good, however it is not necessarily reproducible with different
 datasets. For instance, what happens to the code if we have additional
 years of data in our CSV files? Using the tools that you learned in the
 previous activities, make a list of all years represented in the data.
 Then create a loop to process your data, that begins at the earliest
-year and ends at the latest year using that list.</li>
+year and ends at the latest year using that list.</p></li>
 </ol><p>HINT: you can create a loop with a list as follows:
 <code>for years in year_list:</code></p>
+</div>
+</div>
+</div>
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div class="accordion-body">
+<ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb75">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
+<span id="cb75-13"><a href="#cb75-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
+<span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
+<span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb75-18"><a href="#cb75-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb75-19"><a href="#cb75-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-20"><a href="#cb75-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb75-21"><a href="#cb75-21" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
+<span id="cb75-22"><a href="#cb75-22" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span>
+<span id="cb75-23"><a href="#cb75-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-24"><a href="#cb75-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(all_data, start_year<span class="op">=</span><span class="va">None</span>, end_year<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb75-25"><a href="#cb75-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb75-26"><a href="#cb75-26" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate CSV files for each year of data.</span></span>
+<span id="cb75-27"><a href="#cb75-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-28"><a href="#cb75-28" aria-hidden="true" tabindex="-1"></a><span class="co">    start_year -- the first year of data we want</span></span>
+<span id="cb75-29"><a href="#cb75-29" aria-hidden="true" tabindex="-1"></a><span class="co">    end_year -- the last year of data we want</span></span>
+<span id="cb75-30"><a href="#cb75-30" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data -- DataFrame with multi-year data</span></span>
+<span id="cb75-31"><a href="#cb75-31" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb75-32"><a href="#cb75-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> start_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb75-33"><a href="#cb75-33" aria-hidden="true" tabindex="-1"></a>        start_year <span class="op">=</span> <span class="bu">min</span>(all_data.year)</span>
+<span id="cb75-34"><a href="#cb75-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> end_year <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb75-35"><a href="#cb75-35" aria-hidden="true" tabindex="-1"></a>        end_year <span class="op">=</span> <span class="bu">max</span>(all_data.year)</span>
+<span id="cb75-36"><a href="#cb75-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># "end_year" is the last year of data we want to pull, so we loop to end_year+1</span></span>
+<span id="cb75-37"><a href="#cb75-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb75-38"><a href="#cb75-38" aria-hidden="true" tabindex="-1"></a>        one_year_csv_writer(year, all_data)</span></code></pre>
+</div></li>
+<li><div class="codewrapper sourceCode" id="cb76">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
+<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
+<span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
+<span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-17"><a href="#cb76-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb76-18"><a href="#cb76-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb76-19"><a href="#cb76-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(surveys_year) <span class="op">==</span> <span class="dv">0</span>: <span class="co"># 'if not len(surveys_year):' will also work </span></span>
+<span id="cb76-20"><a href="#cb76-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'no data available for '</span> <span class="op">+</span> this_year <span class="op">+</span> <span class="st">', output file not created'</span>)</span>
+<span id="cb76-21"><a href="#cb76-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb76-22"><a href="#cb76-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb76-23"><a href="#cb76-23" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
+<span id="cb76-24"><a href="#cb76-24" aria-hidden="true" tabindex="-1"></a>        surveys_year.to_csv(filename)</span></code></pre>
+</div></li>
+<li>
+<p>The solution below uses <code>not</code> to invert the check for
+the directory, so a message is printed one time at most i.e. when the
+directory is created:</p>
+<div class="codewrapper sourceCode" id="cb77">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> one_year_csv_writer(this_year, all_data, folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes a csv file for data from a given year.</span></span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ---------</span></span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="co">    this_year : int</span></span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="co">        year for which data is extracted</span></span>
+<span id="cb77-9"><a href="#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data: pd.DataFrame</span></span>
+<span id="cb77-10"><a href="#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="co">        DataFrame with multi-year data</span></span>
+<span id="cb77-11"><a href="#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save : str</span></span>
+<span id="cb77-12"><a href="#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="co">        folder to save the data files</span></span>
+<span id="cb77-13"><a href="#cb77-13" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name: str</span></span>
+<span id="cb77-14"><a href="#cb77-14" aria-hidden="true" tabindex="-1"></a><span class="co">        root of the filenames to save the data</span></span>
+<span id="cb77-15"><a href="#cb77-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb77-16"><a href="#cb77-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-17"><a href="#cb77-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb77-18"><a href="#cb77-18" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> all_data[all_data.year <span class="op">==</span> this_year]</span>
+<span id="cb77-19"><a href="#cb77-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">len</span>(surveys_year) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb77-20"><a href="#cb77-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">'no data available for '</span> <span class="op">+</span> this_year <span class="op">+</span> <span class="st">', output file not created'</span>)</span>
+<span id="cb77-21"><a href="#cb77-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb77-22"><a href="#cb77-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> folder_to_save <span class="kw">not</span> <span class="kw">in</span> os.listdir(<span class="st">'.'</span>):</span>
+<span id="cb77-23"><a href="#cb77-23" aria-hidden="true" tabindex="-1"></a>            os.mkdir(folder_to_save)</span>
+<span id="cb77-24"><a href="#cb77-24" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">'Processed directory created'</span>)</span>
+<span id="cb77-25"><a href="#cb77-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Write the new DataFrame to a csv file</span></span>
+<span id="cb77-26"><a href="#cb77-26" aria-hidden="true" tabindex="-1"></a>        filename <span class="op">=</span> os.path.join(folder_to_save, <span class="st">''</span>.join([root_name, <span class="bu">str</span>(this_year), <span class="st">'.csv'</span>]))</span>
+<span id="cb77-27"><a href="#cb77-27" aria-hidden="true" tabindex="-1"></a>        surveys_year.to_csv(filename)</span></code></pre>
+</div>
+<p>The equivalent, without using <code>not</code> to invert the
+conditional, would be:</p>
+<div class="codewrapper sourceCode" id="cb78">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> folder_to_save <span class="kw">in</span> os.listdir(<span class="st">'.'</span>):</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>    os.mkdir(folder_to_save)</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">'Processed directory created'</span>)</span></code></pre>
+</div>
+</li>
+<li><div class="codewrapper sourceCode" id="cb79">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> yearly_data_csv_writer(all_data, yearcolumn<span class="op">=</span><span class="st">"year"</span>,</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>                           folder_to_save<span class="op">=</span><span class="st">'./'</span>, root_name<span class="op">=</span><span class="st">'survey'</span>):</span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Writes separate csv files for each year of data.</span></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="co">    all_data --- DataFrame with multi-year data</span></span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a><span class="co">    yearcolumn --- column name containing the year of the data</span></span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a><span class="co">    folder_to_save --- folder name to store files</span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a><span class="co">    root_name --- start of the file names stored</span></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>    years <span class="op">=</span> all_data[yearcolumn].unique()</span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    filenames <span class="op">=</span> []</span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> years:</span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>        filenames.append(one_year_csv_writer(year, all_data, folder_to_save, root_name))</span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> filenames</span></code></pre>
+</div></li>
+</ol></div>
 </div>
 </div>
 </div>
@@ -1142,7 +1715,7 @@ different data.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/instructor/06-loops-and-functions.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/06-loops-and-functions.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-08",
+  "dateModified": "2023-05-18",
   "datePublished": "2023-05-18"
 }
 
