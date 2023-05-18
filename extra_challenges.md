@@ -2,15 +2,14 @@
 title: ' Extra Challenges'
 ---
 
-# Extra Challenges
+A collection of challenges that have been either removed from 
+or not (yet) added to the main lesson.
 
-A collection of challenges that have been either removed from or not (yet) added to the main lesson.
+## 06-loops-and-functions
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
 ## Looping Over DataFrame
-
-(Please refer to lesson `06-loops-and-functions.md`)
 
 The file `surveys.csv` in the `data` folder contains 25 years of data from surveys,
 starting from 1977. We can extract data corresponding to each year in this DataFrame
