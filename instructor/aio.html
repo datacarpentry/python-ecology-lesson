@@ -1104,7 +1104,7 @@ Does the <code>help()</code> function confirm this?</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>What happens when you execute <code>a_list[1] = 5</code>?</li>
@@ -1279,7 +1279,7 @@ the value has changed.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 </li></ol>
@@ -1319,7 +1319,7 @@ the value has changed.</li>
   Assigning to Dictionaries
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>It can help to further demonstrate the freedom the user has to define
 values to keys in a dictionary, by showing another example with a value
@@ -3471,7 +3471,7 @@ slicing and conditional subsetting.</li>
 </div>
 </section></section><section id="aio-04-data-types-and-format"><p>Content from <a href="04-data-types-and-format.html">Data Types and Formats</a></p>
 <hr>
-<p> Last updated on 2023-05-08 | 
+<p> Last updated on 2023-05-18 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/04-data-types-and-format.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 45 minutes </p>
@@ -3959,6 +3959,24 @@ number for each line.</p>
 working directory to make sure the CSV wrote out properly, and that you
 can open it! If you want, try to bring it back into Python to make sure
 it imports properly.</p>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Processed Data Checkpoint
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>If learners have trouble generating the output, or anything happens
+with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
+in this repository contains the file <code>surveys_complete.csv</code>
+with the data they should generate.</p>
+</div>
+</div>
+</div>
+</div>
 </section><section id="recap"><h2 class="section-heading">Recap<a class="anchor" aria-label="anchor" href="#recap"></a>
 </h2>
 <hr class="half-width">
@@ -5370,7 +5388,7 @@ different data.</li>
 </div>
 </section></section><section id="aio-07-visualization-ggplot-python"><p>Content from <a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></p>
 <hr>
-<p> Last updated on 2023-05-08 | 
+<p> Last updated on 2023-05-18 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/07-visualization-ggplot-python.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 90 minutes </p>
@@ -5458,6 +5476,24 @@ removed</p>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>surveys_complete <span class="op">=</span> surveys_complete.dropna()</span></code></pre>
+</div>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Instructor Note
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div class="accordion-body">
+<p>If learners have trouble generating the output, or anything happens
+with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
+in this repository contains the file <code>surveys_complete.csv</code>
+with the data they should generate.</p>
+</div>
+</div>
+</div>
 </div>
 </section><section id="plotting-with-plotnine"><h2 class="section-heading">Plotting with plotnine<a class="anchor" aria-label="anchor" href="#plotting-with-plotnine"></a>
 </h2>
@@ -6425,7 +6461,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6507,7 +6543,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
