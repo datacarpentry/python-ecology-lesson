@@ -209,7 +209,7 @@ import warnings
 warnings.filterwarnings(action='once')
 ```
 
-iPython notebooks for plotting can be viewed in the `_extras` folder
+iPython notebooks for plotting can be viewed in the `learners` folder.
 
 ## 08-putting-it-all-together
 
