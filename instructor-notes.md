@@ -49,43 +49,6 @@ previous steps visible.
 
 ## 04-data-types-and-format
 
-### Challenge - Changing Types
-
-- Try converting the column `plot_id` to floats using `surveys_df.plot_id.astype("float")`.
-  Then, try converting the contents of the `weight` column to an integer type.
-  What error messages does Pandas give you? What do these errors mean?
-
-Pandas cannot convert types from float to int if the column contains NaN values.
-
-### Challenge - Counting
-
-- Count the number of missing values per column. Hint: The method `.count()` gives you the number of
-  non-NA observations per column. Try looking to the `.isnull()` method.
-
-```python
-for c in surveys_df.columns:
-    print(c, len(surveys_df[surveys_df[c].isnull()]))
-```
-
-Or, since we've been using the `pd.isnull` function so far:
-
-```python
-for c in surveys_df.columns:
-    print(c, len(surveys_df[pd.isnull(surveys_df[c])]))
-```
-
-```output
-record_id 0
-month 0
-day 0
-year 0
-plot_id 0
-species_id 763
-sex 2511
-hindfoot_length 4111
-weight 3266
-```
-
 ### Writing Out Data to CSV
 
 If the students have trouble generating the output, or anything happens with that, the folder
