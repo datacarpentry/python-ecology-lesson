@@ -149,10 +149,41 @@ new_output = pd.read_csv('data/out.csv', keep_default_na=False, na_values=[""])
 
 ### Challenge - Combine Data
 
-In the data folder, there are two survey data files: `surveys2001.csv` and
-`surveys2002.csv`. Read the data into pandas and combine the files to make one
-new DataFrame. Create a plot of average plot weight by year grouped by sex.
+In the data folder, there is another folder called `yearly_files` 
+that contains survey data broken down into individual files by year. 
+Read the data from two of these files,
+`surveys2001.csv` and `surveys2002.csv`,
+into pandas and combine the files to make one new DataFrame.
+Create a plot of average plot weight by year grouped by sex.
 Export your results as a CSV and make sure it reads back into pandas properly.
+
+::::::::::::::::::::::: solution
+
+```python
+# read the files:
+survey2001 = pd.read_csv("data/yearly_files/surveys2001.csv")
+survey2002 = pd.read_csv("data/yearly_files/surveys2002.csv")
+# concatenate
+survey_all = pd.concat([survey2001, survey2002], axis=0)
+# get the weight for each year, grouped by sex:
+weight_year = survey_all.groupby(['year', 'sex']).mean()["wgt"].unstack()
+# plot:
+weight_year.plot(kind="bar")
+plt.tight_layout()  # tip: use this to improve the plot layout. 
+# Try running the code without this line to see 
+# what difference applying plt.tight_layout() makes.
+```
+
+![](fig/04_chall_weight_year.png){alt='average weight for each year, grouped by sex'}
+
+```python
+# writing to file:
+weight_year.to_csv("weight_for_year.csv")
+# reading it back in:
+pd.read_csv("weight_for_year.csv", index_col=0)
+```
+
+::::::::::::::::::::::::::::::::
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -425,9 +456,87 @@ Create a new DataFrame by joining the contents of the `surveys.csv` and
 
 1. taxa by plot
 2. taxa by sex by plot
+
+::::::::::::::::::::::: solution
+
+```python
+merged_left = pd.merge(left=surveys_df,right=species_df, how='left', on="species_id")
+```
+
+1. taxa per plot (number of species of each taxa per plot):
+
+  ```python
+  merged_left.groupby(["plot_id"])["taxa"].nunique().plot(kind='bar')
+  ```
   
+  ![](fig/04_chall_ntaxa_per_site.png){alt='taxa per plot'}
+  
+  *Suggestion*: It is also possible to plot the number of individuals for each taxa in each plot
+  (stacked bar chart):
+  
+  ```python
+  merged_left.groupby(["plot_id", "taxa"]).count()["record_id"].unstack().plot(kind='bar', stacked=True)
+  plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.05)) # stop the legend from overlapping with the bar plot
+  ```
+  
+  ![](fig/04_chall_taxa_per_site.png){alt='taxa per plot'}
+  
+2. taxa by sex by plot:
+Providing the Nan values with the M|F values (can also already be changed to 'x'):
+
+```python
+merged_left.loc[merged_left["sex"].isnull(), "sex"] = 'M|F'
+ntaxa_sex_site= merged_left.groupby(["plot_id", "sex"])["taxa"].nunique().reset_index(level=1)
+ntaxa_sex_site = ntaxa_sex_site.pivot_table(values="taxa", columns="sex", index=ntaxa_sex_site.index)
+ntaxa_sex_site.plot(kind="bar", legend=False, stacked=True)
+plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.08),
+           fontsize='small', frameon=False)
+```
+
+![](fig/04_chall_ntaxa_per_site_sex.png){alt='taxa per plot per sex'}
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::: instructor
+
+## Suggestion (for discussion only)
+
+The number of individuals for each taxa in each plot per sex can be derived as well.
+
+```python
+sex_taxa_site  = merged_left.groupby(["plot_id", "taxa", "sex"]).count()['record_id']
+sex_taxa_site.unstack(level=[1, 2]).plot(kind='bar', logy=True)
+plt.legend(loc='upper center', ncol=3, bbox_to_anchor=(0.5, 1.15),
+           fontsize='small', frameon=False)
+```
+
+![](fig/04_chall_sex_taxa_site_intro.png){alt='taxa per plot per sex'}
+
+This is not really the best plot choice, e.g. it is not easily readable.
+A first option to make this better, is to make facets.
+However, pandas/matplotlib do not provide this by default.
+Just as a pure matplotlib example (`M|F` if for not-defined sex records):
+
+```python
+fig, axs = plt.subplots(3, 1)
+for sex, ax in zip(["M", "F", "M|F"], axs):
+    sex_taxa_site[sex_taxa_site["sex"] == sex].plot(kind='bar', ax=ax, legend=False)
+    ax.set_ylabel(sex)
+    if not ax.is_last_row():
+        ax.set_xticks([])
+        ax.set_xlabel("")
+axs[0].legend(loc='upper center', ncol=5, bbox_to_anchor=(0.5, 1.3),
+              fontsize='small', frameon=False)
+```
+
+![](fig/04_chall_sex_taxa_site.png){alt='taxa per plot per sex'}
+
+However, it would be better to link to [Seaborn][seaborn] 
+and [Altair][altair] for this kind of multivariate visualisation.
+
+::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -441,17 +550,46 @@ Create a new DataFrame by joining the contents of the `surveys.csv` and
   plots. The index should consider both species abundance and number of
   species. You might choose to use the simple [biodiversity index described
   here](https://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index)
-  which calculates diversity as:
+  which calculates diversity as: the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
   
-  the number of species in the plot / the total number of individuals in the plot = Biodiversity index.
+::::::::::::::::::::::: solution
+
+1.
+  ```python
+  plot_info = pd.read_csv("data/plots.csv")
+  plot_info.groupby("plot_type").count()
+  ```
+
+2. 
+  ```python
+  merged_site_type = pd.merge(merged_left, plot_info, on='plot_id')
+  # For each plot, get the number of species for each plot
+  nspecies_site = merged_site_type.groupby(["plot_id"])["species"].nunique().rename("nspecies")
+  # For each plot, get the number of individuals
+  nindividuals_site = merged_site_type.groupby(["plot_id"]).count()['record_id'].rename("nindiv")
+  # combine the two series
+  diversity_index = pd.concat([nspecies_site, nindividuals_site], axis=1)
+  # calculate the diversity index
+  diversity_index['diversity'] = diversity_index['nspecies']/diversity_index['nindiv']
+  ```
   
+  Making a bar chart from this diversity index:
+  
+  ```python
+  diversity_index['diversity'].plot(kind="barh")
+  plt.xlabel("Diversity index")
+  ```
+
+![](fig/04_chall_diversity_index.png){alt='horizontal bar chart of diversity index by plot'}
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-
+[altair]: https://github.com/ellisonbg/altair
 [join-types]: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
-
+[seaborn]: https://stanford.edu/~mwaskom/software/seaborn
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
