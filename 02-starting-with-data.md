@@ -478,6 +478,16 @@ max        280.000000
 Name: weight, dtype: float64
 ```
 
+:::::::::::::::::::::::::::::::::::::::::  instructor
+
+## Important Bug Note
+
+In pandas prior to version 0.18.1
+there is a bug causing `surveys_df['weight'].describe()` to 
+return a runtime error.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 We can also extract one specific metric if we wish:
 
 ```python
