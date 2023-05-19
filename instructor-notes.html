@@ -373,45 +373,9 @@ following:</p>
 <p>If learners receive an <code>AssertionError</code>, it will inform
 you how to help them correct this installation. Otherwise, it will tell
 you that the system is good to go and ready for Data Carpentry!</p>
-</section><section id="starting-with-data"><h2 class="section-heading">02-starting-with-data<a class="anchor" aria-label="anchor" href="#starting-with-data"></a>
-</h2>
-<hr class="half-width">
-<div id="callout1" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="important-bug-note" class="callout-inner">
-<h3 class="callout-title">Important Bug Note<a class="anchor" aria-label="anchor" href="#callout1"></a>
-</h3>
-<div class="callout-content">
-<p>In Pandas prior to 0.18.1 there is a bug causing
-<code>surveys_df['weight'].describe()</code> to return a runtime
-error.</p>
-</div>
-</div>
-</div>
-</section><section id="index-slice-subset"><h2 class="section-heading">03-index-slice-subset<a class="anchor" aria-label="anchor" href="#index-slice-subset"></a>
-</h2>
-<hr class="half-width">
-<p>Tip: use <code>.head()</code> method throughout this lesson to keep
-your display neater for students. Encourage students to try with and
-without <code>.head()</code> to reinforce this useful tool and then to
-use it or not at their preference. For example, if a student worries
-about keeping up in pace with typing, let them know they can skip the
-<code>.head()</code>, but that you’ll use it to keep more lines of
-previous steps visible.</p>
 </section><section id="visualization-ggplot-python"><h2 class="section-heading">07-visualization-ggplot-python<a class="anchor" aria-label="anchor" href="#visualization-ggplot-python"></a>
 </h2>
 <hr class="half-width">
-<p>Note <code>plotnine</code> contains a <em>lot</em> of deprecation
-warnings in some versions of python/matplotlib, warnings may need to be
-supressed with</p>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
-</div>
 <p>iPython notebooks for plotting can be viewed in the
 <code>learners</code> folder.</p>
 </section><section id="putting-it-all-together"><h2 class="section-heading">08-putting-it-all-together<a class="anchor" aria-label="anchor" href="#putting-it-all-together"></a>
@@ -422,29 +386,30 @@ random distribtuion which is left to the learner to choose, and final
 plot, for which the learner should investigate the matplotlib
 gallery.</p>
 <p>Scientists often operate on mathematical equations. Being able to use
-them in their graphics has a lot of added value. Luckily, Matplotlib
+them in their graphics has a lot of added value Luckily, Matplotlib
 provides powerful tools for text control. One of them is the ability to
 use LaTeX mathematical notation, whenever text is used (you can learn
 more about LaTeX math notation here: <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics" class="external-link">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a>).
 To use mathematical notation, surround your text using the dollar sign
-(“$”). LaTeX uses the backslash character (“\”) a lot. Since backslash
-has a special meaning in the Python strings, you should replace all the
+(“$”).</p>
+<p>LaTeX uses the backslash character (“\”) a lot. Since backslash has a
+special meaning in the Python strings, you should replace all the
 LaTeX-related backslashes with two backslashes.</p>
-<div class="codewrapper sourceCode" id="cb3">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <p><a href="https://matplotlib.org/users/mathtext.html" class="external-link">This page</a>
 contains more information.</p>

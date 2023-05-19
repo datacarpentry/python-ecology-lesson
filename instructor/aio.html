@@ -1104,7 +1104,7 @@ Does the <code>help()</code> function confirm this?</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>What happens when you execute <code>a_list[1] = 5</code>?</li>
@@ -1279,7 +1279,7 @@ the value has changed.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 </li></ol>
@@ -1319,7 +1319,7 @@ the value has changed.</li>
   Assigning to Dictionaries
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>It can help to further demonstrate the freedom the user has to define
 values to keys in a dictionary, by showing another example with a value
@@ -1386,7 +1386,7 @@ and values.</li>
 </div>
 </section></section><section id="aio-02-starting-with-data"><p>Content from <a href="02-starting-with-data.html">Starting With Data</a></p>
 <hr>
-<p> Last updated on 2023-05-18 | 
+<p> Last updated on 2023-05-19 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/02-starting-with-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 60 minutes </p>
@@ -1822,7 +1822,7 @@ on tuples, here</a>.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -1854,7 +1854,7 @@ behaves similarly to the <code>head()</code> method.</li>
   Recapping object (im)mutability
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Working through solutions to the challenge above can provide a good
 opportunity to recap about mutability and immutability of different
@@ -1941,7 +1941,7 @@ in the data? How many unique species are in the data?</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>site_names = pd.unique(surveys_df["plot_id"])</code></li>
@@ -1993,6 +1993,23 @@ using the syntax below:</p>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="dv">75</span><span class="op">%</span>         <span class="fl">48.000000</span></span>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>        <span class="fl">280.000000</span></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>Name: weight, dtype: float64</span></code></pre>
+</div>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Important Bug Note
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div class="accordion-body">
+<p>In pandas prior to version 0.18.1 there is a bug causing
+<code>surveys_df['weight'].describe()</code> to return a runtime
+error.</p>
+</div>
+</div>
+</div>
 </div>
 <p>We can also extract one specific metric if we wish:</p>
 <div class="codewrapper sourceCode" id="cb21">
@@ -2078,7 +2095,7 @@ column in your data. <code>by_site['weight'].describe()</code>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The first column of output from <code>grouped_data.describe()</code>
@@ -2188,7 +2205,7 @@ DataFrames.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>As well as calling <code>count()</code> on the <code>record_id</code>
 column of the grouped DataFrame as above, an equivalent result can be
@@ -2316,7 +2333,7 @@ dataset.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')</code></li>
@@ -2389,7 +2406,7 @@ unstacked layout, then create a stacked plot.</p>
   Solution to Summary Challenge
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>First we group data by site and by sex, and then calculate a total
 for each site.</p>
@@ -2480,7 +2497,7 @@ been generated with <code>groupby()</code>.</li>
 </div>
 </section></section><section id="aio-03-index-slice-subset"><p>Content from <a href="03-index-slice-subset.html">Indexing, Slicing and Subsetting DataFrames in Python</a></p>
 <hr>
-<p> Last updated on 2023-05-18 | 
+<p> Last updated on 2023-05-19 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/03-index-slice-subset.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 60 minutes </p>
@@ -2523,6 +2540,27 @@ following operators: <code>==</code>, <code>!=</code>,
 BOOLEANs.</li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Instructor Note
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div class="accordion-body">
+<p>Tip: use <code>.head()</code> method throughout this lesson to keep
+your display neater for students. Encourage students to try with and
+without <code>.head()</code> to reinforce this useful tool and then to
+use it or not at their preference.</p>
+<p>For example, if a student worries about keeping up in pace with
+typing, let them know they can skip the <code>.head()</code>, but that
+you’ll use it to keep more lines of previous steps visible.</p>
 </div>
 </div>
 </div>
@@ -3246,15 +3284,15 @@ sum of <code>True</code> values could be used instead:</p>
 </div>
 </div>
 </div>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <p>When working through the solutions to the challenges above, you could
 introduce already that all these slice operations are actually based on
@@ -3419,15 +3457,15 @@ stacked for each plot.</li>
 </div>
 </div>
 </div>
-<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div id="accordionInstructor3" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
-  <h3 class="accordion-header" id="headingInstructor2">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor3" aria-expanded="false" aria-controls="collapseInstructor3">
+  <h3 class="accordion-header" id="headingInstructor3">
   <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 <p>Referring to the challenge solution above, as we know the other
 values are all Nan values, we could also select all not null values:</p>
@@ -6234,7 +6272,7 @@ different data.</li>
 </div>
 </section></section><section id="aio-07-visualization-ggplot-python"><p>Content from <a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></p>
 <hr>
-<p> Last updated on 2023-05-18 | 
+<p> Last updated on 2023-05-19 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/07-visualization-ggplot-python.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 90 minutes </p>
@@ -6362,6 +6400,29 @@ argument:</li>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete))</span></code></pre>
 </div>
+<div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
+  <h3 class="accordion-header" id="headingInstructor2">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Instructor Note
+  </h3>
+</button>
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div class="accordion-body">
+<p>Note <code>plotnine</code> contains a <em>lot</em> of deprecation
+warnings in some versions of python/matplotlib, warnings may need to be
+suppressed with</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 <p>As we have not defined anything else, just an empty figure is
 available and presented.</p>
 <ul>
@@ -6371,11 +6432,11 @@ presentation such as plotting size, shape, color, etc. You can interpret
 this as: <strong>which</strong> of the variables will influence the
 plotted objects/geometries:</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>)))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>)))</span></code></pre>
 </div>
 <p>The most important aes mappings are: <code>x</code>, <code>y</code>,
 <code>alpha</code>, <code>color</code>, <code>colour</code>,
@@ -6388,28 +6449,28 @@ using points. Points is one of the <code>geoms</code> options, the
 graphical representation of the data in the plot. Others are lines,
 bars,… To add a geom to the plot use <code>+</code> operator:</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <p>The <code>+</code> in the <code>plotnine</code> package is
 particularly useful because it allows you to modify existing
 <code>plotnine</code> objects. This means you can easily set up plot
 <em>templates</em> and conveniently explore different types of plots, so
 the above plot can also be generated with code like this:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>surveys_plot <span class="op">=</span> p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                         mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the plot</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>surveys_plot <span class="op">+</span> p9.geom_point()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>surveys_plot <span class="op">=</span> p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                         mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the plot</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>surveys_plot <span class="op">+</span> p9.geom_point()</span></code></pre>
 </div>
 <figure><img src="../fig/06_first_plot.png" alt="scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides" class="figure mx-auto d-block"></figure><div id="challenge1" class="callout challenge">
 <div class="callout-square">
@@ -6435,13 +6496,13 @@ the bar geometry to handle the counts)</p>
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'plot_id'</span>))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'plot_id'</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_challenge_bar.png" alt="bar chart of count of rodents caught at each plot site" class="figure mx-auto d-block"></figure>
 </div>
@@ -6464,45 +6525,45 @@ independently of the aesthetics defined globally in the
 process. We start by defining the dataset we’ll use, lay the axes, and
 choose a geom. Hence, the <code>data</code>, <code>aes</code> and
 <code>geom-*</code> are the elementary elements of any graph:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<p>Then, we start modifying this plot to extract more information from
-it. For instance, we can add transparency (alpha) to avoid
-overplotting:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_alpha_plot.png" alt="scatter plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau" class="figure mx-auto d-block"></figure><p>We can also add colors for all the points</p>
+<p>Then, we start modifying this plot to extract more information from
+it. For instance, we can add transparency (alpha) to avoid
+overplotting:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_blue_plot.png" alt="scatter plot of hindfoot-length vs weight  of rodents, demonstrating overplotting" class="figure mx-auto d-block"></figure><p>Or to color each species in the plot differently, map the
-<code>species_id</code> column to the color aesthetic:</p>
+<figure><img src="../fig/06_alpha_plot.png" alt="scatter plot of hindfoot-length vs weight of rodents,  showing a curve increasing to a plateau" class="figure mx-auto d-block"></figure><p>We can also add colors for all the points</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<figure><img src="../fig/06_blue_plot.png" alt="scatter plot of hindfoot-length vs weight  of rodents, demonstrating overplotting" class="figure mx-auto d-block"></figure><p>Or to color each species in the plot differently, map the
+<code>species_id</code> column to the color aesthetic:</p>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_color_plot.png" alt="scatter plot of Hindfoot length vs weight with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot" class="figure mx-auto d-block"></figure><p>Apart from the adaptations of the arguments and settings of the
 <code>data</code>, <code>aes</code> and <code>geom-*</code> elements,
@@ -6511,19 +6572,6 @@ operator:</p>
 <ul>
 <li>Changing the labels:</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>, color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.xlab(<span class="st">"Weight (g)"</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<figure><img src="../fig/06_color_label_plot.png" alt="scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot" class="figure mx-auto d-block"></figure><ul>
-<li>Defining scale for colors, axes,… For example, a log-version of the
-x-axis could support the interpretation of the lower numbers:</li>
-</ul>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6531,14 +6579,11 @@ x-axis could support the interpretation of the lower numbers:</li>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>, color<span class="op">=</span><span class="st">'species_id'</span>))</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.xlab(<span class="st">"Weight (g)"</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_x_log10()</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_log_plot.png" alt="Scatterplot of hindfoot length versus weight where logarithmic x-axis is used to distribute lower numbers" class="figure mx-auto d-block"></figure><ul>
-<li>Changing the theme (<code>theme_*</code>) or some specific theming
-(<code>theme</code>) elements. Usually plots with white background look
-more readable when printed. We can set the background to white using the
-function <code>theme_bw()</code>.</li>
+<figure><img src="../fig/06_color_label_plot.png" alt="scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot" class="figure mx-auto d-block"></figure><ul>
+<li>Defining scale for colors, axes,… For example, a log-version of the
+x-axis could support the interpretation of the lower numbers:</li>
 </ul>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6548,9 +6593,25 @@ function <code>theme_bw()</code>.</li>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.xlab(<span class="st">"Weight (g)"</span>)</span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_x_log10()</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme_bw()</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme(text<span class="op">=</span>p9.element_text(size<span class="op">=</span><span class="dv">16</span>))</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<figure><img src="../fig/06_log_plot.png" alt="Scatterplot of hindfoot length versus weight where logarithmic x-axis is used to distribute lower numbers" class="figure mx-auto d-block"></figure><ul>
+<li>Changing the theme (<code>theme_*</code>) or some specific theming
+(<code>theme</code>) elements. Usually plots with white background look
+more readable when printed. We can set the background to white using the
+function <code>theme_bw()</code>.</li>
+</ul>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>, color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.xlab(<span class="st">"Weight (g)"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_x_log10()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme_bw()</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme(text<span class="op">=</span>p9.element_text(size<span class="op">=</span><span class="dv">16</span>))</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_white_plot.png" alt="Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background" class="figure mx-auto d-block"></figure><div id="challenge2" class="callout challenge">
 <div class="callout-square">
@@ -6577,15 +6638,15 @@ reference</a> to find the appropriate function).</p>
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'plot_id'</span>,</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                          fill<span class="op">=</span><span class="st">'sex'</span>))</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_fill_manual([<span class="st">"blue"</span>, <span class="st">"orange"</span>])</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'plot_id'</span>,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                          fill<span class="op">=</span><span class="st">'sex'</span>))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_fill_manual([<span class="st">"blue"</span>, <span class="st">"orange"</span>])</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_challenge_color_bar.png" alt="Bar chart of counts of males (yellow) and females (blue) vs plot id, showing the number of females to be higher in all plots" class="figure mx-auto d-block"></figure>
 </div>
@@ -6598,27 +6659,27 @@ reference</a> to find the appropriate function).</p>
 <p>Visualizing distributions is a common task during data exploration
 and analysis. To visualize the distribution of <code>weight</code>
 within each <code>species_id</code> group, a boxplot can be used:</p>
-<div class="codewrapper sourceCode" id="cb16">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'species_id'</span>,</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>))</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_boxplot()</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<figure><img src="../fig/06_boxplot.png" alt="boxplot showing distribution of rodent weight for each species group" class="figure mx-auto d-block"></figure><p>By adding points of the individual observations to the boxplot, we
-can have a better idea of the number of measurements and of their
-distribution:</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'species_id'</span>,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_jitter(alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_boxplot(alpha<span class="op">=</span><span class="fl">0.</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_boxplot()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<figure><img src="../fig/06_boxplot.png" alt="boxplot showing distribution of rodent weight for each species group" class="figure mx-auto d-block"></figure><p>By adding points of the individual observations to the boxplot, we
+can have a better idea of the number of measurements and of their
+distribution:</p>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'species_id'</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_jitter(alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_boxplot(alpha<span class="op">=</span><span class="fl">0.</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_point_boxplot.png" alt="Boxplot of weight by species overlaying observation points to visualize the distribution" class="figure mx-auto d-block"></figure><div id="challenge3" class="callout challenge">
 <div class="callout-square">
@@ -6662,17 +6723,17 @@ from which the sample was taken (<code>plot_id</code>)</li>
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'species_id'</span>,</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>,</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'factor(plot_id)'</span>))</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_jitter(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_violin(alpha<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">"0.7"</span>)</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_y_log10()</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'species_id'</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'factor(plot_id)'</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_jitter(alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_violin(alpha<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">"0.7"</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.scale_y_log10()</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_challenge_boxplot.png" alt="Violin plot of weight of species shown with weight scaled down and datapoints with color." class="figure mx-auto d-block"></figure>
 </div>
@@ -6685,46 +6746,46 @@ from which the sample was taken (<code>plot_id</code>)</li>
 <p>Let’s calculate number of counts per year for each species. To do
 that we need to group data first and count the species
 (<code>species_id</code>) within each group.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>yearly_counts <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>])[<span class="st">'species_id'</span>].count()</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>yearly_counts</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>yearly_counts <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>])[<span class="st">'species_id'</span>].count()</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>yearly_counts</span></code></pre>
 </div>
 <p>When checking the result of the previous calculation, we actually
 have both the <code>year</code> and the <code>species_id</code> as a row
 index. We can reset this index to use both as column variable:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>yearly_counts <span class="op">=</span> yearly_counts.reset_index(name<span class="op">=</span><span class="st">'counts'</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>yearly_counts</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>yearly_counts <span class="op">=</span> yearly_counts.reset_index(name<span class="op">=</span><span class="st">'counts'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>yearly_counts</span></code></pre>
 </div>
 <p>Timelapse data can be visualised as a line plot
 (<code>geom_line</code>) with years on <code>x</code> axis and counts on
 the <code>y</code> axis.</p>
-<div class="codewrapper sourceCode" id="cb21">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_counts,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'counts'</span>))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<p>Unfortunately this does not work, because we plot data for all the
-species together. We need to tell <code>plotnine</code> to draw a line
-for each species by modifying the aesthetic function and map the
-species_id to the color:</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_counts,</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'counts'</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'counts'</span>))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<p>Unfortunately this does not work, because we plot data for all the
+species together. We need to tell <code>plotnine</code> to draw a line
+for each species by modifying the aesthetic function and map the
+species_id to the color:</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_counts,</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'counts'</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_time_plot.png" alt="Line graph of count per year where data for each species is indicated by a different color" class="figure mx-auto d-block"></figure></section><section id="faceting"><h2 class="section-heading">Faceting<a class="anchor" aria-label="anchor" href="#faceting"></a>
 </h2>
@@ -6735,20 +6796,6 @@ that allows to split one plot into multiple plots based on a factor
 variable included in the dataset.</p>
 <p>Consider our scatter plot of the <code>weight</code> versus the
 <code>hindfoot_length</code> from the previous sections:</p>
-<div class="codewrapper sourceCode" id="cb23">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<p>We can now keep the same code and at the <code>facet_wrap</code> on a
-chosen variable to split out the graph and make a separate graph for
-each of the groups in that variable. As an example, use
-<code>sex</code>:</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6757,11 +6804,12 @@ each of the groups in that variable. As an example, use
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"sex"</span>)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_facet_plot.png" alt="2 scatter plots, one for males and the other for females, of hindfoot length vs weight with colored dots denoting specific species, showing the trend is the same between both male and females of multiple species" class="figure mx-auto d-block"></figure><p>We can apply the same concept on any of the available categorical
-variables:</p>
+<p>We can now keep the same code and at the <code>facet_wrap</code> on a
+chosen variable to split out the graph and make a separate graph for
+each of the groups in that variable. As an example, use
+<code>sex</code>:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -6770,8 +6818,21 @@ variables:</p>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"plot_id"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"sex"</span>)</span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<figure><img src="../fig/06_facet_plot.png" alt="2 scatter plots, one for males and the other for females, of hindfoot length vs weight with colored dots denoting specific species, showing the trend is the same between both male and females of multiple species" class="figure mx-auto d-block"></figure><p>We can apply the same concept on any of the available categorical
+variables:</p>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"plot_id"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_facet_all_plot.png" alt="24 individual scatter plots of Hindfoot length vs weight of species with colors denoting species and numbers above plot representing 1 of the 24 plots, showing trends for each unique plot id studied" class="figure mx-auto d-block"></figure><p>The <code>facet_wrap</code> geometry extracts plots into an arbitrary
 number of dimensions to allow them to cleanly fit on one page. On the
@@ -6779,19 +6840,19 @@ other hand, the <code>facet_grid</code> geometry allows you to
 explicitly specify how you want your plots to be arranged via formula
 notation (<code>rows ~ columns</code>; a <code>.</code> can be used as a
 placeholder that indicates only one row or column).</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># only select the years of interest</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>survey_2000 <span class="op">=</span> surveys_complete[surveys_complete[<span class="st">"year"</span>].isin([<span class="dv">2000</span>, <span class="dv">2001</span>])]</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>survey_2000,</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_grid(<span class="st">"year ~ sex"</span>)</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># only select the years of interest</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>survey_2000 <span class="op">=</span> surveys_complete[surveys_complete[<span class="st">"year"</span>].isin([<span class="dv">2000</span>, <span class="dv">2001</span>])]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>survey_2000,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'hindfoot_length'</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point(alpha<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_grid(<span class="st">"year ~ sex"</span>)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_select_plot.png" alt="Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year" class="figure mx-auto d-block"></figure><div id="challenge4" class="callout challenge">
 <div class="callout-square">
@@ -6815,14 +6876,14 @@ average weight of the species changes through the years.</p>
 </button>
 <div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>yearly_weight <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>])[<span class="st">'weight'</span>].mean().reset_index()</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_weight, mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'weight'</span>))</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"species_id"</span>)</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>yearly_weight <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>])[<span class="st">'weight'</span>].mean().reset_index()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_weight, mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>, y<span class="op">=</span><span class="st">'weight'</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"species_id"</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -6852,18 +6913,18 @@ for each sex and an individual color assigned to each
 </button>
 <div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>yearly_weight <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>, <span class="st">'sex'</span>])[<span class="st">'weight'</span>].mean().reset_index()</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_weight,</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>,</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>,</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"sex"</span>)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>yearly_weight <span class="op">=</span> surveys_complete.groupby([<span class="st">'year'</span>, <span class="st">'species_id'</span>, <span class="st">'sex'</span>])[<span class="st">'weight'</span>].mean().reset_index()</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>yearly_weight,</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'year'</span>,</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>                          y<span class="op">=</span><span class="st">'weight'</span>,</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>                          color<span class="op">=</span><span class="st">'species_id'</span>))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_wrap(<span class="st">"sex"</span>)</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -6881,43 +6942,43 @@ some of your ideas as comments in the Etherpad.</p>
 <p>The theming options provide a rich set of visual adaptations.
 Consider the following example of a bar plot with the counts per
 year.</p>
-<div class="codewrapper sourceCode" id="cb29">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'factor(year)'</span>))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
-</div>
-<figure><img src="../fig/06_overlap_bars.png" alt="Bar graph of count per year showing ovelapping x-axis labels" class="figure mx-auto d-block"></figure><p>Notice that we use the <code>year</code> here as a categorical
-variable by using the <code>factor</code> functionality. However, by
-doing so, we have the individual year labels overlapping with each
-other. The <code>theme</code> functionality provides a way to rotate the
-text of the x-axis labels:</p>
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'factor(year)'</span>))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme_bw()</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme(axis_text_x <span class="op">=</span> p9.element_text(angle<span class="op">=</span><span class="dv">90</span>))</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+</div>
+<figure><img src="../fig/06_overlap_bars.png" alt="Bar graph of count per year showing ovelapping x-axis labels" class="figure mx-auto d-block"></figure><p>Notice that we use the <code>year</code> here as a categorical
+variable by using the <code>factor</code> functionality. However, by
+doing so, we have the individual year labels overlapping with each
+other. The <code>theme</code> functionality provides a way to rotate the
+text of the x-axis labels:</p>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'factor(year)'</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme_bw()</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme(axis_text_x <span class="op">=</span> p9.element_text(angle<span class="op">=</span><span class="dv">90</span>))</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_good_bars.png" alt="Bar graph of count per year demonstrating how the theme function rotates the x-axis labels" class="figure mx-auto d-block"></figure><p>When you like a specific set of theme-customizations you created, you
 can save them as an object to easily apply them to other plots you may
 create:</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>my_custom_theme <span class="op">=</span> p9.theme(axis_text_x <span class="op">=</span> p9.element_text(color<span class="op">=</span><span class="st">"grey"</span>, size<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                                                         angle<span class="op">=</span><span class="dv">90</span>, hjust<span class="op">=</span><span class="fl">.5</span>),</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                           axis_text_y <span class="op">=</span> p9.element_text(color<span class="op">=</span><span class="st">"grey"</span>, size<span class="op">=</span><span class="dv">10</span>))</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'factor(year)'</span>))</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> my_custom_theme</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>my_custom_theme <span class="op">=</span> p9.theme(axis_text_x <span class="op">=</span> p9.element_text(color<span class="op">=</span><span class="st">"grey"</span>, size<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                                                         angle<span class="op">=</span><span class="dv">90</span>, hjust<span class="op">=</span><span class="fl">.5</span>),</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                           axis_text_y <span class="op">=</span> p9.element_text(color<span class="op">=</span><span class="st">"grey"</span>, size<span class="op">=</span><span class="dv">10</span>))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>(p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'factor(year)'</span>))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_bar()</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> my_custom_theme</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
 <figure><img src="../fig/06_theme_plot.png" alt="Bar graph of count per year demonstrating the use of a customized theme" class="figure mx-auto d-block"></figure><div id="discussion1" class="callout discussion">
 <div class="callout-square">
@@ -6943,14 +7004,14 @@ labels?</li>
 format. You can easily change the dimension (and its resolution) of your
 plot by adjusting the appropriate arguments (<code>width</code>,
 <code>height</code> and <code>dpi</code>):</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>my_plot <span class="op">=</span> (p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>my_plot.save(<span class="st">"scatterplot.png"</span>, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">10</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>my_plot <span class="op">=</span> (p9.ggplot(data<span class="op">=</span>surveys_complete,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>           mapping<span class="op">=</span>p9.aes(x<span class="op">=</span><span class="st">'weight'</span>, y<span class="op">=</span><span class="st">'hindfoot_length'</span>))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_point()</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>my_plot.save(<span class="st">"scatterplot.png"</span>, width<span class="op">=</span><span class="dv">10</span>, height<span class="op">=</span><span class="dv">10</span>, dpi<span class="op">=</span><span class="dv">300</span>)</span></code></pre>
 </div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
@@ -7307,7 +7368,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7389,7 +7450,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
