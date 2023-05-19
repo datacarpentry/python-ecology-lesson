@@ -3802,7 +3802,7 @@ solutions to this later.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3953,7 +3953,7 @@ impact scientific results.</p>
   Hints
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The method <code>.count()</code> gives you the number of non-NaN
 observations per column. Try looking to the <code>.isna()</code>
@@ -3965,7 +3965,7 @@ method.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4054,7 +4054,7 @@ it imports properly.</p>
   Processed Data Checkpoint
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
@@ -4100,7 +4100,7 @@ function.</li>
 </div>
 </section></section><section id="aio-05-merging-data"><p>Content from <a href="05-merging-data.html">Combining DataFrames with Pandas</a></p>
 <hr>
-<p> Last updated on 2023-05-08 | 
+<p> Last updated on 2023-05-19 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/05-merging-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 45 minutes </p>
@@ -4276,19 +4276,58 @@ into pandas to make sure it imports properly.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For kicks read our output back into Python and make sure all looks good</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>new_output <span class="op">=</span> pd.read_csv(<span class="st">'data/out.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="challenge1" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---combine-data" class="callout-inner">
-<h3 class="callout-title">Challenge - Combine Data<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Challenge - Combine Data<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
-<p>In the data folder, there are two survey data files:
-<code>surveys2001.csv</code> and <code>surveys2002.csv</code>. Read the
-data into pandas and combine the files to make one new DataFrame. Create
-a plot of average plot weight by year grouped by sex. Export your
-results as a CSV and make sure it reads back into pandas properly.</p>
+<p>In the data folder, there is another folder called
+<code>yearly_files</code> that contains survey data broken down into
+individual files by year. Read the data from two of these files,
+<code>surveys2001.csv</code> and <code>surveys2002.csv</code>, into
+pandas and combine the files to make one new DataFrame. Create a plot of
+average plot weight by year grouped by sex. Export your results as a CSV
+and make sure it reads back into pandas properly.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the files:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2001.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2002.csv"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># concatenate</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>survey_all <span class="op">=</span> pd.concat([survey2001, survey2002], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get the weight for each year, grouped by sex:</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>weight_year <span class="op">=</span> survey_all.groupby([<span class="st">'year'</span>, <span class="st">'sex'</span>]).mean()[<span class="st">"wgt"</span>].unstack()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot:</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>weight_year.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># tip: use this to improve the plot layout. </span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Try running the code without this line to see </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># what difference applying plt.tight_layout() makes.</span></span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_weight_year.png" alt="average weight for each year, grouped by sex" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># writing to file:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>weight_year.to_csv(<span class="st">"weight_for_year.csv"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reading it back in:</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -4333,15 +4372,15 @@ larger survey data.</li>
 <p>To better understand joins, let’s grab the first 10 lines of our data
 as a subset to work with. We’ll use the <code>.head()</code> method to
 do this. We’ll also read in a subset of the species table.</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import a small subset of the species data designed for this part of the lesson.</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># It is stored in the data folder.</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'data/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import a small subset of the species data designed for this part of the lesson.</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># It is stored in the data folder.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'data/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
 <p>In this example, <code>species_sub</code> is the lookup table
 containing genus, species, and taxa names that we want to join with the
@@ -4359,20 +4398,20 @@ DataFrames will have columns with the same name that also contain the
 same data. If we are less lucky, we need to identify a
 (differently-named) column in each DataFrame that contains the same
 information.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>species_sub.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>species_sub.columns</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Index([u'species_id', u'genus', u'species', u'taxa'], dtype='object')</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>survey_sub.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>survey_sub.columns</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4399,10 +4438,10 @@ example of an inner join, adapted from <a href="https://blog.codinghorror.com/a-
 Atwood’s blogpost about SQL joins</a> is below:</p>
 <figure><img src="../fig/inner-join.png" alt="Inner join -- courtesy of codinghorror.com" class="figure mx-auto d-block"></figure><p>The pandas function for performing joins is called <code>merge</code>
 and an Inner join is the default option:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>merged_inner <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>merged_inner <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span></code></pre>
 </div>
 <p>In this case, <code>species_id</code> is the only column name in both
 DataFrames, so if we skipped the <code>left_on</code> and
@@ -4410,20 +4449,20 @@ DataFrames, so if we skipped the <code>left_on</code> and
 wanted to use that column to join. However, it is usually better to be
 explicit.</p>
 <p>So what is the size of the output data?</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>merged_inner.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>merged_inner.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>(8, 12)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>merged_inner</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>merged_inner</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4505,11 +4544,11 @@ DataFrame that do not have values for the join key(s) in the
 <figure><img src="../fig/left-join.png" alt="Left Join" class="figure mx-auto d-block"></figure><p>A left join is performed in pandas by calling the same
 <code>merge</code> function used for inner join, but using the
 <code>how='left'</code> argument:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>merged_left</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>merged_left</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4548,10 +4587,10 @@ contains the <em>same number of rows</em> as the original
 that should have come from <code>species_sub</code> (i.e.,
 <code>species_id</code>, <code>genus</code>, and <code>taxa</code>) is
 missing (they contain <code>NaN</code> values):</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>merged_left[merged_left[<span class="st">'genus'</span>].isna()]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>merged_left[merged_left[<span class="st">'genus'</span>].isna()]</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4589,12 +4628,12 @@ rarely used.</li>
 </section><section id="final-challenges"><h2 class="section-heading">Final Challenges<a class="anchor" aria-label="anchor" href="#final-challenges"></a>
 </h2>
 <hr class="half-width">
-<div id="discussion2" class="callout discussion">
+<div id="challenge2" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---distributions" class="callout-inner">
-<h3 class="callout-title">Challenge - Distributions<a class="anchor" aria-label="anchor" href="#discussion2"></a>
+<h3 class="callout-title">Challenge - Distributions<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
 <p>Create a new DataFrame by joining the contents of the
@@ -4607,12 +4646,105 @@ calculate and plot the distribution of:</p>
 </div>
 </div>
 </div>
-<div id="discussion3" class="callout discussion">
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>surveys_df,right<span class="op">=</span>species_df, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span><span class="st">"species_id"</span>)</span></code></pre>
+</div>
+<ol style="list-style-type: decimal">
+<li>taxa per plot (number of species of each taxa per plot):</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>])[<span class="st">"taxa"</span>].nunique().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_ntaxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><p><em>Suggestion</em>: It is also possible to plot the number of
+individuals for each taxa in each plot (stacked bar chart):</p>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>]).count()[<span class="st">"record_id"</span>].unstack().plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.05</span>)) <span class="co"># stop the legend from overlapping with the bar plot</span></span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_taxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><ol start="2" style="list-style-type: decimal">
+<li>taxa by sex by plot: Providing the Nan values with the M|F values
+(can also already be changed to ‘x’):</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb28">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>merged_left.loc[merged_left[<span class="st">"sex"</span>].isnull(), <span class="st">"sex"</span>] <span class="op">=</span> <span class="st">'M|F'</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site<span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"sex"</span>])[<span class="st">"taxa"</span>].nunique().reset_index(level<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site <span class="op">=</span> ntaxa_sex_site.pivot_table(values<span class="op">=</span><span class="st">"taxa"</span>, columns<span class="op">=</span><span class="st">"sex"</span>, index<span class="op">=</span>ntaxa_sex_site.index)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site.plot(kind<span class="op">=</span><span class="st">"bar"</span>, legend<span class="op">=</span><span class="va">False</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.08</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_ntaxa_per_site_sex.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Suggestion (for discussion only)
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div class="accordion-body">
+<p>The number of individuals for each taxa in each plot per sex can be
+derived as well.</p>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sex_taxa_site  <span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>, <span class="st">"sex"</span>]).count()[<span class="st">'record_id'</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex_taxa_site.unstack(level<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>]).plot(kind<span class="op">=</span><span class="st">'bar'</span>, logy<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.15</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_sex_taxa_site_intro.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>This is not really the best plot choice, e.g. it is not easily
+readable. A first option to make this better, is to make facets.
+However, pandas/matplotlib do not provide this by default. Just as a
+pure matplotlib example (<code>M|F</code> if for not-defined sex
+records):</p>
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sex, ax <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"M|F"</span>], axs):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    sex_taxa_site[sex_taxa_site[<span class="st">"sex"</span>] <span class="op">==</span> sex].plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(sex)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> ax.is_last_row():</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks([])</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">""</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">5</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.3</span>),</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>              fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_sex_taxa_site.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>However, it would be better to link to <a href="https://stanford.edu/~mwaskom/software/seaborn" class="external-link">Seaborn</a> and <a href="https://github.com/ellisonbg/altair" class="external-link">Altair</a> for this kind of
+multivariate visualisation.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge3" class="callout challenge">
 <div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
+<i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---diversity-index" class="callout-inner">
-<h3 class="callout-title">Challenge - Diversity Index<a class="anchor" aria-label="anchor" href="#discussion3"></a>
+<h3 class="callout-title">Challenge - Diversity Index<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal">
@@ -4622,10 +4754,54 @@ data to summarize the number of plots by plot type.</p></li>
 <li><p>Calculate a diversity index of your choice for control vs rodent
 exclosure plots. The index should consider both species abundance and
 number of species. You might choose to use the simple <a href="https://www.amnh.org/explore/curriculum-collections/biodiversity-counts/plant-ecology/how-to-calculate-a-biodiversity-index" class="external-link">biodiversity
-index described here</a> which calculates diversity as:</p></li>
+index described here</a> which calculates diversity as: the number of
+species in the plot / the total number of individuals in the plot =
+Biodiversity index.</p></li>
 </ol>
-<p>the number of species in the plot / the total number of individuals
-in the plot = Biodiversity index.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div class="accordion-body">
+<ol style="list-style-type: decimal">
+<li><div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plot_info <span class="op">=</span> pd.read_csv(<span class="st">"data/plots.csv"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plot_info.groupby(<span class="st">"plot_type"</span>).count()</span></code></pre>
+</div></li>
+<li>
+</li>
+</ol>
+<div class="codewrapper sourceCode" id="cb32">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>merged_site_type <span class="op">=</span> pd.merge(merged_left, plot_info, on<span class="op">=</span><span class="st">'plot_id'</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of species for each plot</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>nspecies_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>])[<span class="st">"species"</span>].nunique().rename(<span class="st">"nspecies"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of individuals</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>nindividuals_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>]).count()[<span class="st">'record_id'</span>].rename(<span class="st">"nindiv"</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># combine the two series</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>diversity_index <span class="op">=</span> pd.concat([nspecies_site, nindividuals_site], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the diversity index</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>] <span class="op">=</span> diversity_index[<span class="st">'nspecies'</span>]<span class="op">/</span>diversity_index[<span class="st">'nindiv'</span>]</span></code></pre>
+</div>
+<p>Making a bar chart from this diversity index:</p>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>].plot(kind<span class="op">=</span><span class="st">"barh"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Diversity index"</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_diversity_index.png" alt="horizontal bar chart of diversity index by plot" class="figure mx-auto d-block"></figure>
+</div>
 </div>
 </div>
 </div>
@@ -6155,7 +6331,7 @@ removed</p>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
@@ -6257,7 +6433,7 @@ the bar geometry to handle the counts)</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6399,7 +6575,7 @@ reference</a> to find the appropriate function).</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6484,7 +6660,7 @@ from which the sample was taken (<code>plot_id</code>)</li>
   Answers
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6637,7 +6813,7 @@ average weight of the species changes through the years.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6674,7 +6850,7 @@ for each sex and an individual color assigned to each
   Answers
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7131,7 +7307,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7213,7 +7389,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7655,7 +7831,7 @@ SQL formats.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.17" class="external-link">sandpaper (0.11.17)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -7679,8 +7855,8 @@ SQL formats.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/instructor/aio.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/aio.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-18",
-  "datePublished": "2023-05-18"
+  "dateModified": "2023-05-19",
+  "datePublished": "2023-05-19"
 }
 
   </script><script>

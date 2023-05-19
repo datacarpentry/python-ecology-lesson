@@ -344,19 +344,16 @@
     <main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Instructor Notes</h1>
         
-<div class="section level1">
-<h1 id="challenge-solutions">Challenge solutions<a class="anchor" aria-label="anchor" href="#challenge-solutions"></a>
-</h1>
-<div class="section level2">
-<h2 id="install-the-required-workshop-packages">Install the required workshop packages<a class="anchor" aria-label="anchor" href="#install-the-required-workshop-packages"></a>
+
+<section id="install-the-required-workshop-packages"><h2 class="section-heading">Install the required workshop packages<a class="anchor" aria-label="anchor" href="#install-the-required-workshop-packages"></a>
 </h2>
+<hr class="half-width">
 <p>Please use the instructions in the <a href="index.html#setup">Setup</a>
 document to perform installs. If you encounter setup issues, please file
 an issue with the tags ‘High-priority’.</p>
-</div>
-<div class="section level2">
-<h2 id="checking-installations-">Checking installations.<a class="anchor" aria-label="anchor" href="#checking-installations-"></a>
+</section><section id="checking-installations."><h2 class="section-heading">Checking installations.<a class="anchor" aria-label="anchor" href="#checking-installations."></a>
 </h2>
+<hr class="half-width">
 <p>In the <a href="../files/scripts/check_env.py"><code>episodes/files/scripts/check_env.py</code></a>
 directory, you will find a script called check_env.py This checks the
 functionality of the Anaconda install.</p>
@@ -374,10 +371,9 @@ following:</p>
 <p>If learners receive an <code>AssertionError</code>, it will inform
 you how to help them correct this installation. Otherwise, it will tell
 you that the system is good to go and ready for Data Carpentry!</p>
-</div>
-<div class="section level2">
-<h2 id="starting-with-data">02-starting-with-data<a class="anchor" aria-label="anchor" href="#starting-with-data"></a>
+</section><section id="starting-with-data"><h2 class="section-heading">02-starting-with-data<a class="anchor" aria-label="anchor" href="#starting-with-data"></a>
 </h2>
+<hr class="half-width">
 <div id="callout1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -392,10 +388,9 @@ error.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section level2">
-<h2 id="index-slice-subset">03-index-slice-subset<a class="anchor" aria-label="anchor" href="#index-slice-subset"></a>
+</section><section id="index-slice-subset"><h2 class="section-heading">03-index-slice-subset<a class="anchor" aria-label="anchor" href="#index-slice-subset"></a>
 </h2>
+<hr class="half-width">
 <p>Tip: use <code>.head()</code> method throughout this lesson to keep
 your display neater for students. Encourage students to try with and
 without <code>.head()</code> to reinforce this useful tool and then to
@@ -403,186 +398,23 @@ use it or not at their preference. For example, if a student worries
 about keeping up in pace with typing, let them know they can skip the
 <code>.head()</code>, but that you’ll use it to keep more lines of
 previous steps visible.</p>
-</div>
-<div class="section level2">
-<h2 id="data-types-and-format">04-data-types-and-format<a class="anchor" aria-label="anchor" href="#data-types-and-format"></a>
+</section><section id="visualization-ggplot-python"><h2 class="section-heading">07-visualization-ggplot-python<a class="anchor" aria-label="anchor" href="#visualization-ggplot-python"></a>
 </h2>
-<div class="section level3">
-<h3 id="writing-out-data-to-csv">Writing Out Data to CSV<a class="anchor" aria-label="anchor" href="#writing-out-data-to-csv"></a>
-</h3>
-<p>If the students have trouble generating the output, or anything
-happens with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
-in this repository contains the file <code>surveys_complete.csv</code>
-with the data they should generate.</p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="merging-data">05-merging-data<a class="anchor" aria-label="anchor" href="#merging-data"></a>
-</h2>
-<ul>
-<li>In the data folder, there are two survey data files: survey2001.csv
-and survey2002.csv. Read the data into Python and combine the files to
-make one new data frame. Create a plot of average plot weight by year
-grouped by sex. Export your results as a CSV and make sure it reads back
-into Python properly.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb2">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the files:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"data/survey2001.csv"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"data/survey2002.csv"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># concatenate</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>survey_all <span class="op">=</span> pd.concat([survey2001, survey2002], axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get the weight for each year, grouped by sex:</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>weight_year <span class="op">=</span> survey_all.groupby([<span class="st">'year'</span>, <span class="st">'sex'</span>]).mean()[<span class="st">"wgt"</span>].unstack()</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot:</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>weight_year.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># tip(!)</span></span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_weight_year.png" alt="average weight for each year, grouped by sex" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb3">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># writing to file:</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>weight_year.to_csv(<span class="st">"weight_for_year.csv"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reading it back in:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
-</div>
-<ul>
-<li>Create a new DataFrame by joining the contents of the surveys.csv
-and species.csv tables.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb4">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>surveys_df,right<span class="op">=</span>species_df, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span><span class="st">"species_id"</span>)</span></code></pre>
-</div>
-<p>Then calculate and plot the distribution of:</p>
-<p><strong>1. taxa per plot</strong> (number of species of each taxa per
-plot):</p>
-<p>Species distribution (number of taxa for each plot) can be derived as
-follows:</p>
-<div class="codewrapper sourceCode" id="cb5">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>])[<span class="st">"taxa"</span>].nunique().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_ntaxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><p><em>Suggestion</em>: It is also possible to plot the number of
-individuals for each taxa in each plot (stacked bar chart):</p>
-<div class="codewrapper sourceCode" id="cb6">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>]).count()[<span class="st">"record_id"</span>].unstack().plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.05</span>))</span></code></pre>
-</div>
-<p>(the legend otherwise overlaps the bar plot)</p>
-<figure><img src="../fig/04_chall_taxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><p><strong>2. taxa by sex by plot</strong>: Providing the Nan values
-with the M|F values (can also already be changed to ‘x’):</p>
-<div class="codewrapper sourceCode" id="cb7">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>merged_left.loc[merged_left[<span class="st">"sex"</span>].isnull(), <span class="st">"sex"</span>] <span class="op">=</span> <span class="st">'M|F'</span></span></code></pre>
-</div>
-<p>Number of taxa for each plot/sex combination:</p>
-<div class="codewrapper sourceCode" id="cb8">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site<span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"sex"</span>])[<span class="st">"taxa"</span>].nunique().reset_index(level<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site <span class="op">=</span> ntaxa_sex_site.pivot_table(values<span class="op">=</span><span class="st">"taxa"</span>, columns<span class="op">=</span><span class="st">"sex"</span>, index<span class="op">=</span>ntaxa_sex_site.index)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site.plot(kind<span class="op">=</span><span class="st">"bar"</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.08</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_ntaxa_per_site_sex.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p><em>Suggestion (for discussion only)</em>:</p>
-<p>The number of individuals for each taxa in each plot per sex can be
-derived as well.</p>
-<div class="codewrapper sourceCode" id="cb9">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sex_taxa_site  <span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>, <span class="st">"sex"</span>]).count()[<span class="st">'record_id'</span>]</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sex_taxa_site.unstack(level<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>]).plot(kind<span class="op">=</span><span class="st">'bar'</span>, logy<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.15</span>),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_sex_taxa_site_intro.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>This is not really the best plot choice: not readable,… A first
-option to make this better, is to make facets. However,
-pandas/matplotlib do not provide this by default. Just as a pure
-matplotlib example (<code>M|F</code> if for not-defined sex
-records):</p>
-<div class="codewrapper sourceCode" id="cb10">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sex, ax <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"M|F"</span>], axs):</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    sex_taxa_site[sex_taxa_site[<span class="st">"sex"</span>] <span class="op">==</span> sex].plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(sex)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> ax.is_last_row():</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks([])</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">""</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">5</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.3</span>),</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>              fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_sex_taxa_site.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>However, it would be better to link to <a href="https://stanford.edu/~mwaskom/software/seaborn" class="external-link">Seaborn</a> and <a href="https://github.com/ellisonbg/altair" class="external-link">Altair</a> for its kind of
-multivariate visualisations.</p>
-<ul>
-<li>In the data folder, there is a plot CSV that contains information
-about the type associated with each plot. Use that data to summarize the
-number of plots by plot type.</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb11">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plot_info <span class="op">=</span> pd.read_csv(<span class="st">"data/plots.csv"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plot_info.groupby(<span class="st">"plot_type"</span>).count()</span></code></pre>
-</div>
-<ul>
-<li>Calculate a diversity index of your choice for control vs rodent
-exclosure plots. The index should consider both species abundance and
-number of species. You might choose the simple biodiversity index
-described here which calculates diversity as
-<code>the number of species in the plot / the total number of individuals in the plot = Biodiversity index.</code>
-</li>
-</ul>
-<div class="codewrapper sourceCode" id="cb12">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>merged_site_type <span class="op">=</span> pd.merge(merged_left, plot_info, on<span class="op">=</span><span class="st">'plot_id'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of species for each plot</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>nspecies_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>])[<span class="st">"species"</span>].nunique().rename(<span class="st">"nspecies"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of individuals</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>nindividuals_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>]).count()[<span class="st">'record_id'</span>].rename(<span class="st">"nindiv"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># combine the two series</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>diversity_index <span class="op">=</span> pd.concat([nspecies_site, nindividuals_site], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the diversity index</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>] <span class="op">=</span> diversity_index[<span class="st">'nspecies'</span>]<span class="op">/</span>diversity_index[<span class="st">'nindiv'</span>]</span></code></pre>
-</div>
-<p>Making a bar chart:</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>].plot(kind<span class="op">=</span><span class="st">"barh"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Diversity index"</span>)</span></code></pre>
-</div>
-<figure><img src="../fig/04_chall_diversity_index.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure>
-</div>
-<div class="section level2">
-<h2 id="visualization-ggplot-python">07-visualization-ggplot-python<a class="anchor" aria-label="anchor" href="#visualization-ggplot-python"></a>
-</h2>
+<hr class="half-width">
 <p>Note <code>plotnine</code> contains a <em>lot</em> of deprecation
 warnings in some versions of python/matplotlib, warnings may need to be
 supressed with</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
 </div>
 <p>iPython notebooks for plotting can be viewed in the
 <code>learners</code> folder.</p>
-</div>
-<div class="section level2">
-<h2 id="putting-it-all-together">08-putting-it-all-together<a class="anchor" aria-label="anchor" href="#putting-it-all-together"></a>
+</section><section id="putting-it-all-together"><h2 class="section-heading">08-putting-it-all-together<a class="anchor" aria-label="anchor" href="#putting-it-all-together"></a>
 </h2>
+<hr class="half-width">
 <p>Answers are embedded with challenges in this lesson, other than
 random distribtuion which is left to the learner to choose, and final
 plot, for which the learner should investigate the matplotlib
@@ -596,28 +428,25 @@ To use mathematical notation, surround your text using the dollar sign
 (“$”). LaTeX uses the backslash character (“\”) a lot. Since backslash
 has a special meaning in the Python strings, you should replace all the
 LaTeX-related backslashes with two backslashes.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t, <span class="st">'r--'</span>, label<span class="op">=</span><span class="st">'$y=x$'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.plot(t, t<span class="op">**</span><span class="dv">2</span> , <span class="st">'bs-'</span>, label<span class="op">=</span><span class="st">'$y=x^2$'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.plot(t, (t <span class="op">-</span> <span class="dv">5</span>)<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">5</span> <span class="op">*</span> t <span class="op">-</span> <span class="fl">0.5</span>, <span class="st">'g^:'</span>, label<span class="op">=</span><span class="st">'$y=(x - 5)^2 + 5  x - </span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{1}{2}</span><span class="st">$'</span>) <span class="co"># note the double backslash</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, shadow<span class="op">=</span><span class="va">True</span>, fontsize<span class="op">=</span><span class="st">'x-large'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Note the double backslashes in the line below.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'This is the x axis. It can also contain math such as $</span><span class="ch">\\</span><span class="st">bar</span><span class="sc">{x}</span><span class="st">=</span><span class="ch">\\</span><span class="st">frac{</span><span class="ch">\\</span><span class="st">sum_{i=1}^</span><span class="sc">{n}</span><span class="st"> </span><span class="sc">{x}</span><span class="st">} </span><span class="sc">{N}</span><span class="st">$'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'This is the y axis'</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'This is the figure title'</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <p><a href="https://matplotlib.org/users/mathtext.html" class="external-link">This page</a>
 contains more information.</p>
-</div>
-</div>
-
-      <section id="aggregate-instructor-notes"><section id="00-before-we-start"><h2 class="section-heading"><a href="00-before-we-start.html">Before we start</a></h2>
+</section><section id="aggregate-instructor-notes"><section id="00-before-we-start"><h2 class="section-heading"><a href="00-before-we-start.html">Before we start</a></h2>
 <hr class="half-width"></section><section id="01-short-introduction-to-Python"><h2 class="section-heading"><a href="01-short-introduction-to-Python.html">Short Introduction to Programming in Python</a></h2>
 <hr class="half-width">
 <p>It can help to further demonstrate the freedom the user has to define
@@ -680,7 +509,38 @@ with that, the folder <a href="https://github.com/datacarpentry/python-ecology-l
 in this repository contains the file <code>surveys_complete.csv</code>
 with the data they should generate.</p>
 <hr></section><section id="05-merging-data"><h2 class="section-heading"><a href="05-merging-data.html">Combining DataFrames with Pandas</a></h2>
-<hr class="half-width"></section><section id="06-loops-and-functions"><h2 class="section-heading"><a href="06-loops-and-functions.html">Data Workflows and Automation</a></h2>
+<hr class="half-width">
+<p>The number of individuals for each taxa in each plot per sex can be
+derived as well.</p>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>sex_taxa_site  <span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>, <span class="st">"sex"</span>]).count()[<span class="st">'record_id'</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>sex_taxa_site.unstack(level<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>]).plot(kind<span class="op">=</span><span class="st">'bar'</span>, logy<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.15</span>),</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_sex_taxa_site_intro.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>This is not really the best plot choice, e.g. it is not easily
+readable. A first option to make this better, is to make facets.
+However, pandas/matplotlib do not provide this by default. Just as a
+pure matplotlib example (<code>M|F</code> if for not-defined sex
+records):</p>
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(<span class="dv">3</span>, <span class="dv">1</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sex, ax <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"M|F"</span>], axs):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    sex_taxa_site[sex_taxa_site[<span class="st">"sex"</span>] <span class="op">==</span> sex].plot(kind<span class="op">=</span><span class="st">'bar'</span>, ax<span class="op">=</span>ax, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(sex)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> ax.is_last_row():</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks([])</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">""</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>axs[<span class="dv">0</span>].legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">5</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.3</span>),</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>              fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+</div>
+<figure><img src="../fig/04_chall_sex_taxa_site.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>However, it would be better to link to <a href="https://stanford.edu/~mwaskom/software/seaborn" class="external-link">Seaborn</a> and <a href="https://github.com/ellisonbg/altair" class="external-link">Altair</a> for this kind of
+multivariate visualisation.</p>
+<hr></section><section id="06-loops-and-functions"><h2 class="section-heading"><a href="06-loops-and-functions.html">Data Workflows and Automation</a></h2>
 <hr class="half-width">
 <p>When teaching the challenge below, demonstrating the results in a
 debugging environment can make function scope more clear.</p>
@@ -717,7 +577,7 @@ with the data they should generate.</p>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.17" class="external-link">sandpaper (0.11.17)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -741,8 +601,8 @@ with the data they should generate.</p>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/instructor/instructor-notes.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/instructor-notes.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-18",
-  "datePublished": "2023-05-18"
+  "dateModified": "2023-05-19",
+  "datePublished": "2023-05-19"
 }
 
   </script><script>
