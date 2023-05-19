@@ -25,48 +25,27 @@ If learners receive an `AssertionError`, it will inform you how to help them cor
 installation. Otherwise, it will tell you that the system is good to go and ready for Data
 Carpentry!
 
-
-## 02-starting-with-data
-
-:::::::::::::::::::::::::::::::::::::::::  callout
-
-## Important Bug Note
-
-In Pandas prior to 0.18.1 there is a bug causing `surveys_df['weight'].describe()` to return
-a runtime error.
-
-::::::::::::::::::::::::::::::::::::::::::::::::::
-
-## 03-index-slice-subset
-
-Tip: use `.head()` method throughout this lesson to keep your display neater for students.
-Encourage students to try with and without `.head()` to reinforce this useful tool and then to use
-it or not at their preference. For example, if a student worries about keeping up in pace with
-typing, let them know they can skip the `.head()`, but that you'll use it to keep more lines of
-previous steps visible.
-
 ## 07-visualization-ggplot-python
-
-Note `plotnine` contains a *lot* of deprecation warnings in some versions of python/matplotlib, warnings may need to be supressed with
-
-```python
-import warnings
-warnings.filterwarnings(action='once')
-```
 
 iPython notebooks for plotting can be viewed in the `learners` folder.
 
 ## 08-putting-it-all-together
 
-Answers are embedded with challenges in this lesson, other than random distribtuion which is left to the learner to choose, and final plot, for which the learner should investigate the matplotlib gallery.
+Answers are embedded with challenges in this lesson, 
+other than random distribtuion which is left to the learner to choose,
+and final plot, for which the learner should investigate the matplotlib gallery.
 
-Scientists often operate on mathematical equations. Being able to use them in their graphics has a
-lot of added value. Luckily, Matplotlib provides powerful tools for text control. One of them is the
-ability to use LaTeX mathematical notation, whenever text is used (you can learn more about LaTeX
-math notation here: [https://en.wikibooks.org/wiki/LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)). To use mathematical
-notation, surround your text using the dollar sign ("$").  LaTeX uses the backslash character ("\\")
-a lot. Since backslash has a special meaning in the Python strings, you should replace all the
-LaTeX-related backslashes with two backslashes.
+Scientists often operate on mathematical equations.
+Being able to use them in their graphics has a lot of added value
+Luckily, Matplotlib provides powerful tools for text control.
+One of them is the ability to use LaTeX mathematical notation, 
+whenever text is used
+(you can learn more about LaTeX math notation here: [https://en.wikibooks.org/wiki/LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)).
+To use mathematical notation, surround your text using the dollar sign ("$").
+
+LaTeX uses the backslash character ("\\") a lot.
+Since backslash has a special meaning in the Python strings,
+you should replace all the LaTeX-related backslashes with two backslashes.
 
 ```python
 plt.plot(t, t, 'r--', label='$y=x$')

@@ -25,6 +25,18 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+::::::::::::::::::::::: instructor
+
+Tip: use `.head()` method throughout this lesson to keep your display neater for students.
+Encourage students to try with and without `.head()` 
+to reinforce this useful tool and then to use it or not at their preference.
+
+For example, if a student worries about keeping up in pace with typing,
+let them know they can skip the `.head()`,
+but that you'll use it to keep more lines of previous steps visible.
+
+::::::::::::::::::::::::::::::::::
+
 In the first episode of this lesson, we read a CSV file into a pandas' DataFrame. We learned how to:
 
 - save a DataFrame to a named object,
