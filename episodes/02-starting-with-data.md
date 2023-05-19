@@ -132,7 +132,7 @@ We can use Pandas' `read_csv` function to pull the file directly into a [DataFra
 ### So What's a DataFrame?
 
 A DataFrame is a 2-dimensional data structure that can store data of different
-types (including characters, integers, floating point values, factors and more)
+types (including strings, numbers, categories and more)
 in columns. It is similar to a spreadsheet or an SQL table or the `data.frame` in
 R. A DataFrame always has an index (0-based). An index refers to the position of
 an element in the data structure.
@@ -347,8 +347,42 @@ what they return.
 
 4. `surveys_df.tail()`
   
+::::::::::::::::::::::: solution
+
+1. `surveys_df.columns` provides the names of the columns in the DataFrame.
+2. `surveys_df.shape` provides the dimensions of the DataFrame as a tuple 
+   in `(r,c)` format,
+   where `r` is the number of rows and `c` the number of columns.
+3. `surveys_df.head()` returns the first 5 lines of the DataFrame, 
+   annotated with column and row labels.
+   Adding an integer as an argument to the function 
+   specifies the number of lines to display from the top of the DataFrame, 
+   e.g. `surveys_df.head(15)` will return the first 15 lines.
+4. `surveys_df.tail()` will display the last 5 lines, 
+   and behaves similarly to the `head()` method.
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::: instructor
+
+## Recapping object (im)mutability
+
+Working through solutions to the challenge above
+can provide a good opportunity to recap about mutability and immutability
+of different objects.
+Show that the DataFrame index
+( the `columns` attribute) is immutable, e.g. 
+`surveys_df.columns[4] = "plotid"` returns a `TypeError`.
+
+Adapting the name is done with the `rename` function:
+
+```python
+surveys_df.rename(columns={"plot_id": "plotid"})`)
+```
+
+::::::::::::::::::::::::::::::::::
 
 ### Calculating Statistics From Data In A Pandas DataFrame
 
@@ -394,12 +428,26 @@ array(['NL', 'DM', 'PF', 'PE', 'DS', 'PP', 'SH', 'OT', 'DO', 'OX', 'SS',
 
 ### Challenge - Statistics
 
-1. Create a list of unique site ID's ("plot\_id") found in the surveys data. Call it
+1. Create a list of unique site IDs ("plot\_id") found in the surveys data. Call it
   `site_names`. How many unique sites are there in the data? How many unique
   species are in the data?
 
 2. What is the difference between `len(site_names)` and `surveys_df['plot_id'].nunique()`?
-  
+
+::::::::::::::::::::::: solution
+
+1. `site_names = pd.unique(surveys_df["plot_id"])`
+  - How many unique sites are in the data? 
+    `site_names.size` or `len(site_names)` provide the answer: 24
+  - How many unique species are in the data?
+    `len(pd.unique(surveys_df["species_id"]))` tells us there are 49 species
+2. `len(site_names)` and `surveys_df['plot_id'].nunique()` 
+   both provide the same output: 
+   they are alternative ways of getting the unique values.
+   The `nunique` method combines the count and unique value extraction,
+   and can help avoid the creation of intermediate variables like `site_names`.
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -496,26 +544,65 @@ summary stats.
 
 :::::::::::::::  solution
 
-### Did you get #3 right?
+1. The first column of output from `grouped_data.describe()` (count) 
+   tells us that the data contains 15690 records for female individuals
+   and 17348 records for male individuals.
+   - Note that these two numbers do not sum to 35549, 
+     the total number of rows we know to be in the `surveys_df` DataFrame.
+     Why do you think some records were excluded from the grouping?
+2. Calling the `mean()` method on data grouped by these two columns 
+   calculates and returns
+   the mean value for each combination of plot and sex. 
+   - Note that the mean is not meaningful for some variables,
+     e.g. day, month, and year. 
+     You can specify particular columns and particular summary statistics
+     using the `agg()` method (short for _aggregate_),
+     e.g. to obtain 
+     the last survey year, 
+     median foot-length 
+     and mean weight for each plot/sex combination:
 
-**A Snippet of the Output from challenge 3 looks like:**
+```python
+surveys_df.groupby(['plot_id', 'sex']).agg({"year": 'max',
+                                           "hindfoot_length": 'median',
+                                           "weight": 'mean'})
+```
+
+3. `surveys_df.groupby(['plot_id'])['weight'].describe()`
 
 ```output
- site
- 1     count    1903.000000
-       mean       51.822911
-       std        38.176670
-       min         4.000000
-       25%        30.000000
-       50%        44.000000
-       75%        53.000000
-       max       231.000000
-         ...
+          count       mean        std  min   25%   50%   75%    max
+plot_id                                                            
+1        1903.0  51.822911  38.176670  4.0  30.0  44.0  53.0  231.0
+2        2074.0  52.251688  46.503602  5.0  24.0  41.0  50.0  278.0
+3        1710.0  32.654386  35.641630  4.0  14.0  23.0  36.0  250.0
+4        1866.0  47.928189  32.886598  4.0  30.0  43.0  50.0  200.0
+5        1092.0  40.947802  34.086616  5.0  21.0  37.0  48.0  248.0
+6        1463.0  36.738893  30.648310  5.0  18.0  30.0  45.0  243.0
+7         638.0  20.663009  21.315325  4.0  11.0  17.0  23.0  235.0
+8        1781.0  47.758001  33.192194  5.0  26.0  44.0  51.0  178.0
+9        1811.0  51.432358  33.724726  6.0  36.0  45.0  50.0  275.0
+10        279.0  18.541219  20.290806  4.0  10.0  12.0  21.0  237.0
+11       1793.0  43.451757  28.975514  5.0  26.0  42.0  48.0  212.0
+12       2219.0  49.496169  41.630035  6.0  26.0  42.0  50.0  280.0
+13       1371.0  40.445660  34.042767  5.0  20.5  33.0  45.0  241.0
+14       1728.0  46.277199  27.570389  5.0  36.0  44.0  49.0  222.0
+15        869.0  27.042578  35.178142  4.0  11.0  18.0  26.0  259.0
+16        480.0  24.585417  17.682334  4.0  12.0  20.0  34.0  158.0
+17       1893.0  47.889593  35.802399  4.0  27.0  42.0  50.0  216.0
+18       1351.0  40.005922  38.480856  5.0  17.5  30.0  44.0  256.0
+19       1084.0  21.105166  13.269840  4.0  11.0  19.0  27.0  139.0
+20       1222.0  48.665303  50.111539  5.0  17.0  31.0  47.0  223.0
+21       1029.0  24.627794  21.199819  4.0  10.0  22.0  31.0  190.0
+22       1298.0  54.146379  38.743967  5.0  29.0  42.0  54.0  212.0
+23        369.0  19.634146  18.382678  4.0  10.0  14.0  23.0  199.0
+24        960.0  43.679167  45.936588  4.0  19.0  27.5  45.0  251.0
 ```
 
 :::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ### Quickly Creating Summary Counts in Pandas
 
@@ -542,6 +629,70 @@ What's another way to create a list of species and associated `count` of the
 records in the data? Hint: you can perform `count`, `min`, etc. functions on
 groupby DataFrames in the same way you can perform them on regular DataFrames.
 
+::::::::::::::::::::::: solution
+
+As well as calling `count()` on the `record_id` column of the grouped
+DataFrame as above,
+an equivalent result can be obtained by extracting `record_id` from the
+result of `count()` called directly on the grouped DataFrame:
+
+```python
+surveys_df.groupby('species_id').count()['record_id']
+```
+
+```output
+species_id
+AB      303
+AH      437
+AS        2
+BA       46
+CB       50
+CM       13
+CQ       16
+CS        1
+CT        1
+CU        1
+CV        1
+DM    10596
+DO     3027
+DS     2504
+DX       40
+NL     1252
+OL     1006
+OT     2249
+OX       12
+PB     2891
+PC       39
+PE     1299
+PF     1597
+PG        8
+PH       32
+PI        9
+PL       36
+PM      899
+PP     3123
+PU        5
+PX        6
+RF       75
+RM     2609
+RO        8
+RX        2
+SA       75
+SC        1
+SF       43
+SH      147
+SO       43
+SS      248
+ST        1
+SU        5
+UL        4
+UP        8
+UR       10
+US        4
+ZL        2
+```
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -587,6 +738,18 @@ total_count.plot(kind='bar');
 1. Create a plot of average weight across all species per site.
 2. Create a plot of total males versus total females for the entire dataset.
   
+::::::::::::::::::::::: solution
+
+1. `surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')`
+
+![](fig/01_chall_bar_meanweight.png){alt='average weight across all species for each plot'}
+
+2. `surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')`
+
+![](fig/01_chall_bar_totalsex.png){alt='total males versus total females for the entire dataset'}
+
+::::::::::::::::::::::::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

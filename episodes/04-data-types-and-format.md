@@ -247,6 +247,37 @@ surveys_df['plot_id'].astype("float")
 Next try converting `weight` to an integer. What goes wrong here? What is pandas telling you?
 We will talk about some solutions to this later.
 
+::::::::::::::::::::::: solution
+
+```python
+surveys_df['plot_id'].astype("float")
+```
+
+```output
+0         2.0
+1         3.0
+2         2.0
+3         7.0
+4         3.0
+         ... 
+35544    15.0
+35545    15.0
+35546    10.0
+35547     7.0
+35548     5.0
+```
+
+```python
+surveys_df['weight'].astype("int")
+```
+
+```error
+pandas.errors.IntCastingNaNError: Cannot convert non-finite values (NA or inf) to integer
+```
+
+Pandas cannot convert types from float to int if the column contains NaN values.
+
+::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -348,7 +379,35 @@ Count the number of missing values per column.
 The method `.count()` gives you the number of non-NaN observations per column.
 Try looking to the `.isna()` method.
 
+::::::::::::::::::::::: solution
 
+```python
+for c in surveys_df.columns:
+    print(c, len(surveys_df[surveys_df[c].isna()]))
+```
+
+Or, since we've been using the `pd.isnull` function so far:
+
+```python
+for c in surveys_df.columns:
+    print(c, len(surveys_df[pd.isnull(surveys_df[c])]))
+```
+
+```output
+record_id 0
+month 0
+day 0
+year 0
+plot_id 0
+species_id 763
+sex 2511
+hindfoot_length 4111
+weight 3266
+```
+
+Note that `isnull` and `isna` are equivalent: they behave identically.
+
+::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::
 
@@ -389,6 +448,16 @@ df_na.to_csv('data_output/surveys_complete.csv', index=False)
 We will use this data file later in the workshop. Check out your working directory to make
 sure the CSV wrote out properly, and that you can open it! If you want, try to bring it
 back into Python to make sure it imports properly.
+
+::::::::::::::::::::::: instructor
+
+## Processed Data Checkpoint
+
+If learners have trouble generating the output, or anything happens with that, the folder
+[`sample_output`](https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output)
+in this repository contains the file `surveys_complete.csv` with the data they should generate.
+
+::::::::::::::::::::::::::::::::::
 
 ## Recap
 
