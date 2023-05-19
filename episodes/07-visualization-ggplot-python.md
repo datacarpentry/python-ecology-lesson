@@ -92,6 +92,18 @@ To build a `plotnine` graphic we need to:
 (p9.ggplot(data=surveys_complete))
 ```
 
+::::::::::::::::::::::: instructor
+
+Note `plotnine` contains a *lot* of deprecation warnings in some versions of python/matplotlib, 
+warnings may need to be suppressed with
+
+```python
+import warnings
+warnings.filterwarnings(action='once')
+```
+
+::::::::::::::::::::::::::::::::::
+
 As we have not defined anything else, just an empty figure is available and
 presented.
 
