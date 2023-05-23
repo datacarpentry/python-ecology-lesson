@@ -660,12 +660,12 @@ attributes, using the syntax <code>df_object.method()</code>. Using
 method, we can supply extra information in the parentheses to control
 behaviour.</p>
 <p>Let’s look at the data using these.</p>
-<div id="challenge1" class="callout challenge">
+<div id="challenge---dataframes" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---dataframes" class="callout-inner">
-<h3 class="callout-title">Challenge - DataFrames<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge - DataFrames<a class="anchor" aria-label="anchor" href="#challenge---dataframes"></a>
 </h3>
 <div class="callout-content">
 <p>Using our DataFrame <code>surveys_df</code>, try out the
@@ -781,12 +781,12 @@ function tells us all of the unique values in the
        'SC', 'BA', 'SF', 'RO', 'AS', 'SO', 'PI', 'ST', 'CU', 'SU', 'RX',
        'PB', 'PL', 'PX', 'CT', 'US'], dtype=object)</code></pre>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="challenge---statistics" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---statistics" class="callout-inner">
-<h3 class="callout-title">Challenge - Statistics<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge - Statistics<a class="anchor" aria-label="anchor" href="#challenge---statistics"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Create a list of unique site IDs (“plot_id”) found in the surveys
@@ -917,12 +917,12 @@ M          29.709578  42.995379
 </div>
 <p>The <code>groupby</code> command is powerful in that it allows us to
 quickly generate summary stats.</p>
-<div id="challenge3" class="callout challenge">
+<div id="challenge---summary-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---summary-data" class="callout-inner">
-<h3 class="callout-title">Challenge - Summary Data<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge - Summary Data<a class="anchor" aria-label="anchor" href="#challenge---summary-data"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>How many recorded individuals are female <code>F</code> and how many
@@ -1023,12 +1023,12 @@ this in a few ways, but we’ll use <code>groupby</code> combined with
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>surveys_df.groupby(<span class="st">'species_id'</span>)[<span class="st">'record_id'</span>].count()[<span class="st">'DO'</span>]</span></code></pre>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="challenge---make-a-list" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---make-a-list" class="callout-inner">
-<h3 class="callout-title">Challenge - Make a list<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge - Make a list<a class="anchor" aria-label="anchor" href="#challenge---make-a-list"></a>
 </h3>
 <div class="callout-content">
 <p>What’s another way to create a list of species and associated
@@ -1140,8 +1140,9 @@ to a mean, area, or some other value calculated from our data.</p>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a quick bar chart</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>species_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
 </div>
-<figure><img src="../fig/countPerSpecies.png" alt="Weight by Species Site" class="figure mx-auto d-block">
-Count per species site</figure><p>We can also look at how many animals were captured in each site:</p>
+<p><img src="../fig/countPerSpecies.png" alt="Weight by Species Site" class="figure">
+Count per species site</p>
+<p>We can also look at how many animals were captured in each site:</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1149,12 +1150,12 @@ Count per species site</figure><p>We can also look at how many animals were capt
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's plot that too</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>total_count.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="challenge---plots" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---plots" class="callout-inner">
-<h3 class="callout-title">Challenge - Plots<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Challenge - Plots<a class="anchor" aria-label="anchor" href="#challenge---plots"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Create a plot of average weight across all species per site.</li>
@@ -1178,12 +1179,12 @@ dataset.</li>
 </div>
 </div>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="summary-plotting-challenge" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="summary-plotting-challenge" class="callout-inner">
-<h3 class="callout-title">Summary Plotting Challenge<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Summary Plotting Challenge<a class="anchor" aria-label="anchor" href="#summary-plotting-challenge"></a>
 </h3>
 <div class="callout-content">
 <p>Create a stacked bar plot, with weight on the Y axis, and the stacked
@@ -1350,7 +1351,7 @@ been generated with <code>groupby()</code>.</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1374,7 +1375,7 @@ been generated with <code>groupby()</code>.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/02-starting-with-data.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-19",
-  "datePublished": "2023-05-19"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

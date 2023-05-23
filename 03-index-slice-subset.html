@@ -417,12 +417,12 @@ DataFrame, an exception (error) will be raised.</p>
 bottom it says <code>KeyError: 'speciess'</code> which means that
 <code>speciess</code> is not a valid column name (nor a valid key in the
 related Python data type dictionary).</p>
-<div id="callout1" class="callout callout">
+<div id="reminder" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="reminder" class="callout-inner">
-<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#reminder"></a>
 </h3>
 <div class="callout-content">
 <p>The Python language and its modules (such as Pandas) define reserved
@@ -443,12 +443,12 @@ convert a tuple to a list using <code>list(sometuple)</code>.</p>
 </div>
 </section><section id="extracting-range-based-subsets-slicing"><h2 class="section-heading">Extracting Range based Subsets: Slicing<a class="anchor" aria-label="anchor" href="#extracting-range-based-subsets-slicing"></a>
 </h2>
-<hr class="half-width"><div id="callout2" class="callout callout">
+<hr class="half-width"><div id="reminder-1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="reminder-1" class="callout-inner">
-<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#reminder-1"></a>
 </h3>
 <div class="callout-content">
 <p>Python uses 0-based indexing.</p>
@@ -465,12 +465,13 @@ that index elements within objects starting at 1.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of numbers:</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span></code></pre>
 </div>
-<figure><img src="fig/slicing-indexing.png" alt="indexing diagram" class="figure mx-auto d-block"><img src="fig/slicing-slicing.png" alt="slicing diagram" class="figure mx-auto d-block"></figure><div id="challenge1" class="callout challenge">
+<p><img src="fig/slicing-indexing.png" alt="indexing diagram" class="figure"><img src="fig/slicing-slicing.png" alt="slicing diagram" class="figure"></p>
+<div id="challenge---extracting-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---extracting-data" class="callout-inner">
-<h3 class="callout-title">Challenge - Extracting data<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge - Extracting data<a class="anchor" aria-label="anchor" href="#challenge---extracting-data"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>
@@ -745,12 +746,12 @@ following: integer-based slicing is best done with <code>iloc</code> and
 will avoid errors (and is generally consistent with indexing of Numpy
 arrays), label-based slicing of rows is done with <code>loc</code>, and
 slicing of columns by directly indexing column names.</p>
-<div id="challenge2" class="callout challenge">
+<div id="challenge---range" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---range" class="callout-inner">
-<h3 class="callout-title">Challenge - Range<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge - Range<a class="anchor" aria-label="anchor" href="#challenge---range"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>What happens when you execute:
@@ -895,12 +896,12 @@ data.</p>
 </li>
 <li>Less than or equal to <code>&lt;=</code>
 </li>
-</ul><div id="challenge3" class="callout challenge">
+</ul><div id="challenge---queries" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---queries" class="callout-inner">
-<h3 class="callout-title">Challenge - Queries<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge - Queries<a class="anchor" aria-label="anchor" href="#challenge---queries"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Select a subset of rows in the <code>surveys_df</code> DataFrame
@@ -1101,12 +1102,12 @@ the code below do?</p>
 Boolean object <code>pd.isnull(surveys_df['weight'])</code> as an index
 to <code>surveys_df</code>. We are asking Python to select rows that
 have a <code>NaN</code> value of weight.</p>
-<div id="challenge4" class="callout challenge">
+<div id="challenge---putting-it-all-together" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---putting-it-all-together" class="callout-inner">
-<h3 class="callout-title">Challenge - Putting it all together<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge - Putting it all together<a class="anchor" aria-label="anchor" href="#challenge---putting-it-all-together"></a>
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Create a new DataFrame that only contains observations with sex
@@ -1216,7 +1217,7 @@ slicing and conditional subsetting.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1240,7 +1241,7 @@ slicing and conditional subsetting.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/03-index-slice-subset.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-19",
-  "datePublished": "2023-05-19"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

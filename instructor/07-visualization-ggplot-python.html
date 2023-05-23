@@ -346,12 +346,12 @@ data based on the R implementation of <a href="https://ggplot2.tidyverse.org" cl
 Grammar of Graphics</a> by Leland Wilkinson. The <code>plotnine</code>
 package is built on top of Matplotlib and interacts well with
 Pandas.</p>
-<div id="callout1" class="callout callout">
+<div id="reminder" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="reminder" class="callout-inner">
-<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#reminder"></a>
 </h3>
 <div class="callout-content">
 <p><code>plotnine</code> is not included in the standard Anaconda
@@ -487,12 +487,12 @@ the above plot can also be generated with code like this:</p>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw the plot</span></span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>surveys_plot <span class="op">+</span> p9.geom_point()</span></code></pre>
 </div>
-<figure><img src="../fig/06_first_plot.png" alt="scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides" class="figure mx-auto d-block"></figure><div id="challenge1" class="callout challenge">
+<figure><img src="../fig/06_first_plot.png" alt="scatter plot of hindfoot length vs weight with black dots denoting individual sampled animals, showing 4 main clusters of dots in the middle and left middle sides" class="figure mx-auto d-block"></figure><div id="challenge---bar-chart" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---bar-chart" class="callout-inner">
-<h3 class="callout-title">Challenge - bar chart<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge - bar chart<a class="anchor" aria-label="anchor" href="#challenge---bar-chart"></a>
 </h3>
 <div class="callout-content">
 <p>Working on the <code>surveys_complete</code> data set, use the
@@ -619,12 +619,12 @@ function <code>theme_bw()</code>.</li>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.theme(text<span class="op">=</span>p9.element_text(size<span class="op">=</span><span class="dv">16</span>))</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_white_plot.png" alt="Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background" class="figure mx-auto d-block"></figure><div id="challenge2" class="callout challenge">
+<figure><img src="../fig/06_white_plot.png" alt="Scatterplot of hindfoot length versus weight on a logarithmic x-axis using a white background" class="figure mx-auto d-block"></figure><div id="challenge---bar-plot-adaptations" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---bar-plot-adaptations" class="callout-inner">
-<h3 class="callout-title">Challenge - Bar plot adaptations<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge - Bar plot adaptations<a class="anchor" aria-label="anchor" href="#challenge---bar-plot-adaptations"></a>
 </h3>
 <div class="callout-content">
 <p>Adapt the bar plot of the previous exercise by mapping the
@@ -685,12 +685,12 @@ distribution:</p>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.geom_boxplot(alpha<span class="op">=</span><span class="fl">0.</span>)</span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_point_boxplot.png" alt="Boxplot of weight by species overlaying observation points to visualize the distribution" class="figure mx-auto d-block"></figure><div id="challenge3" class="callout challenge">
+<figure><img src="../fig/06_point_boxplot.png" alt="Boxplot of weight by species overlaying observation points to visualize the distribution" class="figure mx-auto d-block"></figure><div id="challenge---distributions" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---distributions" class="callout-inner">
-<h3 class="callout-title">Challenge - distributions<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge - distributions<a class="anchor" aria-label="anchor" href="#challenge---distributions"></a>
 </h3>
 <div class="callout-content">
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the
@@ -853,12 +853,12 @@ placeholder that indicates only one row or column).</p>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> p9.facet_grid(<span class="st">"year ~ sex"</span>)</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_select_plot.png" alt="Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year" class="figure mx-auto d-block"></figure><div id="challenge4" class="callout challenge">
+<figure><img src="../fig/06_select_plot.png" alt="Set of 4 color scatterplots showing the relationship between weight and hind foot length for 13 species, separated by sex and year" class="figure mx-auto d-block"></figure><div id="challenge---facetting" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---facetting" class="callout-inner">
-<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge---facetting"></a>
 </h3>
 <div class="callout-content">
 <p>Create a separate plot for each of the species that depicts how the
@@ -888,12 +888,12 @@ average weight of the species changes through the years.</p>
 </div>
 </div>
 </div>
-<div id="challenge5" class="callout challenge">
+<div id="challenge---facetting-1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---facetting-1" class="callout-inner">
-<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge---facetting-1"></a>
 </h3>
 <div class="callout-content">
 <p>Based on the previous exercise, visually compare how the weights of
@@ -978,12 +978,12 @@ create:</p>
 <span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">+</span> my_custom_theme</span>
 <span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_theme_plot.png" alt="Bar graph of count per year demonstrating the use of a customized theme" class="figure mx-auto d-block"></figure><div id="discussion1" class="callout discussion">
+<figure><img src="../fig/06_theme_plot.png" alt="Bar graph of count per year demonstrating the use of a customized theme" class="figure mx-auto d-block"></figure><div id="challenge---customization" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="challenge---customization" class="callout-inner">
-<h3 class="callout-title">Challenge - customization<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Challenge - customization<a class="anchor" aria-label="anchor" href="#challenge---customization"></a>
 </h3>
 <div class="callout-content">
 <p>Please take another five minutes to either improve one of the plots
@@ -1055,7 +1055,7 @@ elements are added</li>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1079,7 +1079,7 @@ elements are added</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/07-visualization-ggplot-python.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-19",
-  "datePublished": "2023-05-19"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

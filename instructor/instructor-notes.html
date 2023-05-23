@@ -414,6 +414,9 @@ contains more information.</p>
 </section><section id="aggregate-instructor-notes"><section id="00-before-we-start"><h2 class="section-heading"><a href="00-before-we-start.html">Before we start</a></h2>
 <hr class="half-width"></section><section id="01-short-introduction-to-Python"><h2 class="section-heading"><a href="01-short-introduction-to-Python.html">Short Introduction to Programming in Python</a></h2>
 <hr class="half-width">
+<h3 id="01-short-introduction-to-Python-headingInstructor1">
+<a href="01-short-introduction-to-Python.html#headingInstructor1">Assigning to Dictionaries</a><a class="anchor" aria-label="anchor" href="#01-short-introduction-to-Python-headingInstructor1"></a>
+</h3>
 <p>It can help to further demonstrate the freedom the user has to define
 values to keys in a dictionary, by showing another example with a value
 completely unrelated to the current contents of the dictionary, e.g.</p>
@@ -428,8 +431,12 @@ completely unrelated to the current contents of the dictionary, e.g.</p>
 </h3>
 <pre class="output" tabindex="0"><code>{1: 'one', 2: 'apple-sauce', 3: 'three'}</code></pre>
 </div>
-<hr></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Starting With Data</a></h2>
+<hr>
+<br></section><section id="02-starting-with-data"><h2 class="section-heading"><a href="02-starting-with-data.html">Starting With Data</a></h2>
 <hr class="half-width">
+<h3 id="02-starting-with-data-headingInstructor1">
+<a href="02-starting-with-data.html#headingInstructor1">Recapping object (im)mutability</a><a class="anchor" aria-label="anchor" href="#02-starting-with-data-headingInstructor1"></a>
+</h3>
 <p>Working through solutions to the challenge above can provide a good
 opportunity to recap about mutability and immutability of different
 objects. Show that the DataFrame index ( the <code>columns</code>
@@ -443,11 +450,18 @@ attribute) is immutable, e.g. 
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>surveys_df.rename(columns<span class="op">=</span>{<span class="st">"plot_id"</span>: <span class="st">"plotid"</span>})`)</span></code></pre>
 </div>
 <hr>
+<br><h3 id="02-starting-with-data-headingInstructor2">
+<a href="02-starting-with-data.html#headingInstructor2">Important Bug Note</a><a class="anchor" aria-label="anchor" href="#02-starting-with-data-headingInstructor2"></a>
+</h3>
 <p>In pandas prior to version 0.18.1 there is a bug causing
 <code>surveys_df['weight'].describe()</code> to return a runtime
 error.</p>
-<hr></section><section id="03-index-slice-subset"><h2 class="section-heading"><a href="03-index-slice-subset.html">Indexing, Slicing and Subsetting DataFrames in Python</a></h2>
+<hr>
+<br></section><section id="03-index-slice-subset"><h2 class="section-heading"><a href="03-index-slice-subset.html">Indexing, Slicing and Subsetting DataFrames in Python</a></h2>
 <hr class="half-width">
+<h3 id="03-index-slice-subset-headingInstructor1">
+<a href="03-index-slice-subset.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#03-index-slice-subset-headingInstructor1"></a>
+</h3>
 <p>Tip: use <code>.head()</code> method throughout this lesson to keep
 your display neater for students. Encourage students to try with and
 without <code>.head()</code> to reinforce this useful tool and then to
@@ -456,12 +470,18 @@ use it or not at their preference.</p>
 typing, let them know they can skip the <code>.head()</code>, but that
 you’ll use it to keep more lines of previous steps visible.</p>
 <hr>
+<br><h3 id="03-index-slice-subset-headingInstructor2">
+<a href="03-index-slice-subset.html#headingInstructor2">Instructor Note</a><a class="anchor" aria-label="anchor" href="#03-index-slice-subset-headingInstructor2"></a>
+</h3>
 <p>When working through the solutions to the challenges above, you could
 introduce already that all these slice operations are actually based on
 a <em>Boolean indexing</em> operation (next section in the lesson). The
 filter provides for each record if it satisfies (True) or not (False).
 The slicing itself interprets the True/False of each record.</p>
 <hr>
+<br><h3 id="03-index-slice-subset-headingInstructor3">
+<a href="03-index-slice-subset.html#headingInstructor3">Instructor Note</a><a class="anchor" aria-label="anchor" href="#03-index-slice-subset-headingInstructor3"></a>
+</h3>
 <p>Referring to the challenge solution above, as we know the other
 values are all Nan values, we could also select all not null values:</p>
 <div class="codewrapper sourceCode" id="cb52">
@@ -479,14 +499,22 @@ be simplified:</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>stack_selection.columns <span class="op">=</span> stack_selection.columns.droplevel()</span></code></pre>
 </div>
 <figure><img src="../fig/02_chall_stack_level.png" alt="average weight for each plot per sex" class="figure mx-auto d-block"></figure><p>This is just a preview, more in next episode.</p>
-<hr></section><section id="04-data-types-and-format"><h2 class="section-heading"><a href="04-data-types-and-format.html">Data Types and Formats</a></h2>
+<hr>
+<br></section><section id="04-data-types-and-format"><h2 class="section-heading"><a href="04-data-types-and-format.html">Data Types and Formats</a></h2>
 <hr class="half-width">
+<h3 id="04-data-types-and-format-headingInstructor1">
+<a href="04-data-types-and-format.html#headingInstructor1">Processed Data Checkpoint</a><a class="anchor" aria-label="anchor" href="#04-data-types-and-format-headingInstructor1"></a>
+</h3>
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
 in this repository contains the file <code>surveys_complete.csv</code>
 with the data they should generate.</p>
-<hr></section><section id="05-merging-data"><h2 class="section-heading"><a href="05-merging-data.html">Combining DataFrames with Pandas</a></h2>
+<hr>
+<br></section><section id="05-merging-data"><h2 class="section-heading"><a href="05-merging-data.html">Combining DataFrames with Pandas</a></h2>
 <hr class="half-width">
+<h3 id="05-merging-data-headingInstructor1">
+<a href="05-merging-data.html#headingInstructor1">Suggestion (for discussion only)</a><a class="anchor" aria-label="anchor" href="#05-merging-data-headingInstructor1"></a>
+</h3>
 <p>The number of individuals for each taxa in each plot per sex can be
 derived as well.</p>
 <div class="codewrapper sourceCode" id="cb29">
@@ -517,17 +545,28 @@ records):</p>
 </div>
 <figure><img src="../fig/04_chall_sex_taxa_site.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure><p>However, it would be better to link to <a href="https://stanford.edu/~mwaskom/software/seaborn" class="external-link">Seaborn</a> and <a href="https://github.com/ellisonbg/altair" class="external-link">Altair</a> for this kind of
 multivariate visualisation.</p>
-<hr></section><section id="06-loops-and-functions"><h2 class="section-heading"><a href="06-loops-and-functions.html">Data Workflows and Automation</a></h2>
+<hr>
+<br></section><section id="06-loops-and-functions"><h2 class="section-heading"><a href="06-loops-and-functions.html">Data Workflows and Automation</a></h2>
 <hr class="half-width">
+<h3 id="06-loops-and-functions-headingInstructor1">
+<a href="06-loops-and-functions.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#06-loops-and-functions-headingInstructor1"></a>
+</h3>
 <p>When teaching the challenge below, demonstrating the results in a
 debugging environment can make function scope more clear.</p>
-<hr></section><section id="07-visualization-ggplot-python"><h2 class="section-heading"><a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></h2>
+<hr>
+<br></section><section id="07-visualization-ggplot-python"><h2 class="section-heading"><a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></h2>
 <hr class="half-width">
+<h3 id="07-visualization-ggplot-python-headingInstructor1">
+<a href="07-visualization-ggplot-python.html#headingInstructor1">Instructor Note</a><a class="anchor" aria-label="anchor" href="#07-visualization-ggplot-python-headingInstructor1"></a>
+</h3>
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
 in this repository contains the file <code>surveys_complete.csv</code>
 with the data they should generate.</p>
 <hr>
+<br><h3 id="07-visualization-ggplot-python-headingInstructor2">
+<a href="07-visualization-ggplot-python.html#headingInstructor2">Instructor Note</a><a class="anchor" aria-label="anchor" href="#07-visualization-ggplot-python-headingInstructor2"></a>
+</h3>
 <p>Note <code>plotnine</code> contains a <em>lot</em> of deprecation
 warnings in some versions of python/matplotlib, warnings may need to be
 suppressed with</p>
@@ -537,7 +576,8 @@ suppressed with</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(action<span class="op">=</span><span class="st">'once'</span>)</span></code></pre>
 </div>
-<hr></section><section id="08-putting-it-all-together"><h2 class="section-heading"><a href="08-putting-it-all-together.html">Data Ingest and Visualization - Matplotlib and Pandas</a></h2>
+<hr>
+<br></section><section id="08-putting-it-all-together"><h2 class="section-heading"><a href="08-putting-it-all-together.html">Data Ingest and Visualization - Matplotlib and Pandas</a></h2>
 <hr class="half-width"></section><section id="09-working-with-sql"><h2 class="section-heading"><a href="09-working-with-sql.html">Accessing SQLite Databases Using Python and Pandas</a></h2>
 <hr class="half-width"></section></section>
 </div>
@@ -564,7 +604,7 @@ suppressed with</p>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -588,8 +628,8 @@ suppressed with</p>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/instructor/instructor-notes.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/instructor-notes.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-19",
-  "datePublished": "2023-05-19"
+  "dateModified": "2023-05-23",
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

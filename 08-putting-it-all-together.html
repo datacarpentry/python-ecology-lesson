@@ -425,12 +425,12 @@ use the matplotlib package.</p>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>my_plot <span class="op">=</span> surveys.plot(<span class="st">"hindfoot_length"</span>, <span class="st">"weight"</span>, kind<span class="op">=</span><span class="st">"scatter"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show() <span class="co"># not necessary in Jupyter Notebooks</span></span></code></pre>
 </div>
-<figure><img src="fig/08_scatter_surveys.png" alt="Scatter plot of survey data set" class="figure mx-auto d-block"></figure><div id="callout1" class="callout callout">
+<figure><img src="fig/08_scatter_surveys.png" alt="Scatter plot of survey data set" class="figure mx-auto d-block"></figure><div id="tip" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="tip" class="callout-inner">
-<h3 class="callout-title">Tip<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Tip<a class="anchor" aria-label="anchor" href="#tip"></a>
 </h3>
 <div class="callout-content">
 <p>By default, matplotlib creates a figure in a separate window. When
@@ -447,12 +447,12 @@ notebook by executing:</p>
 <p>The returned object is a matplotlib object (check it yourself with
 <code>type(my_plot)</code>), to which we may make further adjustments
 and refinements using other matplotlib methods.</p>
-<div id="callout2" class="callout callout">
+<div id="tip-1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="tip-1" class="callout-inner">
-<h3 class="callout-title">Tip<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Tip<a class="anchor" aria-label="anchor" href="#tip-1"></a>
 </h3>
 <div class="callout-content">
 <p>Matplotlib itself can be overwhelming, so a useful strategy is to do
@@ -487,13 +487,13 @@ use the <code>hist</code> function directly:</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.hist(sample_data)</span></code></pre>
 </div>
-<figure><img src="fig/08-normal-distribution.png" alt="Histogram of 1000 samples from normal distribution" class="figure mx-auto d-block"></figure><div id="callout3" class="callout callout">
+<figure><img src="fig/08-normal-distribution.png" alt="Histogram of 1000 samples from normal distribution" class="figure mx-auto d-block"></figure><div id="tip-cross-platform-visualization-of-figures" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="tip-cross-platform-visualization-of-figures" class="callout-inner">
 <h3 class="callout-title">Tip: Cross-Platform Visualization of
-Figures<a class="anchor" aria-label="anchor" href="#callout3"></a>
+Figures<a class="anchor" aria-label="anchor" href="#tip-cross-platform-visualization-of-figures"></a>
 </h3>
 <div class="callout-content">
 <p>Jupyter Notebooks make many aspects of data analysis and
@@ -540,12 +540,12 @@ additional axes to the figure and customize their labels:</p>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.575</span>, <span class="fl">0.3</span>, <span class="fl">0.3</span>])  <span class="co"># number coordinates correspond to left, bottom, width, height, respectively</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>ax2.hist(beta_draws)</span></code></pre>
 </div>
-<figure><img src="fig/08-dualdistribution.png" alt="Plot with additional axes" class="figure mx-auto d-block"></figure><div id="discussion1" class="callout discussion">
+<figure><img src="fig/08-dualdistribution.png" alt="Plot with additional axes" class="figure mx-auto d-block"></figure><div id="challenge---drawing-from-distributions" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="challenge---drawing-from-distributions" class="callout-inner">
-<h3 class="callout-title">Challenge - Drawing from distributions<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<h3 class="callout-title">Challenge - Drawing from distributions<a class="anchor" aria-label="anchor" href="#challenge---drawing-from-distributions"></a>
 </h3>
 <div class="callout-content">
 <p>Have a look at <a href="https://docs.scipy.org/doc/numpy/reference/random/index.html" class="external-link"><code>numpy.random</code>
@@ -596,12 +596,12 @@ customization, use the <code>draw()</code> function in plotnine:</p>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>p9_ax.set_title(<span class="st">'Scatter plot of weight versus hindfoot length'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)</span>
 <span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>plt.show() <span class="co"># not necessary in Jupyter Notebooks</span></span></code></pre>
 </div>
-<figure><img src="fig/08_scatter_surveys_plotnine.png" alt="Extended version of plotnine scatter plot" class="figure mx-auto d-block"></figure><div id="challenge1" class="callout challenge">
+<figure><img src="fig/08_scatter_surveys_plotnine.png" alt="Extended version of plotnine scatter plot" class="figure mx-auto d-block"></figure><div id="challenge---pandas-and-matplotlib" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---pandas-and-matplotlib" class="callout-inner">
-<h3 class="callout-title">Challenge - Pandas and matplotlib<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge - Pandas and matplotlib<a class="anchor" aria-label="anchor" href="#challenge---pandas-and-matplotlib"></a>
 </h3>
 <div class="callout-content">
 <p>Load the streamgage data set with Pandas, subset the week of the 2013
@@ -620,7 +620,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -666,12 +666,12 @@ the <code>.savefig(*args)</code> method from matplotlib:</p>
 </div>
 <p>which will save the <code>fig</code> created using Pandas/matplotlib
 as a png file with the name <code>my_plot_name</code></p>
-<div id="callout4" class="callout callout">
+<div id="tip-saving-figures-in-different-formats" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="tip-saving-figures-in-different-formats" class="callout-inner">
-<h3 class="callout-title">Tip: Saving figures in different formats<a class="anchor" aria-label="anchor" href="#callout4"></a>
+<h3 class="callout-title">Tip: Saving figures in different formats<a class="anchor" aria-label="anchor" href="#tip-saving-figures-in-different-formats"></a>
 </h3>
 <div class="callout-content">
 <p>Matplotlib recognizes the extension used in the filename and supports
@@ -679,12 +679,12 @@ as a png file with the name <code>my_plot_name</code></p>
 </div>
 </div>
 </div>
-<div id="challenge2" class="callout challenge">
+<div id="challenge---saving-figure-to-file" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---saving-figure-to-file" class="callout-inner">
-<h3 class="callout-title">Challenge - Saving figure to file<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge - Saving figure to file<a class="anchor" aria-label="anchor" href="#challenge---saving-figure-to-file"></a>
 </h3>
 <div class="callout-content">
 <p>Check the documentation of the <code>savefig</code> method and check
@@ -700,7 +700,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -720,12 +720,12 @@ that it makes two-dimensional line plots. Look through the examples in
 and try a few of them (click on the “Source code” link and copy and
 paste into a new cell in Jupyter Notebook or save as a text file with a
 <code>.py</code> extension and run in the command line).</p>
-<div id="discussion2" class="callout discussion">
+<div id="challenge---final-plot" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="challenge---final-plot" class="callout-inner">
-<h3 class="callout-title">Challenge - Final Plot<a class="anchor" aria-label="anchor" href="#discussion2"></a>
+<h3 class="callout-title">Challenge - Final Plot<a class="anchor" aria-label="anchor" href="#challenge---final-plot"></a>
 </h3>
 <div class="callout-content">
 <p>Display your data using one or more plot types from the example
@@ -783,7 +783,7 @@ customization after they have been created.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.11.18)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -807,7 +807,7 @@ customization after they have been created.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/08-putting-it-all-together.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-08",
-  "datePublished": "2023-05-19"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
