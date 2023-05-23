@@ -20,8 +20,8 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-<br />
 ## What is Python?
+
 Python is a general purpose programming language that supports rapid development of data analytics
 applications.  The word "Python" is used to refer to both, the programming language and the tool
 that executes the scripts written in Python language.
@@ -72,8 +72,9 @@ Its main advantages are:
 - **Free and Open-Source Software (FOSS)... and Cross-Platform:**
   We know we have already said that but it is worth repeating.
 
-<br />
+
 ## Knowing your way around Anaconda
+
 [Anaconda][anaconda] distribution of Python includes a lot of its popular packages,
 such as the IPython console, Jupyter Notebook, and Spyder IDE.
 Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
@@ -86,8 +87,9 @@ allows one to write Python scripts and interact with the Python software from wi
 Anaconda also comes with a package manager called [conda](https://conda.io/docs/),
 which makes it easy to install and update additional packages.
 
-<br />
+
 ## Research Project: Best Practices
+
 It is a good idea to keep a set of related data, analyses, and text in a single folder.
 All scripts and text files within this folder can then use relative paths to the data files.
 Working this way makes it a lot easier to move around your project and share it with others.
@@ -250,6 +252,7 @@ instead of using a subset of your real dataset, create a small (3 columns, 5 row
 
 [stack-overflow]: https://stackoverflow.com
 [anaconda-community]: https://www.anaconda.com/community
+[anaconda]: https://www.anaconda.com/download
 [spyder-ide]: https://www.spyder-ide.org
 [python-docs]: https://www.python.org/doc
 [pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
