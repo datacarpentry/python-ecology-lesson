@@ -546,7 +546,7 @@ summary stats.
   then calculate mean values?
 
 - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
-- `grouped_data2.mean()`
+- `grouped_data2.mean(numeric_only=True)`
 
 3. Summarize weight values for each site in your data. HINT: you can use the
   following syntax to only create summary statistics for one column in your data.
