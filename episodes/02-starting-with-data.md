@@ -516,10 +516,10 @@ numeric data.
 # Summary statistics for all numeric columns by sex
 grouped_data.describe()
 # Provide the mean for each numeric column by sex
-grouped_data.mean()
+grouped_data.mean(numeric_only=True)
 ```
 
-`grouped_data.mean()` **OUTPUT:**
+`grouped_data.mean(numeric_only=True)` **OUTPUT:**
 
 ```output
         record_id     month        day         year    plot_id  \
@@ -546,7 +546,7 @@ summary stats.
   then calculate mean values?
 
 - `grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])`
-- `grouped_data2.mean()`
+- `grouped_data2.mean(numeric_only=True)`
 
 3. Summarize weight values for each site in your data. HINT: you can use the
   following syntax to only create summary statistics for one column in your data.
