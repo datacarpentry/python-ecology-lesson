@@ -170,8 +170,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush2">
+,<div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading2">
         <a href="00-before-we-start.html">1. Before we start</a>
@@ -182,8 +181,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush3">
+,<div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
         <a href="01-short-introduction-to-Python.html">2. Short Introduction to Programming in Python</a>
@@ -194,8 +192,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush4">
+,<div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
         <a href="02-starting-with-data.html">3. Starting With Data</a>
@@ -206,8 +203,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush5">
+,<div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
         <a href="03-index-slice-subset.html">4. Indexing, Slicing and Subsetting DataFrames in Python</a>
@@ -218,8 +214,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush6">
+,<div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
         <a href="04-data-types-and-format.html">5. Data Types and Formats</a>
@@ -230,8 +225,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush7">
+,<div class="accordion accordion-flush" id="accordionFlush7">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading7">
         <a href="05-merging-data.html">6. Combining DataFrames with Pandas</a>
@@ -242,8 +236,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush8">
+,<div class="accordion accordion-flush" id="accordionFlush8">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading8">
         <a href="06-loops-and-functions.html">7. Data Workflows and Automation</a>
@@ -254,8 +247,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush9">
+,<div class="accordion accordion-flush" id="accordionFlush9">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading9">
         <a href="07-visualization-ggplot-python.html">8. Making Plots With plotnine</a>
@@ -266,8 +258,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush10">
+,<div class="accordion accordion-flush" id="accordionFlush10">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading10">
         <a href="08-putting-it-all-together.html">9. Data Ingest and Visualization - Matplotlib and Pandas</a>
@@ -278,8 +269,7 @@
 <!--/div.accordion-item-->
 </div>
 <!--/div.accordion-flush-->
-
-<div class="accordion accordion-flush" id="accordionFlush11">
+,<div class="accordion accordion-flush" id="accordionFlush11">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading11">
         <a href="09-working-with-sql.html">10. Accessing SQLite Databases Using Python and Pandas</a>
@@ -1366,7 +1356,7 @@ and values.</li>
 </div>
 </section></section><section id="aio-02-starting-with-data"><p>Content from <a href="02-starting-with-data.html">Starting With Data</a></p>
 <hr>
-<p> Last updated on 2023-05-19 | 
+<p> Last updated on 2023-05-29 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/02-starting-with-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1801,7 +1791,7 @@ on tuples, here</a>.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -1895,7 +1885,7 @@ in the data? How many unique species are in the data?</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>site_names = pd.unique(surveys_df["plot_id"])</code></li>
@@ -1980,9 +1970,10 @@ data.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for all numeric columns by sex</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>grouped_data.describe()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the mean for each numeric column by sex</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>grouped_data.mean()</span></code></pre>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>grouped_data.mean(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code></pre>
 </div>
-<p><code>grouped_data.mean()</code> <strong>OUTPUT:</strong></p>
+<p><code>grouped_data.mean(numeric_only=True)</code>
+<strong>OUTPUT:</strong></p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2015,7 +2006,7 @@ syntax and then calculate mean values?</li>
 </ol>
 <ul>
 <li><code>grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])</code></li>
-<li><code>grouped_data2.mean()</code></li>
+<li><code>grouped_data2.mean(numeric_only=True)</code></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
 <li>Summarize weight values for each site in your data. HINT: you can
@@ -2033,7 +2024,7 @@ column in your data. <code>by_site['weight'].describe()</code>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The first column of output from <code>grouped_data.describe()</code>
@@ -2143,7 +2134,7 @@ DataFrames.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>As well as calling <code>count()</code> on the <code>record_id</code>
 column of the grouped DataFrame as above, an equivalent result can be
@@ -2272,7 +2263,7 @@ dataset.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')</code></li>
@@ -2345,7 +2336,7 @@ unstacked layout, then create a stacked plot.</p>
   Solution to Summary Challenge
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>First we group data by site and by sex, and then calculate a total
 for each site.</p>
@@ -2659,7 +2650,7 @@ Why is that?</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p><code>a[0]</code> returns <code>1</code>, as Python starts with
@@ -2942,7 +2933,7 @@ slicing of columns by directly indexing column names.</p>
   Selection Challenges
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -3115,7 +3106,7 @@ NOT equal to ‘M’ or ‘F’ in the “surveys” data.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -3315,7 +3306,7 @@ stacked for each plot.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -3709,7 +3700,7 @@ solutions to this later.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3860,7 +3851,7 @@ impact scientific results.</p>
   Hints
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The method <code>.count()</code> gives you the number of non-NaN
 observations per column. Try looking to the <code>.isna()</code>
@@ -3872,7 +3863,7 @@ method.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4190,7 +4181,7 @@ and make sure it reads back into pandas properly.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4542,7 +4533,7 @@ calculate and plot the distribution of:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4614,7 +4605,7 @@ Biodiversity index.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb31">
@@ -7642,9 +7633,9 @@ SQL formats.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.1" class="external-link">sandpaper (0.12.1)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.17" class="external-link">varnish (0.2.17)</a>.</p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -7666,8 +7657,8 @@ SQL formats.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/aio.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/aio.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-23",
-  "datePublished": "2023-05-23"
+  "dateModified": "2023-05-29",
+  "datePublished": "2023-05-29"
 }
 
   </script><script>

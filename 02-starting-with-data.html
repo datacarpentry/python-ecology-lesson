@@ -158,7 +158,7 @@
       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
-        Starting With Data
+        3. Starting With Data
         </span>
       </button>
     </div><!--/div.accordion-header-->
@@ -289,7 +289,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Starting With Data</h1>
-        <p> Last updated on 2023-05-19 | 
+        <p> Last updated on 2023-05-29 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/02-starting-with-data.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -688,7 +688,7 @@ on tuples, here</a>.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <code>surveys_df.columns</code> provides the names of the columns in
@@ -777,7 +777,7 @@ in the data? How many unique species are in the data?</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><code>site_names = pd.unique(surveys_df["plot_id"])</code></li>
 </ol><ul><li>How many unique sites are in the data? <code>site_names.size</code>
@@ -855,9 +855,10 @@ data.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for all numeric columns by sex</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>grouped_data.describe()</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the mean for each numeric column by sex</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>grouped_data.mean()</span></code></pre>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>grouped_data.mean(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code></pre>
 </div>
-<p><code>grouped_data.mean()</code> <strong>OUTPUT:</strong></p>
+<p><code>grouped_data.mean(numeric_only=True)</code>
+<strong>OUTPUT:</strong></p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -887,7 +888,7 @@ male <code>M</code>?</li>
 <li>What happens when you group by two columns using the following
 syntax and then calculate mean values?</li>
 </ol><ul><li><code>grouped_data2 = surveys_df.groupby(['plot_id', 'sex'])</code></li>
-<li><code>grouped_data2.mean()</code></li>
+<li><code>grouped_data2.mean(numeric_only=True)</code></li>
 </ul><ol start="3" style="list-style-type: decimal"><li>Summarize weight values for each site in your data. HINT: you can
 use the following syntax to only create summary statistics for one
 column in your data. <code>by_site['weight'].describe()</code>
@@ -902,7 +903,7 @@ column in your data. <code>by_site['weight'].describe()</code>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>The first column of output from <code>grouped_data.describe()</code>
 (count) tells us that the data contains 15690 records for female
@@ -1003,7 +1004,7 @@ DataFrames.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>As well as calling <code>count()</code> on the <code>record_id</code>
 column of the grouped DataFrame as above, an equivalent result can be
@@ -1128,7 +1129,7 @@ dataset.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><code>surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')</code></li>
 </ol><figure><img src="fig/01_chall_bar_meanweight.png" alt="average weight across all species for each plot" class="figure mx-auto d-block"></figure><ol start="2" style="list-style-type: decimal"><li><code>surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')</code></li>
@@ -1192,7 +1193,7 @@ unstacked layout, then create a stacked plot.</p>
   Solution to Summary Challenge
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>First we group data by site and by sex, and then calculate a total
 for each site.</p>
@@ -1308,9 +1309,9 @@ been generated with <code>groupby()</code>.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.1" class="external-link">sandpaper (0.12.1)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.17" class="external-link">varnish (0.2.17)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1331,8 +1332,8 @@ been generated with <code>groupby()</code>.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/02-starting-with-data.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/02-starting-with-data.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-19",
-  "datePublished": "2023-05-23"
+  "dateModified": "2023-05-29",
+  "datePublished": "2023-05-29"
 }
 
   </script><script>
