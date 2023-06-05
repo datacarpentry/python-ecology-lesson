@@ -132,7 +132,7 @@ surveys_df.dtypes
 
 which returns:
 
-```python
+```python 
 record_id            int64
 month                int64
 day                  int64
@@ -259,7 +259,7 @@ surveys_df['plot_id'].astype("float")
 2         2.0
 3         7.0
 4         3.0
-         ...
+         ... 
 35544    15.0
 35545    15.0
 35546    10.0
