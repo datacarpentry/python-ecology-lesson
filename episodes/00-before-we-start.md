@@ -84,8 +84,8 @@ and share documents that allow one to create documents that combine code, graphs
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
-Anaconda also comes with a package manager called [conda](https://conda.io/docs/),
-which makes it easy to install and update additional packages.
+Anaconda comes with a package manager called [conda](https://conda.io/docs/)
+used to install and update additional packages.
 
 
 ## Research Project: Best Practices
