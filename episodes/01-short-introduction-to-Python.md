@@ -173,8 +173,9 @@ Data Carpentry
 Notice that "Data Carpentry" is printed only once.
 
 **Tip**: `print` and `type` are built-in functions in Python. Later in this
-lesson, we will introduce methods and user-defined functions. The Python
-documentation is excellent for reference on the differences between them.
+lesson, we will introduce methods and user-defined functions.
+[The Python documentation](https://docs.python.org/3/)
+is excellent for reference on the differences between them.
 
 **Tip**: When editing scripts like *example.py*, be careful not to use word
 processors such as MS Word, as they may introduce extra information that
