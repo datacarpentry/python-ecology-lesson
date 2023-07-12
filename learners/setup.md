@@ -193,7 +193,7 @@ conda install -c conda-forge plotnine
 ### *(Alternative)* Installing required packages with environment file
 
 Download the
-[environment.yml](https://episodes/files/environment.yml/environment.yml)
+[environment.yml](/files/environment.yml)
 file by right-clicking the link and selecting save as.
 In the directory where you downloaded the environment.yml file run:
 
