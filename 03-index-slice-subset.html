@@ -294,7 +294,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Indexing, Slicing and Subsetting DataFrames in Python</h1>
-        <p> Last updated on 2023-05-19 | 
+        <p> Last updated on 2023-08-18 | 
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/03-index-slice-subset.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -510,7 +510,7 @@ Why is that?</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p><code>a[0]</code> returns <code>1</code>, as Python starts with
 element 0 (this may be different from what you have previously
@@ -736,7 +736,7 @@ DataFrame.</p>
 with a single list of labels (or <code>iloc</code> with a single list of
 integers). However, unlike <code>loc</code> or <code>iloc</code>,
 indexing a data frame directly with labels will select columns (e.g.
-<code>surveys_df['species_id', 'plot_id', 'weight']</code>), while
+<code>surveys_df[['species_id', 'plot_id', 'weight']]</code>), while
 ranges of integers will select rows (e.g. surveys_df[0:13]). Direct
 indexing of rows is redundant with using <code>iloc</code>, and will
 raise a <code>KeyError</code> if a single integer or list is used; the
@@ -778,7 +778,7 @@ slicing of columns by directly indexing column names.</p>
   Selection Challenges
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <ul><li>
@@ -936,7 +936,7 @@ NOT equal to ‘M’ or ‘F’ in the “surveys” data.</p></li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <div class="codewrapper sourceCode" id="cb32">
@@ -1129,7 +1129,7 @@ stacked for each plot.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <div class="codewrapper sourceCode" id="cb47">
@@ -1240,8 +1240,8 @@ slicing and conditional subsetting.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/03-index-slice-subset.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/03-index-slice-subset.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2023-05-19",
-  "datePublished": "2023-08-15"
+  "dateModified": "2023-08-18",
+  "datePublished": "2023-08-18"
 }
 
   </script><script>
