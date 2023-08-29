@@ -39,9 +39,9 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
 
 To cite this lesson, please consult with [CITATION](CITATION)
 
-[slack-heroku]: https://swc-slack-invite.herokuapp.com/
+[slack-heroku]: https://slack-invite.carpentries.org/
 [slack-account-icon]: https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg
-[slack-status]: https://swcarpentry.slack.com/messages/C9X44HCDS
+[slack-status]: https://carpentries.slack.com/messages/C9X44HCDS
 [slack-status-icon]: https://img.shields.io/badge/Slack_Channel-dc--ecology--py-E01563.svg
 [lesson-example]: https://carpentries.github.io/lesson-example
 [issues]: https://github.com/datacarpentry/python-ecology-lesson/issues
