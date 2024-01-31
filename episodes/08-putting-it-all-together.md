@@ -146,7 +146,7 @@ for the rest.
 
 We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson.
 A great resource for help creating and styling your figures is the matplotlib gallery
-([http://matplotlib.org/gallery.html](https://matplotlib.org/gallery.html)), which includes plots in many different
+([matplot gallery](https://matplotlib.org/stable/gallery/)), which includes plots in many different
 styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
@@ -361,7 +361,7 @@ fig.savefig("my_plot_name.pdf", dpi=300)
 ## Make other types of plots:
 
 Matplotlib can make many other types of plots in much the same way that it makes two-dimensional line plots. Look through the examples in
-[http://matplotlib.org/users/screenshots.html](https://matplotlib.org/users/screenshots.html) and try a few of them (click on the
+[https://matplotlib.org/stable/plot_types/](https://matplotlib.org/stable/plot_types/) and try a few of them (click on the
 "Source code" link and copy and paste into a new cell in Jupyter Notebook or
 save as a text file with a `.py` extension and run in the command line).
 
