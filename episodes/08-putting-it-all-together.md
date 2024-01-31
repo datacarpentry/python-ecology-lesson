@@ -145,8 +145,7 @@ for the rest.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 We will cover a few basic commands for creating and formatting plots with matplotlib in this lesson.
-A great resource for help creating and styling your figures is the [matplotlib gallery](https://matplotlib.org/stable/gallery/), which includes plots in many different
-styles and the source codes that create them.
+A great resource for help creating and styling your figures is the [matplotlib gallery](https://matplotlib.org/stable/gallery/), which includes plots in many different styles and the source codes that create them.
 
 ### `plt` pyplot versus object-based matplotlib
 
