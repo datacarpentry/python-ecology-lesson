@@ -172,7 +172,7 @@ The following are packages needed for this workshop:
 All packages apart from `plotnine` will have automatically been installed with Anaconda
 and we can use Anaconda as a package manager to install the missing `plotnine` package:
 You need to open up a *Terminal*, if you are using Mac OSX, or Linux (see instructions above),
-or launch an *anaconda-promt*, if you are using Windows. In your terminal window type the following:
+or launch an *anaconda-prompt*, if you are using Windows. In your terminal window type the following:
 
 ```bash
 conda install -y -c conda-forge plotnine
