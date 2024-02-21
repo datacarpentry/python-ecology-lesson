@@ -232,7 +232,7 @@ to the color aesthetic:
 )
 ```
 
-![](fig/06_color_plot.png){alt='scatter plot of Hindfoot length vs weight with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot'}
+![](fig/06_color_plot.png){alt='scatter plot of Hindfoot length vs weight with colors coordinating to specific species, showing abundance in the mid to lower left side of the plot'}
 
 Apart from the adaptations of the arguments and settings of the `data`, `aes`
 and `geom-*` elements, additional elements can be added as well, using the `+`
@@ -248,7 +248,7 @@ operator:
 )
 ```
 
-![](fig/06_color_label_plot.png){alt='scatter plot of Hindfoot length vs weight (g) with colors coordinating to specfic species, showing abundance in the mid to lower left side of the plot'}
+![](fig/06_color_label_plot.png){alt='scatter plot of Hindfoot length vs weight (g) with colors coordinating to specific species, showing abundance in the mid to lower left side of the plot'}
 
 - Defining scale for colors, axes,... For example, a log-version of the x-axis
   could support the interpretation of the lower numbers:
@@ -387,7 +387,7 @@ mapping of a variable, `plotnine` will handle the values as category values.
 
 ## Plotting time series data
 
-Let's calculate number of counts per year for each species. To do that we need
+Let's calculate the number of counts per year for each species. To do that we need
 to group data first and count the species (`species_id`) within each group.
 
 ```python
@@ -567,7 +567,7 @@ following example of a bar plot with the counts per year.
 )
 ```
 
-![](fig/06_overlap_bars.png){alt='Bar graph of count per year showing ovelapping x-axis labels'}
+![](fig/06_overlap_bars.png){alt='Bar graph of count per year showing overlapping x-axis labels'}
 
 Notice that we use the `year` here as a categorical variable by using the
 `factor` functionality. However, by doing so, we have the individual year
