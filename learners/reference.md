@@ -29,7 +29,7 @@ the values it can take, the programming language in use and the operations
 that can be performed on it.
 
 [dictionary]{#dictionary}
-:   is an unordered Python data structure designed to contain key-value pairs, where both
+:   is a Python data structure designed to contain key-value pairs, where both
 the key and the value can be integers, floats or strings. Elements of a dictionary
 can be accessed by their key and can be modified.
 
