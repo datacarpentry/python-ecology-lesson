@@ -37,7 +37,7 @@ individually can be a bit cumbersome, and therefore recommend the all-in-one
 installer [Anaconda][anaconda].
 
 Regardless of how you choose to install it, please make sure you install Python
-version 3.x (e.g., 3.6 is fine).
+version 3.x (e.g., 3.10 is fine and will continue to receive security patches unitl 2026-OCT-04).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
