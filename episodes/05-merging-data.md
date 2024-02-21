@@ -125,7 +125,7 @@ have been repeated. We can reindex the new DataFrame using the `reset_index()` m
 
 ### Writing Out Data to CSV
 
-We can use the `to_csv` command to do export a DataFrame in CSV format. Note that the code
+We can use the `to_csv` command to export a DataFrame in CSV format. Note that the code
 below will by default save the data into the current working directory. We can
 save it to a different folder by adding the foldername and a slash to the file
 `vertical_stack.to_csv('foldername/out.csv')`. We use the `index=False` so that
