@@ -71,18 +71,6 @@ Select your operating system from the options below.
   conda --help
   ```
 
-#### Video Tutorial
-
-<div class="yt-wrapper2">
-
-<div class="yt-wrapper">
-
-<iframe type="text/html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube-nocookie.com/embed/xxQ0mzZ8UvA?modestbranding=1&playsinline=1&iv_load_policy=3&rel=0" class="yt-frame" allowfullscreen></iframe>
-
-</div>
-
-</div>
-
 ::::::::::::
 
 :::::::::::: solution
@@ -108,18 +96,6 @@ Select your operating system from the options below.
   ```bash
   conda --help
   ```
-
-#### Video Tutorial
-
-<div class="yt-wrapper2">
-
-<div class="yt-wrapper">
-
-<iframe type="text/html" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" src="https://www.youtube-nocookie.com/embed/TcSAln46u9U?modestbranding=1&playsinline=1&iv_load_policy=3&rel=0" class="yt-frame" allowfullscreen></iframe>
-
-</div>
-
-</div>
 
 ::::::::::::
 
