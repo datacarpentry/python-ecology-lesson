@@ -184,7 +184,7 @@ happens, and you thought you finished typing your command, click inside the cons
 The material we cover during this workshop will give you an initial taste of how you can use Python
 to analyze data for your own research. However, you will need to learn more to do advanced
 operations such as cleaning your dataset, using statistical methods, or creating beautiful graphics.
-The best way to become proficient and efficient at python, as with any other tool, is to use it to
+The best way to become proficient and efficient at Python, as with any other tool, is to use it to
 address your actual research questions. As a beginner, it can feel daunting to have to write a
 script from scratch, and given that many people make their code available online, modifying existing
 code to suit your purpose might make it easier for you to get started.
