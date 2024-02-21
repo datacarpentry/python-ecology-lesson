@@ -180,7 +180,7 @@ is excellent for reference on the differences between them.
 **Tip**: When editing scripts like *example.py*, be careful not to use word
 processors such as MS Word, as they may introduce extra information that
 confuses Python. In this lesson we will be using either Jupyter notebooks or
-the Spyder IDE, and for your everday work you may also choose any text editor
+the Spyder IDE, and for your everyday work you may also choose any text editor
 such as Notepad++, VSCode, Vim, or Emacs.
 
 ### Operators
