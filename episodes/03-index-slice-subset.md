@@ -508,9 +508,10 @@ Experiment with selecting various subsets of the "surveys" data.
 
 - Equals: `==`
 - Not equals: `!=`
-- Greater than, less than: `>` or `<`
-- Greater than or equal to `>=`
-- Less than or equal to `<=`
+- Greater than: `>`
+- Less than: `<`
+- Greater than or equal to: `>=`
+- Less than or equal to: `<=`
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
