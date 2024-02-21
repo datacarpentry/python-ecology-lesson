@@ -125,7 +125,7 @@ Programming is a multi-step process that involves the following steps:
 1. Identifying the aspects of the real-world problem that can be solved computationally
 2. Identifying (the best) computational solution
 3. Implementing the solution in a specific computer language
-4. Testing, validating, and adjusting implemented solution.
+4. Testing, validating, and adjusting the implemented solution.
 
 While *"Programming"* refers to all of the above steps,
 *"Coding"* refers to step 3 only: *"Implementing the solution in a specific computer language"*. It's
