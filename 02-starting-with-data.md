@@ -708,7 +708,7 @@ ZL        2
 
 ### Basic Math Functions
 
-If we wanted to, we could apply a mathmatical operation like addition or division
+If we wanted to, we could apply a mathematical operation like addition or division
 on an entire column of our data. For example, let's multiply all weight values by 2.
 
 ```python
