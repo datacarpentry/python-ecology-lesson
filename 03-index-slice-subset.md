@@ -391,7 +391,7 @@ It is worth noting that rows are selected when using `loc` with a single list of
 labels (or `iloc` with a single list of integers). However, unlike `loc` or `iloc`,
 indexing a data frame directly with labels will select columns (e.g.
 `surveys_df[['species_id', 'plot_id', 'weight']]`), while ranges of integers will
-select rows (e.g. surveys\_df[0:13]). Direct indexing of rows is redundant with
+select rows (e.g. `surveys\_df[0:13]`). Direct indexing of rows is redundant with
 using `iloc`, and will raise a `KeyError` if a single integer or list is used; the
 error will also occur if index labels are used without `loc` (or column labels used
 with it).
