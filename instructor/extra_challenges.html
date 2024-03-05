@@ -359,22 +359,22 @@ CSV files, by using a <code>for</code> loop:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Loop through a sequence of years and export selected data</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>start_year <span class="op">=</span> <span class="dv">1977</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>end_year <span class="op">=</span> <span class="dv">2002</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year]</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a CSV file</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">'data/surveys.csv'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co"># Loop through a sequence of years and export selected data</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>start_year <span class="op">=</span> <span class="dv">1977</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>end_year <span class="op">=</span> <span class="dv">2002</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> <span class="bu">range</span>(start_year, end_year<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a>    <span class="co"># Select data for the year</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    surveys_year <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> year]</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    <span class="co"># Write the new DataFrame to a CSV file</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>    filename <span class="op">=</span> <span class="st">'data/surveys'</span> <span class="op">+</span> <span class="bu">str</span>(year) <span class="op">+</span> <span class="st">'.csv'</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a>    surveys_year.to_csv(filename)</span></code></pre>
 </div>
 <p>What happens if there is no data for a year in a sequence? For
 example, imagine we used <code>1976</code> as the
@@ -455,7 +455,7 @@ headers.</p>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/extra_challenges.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-18",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

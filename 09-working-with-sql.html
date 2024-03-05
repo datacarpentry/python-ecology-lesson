@@ -360,19 +360,19 @@ is then ready to perform all kinds of operations with
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a SQL connection to our SQLite database</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The result of a "cursor.execute" can be iterated over by row</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> cur.execute(<span class="st">'SELECT * FROM species;'</span>):</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Be sure to close the connection</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co"># Create a SQL connection to our SQLite database</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co"># The result of a "cursor.execute" can be iterated over by row</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="cf">for</span> row <span class="kw">in</span> cur.execute(<span class="st">'SELECT * FROM species;'</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a>    <span class="bu">print</span>(row)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="co"># Be sure to close the connection</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 </div>
 <div class="section level3">
@@ -385,23 +385,23 @@ parameter.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a SQL connection to our SQLite database</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Return all results of query</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>cur.execute(<span class="st">'SELECT plot_id FROM plots WHERE plot_type="Control"'</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>cur.fetchall()</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Return first result of query</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>cur.execute(<span class="st">'SELECT species FROM species WHERE taxa="Bird"'</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>cur.fetchone()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Be sure to close the connection</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co"># Create a SQL connection to our SQLite database</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co"># Return all results of query</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>cur.execute(<span class="st">'SELECT plot_id FROM plots WHERE plot_type="Control"'</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>cur.fetchall()</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co"># Return first result of query</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>cur.execute(<span class="st">'SELECT species FROM species WHERE taxa="Bird"'</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>cur.fetchone()</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="co"># Be sure to close the connection</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 </div>
 </section><section id="accessing-data-stored-in-sqlite-using-python-and-pandas"><h2 class="section-heading">Accessing data stored in SQLite using Python and Pandas<a class="anchor" aria-label="anchor" href="#accessing-data-stored-in-sqlite-using-python-and-pandas"></a>
@@ -413,17 +413,17 @@ sqlite is below:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read sqlite query results into a pandas DataFrame</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT * from surveys"</span>, con)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that result of SQL query is stored in the dataframe</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co"># Read sqlite query results into a pandas DataFrame</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>df <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT * from surveys"</span>, con)</span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co"># Verify that result of SQL query is stored in the dataframe</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 </section><section id="storing-data-csv-vs-sqlite"><h2 class="section-heading">Storing data: CSV vs SQLite<a class="anchor" aria-label="anchor" href="#storing-data-csv-vs-sqlite"></a>
 </h2>
@@ -455,28 +455,28 @@ site, ordered by site ID.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The query returned '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">len</span>(cur.fetchall())) <span class="op">+</span> <span class="st">' records.'</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the connection</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>cur <span class="op">=</span> con.cursor()</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The query returned '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">len</span>(cur.fetchall())) <span class="op">+</span> <span class="st">' records.'</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="co"># Close the connection</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -488,21 +488,21 @@ site, ordered by site ID.</li>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create two sqlite queries results, read as pandas DataFrame</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="ch">\</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="st">        year,plot ORDER BY plot ASC"</span>,con)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> df2.pivot(index<span class="op">=</span><span class="st">'year'</span>,columns<span class="op">=</span><span class="st">'plot'</span>)[<span class="st">'SUM(wgt)'</span>]</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.merge(df1, df2, on<span class="op">=</span><span class="st">'year'</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify that result of the SQL queries is stored in the combined dataframe</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Create two sqlite queries results, read as pandas DataFrame</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="ch">\</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="st">        year,plot ORDER BY plot ASC"</span>,con)</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>df2 <span class="op">=</span> df2.pivot(index<span class="op">=</span><span class="st">'year'</span>,columns<span class="op">=</span><span class="st">'plot'</span>)[<span class="st">'SUM(wgt)'</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>df <span class="op">=</span> pd.merge(df1, df2, on<span class="op">=</span><span class="st">'year'</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="co"># Verify that result of the SQL queries is stored in the combined dataframe</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -545,21 +545,21 @@ we can work with it on its own later.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT * from surveys"</span>, con)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Select only data for 2002</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>surveys2002 <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> <span class="dv">2002</span>]</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Write the new DataFrame to a new SQLite table</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>surveys2002.to_sql(<span class="st">"surveys2002"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co"># Load the data into a DataFrame</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT * from surveys"</span>, con)</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a><span class="co"># Select only data for 2002</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>surveys2002 <span class="op">=</span> surveys_df[surveys_df.year <span class="op">==</span> <span class="dv">2002</span>]</span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="co"># Write the new DataFrame to a new SQLite table</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a>surveys2002.to_sql(<span class="st">"surveys2002"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a>con.close()</span></code></pre>
 </div>
 <div id="challenge---saving-your-work" class="callout challenge">
 <div class="callout-square">
@@ -583,27 +583,27 @@ might avoid doing this.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the results into a DataFrame</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>df1.to_sql(<span class="st">"New Table 1"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># We already have the 'df' DataFrame created in the earlier exercise</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>df.to_sql(<span class="st">"New Table 2"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the connection</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>con.close()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co">#Connect to the database</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># Read the results into a DataFrame</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>df1.to_sql(<span class="st">"New Table 1"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co"># We already have the 'df' DataFrame created in the earlier exercise</span></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>df.to_sql(<span class="st">"New Table 2"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="co"># Close the connection</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>con.close()</span></code></pre>
 </div></li>
 <li>
 <p>If the database is shared with others and common queries (and
@@ -697,7 +697,7 @@ SQL formats.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/09-working-with-sql.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-18",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

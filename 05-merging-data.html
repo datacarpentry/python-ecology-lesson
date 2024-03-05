@@ -347,10 +347,10 @@ iPython:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>surveys_df</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>surveys_df</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -373,9 +373,9 @@ iPython:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>species_df <span class="op">=</span> pd.read_csv(<span class="st">"data/species.csv"</span>,</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>species_df</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>species_df <span class="op">=</span> pd.read_csv(<span class="st">"data/species.csv"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>                         keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>species_df</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -413,13 +413,13 @@ subsets of our data to see how this works.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Grab the last 10 rows</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>survey_sub_last10 <span class="op">=</span> surveys_df.tail(<span class="dv">10</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the index values to the second dataframe appends properly</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>survey_sub_last10 <span class="op">=</span> survey_sub_last10.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># drop=True option avoids adding new index column with old index values</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co"># Grab the last 10 rows</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>survey_sub_last10 <span class="op">=</span> surveys_df.tail(<span class="dv">10</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co"># Reset the index values to the second dataframe appends properly</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>survey_sub_last10 <span class="op">=</span> survey_sub_last10.reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co"># drop=True option avoids adding new index column with old index values</span></span></code></pre>
 </div>
 <p>When we concatenate DataFrames, we need to specify the axis.
 <code>axis=0</code> tells pandas to stack the second DataFrame UNDER the
@@ -433,11 +433,11 @@ horizontally, we want to make sure what we are doing makes sense
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stack the DataFrames on top of each other</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>vertical_stack <span class="op">=</span> pd.concat([survey_sub, survey_sub_last10], axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Place the DataFrames side by side</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>horizontal_stack <span class="op">=</span> pd.concat([survey_sub, survey_sub_last10], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co"># Stack the DataFrames on top of each other</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>vertical_stack <span class="op">=</span> pd.concat([survey_sub, survey_sub_last10], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co"># Place the DataFrames side by side</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>horizontal_stack <span class="op">=</span> pd.concat([survey_sub, survey_sub_last10], axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="row-index-values-and-concat">Row Index Values and Concat<a class="anchor" aria-label="anchor" href="#row-index-values-and-concat"></a></h4>
@@ -459,8 +459,8 @@ for each line.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write DataFrame to CSV</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>vertical_stack.to_csv(<span class="st">'data/out.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># Write DataFrame to CSV</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>vertical_stack.to_csv(<span class="st">'data/out.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre>
 </div>
 <p>Check out your working directory to make sure the CSV wrote out
 properly, and that you can open it! If you want, try to bring it back
@@ -468,8 +468,8 @@ into pandas to make sure it imports properly.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For kicks read our output back into Python and make sure all looks good</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>new_output <span class="op">=</span> pd.read_csv(<span class="st">'data/out.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># For kicks read our output back into Python and make sure all looks good</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>new_output <span class="op">=</span> pd.read_csv(<span class="st">'data/out.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
 <div id="challenge---combine-data" class="callout challenge">
 <div class="callout-square">
@@ -499,26 +499,26 @@ and make sure it reads back into pandas properly.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read the files:</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2001.csv"</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2002.csv"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># concatenate</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>survey_all <span class="op">=</span> pd.concat([survey2001, survey2002], axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># get the weight for each year, grouped by sex:</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>weight_year <span class="op">=</span> survey_all.groupby([<span class="st">'year'</span>, <span class="st">'sex'</span>]).mean()[<span class="st">"wgt"</span>].unstack()</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot:</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>weight_year.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()  <span class="co"># tip: use this to improve the plot layout. </span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Try running the code without this line to see </span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># what difference applying plt.tight_layout() makes.</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># read the files:</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>survey2001 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2001.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>survey2002 <span class="op">=</span> pd.read_csv(<span class="st">"data/yearly_files/surveys2002.csv"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="co"># concatenate</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>survey_all <span class="op">=</span> pd.concat([survey2001, survey2002], axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co"># get the weight for each year, grouped by sex:</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>weight_year <span class="op">=</span> survey_all.groupby([<span class="st">'year'</span>, <span class="st">'sex'</span>]).mean()[<span class="st">"wgt"</span>].unstack()</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="co"># plot:</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>weight_year.plot(kind<span class="op">=</span><span class="st">"bar"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>plt.tight_layout()  <span class="co"># tip: use this to improve the plot layout. </span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co"># Try running the code without this line to see </span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co"># what difference applying plt.tight_layout() makes.</span></span></code></pre>
 </div>
 <figure><img src="fig/04_chall_weight_year.png" alt="average weight for each year, grouped by sex" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># writing to file:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>weight_year.to_csv(<span class="st">"weight_for_year.csv"</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># reading it back in:</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># writing to file:</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>weight_year.to_csv(<span class="st">"weight_for_year.csv"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co"># reading it back in:</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>pd.read_csv(<span class="st">"weight_for_year.csv"</span>, index_col<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
 </div>
 </div>
@@ -564,12 +564,12 @@ do this. We’ll also read in a subset of the species table.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import a small subset of the species data designed for this part of the lesson.</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># It is stored in the data folder.</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'data/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># Read in first 10 lines of surveys table</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>survey_sub <span class="op">=</span> surveys_df.head(<span class="dv">10</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># Import a small subset of the species data designed for this part of the lesson.</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="co"># It is stored in the data folder.</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>species_sub <span class="op">=</span> pd.read_csv(<span class="st">'data/speciesSubset.csv'</span>, keep_default_na<span class="op">=</span><span class="va">False</span>, na_values<span class="op">=</span>[<span class="st">""</span>])</span></code></pre>
 </div>
 <p>In this example, <code>species_sub</code> is the lookup table
 containing genus, species, and taxa names that we want to join with the
@@ -589,7 +589,7 @@ information.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>species_sub.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>species_sub.columns</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -599,7 +599,7 @@ information.</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>survey_sub.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>survey_sub.columns</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -628,7 +628,7 @@ and an Inner join is the default option:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>merged_inner <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>merged_inner <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span></code></pre>
 </div>
 <p>In this case, <code>species_id</code> is the only column name in both
 DataFrames, so if we skipped the <code>left_on</code> and
@@ -639,7 +639,7 @@ explicit.</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>merged_inner.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>merged_inner.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -649,7 +649,7 @@ explicit.</p>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>merged_inner</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>merged_inner</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -733,8 +733,8 @@ DataFrame that do not have values for the join key(s) in the
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>merged_left</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>survey_sub, right<span class="op">=</span>species_sub, how<span class="op">=</span><span class="st">'left'</span>, left_on<span class="op">=</span><span class="st">'species_id'</span>, right_on<span class="op">=</span><span class="st">'species_id'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>merged_left</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -776,7 +776,7 @@ missing (they contain <code>NaN</code> values):</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>merged_left[merged_left[<span class="st">'genus'</span>].isna()]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>merged_left[merged_left[<span class="st">'genus'</span>].isna()]</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -843,33 +843,33 @@ calculate and plot the distribution of:</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>surveys_df,right<span class="op">=</span>species_df, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span><span class="st">"species_id"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>merged_left <span class="op">=</span> pd.merge(left<span class="op">=</span>surveys_df,right<span class="op">=</span>species_df, how<span class="op">=</span><span class="st">'left'</span>, on<span class="op">=</span><span class="st">"species_id"</span>)</span></code></pre>
 </div>
 <ol style="list-style-type: decimal"><li>taxa per plot (number of species of each taxa per plot):</li>
 </ol><div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>])[<span class="st">"taxa"</span>].nunique().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>])[<span class="st">"taxa"</span>].nunique().plot(kind<span class="op">=</span><span class="st">'bar'</span>)</span></code></pre>
 </div>
 <figure><img src="fig/04_chall_ntaxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><p><em>Suggestion</em>: It is also possible to plot the number of
 individuals for each taxa in each plot (stacked bar chart):</p>
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>]).count()[<span class="st">"record_id"</span>].unstack().plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.05</span>)) <span class="co"># stop the legend from overlapping with the bar plot</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"taxa"</span>]).count()[<span class="st">"record_id"</span>].unstack().plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.05</span>)) <span class="co"># stop the legend from overlapping with the bar plot</span></span></code></pre>
 </div>
 <figure><img src="fig/04_chall_taxa_per_site.png" alt="taxa per plot" class="figure mx-auto d-block"></figure><ol start="2" style="list-style-type: decimal"><li>taxa by sex by plot: Providing the Nan values with the M|F values
 (can also already be changed to ‘x’):</li>
 </ol><div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>merged_left.loc[merged_left[<span class="st">"sex"</span>].isnull(), <span class="st">"sex"</span>] <span class="op">=</span> <span class="st">'M|F'</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site<span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"sex"</span>])[<span class="st">"taxa"</span>].nunique().reset_index(level<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site <span class="op">=</span> ntaxa_sex_site.pivot_table(values<span class="op">=</span><span class="st">"taxa"</span>, columns<span class="op">=</span><span class="st">"sex"</span>, index<span class="op">=</span>ntaxa_sex_site.index)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>ntaxa_sex_site.plot(kind<span class="op">=</span><span class="st">"bar"</span>, legend<span class="op">=</span><span class="va">False</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.08</span>),</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>merged_left.loc[merged_left[<span class="st">"sex"</span>].isnull(), <span class="st">"sex"</span>] <span class="op">=</span> <span class="st">'M|F'</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>ntaxa_sex_site<span class="op">=</span> merged_left.groupby([<span class="st">"plot_id"</span>, <span class="st">"sex"</span>])[<span class="st">"taxa"</span>].nunique().reset_index(level<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>ntaxa_sex_site <span class="op">=</span> ntaxa_sex_site.pivot_table(values<span class="op">=</span><span class="st">"taxa"</span>, columns<span class="op">=</span><span class="st">"sex"</span>, index<span class="op">=</span>ntaxa_sex_site.index)</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>ntaxa_sex_site.plot(kind<span class="op">=</span><span class="st">"bar"</span>, legend<span class="op">=</span><span class="va">False</span>, stacked<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>plt.legend(loc<span class="op">=</span><span class="st">'upper center'</span>, ncol<span class="op">=</span><span class="dv">3</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.5</span>, <span class="fl">1.08</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a>           fontsize<span class="op">=</span><span class="st">'small'</span>, frameon<span class="op">=</span><span class="va">False</span>)</span></code></pre>
 </div>
 <figure><img src="fig/04_chall_ntaxa_per_site_sex.png" alt="taxa per plot per sex" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -906,30 +906,30 @@ Biodiversity index.</p></li>
 <ol style="list-style-type: decimal"><li><div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plot_info <span class="op">=</span> pd.read_csv(<span class="st">"data/plots.csv"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plot_info.groupby(<span class="st">"plot_type"</span>).count()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>plot_info <span class="op">=</span> pd.read_csv(<span class="st">"data/plots.csv"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>plot_info.groupby(<span class="st">"plot_type"</span>).count()</span></code></pre>
 </div></li>
 <li>
 </li>
 </ol><div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>merged_site_type <span class="op">=</span> pd.merge(merged_left, plot_info, on<span class="op">=</span><span class="st">'plot_id'</span>)</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of species for each plot</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>nspecies_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>])[<span class="st">"species"</span>].nunique().rename(<span class="st">"nspecies"</span>)</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># For each plot, get the number of individuals</span></span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>nindividuals_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>]).count()[<span class="st">'record_id'</span>].rename(<span class="st">"nindiv"</span>)</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># combine the two series</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>diversity_index <span class="op">=</span> pd.concat([nspecies_site, nindividuals_site], axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the diversity index</span></span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>] <span class="op">=</span> diversity_index[<span class="st">'nspecies'</span>]<span class="op">/</span>diversity_index[<span class="st">'nindiv'</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a>merged_site_type <span class="op">=</span> pd.merge(merged_left, plot_info, on<span class="op">=</span><span class="st">'plot_id'</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="co"># For each plot, get the number of species for each plot</span></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>nspecies_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>])[<span class="st">"species"</span>].nunique().rename(<span class="st">"nspecies"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a><span class="co"># For each plot, get the number of individuals</span></span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>nindividuals_site <span class="op">=</span> merged_site_type.groupby([<span class="st">"plot_id"</span>]).count()[<span class="st">'record_id'</span>].rename(<span class="st">"nindiv"</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a><span class="co"># combine the two series</span></span>
+<span id="cb32-7"><a href="#cb32-7" tabindex="-1"></a>diversity_index <span class="op">=</span> pd.concat([nspecies_site, nindividuals_site], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" tabindex="-1"></a><span class="co"># calculate the diversity index</span></span>
+<span id="cb32-9"><a href="#cb32-9" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>] <span class="op">=</span> diversity_index[<span class="st">'nspecies'</span>]<span class="op">/</span>diversity_index[<span class="st">'nindiv'</span>]</span></code></pre>
 </div>
 <p>Making a bar chart from this diversity index:</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>].plot(kind<span class="op">=</span><span class="st">"barh"</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Diversity index"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>diversity_index[<span class="st">'diversity'</span>].plot(kind<span class="op">=</span><span class="st">"barh"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>plt.xlabel(<span class="st">"Diversity index"</span>)</span></code></pre>
 </div>
 <figure><img src="fig/04_chall_diversity_index.png" alt="horizontal bar chart of diversity index by plot" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -1015,7 +1015,7 @@ format.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/05-merging-data.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2024-02-21",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

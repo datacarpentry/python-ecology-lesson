@@ -437,7 +437,7 @@ using the common nickname <code>pd</code> is below.</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre>
 </div>
 <p>Each time we call a function that’s in a library, we use the syntax
 <code>LibraryName.FunctionName</code>. Adding the library name with a
@@ -469,8 +469,8 @@ An index refers to the position of an element in the data structure.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that pd.read_csv is used because we imported pandas as pd</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co"># Note that pd.read_csv is used because we imported pandas as pd</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
 </div>
 <p>The above command yields the <strong>output</strong> below:</p>
 <div class="codewrapper">
@@ -504,7 +504,7 @@ variable name by assigning a value to it using <code>=</code>.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>surveys_df <span class="op">=</span> pd.read_csv(<span class="st">"data/surveys.csv"</span>)</span></code></pre>
 </div>
 <p>Note that Python does not produce any output on the screen when you
 assign the imported DataFrame to a variable. We can view the value of
@@ -513,7 +513,7 @@ command prompt.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>surveys_df</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>surveys_df</span></code></pre>
 </div>
 <p>which prints contents like above.</p>
 <p>Note: if the output is too wide to print on your narrow terminal
@@ -579,8 +579,8 @@ the data to fit our screen:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>surveys_df.head() <span class="co"># The head() method displays the first several lines of a file. It</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                  <span class="co"># is discussed below.</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>surveys_df.head() <span class="co"># The head() method displays the first several lines of a file. It</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                  <span class="co"># is discussed below.</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -607,7 +607,7 @@ thing <code>surveys_df</code> is:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(surveys_df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="bu">type</span>(surveys_df)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -622,7 +622,7 @@ have an attribute called <code>dtypes</code> that answers this:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>surveys_df.dtypes</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>surveys_df.dtypes</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -737,7 +737,7 @@ attribute) is immutable, e.g. 
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>surveys_df.rename(columns<span class="op">=</span>{<span class="st">"plot_id"</span>: <span class="st">"plotid"</span>})`)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>surveys_df.rename(columns<span class="op">=</span>{<span class="st">"plot_id"</span>: <span class="st">"plotid"</span>})`)</span></code></pre>
 </div>
 </div>
 </div>
@@ -757,8 +757,8 @@ group by.</p>
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the column names</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>surveys_df.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Look at the column names</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>surveys_df.columns</span></code></pre>
 </div>
 <p>which <strong>returns</strong>:</p>
 <div class="codewrapper">
@@ -774,7 +774,7 @@ function tells us all of the unique values in the
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pd.unique(surveys_df[<span class="st">'species_id'</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>pd.unique(surveys_df[<span class="st">'species_id'</span>])</span></code></pre>
 </div>
 <p>which <strong>returns</strong>:</p>
 <div class="codewrapper">
@@ -837,21 +837,21 @@ using the syntax below:</p>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].describe()</span></code></pre>
 </div>
 <p>gives <strong>output</strong></p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>count    <span class="fl">32283.000000</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>mean        <span class="fl">42.672428</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>std         <span class="fl">36.631259</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">min</span>          <span class="fl">4.000000</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="dv">25</span><span class="op">%</span>         <span class="fl">20.000000</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="dv">50</span><span class="op">%</span>         <span class="fl">37.000000</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="dv">75</span><span class="op">%</span>         <span class="fl">48.000000</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="bu">max</span>        <span class="fl">280.000000</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>Name: weight, dtype: float64</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>count    <span class="fl">32283.000000</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>mean        <span class="fl">42.672428</span></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>std         <span class="fl">36.631259</span></span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a><span class="bu">min</span>          <span class="fl">4.000000</span></span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="dv">25</span><span class="op">%</span>         <span class="fl">20.000000</span></span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a><span class="dv">50</span><span class="op">%</span>         <span class="fl">37.000000</span></span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a><span class="dv">75</span><span class="op">%</span>         <span class="fl">48.000000</span></span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a><span class="bu">max</span>        <span class="fl">280.000000</span></span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>Name: weight, dtype: float64</span></code></pre>
 </div>
 <div id="accordionInstructor2" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
@@ -872,11 +872,11 @@ error.</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].<span class="bu">min</span>()</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].<span class="bu">max</span>()</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].mean()</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].std()</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].count()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].<span class="bu">min</span>()</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].<span class="bu">max</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].mean()</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].std()</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>].count()</span></code></pre>
 </div>
 <p>But if we want to summarize by one or more variables, for example
 sex, we can use <strong>Pandas’ <code>.groupby</code> method</strong>.
@@ -885,8 +885,8 @@ statistics by a group of our choice.</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Group data by sex</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>grouped_data <span class="op">=</span> surveys_df.groupby(<span class="st">'sex'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co"># Group data by sex</span></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>grouped_data <span class="op">=</span> surveys_df.groupby(<span class="st">'sex'</span>)</span></code></pre>
 </div>
 <p>The <strong>pandas function <code>describe</code></strong> will
 return descriptive stats including: mean, median, max, min, std and
@@ -896,10 +896,10 @@ data.</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics for all numeric columns by sex</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>grouped_data.describe()</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the mean for each numeric column by sex</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>grouped_data.mean(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="co"># Summary statistics for all numeric columns by sex</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>grouped_data.describe()</span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="co"># Provide the mean for each numeric column by sex</span></span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a>grouped_data.mean(numeric_only<span class="op">=</span><span class="va">True</span>)</span></code></pre>
 </div>
 <p><code>grouped_data.mean(numeric_only=True)</code>
 <strong>OUTPUT:</strong></p>
@@ -966,9 +966,9 @@ foot-length and mean weight for each plot/sex combination:</li>
 </ol><div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>]).agg({<span class="st">"year"</span>: <span class="st">'max'</span>,</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"hindfoot_length"</span>: <span class="st">'median'</span>,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                                           <span class="st">"weight"</span>: <span class="st">'mean'</span>})</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>]).agg({<span class="st">"year"</span>: <span class="st">'max'</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>                                           <span class="st">"hindfoot_length"</span>: <span class="st">'median'</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>                                           <span class="st">"weight"</span>: <span class="st">'mean'</span>})</span></code></pre>
 </div>
 <ol start="3" style="list-style-type: decimal"><li><code>surveys_df.groupby(['plot_id'])['weight'].describe()</code></li>
 </ol><div class="codewrapper">
@@ -1013,15 +1013,15 @@ this in a few ways, but we’ll use <code>groupby</code> combined with
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of samples by species</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>species_counts <span class="op">=</span> surveys_df.groupby(<span class="st">'species_id'</span>)[<span class="st">'record_id'</span>].count()</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(species_counts)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="co"># Count the number of samples by species</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>species_counts <span class="op">=</span> surveys_df.groupby(<span class="st">'species_id'</span>)[<span class="st">'record_id'</span>].count()</span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="bu">print</span>(species_counts)</span></code></pre>
 </div>
 <p>Or, we can also count just the rows that have the species “DO”:</p>
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>surveys_df.groupby(<span class="st">'species_id'</span>)[<span class="st">'record_id'</span>].count()[<span class="st">'DO'</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>surveys_df.groupby(<span class="st">'species_id'</span>)[<span class="st">'record_id'</span>].count()[<span class="st">'DO'</span>]</span></code></pre>
 </div>
 <div id="challenge---make-a-list" class="callout challenge">
 <div class="callout-square">
@@ -1053,7 +1053,7 @@ obtained by extracting <code>record_id</code> from the result of
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>surveys_df.groupby(<span class="st">'species_id'</span>).count()[<span class="st">'record_id'</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>surveys_df.groupby(<span class="st">'species_id'</span>).count()[<span class="st">'record_id'</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1121,8 +1121,8 @@ multiply all weight values by 2.</p>
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiply all weight values by 2</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>]<span class="op">*</span><span class="dv">2</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="co"># Multiply all weight values by 2</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>surveys_df[<span class="st">'weight'</span>]<span class="op">*</span><span class="dv">2</span></span></code></pre>
 </div>
 <p>A more practical use of this might be to normalize the data according
 to a mean, area, or some other value calculated from our data.</p>
@@ -1133,10 +1133,10 @@ to a mean, area, or some other value calculated from our data.</p>
 <div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure figures appear inline in Ipython Notebook</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a quick bar chart</span></span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>species_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="co"># Make sure figures appear inline in Ipython Notebook</span></span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a><span class="co"># Create a quick bar chart</span></span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>species_counts.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
 </div>
 <p><img src="../fig/countPerSpecies.png" alt="Weight by Species Site" class="figure">
 Count per species site</p>
@@ -1144,9 +1144,9 @@ Count per species site</p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>total_count <span class="op">=</span> surveys_df.groupby(<span class="st">'plot_id'</span>)[<span class="st">'record_id'</span>].nunique()</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's plot that too</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>total_count.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>total_count <span class="op">=</span> surveys_df.groupby(<span class="st">'plot_id'</span>)[<span class="st">'record_id'</span>].nunique()</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="co"># Let's plot that too</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>total_count.plot(kind<span class="op">=</span><span class="st">'bar'</span>)<span class="op">;</span></span></code></pre>
 </div>
 <div id="challenge---plots" class="callout challenge">
 <div class="callout-square">
@@ -1195,8 +1195,8 @@ and ‘two’ are the subgroups.</li>
 </ul><div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {<span class="st">'one'</span> : pd.Series([<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>]), <span class="st">'two'</span> : pd.Series([<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>, <span class="fl">4.</span>], index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])}</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(d)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>d <span class="op">=</span> {<span class="st">'one'</span> : pd.Series([<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>], index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>]), <span class="st">'two'</span> : pd.Series([<span class="fl">1.</span>, <span class="fl">2.</span>, <span class="fl">3.</span>, <span class="fl">4.</span>], index<span class="op">=</span>[<span class="st">'a'</span>, <span class="st">'b'</span>, <span class="st">'c'</span>, <span class="st">'d'</span>])}</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>pd.DataFrame(d)</span></code></pre>
 </div>
 <p>shows the following data</p>
 <div class="codewrapper">
@@ -1212,9 +1212,9 @@ and ‘two’ are the subgroups.</li>
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot stacked data so columns 'one' and 'two' are stacked</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>my_df <span class="op">=</span> pd.DataFrame(d)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>my_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">"The title of my graph"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="co"># Plot stacked data so columns 'one' and 'two' are stacked</span></span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a>my_df <span class="op">=</span> pd.DataFrame(d)</span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>my_df.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">"The title of my graph"</span>)</span></code></pre>
 </div>
 <figure><img src="../fig/stackedBar1.png" alt="Stacked Bar Plot" class="figure mx-auto d-block"></figure><ul><li>You can use the <code>.unstack()</code> method to transform grouped
 data into columns for each plotting. Try running <code>.unstack()</code>
@@ -1236,8 +1236,8 @@ for each site.</p>
 <div class="codewrapper sourceCode" id="cb37">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span></code></pre>
 </div>
 <p>This calculates the sums of weights for each sex within each site as
 a table</p>
@@ -1261,9 +1261,9 @@ out the total weight that each sex contributed to each site.</p>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>site_sex_count.unstack()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a>site_sex_count.unstack()</span></code></pre>
 </div>
 <p>The <code>unstack</code> method above will display the following
 output:</p>
@@ -1285,12 +1285,12 @@ stacking the values of each sex as follows:</p>
 <div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>spc <span class="op">=</span> site_sex_count.unstack()</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>s_plot <span class="op">=</span> spc.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">"Total weight by site and sex"</span>)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>s_plot.set_ylabel(<span class="st">"Weight"</span>)</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>s_plot.set_xlabel(<span class="st">"Plot"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a>by_site_sex <span class="op">=</span> surveys_df.groupby([<span class="st">'plot_id'</span>, <span class="st">'sex'</span>])</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>site_sex_count <span class="op">=</span> by_site_sex[<span class="st">'weight'</span>].<span class="bu">sum</span>()</span>
+<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>spc <span class="op">=</span> site_sex_count.unstack()</span>
+<span id="cb41-4"><a href="#cb41-4" tabindex="-1"></a>s_plot <span class="op">=</span> spc.plot(kind<span class="op">=</span><span class="st">'bar'</span>, stacked<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">"Total weight by site and sex"</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" tabindex="-1"></a>s_plot.set_ylabel(<span class="st">"Weight"</span>)</span>
+<span id="cb41-6"><a href="#cb41-6" tabindex="-1"></a>s_plot.set_xlabel(<span class="st">"Plot"</span>)</span></code></pre>
 </div>
 <figure><img src="../fig/stackedBar.png" alt="Stacked Bar Plot" class="figure mx-auto d-block"></figure></div>
 </div>
@@ -1374,7 +1374,7 @@ been generated with <code>groupby()</code>.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/02-starting-with-data.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2024-02-23",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
