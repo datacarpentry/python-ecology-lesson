@@ -204,7 +204,7 @@ wish to use a different browser, open this link: [http://localhost:8888](https:/
 ::: prereq :::::
 ## Leave terminal used to launch Jupyter open
 
-Jupyter depends on a server running in the background associated with the terminal used to launch it. Closing the terminal results in web interface errors. When done, you can eithr close the terminal or shut down the server using <kbd>CTRL-C</kbd> and submitting <kbd>y</kbd> within 5 seconds if the terminal is needed for other tasks.
+Jupyter depends on a server running in the background associated with the terminal used to launch it. Closing the terminal results in web interface errors. When done, you can either close the terminal or shut down the server using <kbd>CTRL</kbd>+<kbd>C</kbd> and submitting <kbd>y</kbd> within 5 seconds if the terminal is needed for other tasks.
 
 ::::::::::::::::::::
 
