@@ -20,7 +20,7 @@ After typing the command `jupyter notebook`, the following happens:
   ![](fig/00_1_jupyter_file_browser.png){alt='Jupyter notebook file browser'}
   *The Jupyter notebook file browser*
 
-- To create a new Python notebook select the "New" dropdown on the upper
+- To create a new Python notebook select "Python 3" from the "New" dropdown on the upper
   right of the screen.
   
   ![](fig/00_2_jupyter_new_notebook.png){alt='Jupyter notebook file browser'}
