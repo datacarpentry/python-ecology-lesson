@@ -10,14 +10,14 @@ Data for this lesson is from the
 [Portal Project Teaching Database](https://figshare.com/articles/Portal_Project_Teaching_Database/1314459).
 Specifically, we use the following eight data files:
 
+- [bouldercreek\_09\_2013.txt](data/bouldercreek_09_2013.txt)
+- [plots.csv](https://ndownloader.figshare.com/files/3299474)
+- [portal\_mammals.sqlite](https://ndownloader.figshare.com/files/11188550)
+- [species.csv](https://ndownloader.figshare.com/files/3299483)
+- [speciesSubset.csv](data/speciesSubset.csv)
 - [surveys.csv](https://ndownloader.figshare.com/files/10717177)
 - [surveys2001.csv](data/yearly_files/surveys2001.csv)
 - [surveys2002.csv](data/yearly_files/surveys2002.csv)
-- [species.csv](https://ndownloader.figshare.com/files/3299483)
-- [speciesSubset.csv](data/speciesSubset.csv)
-- [plots.csv](https://ndownloader.figshare.com/files/3299474)
-- [bouldercreek\_09\_2013.txt](data/bouldercreek_09_2013.txt)
-- [portal\_mammals.sqlite](https://ndownloader.figshare.com/files/11188550)
 
 Please download them (by clicking on the corresponding links) and move them to the same directory, or
 [download all the files as a zip](data/portal-teachingdb-master.zip)
@@ -192,7 +192,7 @@ conda deactivate
 ## Launch a Jupyter notebook
 
 After installing either Anaconda or Miniconda and the workshop packages,
-launch a Jupyter notebook by typing this command from the terminal:
+launch a Jupyter notebook by typing this command into the *terminal* or *anaconda-prompt*:
 
 ```bash
 jupyter notebook
@@ -204,7 +204,7 @@ wish to use a different browser, open this link: [http://localhost:8888](https:/
 ::: prereq :::::
 ## Leave terminal used to launch Jupyter open
 
-Jupyter depends on a server running in the background associated with the terminal used to launch it. Closing the terminal results in web interface errors. When done, you can either close the terminal or shut down the server using <kbd>CTRL</kbd>+<kbd>C</kbd> and submitting <kbd>y</kbd> within 5 seconds if the terminal is needed for other tasks.
+Jupyter depends on a server running in the background associated with the window used to launch it. Closing that window will results in web interface errors in the web interface. When done, you can either close the terminal or shut down the server using <kbd>CTRL</kbd>+<kbd>C</kbd> and submitting <kbd>y</kbd> within 5 seconds if the terminal is needed for other tasks.
 
 ::::::::::::::::::::
 
