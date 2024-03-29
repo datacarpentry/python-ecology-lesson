@@ -1120,7 +1120,7 @@ Does the <code>help()</code> function confirm this?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>What happens when you execute <code>a_list[1] = 5</code>?</li>
@@ -1293,7 +1293,7 @@ the value has changed.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li>
 </li></ol>
@@ -1331,7 +1331,7 @@ the value has changed.</li>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Assigning to Dictionaries</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>It can help to further demonstrate the freedom the user has to define
 values to keys in a dictionary, by showing another example with a value
@@ -1832,7 +1832,7 @@ on tuples, here</a>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -1862,7 +1862,7 @@ behaves similarly to the <code>head()</code> method.</li>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Recapping object (im)mutability</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Working through solutions to the challenge above can provide a good
 opportunity to recap about mutability and immutability of different
@@ -1947,7 +1947,7 @@ in the data? How many unique species are in the data?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>site_names = pd.unique(surveys_df["plot_id"])</code></li>
@@ -2006,7 +2006,7 @@ using the syntax below:</p>
   <h3 class="accordion-header" id="headingInstructor2">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Important Bug Note</h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>In pandas prior to version 0.18.1 there is a bug causing
 <code>surveys_df['weight'].describe()</code> to return a runtime
@@ -2098,7 +2098,7 @@ column in your data. <code>by_site['weight'].describe()</code>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The first column of output from <code>grouped_data.describe()</code>
@@ -2206,7 +2206,7 @@ DataFrames.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>As well as calling <code>count()</code> on the <code>record_id</code>
 column of the grouped DataFrame as above, an equivalent result can be
@@ -2333,7 +2333,7 @@ dataset.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')</code></li>
@@ -2404,7 +2404,7 @@ unstacked layout, then create a stacked plot.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Solution to Summary Challenge</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>First we group data by site and by sex, and then calculate a total
 for each site.</p>
@@ -3826,7 +3826,7 @@ solutions to this later.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3977,7 +3977,7 @@ impact scientific results.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Hints</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The method <code>.count()</code> gives you the number of non-NaN
 observations per column. Try looking to the <code>.isna()</code>
@@ -3987,7 +3987,7 @@ method.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -4074,7 +4074,7 @@ it imports properly.</p>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Processed Data Checkpoint</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>If learners have trouble generating the output, or anything happens
 with that, the folder <a href="https://github.com/datacarpentry/python-ecology-lesson/tree/main/sample_output" class="external-link"><code>sample_output</code></a>
@@ -4987,7 +4987,7 @@ example, <code>print(string1 + string2)</code> outputs
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -5251,7 +5251,7 @@ file for each species?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb27">
@@ -5355,7 +5355,7 @@ statement at the end.</p>
   <h3 class="accordion-header" id="headingInstructor1">
 <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Instructor Note</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>When teaching the challenge below, demonstrating the results in a
 debugging environment can make function scope more clear.</p>
@@ -5391,7 +5391,7 @@ you change the value of the local variable?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -5660,7 +5660,7 @@ they have the same name but are given different values?</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb55">
@@ -5858,7 +5858,7 @@ values in the function definition!)</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -6074,7 +6074,7 @@ year and ends at the latest year using that list.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6">Show me the solution</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb75">
@@ -6239,7 +6239,7 @@ different data.</li>
 </div>
 </section></section><section id="aio-07-visualization-ggplot-python"><p>Content from <a href="07-visualization-ggplot-python.html">Making Plots With plotnine</a></p>
 <hr>
-<p>Last updated on 2024-02-21 |
+<p>Last updated on 2024-03-29 |
         
         <a href="https://github.com/datacarpentry/python-ecology-lesson/edit/main/episodes/07-visualization-ggplot-python.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 90 minutes</p>
@@ -6285,9 +6285,9 @@ plots splitting the data by a factor variable.</li>
 </h2>
 <hr class="half-width">
 <p>Python has powerful built-in plotting capabilities such as
-<code>matplotlib</code>, but for this episode, we will be using the <a href="https://plotnine.readthedocs.io/en/stable" class="external-link">plotnine</a> package,
-which facilitates the creation of highly-informative plots of structured
-data based on the R implementation of <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> and <a href="https://link.springer.com/book/10.1007%2F0-387-28695-0" class="external-link">The
+<code>matplotlib</code>, but for this episode, we will be using the <a href="https://github.com/has2k1/plotnine?tab=readme-ov-file" class="external-link">plotnine</a>
+package, which facilitates the creation of highly-informative plots of
+structured data based on the R implementation of <a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a> and <a href="https://link.springer.com/book/10.1007%2F0-387-28695-0" class="external-link">The
 Grammar of Graphics</a> by Leland Wilkinson. The <code>plotnine</code>
 package is built on top of Matplotlib and interacts well with
 Pandas.</p>
@@ -6301,7 +6301,7 @@ Pandas.</p>
 <div class="callout-content">
 <p><code>plotnine</code> is not included in the standard Anaconda
 installation and needs to be installed separately. If you haven’t done
-so already, you can find installation instructions on the <a href="https://datacarpentry.org/python-ecology-lesson/setup.html#required-python-packages" class="external-link">Setup
+so already, you can find installation instructions on the <a href="https://datacarpentry.org/python-ecology-lesson/#required-python-packages" class="external-link">Setup
 page</a>.</p>
 </div>
 </div>
@@ -6585,8 +6585,8 @@ function <code>theme_bw()</code>.</li>
 <p>Adapt the bar plot of the previous exercise by mapping the
 <code>sex</code> variable to the color fill of the bar chart. Change the
 <code>scale</code> of the color fill by providing the colors
-<code>blue</code> and <code>orange</code> manually (see <a href="https://plotnine.readthedocs.io/en/stable/api.html#color-and-fill-scales" class="external-link">API
-reference</a> to find the appropriate function).</p>
+<code>blue</code> and <code>orange</code> manually (see <a href="https://plotnine.org/reference/" class="external-link">API reference</a> to find the
+appropriate function).</p>
 </div>
 </div>
 </div>
@@ -6889,7 +6889,7 @@ for each sex and an individual color assigned to each
 <p>As the syntax of <code>plotnine</code> follows the original R package
 <code>ggplot2</code>, the documentation of <code>ggplot2</code> can
 provide information and inspiration to customize graphs. Take a look at
-the <code>ggplot2</code> <a href="https://www.rstudio.com/wp-content/uploads/2015/08/ggplot2-cheatsheet.pdf" class="external-link">cheat
+the <code>ggplot2</code> <a href="https://rstudio.github.io/cheatsheets/html/data-visualization.html" class="external-link">cheat
 sheet</a>, and think of ways to improve the plot. You can write down
 some of your ideas as comments in the Etherpad.</p>
 <p>The theming options provide a rich set of visual adaptations.
@@ -7620,7 +7620,7 @@ site, ordered by site ID.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -7753,7 +7753,7 @@ might avoid doing this.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">Show me the solution</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><div class="codewrapper sourceCode" id="cb9">
