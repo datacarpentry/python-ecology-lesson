@@ -348,14 +348,14 @@ everything <em>before</em> working through this lesson.</p>
 <p>Data for this lesson is from the <a href="https://figshare.com/articles/Portal_Project_Teaching_Database/1314459" class="external-link">Portal
 Project Teaching Database</a>. Specifically, we use the following eight
 data files:</p>
-<ul><li><a href="https://ndownloader.figshare.com/files/10717177" class="external-link">surveys.csv</a></li>
-<li><a href="data/yearly_files/surveys2001.csv">surveys2001.csv</a></li>
-<li><a href="data/yearly_files/surveys2002.csv">surveys2002.csv</a></li>
+<ul><li><a href="data/bouldercreek_09_2013.txt">bouldercreek_09_2013.txt</a></li>
+<li><a href="https://ndownloader.figshare.com/files/3299474" class="external-link">plots.csv</a></li>
+<li><a href="https://ndownloader.figshare.com/files/11188550" class="external-link">portal_mammals.sqlite</a></li>
 <li><a href="https://ndownloader.figshare.com/files/3299483" class="external-link">species.csv</a></li>
 <li><a href="data/speciesSubset.csv">speciesSubset.csv</a></li>
-<li><a href="https://ndownloader.figshare.com/files/3299474" class="external-link">plots.csv</a></li>
-<li><a href="data/bouldercreek_09_2013.txt">bouldercreek_09_2013.txt</a></li>
-<li><a href="https://ndownloader.figshare.com/files/11188550" class="external-link">portal_mammals.sqlite</a></li>
+<li><a href="https://ndownloader.figshare.com/files/10717177" class="external-link">surveys.csv</a></li>
+<li><a href="data/yearly_files/surveys2001.csv">surveys2001.csv</a></li>
+<li><a href="data/yearly_files/surveys2002.csv">surveys2002.csv</a></li>
 </ul><p>Please download them (by clicking on the corresponding links) and
 move them to the same directory, or <a href="data/portal-teachingdb-master.zip">download all the files as a
 zip</a> which will give you everything in a single compressed file.
@@ -399,7 +399,7 @@ receive security patches unitl 2026-OCT-04).</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Windows</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p>Open <a href="https://www.anaconda.com/products/individual" class="external-link">https://www.anaconda.com/products/individual</a>
 in your web browser.</p></li>
@@ -426,7 +426,7 @@ with:</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2">MacOS</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p>Visit <a href="https://www.anaconda.com/products/individual" class="external-link">https://www.anaconda.com/products/individual</a>
 in your web browser.</p></li>
@@ -456,7 +456,7 @@ installation with:</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3">Linux</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Note that the following installation steps require you to work from
 the terminal (shell). If you run into any difficulties, please request
@@ -554,8 +554,8 @@ you downloaded the environment.yml file run:</p>
 </section><section id="launch-a-jupyter-notebook"><h2 class="section-heading">Launch a Jupyter notebook<a class="anchor" aria-label="anchor" href="#launch-a-jupyter-notebook"></a>
 </h2>
 <hr class="half-width"><p>After installing either Anaconda or Miniconda and the workshop
-packages, launch a Jupyter notebook by typing this command from the
-terminal:</p>
+packages, launch a Jupyter notebook by typing this command into the
+<em>terminal</em> or <em>anaconda-prompt</em>:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -573,11 +573,11 @@ open<a class="anchor" aria-label="anchor" href="#leave-terminal-used-to-launch-j
 </h3>
 <div class="callout-content">
 <p>Jupyter depends on a server running in the background associated with
-the terminal used to launch it. Closing the terminal results in web
-interface errors. When done, you can either close the terminal or shut
-down the server using <kbd>CTRL</kbd>+<kbd>C</kbd> and submitting
-<kbd>y</kbd> within 5 seconds if the terminal is needed for other
-tasks.</p>
+the window used to launch it. Closing that window will results in web
+interface errors in the web interface. When done, you can either close
+the terminal or shut down the server using <kbd>CTRL</kbd>+<kbd>C</kbd>
+and submitting <kbd>y</kbd> within 5 seconds if the terminal is needed
+for other tasks.</p>
 </div>
 </div>
 </div>

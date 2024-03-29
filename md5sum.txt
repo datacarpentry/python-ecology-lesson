@@ -20,5 +20,5 @@
 "learners/discuss.md" "ee9645b54825a8fcfcf76a59d73c528f" "site/built/discuss.md" "2023-05-08"
 "learners/jupyter_notebooks.md" "dd71f8cda05842ccbd47eb160731a26f" "site/built/jupyter_notebooks.md" "2024-03-07"
 "learners/reference.md" "5a78a7c025ceb017458971b58eed2aea" "site/built/reference.md" "2024-02-21"
-"learners/setup.md" "b245f2f5a072836f142819d93efd229b" "site/built/setup.md" "2024-03-29"
+"learners/setup.md" "0345f3f23f289e6c122fe40b73f08696" "site/built/setup.md" "2024-03-29"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2023-05-08"
