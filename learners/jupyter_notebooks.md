@@ -88,9 +88,9 @@ This workflow has several advantages:
 - But this format allows Jupyter to mix software (in several languages) with
   documentation and graphics, all in one file.
 
-### Notebook modes: Control and Edit
+### Notebook modes: Command and Edit
 
-The notebook has two modes of operation: Control and Edit. Control mode lets
+The notebook has two modes of operation: Command and Edit. Command mode lets
 you edit notebook level features; while, Edit mode lets you change the
 contents of a notebook cell. Remember a notebook is made up of a number of
 cells which can contain code, markdown, html, visualizations, and more.
