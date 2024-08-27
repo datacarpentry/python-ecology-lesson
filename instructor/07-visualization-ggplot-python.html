@@ -304,10 +304,10 @@
               </div>
             </div>
 
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+            <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordionFlush12">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                  <button class="accordion-button collapsed" id="lesson-resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     RESOURCES
                   </button>
                 </h2>
@@ -327,7 +327,7 @@
                 </div>
               </div>
             </div>
-            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width lesson-resources"><a href="../instructor/aio.html">See all in one page</a>
 
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
@@ -403,8 +403,7 @@ plots splitting the data by a factor variable.</li>
 </div>
 </div>
 </div>
-<section><h2 class="section-heading" id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a>
-<a class="anchor" aria-label="anchor" href="#disclaimer"></a></h2>
+<section><h2 class="section-heading" id="disclaimer">Disclaimer<a class="anchor" aria-label="anchor" href="#disclaimer"></a></h2>
 <hr class="half-width"><p>Python has powerful built-in plotting capabilities such as
 <code>matplotlib</code>, but for this episode, we will be using the <a href="https://github.com/has2k1/plotnine?tab=readme-ov-file" class="external-link">plotnine</a>
 package, which facilitates the creation of highly-informative plots of
@@ -417,8 +416,7 @@ Pandas.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="reminder" class="callout-inner">
-<h3 class="callout-title">Reminder<a class="anchor" aria-label="anchor" href="#reminder"></a>
-</h3>
+<h3 class="callout-title">Reminder</h3>
 <div class="callout-content">
 <p><code>plotnine</code> is not included in the standard Anaconda
 installation and needs to be installed separately. If you haven’t done
@@ -464,8 +462,7 @@ with the data they should generate.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="plotting-with-plotnine">Plotting with plotnine<a class="anchor" aria-label="anchor" href="#plotting-with-plotnine"></a>
-<a class="anchor" aria-label="anchor" href="#plotting-with-plotnine"></a></h2>
+</section><section><h2 class="section-heading" id="plotting-with-plotnine">Plotting with plotnine<a class="anchor" aria-label="anchor" href="#plotting-with-plotnine"></a></h2>
 <hr class="half-width"><p>The <code>plotnine</code> package (cfr. other packages conform The
 Grammar of Graphics) supports the creation of complex plots from data in
 a dataframe. It uses default settings, which help creating publication
@@ -552,8 +549,7 @@ the above plot can also be generated with code like this:</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---bar-chart" class="callout-inner">
-<h3 class="callout-title">Challenge - bar chart<a class="anchor" aria-label="anchor" href="#challenge---bar-chart"></a>
-</h3>
+<h3 class="callout-title">Challenge - bar chart</h3>
 <div class="callout-content">
 <p>Working on the <code>surveys_complete</code> data set, use the
 <code>plot-id</code> column to create a <code>bar</code>-plot that
@@ -589,8 +585,7 @@ set up in <code>aes()</code>.</li>
 <li>You can also specify aesthetics for a given <code>geom</code>
 independently of the aesthetics defined globally in the
 <code>ggplot()</code> function.</li>
-</ul></section><section><h2 class="section-heading" id="building-your-plots-iteratively">Building your plots iteratively<a class="anchor" aria-label="anchor" href="#building-your-plots-iteratively"></a>
-<a class="anchor" aria-label="anchor" href="#building-your-plots-iteratively"></a></h2>
+</ul></section><section><h2 class="section-heading" id="building-your-plots-iteratively">Building your plots iteratively<a class="anchor" aria-label="anchor" href="#building-your-plots-iteratively"></a></h2>
 <hr class="half-width"><p>Building plots with <code>plotnine</code> is typically an iterative
 process. We start by defining the dataset we’ll use, lay the axes, and
 choose a geom. Hence, the <code>data</code>, <code>aes</code> and
@@ -682,8 +677,7 @@ function <code>theme_bw()</code>.</li>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---bar-plot-adaptations" class="callout-inner">
-<h3 class="callout-title">Challenge - Bar plot adaptations<a class="anchor" aria-label="anchor" href="#challenge---bar-plot-adaptations"></a>
-</h3>
+<h3 class="callout-title">Challenge - Bar plot adaptations</h3>
 <div class="callout-content">
 <p>Adapt the bar plot of the previous exercise by mapping the
 <code>sex</code> variable to the color fill of the bar chart. Change the
@@ -714,8 +708,7 @@ appropriate function).</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="plotting-distributions">Plotting distributions<a class="anchor" aria-label="anchor" href="#plotting-distributions"></a>
-<a class="anchor" aria-label="anchor" href="#plotting-distributions"></a></h2>
+</section><section><h2 class="section-heading" id="plotting-distributions">Plotting distributions<a class="anchor" aria-label="anchor" href="#plotting-distributions"></a></h2>
 <hr class="half-width"><p>Visualizing distributions is a common task during data exploration
 and analysis. To visualize the distribution of <code>weight</code>
 within each <code>species_id</code> group, a boxplot can be used:</p>
@@ -746,8 +739,7 @@ distribution:</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---distributions" class="callout-inner">
-<h3 class="callout-title">Challenge - distributions<a class="anchor" aria-label="anchor" href="#challenge---distributions"></a>
-</h3>
+<h3 class="callout-title">Challenge - distributions</h3>
 <div class="callout-content">
 <p>Boxplots are useful summaries, but hide the <em>shape</em> of the
 distribution. For example, if there is a bimodal distribution, this
@@ -795,8 +787,7 @@ from which the sample was taken (<code>plot_id</code>)</li>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="plotting-time-series-data">Plotting time series data<a class="anchor" aria-label="anchor" href="#plotting-time-series-data"></a>
-<a class="anchor" aria-label="anchor" href="#plotting-time-series-data"></a></h2>
+</section><section><h2 class="section-heading" id="plotting-time-series-data">Plotting time series data<a class="anchor" aria-label="anchor" href="#plotting-time-series-data"></a></h2>
 <hr class="half-width"><p>Let’s calculate the number of counts per year for each species. To do
 that we need to group data first and count the species
 (<code>species_id</code>) within each group.</p>
@@ -841,8 +832,7 @@ species_id to the color:</p>
 <span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a>    <span class="op">+</span> p9.geom_line()</span>
 <span id="cb23-6"><a href="#cb23-6" tabindex="-1"></a>)</span></code></pre>
 </div>
-<figure><img src="../fig/06_time_plot.png" alt="Line graph of count per year where data for each species is indicated by a different color" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="faceting">Faceting<a class="anchor" aria-label="anchor" href="#faceting"></a>
-<a class="anchor" aria-label="anchor" href="#faceting"></a></h2>
+<figure><img src="../fig/06_time_plot.png" alt="Line graph of count per year where data for each species is indicated by a different color" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="faceting">Faceting<a class="anchor" aria-label="anchor" href="#faceting"></a></h2>
 <hr class="half-width"><p>As any other library supporting the Grammar of Graphics,
 <code>plotnine</code> has a special technique called <em>faceting</em>
 that allows to split one plot into multiple plots based on a factor
@@ -912,8 +902,7 @@ placeholder that indicates only one row or column).</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---facetting" class="callout-inner">
-<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge---facetting"></a>
-</h3>
+<h3 class="callout-title">Challenge - facetting</h3>
 <div class="callout-content">
 <p>Create a separate plot for each of the species that depicts how the
 average weight of the species changes through the years.</p>
@@ -945,8 +934,7 @@ average weight of the species changes through the years.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---facetting-1" class="callout-inner">
-<h3 class="callout-title">Challenge - facetting<a class="anchor" aria-label="anchor" href="#challenge---facetting-1"></a>
-</h3>
+<h3 class="callout-title">Challenge - facetting</h3>
 <div class="callout-content">
 <p>Based on the previous exercise, visually compare how the weights of
 male and females has changed through time by creating a separate plot
@@ -979,8 +967,7 @@ for each sex and an individual color assigned to each
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="further-customization">Further customization<a class="anchor" aria-label="anchor" href="#further-customization"></a>
-<a class="anchor" aria-label="anchor" href="#further-customization"></a></h2>
+</section><section><h2 class="section-heading" id="further-customization">Further customization<a class="anchor" aria-label="anchor" href="#further-customization"></a></h2>
 <hr class="half-width"><p>As the syntax of <code>plotnine</code> follows the original R package
 <code>ggplot2</code>, the documentation of <code>ggplot2</code> can
 provide information and inspiration to customize graphs. Take a look at
@@ -1033,8 +1020,7 @@ create:</p>
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="challenge---customization" class="callout-inner">
-<h3 class="callout-title">Challenge - customization<a class="anchor" aria-label="anchor" href="#challenge---customization"></a>
-</h3>
+<h3 class="callout-title">Challenge - customization</h3>
 <div class="callout-content">
 <p>Please take another five minutes to either improve one of the plots
 generated in this exercise or create a beautiful graph of your own.</p>
@@ -1064,8 +1050,7 @@ plot by adjusting the appropriate arguments (<code>width</code>,
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>The <code>data</code>, <code>aes</code> variables and a
 <code>geometry</code> are the main elements of a plotnine graph</li>
@@ -1111,7 +1096,7 @@ elements are added</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.6" class="external-link">sandpaper (0.16.6)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.4" class="external-link">varnish (1.0.4)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1134,7 +1119,7 @@ elements are added</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/07-visualization-ggplot-python.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2024-03-29",
-  "datePublished": "2024-08-20"
+  "datePublished": "2024-08-27"
 }
 
   </script><script>

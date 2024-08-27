@@ -302,10 +302,10 @@
               </div>
             </div>
 
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+            <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordionFlush12">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                  <button class="accordion-button collapsed" id="lesson-resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     RESOURCES
                   </button>
                 </h2>
@@ -325,7 +325,7 @@
                 </div>
               </div>
             </div>
-            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width lesson-resources"><a href="../instructor/aio.html">See all in one page</a>
 
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
@@ -401,8 +401,7 @@ manipulate individual datasets by hand, much like we would do in a
 spreadsheet. The beauty of using a programming language like Python,
 though, comes from the ability to automate data processing through the
 use of loops and functions.</p>
-<section><h2 class="section-heading" id="for-loops">For loops<a class="anchor" aria-label="anchor" href="#for-loops"></a>
-<a class="anchor" aria-label="anchor" href="#for-loops"></a></h2>
+<section><h2 class="section-heading" id="for-loops">For loops<a class="anchor" aria-label="anchor" href="#for-loops"></a></h2>
 <hr class="half-width"><p>Loops allow us to repeat a workflow (or series of actions) a given
 number of times or while some condition is true. We would use a loop to
 automatically process data that’s stored in multiple files (daily values
@@ -477,8 +476,7 @@ nothing”.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---loops" class="callout-inner">
-<h3 class="callout-title">Challenge - Loops<a class="anchor" aria-label="anchor" href="#challenge---loops"></a>
-</h3>
+<h3 class="callout-title">Challenge - Loops</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>What happens if we don’t include the <code>pass</code>
 statement?</p></li>
@@ -541,8 +539,7 @@ concatenate items in a list with the string in between, e.g.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="automating-data-processing-using-for-loops">Automating data processing using For Loops<a class="anchor" aria-label="anchor" href="#automating-data-processing-using-for-loops"></a>
-<a class="anchor" aria-label="anchor" href="#automating-data-processing-using-for-loops"></a></h2>
+</section><section><h2 class="section-heading" id="automating-data-processing-using-for-loops">Automating data processing using For Loops<a class="anchor" aria-label="anchor" href="#automating-data-processing-using-for-loops"></a></h2>
 <hr class="half-width"><p>The file we’ve been using so far, <code>surveys.csv</code>, contains
 25 years of data and is very large. We would like to separate the data
 for each year into a separate file.</p>
@@ -699,8 +696,7 @@ files:</p>
 <p>Look inside the <code>yearly_files</code> directory and check a
 couple of the files you just created to confirm that everything worked
 as expected.</p>
-</section><section><h2 class="section-heading" id="writing-unique-file-names">Writing Unique File Names<a class="anchor" aria-label="anchor" href="#writing-unique-file-names"></a>
-<a class="anchor" aria-label="anchor" href="#writing-unique-file-names"></a></h2>
+</section><section><h2 class="section-heading" id="writing-unique-file-names">Writing Unique File Names<a class="anchor" aria-label="anchor" href="#writing-unique-file-names"></a></h2>
 <hr class="half-width"><p>Notice that the code above created a unique filename for each
 year.</p>
 <div class="codewrapper sourceCode" id="cb26">
@@ -729,8 +725,7 @@ to the new filename AND the file name itself.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---modifying-loops" class="callout-inner">
-<h3 class="callout-title">Challenge - Modifying loops<a class="anchor" aria-label="anchor" href="#challenge---modifying-loops"></a>
-</h3>
+<h3 class="callout-title">Challenge - Modifying loops</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Some of the surveys you saved are missing data (they have null
 values that show up as NaN - Not A Number - in the DataFrames and do not
@@ -786,8 +781,7 @@ first and last year making use of the code itself?</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="building-reusable-and-modular-code-with-functions">Building reusable and modular code with functions<a class="anchor" aria-label="anchor" href="#building-reusable-and-modular-code-with-functions"></a>
-<a class="anchor" aria-label="anchor" href="#building-reusable-and-modular-code-with-functions"></a></h2>
+</section><section><h2 class="section-heading" id="building-reusable-and-modular-code-with-functions">Building reusable and modular code with functions<a class="anchor" aria-label="anchor" href="#building-reusable-and-modular-code-with-functions"></a></h2>
 <hr class="half-width"><p>Suppose that separating large data files into individual yearly files
 is a task that we frequently have to perform. We could write a
 <strong>for loop</strong> like the one above every time we needed to do
@@ -863,8 +857,7 @@ debugging environment can make function scope more clear.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---functions" class="callout-inner">
-<h3 class="callout-title">Challenge - Functions<a class="anchor" aria-label="anchor" href="#challenge---functions"></a>
-</h3>
+<h3 class="callout-title">Challenge - Functions</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Change the values of the arguments provided to the function and
 check its output</li>
@@ -1121,8 +1114,7 @@ will also have to be re-run for their output to change.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-more-functions" class="callout-inner">
-<h3 class="callout-title">Challenge: More functions<a class="anchor" aria-label="anchor" href="#challenge-more-functions"></a>
-</h3>
+<h3 class="callout-title">Challenge: More functions</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Add two arguments to the functions we wrote that take the path of
 the directory where the files will be written and the root of the file
@@ -1319,8 +1311,7 @@ existing object.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---variables" class="callout-inner">
-<h3 class="callout-title">Challenge - Variables<a class="anchor" aria-label="anchor" href="#challenge---variables"></a>
-</h3>
+<h3 class="callout-title">Challenge - Variables</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>What type of object corresponds to a variable declared as
 <code>None</code>? (Hint: create a variable set to <code>None</code> and
@@ -1420,8 +1411,7 @@ arguments:</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="if-statements">If Statements<a class="anchor" aria-label="anchor" href="#if-statements"></a>
-<a class="anchor" aria-label="anchor" href="#if-statements"></a></h2>
+</section><section><h2 class="section-heading" id="if-statements">If Statements<a class="anchor" aria-label="anchor" href="#if-statements"></a></h2>
 <hr class="half-width"><p>The body of the test function now has two conditionals (if
 statements) that check the values of <code>start_year</code> and
 <code>end_year</code>. If statements execute a segment of code when some
@@ -1513,8 +1503,7 @@ One keyword, default start:	1977 1993</code></pre>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge---modifying-functions" class="callout-inner">
-<h3 class="callout-title">Challenge - Modifying functions<a class="anchor" aria-label="anchor" href="#challenge---modifying-functions"></a>
-</h3>
+<h3 class="callout-title">Challenge - Modifying functions</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li><p>Rewrite the <code>one_year_csv_writer</code> and
 <code>yearly_data_csv_writer</code> functions to have keyword arguments
@@ -1701,8 +1690,7 @@ conditional, would be:</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>Loops help automate repetitive tasks over sets of items.</li>
 <li>Loops combined with functions provide a way to process data more
@@ -1749,7 +1737,7 @@ different data.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.6" class="external-link">sandpaper (0.16.6)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.4" class="external-link">varnish (1.0.4)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1772,7 +1760,7 @@ different data.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/06-loops-and-functions.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-18",
-  "datePublished": "2024-08-20"
+  "datePublished": "2024-08-27"
 }
 
   </script><script>
