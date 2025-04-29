@@ -313,8 +313,8 @@ surveys_df = pd.read_csv("data/surveys.csv")
 We can select specific ranges of our data in both the row and column directions
 using either label or integer-based indexing.
 
-- `iloc` is primarily an *integer* based indexing counting from 0. That is, your
-  specify rows and columns giving a number. Thus, the first row is row 0,
+- `iloc` is primarily an *integer* based indexing counting from 0. That is, you
+  specify rows and columns using a number. Thus, the first row is row 0,
   the second column is column 1, etc.
 
 - `loc` is primarily a *label* based indexing where you can refer to rows and
