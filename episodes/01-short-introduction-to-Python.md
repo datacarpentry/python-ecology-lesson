@@ -22,6 +22,9 @@ exercises: 5
 
 ## Interpreter
 
+::::::::::::::::::::::::::::::callout
+"Watch the instructor's screen. You will not perform any commands until variables are introduced in the next section."
+::::::::::::::::::::::::::::::
 Python is an interpreted language which can be used in two ways:
 
 - "Interactively": when you use it as an "advanced calculator" executing
