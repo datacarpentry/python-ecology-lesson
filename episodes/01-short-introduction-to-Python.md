@@ -125,6 +125,18 @@ The variable `text` is of type `str`, short for "string". Strings hold
 sequences of characters, which can be letters, numbers, punctuation
 or more exotic forms of text (even emoji!).
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## In Python, variable names:
+- can include letters, digits, and underscores-
+- cannot start with a digit
+- are [case sensitive](https://carpentries-incubator.github.io/python-novice-programming-gapminder/reference.html#case-sensitive).
+
+This means that, for example:
+- gdpPercap0 is a valid variable name, whereas 0gdpPercap is not
+- gdp_percap and GDP_percap are different variables
+:::::::::::::::::::::::::::::::::::::::::
+
 We can also see the value of something using another built-in function, `print`:
 
 ```python
