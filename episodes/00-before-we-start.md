@@ -116,6 +116,8 @@ the backbone of your project's directory. For this workshop, we will need a `dat
 our raw data, and we will later create a `data_output/` folder when we learn how to export data as
 CSV files.
 
+Let's take a moment to locate, create, and populate those before proceeding.
+
 ## What is Programming and Coding?
 
 Programming is the process of writing *"programs"* that a computer can execute and produce some
