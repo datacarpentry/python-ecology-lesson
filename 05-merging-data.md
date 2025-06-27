@@ -149,24 +149,24 @@ new_output = pd.read_csv('data/out.csv', keep_default_na=False, na_values=[""])
 
 ### Challenge - Combine Data
 
-In the data folder, there is another folder called `yearly_files` 
-that contains survey data broken down into individual files by year. 
-Read the data from two of these files,
-`surveys2001.csv` and `surveys2002.csv`,
+In the data folder, there are additional files
+that contain survey data broken down into individual files by year. 
+Read the data from
+`surveys2001.csv` and `surveys2002.csv`
 into pandas and combine the files to make one new DataFrame.
-Create a plot of average plot weight by year grouped by sex.
+Create a plot of average weight by year grouped by sex.
 Export your results as a CSV and make sure it reads back into pandas properly.
 
 ::::::::::::::::::::::: solution
 
 ```python
 # read the files:
-survey2001 = pd.read_csv("data/yearly_files/surveys2001.csv")
-survey2002 = pd.read_csv("data/yearly_files/surveys2002.csv")
+survey2001 = pd.read_csv("data/surveys2001.csv")
+survey2002 = pd.read_csv("data/surveys2002.csv")
 # concatenate
 survey_all = pd.concat([survey2001, survey2002], axis=0)
 # get the weight for each year, grouped by sex:
-weight_year = survey_all.groupby(['year', 'sex']).mean()["wgt"].unstack()
+weight_year = survey_all.groupby(['year', 'sex']).mean()["weight"].unstack()
 # plot:
 weight_year.plot(kind="bar")
 plt.tight_layout()  # tip: use this to improve the plot layout. 
