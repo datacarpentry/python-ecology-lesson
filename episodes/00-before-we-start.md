@@ -66,8 +66,7 @@ Its main advantages are:
 
 - **Python has a large and welcoming community:**
   Thousands of people use Python daily. Many of them are willing to help you through mailing lists and
-  websites, such as [Stack Overflow][stack-overflow]  and [Anaconda community
-  portal][anaconda-community].
+  websites, such as [Stack Overflow][stack-overflow].
 
 - **Free and Open-Source Software (FOSS)... and Cross-Platform:**
   We know we have already said that but it is worth repeating.
@@ -75,18 +74,16 @@ Its main advantages are:
 
 ## Knowing your way around Anaconda
 
-[Anaconda][anaconda] distribution of Python includes a lot of its popular packages,
-such as the IPython console, Jupyter Notebook, and Spyder IDE.
-Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
+
 
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
 and share documents that allow one to create documents that combine code, graphs, and narrative text.
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
-Anaconda comes with a package manager called [conda](https://conda.io/docs/)
+Due to changing terms of use, we no longer recommend [Anaconda][anaconda] a distribution of Python including popular packages,
+such as the IPython console, Jupyter Notebook, and Spyder IDE. The Anaconda Navigator can launch programs or use the command line. Anaconda comes with a package manager called [conda](https://conda.io/docs/)
 used to install and update additional packages.
-
 
 ## Research Project: Best Practices
 
@@ -282,8 +279,6 @@ Other ethical concerns have also been raised, such as reports that workers were 
 
 
 [stack-overflow]: https://stackoverflow.com
-[anaconda-community]: https://www.anaconda.com/community
-[anaconda]: https://www.anaconda.com/download
 [spyder-ide]: https://www.spyder-ide.org
 [python-docs]: https://www.python.org/doc
 [pandas-docs]: https://pandas.pydata.org/pandas-docs/stable/
