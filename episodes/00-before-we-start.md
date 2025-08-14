@@ -75,17 +75,13 @@ Its main advantages are:
 
 ## Knowing your way around Anaconda
 
-[Anaconda][anaconda] distribution of Python includes a lot of its popular packages,
-such as the IPython console, Jupyter Notebook, and Spyder IDE.
-Have a quick look around the Anaconda Navigator. You can launch programs from the Navigator or use the command line.
-
 The [Jupyter Notebook](https://jupyter.org) is an open-source web application that allows you to create
 and share documents that allow one to create documents that combine code, graphs, and narrative text.
 [Spyder][spyder-ide] is an **Integrated Development Environment** that
 allows one to write Python scripts and interact with the Python software from within a single interface.
 
-Anaconda comes with a package manager called [conda](https://conda.io/docs/)
-used to install and update additional packages.
+While Anaconda comes with a package manager called [conda](https://conda.io/docs/)
+used to install and update additional packages, since 2024 the terms of use are difficult for institutions, education, or individuals. Anaconda distribution of Python includes a lot of its popular packages, such as the IPython console, it may be wiser to install and run Jupyter Notebook or Spyder IDE directly, without Anaconda. 
 
 
 ## Research Project: Best Practices
