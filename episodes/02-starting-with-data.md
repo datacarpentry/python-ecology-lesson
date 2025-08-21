@@ -756,7 +756,7 @@ total_count.plot(kind='bar');
 
 2. `surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')`
 
-![](fig/01_chall_bar_totalsex.png){alt='bar plto comparing total males to total females for the entire dataset'}
+![](fig/01_chall_bar_totalsex.png){alt='bar plot comparing total males to total females for the entire dataset'}
 
 ::::::::::::::::::::::::::::::::
 
