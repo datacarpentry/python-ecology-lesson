@@ -746,17 +746,17 @@ total_count.plot(kind='bar');
 ### Challenge - Plots
 
 1. Create a plot of average weight across all species per site.
-2. Create a plot of total males versus total females for the entire dataset.
+2. Create a plot to compare total males and total females per site for the entire dataset.
   
 ::::::::::::::::::::::: solution
 
 1. `surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')`
 
-![](fig/01_chall_bar_meanweight.png){alt='average weight across all species for each plot'}
+![](fig/01_chall_bar_meanweight.png){alt='bar plot of average weight across all species for each plot'}
 
 2. `surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')`
 
-![](fig/01_chall_bar_totalsex.png){alt='total males versus total females for the entire dataset'}
+![](fig/01_chall_bar_totalsex.png){alt='bar plot comparing total males to total females for the entire dataset'}
 
 ::::::::::::::::::::::::::::::::
 
