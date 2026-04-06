@@ -102,7 +102,7 @@ when you have multiple projects. In general, you may wish to create separate dir
 your scripts, data, and documents.
 
 - **`data/`**: Use this folder to store your raw data. For the sake of transparency and provenance,
-  you should always keep a copy of your **raw data**. If you need to cleanup data, do it
+  you should always keep a copy of your **raw data**. If you need to clean up data, do it
   programmatically (*i.e.* with scripts) and make sure to separate cleaned up data from the raw data.
   For example, you can store raw data in files `./data/raw/` and clean data in `./data/clean/`.
 

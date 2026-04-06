@@ -23,7 +23,7 @@ exercises: 25
 ## Python and SQL
 
 When you open a CSV in python, and assign it to a variable name, you are using
-your computers memory to save that variable. Accessing data from a database like
+your computer's memory to save that variable. Accessing data from a database like
 SQL is not only more efficient, but also it allows you to subset and import only
 the parts of the data that you need.
 
@@ -225,7 +225,7 @@ con.close()
   results to their own tables in the portal database.
 
 2. What are some of the reasons you might want to save the results of your queries back into the
-  database? What are some of the reasons you might avoid doing this.
+  database? What are some of the reasons you might avoid doing this?
 
 ::::::::::::::::::::::: solution
 

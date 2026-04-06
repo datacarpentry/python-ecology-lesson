@@ -325,7 +325,7 @@ AND the file name itself.
 
 2. Let's say you only want to look at data from a given multiple of years. How would you modify your loop in order to generate a data file for only every 5th year, starting from 1977?
 
-3. Instead of splitting out the data by years, a colleague wants to do analyses each species separately. How would you write a unique CSV file for each species?
+3. Instead of splitting out the data by years, a colleague wants to do analyses of each species separately. How would you write a unique CSV file for each species?
 
 ::::::::::::::::::::::: solution
 
