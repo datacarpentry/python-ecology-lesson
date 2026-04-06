@@ -348,14 +348,14 @@ df1['weight'].mean()
 38.751976145601844
 ```
 
-We can fill `NaN` values with any value that we chose. The code below fills all
+We can fill `NaN` values with any value that we choose. The code below fills all
 `NaN` values with a mean for all weight values.
 
 ```python
 df1['weight'] = surveys_df['weight'].fillna(surveys_df['weight'].mean())
 ```
 
-We could also chose to create a subset of our data, only keeping rows that do
+We could also choose to create a subset of our data, only keeping rows that do
 not contain `NaN` values.
 
 The point is to make conscious decisions about how to manage missing data. This
