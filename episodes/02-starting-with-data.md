@@ -750,11 +750,14 @@ total_count.plot(kind='bar');
   
 ::::::::::::::::::::::: solution
 
-1. `surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')`
+1. 
+`surveys_df.groupby('plot_id').mean(numeric_only='True')['weight'].plot(kind='bar')`
+Or
+`surveys_df.groupby('plot_id')['weight'].mean().plot(kind='bar')`
 
 ![](fig/01_chall_bar_meanweight.png){alt='average weight across all species for each plot'}
 
-2. `surveys_df.groupby('sex').count()["record_id"].plot(kind='bar')`
+2. `surveys_df.groupby('sex').count()['record_id'].plot(kind='bar')`
 
 ![](fig/01_chall_bar_totalsex.png){alt='total males versus total females for the entire dataset'}
 
