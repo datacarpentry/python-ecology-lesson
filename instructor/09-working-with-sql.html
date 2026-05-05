@@ -521,9 +521,9 @@ site, ordered by site ID.</li>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1" aria-label="code-block-4-6"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1" aria-label="code-block-4-7"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1" aria-label="code-block-4-8"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1" aria-label="code-block-4-9"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1" aria-label="code-block-4-10"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1" aria-label="code-block-4-8"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="op">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1" aria-label="code-block-4-9"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="op">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1" aria-label="code-block-4-10"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="op">\</span></span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1" aria-label="code-block-4-11"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1" aria-label="code-block-4-12"></a></span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1" aria-label="code-block-4-13"></a><span class="bu">print</span>(<span class="st">'The query returned '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">len</span>(cur.fetchall())) <span class="op">+</span> <span class="st">' records.'</span>)</span>
@@ -545,7 +545,7 @@ site, ordered by site ID.</li>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1" aria-label="code-block-6-3"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1" aria-label="code-block-6-4"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="ch">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="op">\</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1" aria-label="code-block-6-6"></a><span class="st">        year,plot ORDER BY plot ASC"</span>,con)</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1" aria-label="code-block-6-7"></a></span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1" aria-label="code-block-6-8"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
@@ -644,9 +644,9 @@ might avoid doing this.</p></li>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a></span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="co"># Read the results into a DataFrame</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1" aria-label="code-block-9-7"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="op">\</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="op">\</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1" aria-label="code-block-9-7"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="op">\</span></span>
 <span id="cb9-8"><a href="#cb9-8" tabindex="-1" aria-label="code-block-9-8"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
 <span id="cb9-9"><a href="#cb9-9" tabindex="-1" aria-label="code-block-9-9"></a></span>
 <span id="cb9-10"><a href="#cb9-10" tabindex="-1" aria-label="code-block-9-10"></a>df1.to_sql(<span class="st">"New Table 1"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
@@ -750,7 +750,7 @@ SQL formats.</li>
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/instructor/09-working-with-sql.html",
   "dateCreated": "2015-03-19",
   "dateModified": "2023-05-18",
-  "datePublished": "2026-04-28"
+  "datePublished": "2026-05-05"
 }
 
   </script><script>

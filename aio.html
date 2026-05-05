@@ -1553,44 +1553,44 @@ Project Teaching Database</a>. This section will use the
 The dataset is stored as a <code>.csv</code> file: each row holds
 information for a single animal, and the columns represent:</p>
 <table class="table">
-<thead><tr class="header">
+<thead><tr>
 <th>Column</th>
 <th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>record_id</td>
 <td>Unique id for the observation</td>
 </tr>
-<tr class="even">
+<tr>
 <td>month</td>
 <td>month of observation</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>day</td>
 <td>day of observation</td>
 </tr>
-<tr class="even">
+<tr>
 <td>year</td>
 <td>year of observation</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>plot_id</td>
 <td>ID of a particular site</td>
 </tr>
-<tr class="even">
+<tr>
 <td>species_id</td>
 <td>2-letter code</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>sex</td>
 <td>sex of animal (“M”, “F”)</td>
 </tr>
-<tr class="even">
+<tr>
 <td>hindfoot_length</td>
 <td>length of the hindfoot in mm</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>weight</td>
 <td>weight of the animal in grams</td>
 </tr>
@@ -1909,7 +1909,7 @@ on tuples, here</a>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>
@@ -2001,7 +2001,7 @@ in the data? How many unique species are in the data?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>site_names = pd.unique(surveys_df["plot_id"])</code></li>
@@ -2138,7 +2138,7 @@ column in your data. <code>by_site['weight'].describe()</code>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li>The first column of output from <code>grouped_data.describe()</code>
@@ -2246,7 +2246,7 @@ DataFrames.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>As well as calling <code>count()</code> on the <code>record_id</code>
 column of the grouped DataFrame as above, an equivalent result can be
@@ -2373,7 +2373,7 @@ dataset.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><code>surveys_df.groupby('plot_id').mean()["weight"].plot(kind='bar')</code></li>
@@ -2444,7 +2444,7 @@ unstacked layout, then create a stacked plot.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Solution to Summary Challenge </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>First we group data by site and by sex, and then calculate a total
 for each site.</p>
@@ -3563,32 +3563,32 @@ More on this is in the table below:</p>
 <col width="17%">
 <col width="73%">
 </colgroup>
-<thead><tr class="header">
+<thead><tr>
 <th>Pandas Type</th>
 <th>Native Python Type</th>
 <th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>object</td>
 <td>string</td>
 <td>The most general dtype. Will be assigned to your column if column
 has mixed types (numbers and strings).</td>
 </tr>
-<tr class="even">
+<tr>
 <td>int64</td>
 <td>int</td>
 <td>Numeric characters. 64 refers to the memory allocated to hold this
 character.</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>float64</td>
 <td>float</td>
 <td>Numeric characters with decimals. If a column contains numbers and
 NaNs (see below), pandas will default to float64, in case your missing
 value has a decimal.</td>
 </tr>
-<tr class="even">
+<tr>
 <td>datetime64, timedelta[ns]</td>
 <td>N/A (but see the <a href="https://doc.python.org/2/library/datetime.html" class="external-link">datetime</a>
 module in Python’s standard library)</td>
@@ -3799,7 +3799,7 @@ solutions to this later.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3950,7 +3950,7 @@ impact scientific results.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Hints </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>The method <code>.count()</code> gives you the number of non-NaN
 observations per column. Try looking to the <code>.isna()</code>
@@ -3960,7 +3960,7 @@ method.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7182,7 +7182,7 @@ matplotlib.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7264,7 +7264,7 @@ file with dpi &gt;= 300.</p>
   Answers
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -7497,9 +7497,9 @@ site, ordered by site ID.</li>
 <span id="cb4-5"><a href="#cb4-5" tabindex="-1" aria-label="code-block-4-5"></a></span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1" aria-label="code-block-4-6"></a><span class="co"># Return all results of query: year, plot type (site type), genus, species and sex</span></span>
 <span id="cb4-7"><a href="#cb4-7" tabindex="-1" aria-label="code-block-4-7"></a><span class="co"># from the join of the tables surveys, plots and species, for the years 1998-2001 where sex is 'M' or 'F'.</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1" aria-label="code-block-4-8"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1" aria-label="code-block-4-9"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1" aria-label="code-block-4-10"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1" aria-label="code-block-4-8"></a>cur.execute(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="op">\</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1" aria-label="code-block-4-9"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="op">\</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1" aria-label="code-block-4-10"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="op">\</span></span>
 <span id="cb4-11"><a href="#cb4-11" tabindex="-1" aria-label="code-block-4-11"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
 <span id="cb4-12"><a href="#cb4-12" tabindex="-1" aria-label="code-block-4-12"></a></span>
 <span id="cb4-13"><a href="#cb4-13" tabindex="-1" aria-label="code-block-4-13"></a><span class="bu">print</span>(<span class="st">'The query returned '</span> <span class="op">+</span> <span class="bu">str</span>(<span class="bu">len</span>(cur.fetchall())) <span class="op">+</span> <span class="st">' records.'</span>)</span>
@@ -7521,7 +7521,7 @@ site, ordered by site ID.</li>
 <span id="cb6-2"><a href="#cb6-2" tabindex="-1" aria-label="code-block-6-2"></a><span class="co"># Include 'year' in both queries so we have something to merge (join) on.</span></span>
 <span id="cb6-3"><a href="#cb6-3" tabindex="-1" aria-label="code-block-6-3"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
 <span id="cb6-4"><a href="#cb6-4" tabindex="-1" aria-label="code-block-6-4"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,COUNT(*) FROM surveys GROUP BY year"</span>, con)</span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="ch">\</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1" aria-label="code-block-6-5"></a>df2 <span class="op">=</span> pd.read_sql_query(<span class="st">"SELECT year,plot,SUM(wgt) FROM surveys GROUP BY </span><span class="op">\</span></span>
 <span id="cb6-6"><a href="#cb6-6" tabindex="-1" aria-label="code-block-6-6"></a><span class="st">        year,plot ORDER BY plot ASC"</span>,con)</span>
 <span id="cb6-7"><a href="#cb6-7" tabindex="-1" aria-label="code-block-6-7"></a></span>
 <span id="cb6-8"><a href="#cb6-8" tabindex="-1" aria-label="code-block-6-8"></a><span class="co"># Turn the plot_id column values into column names by pivoting</span></span>
@@ -7626,9 +7626,9 @@ might avoid doing this.</p></li>
 <span id="cb9-2"><a href="#cb9-2" tabindex="-1" aria-label="code-block-9-2"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/portal_mammals.sqlite"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" tabindex="-1" aria-label="code-block-9-3"></a></span>
 <span id="cb9-4"><a href="#cb9-4" tabindex="-1" aria-label="code-block-9-4"></a><span class="co"># Read the results into a DataFrame</span></span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="ch">\</span></span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="ch">\</span></span>
-<span id="cb9-7"><a href="#cb9-7" tabindex="-1" aria-label="code-block-9-7"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="ch">\</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1" aria-label="code-block-9-5"></a>df1 <span class="op">=</span> pd.read_sql_query(<span class="st">'SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex </span><span class="op">\</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1" aria-label="code-block-9-6"></a><span class="st">    FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON </span><span class="op">\</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1" aria-label="code-block-9-7"></a><span class="st">    surveys.species = species.species_id WHERE surveys.year&gt;=1998 AND surveys.year&lt;=2001 </span><span class="op">\</span></span>
 <span id="cb9-8"><a href="#cb9-8" tabindex="-1" aria-label="code-block-9-8"></a><span class="st">    AND ( surveys.sex = "M" OR surveys.sex = "F")'</span>)</span>
 <span id="cb9-9"><a href="#cb9-9" tabindex="-1" aria-label="code-block-9-9"></a></span>
 <span id="cb9-10"><a href="#cb9-10" tabindex="-1" aria-label="code-block-9-10"></a>df1.to_sql(<span class="st">"New Table 1"</span>, con, if_exists<span class="op">=</span><span class="st">"replace"</span>)</span>
@@ -7724,8 +7724,8 @@ SQL formats.</li>
   "url": "https://datacarpentry.github.io/python-ecology-lesson/aio.html",
   "identifier": "https://datacarpentry.github.io/python-ecology-lesson/aio.html",
   "dateCreated": "2015-03-19",
-  "dateModified": "2026-04-28",
-  "datePublished": "2026-04-28"
+  "dateModified": "2026-05-05",
+  "datePublished": "2026-05-05"
 }
 
   </script><script>
