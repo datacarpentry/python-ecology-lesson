@@ -1,0 +1,187 @@
+name: "03 Maintain: Apply Package Cache"
+description: "Build and publish the lesson dependency image after a pull request has been merged or via manual trigger"
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who triggered this build?'
+        required: true
+        default: 'Maintainer (via GitHub)'
+      force-dependency-image-rebuild:
+        description: 'Rebuild the dependency image layer even if one already exists?'
+        required: false
+        default: false
+        type: boolean
+      prune-keep-count:
+        description: 'How many existing dependency image layers to keep?'
+        required: false
+        default: 1
+        type: number
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+# queue cache runs
+concurrency:
+  group: docker-apply-cache
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    name: "Preflight: PR or Manual Trigger?"
+    runs-on: ubuntu-latest
+    outputs:
+      do-apply: ${{ steps.check.outputs.merged_or_manual }}
+    steps:
+      - name: "Should we run cache application?"
+        id: check
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ||
+                ("${{ github.ref }}" == "refs/heads/main" && "${{ github.event.action }}" == "closed" && "${{ github.event.pull_request.merged }}" == "true") ]]; then
+            echo "merged_or_manual=true" >> $GITHUB_OUTPUT
+          else
+            echo "This was not a manual trigger and no PR was merged. No action taken."
+            echo "merged_or_manual=false" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
+  check-renv:
+    name: "Check If We Need {renv}"
+    runs-on: ubuntu-latest
+    needs: preflight
+    if: needs.preflight.outputs.do-apply == 'true'
+    outputs:
+      renv-needed: ${{ steps.check-for-renv.outputs.renv-needed }}
+      renv-cache-hashsum: ${{ steps.check-for-renv.outputs.renv-cache-hashsum }}
+    steps:
+      - name: "Check for renv"
+        id: check-for-renv
+        uses: carpentries/actions/renv-checks@v1
+        with:
+          WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
+          skip-cache-check: true
+
+  no-renv-cache-used:
+    name: "No renv package dependency image needed"
+    runs-on: ubuntu-latest
+    needs: check-renv
+    if: needs.check-renv.outputs.renv-needed != 'true'
+    steps:
+      - name: "No dependency image needed"
+        run: echo "No renv dependency image needed for this lesson"
+
+  update-renv-cache:
+    name: "Publish renv package dependency image"
+    runs-on: ubuntu-latest
+    needs: check-renv
+    if: needs.check-renv.outputs.renv-needed == 'true'
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: "Get Container Version Used"
+        id: wb-vers
+        uses: carpentries/actions/container-version@v1
+        with:
+          WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
+          renv-needed: ${{ needs.check-renv.outputs.renv-needed }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set dependency image tags
+        id: image
+        env:
+          IMAGE_OWNER: ${{ github.repository_owner }}
+          IMAGE_NAME: ${{ github.event.repository.name }}
+          WB_VERSION: ${{ steps.wb-vers.outputs.container-version }}
+          RENV_HASH: ${{ needs.check-renv.outputs.renv-cache-hashsum }}
+        run: |
+          set -euo pipefail
+          exact_image="ghcr.io/${IMAGE_OWNER}/${IMAGE_NAME}-deps:${WB_VERSION}_renv-${RENV_HASH}"
+          latest_image="ghcr.io/${IMAGE_OWNER}/${IMAGE_NAME}-deps:latest"
+
+          # lowercaseify
+          echo "exact_image=${exact_image,,}" >> "$GITHUB_OUTPUT"
+          echo "latest_image=${latest_image,,}" >> "$GITHUB_OUTPUT"
+        shell: bash
+
+      - name: Check for existing dependency image tag
+        id: image-exists
+        env:
+          EXACT_IMAGE: ${{ steps.image.outputs.exact_image }}
+        run: |
+          set -euo pipefail
+          if docker manifest inspect "${EXACT_IMAGE}" >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "## ⚠️ Dependency image already exists" >> $GITHUB_STEP_SUMMARY
+            echo "Dependency image already exists for this renv hash: ${EXACT_IMAGE}" >> $GITHUB_STEP_SUMMARY
+            echo "Dependency image already exists for this renv hash: ${EXACT_IMAGE}"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "No existing dependency image found for this renv hash: ${EXACT_IMAGE}"
+          fi
+        shell: bash
+
+      - name: Build and push dependency image layer
+        id: build-push-deps-layer
+        if: |
+          steps.image-exists.outputs.exists != 'true' ||
+          (
+            github.event_name == 'workflow_dispatch' &&
+            github.event.inputs.force-dependency-image-rebuild == 'true'
+          )
+        uses: carpentries/actions/build-dependency-image@v1
+        with:
+          workbench-tag: ${{ vars.WORKBENCH_TAG || 'latest' }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-repository: ${{ github.repository }}
+          github-sha: ${{ github.sha }}
+          exact-image: ${{ steps.image.outputs.exact_image }}
+          latest-image: ${{ steps.image.outputs.latest_image }}
+          build-context: ${{ github.workspace }}
+
+  prune-dependency-images:
+    name: "Prune Dependency Images"
+    runs-on: ubuntu-latest
+    needs: check-renv
+    steps:
+      - name: Prune any old dependency image layers
+        uses: carpentries/actions/prune-dependency-images@v1
+        if: needs.check-renv.outputs.renv-needed == 'true'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          owner: ${{ github.repository_owner }}
+          owner-type: ${{ github.event.repository.owner.type }}
+          repository: ${{ github.event.repository.name }}
+          package-name: ${{ github.event.repository.name }}-deps
+          keep-count: ${{ github.event.inputs.prune-keep-count }}
+        continue-on-error: true
+
+  record-cache-result:
+    name: "Record Caching Status"
+    runs-on: ubuntu-latest
+    needs: [check-renv, update-renv-cache]
+    if: always()
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: "Record cache result"
+        run: |
+          echo "${{ needs.check-renv.outputs.renv-needed != 'true' || needs.update-renv-cache.result == 'success' }}" > ${{ github.workspace }}/apply-cache-result
+        shell: bash
+
+      - name: "Upload cache result"
+        uses: actions/upload-artifact@v7
+        with:
+          name: apply-cache-result
+          path: ${{ github.workspace }}/apply-cache-result
