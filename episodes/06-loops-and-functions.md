@@ -1065,7 +1065,7 @@ HINT: you can create a loop with a list as follows: `for years in year_list:`
        # Select data for the year
        surveys_year = all_data[all_data.year == this_year]
        if len(surveys_year) == 0: # 'if not len(surveys_year):' will also work 
-           print('no data available for ' + this_year + ', output file not created')
+           print('no data available for ' + str(this_year) + ', output file not created')
        else:
            # Write the new DataFrame to a csv file
            filename = os.path.join(folder_to_save, ''.join([root_name, str(this_year), '.csv']))
@@ -1093,18 +1093,19 @@ HINT: you can create a loop with a list as follows: `for years in year_list:`
        # Select data for the year
        surveys_year = all_data[all_data.year == this_year]
        if len(surveys_year) == 0:
-           print('no data available for ' + this_year + ', output file not created')
+           print('no data available for ' + str(this_year) + ', output file not created')
        else:
-           if folder_to_save not in os.listdir('.'):
+           if not os.path.isdir(folder_to_save):
                os.mkdir(folder_to_save)
                print('Processed directory created')
            # Write the new DataFrame to a csv file
            filename = os.path.join(folder_to_save, ''.join([root_name, str(this_year), '.csv']))
            surveys_year.to_csv(filename)
+           return filename
    ```
    The equivalent, without using `not` to invert the conditional, would be:
    ```python
-   if folder_to_save in os.listdir('.'):
+   if os.path.isdir(folder_to_save):
        pass
    else:
        os.mkdir(folder_to_save)

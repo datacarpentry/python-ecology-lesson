@@ -199,7 +199,7 @@ jupyter notebook
 ```
 
 The notebook should open automatically in your browser. If it does not or you
-wish to use a different browser, open this link: [http://localhost:8888](https://localhost:8888).
+wish to use a different browser, open this link: [http://localhost:8888](http://localhost:8888).
 
 ::: prereq :::::
 ## Leave terminal used to launch Jupyter open

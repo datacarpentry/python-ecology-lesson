@@ -441,10 +441,9 @@ The pandas `merge` function supports other join types:
   rows from the `left` DataFrame without matching join key(s) values are
   discarded.
 - Full (outer) join: Invoked by passing `how='outer'` as an argument. This join
-  type returns the all pairwise combinations of rows from both DataFrames; i.e., the
-  *Cartesian product* and the result DataFrame will use `NaN` where data is missing in one 
-  of the dataframes. This join type is very rarely used, but can be helpful to see all
-  the qualities of both tables, including each common and duplicate column.
+  type keeps all join keys from both DataFrames, combining rows with matching keys.
+  The result DataFrame will use `NaN` where a key has no match in one of the
+  DataFrames. A Cartesian product, in contrast, is produced by `how='cross'`.
 - Self-join: Joins a data frame with itself. Self-joins can be useful when you want to, for
   instance, compare records within the same dataset based on a given criteria. A fuller discussion 
   of how and when it might be useful to do so can be found in [Self-Join and Cross Join in Pandas DataFrame](https://blog.devgenius.io/self-join-and-cross-join-in-pandas-dataframe-b30bfbc0e52a)

@@ -238,7 +238,7 @@ con.close()
    df1 = pd.read_sql_query('SELECT surveys.year,plots.plot_type,species.genus,species.species,surveys.sex \
        FROM surveys INNER JOIN plots ON surveys.plot = plots.plot_id INNER JOIN species ON \
        surveys.species = species.species_id WHERE surveys.year>=1998 AND surveys.year<=2001 \
-       AND ( surveys.sex = "M" OR surveys.sex = "F")')
+       AND ( surveys.sex = "M" OR surveys.sex = "F")', con)
 
    df1.to_sql("New Table 1", con, if_exists="replace")
    

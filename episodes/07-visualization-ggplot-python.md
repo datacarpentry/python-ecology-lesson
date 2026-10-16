@@ -634,7 +634,7 @@ my_plot.save("scatterplot.png", width=10, height=10, dpi=300)
 [plotnine]: https://github.com/has2k1/plotnine?tab=readme-ov-file
 [ggplot2]: https://ggplot2.tidyverse.org
 [grammar-of-graphics]: https://link.springer.com/book/10.1007%2F0-387-28695-0
-[setup-plotnine]: https://datacarpentry.org/python-ecology-lesson/#required-python-packages
+[setup-plotnine]: ../learners/setup.md#required-python-packages
 [plotnine-api]: https://plotnine.org/reference/
 [ggplot2-cheat-sheet]: https://rstudio.github.io/cheatsheets/html/data-visualization.html
 
