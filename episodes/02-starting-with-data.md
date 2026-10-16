@@ -379,7 +379,7 @@ Show that the DataFrame index
 Adapting the name is done with the `rename` function:
 
 ```python
-surveys_df.rename(columns={"plot_id": "plotid"})`)
+surveys_df.rename(columns={"plot_id": "plotid"})
 ```
 
 ::::::::::::::::::::::::::::::::::

@@ -195,7 +195,7 @@ print(10/3)
 ```
 
 We can also convert a floating point number to an integer or an integer to
-floating point number. Notice that Python by default rounds down when it
+floating point number. Notice that Python truncates towards zero when it
 converts from floating point to integer.
 
 ```python
@@ -471,7 +471,7 @@ What we've learned:
 
 
 
-[datetime]: https://doc.python.org/2/library/datetime.html
+[datetime]: https://docs.python.org/3/library/datetime.html
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints

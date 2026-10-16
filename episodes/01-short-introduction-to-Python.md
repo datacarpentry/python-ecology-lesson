@@ -529,7 +529,7 @@ print(rev)
 ```
 
 ```output
-{1: 'one', 2: 'apple-sauce', 3: 'three'}
+{'first': 'one', 'second': 2, 'third': 'three', 2: 'apple-sauce'}
 ```
 
 :::::::::::::::::::::::::::::::::::

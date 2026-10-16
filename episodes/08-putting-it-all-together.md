@@ -291,7 +291,7 @@ discharge = pd.read_csv("data/bouldercreek_09_2013.txt",
                                "timezone", "flow_rate", "discharge_cd"])
 discharge["datetime"] = pd.to_datetime(discharge["datetime"])
 flood = discharge[(discharge["datetime"] >= "2013-09-11") &
-                  (discharge["datetime"] <= "2013-09-15")]
+                  (discharge["datetime"] < "2013-09-16")]
 
 fig, ax = plt.subplots()
 
